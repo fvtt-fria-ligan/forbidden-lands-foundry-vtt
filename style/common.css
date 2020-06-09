@@ -1,0 +1,82 @@
+.forbidden-lands .border {
+    border: 2px solid black;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+.forbidden-lands .flex {
+    display: flex;
+}
+
+.forbidden-lands .row {
+    flex-direction: row;
+}
+
+.forbidden-lands .column {
+    flex-direction: column;
+}
+
+.forbidden-lands .full {
+    width: 100%;
+    height: 100%;
+}
+
+.forbidden-lands .wrap {
+    flex-wrap: wrap;
+}
+
+.forbidden-lands .half {
+    flex: 0 0 50%;
+}
+
+.forbidden-lands .center {
+    text-align: center;
+}
+
+.forbidden-lands .margin {
+    margin: 5px;
+}
+
+.forbidden-lands .grow {
+    flex-grow: 1;
+}
+
+.forbidden-lands .align-center {
+    align-items: center;
+}
+
+.forbidden-lands .align-end {
+    align-items: flex-end;
+}
+
+.forbidden-lands .space-around {
+    justify-content: space-around;
+}
+
+.forbidden-lands .tabs .item.active {
+    text-shadow: 0 0 10px white;
+}
+
+.forbidden-lands .tab {
+    width: 100%;
+}
+
+.forbidden-lands .sheet-body {
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+.forbidden-lands .editor,
+.forbidden-lands .editor-content {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+}
+
+.forbidden-lands .sheet-tabs {
+    padding: 5px;
+    background-color: lightslategrey;
+}
+
+.forbidden-lands .sheet-tabs b:hover {
+    text-shadow: 0 0 10px darkolivegreen;
+}

@@ -12,7 +12,14 @@
     "script/hooks.js"
   ],
   "styles": [
-    "style/common.css"
+    "style/common.css",
+    "style/character.css",
+    "style/tab/main.css",
+    "style/tab/combat.css",
+    "style/tab/talent.css",
+    "style/tab/spell.css",
+    "style/tab/gear.css",
+    "style/tab/bio.css"
   ],
   "packs": [],
   "languages": [

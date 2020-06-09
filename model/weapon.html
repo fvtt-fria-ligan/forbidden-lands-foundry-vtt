@@ -1,0 +1,30 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <div class="weapon flex column">
+        <div class="flex row wrap">
+            <div class="name">
+                <b>{{localize "WEAPON.NAME"}}</b>
+                <input name="name" type="text" value="{{item.name}}"/>
+            </div>
+            <div class="bonus">
+                <b>{{localize "WEAPON.BONUS"}}</b>
+                <input name="data.bonus" type="text" value="{{data.bonus}}"/>
+            </div>
+            <div class="damage">
+                <b>{{localize "WEAPON.DAMAGE"}}</b>
+                <input name="data.damage" type="text" value="{{data.damage}}"/>
+            </div>
+            <div class="range">
+                <b>{{localize "WEAPON.RANGE"}}</b>
+                <input name="data.range" type="text" value="{{data.range}}"/>
+            </div>
+            <div class="feature">
+                <b>{{localize "WEAPON.FEATURE"}}</b>
+                <input name="data.features" type="text" value="{{data.features}}"/>
+            </div>
+            <div class="description">
+                <b>{{localize "WEAPON.DESCRIPTION"}}</b>
+                <textarea name="data.description">{{data.description}}</textarea>
+            </div>
+        </div>
+    </div>
+</form>

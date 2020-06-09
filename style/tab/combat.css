@@ -1,0 +1,124 @@
+.forbidden-lands .character .combat .header {
+    background-color: lightslategrey;
+    border-radius: 10px;
+    text-align: center;
+    margin: 5px;
+}
+
+.forbidden-lands .character .armors {
+}
+
+.forbidden-lands .character .armors .armor {
+    align-items: center;
+    padding: 0 5px 5px 5px;
+}
+
+.forbidden-lands .character .armors .armor b {
+    flex-basis: 50%;
+}
+
+.forbidden-lands .character .armors .armor b:hover {
+    text-shadow: 0 0 10px darkolivegreen;
+}
+
+.forbidden-lands .character .armors .armor input {
+    flex-basis: 25%;
+    margin-right: 5px;
+}
+
+.forbidden-lands .character .armors .armor input:last-child {
+    margin-right: 0;
+    margin-left: 5px;
+}
+
+.forbidden-lands .character .conditions {
+}
+
+.forbidden-lands .character .conditions .condition {
+}
+
+.forbidden-lands .character .conditions b.condition,
+.forbidden-lands .character .conditions span.condition {
+    flex-basis: 50%;
+}
+
+.forbidden-lands .character .conditions .condition.active {
+    text-shadow: 0 0 10px red;
+}
+
+.forbidden-lands .character .conditions b.condition:hover,
+.forbidden-lands .character .conditions span.condition:hover {
+    text-shadow: 0 0 10px darkolivegreen;
+}
+
+.forbidden-lands .character .critical-injuries {
+}
+
+.forbidden-lands .character .critical-injuries .critical-injury {
+    align-items: center;
+}
+
+.forbidden-lands .character .critical-injuries .critical-injury .name {
+    flex-basis: 79%;
+}
+
+.forbidden-lands .character .critical-injuries .scrollable {
+    overflow-y: auto;
+    max-height: 170px;
+}
+
+.forbidden-lands .character .weapons {
+}
+
+.forbidden-lands .character .weapons .weapon {
+    align-items: center;
+}
+
+.forbidden-lands .character .weapons .scrollable {
+    overflow-y: auto;
+    max-height: 170px;
+}
+
+.forbidden-lands .character .weapons .weapon .name {
+    flex-basis: 20%;
+}
+
+.forbidden-lands .character .weapons .weapon .bonus {
+    flex-basis: 15%;
+}
+
+.forbidden-lands .character .weapons .weapon .damage {
+    flex-basis: 15%;
+}
+
+.forbidden-lands .character .weapons .weapon .range {
+    flex-basis: 20%;
+}
+
+.forbidden-lands .character .weapons .weapon .feature {
+    flex-basis: 30%;
+}
+
+.forbidden-lands .character .spells {
+}
+
+.forbidden-lands .character .spells .scrollable {
+    overflow-y: auto;
+    max-height: 170px;
+}
+
+.forbidden-lands .character .spells .spell .name {
+    flex-basis: 30%;
+}
+
+.forbidden-lands .character .spells .spell .rank {
+    flex-basis: 15%;
+}
+
+.forbidden-lands .character .spells .spell .duration {
+    flex-basis: 20%;
+}
+
+.forbidden-lands .character .spells .spell .ingredient {
+    flex-basis: 35%;
+}

@@ -1,0 +1,48 @@
+.forbidden-lands .character {
+    height: 100%;
+    width: 100%;
+}
+
+.forbidden-lands .character .bio .avatar {
+    flex: 0 0 auto;
+}
+
+.forbidden-lands .character .bio .avatar img {
+    border: 1px dashed black;
+    border-radius: 10px;
+}
+
+.forbidden-lands .character .bio .name {
+    flex: 0 0 auto;
+    width: 250px;
+}
+
+.forbidden-lands .character .bio .kin {
+    flex: 0 0 auto;
+    width: 250px;
+}
+
+.forbidden-lands .character .bio .profession {
+    flex: 0 0 auto;
+    width: 250px;
+}
+
+.forbidden-lands .character .bio .age {
+    flex: 0 0 auto;
+    width: 100px;
+}
+
+.forbidden-lands .character .bio .reputation {
+    flex: 0 0 auto;
+    width: 100px;
+}
+
+.forbidden-lands .character .bio .willpower {
+    flex: 0 0 auto;
+    width: 100px;
+}
+
+.forbidden-lands .character .bio .experience {
+    flex: 0 0 auto;
+    width: 100px;
+}

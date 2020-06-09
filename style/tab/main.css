@@ -1,0 +1,66 @@
+.forbidden-lands .character .attributes .attribute {
+    padding: 5px;
+    flex-basis: 25%;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.forbidden-lands .character .attributes .attribute:last-child {
+    margin-right: 5px;
+}
+
+.forbidden-lands .character .attributes .attribute b {
+    background-color: lightslategrey;
+    border-radius: 10px;
+}
+
+.forbidden-lands .character .attributes .attribute b:hover {
+    text-shadow: 0 0 10px darkolivegreen;
+}
+
+.forbidden-lands .character .attributes .attribute input {
+    margin: 5px;
+}
+
+.forbidden-lands .character .skills {
+    flex-basis: 50%;
+    padding: 5px;
+}
+
+.forbidden-lands .character .skills.strength {
+}
+
+.forbidden-lands .character .skills.agility {
+}
+
+.forbidden-lands .character .skills.wits {
+}
+
+.forbidden-lands .character .skills.empathy {
+}
+
+.forbidden-lands .character .skills .header {
+    padding: 5px;
+    text-align: center;
+    background-color: lightslategrey;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.forbidden-lands .character .skills .skill {
+    margin: 5px;
+    justify-content: space-evenly;
+}
+
+.forbidden-lands .character .skills .skill b {
+    flex-basis: 50%;
+}
+
+.forbidden-lands .character .skills .skill b:hover {
+    text-shadow: 0 0 10px darkolivegreen;
+}
+
+.forbidden-lands .character .skills .skill input {
+    text-align: center;
+    flex-basis: 25%;
+}

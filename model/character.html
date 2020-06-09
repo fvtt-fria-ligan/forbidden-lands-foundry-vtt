@@ -1,2 +1,81 @@
 <form class="{{cssClass}}" autocomplete="off">
+    <div class="character flex column">
+        <div class="bio flex column border">
+            <div class="flex row margin align-center">
+                <div class="avatar">
+                    <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+                </div>
+                <div class="flex row margin align-end space-around grow">
+                    <div class="flex column">
+                        <div class="name">
+                            <b>{{localize "BIO.NAME"}}</b>
+                            <input name="name" type="text" value="{{actor.name}}"/>
+                        </div>
+                        <div class="kin">
+                            <b>{{localize data.bio.kin.label}}</b>
+                            <input name="data.bio.kin.value" type="text" value="{{data.bio.kin.value}}"/>
+                        </div>
+                        <div class="profession">
+                            <b>{{localize data.bio.profession.label}}</b>
+                            <input name="data.bio.profession.value" type="text" value="{{data.bio.profession.value}}"/>
+                        </div>
+                    </div>
+                    <div class="flex column center">
+                        <div class="age">
+                            <b>{{localize data.bio.age.label}}</b>
+                            <input name="data.bio.age.value" type="text" value="{{data.bio.age.value}}"/>
+                        </div>
+                        <div class="reputation">
+                            <b>{{localize data.bio.reputation.label}}</b>
+                            <input name="data.bio.reputation.value" type="text" value="{{data.bio.reputation.value}}"/>
+                        </div>
+                    </div>
+                    <div class="flex column center">
+                        <div class="willpower">
+                            <b>{{localize data.bio.willpower.label}}</b>
+                            <input name="data.bio.willpower.value" type="text" value="{{data.bio.willpower.value}}" min="{{data.bio.willpower.min}}" max="{{data.bio.willpower.max}}"/>
+                        </div>
+                        <div class="experience">
+                            <b>{{localize data.bio.experience.label}}</b>
+                            <input name="data.bio.experience.value" type="text" value="{{data.bio.experience.value}}"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sheet-tabs tabs flex row border" data-group="primary">
+            <b class="item" data-tab="main">{{localize "TAB.MAIN"}}</b>
+            <b class="item" data-tab="combat">{{localize "TAB.COMBAT"}}</b>
+            <b class="item" data-tab="talent">{{localize "TAB.TALENT"}}</b>
+            <b class="item" data-tab="spell">{{localize "TAB.SPELL"}}</b>
+            <b class="item" data-tab="gear">{{localize "TAB.GEAR"}}</b>
+            <b class="item" data-tab="bio">{{localize "TAB.BIO"}}</b>
+            <b class="item" data-tab="note">{{localize "TAB.NOTE"}}</b>
+        </div>
+
+        <div class="sheet-body flex row border">
+            <div class="tab" data-group="primary" data-tab="main">
+                {{> systems/forbidden-lands/model/tab/main.html}}
+            </div>
+            <div class="tab" data-group="primary" data-tab="combat">
+                {{> systems/forbidden-lands/model/tab/combat.html}}
+            </div>
+            <div class="tab" data-group="primary" data-tab="talent">
+                {{> systems/forbidden-lands/model/tab/talent.html}}
+            </div>
+            <div class="tab" data-group="primary" data-tab="spell">
+                {{> systems/forbidden-lands/model/tab/spell.html}}
+            </div>
+            <div class="tab" data-group="primary" data-tab="gear">
+                {{> systems/forbidden-lands/model/tab/gear.html}}
+            </div>
+            <div class="tab" data-group="primary" data-tab="bio">
+                {{> systems/forbidden-lands/model/tab/bio.html}}
+            </div>
+            <div class="tab note" data-group="primary" data-tab="note">
+                {{editor content=data.bio.note.value target="data.bio.note.value" button=true owner=owner editable=editable}}
+            </div>
+        </div>
+    </div>
 </form>

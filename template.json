@@ -24,7 +24,7 @@
         },
         "age": {
           "label": "BIO.AGE",
-          "value": ""
+          "value": 0
         },
         "reputation": {
           "label": "BIO.REPUTATION",
@@ -81,6 +81,26 @@
           "value": 2,
           "min": 0,
           "max": 6
+        }
+      },
+      "armor": {
+        "helmet": {
+          "label": "ARMOR.HELMET",
+          "name": "",
+          "value": 0,
+          "max": 0
+        },
+        "bonus": {
+          "label": "ARMOR.BONUS",
+          "name": "",
+          "value": 0,
+          "max": 0
+        },
+        "body": {
+          "label": "ARMOR.BODY",
+          "name": "",
+          "value": 0,
+          "max": 0
         }
       },
       "skill": {
@@ -231,6 +251,46 @@
           "value": 0
         }
       }
+    }
+  },
+  "Item": {
+    "types": [
+      "weapon",
+      "armor",
+      "artifact",
+      "gear",
+      "raw material",
+      "talent",
+      "critical injury",
+      "spell"
+    ],
+    "weapon": {
+      "grip": "",
+      "bonus": 0,
+      "damage": 0,
+      "range": "",
+      "cost": 0,
+      "features": ""
+    },
+    "armor": {
+      "rating": {
+        "value": 0,
+        "max": 0
+      },
+      "cost": 0,
+      "part": "",
+      "features": ""
+    },
+    "spell": {
+      "rank": 1,
+      "range": "",
+      "duration": "",
+      "ingredient": "",
+      "description": ""
+    },
+    "talent": {
+      "rank": 1,
+      "description": ""
     }
   }
 }
