@@ -1,0 +1,93 @@
+.forbidden-lands .character .currencies {
+}
+
+.forbidden-lands .character .currencies .header {
+    flex-basis: 100%;
+    background-color: lightslategrey;
+    border-radius: 10px;
+    margin: 5px;
+    text-align: center;
+}
+
+.forbidden-lands .character .currencies .currency {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.forbidden-lands .character .currencies .currency b {
+    flex-basis: 50%;
+}
+
+.forbidden-lands .character .currencies .currency input {
+    flex-basis: 50%;
+}
+
+.forbidden-lands .character .consumables {
+}
+
+.forbidden-lands .character .consumables .consumable {
+    flex-basis: 20%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.forbidden-lands .character .consumables .consumable b {
+    flex-basis: 100%;
+    background-color: lightslategrey;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.forbidden-lands .character .consumables .consumable b:hover {
+    text-shadow: 0 0 10px darkolivegreen;
+}
+
+.forbidden-lands .character .consumables .consumable input {
+    width: 33px;
+    height: 33px;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.forbidden-lands .characters .gears {
+    flex-basis: 50%;
+}
+
+.forbidden-lands .character .gears .header {
+    background-color: lightslategrey;
+    border-radius: 10px;
+    text-align: center;
+    margin: 5px;
+}
+
+.forbidden-lands .character .gears .gear {
+    align-items: center;
+}
+
+.forbidden-lands .character .gears .gear .name {
+    flex-basis: 58%;
+}
+
+.forbidden-lands .character .gears .gear.item .name:hover {
+    text-shadow: 0 0 10px darkolivegreen;
+}
+
+.forbidden-lands .character .gears .gear .bonus {
+    flex-basis: 17%;
+}
+
+.forbidden-lands .character .gears .gear .button {
+    flex-basis: 25%;
+}
+
+.forbidden-lands .character .gears .scrollable {
+    overflow-y: auto;
+    max-height: 165px;
+}
+
+.forbidden-lands .character .gears {
+    flex-basis: 50%;
+}

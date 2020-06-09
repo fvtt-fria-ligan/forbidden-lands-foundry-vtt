@@ -1,4 +1,16 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <div class="talent flex column">
+    <div class="item flex row wrap">
+        <div class="name flex row wrap">
+            <b>{{localize "GEAR.NAME"}}</b>
+            <input name="name" type="text" value="{{item.name}}"/>
+        </div>
+        <div class="rank flex row wrap">
+            <b>{{localize "TALENT.RANK"}}</b>
+            <input name="data.rank" type="text" value="{{data.rank}}"/>
+        </div>
+        <div class="talent-description flex row wrap">
+            <b>{{localize "SPELL.DESCRIPTION"}}</b>
+            <textarea name="data.description">{{data.description}}</textarea>
+        </div>
     </div>
 </form>

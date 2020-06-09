@@ -1,113 +1,102 @@
 <div class="flex column full">
-    <div class="combat flex row grow">
-        <div class="flex column" style="flex: 0 0 30%">
-            <div class="flex column" style="flex-basis: 30%">
-                <div class="armors flex column margin border grow">
-                    <b class="header">{{localize "HEADER.ARMOR"}}</b>
-                    <div class="flex column" style="padding: 5px">
-                        <div class="armor flex row" data-key="{{key}}">
-                            <b>{{localize data.armor.helmet.label}}</b>
-                            <input name="data.armor.helmet.value" type="text" value="{{data.armor.helmet.value}}" data-dtype="Number"/>
-                            /
-                            <input name="data.armor.helmet.max" type="text" value="{{data.armor.helmet.max}}" data-dtype="Number"/>
-                        </div>
-                        <div class="armor flex row" data-key="{{key}}">
-                            <b>{{localize data.armor.body.label}}</b>
-                            <input name="data.armor.body.value" type="text" value="{{data.armor.body.value}}" data-dtype="Number"/>
-                            /
-                            <input name="data.armor.body.max" type="text" value="{{data.armor.body.max}}" data-dtype="Number"/>
-                        </div>
-                        <div class="armor flex row" data-key="{{key}}">
-                            <b>{{localize data.armor.bonus.label}}</b>
-                            <input name="data.armor.bonus.value" type="text" value="{{data.armor.bonus.value}}" data-dtype="Number"/>
-                            /
-                            <input name="data.armor.bonus.max" type="text" value="{{data.armor.bonus.max}}" data-dtype="Number"/>
+    <div class="combat flex column grow">
+        <div class="flex row grow" style="flex: 0 0 50%">
+            <div class="flex column" style="flex: 0 0 30%">
+                <div class="flex column" style="flex-basis: 60%">
+                    <div class="armors flex column margin border grow">
+                        <b class="header">{{localize "HEADER.ARMOR"}}</b>
+                        <div class="flex column" style="padding: 5px">
+                            <div class="armor flex row" data-key="{{key}}">
+                                <b>{{localize data.armor.helmet.label}}</b>
+                                <input name="data.armor.helmet.value" type="text" value="{{data.armor.helmet.value}}" data-dtype="Number"/>
+                                /
+                                <input name="data.armor.helmet.max" type="text" value="{{data.armor.helmet.max}}" data-dtype="Number"/>
+                            </div>
+                            <div class="armor flex row" data-key="{{key}}">
+                                <b>{{localize data.armor.body.label}}</b>
+                                <input name="data.armor.body.value" type="text" value="{{data.armor.body.value}}" data-dtype="Number"/>
+                                /
+                                <input name="data.armor.body.max" type="text" value="{{data.armor.body.max}}" data-dtype="Number"/>
+                            </div>
+                            <div class="armor flex row" data-key="{{key}}">
+                                <b>{{localize data.armor.bonus.label}}</b>
+                                <input name="data.armor.bonus.value" type="text" value="{{data.armor.bonus.value}}" data-dtype="Number"/>
+                                /
+                                <input name="data.armor.bonus.max" type="text" value="{{data.armor.bonus.max}}" data-dtype="Number"/>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="flex column" style="flex-basis: 20%">
-                <div class="conditions flex column margin border grow center">
-                    <b class="header">{{localize "HEADER.CONDITION"}}</b>
-                    <div class="flex row wrap grow center align-center">
-                        {{#each data.condition as |condition key|}}
+                <div class="flex column" style="flex-basis: 40%">
+                    <div class="conditions flex column margin border grow center">
+                        <b class="header">{{localize "HEADER.CONDITION"}}</b>
+                        <div class="flex row wrap grow center align-center">
+                            {{#each data.condition as |condition key|}}
                             {{#if condition.value}}
-                                <b class="condition active" data-key="{{key}}">{{localize condition.label}}</b>
+                            <b class="condition active" data-key="{{key}}">{{localize condition.label}}</b>
                             {{else}}
-                                <span class="condition" data-key="{{key}}">{{localize condition.label}}</span>
+                            <span class="condition" data-key="{{key}}">{{localize condition.label}}</span>
                             {{/if}}
-                        {{/each}}
+                            {{/each}}
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="flex column" style="flex-basis: 50%">
-                <div class="critical-injuries flex column margin border grow">
-                    <b class="header">{{localize "HEADER.CRITICAL_INJURY"}}</b>
-                    <div class="critical-injury flex row center">
-                        <b class="name">{{localize "CRITICAL_INJURY.NAME"}}</b>
-                        <a class="item-create" title="Add Critical Injury" data-type="critical injury"><i class="fas fa-plus"></i></a>
-                    </div>
-                    <div class="scrollable">
-                        {{#each actor.items as |item|}}
-                            {{#if item.isCriticalInjury}}
-                                <div class="critical-injury item flex row center" data-item-id="{{item._id}}">
-                                    <div class="name">{{item.name}}</div>
-                                    <div class="weapon-button">
-                                        <a class="item-control item-edit" title="Edit Critical Injury"><i class="fas fa-edit"></i></a>
-                                        <a class="item-control item-delete" title="Delete Critical Injury"><i class="fas fa-trash"></i></a>
-                                    </div>
-                                </div>
+            <div class="flex column" style="flex: 0 0 70%">
+                <div class="flex column" style="flex-basis: 100%">
+                    <div class="weapons flex column margin border grow">
+                        <b class="header">{{localize "HEADER.WEAPON"}}</b>
+                        <div class="weapon flex row center">
+                            <b class="name">{{localize "WEAPON.NAME"}}</b>
+                            <b class="bonus">{{localize "WEAPON.BONUS"}}</b>
+                            <b class="damage">{{localize "WEAPON.DAMAGE"}}</b>
+                            <b class="range">{{localize "WEAPON.RANGE"}}</b>
+                            <b class="feature">{{localize "WEAPON.FEATURE"}}</b>
+                        </div>
+                        <div class="scrollable">
+                            {{#each actor.items as |item|}}
+                            {{#if item.isWeaponOrArtifact}}
+                            <div class="weapon item flex row center" data-item-id="{{item._id}}">
+                                <div class="name">{{item.name}}</div>
+                                <div class="bonus">{{item.data.bonus}}</div>
+                                <div class="damage">{{item.data.damage}}</div>
+                                <div class="range">{{item.data.range}}</div>
+                                <div class="feature">{{item.data.features}}</div>
+                            </div>
                             {{/if}}
-                        {{/each}}
+                            {{/each}}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="flex column" style="flex: 0 0 70%">
-            <div class="flex column" style="flex-basis: 50%">
-                <div class="weapons flex column margin border grow">
-                    <b class="header">{{localize "HEADER.WEAPON"}}</b>
-                    <div class="weapon flex row center">
-                        <b class="name">{{localize "WEAPON.NAME"}}</b>
-                        <b class="bonus">{{localize "WEAPON.BONUS"}}</b>
-                        <b class="damage">{{localize "WEAPON.DAMAGE"}}</b>
-                        <b class="range">{{localize "WEAPON.RANGE"}}</b>
-                        <b class="feature">{{localize "WEAPON.FEATURE"}}</b>
+        <div class="flex column" style="flex: 0 0 50%">
+            <div class="flex column" style="flex-basis: 100%">
+                <div class="critical-injuries flex column margin border grow">
+                    <b class="header">{{localize "HEADER.CRITICAL_INJURY"}}</b>
+                    <div class="critical-injury flex row center">
+                        <b class="name">{{localize "CRITICAL_INJURY.NAME"}}</b>
+                        <b class="lethal">{{localize "CRITICAL_INJURY.LETHAL"}}</b>
+                        <b class="limit">{{localize "CRITICAL_INJURY.LIMIT"}}</b>
+                        <b class="healing-time">{{localize "CRITICAL_INJURY.HEALING_TIME"}}</b>
+                        <b class="effect">{{localize "CRITICAL_INJURY.EFFECT"}}</b>
+                        <a class="button item-create" title="Add Critical Injury" data-type="critical-injury"><i class="fas fa-plus"></i></a>
                     </div>
                     <div class="scrollable">
                         {{#each actor.items as |item|}}
-                            {{#if item.isWeapon}}
-                                <div class="weapon item flex row center" data-item-id="{{item._id}}">
-                                    <div class="name">{{item.name}}</div>
-                                    <div class="bonus">{{item.data.bonus}}</div>
-                                    <div class="damage">{{item.data.damage}}</div>
-                                    <div class="range">{{item.data.range}}</div>
-                                    <div class="feature">{{item.data.features}}</div>
-                                </div>
-                            {{/if}}
-                        {{/each}}
-                    </div>
-                </div>
-            </div>
-            <div class="flex column" style="flex-basis: 50%">
-                <div class="spells flex column margin border grow">
-                    <b class="header">{{localize "HEADER.SPELL"}}</b>
-                    <div class="spell flex row center">
-                        <b class="name">{{localize "SPELL.NAME"}}</b>
-                        <b class="rank">{{localize "SPELL.RANK"}}</b>
-                        <b class="duration">{{localize "SPELL.DURATION"}}</b>
-                        <b class="ingredient">{{localize "SPELL.INGREDIENT"}}</b>
-                    </div>
-                    <div class="scrollable">
-                        {{#each actor.items as |item|}}
-                            {{#if item.isSpell}}
-                                <div class="spell item flex row center" data-item-id="{{item._id}}">
-                                    <div class="name">{{item.name}}</div>
-                                    <div class="rank">{{item.data.rank}}</div>
-                                    <div class="duration">{{item.data.duration}}</div>
-                                    <div class="ingredient">{{item.data.ingredient}}</div>
-                                </div>
-                            {{/if}}
+                        {{#if item.isCriticalInjury}}
+                        <div class="critical-injury item flex row center" data-item-id="{{item._id}}">
+                            <div class="name">{{item.name}}</div>
+                            <div class="lethal">{{item.data.lethal}}</div>
+                            <div class="limit">{{item.data.limit}}</div>
+                            <div class="healing-time">{{item.data.healing-time}}</div>
+                            <div class="effect">{{item.data.effect}}</div>
+                            <div class="button">
+                                <a class="item-control item-edit" title="Edit Critical Injury"><i class="fas fa-edit"></i></a>
+                                <a class="item-control item-delete" title="Delete Critical Injury"><i class="fas fa-trash"></i></a>
+                            </div>
+                        </div>
+                        {{/if}}
                         {{/each}}
                     </div>
                 </div>

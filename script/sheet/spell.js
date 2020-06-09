@@ -4,7 +4,7 @@ export class ForbiddenLandsSpellSheet extends ItemSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["forbidden-lands", "sheet", "item"],
             template: "systems/forbidden-lands/model/spell.html",
-            width: 600,
+            width: 400,
             height: 400,
             resizable: false
         });
@@ -12,7 +12,6 @@ export class ForbiddenLandsSpellSheet extends ItemSheet {
 
     getData() {
         const data = super.getData();
-        console.log(data);
         return data;
     }
 

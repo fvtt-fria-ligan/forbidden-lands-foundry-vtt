@@ -1,0 +1,172 @@
+.forbidden-lands.item .item .name {
+    flex-basis: 75%;
+}
+
+.forbidden-lands.item .item .grip {
+    flex-basis: 25%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .bonus {
+    flex-basis: 15%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .damage {
+    flex-basis: 15%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .range {
+    flex-basis: 25%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .weight {
+    flex-basis: 25%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .cost {
+    flex-basis: 20%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .features {
+    flex-basis: 100%;
+}
+
+.forbidden-lands.item .item .supply {
+    flex-basis: 30%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .raw-materials {
+    flex-basis: 40%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .time {
+    flex-basis: 30%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .talent {
+    flex-basis: 50%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .tools {
+    flex-basis: 50%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .effect {
+    flex-basis: 100%;
+}
+
+.forbidden-lands.item .item .rating {
+    flex-basis: 25%;
+    align-items: center;
+}
+
+.forbidden-lands.item .item .rating b {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .rating input {
+    flex-basis: 46%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .part {
+    flex-basis: 30%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .description {
+    flex-basis: 100%;
+}
+
+.forbidden-lands.item .item .description {
+    flex-basis: 100%;
+}
+
+.forbidden-lands.item .item .description textarea {
+    border-color: #7a7971;
+    resize: none;
+}
+
+.forbidden-lands.item .item .drawback {
+    flex-basis: 100%;
+}
+
+.forbidden-lands.item .item .drawback textarea {
+    border-color: #7a7971;
+    resize: none;
+}
+
+.forbidden-lands.item .item .appearance {
+    flex-basis: 100%;
+}
+
+.forbidden-lands.item .item .appearance textarea {
+    border-color: #7a7971;
+    resize: none;
+}
+
+.forbidden-lands.item .item .lethal {
+    flex-basis: 25%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .limit {
+    flex-basis: 50%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .healing-time {
+    flex-basis: 50%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .shelf-life {
+    flex-basis: 25%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .rank {
+    flex-basis: 25%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .duration {
+    flex-basis: 25%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .ingredient {
+    flex-basis: 50%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .spell-description {
+    flex-basis: 100%;
+}
+
+.forbidden-lands.item .item .spell-description textarea {
+    border-color: #7a7971;
+    resize: none;
+    height: 250px;
+}
+
+.forbidden-lands.item .item .talent-description {
+    flex-basis: 100%;
+}
+
+.forbidden-lands.item .item .talent-description textarea {
+    border-color: #7a7971;
+    resize: none;
+    height: 250px;
+}

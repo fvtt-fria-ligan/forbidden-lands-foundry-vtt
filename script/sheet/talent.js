@@ -4,15 +4,14 @@ export class ForbiddenLandsTalentSheet extends ItemSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["forbidden-lands", "sheet", "item"],
             template: "systems/forbidden-lands/model/talent.html",
-            width: 600,
-            height: 400,
+            width: 400,
+            height: 360,
             resizable: false
         });
     }
 
     getData() {
         const data = super.getData();
-        console.log(data);
         return data;
     }
 

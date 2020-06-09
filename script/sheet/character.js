@@ -15,7 +15,6 @@ export class ForbiddenLandsCharacterSheet extends ActorSheet {
         const data = super.getData();
         this.computeSkills(data);
         this.computeItems(data);
-        console.log(data);
         return data;
     }
 
@@ -57,9 +56,12 @@ export class ForbiddenLandsCharacterSheet extends ActorSheet {
             item.isWeapon = item.type === 'weapon';
             item.isArmor = item.type === 'armor';
             item.isGear = item.type === 'gear';
+            item.isRawMaterial = item.type === 'raw-material';
             item.isArtifact = item.type === 'artifact';
             item.isSpell = item.type === 'spell';
-            item.isCriticalInjury = item.type === 'critical injury';
+            item.isCriticalInjury = item.type === 'critical-injury';
+            item.isWeaponOrArtifact = item.isWeapon || item.isArtifact;
+            item.isGearOrRawMaterial = item.isGear || item.isRawMaterial;
         }
     }
 

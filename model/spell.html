@@ -1,4 +1,28 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <div class="spell flex column">
+    <div class="item flex row wrap">
+        <div class="name flex row wrap">
+            <b>{{localize "GEAR.NAME"}}</b>
+            <input name="name" type="text" value="{{item.name}}"/>
+        </div>
+        <div class="rank flex row wrap">
+            <b>{{localize "SPELL.RANK"}}</b>
+            <input name="data.rank" type="text" value="{{data.rank}}"/>
+        </div>
+        <div class="range flex row wrap">
+            <b>{{localize "SPELL.RANGE"}}</b>
+            <input name="data.range" type="text" value="{{data.range}}"/>
+        </div>
+        <div class="duration flex row wrap">
+            <b>{{localize "SPELL.DURATION"}}</b>
+            <input name="data.duration" type="text" value="{{data.duration}}"/>
+        </div>
+        <div class="ingredient flex row wrap">
+            <b>{{localize "SPELL.INGREDIENT"}}</b>
+            <input name="data.ingredient" type="text" value="{{data.ingredient}}"/>
+        </div>
+        <div class="spell-description flex row wrap">
+            <b>{{localize "SPELL.DESCRIPTION"}}</b>
+            <textarea name="data.description">{{data.description}}</textarea>
+        </div>
     </div>
 </form>

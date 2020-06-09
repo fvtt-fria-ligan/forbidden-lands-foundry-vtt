@@ -1,6 +1,5 @@
 .forbidden-lands .border {
     border: 2px solid black;
-    margin-bottom: 5px;
     border-radius: 10px;
 }
 .forbidden-lands .flex {
@@ -75,6 +74,8 @@
 .forbidden-lands .sheet-tabs {
     padding: 5px;
     background-color: lightslategrey;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .forbidden-lands .sheet-tabs b:hover {
