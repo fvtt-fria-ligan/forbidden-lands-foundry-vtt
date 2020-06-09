@@ -21,7 +21,6 @@ async function preloadHandlebarsTemplates() {
         "systems/forbidden-lands/model/character.html",
         "systems/forbidden-lands/model/weapon.html",
         "systems/forbidden-lands/model/talent.html",
-        "systems/forbidden-lands/model/spell.html",
         "systems/forbidden-lands/model/tab/main.html",
         "systems/forbidden-lands/model/tab/combat.html",
         "systems/forbidden-lands/model/tab/talent.html",
