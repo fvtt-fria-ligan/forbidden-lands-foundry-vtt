@@ -14,6 +14,7 @@ export class ForbiddenLandsCharacterSheet extends ActorSheet {
     getData() {
         const data = super.getData();
         this.computeSkills(data);
+        this.computeArmor(data);
         this.computeItems(data);
         return data;
     }
@@ -53,11 +54,15 @@ export class ForbiddenLandsCharacterSheet extends ActorSheet {
             console.log(skill);
             console.log(attribute);
         });
-        html.find('.armor b').click(ev => {
+        html.find('.armor.specific b').click(ev => {
             const div = $(ev.currentTarget).parents(".armor");
             const armorName = div.data("key");
             const armor = this.actor.data.data.armor[armorName];
             console.log(armor);
+        });
+        html.find('.armor.total b').click(ev => {
+            const armorTotal = $(ev.currentTarget).siblings()[0].value;
+            console.log(armorTotal);
         });
         html.find('.weapon.item .name').click(ev => {
             const div = $(ev.currentTarget).parents(".item");
@@ -100,6 +105,14 @@ export class ForbiddenLandsCharacterSheet extends ActorSheet {
             skill.hasWits = skill.attribute === 'wits';
             skill.hasEmpathy = skill.attribute === 'empathy';
         }
+    }
+
+    computeArmor(data) {
+        let total = 0
+        for (let armor of Object.values(data.data.armor)) {
+            total = total + armor.value;
+        }
+        data.data.armor.total = total;
     }
 
     computeItems(data) {

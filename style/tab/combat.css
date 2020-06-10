@@ -32,6 +32,13 @@
     margin-left: 5px;
 }
 
+.forbidden-lands .character .armors .armor.total input {
+    flex-basis: 50%;
+    margin-right: 5px;
+    margin-left: 5px;
+    text-align: center;
+}
+
 .forbidden-lands .character .conditions {
 }
 

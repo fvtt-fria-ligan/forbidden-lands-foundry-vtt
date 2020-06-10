@@ -61,6 +61,7 @@
   "ARMOR.BODY": "Armor",
   "ARMOR.RATING": "Rating",
   "ARMOR.PART": "Body Part",
+  "ARMOR.TOTAL": "Total",
 
   "CONSUMABLE.FOOD": "FOOD",
   "CONSUMABLE.WATER": "WATER",
