@@ -141,21 +141,6 @@ export class ForbiddenLandsMonsterSheet extends ActorSheet {
         return "<b>" + diceName + "</b><input id='" + diceName.toLowerCase() + "' style='text-align: center' type='text' value='" + diceValue + "'/>";
     }
 
-    parseBonus(bonus) {
-        let regex = /([0-9]*)/;
-        return regex.exec(bonus)[1];
-    }
-
-    prepareArtifactString(bonus) {
-        let regex = /([0-9]*)d([0-9]*)/g;
-        let regexMatch;
-        let artifact = "";
-        while (regexMatch = regex.exec(bonus)) {
-            artifact = artifact + regexMatch[0] + " ";
-        }
-        return artifact;
-    }
-
     parseArtifact(artifact) {
         let regex = /([0-9]*)d([0-9]*)/g;
         let regexMatch;

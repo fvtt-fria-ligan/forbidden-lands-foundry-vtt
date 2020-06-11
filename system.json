@@ -2,7 +2,7 @@
   "name": "forbidden-lands",
   "title": "Forbidden Lands",
   "description": "There is something beyond the mountains, beyond the howls beyond the mist, there is something behind the veils, behind hearts cold as stone.",
-  "version": 1.0,
+  "version": 1.1,
   "minimumCoreVersion": "0.6.2",
   "compatibleCoreVersion": "0.6.2",
   "templateVersion": 2,
@@ -47,7 +47,7 @@
   "secondaryTokenAttribute": null,
   "url": "https://github.com/Perfectro/forbidden-lands-foundry-vtt",
   "socket": true,
-  "manifest": "https://raw.githubusercontent.com/Perfectro/forbidden-lands-foundry-vtt/v1.0/system.json",
-  "download": "https://github.com/Perfectro/forbidden-lands-foundry-vtt/archive/v1.0.zip",
+  "manifest": "https://raw.githubusercontent.com/Perfectro/forbidden-lands-foundry-vtt/v1.1/system.json",
+  "download": "https://github.com/Perfectro/forbidden-lands-foundry-vtt/archive/v1.1.zip",
   "license": "LICENSE.txt"
 }
