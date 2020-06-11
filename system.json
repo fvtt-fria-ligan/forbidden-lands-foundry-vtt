@@ -14,6 +14,7 @@
   "styles": [
     "style/common.css",
     "style/character.css",
+    "style/monster.css",
     "style/item.css",
     "style/dialog.css",
     "style/armor.css",
@@ -26,6 +27,7 @@
     "style/weapon.css",
     "style/tab/main.css",
     "style/tab/combat.css",
+    "style/tab/monster-combat.css",
     "style/tab/talent.css",
     "style/tab/spell.css",
     "style/tab/gear.css",

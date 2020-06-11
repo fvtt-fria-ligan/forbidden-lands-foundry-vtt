@@ -174,7 +174,21 @@
     flex-basis: 100%;
 }
 
+.forbidden-lands.item .item .talent-description {
+    flex-basis: 100%;
+}
+
 .forbidden-lands.item .item .talent-description textarea {
+    border-color: #7a7971;
+    resize: none;
+    height: 250px;
+}
+
+.forbidden-lands.item .item .monster-description {
+    flex-basis: 100%;
+}
+
+.forbidden-lands.item .item .monster-description textarea {
     border-color: #7a7971;
     resize: none;
     height: 250px;

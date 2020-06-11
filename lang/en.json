@@ -55,6 +55,7 @@
   "HEADER.FACE": "FACE",
   "HEADER.BODY": "BODY",
   "HEADER.CLOTHING": "CLOTHING",
+  "HEADER.ATTACK": "ATTACKS",
 
   "ARMOR.HELMET": "Helmet",
   "ARMOR.BONUS": "Bonus",
@@ -122,5 +123,11 @@
 
   "RAW_MATERIAL.SHELF_LIFE": "Shelf Life",
 
-  "PUSH": "PUSH !"
+  "PUSH": "PUSH !",
+
+  "MONSTER.NAME": "Name",
+  "MONSTER.DICE": "Dice",
+  "MONSTER.DAMAGE": "Damage",
+  "MONSTER.DESCRIPTION": "Description",
+  "MONSTER.ARMOR": "Armor"
 }

@@ -306,7 +306,6 @@ export class ForbiddenLandsCharacterSheet extends ActorSheet {
         let numberOfSword = this.countSword();
         let numberOfSkull = this.countSkull();
         let resultMessage;
-        let pushedMessage = "";
         if (isPushed) {
             if (numberOfSword > 0) {
                 resultMessage = "<b style='color:green'>" + this.lastTestName + "</b> (PUSHED) <b>" + (numberOfSword + damage) + "⚔️ | "+ numberOfSkull + " 💀</b></br>";

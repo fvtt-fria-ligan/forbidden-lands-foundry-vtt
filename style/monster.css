@@ -1,0 +1,22 @@
+.forbidden-lands .monster {
+    height: 100%;
+    width: 100%;
+}
+
+.forbidden-lands .monster .bio .avatar {
+    flex: 0 0 auto;
+}
+
+.forbidden-lands .monster .bio .avatar img {
+    border: 1px dashed black;
+    border-radius: 10px;
+}
+
+.forbidden-lands .monster .bio .name {
+    flex: 0 0 auto;
+    width: 250px;
+}
+
+.forbidden-lands .monster .bio .armor b:hover {
+    text-shadow: 0 0 10px darkolivegreen;
+}
