@@ -2,6 +2,15 @@
     flex-basis: 75%;
 }
 
+.forbidden-lands.item .item .weapon-name {
+    flex-basis: 50%;
+}
+
+.forbidden-lands.item .item .weapon-category {
+    flex-basis: 25%;
+    text-align: center;
+}
+
 .forbidden-lands.item .item .grip {
     flex-basis: 25%;
     text-align: center;

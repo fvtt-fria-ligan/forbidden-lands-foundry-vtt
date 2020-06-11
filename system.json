@@ -15,6 +15,7 @@
     "style/common.css",
     "style/character.css",
     "style/item.css",
+    "style/dialog.css",
     "style/armor.css",
     "style/artifact.css",
     "style/critical-injury.css",

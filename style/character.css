@@ -46,3 +46,12 @@
     flex: 0 0 auto;
     width: 100px;
 }
+
+.forbidden-lands .character .push {
+    background-color: lightslategrey;
+}
+
+.forbidden-lands .character .push:hover {
+    box-shadow: 0 0 10px darkolivegreen;
+    text-shadow: 0 0 10px darkolivegreen;
+}

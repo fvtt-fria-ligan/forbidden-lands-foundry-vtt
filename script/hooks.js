@@ -19,10 +19,10 @@ Hooks.once("init", async function () {
     Items.registerSheet("forbidden-lands", ForbiddenLandsArmorSheet, {types: ["armor"], makeDefault: true});
     Items.registerSheet("forbidden-lands", ForbiddenLandsArtifactSheet, {types: ["artifact"], makeDefault: true});
     Items.registerSheet("forbidden-lands", ForbiddenLandsGearSheet, {types: ["gear"], makeDefault: true});
-    Items.registerSheet("forbidden-lands", ForbiddenLandsRawMaterialSheet, {types: ["raw-material"], makeDefault: true});
+    Items.registerSheet("forbidden-lands", ForbiddenLandsRawMaterialSheet, {types: ["rawMaterial"], makeDefault: true});
     Items.registerSheet("forbidden-lands", ForbiddenLandsSpellSheet, {types: ["spell"], makeDefault: true});
     Items.registerSheet("forbidden-lands", ForbiddenLandsTalentSheet, {types: ["talent"], makeDefault: true});
-    Items.registerSheet("forbidden-lands", ForbiddenLandsCriticalInjurySheet, {types: ["critical-injury"], makeDefault: true});
+    Items.registerSheet("forbidden-lands", ForbiddenLandsCriticalInjurySheet, {types: ["criticalInjury"], makeDefault: true});
     preloadHandlebarsTemplates()
 });
 

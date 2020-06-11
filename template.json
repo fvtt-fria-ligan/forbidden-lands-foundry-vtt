@@ -18,7 +18,7 @@
           "label": "BIO.PRIDE",
           "value": ""
         },
-        "dark-secret": {
+        "darkSecret": {
           "label": "BIO.DARK_SECRET",
           "value": ""
         },
@@ -259,12 +259,13 @@
       "armor",
       "artifact",
       "gear",
-      "raw-material",
+      "rawMaterial",
       "talent",
-      "critical-injury",
+      "criticalInjury",
       "spell"
     ],
     "weapon": {
+      "category": "",
       "grip": "",
       "bonus": 0,
       "damage": 0,
@@ -273,13 +274,14 @@
       "features": "",
       "supply": "",
       "weight": "",
-      "raw-materials": "",
+      "rawMaterials": "",
       "time": "",
       "talent": "",
       "tools": "",
       "effect": ""
     },
     "artifact": {
+      "category": "",
       "grip": "",
       "bonus": 0,
       "damage": 0,
@@ -288,7 +290,7 @@
       "features": "",
       "supply": "",
       "weight": "",
-      "raw-materials": "",
+      "rawMaterials": "",
       "time": "",
       "talent": "",
       "tools": "",
@@ -307,7 +309,7 @@
       "features": "",
       "supply": "",
       "weight": "",
-      "raw-materials": "",
+      "rawMaterials": "",
       "time": "",
       "talent": "",
       "tools": ""
@@ -323,27 +325,27 @@
       "rank": 1,
       "description": ""
     },
-    "critical-injury": {
+    "criticalInjury": {
       "lethal": "No",
       "limit": "",
       "effect": "",
-      "healing-time": ""
+      "healingTime": ""
     },
     "gear": {
       "cost": "",
       "supply": "",
       "weight": "",
-      "raw-materials": "",
+      "rawMaterials": "",
       "time": "",
       "talent": "",
       "tools": "",
       "effect": "",
       "bonus": 0
     },
-    "raw-material": {
+    "rawMaterial": {
       "cost": "",
-      "shelf-life": "",
-      "raw-materials": "",
+      "shelfLife": "",
+      "rawMaterials": "",
       "talent": "",
       "tools": "",
       "bonus": 0

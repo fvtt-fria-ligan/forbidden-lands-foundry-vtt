@@ -1,0 +1,12 @@
+.roll-dialog {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.roll-dialog b {
+    flex-basis: 25%;
+}
+
+.roll-dialog input {
+    flex-basis: 75%;
+}

@@ -80,6 +80,7 @@
   "TAB.NOTE": "NOTE",
 
   "WEAPON.NAME": "Name",
+  "WEAPON.CATEGORY": "Category",
   "WEAPON.GRIP": "Grip",
   "WEAPON.BONUS": "Bonus",
   "WEAPON.DAMAGE": "Damage",
@@ -102,6 +103,7 @@
 
   "TALENT.NAME": "Name",
   "TALENT.RANK": "Rank",
+  "TALENT.DESCRIPTION": "Description",
 
   "GEAR.NAME": "Name",
   "GEAR.BONUS": "Bonus",
@@ -118,5 +120,7 @@
   "ARTIFACT.DRAWBACK": "Drawback",
   "ARTIFACT.APPEARANCE": "Appearance",
 
-  "RAW_MATERIAL.SHELF_LIFE": "Shelf Life"
+  "RAW_MATERIAL.SHELF_LIFE": "Shelf Life",
+
+  "PUSH": "PUSH !"
 }
