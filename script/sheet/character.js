@@ -221,7 +221,7 @@ export class ForbiddenLandsCharacterSheet extends ActorSheet {
     }
 
     parseBonus(bonus) {
-        let regex = /([0-9]*)([+-])/;
+        let regex = /([0-9]*[^d+-])/;
         let regexMatch = regex.exec(bonus);
         if (regexMatch != null) {
             return regex.exec(bonus)[1];
