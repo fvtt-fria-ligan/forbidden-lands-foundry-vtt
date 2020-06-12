@@ -6,14 +6,18 @@
                     <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
                 </div>
                 <div class="flex row margin align-end space-around grow">
-                    <div class="flex column">
+                    <div class="flex row wrap">
                         <div class="name">
                             <b>{{localize "BIO.NAME"}}</b>
                             <input name="name" type="text" value="{{actor.name}}"/>
                         </div>
-                        <div class="armor">
+                        <div class="armor center">
                             <b>{{localize data.armor.label}}</b>
                             <input name="data.armor.value" type="text" value="{{data.armor.value}}"/>
+                        </div>
+                        <div class="movement center">
+                            <b>{{localize data.movement.label}}</b>
+                            <input name="data.movement.value" type="text" value="{{data.movement.value}}"/>
                         </div>
                     </div>
                 </div>

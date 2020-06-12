@@ -13,10 +13,17 @@
 }
 
 .forbidden-lands .monster .bio .name {
-    flex: 0 0 auto;
-    width: 250px;
+    flex: 0 0 100%;
+}
+
+.forbidden-lands .monster .bio .armor {
+    flex: 0 0 50%;
 }
 
 .forbidden-lands .monster .bio .armor b:hover {
     text-shadow: 0 0 10px darkolivegreen;
+}
+
+.forbidden-lands .monster .bio .movement {
+    flex: 0 0 50%;
 }

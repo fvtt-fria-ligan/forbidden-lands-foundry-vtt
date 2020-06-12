@@ -129,5 +129,6 @@
   "MONSTER.DICE": "Dice",
   "MONSTER.DAMAGE": "Damage",
   "MONSTER.DESCRIPTION": "Description",
-  "MONSTER.ARMOR": "Armor"
+  "MONSTER.ARMOR": "Armor",
+  "MOVEMENT": "Movement"
 }

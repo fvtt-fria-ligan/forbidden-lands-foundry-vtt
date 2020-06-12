@@ -2,6 +2,7 @@ export class ForbiddenLandsCharacterSheet extends ActorSheet {
 
     dices = [];
     lastTestName = "";
+    lastDamage = 0;
 
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
@@ -270,20 +271,20 @@ export class ForbiddenLandsCharacterSheet extends ActorSheet {
         if (damage > 0) {
             computedDamage = computedDamage - 1;
         }
-        this.sendRollToChat(computedDamage, false);
+        this.lastDamage = computedDamage;
+        this.sendRollToChat(false);
     }
 
     push() {
         this.dices.forEach(dice => {
-            if (dice.value < 6 && dice.value > 1) {
+            if ((dice.value < 6 && dice.value > 1 && dice.type !== "skill") || (dice.value < 6 && dice.type === "skill")) {
                 dice.value = Math.floor(Math.random() * Math.floor(dice.face)) + 1;
                 let successAndWeight = this.getSuccessAndWeight(dice.value, dice.type);
                 dice.success = successAndWeight.success;
                 dice.weight = successAndWeight.weight;
             }
         });
-        this.sendRollToChat(0, true);
-        this.dices = [];
+        this.sendRollToChat(true);
     }
 
     rollConsumable(consumable) {
@@ -306,20 +307,20 @@ export class ForbiddenLandsCharacterSheet extends ActorSheet {
         ChatMessage.create(chatData, {});
     }
 
-    sendRollToChat(damage, isPushed) {
+    sendRollToChat(isPushed) {
         this.dices.sort(function(a, b){return b.weight - a.weight});
         let numberOfSword = this.countSword();
         let numberOfSkull = this.countSkull();
         let resultMessage;
         if (isPushed) {
             if (numberOfSword > 0) {
-                resultMessage = "<b style='color:green'>" + this.lastTestName + "</b> (PUSHED) <b>" + (numberOfSword + damage) + "⚔️ | "+ numberOfSkull + " 💀</b></br>";
+                resultMessage = "<b style='color:green'>" + this.lastTestName + "</b> (PUSHED) <b>" + (numberOfSword + this.lastDamage) + "⚔️ | "+ numberOfSkull + " 💀</b></br>";
             } else {
                 resultMessage = "<b style='color:red'>" + this.lastTestName + "</b> (PUSHED) <b>" + numberOfSword + "⚔️ | "+ numberOfSkull + " 💀</b></br>";
             }
         } else {
             if (numberOfSword > 0) {
-                resultMessage = "<b style='color:green'>" + this.lastTestName + "</b> <b>" + (numberOfSword + damage) + "⚔️ | "+ numberOfSkull + " 💀</b></br>";
+                resultMessage = "<b style='color:green'>" + this.lastTestName + "</b> <b>" + (numberOfSword + this.lastDamage) + "⚔️ | "+ numberOfSkull + " 💀</b></br>";
             } else {
                 resultMessage = "<b style='color:red'>" + this.lastTestName + "</b> <b>" + numberOfSword + "⚔️ | "+ numberOfSkull + " 💀</b></br>";
             }
@@ -365,7 +366,7 @@ export class ForbiddenLandsCharacterSheet extends ActorSheet {
             } else {
                 return {success: 1, weight: 1};
             }
-        } else if (diceValue === 1 && diceType !== "skill-penalty") {
+        } else if (diceValue === 1 && diceType !== "skill-penalty" && diceType !== "skill") {
             return {success: 0, weight: -2};
         } else {
             return {success: 0, weight: 0};

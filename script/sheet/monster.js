@@ -234,7 +234,7 @@ export class ForbiddenLandsMonsterSheet extends ActorSheet {
             } else {
                 return {success: 1, weight: 1};
             }
-        } else if (diceValue === 1 && diceType !== "skill-penalty") {
+        } else if (diceValue === 1 && diceType !== "skill-penalty" && diceType !== "skill") {
             return {success: 0, weight: -2};
         } else {
             return {success: 0, weight: 0};
