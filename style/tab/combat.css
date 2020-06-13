@@ -96,7 +96,7 @@
 
 .forbidden-lands .character .critical-injuries .scrollable {
     overflow-y: auto;
-    max-height: 170px;
+    max-height: 120px;
 }
 
 .forbidden-lands .character .weapons {
