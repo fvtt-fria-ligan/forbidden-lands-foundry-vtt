@@ -127,6 +127,9 @@ export class ForbiddenLandsCharacterSheet extends ActorSheet {
         html.find('.push').click(ev => {
            this.push();
         });
+        html.find('.roll').click(ev => {
+            this.prepareRollDialog("Roll", 0, 0, 0, "", 0, 0);
+        });
     }
 
     computeSkills(data) {
