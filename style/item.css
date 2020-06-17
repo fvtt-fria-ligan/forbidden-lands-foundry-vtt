@@ -105,6 +105,7 @@
 .forbidden-lands.item .item .description textarea {
     border-color: #7a7971;
     resize: none;
+    height: 125px;
 }
 
 .forbidden-lands.item .item .drawback {
@@ -114,6 +115,7 @@
 .forbidden-lands.item .item .drawback textarea {
     border-color: #7a7971;
     resize: none;
+    height: 125px;
 }
 
 .forbidden-lands.item .item .appearance {
@@ -123,6 +125,7 @@
 .forbidden-lands.item .item .appearance textarea {
     border-color: #7a7971;
     resize: none;
+    height: 100px;
 }
 
 .forbidden-lands.item .item .lethal {
