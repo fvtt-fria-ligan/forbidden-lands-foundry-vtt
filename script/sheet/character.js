@@ -41,7 +41,15 @@ export class ForbiddenLandsCharacterSheet extends ActorSheet {
         html.find('.condition').click(ev => {
             const conditionName = $(ev.currentTarget).data("key");
             const conditionValue = this.actor.data.data.condition[conditionName].value;
-            this.actor.data.data.condition[conditionName].value = !conditionValue;
+            if (conditionName === "sleepless") {
+                this.actor.update({"data.condition.sleepless.value": !conditionValue});
+            } else if (conditionName === "thirsty") {
+                this.actor.update({"data.condition.thirsty.value": !conditionValue});
+            } else if (conditionName === "hungry") {
+                this.actor.update({"data.condition.hungry.value": !conditionValue});
+            } else if (conditionName === "cold") {
+                this.actor.update({"data.condition.cold.value": !conditionValue});
+            }
             this._render();
         });
         html.find('.attribute b').click(ev => {
