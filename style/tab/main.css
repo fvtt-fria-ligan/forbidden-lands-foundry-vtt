@@ -1,66 +1,59 @@
-.forbidden-lands .attributes .attribute {
-    padding: 5px;
-    flex-basis: 25%;
-    margin-top: 5px;
-    margin-left: 5px;
+.forbidden-lands .main-tab {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
 }
 
-.forbidden-lands .attributes .attribute:last-child {
-    margin-right: 5px;
+.forbidden-lands .attributes {
+  align-items: baseline;
+  display: grid;
+  gap: 4px 8px;
+  grid-template-columns: auto 2em 1fr 13px;
+  padding: 0 8px 8px;
 }
 
-.forbidden-lands .attributes .attribute b {
-    background-color: lightslategrey;
-    border-radius: 10px;
+.forbidden-lands .attributes h1 {
+  grid-column-end: span 4;
 }
 
-.forbidden-lands .attributes .attribute b:hover {
-    text-shadow: 0 0 10px darkolivegreen;
+.forbidden-lands .attributes .name {
+  font-family: var(--font-special);
 }
 
-.forbidden-lands .attributes .attribute input {
-    margin: 5px;
+.forbidden-lands .attributes .skulls .skull {
+  color: var(--color-secondary);
+}
+.forbidden-lands .attributes .skulls .skull.damaged {
+  color: #a00;
+}
+
+.forbidden-lands .conditions a.condition {
+  color: var(--color-secondary);
+  flex-basis: 50%;
+  font-family: var(--font-special);
+  font-weight: bold;
+}
+
+.forbidden-lands .conditions .condition.active {
+  color: #a00;
 }
 
 .forbidden-lands .skills {
-    flex-basis: 50%;
-    padding: 5px;
+  align-items: baseline;
+  display: grid;
+  flex-basis: calc(50% - 4px);
+  flex-grow: 1;
+  gap: 4px 8px;
+  grid-template-columns: auto 2em 13px;
+  padding: 0 8px 8px;
 }
 
-.forbidden-lands .skills.strength {
+.forbidden-lands .skills h1 {
+  grid-column-end: span 3;
 }
 
-.forbidden-lands .skills.agility {
-}
-
-.forbidden-lands .skills.wits {
-}
-
-.forbidden-lands .skills.empathy {
-}
-
-.forbidden-lands .skills .header {
-    padding: 5px;
-    text-align: center;
-    background-color: lightslategrey;
-    border: 2px solid black;
-    border-radius: 10px;
-}
-
-.forbidden-lands .skills .skill {
-    margin: 5px;
-    justify-content: space-evenly;
-}
-
-.forbidden-lands .skills .skill b {
-    flex-basis: 50%;
-}
-
-.forbidden-lands .skills .skill b:hover {
-    text-shadow: 0 0 10px darkolivegreen;
-}
-
-.forbidden-lands .skills .skill input {
-    text-align: center;
-    flex-basis: 25%;
+.forbidden-lands .skills .name {
+  font-family: var(--font-special);
+  flex-basis: 50%;
 }

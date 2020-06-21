@@ -1,35 +1,42 @@
 .forbidden-lands .stronghold .gears {
-    flex-basis: 50%;
-}
-
-.forbidden-lands .stronghold .gears .header {
-    background-color: lightslategrey;
-    border-radius: 10px;
-    text-align: center;
-    margin: 5px;
-}
-
-.forbidden-lands .stronghold .gears .gear {
+    padding-bottom: 8px;
+  }
+  
+  .forbidden-lands .stronghold .gears .gear {
     align-items: center;
-}
-
-.forbidden-lands .stronghold .gears .gear .name {
-    flex-basis: 58%;
-}
-
-.forbidden-lands .stronghold .gears .gear.item .name:hover {
-    text-shadow: 0 0 10px darkolivegreen;
-}
-
-.forbidden-lands .stronghold .gears .gear .bonus {
-    flex-basis: 17%;
-}
-
-.forbidden-lands .stronghold .gears .gear .button {
-    flex-basis: 25%;
-}
-
-.forbidden-lands .stronghold .gears .scrollable {
-    overflow-y: auto;
-    max-height: 185px;
-}
+  }
+  
+  .forbidden-lands .stronghold .gears .name {
+    align-items: center;
+    flex-basis: 55%;
+    display: flex;
+  }
+  
+  .forbidden-lands .stronghold .gears .header .name,
+  .forbidden-lands .stronghold .gears .name .name,
+  .forbidden-lands .stronghold .gears .bonus,
+  .forbidden-lands .stronghold .gears .weight,
+  .forbidden-lands .stronghold .gears .button {
+    margin-left: 4px;
+  }
+  
+  .forbidden-lands .stronghold .gears .bonus {
+    flex-basis: 15%;
+    text-align: center;
+  }
+  
+  .forbidden-lands .stronghold .gears .bonus .skull.damaged {
+    color: #a00;
+  }
+  
+  .forbidden-lands .stronghold .gears .weight {
+    flex-basis: 15%;
+    text-align: center;
+  }
+  
+  .forbidden-lands .stronghold .gears .button {
+    flex-basis: 15%;
+    font-size: 10px;
+    text-align: right;
+  }
+  
