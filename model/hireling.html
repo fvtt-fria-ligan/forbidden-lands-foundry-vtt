@@ -1,0 +1,24 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <div class="item flex row wrap">
+        <div class="name flex row wrap">
+            <b>{{localize "GEAR.NAME"}}</b>
+            <input name="name" type="text" value="{{item.name}}"/>
+        </div>
+        <div class="supply flex row wrap">
+            <b>{{localize "HIRELING.SUPPLY"}}</b>
+            <input name="data.supply" type="text" value="{{data.supply}}"/>
+        </div>
+        <div class="salary flex row wrap">
+            <b>{{localize "HIRELING.SALARY"}}</b>
+            <input name="data.salary" type="text" value="{{data.salary}}"/>
+        </div>
+        <div class="number flex row wrap">
+            <b>{{localize "HIRELING.NUMBER"}}</b>
+            <input name="data.number" type="text" value="{{data.number}}"/>
+        </div>
+        <div class="hireling-description flex row wrap">
+            <b>{{localize "HIRELING.DESCRIPTION"}}</b>
+            <textarea name="data.description">{{data.description}}</textarea>
+        </div>
+    </div>
+</form>

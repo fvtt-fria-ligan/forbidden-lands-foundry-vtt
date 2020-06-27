@@ -1,5 +1,5 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <div class="monster flex column">
+    <div class="stronghold flex column">
         <div class="bio flex column border">
             <div class="flex row margin align-center">
                 <div class="avatar">
@@ -11,13 +11,13 @@
                             <b>{{localize "BIO.NAME"}}</b>
                             <input name="name" type="text" value="{{actor.name}}"/>
                         </div>
-                        <div class="armor center">
-                            <b>{{localize data.armor.label}}</b>
-                            <input name="data.armor.value" type="text" value="{{data.armor.value}}"/>
+                        <div class="location center">
+                            <b>{{localize "STRONGHOLD.LOCATION"}}</b>
+                            <input name="data.location" type="text" value="{{data.location}}"/>
                         </div>
-                        <div class="movement center">
-                            <b>{{localize data.movement.label}}</b>
-                            <input name="data.movement.value" type="text" value="{{data.movement.value}}"/>
+                        <div class="defense-rating center">
+                            <b>{{localize "STRONGHOLD.DEFENSE_RATING"}}</b>
+                            <input name="data.defenseRating" type="text" value="{{data.defenseRating}}"/>
                         </div>
                     </div>
                 </div>
@@ -25,24 +25,24 @@
         </div>
 
         <div class="sheet-tabs tabs flex row border" data-group="primary">
-            <b class="item" data-tab="main">{{localize "TAB.MAIN"}}</b>
-            <b class="item" data-tab="combat">{{localize "TAB.COMBAT"}}</b>
+            <b class="item" data-tab="building">{{localize "TAB.BUILDING"}}</b>
+            <b class="item" data-tab="hireling">{{localize "TAB.HIRELING"}}</b>
             <b class="item" data-tab="gear">{{localize "TAB.GEAR"}}</b>
             <b class="item" data-tab="note">{{localize "TAB.NOTE"}}</b>
         </div>
 
         <div class="sheet-body flex row border">
-            <div class="tab" data-group="primary" data-tab="main">
-                {{> systems/forbidden-lands/model/tab/main.html}}
+            <div class="tab" data-group="primary" data-tab="building">
+                {{> systems/forbidden-lands/model/tab/building-stronghold.html}}
             </div>
-            <div class="tab" data-group="primary" data-tab="combat">
-                {{> systems/forbidden-lands/model/tab/combat-monster.html}}
+            <div class="tab" data-group="primary" data-tab="hireling">
+                {{> systems/forbidden-lands/model/tab/hireling-stronghold.html}}
             </div>
             <div class="tab" data-group="primary" data-tab="gear">
-                {{> systems/forbidden-lands/model/tab/gear-monster.html}}
+                {{> systems/forbidden-lands/model/tab/gear-stronghold.html}}
             </div>
             <div class="tab note" data-group="primary" data-tab="note">
-                {{editor content=data.bio.note.value target="data.bio.note.value" button=true owner=owner editable=editable}}
+                {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
             </div>
         </div>
     </div>

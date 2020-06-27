@@ -56,6 +56,10 @@
   "HEADER.BODY": "BODY",
   "HEADER.CLOTHING": "CLOTHING",
   "HEADER.ATTACK": "ATTACKS",
+  "HEADER.BUILDING": "BUILDINGS",
+  "HEADER.HIRELING": "HIRELINGS",
+  "HEADER.RAW_MATERIAL": "RAW MATERIALS",
+  "HEADER.WEAPON_ARMOR": "WEAPONS / ARMORS",
 
   "ARMOR.HELMET": "Helmet",
   "ARMOR.BONUS": "Bonus",
@@ -79,6 +83,8 @@
   "TAB.GEAR": "GEAR",
   "TAB.BIO": "BIO",
   "TAB.NOTE": "NOTE",
+  "TAB.BUILDING": "BUILDING",
+  "TAB.HIRELING": "HIRELING",
 
   "WEAPON.NAME": "Name",
   "WEAPON.CATEGORY": "Category",
@@ -131,5 +137,24 @@
   "MONSTER.DAMAGE": "Damage",
   "MONSTER.DESCRIPTION": "Description",
   "MONSTER.ARMOR": "Armor",
-  "MOVEMENT": "Movement"
+  "MOVEMENT": "Movement",
+
+  "STRONGHOLD.LOCATION": "Location",
+  "STRONGHOLD.DEFENSE_RATING": "Defense Rating",
+
+  "BUILDING.NAME": "Name",
+  "BUILDING.EFFECT": "Effect",
+  "BUILDING.NUMBER": "Number",
+  "BUILDING.DESCRIPTION": "Description",
+  "BUILDING.REQUIREMENT": "Requirement",
+  "BUILDING.RAW_MATERIALS": "Raw Materials",
+  "BUILDING.TOOLS": "Tools",
+  "BUILDING.TIME": "Time",
+  "BUILDING.REPUTATION": "Reputation",
+
+  "HIRELING.NAME": "Name",
+  "HIRELING.NUMBER": "Number",
+  "HIRELING.SALARY": "Salary",
+  "HIRELING.DESCRIPTION": "Description",
+  "HIRELING.SUPPLY": "Supply"
 }

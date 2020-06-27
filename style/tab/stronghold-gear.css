@@ -1,0 +1,35 @@
+.forbidden-lands .stronghold .gears {
+    flex-basis: 50%;
+}
+
+.forbidden-lands .stronghold .gears .header {
+    background-color: lightslategrey;
+    border-radius: 10px;
+    text-align: center;
+    margin: 5px;
+}
+
+.forbidden-lands .stronghold .gears .gear {
+    align-items: center;
+}
+
+.forbidden-lands .stronghold .gears .gear .name {
+    flex-basis: 58%;
+}
+
+.forbidden-lands .stronghold .gears .gear.item .name:hover {
+    text-shadow: 0 0 10px darkolivegreen;
+}
+
+.forbidden-lands .stronghold .gears .gear .bonus {
+    flex-basis: 17%;
+}
+
+.forbidden-lands .stronghold .gears .gear .button {
+    flex-basis: 25%;
+}
+
+.forbidden-lands .stronghold .gears .scrollable {
+    overflow-y: auto;
+    max-height: 185px;
+}

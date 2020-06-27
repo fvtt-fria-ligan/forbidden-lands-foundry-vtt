@@ -177,10 +177,6 @@
     flex-basis: 100%;
 }
 
-.forbidden-lands.item .item .talent-description {
-    flex-basis: 100%;
-}
-
 .forbidden-lands.item .item .talent-description textarea {
     border-color: #7a7971;
     resize: none;
@@ -195,4 +191,64 @@
     border-color: #7a7971;
     resize: none;
     height: 250px;
+}
+
+.forbidden-lands.item .item .supply {
+    flex-basis: 25%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .salary {
+    flex-basis: 50%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .number {
+    flex-basis: 50%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .hireling-description {
+    flex-basis: 100%;
+}
+
+.forbidden-lands.item .item .hireling-description textarea {
+    border-color: #7a7971;
+    resize: none;
+    height: 215px;
+}
+
+.forbidden-lands.item .item .building-number {
+    flex-basis: 25%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .requirement {
+    flex-basis: 50%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .building-raw-materials {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .building-time {
+    flex-basis: 50%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .reputation {
+    flex-basis: 50%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .building-description {
+    flex-basis: 100%;
+}
+
+.forbidden-lands.item .item .building-description textarea {
+    border-color: #7a7971;
+    resize: none;
+    height: 215px;
 }

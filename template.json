@@ -2,7 +2,8 @@
   "Actor": {
     "types": [
       "character",
-      "monster"
+      "monster",
+      "stronghold"
     ],
     "character": {
       "bio": {
@@ -385,6 +386,11 @@
         "label": "MONSTER.ARMOR",
         "value": 0
       }
+    },
+    "stronghold": {
+      "location": "",
+      "description": "",
+      "defenseRating": 0
     }
   },
   "Item": {
@@ -398,7 +404,9 @@
       "criticalInjury",
       "spell",
       "monsterTalent",
-      "monsterAttack"
+      "monsterAttack",
+      "building",
+      "hireling"
     ],
     "weapon": {
       "category": "",
@@ -493,6 +501,22 @@
       "description": "",
       "dice": 0,
       "damage": 0
+    },
+    "building": {
+      "description": "",
+      "requirement": "",
+      "rawMaterials": "",
+      "tools": "",
+      "time": "",
+      "effect": "",
+      "reputation": "",
+      "number": 0
+    },
+    "hireling": {
+      "description": "",
+      "salary": "",
+      "supply": "",
+      "number": 0
     }
   }
 }

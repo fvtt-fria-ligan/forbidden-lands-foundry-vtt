@@ -1,0 +1,39 @@
+.forbidden-lands .stronghold .hirelings {
+    flex-basis: 50%;
+}
+
+.forbidden-lands .stronghold .hirelings .header {
+    background-color: lightslategrey;
+    border-radius: 10px;
+    text-align: center;
+    margin: 5px;
+}
+
+.forbidden-lands .stronghold .hirelings .hireling {
+    align-items: center;
+}
+
+.forbidden-lands .stronghold .hirelings .hireling .name {
+    flex-basis: 45%;
+}
+
+.forbidden-lands .stronghold .hirelings .hireling.item .name:hover {
+    text-shadow: 0 0 10px darkolivegreen;
+}
+
+.forbidden-lands .stronghold .hirelings .hireling .number {
+    flex-basis: 15%;
+}
+
+.forbidden-lands .stronghold .hirelings .hireling .salary {
+    flex-basis: 20%;
+}
+
+.forbidden-lands .stronghold .hirelings .hireling .button {
+    flex-basis: 20%;
+}
+
+.forbidden-lands .stronghold .hirelings .scrollable {
+    overflow-y: auto;
+    max-height: 425px;
+}

@@ -1,0 +1,39 @@
+.forbidden-lands .stronghold .buildings {
+    flex-basis: 50%;
+}
+
+.forbidden-lands .stronghold .buildings .header {
+    background-color: lightslategrey;
+    border-radius: 10px;
+    text-align: center;
+    margin: 5px;
+}
+
+.forbidden-lands .stronghold .buildings .building {
+    align-items: center;
+}
+
+.forbidden-lands .stronghold .buildings .building .name {
+    flex-basis: 30%;
+}
+
+.forbidden-lands .stronghold .buildings .building.item .name:hover {
+    text-shadow: 0 0 10px darkolivegreen;
+}
+
+.forbidden-lands .stronghold .buildings .building .number {
+    flex-basis: 15%;
+}
+
+.forbidden-lands .stronghold .buildings .building .effect {
+    flex-basis: 35%;
+}
+
+.forbidden-lands .stronghold .buildings .building .button {
+    flex-basis: 20%;
+}
+
+.forbidden-lands .stronghold .buildings .scrollable {
+    overflow-y: auto;
+    max-height: 425px;
+}

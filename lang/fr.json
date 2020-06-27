@@ -56,6 +56,10 @@
   "HEADER.BODY": "CORP",
   "HEADER.CLOTHING": "VÊTEMENTS",
   "HEADER.ATTACK": "ATTAQUES",
+  "HEADER.BUILDING": "BÂTIMENTS",
+  "HEADER.HIRELING": "SERVITEURS",
+  "HEADER.RAW_MATERIAL": "MATIERES PREMIERES",
+  "HEADER.WEAPON_ARMOR": "ARMES / ARMURES",
 
   "ARMOR.HELMET": "Heaume",
   "ARMOR.BONUS": "Bonus",
@@ -79,6 +83,8 @@
   "TAB.GEAR": "ÉQUIPEMENT",
   "TAB.BIO": "BIO",
   "TAB.NOTE": "NOTE",
+  "TAB.BUILDING": "BÂTIMENT",
+  "TAB.HIRELING": "SERVITEUR",
 
   "WEAPON.NAME": "Nom",
   "WEAPON.CATEGORY": "Type",
@@ -131,5 +137,24 @@
   "MONSTER.DAMAGE": "Dégats",
   "MONSTER.DESCRIPTION": "Description",
   "MONSTER.ARMOR": "Armure",
-  "MOVEMENT": "Manoeuvre"
+  "MOVEMENT": "Mouvement",
+
+  "STRONGHOLD.LOCATION": "Lieux",
+  "STRONGHOLD.DEFENSE_RATING": "Score de défense",
+
+  "BUILDING.NAME": "Nom",
+  "BUILDING.EFFECT": "Effet",
+  "BUILDING.NUMBER": "Nombre",
+  "BUILDING.DESCRIPTION": "Description",
+  "BUILDING.REQUIREMENT": "Prérequis",
+  "BUILDING.RAW_MATERIALS": "Matières premières",
+  "BUILDING.TOOLS": "Outils",
+  "BUILDING.TIME": "Temps",
+  "BUILDING.REPUTATION": "Réputation",
+
+  "HIRELING.NAME": "Nom",
+  "HIRELING.NUMBER": "Nombre",
+  "HIRELING.SALARY": "Salaire",
+  "HIRELING.DESCRIPTION": "Description",
+  "HIRELING.SUPPLY": "Rareté"
 }

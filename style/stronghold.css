@@ -1,0 +1,25 @@
+.forbidden-lands .stronghold {
+    height: 100%;
+    width: 100%;
+}
+
+.forbidden-lands .stronghold .bio .avatar {
+    flex: 0 0 auto;
+}
+
+.forbidden-lands .stronghold .bio .avatar img {
+    border: 1px dashed black;
+    border-radius: 10px;
+}
+
+.forbidden-lands .stronghold .bio .name {
+    flex: 0 0 100%;
+}
+
+.forbidden-lands .stronghold .bio .location {
+    flex: 0 0 50%;
+}
+
+.forbidden-lands .stronghold .bio .defense-rating {
+    flex: 0 0 50%;
+}
