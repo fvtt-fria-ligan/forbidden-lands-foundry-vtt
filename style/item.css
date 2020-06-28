@@ -17,7 +17,17 @@
 }
 
 .forbidden-lands.item .item .bonus {
-    flex-basis: 15%;
+    flex-basis: 25%;
+    align-items: center;
+}
+
+.forbidden-lands.item .item .bonus b {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+.forbidden-lands.item .item .bonus input {
+    flex-basis: 46%;
     text-align: center;
 }
 

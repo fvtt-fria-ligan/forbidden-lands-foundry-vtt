@@ -7,7 +7,9 @@
         <div class="flex row wrap" style="flex-basis: 25%"></div>
         <div class="bonus flex row wrap">
             <b>{{localize "GEAR.BONUS"}}</b>
-            <input name="data.bonus" type="text" value="{{data.bonus}}"/>
+            <input name="data.bonus.value" type="text" value="{{data.bonus.value}}" data-dtype="Number" />
+            /
+            <input name="data.bonus.max" type="text" value="{{data.bonus.max}}" data-dtype="Number" />
         </div>
         <div class="shelf-life flex row wrap">
             <b>{{localize "RAW_MATERIAL.SHELF_LIFE"}}</b>
