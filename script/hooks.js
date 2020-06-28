@@ -14,6 +14,7 @@ import { ForbiddenLandsMonsterTalentSheet } from "./sheet/monster-talent.js";
 import { ForbiddenLandsMonsterAttackSheet } from "./sheet/monster-attack.js";
 import { ForbiddenLandsBuildingSheet } from "./sheet/building.js";
 import { ForbiddenLandsHirelingSheet } from "./sheet/hireling.js";
+import { migrateWorld } from "./migration.js";
 
 // CONFIG.debug.hooks = true;
 
@@ -83,6 +84,15 @@ Hooks.once("init", () => {
     types: ["hireling"],
     makeDefault: true,
   });
+  game.settings.register("forbidden-lands", "worldSchemaVersion", {
+    name: "World Version",
+    hint:
+      "Used to automatically upgrade worlds data when the system is upgraded.",
+    scope: "world",
+    config: true,
+    default: 0,
+    type: Number,
+  });
   Handlebars.registerHelper("skulls", function (current, max, block) {
     var acc = "";
     for (var i = 0; i < max; ++i) {
@@ -101,6 +111,7 @@ Hooks.once("init", () => {
 });
 
 Hooks.once("ready", () => {
+  migrateWorld();
   initializeCalendar();
 });
 

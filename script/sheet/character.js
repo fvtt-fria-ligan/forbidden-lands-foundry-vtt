@@ -45,15 +45,6 @@ export class ForbiddenLandsCharacterSheet extends ActorSheet {
     });
     html.find(".condition").click(async (ev) => {
       const conditionName = $(ev.currentTarget).data("condition");
-      if (
-        conditionName === "sleepy" &&
-        !("sleepy" in this.actor.data.data.condition)
-      ) {
-        // Compatibility with older actors
-        await this.actor.update({
-          "data.condition.sleepy": this.actor.data.data.condition.sleepless,
-        });
-      }
       const conditionValue = this.actor.data.data.condition[conditionName]
         .value;
       if (conditionName === "sleepy") {
