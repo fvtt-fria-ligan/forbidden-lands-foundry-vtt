@@ -490,7 +490,10 @@
       "talent": "",
       "tools": "",
       "effect": "",
-      "bonus": 0
+      "bonus": {
+        "value": 0,
+        "max": 0
+      }
     },
     "rawMaterial": {
       "cost": "",
@@ -498,7 +501,10 @@
       "rawMaterials": "",
       "talent": "",
       "tools": "",
-      "bonus": 0
+      "bonus": {
+        "value": 0,
+        "max": 0
+      }
     },
     "monsterTalent": {
       "description": ""
