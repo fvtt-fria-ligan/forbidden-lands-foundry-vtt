@@ -22,6 +22,7 @@
         </div>
         <div class="items">
             {{#each actor.items as |item|}}
+            {{#if item.isGear}}
             <div class="gear item flex row" data-item-id="{{item._id}}">
                 <div class="name">
                     <div class="image" style="background-image: url('{{item.img}}')"></div>
@@ -41,6 +42,7 @@
                     <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                 </div>
             </div>
+            {{/if}}
             {{/each}}
         </div>
     </div>
