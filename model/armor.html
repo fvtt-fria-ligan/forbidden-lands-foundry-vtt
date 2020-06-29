@@ -16,7 +16,14 @@
         </div>
         <div class="weight flex row wrap">
             <b>{{localize "GEAR.WEIGHT"}}</b>
-            <input name="data.weight" type="text" value="{{data.weight}}" />
+            <select name="data.weight">
+                {{#select data.weight}}
+                <option value="tiny">Tiny</option>
+                <option value="light">Light</option>
+                <option value="regular">Regular</option>
+                <option value="heavy">Heavy</option>
+                {{/select}}
+            </select>
         </div>
         <div class="cost flex row wrap">
             <b>{{localize "GEAR.COST"}}</b>

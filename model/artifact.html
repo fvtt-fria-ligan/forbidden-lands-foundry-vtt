@@ -10,7 +10,12 @@
         </div>
         <div class="grip flex row wrap">
             <b>{{localize "WEAPON.GRIP"}}</b>
-            <input name="data.grip" type="text" value="{{data.grip}}" />
+            <select name="data.grip">
+                {{#select data.grip}}
+                <option value="1h">1H</option>
+                <option value="2h">2H</option>
+                {{/select}}
+            </select>
         </div>
         <div class="bonus flex row wrap">
             <b>{{localize "WEAPON.BONUS"}}</b>
@@ -20,15 +25,30 @@
         </div>
         <div class="damage flex row wrap">
             <b>{{localize "WEAPON.DAMAGE"}}</b>
-            <input name="data.damage" type="text" value="{{data.damage}}" />
+            <input name="data.damage" type="number" value="{{data.damage}}" data-dtype="Number" />
         </div>
         <div class="range flex row wrap">
             <b>{{localize "WEAPON.RANGE"}}</b>
-            <input name="data.range" type="text" value="{{data.range}}" />
+            <select name="data.range">
+                {{#select data.range}}
+                <option value="arm">Arm's Length</option>
+                <option value="near">Near</option>
+                <option value="short">Short</option>
+                <option value="long">Long</option>
+                <option value="distant">Distant</option>
+                {{/select}}
+            </select>
         </div>
         <div class="weight flex row wrap">
             <b>{{localize "GEAR.WEIGHT"}}</b>
-            <input name="data.weight" type="text" value="{{data.weight}}" />
+            <select name="data.weight">
+                {{#select data.weight}}
+                <option value="tiny">Tiny</option>
+                <option value="light">Light</option>
+                <option value="regular">Regular</option>
+                <option value="heavy">Heavy</option>
+                {{/select}}
+            </select>
         </div>
         <div class="cost flex row wrap">
             <b>{{localize "GEAR.COST"}}</b>

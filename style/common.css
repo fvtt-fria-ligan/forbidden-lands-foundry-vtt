@@ -111,6 +111,7 @@
   font-size: inherit;
   height: auto;
   padding: 2px 4px;
+  width: calc(100% - 2px);
 }
 .forbidden-lands input:disabled,
 .forbidden-lands select:disabled,
