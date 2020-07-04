@@ -1,98 +1,102 @@
 .forbidden-lands .character {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
 }
 
 .forbidden-lands .character .bio label {
-    font-family: var(--font-special);
+  font-family: var(--font-special);
 }
 .forbidden-lands .character .bio input {
-    flex-grow: 1;
-    margin: 0 8px;
+  flex-grow: 1;
+  margin: 0 8px;
 }
 
 .forbidden-lands .character .bio .bio-row {
-    margin: 5px 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  margin: 5px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-
 .forbidden-lands .character .bio .avatar {
-    flex: 0 0 auto;
-    height: 95px;
-    margin-right: 8px;
-    width: 95px;
+  background: radial-gradient(
+    closest-side,
+    var(--color-secondary) 0%,
+    transparent 100%
+  );
+  flex: 0 0 auto;
+  height: 95px;
+  margin-right: 8px;
+  width: 95px;
 }
 
 .forbidden-lands .character .bio .avatar img {
-    border: 0 none;
-    display: block;
-    max-width: 95px;
-    max-height: 95px;
-    min-width: 20px;
-    min-height: 20px;
-    margin: auto;
+  border: 0 none;
+  display: block;
+  max-width: 95px;
+  max-height: 95px;
+  min-width: 20px;
+  min-height: 20px;
+  margin: auto;
 }
 .forbidden-lands .character .bio .avatar img:hover {
-    box-shadow: 0 0 10px red;
-    cursor: pointer;
+  box-shadow: 0 0 10px red;
+  cursor: pointer;
 }
 
 .forbidden-lands .character .bio .name {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .forbidden-lands .character .bio .kin input {
-    width: 10em;
+  width: 10em;
 }
 
 .forbidden-lands .character .bio .profession input {
-    width: 14em;
+  width: 14em;
 }
 
 .forbidden-lands .character .bio .age input {
-    width: 4em;
+  width: 4em;
 }
 
 .forbidden-lands .character .bio .reputation input {
-    width: 2em;
+  width: 2em;
 }
 
 .forbidden-lands .character .bio .willpower input {
-    width: 2em;
+  width: 2em;
 }
 
 .forbidden-lands .character .bio .experience input {
-    width: 3em;
+  width: 3em;
 }
 
 .forbidden-lands .character .roll {
-    background: transparent;
-    border: 0 none;
-    cursor: pointer;
-    font-family: inherit;
-    font-weight: bold;
+  background: transparent;
+  border: 0 none;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
 }
 
 .forbidden-lands .character .roll:hover {
-    box-shadow: none;
-    text-shadow: 0 0 8px red;
+  box-shadow: none;
+  text-shadow: 0 0 8px red;
 }
 
 .forbidden-lands .character .push {
-    background: transparent;
-    border: 0 none;
-    cursor: pointer;
-    font-family: inherit;
-    font-weight: bold;
+  background: transparent;
+  border: 0 none;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
 }
 
 .forbidden-lands .character .push:hover {
-    box-shadow: none;
-    text-shadow: 0 0 8px red;
+  box-shadow: none;
+  text-shadow: 0 0 8px red;
 }
