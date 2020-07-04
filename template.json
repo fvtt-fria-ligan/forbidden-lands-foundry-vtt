@@ -5,7 +5,138 @@
       "monster",
       "stronghold"
     ],
+    "templates": {
+      "attributes": {
+        "attribute": {
+          "strength": {
+            "label": "ATTRIBUTE.STRENGTH",
+            "value": 0,
+            "min": 0,
+            "max": 0
+          },
+          "agility": {
+            "label": "ATTRIBUTE.AGILITY",
+            "value": 0,
+            "min": 0,
+            "max": 0
+          },
+          "wits": {
+            "label": "ATTRIBUTE.WITS",
+            "value": 0,
+            "min": 0,
+            "max": 0
+          },
+          "empathy": {
+            "label": "ATTRIBUTE.EMPATHY",
+            "value": 0,
+            "min": 0,
+            "max": 0
+          }
+        }
+      },
+      "skills": {
+        "skill": {
+          "might": {
+            "label": "SKILL.MIGHT",
+            "value": 0,
+            "min": 0,
+            "attribute": "strength"
+          },
+          "endurance": {
+            "label": "SKILL.ENDURANCE",
+            "value": 0,
+            "min": 0,
+            "attribute": "strength"
+          },
+          "melee": {
+            "label": "SKILL.MELEE",
+            "value": 0,
+            "min": 0,
+            "attribute": "strength"
+          },
+          "crafting": {
+            "label": "SKILL.CRAFTING",
+            "value": 0,
+            "min": 0,
+            "attribute": "strength"
+          },
+          "stealth": {
+            "label": "SKILL.STEALTH",
+            "value": 0,
+            "min": 0,
+            "attribute": "agility"
+          },
+          "sleight-of-hand": {
+            "label": "SKILL.SLEIGHT_OF_HAND",
+            "value": 0,
+            "min": 0,
+            "attribute": "agility"
+          },
+          "move": {
+            "label": "SKILL.MOVE",
+            "value": 0,
+            "min": 0,
+            "attribute": "agility"
+          },
+          "marksmanship": {
+            "label": "SKILL.MARKSMANSHIP",
+            "value": 0,
+            "min": 0,
+            "attribute": "agility"
+          },
+          "scouting": {
+            "label": "SKILL.SCOUTING",
+            "value": 0,
+            "min": 0,
+            "attribute": "wits"
+          },
+          "lore": {
+            "label": "SKILL.LORE",
+            "value": 0,
+            "min": 0,
+            "attribute": "wits"
+          },
+          "survival": {
+            "label": "SKILL.SURVIVAL",
+            "value": 0,
+            "min": 0,
+            "attribute": "wits"
+          },
+          "insight": {
+            "label": "SKILL.INSIGHT",
+            "value": 0,
+            "min": 0,
+            "attribute": "wits"
+          },
+          "manipulation": {
+            "label": "SKILL.MANIPULATION",
+            "value": 0,
+            "min": 0,
+            "attribute": "empathy"
+          },
+          "performance": {
+            "label": "SKILL.PERFORMANCE",
+            "value": 0,
+            "min": 0,
+            "attribute": "empathy"
+          },
+          "healing": {
+            "label": "SKILL.HEALING",
+            "value": 0,
+            "min": 0,
+            "attribute": "empathy"
+          },
+          "animal-handling": {
+            "label": "SKILL.ANIMAL_HANDLING",
+            "value": 0,
+            "min": 0,
+            "attribute": "empathy"
+          }
+        }
+      }
+    },
     "character": {
+      "templates": ["attributes", "skills"],
       "bio": {
         "kin": {
           "label": "BIO.KIN",
@@ -56,150 +187,6 @@
           "value": 0,
           "min": 0,
           "max": 10
-        }
-      },
-      "attribute": {
-        "strength": {
-          "label": "ATTRIBUTE.STRENGTH",
-          "value": 2,
-          "min": 0,
-          "max": 6
-        },
-        "agility": {
-          "label": "ATTRIBUTE.AGILITY",
-          "value": 2,
-          "min": 0,
-          "max": 6
-        },
-        "wits": {
-          "label": "ATTRIBUTE.WITS",
-          "value": 2,
-          "min": 0,
-          "max": 6
-        },
-        "empathy": {
-          "label": "ATTRIBUTE.EMPATHY",
-          "value": 2,
-          "min": 0,
-          "max": 6
-        }
-      },
-      "armor": {
-        "helmet": {
-          "label": "ARMOR.HELMET",
-          "name": "",
-          "value": 0,
-          "max": 0
-        },
-        "bonus": {
-          "label": "ARMOR.BONUS",
-          "name": "",
-          "value": 0,
-          "max": 0
-        },
-        "body": {
-          "label": "ARMOR.BODY",
-          "name": "",
-          "value": 0,
-          "max": 0
-        }
-      },
-      "skill": {
-        "might": {
-          "label": "SKILL.MIGHT",
-          "value": 0,
-          "min": 0,
-          "attribute": "strength"
-        },
-        "endurance": {
-          "label": "SKILL.ENDURANCE",
-          "value": 0,
-          "min": 0,
-          "attribute": "strength"
-        },
-        "melee": {
-          "label": "SKILL.MELEE",
-          "value": 0,
-          "min": 0,
-          "attribute": "strength"
-        },
-        "crafting": {
-          "label": "SKILL.CRAFTING",
-          "value": 0,
-          "min": 0,
-          "attribute": "strength"
-        },
-        "stealth": {
-          "label": "SKILL.STEALTH",
-          "value": 0,
-          "min": 0,
-          "attribute": "agility"
-        },
-        "sleight-of-hand": {
-          "label": "SKILL.SLEIGHT_OF_HAND",
-          "value": 0,
-          "min": 0,
-          "attribute": "agility"
-        },
-        "move": {
-          "label": "SKILL.MOVE",
-          "value": 0,
-          "min": 0,
-          "attribute": "agility"
-        },
-        "marksmanship": {
-          "label": "SKILL.MARKSMANSHIP",
-          "value": 0,
-          "min": 0,
-          "attribute": "agility"
-        },
-        "scouting": {
-          "label": "SKILL.SCOUTING",
-          "value": 0,
-          "min": 0,
-          "attribute": "wits"
-        },
-        "lore": {
-          "label": "SKILL.LORE",
-          "value": 0,
-          "min": 0,
-          "attribute": "wits"
-        },
-        "survival": {
-          "label": "SKILL.SURVIVAL",
-          "value": 0,
-          "min": 0,
-          "attribute": "wits"
-        },
-        "insight": {
-          "label": "SKILL.INSIGHT",
-          "value": 0,
-          "min": 0,
-          "attribute": "wits"
-        },
-        "manipulation": {
-          "label": "SKILL.MANIPULATION",
-          "value": 0,
-          "min": 0,
-          "attribute": "empathy"
-        },
-        "performance": {
-          "label": "SKILL.PERFORMANCE",
-          "value": 0,
-          "min": 0,
-          "attribute": "empathy"
-        },
-        "healing": {
-          "label": "SKILL.HEALING",
-          "value": 0,
-          "min": 0,
-          "attribute": "empathy"
-        },
-        "animal-handling": {
-          "label": "SKILL.ANIMAL_HANDLING",
-          "value": 0,
-          "min": 0,
-          "attribute": "empathy"
         }
       },
       "condition": {
@@ -254,130 +241,7 @@
       }
     },
     "monster": {
-      "attribute": {
-        "strength": {
-          "label": "ATTRIBUTE.STRENGTH",
-          "value": 2,
-          "min": 0,
-          "max": 6
-        },
-        "agility": {
-          "label": "ATTRIBUTE.AGILITY",
-          "value": 2,
-          "min": 0,
-          "max": 6
-        },
-        "wits": {
-          "label": "ATTRIBUTE.WITS",
-          "value": 2,
-          "min": 0,
-          "max": 6
-        },
-        "empathy": {
-          "label": "ATTRIBUTE.EMPATHY",
-          "value": 2,
-          "min": 0,
-          "max": 6
-        }
-      },
-      "skill": {
-        "might": {
-          "label": "SKILL.MIGHT",
-          "value": 0,
-          "min": 0,
-          "attribute": "strength"
-        },
-        "endurance": {
-          "label": "SKILL.ENDURANCE",
-          "value": 0,
-          "min": 0,
-          "attribute": "strength"
-        },
-        "melee": {
-          "label": "SKILL.MELEE",
-          "value": 0,
-          "min": 0,
-          "attribute": "strength"
-        },
-        "crafting": {
-          "label": "SKILL.CRAFTING",
-          "value": 0,
-          "min": 0,
-          "attribute": "strength"
-        },
-        "stealth": {
-          "label": "SKILL.STEALTH",
-          "value": 0,
-          "min": 0,
-          "attribute": "agility"
-        },
-        "sleight-of-hand": {
-          "label": "SKILL.SLEIGHT_OF_HAND",
-          "value": 0,
-          "min": 0,
-          "attribute": "agility"
-        },
-        "move": {
-          "label": "SKILL.MOVE",
-          "value": 0,
-          "min": 0,
-          "attribute": "agility"
-        },
-        "marksmanship": {
-          "label": "SKILL.MARKSMANSHIP",
-          "value": 0,
-          "min": 0,
-          "attribute": "agility"
-        },
-        "scouting": {
-          "label": "SKILL.SCOUTING",
-          "value": 0,
-          "min": 0,
-          "attribute": "wits"
-        },
-        "lore": {
-          "label": "SKILL.LORE",
-          "value": 0,
-          "min": 0,
-          "attribute": "wits"
-        },
-        "survival": {
-          "label": "SKILL.SURVIVAL",
-          "value": 0,
-          "min": 0,
-          "attribute": "wits"
-        },
-        "insight": {
-          "label": "SKILL.INSIGHT",
-          "value": 0,
-          "min": 0,
-          "attribute": "wits"
-        },
-        "manipulation": {
-          "label": "SKILL.MANIPULATION",
-          "value": 0,
-          "min": 0,
-          "attribute": "empathy"
-        },
-        "performance": {
-          "label": "SKILL.PERFORMANCE",
-          "value": 0,
-          "min": 0,
-          "attribute": "empathy"
-        },
-        "healing": {
-          "label": "SKILL.HEALING",
-          "value": 0,
-          "min": 0,
-          "attribute": "empathy"
-        },
-        "animal-handling": {
-          "label": "SKILL.ANIMAL_HANDLING",
-          "value": 0,
-          "min": 0,
-          "attribute": "empathy"
-        }
-      },
+      "templates": ["attributes", "skills"],
       "movement": {
         "label": "MOVEMENT",
         "value": 1
@@ -408,61 +272,51 @@
       "building",
       "hireling"
     ],
-    "weapon": {
-      "category": "",
-      "grip": "",
+    "templates": {
       "bonus": {
-        "value": 1,
-        "max": 1
+        "bonus": {
+          "value": 1,
+          "max": 1
+        }
       },
-      "damage": 0,
-      "range": "",
+      "craftable": {
+        "rawMaterials": "",
+        "time": "",
+        "talent": "",
+        "tools": ""
+      },
+      "weapon": {
+        "category": "melee",
+        "damage": 1,
+        "features": "",
+        "grip": "1h",
+        "range": "arm"
+      }
+    },
+    "weapon": {
+      "templates": ["bonus", "craftable", "weapon"],
       "cost": "",
-      "features": "",
       "supply": "",
-      "weight": "",
-      "rawMaterials": "",
-      "time": "",
-      "talent": "",
-      "tools": "",
+      "weight": "regular",
       "effect": ""
     },
     "artifact": {
-      "category": "",
-      "grip": "",
-      "bonus": {
-        "value": 1,
-        "max": 1
-      },
-      "damage": 0,
-      "range": "",
+      "templates": ["bonus", "craftable", "weapon"],
       "cost": "",
-      "features": "",
       "supply": "",
-      "weight": "",
-      "rawMaterials": "",
-      "time": "",
-      "talent": "",
-      "tools": "",
+      "weight": "regular",
       "effect": "",
       "drawback": "",
       "description": "",
       "appearance": ""
     },
     "armor": {
-      "bonus": {
-        "value": 1,
-        "max": 1
-      },
+      "templates": ["bonus", "craftable"],
       "cost": 0,
-      "part": "",
+      "part": "body",
       "features": "",
       "supply": "",
-      "weight": "",
-      "rawMaterials": "",
-      "time": "",
-      "talent": "",
-      "tools": ""
+      "weight": "regular"
     },
     "spell": {
       "rank": 1,
@@ -482,29 +336,16 @@
       "healingTime": ""
     },
     "gear": {
+      "templates": ["bonus", "craftable"],
       "cost": "",
       "supply": "",
-      "weight": "",
-      "rawMaterials": "",
-      "time": "",
-      "talent": "",
-      "tools": "",
-      "effect": "",
-      "bonus": {
-        "value": 0,
-        "max": 0
-      }
+      "weight": "regular",
+      "effect": ""
     },
     "rawMaterial": {
+      "templates": ["bonus", "craftable"],
       "cost": "",
-      "shelfLife": "",
-      "rawMaterials": "",
-      "talent": "",
-      "tools": "",
-      "bonus": {
-        "value": 0,
-        "max": 0
-      }
+      "shelfLife": ""
     },
     "monsterTalent": {
       "description": ""
