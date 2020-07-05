@@ -6,7 +6,12 @@
         </div>
         <div class="weapon-category flex row wrap">
             <b>{{localize "WEAPON.CATEGORY"}}</b>
-            <input name="data.category" type="text" value="{{data.category}}" />
+            <select name="data.category">
+                {{#select data.category}}
+                <option value="melee">Melee</option>
+                <option value="ranged">Ranged</option>
+                {{/select}}
+            </select>
         </div>
         <div class="grip flex row wrap">
             <b>{{localize "WEAPON.GRIP"}}</b>

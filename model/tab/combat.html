@@ -1,11 +1,10 @@
 <div class="combat-tab">
     <div class="armors border">
-        <h1>{{localize "HEADER.ARMOR"}}</h1>
+        <h1><button class="roll-armor total">{{localize "HEADER.ARMOR"}}</button></h1>
         <div class="item-list">
             <div class="header armor">
                 <b class="name">{{localize "GEAR.NAME"}}</b>
                 <b class="bonus">{{localize "GEAR.BONUS"}}</b>
-                <b class="button"><a class="roll-armor total"><i class="fas fa-dice-d20"></i></a></b>
             </div>
             <div class="items">
                 {{#each actor.items as |item|}}
@@ -15,18 +14,19 @@
                         <div class="image-container">
                             <div class="image" style="background-image: url('{{item.img}}')"></div>
                         </div>
-                        <div class="name">{{item.name}}</div>
+                        <div class="name">
+                            <button class="roll-armor specific" data-item-id="{{item._id}}">{{item.name}}</button>
+                        </div>
                     </div>
                     <div class="bonus">
                         <div class="skulls {{#unless item.data.bonus.value }}broken{{/unless}}">
                             <a class="change-item-bonus" data-item-id="{{item._id}}">
                                 {{#skulls item.data.bonus.value item.data.bonus.max}}
-                                <i class="skull far {{#if @damaged}}fa-times-circle{{else}}fa-circle{{/if}}"></i>
+                                <i class="skull {{#if @damaged}}far fa-times-circle{{else}}fas fa-dice-d6{{/if}}"></i>
                                 {{/skulls}}
                             </a>
                         </div>
                     </div>
-                    <div class="button"><a class="roll-armor specific" data-item-id="{{item._id}}"><i class="fas fa-dice-d20"></i></a></div>
                 </div>
                 {{/if}}
                 {{/each}}
@@ -41,7 +41,6 @@
                 <b class="damage">{{localize "WEAPON.DAMAGE"}}</b>
                 <b class="range">{{localize "WEAPON.RANGE"}}</b>
                 <b class="bonus">{{localize "WEAPON.BONUS"}}</b>
-                <b class="button"></b>
             </div>
             <div class="items">
                 {{#each actor.items as |item|}}
@@ -52,7 +51,9 @@
                             <div class="image-container">
                                 <div class="image" style="background-image: url('{{item.img}}')"></div>
                             </div>
-                            <div class="name">{{item.name}}</div>
+                            <div class="name">
+                                <button class="roll-weapon" data-item-id="{{item._id}}">{{item.name}}</button>
+                            </div>
                         </div>
                         <div class="damage">{{item.data.damage}}</div>
                         <div class="range">{{item.data.range}}</div>
@@ -60,12 +61,11 @@
                             <div class="skulls {{#unless item.data.bonus.value }}broken{{/unless}}">
                                 <a class="change-item-bonus" data-item-id="{{item._id}}">
                                     {{#skulls item.data.bonus.value item.data.bonus.max}}
-                                    <i class="skull far {{#if @damaged}}fa-times-circle{{else}}fa-circle{{/if}}"></i>
+                                    <i class="skull {{#if @damaged}}far fa-times-circle{{else}}fas fa-dice-d6{{/if}}"></i>
                                     {{/skulls}}
                                 </a>
                             </div>
                         </div>
-                        <div class="button"><a class="roll-weapon" data-item-id="{{item._id}}"><i class="fas fa-dice-d20"></i></a></div>
                     </div>
                     <div class="features">{{item.data.weight}}{{#if item.data.features}},
                         {{/if}}{{item.data.features}}</div>

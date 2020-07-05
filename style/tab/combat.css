@@ -24,7 +24,7 @@
 .forbidden-lands .character .armors .armor .name {
   align-items: center;
   display: flex;
-  flex-basis: 75%;
+  flex-basis: 85%;
 }
 
 .forbidden-lands .character .armors .armor .name .name {
@@ -32,8 +32,7 @@
 }
 
 .forbidden-lands .character .armors .item.armor .name .name,
-.forbidden-lands .character .armors .armor .bonus,
-.forbidden-lands .character .armors .armor .button {
+.forbidden-lands .character .armors .armor .bonus {
   margin-left: 4px;
 }
 
@@ -44,11 +43,6 @@
 
 .forbidden-lands .character .armors .armor .bonus .broken {
   color: #a00;
-}
-
-.forbidden-lands .character .armors .armor .button {
-  flex-basis: 10%;
-  text-align: right;
 }
 
 .forbidden-lands .character .critical-injuries {
@@ -120,7 +114,7 @@
 .forbidden-lands .character .weapons .weapon .name {
   align-items: center;
   display: flex;
-  flex-basis: 50%;
+  flex-basis: 55%;
 }
 
 .forbidden-lands .character .weapons .weapon .name .name {
@@ -130,8 +124,7 @@
 .forbidden-lands .character .weapons .item .weapon .name .name,
 .forbidden-lands .character .weapons .weapon .bonus,
 .forbidden-lands .character .weapons .weapon .damage,
-.forbidden-lands .character .weapons .weapon .range,
-.forbidden-lands .character .weapons .weapon .button {
+.forbidden-lands .character .weapons .weapon .range {
     margin-left: 4px;
 }
 
@@ -145,18 +138,13 @@
 }
 
 .forbidden-lands .character .weapons .weapon .damage {
-  flex-basis: 15%;
+  flex-basis: 10%;
   text-align: center;
 }
 
 .forbidden-lands .character .weapons .weapon .range {
   flex-basis: 20%;
   text-align: center;
-}
-
-.forbidden-lands .character .weapons .weapon .button {
-  flex-basis: 10%;
-  text-align: right;
 }
 
 .forbidden-lands .character .weapons .item .features {

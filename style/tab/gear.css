@@ -35,12 +35,13 @@
 
 .forbidden-lands .character .consumables .consumable {
   align-items: center;
+  font-family: var(--font-special);
   padding: 8px 0;
   text-align: center;
 }
 
-.forbidden-lands .character .consumables .consumable a {
-  font-family: var(--font-special);
+.forbidden-lands .character .consumables .consumable select {
+  width: auto;
 }
 
 .forbidden-lands .character .gears {
@@ -53,7 +54,7 @@
 
 .forbidden-lands .character .gears .name {
   align-items: center;
-  flex-basis: 55%;
+  flex-basis: 60%;
   display: flex;
 }
 
@@ -80,7 +81,7 @@
 }
 
 .forbidden-lands .character .gears .button {
-  flex-basis: 15%;
+  flex-basis: 10%;
   font-size: 10px;
   text-align: right;
 }

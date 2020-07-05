@@ -216,11 +216,9 @@
 .forbidden-lands .item-list .items .item:nth-child(odd) {
   background-color: var(--color-secondary);
 }
-.forbidden-lands .item-list .items .item .secondary {
-  color: var(--color-secondary);
-}
-.forbidden-lands .item-list .items .item:nth-child(odd) .secondary {
-  color: var(--color-background);
+.forbidden-lands .item-list .items .item:nth-child(odd) button:focus,
+.forbidden-lands .item-list .items .item:nth-child(odd) button:hover {
+    background-color: var(--color-background);
 }
 
 .forbidden-lands .item-list .items .item .image-container {

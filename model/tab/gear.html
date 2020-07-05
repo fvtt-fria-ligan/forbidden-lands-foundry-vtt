@@ -34,7 +34,7 @@
                     <div class="skulls {{#unless item.data.bonus.value }}broken{{/unless}}">
                         <a class="change-item-bonus" data-item-id="{{item._id}}">
                             {{#skulls item.data.bonus.value item.data.bonus.max}}
-                            <i class="skull far {{#if @damaged}}fa-times-circle{{else}}fa-circle{{/if}}"></i>
+                            <i class="skull {{#if @damaged}}far fa-times-circle{{else}}fas fa-dice-d6{{/if}}"></i>
                             {{/skulls}}
                         </a>
                     </div>
@@ -52,7 +52,7 @@
     <div class="consumables border">
         {{#each actor.data.consumable as |consumable key|}}
         <div class="consumable">
-            {{localize consumable.label}}
+            <button class="roll-consumable" data-consumable="{{key}}">{{localize consumable.label}}</button>
             <select name="data.consumable.{{key}}.value" data-dtype="Number">
                 {{#select consumable.value}}
                 <option value="0">—</option>
@@ -62,7 +62,6 @@
                 <option value="12">D12</option>
                 {{/select}}
             </select>
-            <a class="roll-consumable" data-consumable="{{key}}"><i class="fas fa-dice-d20"></i></a>
         </div>
         {{/each}}
     </div>
