@@ -47,11 +47,11 @@
                             </div>
                             <div class="name">
                                 <button class="roll-weapon" data-item-id="{{item._id}}">{{item.name}}</button>
-                                {{item.data.weight}}{{#if item.data.features}}, {{/if}}{{item.data.features}}
+                                {{itemWeight item.data.weight}}{{#if item.data.features}}, {{/if}}{{item.data.features}}
                             </div>
                         </div>
                         <div class="damage">{{item.data.damage}}</div>
-                        <div class="range">{{item.data.range}}</div>
+                        <div class="range">{{weaponRange item.data.range}}</div>
                         <div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
                             {{item.data.bonus.value}}
                         </div>

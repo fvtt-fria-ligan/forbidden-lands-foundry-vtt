@@ -37,6 +37,32 @@ function registerHandlebarsHelpers() {
     }
     return acc;
   });
+  Handlebars.registerHelper("itemWeight", function (range) {
+    switch (range) {
+      case "tiny":
+        return game.i18n.localize("WEIGHT.TINY");
+      case "light":
+        return game.i18n.localize("WEIGHT.LIGHT");
+      case "regular":
+        return game.i18n.localize("WEIGHT.REGULAR");
+      case "heavy":
+        return game.i18n.localize("WEIGHT.HEAVY");
+    }
+  });
+  Handlebars.registerHelper("weaponRange", function (range) {
+    switch (range) {
+      case "arm":
+        return game.i18n.localize("RANGE.ARM");
+      case "near":
+        return game.i18n.localize("RANGE.NEAR");
+      case "short":
+        return game.i18n.localize("RANGE.SHORT");
+      case "long":
+        return game.i18n.localize("RANGE.LONG");
+      case "distant":
+        return game.i18n.localize("RANGE.DISTANT");
+    }
+  });
 }
 
 export const initializeHandlebars = () => {

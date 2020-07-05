@@ -24,9 +24,9 @@
         </div>
         <div class="bonus flex row wrap">
             <b>{{localize "WEAPON.BONUS"}}</b>
-            <input name="data.bonus.value" type="text" value="{{data.bonus.value}}" data-dtype="Number" />
+            <input name="data.bonus.value" type="number" value="{{data.bonus.value}}" data-dtype="Number" />
             /
-            <input name="data.bonus.max" type="text" value="{{data.bonus.max}}" data-dtype="Number" />
+            <input name="data.bonus.max" type="number" value="{{data.bonus.max}}" data-dtype="Number" />
         </div>
         <div class="damage flex row wrap">
             <b>{{localize "WEAPON.DAMAGE"}}</b>
@@ -36,11 +36,11 @@
             <b>{{localize "WEAPON.RANGE"}}</b>
             <select name="data.range">
                 {{#select data.range}}
-                <option value="arm">Arm's Length</option>
-                <option value="near">Near</option>
-                <option value="short">Short</option>
-                <option value="long">Long</option>
-                <option value="distant">Distant</option>
+                <option value="arm">{{localize "RANGE.ARM"}}</option>
+                <option value="near">{{localize "RANGE.NEAR"}}</option>
+                <option value="short">{{localize "RANGE.SHORT"}}</option>
+                <option value="long">{{localize "RANGE.LONG"}}</option>
+                <option value="distant">{{localize "RANGE.DISTANT"}}</option>
                 {{/select}}
             </select>
         </div>

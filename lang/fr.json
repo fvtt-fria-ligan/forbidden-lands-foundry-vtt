@@ -95,6 +95,17 @@
   "WEAPON.FEATURE": "Fonctionnalité",
   "WEAPON.DESCRIPTION": "Description",
 
+  "RANGE.ARM": "Arm's Length",
+  "RANGE.NEAR": "Near",
+  "RANGE.SHORT": "Short",
+  "RANGE.LONG": "Long",
+  "RANGE.DISTANT": "Distant",
+
+  "WEIGHT.TINY": "Tiny",
+  "WEIGHT.LIGHT": "Light",
+  "WEIGHT.REGULAR": "Regular",
+  "WEIGHT.HEAVY": "Heavy",
+
   "SPELL.NAME": "Nom",
   "SPELL.RANK": "Rang",
   "SPELL.RANGE": "Portée",

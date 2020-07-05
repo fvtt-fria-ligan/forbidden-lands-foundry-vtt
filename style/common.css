@@ -250,6 +250,3 @@
   background: var(--color-secondary);
   border: 0 none;
 }
-.app.window-app.sheet.forbidden-lands.actor ::-webkit-scrollbar-track {
-  box-shadow: none;
-}
