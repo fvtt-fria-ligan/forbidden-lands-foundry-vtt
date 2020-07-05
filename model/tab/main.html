@@ -24,17 +24,25 @@
         <h1>{{localize "HEADER.CONDITION"}}</h1>
         <div class="flex row wrap grow center align-center">
             <a class="condition {{# if data.condition.sleepy.value}}active{{/if}}" data-condition="sleepy"
-                title="{{localize "CONDITION.SLEEPY"}}"><i class="fas fa-bed"></i><br>
-                {{localize "CONDITION.SLEEPY"}}</a>
+                title="{{localize "CONDITION.SLEEPY"}}">
+                {{localize "CONDITION.SLEEPY"}}
+                <i class="far {{#if data.condition.sleepy.value}}fa-times-circle{{else}}fa-circle{{/if}}"></i>
+            </a>
             <a class="condition {{# if data.condition.thirsty.value}}active{{/if}}" data-condition="thirsty"
-                title="{{localize "CONDITION.THIRSTY"}}"><i class="fas fa-wine-bottle"></i><br>
-                {{localize "CONDITION.THIRSTY"}}</a>
+                title="{{localize "CONDITION.THIRSTY"}}">
+                {{localize "CONDITION.THIRSTY"}}
+                <i class="far {{#if data.condition.thirsty.value}}fa-times-circle{{else}}fa-circle{{/if}}"></i>
+            </a>
             <a class="condition {{# if data.condition.hungry.value}}active{{/if}}" data-condition="hungry"
-                title="{{localize "CONDITION.HUNGRY"}}"><i class="fas fa-utensils"></i><br>
-                {{localize "CONDITION.HUNGRY"}}</a>
+                title="{{localize "CONDITION.HUNGRY"}}">
+                {{localize "CONDITION.HUNGRY"}}
+                <i class="far {{#if data.condition.hungry.value}}fa-times-circle{{else}}fa-circle{{/if}}"></i>
+            </a>
             <a class="condition {{# if data.condition.cold.value}}active{{/if}}" data-condition="cold"
-                title="{{localize "CONDITION.COLD"}}"><i class="fas fa-snowflake"></i><br>
-                {{localize "CONDITION.COLD"}}</a>
+                title="{{localize "CONDITION.COLD"}}">
+                {{localize "CONDITION.COLD"}}
+                <i class="far {{#if data.condition.cold.value}}fa-times-circle{{else}}fa-circle{{/if}}"></i>
+            </a>
         </div>
     </div>
 

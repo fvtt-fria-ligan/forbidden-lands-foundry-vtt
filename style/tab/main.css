@@ -34,7 +34,6 @@
 }
 
 .forbidden-lands .conditions a.condition {
-  color: var(--color-secondary);
   flex-basis: 50%;
   font-family: var(--font-special);
   font-weight: bold;
