@@ -42,7 +42,7 @@
   text-align: center;
 }
 
-.forbidden-lands .character .armors .armor .bonus .skull.damaged {
+.forbidden-lands .character .armors .armor .bonus .broken {
   color: #a00;
 }
 
@@ -76,7 +76,7 @@
   font-weight: bold;
 }
 
-.forbidden-lands .character .critical-injuries .item .critical-injury .name .name,
+.forbidden-lands .character .critical-injuries .item.critical-injury .name .name,
 .forbidden-lands .character .critical-injuries .critical-injury .lethal,
 .forbidden-lands .character .critical-injuries .critical-injury .limit,
 .forbidden-lands .character .critical-injuries .critical-injury .effect,
@@ -140,7 +140,7 @@
   text-align: center;
 }
 
-.forbidden-lands .character .weapons .weapon .bonus .skull.damaged {
+.forbidden-lands .character .weapons .weapon .bonus .broken {
   color: #a00;
 }
 

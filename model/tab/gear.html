@@ -25,16 +25,19 @@
             {{#if item.isGear}}
             <div class="gear item flex row" data-item-id="{{item._id}}">
                 <div class="name">
-                    <div class="image" style="background-image: url('{{item.img}}')"></div>
+                    <div class="image-container">
+                        <div class="image" style="background-image: url('{{item.img}}')"></div>
+                    </div>
                     <a class="name">{{item.name}}</a>
                 </div>
                 <div class="bonus">
-                    {{#skulls item.data.bonus.value item.data.bonus.max}}
-                    <a class="skull secondary {{#if @damaged}}damaged{{/if}}" data-key="data.bonus.value"
-                        data-item-id="{{item._id}}" data-value="{{@value}}">
-                        <i class="fas fa-skull"></i>
-                    </a>
-                    {{/skulls}}
+                    <div class="skulls {{#unless item.data.bonus.value }}broken{{/unless}}">
+                        <a class="change-item-bonus" data-item-id="{{item._id}}">
+                            {{#skulls item.data.bonus.value item.data.bonus.max}}
+                            <i class="skull far {{#if @damaged}}fa-times-circle{{else}}fa-circle{{/if}}"></i>
+                            {{/skulls}}
+                        </a>
+                    </div>
                 </div>
                 <div class="weight">{{item.data.weight}}</div>
                 <div class="button">

@@ -1,4 +1,6 @@
-export class ForbiddenLandsMonsterSheet extends ActorSheet {
+import { ForbiddenLandsActorSheet } from "./actor.js";
+
+export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["forbidden-lands", "sheet", "actor"],
@@ -38,12 +40,6 @@ export class ForbiddenLandsMonsterSheet extends ActorSheet {
       this.actor.deleteOwnedItem(div.data("itemId"));
       div.slideUp(200, () => this.render(false));
     });
-    html.find("a.roll-attribute").click((ev) => {
-      const attributeName = $(ev.currentTarget).data("attribute");
-      const attribute = this.actor.data.data.attribute[attributeName];
-      let testName = game.i18n.localize(attribute.label).toUpperCase();
-      this.prepareRollDialog(testName, attribute.value, 0, 0, "", 0, 0);
-    });
     html.find("a.skull").click((ev) => {
       const key = $(ev.currentTarget).data("key");
       const value = $(ev.currentTarget).data("value");
@@ -59,21 +55,6 @@ export class ForbiddenLandsMonsterSheet extends ActorSheet {
         });
       }
     });
-    html.find("a.roll-skill").click((ev) => {
-      const skillName = $(ev.currentTarget).data("skill");
-      const skill = this.actor.data.data.skill[skillName];
-      const attribute = this.actor.data.data.attribute[skill.attribute];
-      let testName = game.i18n.localize(skill.label).toUpperCase();
-      this.prepareRollDialog(
-        testName,
-        attribute.value,
-        skill.value,
-        0,
-        "",
-        0,
-        0
-      );
-    });
     html.find(".armor a").click((ev) => {
       let armorValue = this.actor.data.data.armor.value;
       let testName = game.i18n.localize("HEADER.ARMOR").toUpperCase();
@@ -88,15 +69,7 @@ export class ForbiddenLandsMonsterSheet extends ActorSheet {
       const itemId = $(ev.currentTarget).data("itemId");
       const weapon = this.actor.getOwnedItem(itemId);
       let testName = weapon.name;
-      this.prepareRollDialog(
-        testName,
-        weapon.data.data.dice,
-        0,
-        0,
-        "",
-        0,
-        weapon.data.data.damage
-      );
+      this.prepareRollDialog(testName, weapon.data.data.dice, 0, 0, "", 0, weapon.data.data.damage);
     });
     html.find(".gear.item .name").click((ev) => {
       const div = $(ev.currentTarget).parents(".item");
@@ -128,8 +101,7 @@ export class ForbiddenLandsMonsterSheet extends ActorSheet {
     for (let item of Object.values(data.items)) {
       item.isMonsterAttack = item.type === "monsterAttack";
       item.isMonsterTalent = item.type === "monsterTalent";
-      item.isGear =
-        item.type !== "monsterAttack" && item.type !== "monsterTalent";
+      item.isGear = item.type !== "monsterAttack" && item.type !== "monsterTalent";
     }
   }
 
@@ -141,25 +113,15 @@ export class ForbiddenLandsMonsterSheet extends ActorSheet {
     this.actor.createEmbeddedEntity("OwnedItem", data);
   }
 
-  prepareRollDialog(
-    testName,
-    baseDefault,
-    skillDefault,
-    gearDefault,
-    artifactDefault,
-    modifierDefault,
-    damage
-  ) {
+  prepareRollDialog(testName, baseDefault, skillDefault, gearDefault, artifactDefault, modifierDefault, damage) {
     let baseHtml = this.buildInputHtmlDialog("Base", baseDefault);
     let skillHtml = this.buildInputHtmlDialog("Skill", skillDefault);
     let gearHtml = this.buildInputHtmlDialog("Gear", gearDefault);
     let artifactHtml = this.buildInputHtmlDialog("Artifacts", artifactDefault);
     let modifierHtml = this.buildInputHtmlDialog("Modifier", modifierDefault);
     let d = new Dialog({
-      title: "Test : " + testName,
-      content: this.buildDivHtmlDialog(
-        baseHtml + skillHtml + gearHtml + artifactHtml + modifierHtml
-      ),
+      title: "Test: " + testName,
+      content: this.buildDivHtmlDialog(baseHtml + skillHtml + gearHtml + artifactHtml + modifierHtml),
       buttons: {
         roll: {
           icon: '<i class="fas fa-check"></i>',
@@ -170,15 +132,7 @@ export class ForbiddenLandsMonsterSheet extends ActorSheet {
             let gear = html.find("#gear")[0].value;
             let artifact = this.parseArtifact(html.find("#artifacts")[0].value);
             let modifier = html.find("#modifier")[0].value;
-            this.roll(
-              testName,
-              parseInt(base, 10),
-              parseInt(skill, 10),
-              parseInt(gear, 10),
-              artifact,
-              parseInt(modifier, 10),
-              parseInt(damage, 10)
-            );
+            this.roll(testName, parseInt(base, 10), parseInt(skill, 10), parseInt(gear, 10), artifact, parseInt(modifier, 10), parseInt(damage, 10));
           },
         },
         cancel: {
@@ -198,15 +152,7 @@ export class ForbiddenLandsMonsterSheet extends ActorSheet {
   }
 
   buildInputHtmlDialog(diceName, diceValue) {
-    return (
-      "<b>" +
-      diceName +
-      "</b><input id='" +
-      diceName.toLowerCase() +
-      "' style='text-align: center' type='text' value='" +
-      diceValue +
-      "'/>"
-    );
+    return "<b>" + diceName + "</b><input id='" + diceName.toLowerCase() + "' style='text-align: center' type='text' value='" + diceValue + "'/>";
   }
 
   parseArtifact(artifact) {
@@ -253,42 +199,16 @@ export class ForbiddenLandsMonsterSheet extends ActorSheet {
     if (isPushed) {
       if (numberOfSword > 0) {
         resultMessage =
-          "<b style='color:green'>" +
-          this.lastTestName +
-          "</b> (PUSHED) <b>" +
-          (numberOfSword + damage) +
-          "⚔️ | " +
-          numberOfSkull +
-          " 💀</b></br>";
+          "<b style='color:green'>" + this.lastTestName + "</b> (PUSHED) <b>" + (numberOfSword + damage) + "⚔️ | " + numberOfSkull + " 💀</b></br>";
       } else {
-        resultMessage =
-          "<b style='color:red'>" +
-          this.lastTestName +
-          "</b> (PUSHED) <b>" +
-          numberOfSword +
-          "⚔️ | " +
-          numberOfSkull +
-          " 💀</b></br>";
+        resultMessage = "<b style='color:red'>" + this.lastTestName + "</b> (PUSHED) <b>" + numberOfSword + "⚔️ | " + numberOfSkull + " 💀</b></br>";
       }
     } else {
       if (numberOfSword > 0) {
         resultMessage =
-          "<b style='color:green'>" +
-          this.lastTestName +
-          "</b> <b>" +
-          (numberOfSword + damage) +
-          "⚔️ | " +
-          numberOfSkull +
-          " 💀</b></br>";
+          "<b style='color:green'>" + this.lastTestName + "</b> <b>" + (numberOfSword + damage) + "⚔️ | " + numberOfSkull + " 💀</b></br>";
       } else {
-        resultMessage =
-          "<b style='color:red'>" +
-          this.lastTestName +
-          "</b> <b>" +
-          numberOfSword +
-          "⚔️ | " +
-          numberOfSkull +
-          " 💀</b></br>";
+        resultMessage = "<b style='color:red'>" + this.lastTestName + "</b> <b>" + numberOfSword + "⚔️ | " + numberOfSkull + " 💀</b></br>";
       }
     }
     let diceMessage = this.printDices() + "</br>";
@@ -329,11 +249,7 @@ export class ForbiddenLandsMonsterSheet extends ActorSheet {
       } else {
         return { success: 1, weight: 1 };
       }
-    } else if (
-      diceValue === 1 &&
-      diceType !== "skill-penalty" &&
-      diceType !== "skill"
-    ) {
+    } else if (diceValue === 1 && diceType !== "skill-penalty" && diceType !== "skill") {
       return { success: 0, weight: -2 };
     } else {
       return { success: 0, weight: 0 };
@@ -374,13 +290,7 @@ export class ForbiddenLandsMonsterSheet extends ActorSheet {
 
   sendTalentToChat(talent) {
     let message =
-      "<b>" +
-      talent.name.toUpperCase() +
-      "</b></br>" +
-      "<b>" +
-      game.i18n.localize("TALENT.DESCRIPTION") +
-      ": </b>" +
-      talent.data.data.description;
+      "<b>" + talent.name.toUpperCase() + "</b></br>" + "<b>" + game.i18n.localize("TALENT.DESCRIPTION") + ": </b>" + talent.data.data.description;
     let chatData = {
       user: game.user._id,
       content: message,
@@ -580,7 +490,7 @@ export class ForbiddenLandsMonsterSheet extends ActorSheet {
       "<b>" +
       game.i18n.localize("ARMOR.RATING") +
       ": </b>" +
-      artifact.data.data.rating.max +
+      artifact.data.data.bonus.value +
       "</br>" +
       "<b>" +
       game.i18n.localize("ARMOR.PART") +

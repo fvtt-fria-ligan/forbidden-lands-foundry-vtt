@@ -9,22 +9,27 @@
   align-items: baseline;
   display: grid;
   gap: 4px 8px;
-  grid-template-columns: auto 2em 1fr 13px;
+  grid-template-columns: auto 1fr auto;
   padding: 0 8px 8px;
 }
 
 .forbidden-lands .attributes h1 {
-  grid-column-end: span 4;
+  grid-column: 1/-1;
 }
 
 .forbidden-lands .attributes .name {
   font-family: var(--font-special);
 }
 
-.forbidden-lands .attributes .skulls .skull {
-  color: var(--color-secondary);
+.forbidden-lands .attributes .value {
+  font-family: var(--font-special);
 }
-.forbidden-lands .attributes .skulls .skull.damaged {
+
+.forbidden-lands .attributes .value input {
+  width: 2em;
+}
+
+.forbidden-lands .attributes .broken {
   color: #a00;
 }
 
@@ -45,12 +50,12 @@
   flex-basis: calc(50% - 4px);
   flex-grow: 1;
   gap: 4px 8px;
-  grid-template-columns: auto 2em 13px;
+  grid-template-columns: auto 2em;
   padding: 0 8px 8px;
 }
 
 .forbidden-lands .skills h1 {
-  grid-column-end: span 3;
+  grid-column: 1/-1;
 }
 
 .forbidden-lands .skills .name {

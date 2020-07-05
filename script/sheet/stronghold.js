@@ -354,7 +354,7 @@ export class ForbiddenLandsStrongholdSheet extends ActorSheet {
       "<b>" +
       game.i18n.localize("ARMOR.RATING") +
       ": </b>" +
-      artifact.data.data.rating.max +
+      artifact.data.data.bonus.value +
       "</br>" +
       "<b>" +
       game.i18n.localize("ARMOR.PART") +

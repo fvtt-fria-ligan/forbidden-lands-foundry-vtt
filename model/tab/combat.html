@@ -12,16 +12,19 @@
                 {{#if item.isArmor}}
                 <div class="item armor" data-item-id="{{item._id}}">
                     <div class="name">
-                        <div class="image" style="background-image: url('{{item.img}}')"></div>
+                        <div class="image-container">
+                            <div class="image" style="background-image: url('{{item.img}}')"></div>
+                        </div>
                         <div class="name">{{item.name}}</div>
                     </div>
                     <div class="bonus">
-                        {{#skulls item.data.bonus.value item.data.bonus.max}}
-                        <a class="skull secondary {{#if @damaged}}damaged{{/if}}" data-key="data.bonus.value"
-                            data-item-id="{{item._id}}" data-value="{{@value}}">
-                            <i class="fas fa-skull"></i>
-                        </a>
-                        {{/skulls}}
+                        <div class="skulls {{#unless item.data.bonus.value }}broken{{/unless}}">
+                            <a class="change-item-bonus" data-item-id="{{item._id}}">
+                                {{#skulls item.data.bonus.value item.data.bonus.max}}
+                                <i class="skull far {{#if @damaged}}fa-times-circle{{else}}fa-circle{{/if}}"></i>
+                                {{/skulls}}
+                            </a>
+                        </div>
                     </div>
                     <div class="button"><a class="roll-armor specific" data-item-id="{{item._id}}"><i class="fas fa-dice-d20"></i></a></div>
                 </div>
@@ -35,9 +38,9 @@
         <div class="item-list">
             <div class="header weapon">
                 <b class="name">{{localize "WEAPON.NAME"}}</b>
-                <b class="bonus">{{localize "WEAPON.BONUS"}}</b>
                 <b class="damage">{{localize "WEAPON.DAMAGE"}}</b>
                 <b class="range">{{localize "WEAPON.RANGE"}}</b>
+                <b class="bonus">{{localize "WEAPON.BONUS"}}</b>
                 <b class="button"></b>
             </div>
             <div class="items">
@@ -46,19 +49,22 @@
                 <div class="item" data-item-id="{{item._id}}">
                     <div class="weapon">
                         <div class="name">
-                            <div class="image" style="background-image: url('{{item.img}}')"></div>
+                            <div class="image-container">
+                                <div class="image" style="background-image: url('{{item.img}}')"></div>
+                            </div>
                             <div class="name">{{item.name}}</div>
-                        </div>
-                        <div class="bonus">
-                            {{#skulls item.data.bonus.value item.data.bonus.max}}
-                            <a class="skull secondary {{#if @damaged}}damaged{{/if}}" data-key="data.bonus.value"
-                                data-item-id="{{item._id}}" data-value="{{@value}}">
-                                <i class="fas fa-skull"></i>
-                            </a>
-                            {{/skulls}}
                         </div>
                         <div class="damage">{{item.data.damage}}</div>
                         <div class="range">{{item.data.range}}</div>
+                        <div class="bonus">
+                            <div class="skulls {{#unless item.data.bonus.value }}broken{{/unless}}">
+                                <a class="change-item-bonus" data-item-id="{{item._id}}">
+                                    {{#skulls item.data.bonus.value item.data.bonus.max}}
+                                    <i class="skull far {{#if @damaged}}fa-times-circle{{else}}fa-circle{{/if}}"></i>
+                                    {{/skulls}}
+                                </a>
+                            </div>
+                        </div>
                         <div class="button"><a class="roll-weapon" data-item-id="{{item._id}}"><i class="fas fa-dice-d20"></i></a></div>
                     </div>
                     <div class="features">{{item.data.weight}}{{#if item.data.features}},
@@ -84,7 +90,9 @@
                 {{#if item.isCriticalInjury}}
                 <div class="critical-injury item flex row" data-item-id="{{item._id}}">
                     <div class="name">
-                        <div class="image" style="background-image: url('{{item.img}}')"></div>
+                        <div class="image-container">
+                            <div class="image" style="background-image: url('{{item.img}}')"></div>
+                        </div>
                         <div class="name">
                             <span>{{item.name}}:</span> {{item.data.effect}}
                         </div>

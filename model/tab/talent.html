@@ -12,7 +12,9 @@
                 {{#if item.isTalent}}
                 <div class="talent item flex row" data-item-id="{{item._id}}">
                     <div class="name">
-                        <div class="image" style="background-image: url('{{item.img}}')"></div>
+                        <div class="image-container">
+                            <div class="image" style="background-image: url('{{item.img}}')"></div>
+                        </div>
                         <a class="name">{{item.name}}</a>
                     </div>
                     <div class="rank">{{item.data.rank}}</div>
@@ -39,7 +41,9 @@
                 {{#if item.isSpell}}
                 <div class="spell item flex row" data-item-id="{{item._id}}">
                     <div class="name">
-                        <div class="image" style="background-image: url('{{item.img}}')"></div>
+                        <div class="image-container">
+                            <div class="image" style="background-image: url('{{item.img}}')"></div>
+                        </div>
                         <a class="name">{{item.name}}</a>
                     </div>
                     <div class="rank">{{item.data.rank}}</div>

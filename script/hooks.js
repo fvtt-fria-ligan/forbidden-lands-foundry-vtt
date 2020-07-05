@@ -14,6 +14,7 @@ import { ForbiddenLandsMonsterTalentSheet } from "./sheet/monster-talent.js";
 import { ForbiddenLandsMonsterAttackSheet } from "./sheet/monster-attack.js";
 import { ForbiddenLandsBuildingSheet } from "./sheet/building.js";
 import { ForbiddenLandsHirelingSheet } from "./sheet/hireling.js";
+import { initializeHandlebars } from "./handlebars.js";
 import { migrateWorld } from "./migration.js";
 
 // CONFIG.debug.hooks = true;
@@ -22,92 +23,33 @@ Hooks.once("init", () => {
   CONFIG.Combat.initiative = { formula: "1d10", decimals: 0 };
   CONFIG.Actor.entityClass = ForbiddenLandsActor;
   CONFIG.fontFamilies.push("IM Fell Great Primer");
+  CONFIG.defaultFontFamily = "IM Fell Great Primer";
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("forbidden-lands", ForbiddenLandsCharacterSheet, {
-    types: ["character"],
-    makeDefault: true,
-  });
-  Actors.registerSheet("forbidden-lands", ForbiddenLandsMonsterSheet, {
-    types: ["monster"],
-    makeDefault: true,
-  });
-  Actors.registerSheet("forbidden-lands", ForbiddenLandsStrongholdSheet, {
-    types: ["stronghold"],
-    makeDefault: true,
-  });
+  Actors.registerSheet("forbidden-lands", ForbiddenLandsCharacterSheet, { types: ["character"], makeDefault: true });
+  Actors.registerSheet("forbidden-lands", ForbiddenLandsMonsterSheet, { types: ["monster"], makeDefault: true });
+  Actors.registerSheet("forbidden-lands", ForbiddenLandsStrongholdSheet, { types: ["stronghold"], makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("forbidden-lands", ForbiddenLandsWeaponSheet, {
-    types: ["weapon"],
-    makeDefault: true,
-  });
-  Items.registerSheet("forbidden-lands", ForbiddenLandsArmorSheet, {
-    types: ["armor"],
-    makeDefault: true,
-  });
-  Items.registerSheet("forbidden-lands", ForbiddenLandsArtifactSheet, {
-    types: ["artifact"],
-    makeDefault: true,
-  });
-  Items.registerSheet("forbidden-lands", ForbiddenLandsGearSheet, {
-    types: ["gear"],
-    makeDefault: true,
-  });
-  Items.registerSheet("forbidden-lands", ForbiddenLandsRawMaterialSheet, {
-    types: ["rawMaterial"],
-    makeDefault: true,
-  });
-  Items.registerSheet("forbidden-lands", ForbiddenLandsSpellSheet, {
-    types: ["spell"],
-    makeDefault: true,
-  });
-  Items.registerSheet("forbidden-lands", ForbiddenLandsTalentSheet, {
-    types: ["talent"],
-    makeDefault: true,
-  });
-  Items.registerSheet("forbidden-lands", ForbiddenLandsCriticalInjurySheet, {
-    types: ["criticalInjury"],
-    makeDefault: true,
-  });
-  Items.registerSheet("forbidden-lands", ForbiddenLandsMonsterTalentSheet, {
-    types: ["monsterTalent"],
-    makeDefault: true,
-  });
-  Items.registerSheet("forbidden-lands", ForbiddenLandsMonsterAttackSheet, {
-    types: ["monsterAttack"],
-    makeDefault: true,
-  });
-  Items.registerSheet("forbidden-lands", ForbiddenLandsBuildingSheet, {
-    types: ["building"],
-    makeDefault: true,
-  });
-  Items.registerSheet("forbidden-lands", ForbiddenLandsHirelingSheet, {
-    types: ["hireling"],
-    makeDefault: true,
-  });
+  Items.registerSheet("forbidden-lands", ForbiddenLandsWeaponSheet, { types: ["weapon"], makeDefault: true });
+  Items.registerSheet("forbidden-lands", ForbiddenLandsArmorSheet, { types: ["armor"], makeDefault: true });
+  Items.registerSheet("forbidden-lands", ForbiddenLandsArtifactSheet, { types: ["artifact"], makeDefault: true });
+  Items.registerSheet("forbidden-lands", ForbiddenLandsGearSheet, { types: ["gear"], makeDefault: true });
+  Items.registerSheet("forbidden-lands", ForbiddenLandsRawMaterialSheet, { types: ["rawMaterial"], makeDefault: true });
+  Items.registerSheet("forbidden-lands", ForbiddenLandsSpellSheet, { types: ["spell"], makeDefault: true });
+  Items.registerSheet("forbidden-lands", ForbiddenLandsTalentSheet, { types: ["talent"], makeDefault: true });
+  Items.registerSheet("forbidden-lands", ForbiddenLandsCriticalInjurySheet, { types: ["criticalInjury"], makeDefault: true });
+  Items.registerSheet("forbidden-lands", ForbiddenLandsMonsterTalentSheet, { types: ["monsterTalent"], makeDefault: true });
+  Items.registerSheet("forbidden-lands", ForbiddenLandsMonsterAttackSheet, { types: ["monsterAttack"], makeDefault: true });
+  Items.registerSheet("forbidden-lands", ForbiddenLandsBuildingSheet, { types: ["building"], makeDefault: true });
+  Items.registerSheet("forbidden-lands", ForbiddenLandsHirelingSheet, { types: ["hireling"], makeDefault: true });
   game.settings.register("forbidden-lands", "worldSchemaVersion", {
     name: "World Version",
-    hint:
-      "Used to automatically upgrade worlds data when the system is upgraded.",
+    hint: "Used to automatically upgrade worlds data when the system is upgraded.",
     scope: "world",
     config: true,
     default: 0,
     type: Number,
   });
-  Handlebars.registerHelper("skulls", function (current, max, block) {
-    var acc = "";
-    for (var i = 0; i < max; ++i) {
-      block.data.index = i;
-      block.data.damaged = current + i < max;
-      if (max - current == i + 1) {
-        block.data.value = Math.max(current + 1, 0);
-      } else {
-        block.data.value = max - i - 1;
-      }
-      acc += block.fn(this);
-    }
-    return acc;
-  });
-  preloadHandlebarsTemplates();
+  initializeHandlebars();
 });
 
 Hooks.once("ready", () => {
@@ -115,41 +57,10 @@ Hooks.once("ready", () => {
   initializeCalendar();
 });
 
-function preloadHandlebarsTemplates() {
-  const templatePaths = [
-    "systems/forbidden-lands/model/character.html",
-    "systems/forbidden-lands/model/monster.html",
-    "systems/forbidden-lands/model/weapon.html",
-    "systems/forbidden-lands/model/armor.html",
-    "systems/forbidden-lands/model/monster-talent.html",
-    "systems/forbidden-lands/model/monster-attack.html",
-    "systems/forbidden-lands/model/artifact.html",
-    "systems/forbidden-lands/model/gear.html",
-    "systems/forbidden-lands/model/raw-material.html",
-    "systems/forbidden-lands/model/talent.html",
-    "systems/forbidden-lands/model/spell.html",
-    "systems/forbidden-lands/model/critical-injury.html",
-    "systems/forbidden-lands/model/tab/main.html",
-    "systems/forbidden-lands/model/tab/combat.html",
-    "systems/forbidden-lands/model/tab/combat-monster.html",
-    "systems/forbidden-lands/model/tab/talent.html",
-    "systems/forbidden-lands/model/tab/spell.html",
-    "systems/forbidden-lands/model/tab/gear.html",
-    "systems/forbidden-lands/model/tab/gear-monster.html",
-    "systems/forbidden-lands/model/tab/bio.html",
-    "systems/forbidden-lands/model/tab/building-stronghold.html",
-    "systems/forbidden-lands/model/tab/hireling-stronghold.html",
-    "systems/forbidden-lands/model/tab/gear-stronghold.html",
-  ];
-  return loadTemplates(templatePaths);
-}
-
 function initializeCalendar() {
   // Init support for the Calendar/Weather module
   if (!game.modules.has("calendar-weather")) {
-    console.warn(
-      "Install the Calendar/Weather module for calendar support: https://foundryvtt.com/packages/calendar-weather/"
-    );
+    console.warn("Install the Calendar/Weather module for calendar support: https://foundryvtt.com/packages/calendar-weather/");
     return;
   }
 
@@ -163,58 +74,18 @@ function initializeCalendar() {
       currentMonth: 2,
       day: 1,
       dayLength: 24,
-      daysOfTheWeek: [
-        "Sunday",
-        "Moonday",
-        "Bloodday",
-        "Earthday",
-        "Growthday",
-        "Feastday",
-        "Stillday",
-      ],
+      daysOfTheWeek: ["Sunday", "Moonday", "Bloodday", "Earthday", "Growthday", "Feastday", "Stillday"],
       era: "AS",
       events: [],
       months: [
-        {
-          isNumbered: true,
-          length: 46,
-          name: "Winterwane",
-        },
-        {
-          isNumbered: true,
-          length: 45,
-          name: "Springrise",
-        },
-        {
-          isNumbered: true,
-          length: 46,
-          name: "Springwane",
-        },
-        {
-          isNumbered: true,
-          length: 45,
-          name: "Sumerrise",
-        },
-        {
-          isNumbered: true,
-          length: 46,
-          name: "Summerwane",
-        },
-        {
-          isNumbered: true,
-          length: 45,
-          name: "Fallrise",
-        },
-        {
-          isNumbered: true,
-          length: 46,
-          name: "Fallwane",
-        },
-        {
-          isNumbered: true,
-          length: 45,
-          name: "Winterrise",
-        },
+        { isNumbered: true, length: 46, name: "Winterwane" },
+        { isNumbered: true, length: 45, name: "Springrise" },
+        { isNumbered: true, length: 46, name: "Springwane" },
+        { isNumbered: true, length: 45, name: "Sumerrise" },
+        { isNumbered: true, length: 46, name: "Summerwane" },
+        { isNumbered: true, length: 45, name: "Fallrise" },
+        { isNumbered: true, length: 46, name: "Fallwane" },
+        { isNumbered: true, length: 45, name: "Winterrise" },
       ],
       moons: [
         {
@@ -227,46 +98,14 @@ function initializeCalendar() {
         },
       ],
       reEvents: [
-        {
-          name: "Midwinter",
-          date: { combined: "1-1", day: 1, month: "1" },
-          text: "",
-        },
-        {
-          name: "Awakening Day",
-          date: { combined: "2-1", day: 1, month: "2" },
-          text: "",
-        },
-        {
-          name: "Springturn",
-          date: { combined: "3-1", day: 1, month: "3" },
-          text: "",
-        },
-        {
-          name: "Lushday",
-          date: { combined: "4-1", day: 1, month: "4" },
-          text: "",
-        },
-        {
-          name: "Midsummer",
-          date: { combined: "5-1", day: 1, month: "5" },
-          text: "",
-        },
-        {
-          name: "Harvest Day",
-          date: { combined: "6-1", day: 1, month: "6" },
-          text: "",
-        },
-        {
-          name: "Fallturn",
-          date: { combined: "7-1", day: 1, month: "7" },
-          text: "",
-        },
-        {
-          name: "Rotday",
-          date: { combined: "8-1", day: 1, month: "8" },
-          text: "",
-        },
+        { name: "Midwinter", date: { combined: "1-1", day: 1, month: "1" }, text: "" },
+        { name: "Awakening Day", date: { combined: "2-1", day: 1, month: "2" }, text: "" },
+        { name: "Springturn", date: { combined: "3-1", day: 1, month: "3" }, text: "" },
+        { name: "Lushday", date: { combined: "4-1", day: 1, month: "4" }, text: "" },
+        { name: "Midsummer", date: { combined: "5-1", day: 1, month: "5" }, text: "" },
+        { name: "Harvest Day", date: { combined: "6-1", day: 1, month: "6" }, text: "" },
+        { name: "Fallturn", date: { combined: "7-1", day: 1, month: "7" }, text: "" },
+        { name: "Rotday", date: { combined: "8-1", day: 1, month: "8" }, text: "" },
       ],
       seasons: [
         {
