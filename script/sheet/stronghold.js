@@ -1,4 +1,6 @@
-export class ForbiddenLandsStrongholdSheet extends ActorSheet {
+import { ForbiddenLandsActorSheet } from "./actor.js";
+
+export class ForbiddenLandsStrongholdSheet extends ForbiddenLandsActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["forbidden-lands", "sheet", "actor"],
@@ -27,17 +29,7 @@ export class ForbiddenLandsStrongholdSheet extends ActorSheet {
     html.find(".item-create").click((ev) => {
       this.onItemCreate(ev);
     });
-    html.find(".item-edit").click((ev) => {
-      const div = $(ev.currentTarget).parents(".item");
-      const item = this.actor.getOwnedItem(div.data("itemId"));
-      item.sheet.render(true);
-    });
-    html.find(".item-delete").click((ev) => {
-      const div = $(ev.currentTarget).parents(".item");
-      this.actor.deleteOwnedItem(div.data("itemId"));
-      div.slideUp(200, () => this.render(false));
-    });
-    html.find(".building.item .name").click((ev) => {
+    html.find(".building.item .name .name").click((ev) => {
       const div = $(ev.currentTarget).parents(".item");
       const gear = this.actor.getOwnedItem(div.data("itemId"));
       this.sendBuildingToChat(gear);
@@ -47,7 +39,7 @@ export class ForbiddenLandsStrongholdSheet extends ActorSheet {
       const gear = this.actor.getOwnedItem(div.data("itemId"));
       this.sendHirelingToChat(gear);
     });
-    html.find(".gear.item .name").click((ev) => {
+    html.find(".gear.item .name .name").click((ev) => {
       const div = $(ev.currentTarget).parents(".item");
       const gear = this.actor.getOwnedItem(div.data("itemId"));
       if (gear.type === "weapon") {

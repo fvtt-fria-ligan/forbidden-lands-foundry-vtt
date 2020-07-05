@@ -18,14 +18,8 @@
                             <button class="roll-armor specific" data-item-id="{{item._id}}">{{item.name}}</button>
                         </div>
                     </div>
-                    <div class="bonus">
-                        <div class="skulls {{#unless item.data.bonus.value }}broken{{/unless}}">
-                            <a class="change-item-bonus" data-item-id="{{item._id}}">
-                                {{#skulls item.data.bonus.value item.data.bonus.max}}
-                                <i class="skull {{#if @damaged}}far fa-times-circle{{else}}fas fa-dice-d6{{/if}}"></i>
-                                {{/skulls}}
-                            </a>
-                        </div>
+                    <div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
+                        {{item.data.bonus.value}}
                     </div>
                 </div>
                 {{/if}}
@@ -53,22 +47,15 @@
                             </div>
                             <div class="name">
                                 <button class="roll-weapon" data-item-id="{{item._id}}">{{item.name}}</button>
+                                {{item.data.weight}}{{#if item.data.features}}, {{/if}}{{item.data.features}}
                             </div>
                         </div>
                         <div class="damage">{{item.data.damage}}</div>
                         <div class="range">{{item.data.range}}</div>
-                        <div class="bonus">
-                            <div class="skulls {{#unless item.data.bonus.value }}broken{{/unless}}">
-                                <a class="change-item-bonus" data-item-id="{{item._id}}">
-                                    {{#skulls item.data.bonus.value item.data.bonus.max}}
-                                    <i class="skull {{#if @damaged}}far fa-times-circle{{else}}fas fa-dice-d6{{/if}}"></i>
-                                    {{/skulls}}
-                                </a>
-                            </div>
+                        <div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
+                            {{item.data.bonus.value}}
                         </div>
                     </div>
-                    <div class="features">{{item.data.weight}}{{#if item.data.features}},
-                        {{/if}}{{item.data.features}}</div>
                 </div>
                 {{/if}}
                 {{/each}}

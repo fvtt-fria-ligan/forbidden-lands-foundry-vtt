@@ -41,7 +41,7 @@
   text-align: center;
 }
 
-.forbidden-lands .character .armors .armor .bonus .broken {
+.forbidden-lands .character .armors .armor .bonus.broken {
   color: #a00;
 }
 
@@ -133,7 +133,7 @@
   text-align: center;
 }
 
-.forbidden-lands .character .weapons .weapon .bonus .broken {
+.forbidden-lands .character .weapons .weapon .bonus.broken {
   color: #a00;
 }
 

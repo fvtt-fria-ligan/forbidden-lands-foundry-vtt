@@ -30,31 +30,6 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
     html.find(".item-create").click((ev) => {
       this.onItemCreate(ev);
     });
-    html.find(".item-edit").click((ev) => {
-      const div = $(ev.currentTarget).parents(".item");
-      const item = this.actor.getOwnedItem(div.data("itemId"));
-      item.sheet.render(true);
-    });
-    html.find(".item-delete").click((ev) => {
-      const div = $(ev.currentTarget).parents(".item");
-      this.actor.deleteOwnedItem(div.data("itemId"));
-      div.slideUp(200, () => this.render(false));
-    });
-    html.find("a.skull").click((ev) => {
-      const key = $(ev.currentTarget).data("key");
-      const value = $(ev.currentTarget).data("value");
-      const itemId = $(ev.currentTarget).data("itemId");
-      if (itemId) {
-        this.actor.updateOwnedItem({
-          _id: itemId,
-          [key]: value,
-        });
-      } else {
-        this.actor.update({
-          [key]: value,
-        });
-      }
-    });
     html.find(".armor a").click((ev) => {
       let armorValue = this.actor.data.data.armor.value;
       let testName = game.i18n.localize("HEADER.ARMOR").toUpperCase();
@@ -71,7 +46,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
       let testName = weapon.name;
       this.prepareRollDialog(testName, weapon.data.data.dice, 0, 0, "", 0, weapon.data.data.damage);
     });
-    html.find(".gear.item .name").click((ev) => {
+    html.find(".gear.item .name .name").click((ev) => {
       const div = $(ev.currentTarget).parents(".item");
       const gear = this.actor.getOwnedItem(div.data("itemId"));
       if (gear.type === "weapon") {

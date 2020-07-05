@@ -3,7 +3,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
     super.activateListeners(html);
 
     // Attribute markers
-    html.find("a.change-attribute").on("click contextmenu", (ev) => {
+    html.find(".change-attribute").on("click contextmenu", (ev) => {
       const attributeName = $(ev.currentTarget).data("attribute");
       const attribute = this.actor.data.data.attribute[attributeName];
       let value = attribute.value;
@@ -17,8 +17,18 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
       });
     });
 
-    // Item bonus markers
-    html.find("a.change-item-bonus").on("click contextmenu", (ev) => {
+    // Items
+    html.find(".item-edit").click((ev) => {
+      const div = $(ev.currentTarget).parents(".item");
+      const item = this.actor.getOwnedItem(div.data("itemId"));
+      item.sheet.render(true);
+    });
+    html.find(".item-delete").click((ev) => {
+      const div = $(ev.currentTarget).parents(".item");
+      this.actor.deleteOwnedItem(div.data("itemId"));
+      div.slideUp(200, () => this.render(false));
+    });
+    html.find(".change-item-bonus").on("click contextmenu", (ev) => {
       const itemId = $(ev.currentTarget).data("itemId");
       const item = this.actor.getOwnedItem(itemId);
       let value = item.data.data.bonus.value;
@@ -33,20 +43,20 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
     });
 
     // Rolls
-    html.find("button.roll-attribute").click((ev) => {
+    html.find(".roll-attribute").click((ev) => {
       const attributeName = $(ev.currentTarget).data("attribute");
       const attribute = this.actor.data.data.attribute[attributeName];
       let testName = game.i18n.localize(attribute.label).toUpperCase();
       this.prepareRollDialog(testName, attribute.value, 0, 0, "", 0, 0);
     });
-    html.find("button.roll-skill").click((ev) => {
+    html.find(".roll-skill").click((ev) => {
       const skillName = $(ev.currentTarget).data("skill");
       const skill = this.actor.data.data.skill[skillName];
       const attribute = this.actor.data.data.attribute[skill.attribute];
       let testName = game.i18n.localize(skill.label).toUpperCase();
       this.prepareRollDialog(testName, attribute.value, skill.value, 0, "", 0, 0);
     });
-    html.find("button.roll-weapon").click((ev) => {
+    html.find(".roll-weapon").click((ev) => {
       const itemId = $(ev.currentTarget).data("itemId");
       const weapon = this.actor.getOwnedItem(itemId);
       let testName = weapon.name;

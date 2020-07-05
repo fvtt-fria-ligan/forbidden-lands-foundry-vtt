@@ -71,7 +71,7 @@
   text-align: center;
 }
 
-.forbidden-lands .character .gears .bonus .broken {
+.forbidden-lands .character .gears .bonus.broken {
   color: #a00;
 }
 

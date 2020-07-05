@@ -30,14 +30,8 @@
                     </div>
                     <a class="name">{{item.name}}</a>
                 </div>
-                <div class="bonus">
-                    <div class="skulls {{#unless item.data.bonus.value }}broken{{/unless}}">
-                        <a class="change-item-bonus" data-item-id="{{item._id}}">
-                            {{#skulls item.data.bonus.value item.data.bonus.max}}
-                            <i class="skull {{#if @damaged}}far fa-times-circle{{else}}fas fa-dice-d6{{/if}}"></i>
-                            {{/skulls}}
-                        </a>
-                    </div>
+                <div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
+                    {{item.data.bonus.value}}
                 </div>
                 <div class="weight">{{item.data.weight}}</div>
                 <div class="button">

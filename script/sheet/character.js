@@ -42,16 +42,6 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
     html.find(".item-create").click((ev) => {
       this.onItemCreate(ev);
     });
-    html.find(".item-edit").click((ev) => {
-      const div = $(ev.currentTarget).parents(".item");
-      const item = this.actor.getOwnedItem(div.data("itemId"));
-      item.sheet.render(true);
-    });
-    html.find(".item-delete").click((ev) => {
-      const div = $(ev.currentTarget).parents(".item");
-      this.actor.deleteOwnedItem(div.data("itemId"));
-      div.slideUp(200, () => this.render(false));
-    });
     html.find(".condition").click(async (ev) => {
       const conditionName = $(ev.currentTarget).data("condition");
       const conditionValue = this.actor.data.data.condition[conditionName].value;
@@ -68,13 +58,13 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
       }
       this._render();
     });
-    html.find("button.roll-armor.specific").click((ev) => {
+    html.find(".roll-armor.specific").click((ev) => {
       const itemId = $(ev.currentTarget).data("itemId");
       const armor = this.actor.getOwnedItem(itemId);
       let testName = armor.data.name;
       this.prepareRollDialog(testName, 0, 0, armor.data.data.bonus.value, "", 0, 0);
     });
-    html.find("button.roll-armor.total").click((ev) => {
+    html.find(".roll-armor.total").click((ev) => {
       let armorTotal = 0;
       const items = this.actor.items;
       items.forEach((item) => {
@@ -85,22 +75,22 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
       let testName = game.i18n.localize("HEADER.ARMOR").toUpperCase();
       this.prepareRollDialog(testName, 0, 0, armorTotal, "", 0, 0);
     });
-    html.find(".critical-injury.item .name").click((ev) => {
+    html.find(".critical-injury.item .name .name").click((ev) => {
       const div = $(ev.currentTarget).parents(".item");
       const criticalInjury = this.actor.getOwnedItem(div.data("itemId"));
       this.sendCriticalInjuryToChat(criticalInjury);
     });
-    html.find(".talent.item .name").click((ev) => {
+    html.find(".talent.item .name .name").click((ev) => {
       const div = $(ev.currentTarget).parents(".item");
       const talent = this.actor.getOwnedItem(div.data("itemId"));
       this.sendTalentToChat(talent);
     });
-    html.find(".spell.item .name").click((ev) => {
+    html.find(".spell.item .name .name").click((ev) => {
       const div = $(ev.currentTarget).parents(".item");
       const spell = this.actor.getOwnedItem(div.data("itemId"));
       this.sendSpellToChat(spell);
     });
-    html.find(".gear.item .name").click((ev) => {
+    html.find(".gear.item .name .name").click((ev) => {
       const div = $(ev.currentTarget).parents(".item");
       const gear = this.actor.getOwnedItem(div.data("itemId"));
       if (gear.type === "weapon") {
@@ -115,7 +105,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
         this.sendGearToChat(gear);
       }
     });
-    html.find("button.roll-consumable").click((ev) => {
+    html.find(".roll-consumable").click((ev) => {
       const consumableName = $(ev.currentTarget).data("consumable");
       const consumable = this.actor.data.data.consumable[consumableName];
       this.rollConsumable(consumable);
