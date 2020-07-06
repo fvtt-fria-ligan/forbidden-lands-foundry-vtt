@@ -1,15 +1,20 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <div class="item flex row wrap">
-        <div class="name flex row wrap">
-            <b>{{localize "GEAR.NAME"}}</b>
+    <div class="header">
+        <div class="avatar" style="grid-row: 1/3;">
+            <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+        </div>
+        <div class="name">
+            <label>{{localize "GEAR.NAME"}}</label>
             <input name="name" type="text" value="{{item.name}}"/>
         </div>
-        <div class="rank flex row wrap">
-            <b>{{localize "TALENT.RANK"}}</b>
+        <div class="rank">
+            <label>{{localize "TALENT.RANK"}}</label>
             <input name="data.rank" type="text" value="{{data.rank}}"/>
         </div>
-        <div class="talent-description flex row wrap">
-            <b>{{localize "TALENT.DESCRIPTION"}}</b>
+    </div>
+    <div class="item">
+        <div class="talent-description">
+            <label>{{localize "TALENT.DESCRIPTION"}}</label>
             <textarea name="data.description">{{data.description}}</textarea>
         </div>
     </div>

@@ -1,269 +1,138 @@
-.forbidden-lands.item .item .name {
-  flex-basis: 75%;
+.forbidden-lands.item label {
+  display: block;
+  font-family: var(--font-special);
+  font-weight: bold;
 }
 
-.forbidden-lands.item .item select {
-  width: calc(100% - 2px);
-}
-
-.forbidden-lands.item .item .weapon-name {
-  flex-basis: 50%;
-}
-
-.forbidden-lands.item .item .weapon-category {
-  flex-basis: 25%;
-  text-align: center;
-}
-
-.forbidden-lands.item .item .grip {
-  flex-basis: 25%;
-  text-align: center;
-}
-
-.forbidden-lands.item .item .bonus {
-  flex-basis: 25%;
+.forbidden-lands.item .multivalue {
   align-items: center;
+  display: grid;
+  font-family: var(--font-special);
+  gap: 2px;
+  grid-template-columns: 1fr auto 1fr;
 }
 
-.forbidden-lands.item .item .bonus b {
-  flex-basis: 100%;
-  text-align: center;
+.forbidden-lands.item .header {
+  align-items: center;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: auto 1fr;
+  margin-bottom: 8px;
 }
 
-.forbidden-lands.item .item .bonus input {
-  flex-basis: 46%;
-  text-align: center;
-  width: 2em;
+.forbidden-lands.item .avatar {
+  background: radial-gradient(
+    closest-side,
+    var(--color-secondary) 0%,
+    transparent 100%
+  );
+  grid-row: 1/-1;
+  height: 95px;
+  width: 95px;
 }
 
-.forbidden-lands.item .item .damage {
-  flex-basis: 15%;
-  text-align: center;
+.forbidden-lands.item .avatar img {
+  border: 0 none;
+  display: block;
+  max-width: 95px;
+  max-height: 95px;
+  min-width: 20px;
+  min-height: 20px;
+  margin: auto;
+}
+.forbidden-lands.item .avatar img:hover {
+  box-shadow: 0 0 10px red;
+  cursor: pointer;
 }
 
-.forbidden-lands.item .item .range {
-  flex-basis: 25%;
-  text-align: center;
-}
-
-.forbidden-lands.item .item .weight {
-  flex-basis: 25%;
-  text-align: center;
-}
-
-.forbidden-lands.item .item .cost {
-  flex-basis: 20%;
-  text-align: center;
+.forbidden-lands.item .item {
+  align-items: baseline;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 8px;
 }
 
 .forbidden-lands.item .item .features {
-  flex-basis: 100%;
-}
-
-.forbidden-lands.item .item .supply {
-  flex-basis: 30%;
-  text-align: center;
-}
-
-.forbidden-lands.item .item .raw-materials {
-  flex-basis: 40%;
-  text-align: center;
-}
-
-.forbidden-lands.item .item .time {
-  flex-basis: 30%;
-  text-align: center;
-}
-
-.forbidden-lands.item .item .talent {
-  flex-basis: 50%;
-  text-align: center;
-}
-
-.forbidden-lands.item .item .tools {
-  flex-basis: 50%;
-  text-align: center;
+  grid-column: 1/-1;
 }
 
 .forbidden-lands.item .item .effect {
-  flex-basis: 100%;
-}
-
-.forbidden-lands.item .item .rating {
-  flex-basis: 25%;
-  align-items: center;
-}
-
-.forbidden-lands.item .item .rating b {
-  flex-basis: 100%;
-  text-align: center;
-}
-
-.forbidden-lands.item .item .rating input {
-  flex-basis: 46%;
-  text-align: center;
-}
-
-.forbidden-lands.item .item .part {
-  flex-basis: 30%;
-  text-align: center;
+  grid-column: 1/-1;
 }
 
 .forbidden-lands.item .item .description {
-  flex-basis: 100%;
-}
-
-.forbidden-lands.item .item .description {
-  flex-basis: 100%;
+  grid-column: 1/-1;
 }
 
 .forbidden-lands.item .item .description textarea {
-  border-color: #7a7971;
   resize: none;
   height: 125px;
 }
 
 .forbidden-lands.item .item .drawback {
-  flex-basis: 100%;
+  grid-column: 1/-1;
 }
 
 .forbidden-lands.item .item .drawback textarea {
-  border-color: #7a7971;
   resize: none;
   height: 125px;
 }
 
 .forbidden-lands.item .item .appearance {
-  flex-basis: 100%;
+  grid-column: 1/-1;
 }
 
 .forbidden-lands.item .item .appearance textarea {
-  border-color: #7a7971;
   resize: none;
   height: 100px;
 }
 
-.forbidden-lands.item .item .lethal {
-  flex-basis: 25%;
-  text-align: center;
-}
-
-.forbidden-lands.item .item .limit {
-  flex-basis: 50%;
-  text-align: center;
-}
-
-.forbidden-lands.item .item .healing-time {
-  flex-basis: 50%;
-  text-align: center;
-}
-
-.forbidden-lands.item .item .shelf-life {
-  flex-basis: 25%;
-  text-align: center;
-}
-
-.forbidden-lands.item .item .rank {
-  flex-basis: 25%;
-  text-align: center;
-}
-
-.forbidden-lands.item .item .duration {
-  flex-basis: 25%;
-  text-align: center;
-}
-
-.forbidden-lands.item .item .ingredient {
-  flex-basis: 50%;
-  text-align: center;
-}
-
 .forbidden-lands.item .item .spell-description {
-  flex-basis: 100%;
+  grid-column: 1/-1;
 }
 
 .forbidden-lands.item .item .spell-description textarea {
-  border-color: #7a7971;
   resize: none;
   height: 250px;
 }
 
 .forbidden-lands.item .item .talent-description {
-  flex-basis: 100%;
+  grid-column: 1/-1;
 }
 
 .forbidden-lands.item .item .talent-description textarea {
-  border-color: #7a7971;
   resize: none;
   height: 250px;
 }
 
 .forbidden-lands.item .item .monster-description {
-  flex-basis: 100%;
+  grid-column: 1/-1;
 }
 
 .forbidden-lands.item .item .monster-description textarea {
-  border-color: #7a7971;
   resize: none;
   height: 250px;
 }
 
-.forbidden-lands.item .item .supply {
-  flex-basis: 25%;
-  text-align: center;
-}
-
-.forbidden-lands.item .item .salary {
-  flex-basis: 50%;
-  text-align: center;
-}
-
-.forbidden-lands.item .item .number {
-  flex-basis: 50%;
-  text-align: center;
-}
-
 .forbidden-lands.item .item .hireling-description {
-  flex-basis: 100%;
+  grid-column: 1/-1;
 }
 
 .forbidden-lands.item .item .hireling-description textarea {
-  border-color: #7a7971;
   resize: none;
   height: 215px;
 }
 
-.forbidden-lands.item .item .building-number {
-  flex-basis: 25%;
-  text-align: center;
-}
-
-.forbidden-lands.item .item .requirement {
-  flex-basis: 50%;
-  text-align: center;
-}
-
 .forbidden-lands.item .item .building-raw-materials {
-  flex-basis: 100%;
-  text-align: center;
-}
-
-.forbidden-lands.item .item .building-time {
-  flex-basis: 50%;
-  text-align: center;
-}
-
-.forbidden-lands.item .item .reputation {
-  flex-basis: 50%;
-  text-align: center;
+  grid-column: 1/-1;
 }
 
 .forbidden-lands.item .item .building-description {
-  flex-basis: 100%;
+  grid-column: 1/-1;
 }
 
 .forbidden-lands.item .item .building-description textarea {
-  border-color: #7a7971;
   resize: none;
   height: 215px;
 }

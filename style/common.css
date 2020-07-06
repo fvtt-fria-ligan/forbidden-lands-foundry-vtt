@@ -133,7 +133,7 @@
   height: auto;
   line-height: inherit;
   padding: 2px 4px;
-  width: calc(100% - 2px);
+  width: 100%;
 }
 .forbidden-lands input:disabled,
 .forbidden-lands select:disabled,
