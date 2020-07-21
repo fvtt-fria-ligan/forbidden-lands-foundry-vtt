@@ -6,7 +6,6 @@ function preloadHandlebarsTemplates() {
     "systems/forbidden-lands/model/armor.html",
     "systems/forbidden-lands/model/monster-talent.html",
     "systems/forbidden-lands/model/monster-attack.html",
-    "systems/forbidden-lands/model/artifact.html",
     "systems/forbidden-lands/model/gear.html",
     "systems/forbidden-lands/model/raw-material.html",
     "systems/forbidden-lands/model/talent.html",

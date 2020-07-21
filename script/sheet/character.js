@@ -128,10 +128,8 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
       item.isArmor = item.type === "armor";
       item.isGear = item.type !== "criticalInjury" && item.type !== "spell" && item.type !== "talent";
       item.isRawMaterial = item.type === "rawMaterial";
-      item.isArtifact = item.type === "artifact";
       item.isSpell = item.type === "spell";
       item.isCriticalInjury = item.type === "criticalInjury";
-      item.isWeaponOrArtifact = item.isWeapon || item.isArtifact;
     }
   }
 

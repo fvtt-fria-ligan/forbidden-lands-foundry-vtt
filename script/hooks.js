@@ -4,7 +4,6 @@ import { ForbiddenLandsMonsterSheet } from "./sheet/monster.js";
 import { ForbiddenLandsStrongholdSheet } from "./sheet/stronghold.js";
 import { ForbiddenLandsWeaponSheet } from "./sheet/weapon.js";
 import { ForbiddenLandsArmorSheet } from "./sheet/armor.js";
-import { ForbiddenLandsArtifactSheet } from "./sheet/artifact.js";
 import { ForbiddenLandsGearSheet } from "./sheet/gear.js";
 import { ForbiddenLandsRawMaterialSheet } from "./sheet/raw-material.js";
 import { ForbiddenLandsSpellSheet } from "./sheet/spell.js";
@@ -31,7 +30,6 @@ Hooks.once("init", () => {
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("forbidden-lands", ForbiddenLandsWeaponSheet, { types: ["weapon"], makeDefault: true });
   Items.registerSheet("forbidden-lands", ForbiddenLandsArmorSheet, { types: ["armor"], makeDefault: true });
-  Items.registerSheet("forbidden-lands", ForbiddenLandsArtifactSheet, { types: ["artifact"], makeDefault: true });
   Items.registerSheet("forbidden-lands", ForbiddenLandsGearSheet, { types: ["gear"], makeDefault: true });
   Items.registerSheet("forbidden-lands", ForbiddenLandsRawMaterialSheet, { types: ["rawMaterial"], makeDefault: true });
   Items.registerSheet("forbidden-lands", ForbiddenLandsSpellSheet, { types: ["spell"], makeDefault: true });

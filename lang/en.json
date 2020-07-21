@@ -48,7 +48,6 @@
   "HEADER.SPELL": "SPELLS",
   "HEADER.TALENT": "TALENTS",
   "HEADER.GEAR": "GEAR",
-  "HEADER.ARTIFACT": "ARTIFACTS",
   "HEADER.CURRENCY": "COINS",
   "HEADER.PRIDE": "PRIDE",
   "HEADER.DARK_SECRET": "DARK SECRET",
@@ -94,6 +93,8 @@
   "WEAPON.RANGE": "Range",
   "WEAPON.FEATURE": "Feature",
   "WEAPON.DESCRIPTION": "Description",
+  "WEAPON.DRAWBACK": "Drawback",
+  "WEAPON.APPEARANCE": "Appearance",
 
   "RANGE.ARM": "Arm's Length",
   "RANGE.NEAR": "Near",
@@ -133,10 +134,6 @@
   "GEAR.TALENT": "Talent",
   "GEAR.TOOLS": "Tools",
   "GEAR.EFFECT": "Effects",
-
-  "ARTIFACT.DESCRIPTION": "Description",
-  "ARTIFACT.DRAWBACK": "Drawback",
-  "ARTIFACT.APPEARANCE": "Appearance",
 
   "RAW_MATERIAL.SHELF_LIFE": "Shelf Life",
 
