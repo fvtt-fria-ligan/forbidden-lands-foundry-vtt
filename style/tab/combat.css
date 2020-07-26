@@ -67,7 +67,9 @@
 }
 
 .forbidden-lands .character .critical-injuries .critical-injury .name .name span {
+  display: inline-block;
   font-weight: bold;
+  margin-right: 4px;
 }
 
 .forbidden-lands .character .critical-injuries .item.critical-injury .name .name,

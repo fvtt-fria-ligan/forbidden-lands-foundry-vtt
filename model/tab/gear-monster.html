@@ -49,6 +49,7 @@
                     </div>
                     <div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
                         {{item.data.bonus.value}}
+                        {{#if item.data.artifactBonus}}+ {{item.data.artifactBonus}}{{/if}}
                     </div>
                     <div class="weight">{{itemWeight item.data.weight}}</div>
                     <div class="button">

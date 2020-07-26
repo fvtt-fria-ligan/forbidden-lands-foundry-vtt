@@ -55,6 +55,7 @@
                         <div class="range">{{weaponRange item.data.range}}</div>
                         <div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
                             {{item.data.bonus.value}}
+                            {{#if item.data.artifactBonus}}+ {{item.data.artifactBonus}}{{/if}}
                         </div>
                     </div>
                 </div>
@@ -82,7 +83,7 @@
                             <div class="image" style="background-image: url('{{item.img}}')"></div>
                         </div>
                         <div class="name">
-                            <span>{{item.name}}:</span> {{item.data.effect}}
+                            <span>{{item.name}}</span> {{item.data.effect}}
                         </div>
                     </div>
                     <div class="lethal">{{# if item.data.lethal}}{{item.data.limit}}{{/if}}</div>

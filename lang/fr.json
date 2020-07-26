@@ -98,6 +98,7 @@
   "WEAPON.RANGED": "Ranged",
   "WEAPON.1H": "1H",
   "WEAPON.2H": "2H",
+  "WEAPON.ARTIFACT_BONUS": "Artifact Bonus",
 
   "ITEM.ATTACK": "Attaque",
   "ITEM.BUILDING": "Bâtiment",
@@ -118,6 +119,11 @@
   "WEIGHT.LIGHT": "Light",
   "WEIGHT.REGULAR": "Regular",
   "WEIGHT.HEAVY": "Heavy",
+
+  "ARTIFACT.NONE": "None",
+  "ARTIFACT.EPIC": "Epic",
+  "ARTIFACT.LEGENDARY": "Legendary",
+  "ARTIFACT.MIGHTY": "Mighty",
 
   "SPELL.NAME": "Nom",
   "SPELL.RANK": "Rang",

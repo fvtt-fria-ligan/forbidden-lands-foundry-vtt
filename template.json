@@ -279,20 +279,19 @@
         "time": "",
         "talent": "",
         "tools": ""
-      },
-      "weapon": {
-        "category": "melee",
-        "damage": 1,
-        "features": "",
-        "grip": "1h",
-        "range": "arm",
-        "drawback": "",
-        "description": "",
-        "appearance": ""
       }
     },
     "weapon": {
-      "templates": ["bonus", "craftable", "weapon"],
+      "templates": ["bonus", "craftable"],
+      "category": "melee",
+      "artifactBonus": "",
+      "damage": 1,
+      "features": "",
+      "grip": "1h",
+      "range": "arm",
+      "drawback": "",
+      "description": "",
+      "appearance": "",
       "cost": "",
       "supply": "",
       "weight": "regular",

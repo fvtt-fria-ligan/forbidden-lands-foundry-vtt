@@ -67,15 +67,34 @@ const migrateItemData = (item, worldSchemaVersion) => {
   if (worldSchemaVersion <= 2) {
     if (item.type === "artifact") {
       update.type = "weapon";
-    }
-    if (typeof item.data.bonus !== "object") {
+    } else if (typeof item.data.bonus !== "object") {
       if (item.type === "armor") {
         update["data.bonus"] = item.data.rating;
       } else if (item.data.bonus) {
-        update["data.bonus"] = {
-          value: item.data.bonus,
-          max: item.data.bonus,
-        };
+        let baseBonus = 0;
+        let artifactBonus = "";
+        if (item.data.bonus) {
+          const parts = item.data.bonus.split("+").map((p) => p.trim());
+          parts.forEach((p) => {
+            if (Number.isNumeric(p)) {
+              baseBonus += +p;
+            }
+            if (p.toLowerCase().includes("d8")) {
+              artifactBonus = "d8";
+            }
+            if (p.toLowerCase().includes("d10")) {
+              artifactBonus = "d10";
+            }
+            if (p.toLowerCase().includes("d12")) {
+              artifactBonus = "d12";
+            }
+          });
+          update["data.bonus"] = {
+            value: baseBonus,
+            max: baseBonus,
+          };
+          update["data.artifactBonus"] = artifactBonus;
+        }
       }
     }
   }

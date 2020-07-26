@@ -75,8 +75,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
         skill = this.actor.data.data.skill.marksmanship.value;
       }
       let bonus = this.parseBonus(weapon.data.data.bonus.value);
-      let artifact = this.prepareArtifactString(weapon.data.data.bonus.value);
-      this.prepareRollDialog(testName, base, skill, bonus, artifact, 0, weapon.data.data.damage);
+      this.prepareRollDialog(testName, base, skill, bonus, weapon.data.data.artifactBonus, 0, weapon.data.data.damage);
     });
   }
 
@@ -95,7 +94,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
     let regexMatch;
     let artifacts = [];
     while ((regexMatch = regex.exec(artifact))) {
-      artifacts.push({ dice: regexMatch[1], face: regexMatch[2] });
+      artifacts.push({ dice: +regexMatch[1] || 1, face: +regexMatch[2] });
     }
     return artifacts;
   }

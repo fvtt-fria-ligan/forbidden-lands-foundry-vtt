@@ -111,20 +111,12 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
     this.actor.createEmbeddedEntity("OwnedItem", data, { renderSheet: true });
   }
 
-  prepareArtifactString(bonus) {
-    let regex = /([0-9]*)d([0-9]*)/g;
-    let regexMatch;
-    let artifact = "";
-    while ((regexMatch = regex.exec(bonus))) {
-      artifact = artifact + regexMatch[0] + " ";
-    }
-    return artifact;
-  }
-
   push() {
     this.dices.forEach((dice) => {
-      if ((dice.value < 6 && dice.value > 1 && dice.type !== "skill") || (dice.value < 6 && dice.type === "skill")) {
-        dice.value = Math.floor(Math.random() * Math.floor(dice.face)) + 1;
+      if ((dice.value < 6 && dice.value > 1 && dice.type !== "skill") || (dice.value < 6 && ["artifact", "skill"].includes(dice.type))) {
+        let die = new Die(dice.face);
+        die.roll(1);
+        dice.value = die.total;
         let successAndWeight = this.getSuccessAndWeight(dice.value, dice.type);
         dice.success = successAndWeight.success;
         dice.weight = successAndWeight.weight;

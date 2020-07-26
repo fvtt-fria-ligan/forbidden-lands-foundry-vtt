@@ -1,14 +1,12 @@
 <form class="{{cssClass}}" autocomplete="off">
     <div class="header">
-        <div class="avatar">
+        <div class="avatar" style="grid-row-end: 3;">
             <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
         </div>
         <div class="weapon-name">
             <label>{{localize "GEAR.NAME"}}</label>
             <input name="name" type="text" value="{{item.name}}" />
         </div>
-    </div>
-    <div class="item">
         <div class="weapon-category">
             <label>{{localize "WEAPON.CATEGORY"}}</label>
             <select name="data.category">
@@ -18,6 +16,8 @@
                 {{/select}}
             </select>
         </div>
+    </div>
+    <div class="item">
         <div class="damage">
             <label>{{localize "WEAPON.DAMAGE"}}</label>
             <input name="data.damage" type="number" value="{{data.damage}}" data-dtype="Number" />
@@ -29,6 +29,17 @@
                 /
                 <input name="data.bonus.max" type="number" value="{{data.bonus.max}}" data-dtype="Number" />
             </div>
+        </div>
+        <div class="artifactBonus">
+            <label>{{localize "WEAPON.ARTIFACT_BONUS"}}</label>
+            <select name="data.artifactBonus">
+                {{#select data.artifactBonus}}
+                <option value="">{{localize "ARTIFACT.NONE"}}</option>
+                <option value="d8">{{localize "ARTIFACT.MIGHTY"}}</option>
+                <option value="d10">{{localize "ARTIFACT.EPIC"}}</option>
+                <option value="d12">{{localize "ARTIFACT.LEGENDARY"}}</option>
+                {{/select}}
+            </select>
         </div>
         <div class="grip">
             <label>{{localize "WEAPON.GRIP"}}</label>
