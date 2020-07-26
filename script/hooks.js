@@ -58,7 +58,7 @@ Hooks.once("ready", () => {
 
 function initializeCalendar() {
   // Init support for the Calendar/Weather module
-  if (!game.modules.has("calendar-weather")) {
+  if (!game.modules.get("calendar-weather")?.active) {
     console.warn("Install the Calendar/Weather module for calendar support: https://foundryvtt.com/packages/calendar-weather/");
     return;
   }
