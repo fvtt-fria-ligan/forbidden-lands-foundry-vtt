@@ -47,6 +47,7 @@
                             </div>
                             <div class="name">
                                 <button class="roll-weapon" data-item-id="{{item._id}}">{{item.name}}</button>
+                                {{weaponGrip item.data.grip}},
                                 {{itemWeight item.data.weight}}{{#if item.data.features}}, {{/if}}{{item.data.features}}
                             </div>
                         </div>
@@ -88,6 +89,7 @@
                     <div class="healing-time">{{item.data.healingTime}}</div>
                     <div class="button">
                         <a class="item-control item-edit" title="Edit Critical Injury"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
                         <a class="item-control item-delete" title="Delete Critical Injury"><i
                                 class="fas fa-trash"></i></a>
                     </div>

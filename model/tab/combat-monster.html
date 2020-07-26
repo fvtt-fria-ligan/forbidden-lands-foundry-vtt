@@ -19,13 +19,15 @@
                                     <div class="image" style="background-image: url('{{item.img}}')"></div>
                                 </div>
                                 <div class="name">
-                                    <b>{{item.name}}:</b>
+                                    <b>{{item.name}}</b>
                                     {{item.data.description}}
                                 </div>
                             </div>
                             <div class="button">
                                 <a class="item-control item-edit" title="Edit Monster Talent"><i
                                         class="fas fa-edit"></i></a>
+                                <a class="item-control item-post" title="Post Monster Talent"><i
+                                        class="fas fa-comment"></i></a>
                                 <a class="item-control item-delete" title="Delete Monster Talent"><i
                                         class="fas fa-trash"></i></a>
                             </div>
@@ -54,13 +56,15 @@
                                     <div class="image" style="background-image: url('{{item.img}}')"></div>
                                 </div>
                                 <div class="name">
-                                    <a class="attack" data-item-id="{{item._id}}">{{item.name}}!</a>
+                                    <button class="roll-attack" data-item-id="{{item._id}}">{{item.name}}!</button>
                                     {{item.data.description}}
                                 </div>
                             </div>
                             <div class="button">
                                 <a class="item-control item-edit" title="Edit Monster Attack"><i
                                         class="fas fa-edit"></i></a>
+                                <a class="item-control item-post" title="Post Monster Attack"><i
+                                        class="fas fa-comment"></i></a>
                                 <a class="item-control item-delete" title="Delete Monster Attack"><i
                                         class="fas fa-trash"></i></a>
                             </div>

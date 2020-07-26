@@ -28,6 +28,11 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
       this.actor.deleteOwnedItem(div.data("itemId"));
       div.slideUp(200, () => this.render(false));
     });
+    html.find(".item-post").click((ev) => {
+      const div = $(ev.currentTarget).parents(".item");
+      const item = this.actor.getOwnedItem(div.data("itemId"));
+      item.sendToChat();
+    });
     html.find(".change-item-bonus").on("click contextmenu", (ev) => {
       const itemId = $(ev.currentTarget).data("itemId");
       const item = this.actor.getOwnedItem(itemId);

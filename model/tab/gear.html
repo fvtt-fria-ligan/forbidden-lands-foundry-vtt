@@ -3,11 +3,11 @@
         <div class="header flex grow row">
             <b>{{localize "HEADER.CURRENCY"}}</b>
             <div class="values">
-                <label>{{localize data.currency.gold.label}}</label>
+                <label>{{localize data.currency.gold.label}}:</label>
                 <input name="data.currency.gold.value" type="number" value="{{data.currency.gold.value}}" />
-                <label>{{localize data.currency.silver.label}}</label>
+                <label>{{localize data.currency.silver.label}}:</label>
                 <input name="data.currency.silver.value" type="number" value="{{data.currency.silver.value}}" />
-                <label>{{localize data.currency.copper.label}}</label>
+                <label>{{localize data.currency.copper.label}}:</label>
                 <input name="data.currency.copper.value" type="number" value="{{data.currency.copper.value}}" />
             </div>
         </div>
@@ -15,34 +15,6 @@
     <div class="gears item-list border">
         <h1>{{localize "HEADER.GEAR"}}</h1>
         <div class="items">
-            <div class="header flex row">
-                <b class="name">{{localize "HEADER.WEAPON"}}</b>
-                <b class="bonus">{{localize "WEAPON.BONUS"}}</b>
-                <b class="weight">{{localize "GEAR.WEIGHT"}}</b>
-                <a class="button item-create" title="Add Weapon" data-type="weapon"><i class="fas fa-plus"></i></a>
-            </div>
-            <div>
-                {{#each actor.items as |item|}}
-                {{#if item.isWeapon}}
-                <div class="gear item flex row" data-item-id="{{item._id}}">
-                    <div class="name">
-                        <div class="image-container">
-                            <div class="image" style="background-image: url('{{item.img}}')"></div>
-                        </div>
-                        <div class="name">{{item.name}}</div>
-                    </div>
-                    <div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
-                        {{item.data.bonus.value}}
-                    </div>
-                    <div class="weight">{{itemWeight item.data.weight}}</div>
-                    <div class="button">
-                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                    </div>
-                </div>
-                {{/if}}
-                {{/each}}
-            </div>
             <div class="header flex row">
                 <b class="name">{{localize "HEADER.ARMOR"}}</b>
                 <b class="bonus">{{localize "ARMOR.RATING"}}</b>
@@ -65,6 +37,36 @@
                     <div class="weight">{{itemWeight item.data.weight}}</div>
                     <div class="button">
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    </div>
+                </div>
+                {{/if}}
+                {{/each}}
+            </div>
+            <div class="header flex row">
+                <b class="name">{{localize "HEADER.WEAPON"}}</b>
+                <b class="bonus">{{localize "WEAPON.BONUS"}}</b>
+                <b class="weight">{{localize "GEAR.WEIGHT"}}</b>
+                <a class="button item-create" title="Add Weapon" data-type="weapon"><i class="fas fa-plus"></i></a>
+            </div>
+            <div>
+                {{#each actor.items as |item|}}
+                {{#if item.isWeapon}}
+                <div class="gear item flex row" data-item-id="{{item._id}}">
+                    <div class="name">
+                        <div class="image-container">
+                            <div class="image" style="background-image: url('{{item.img}}')"></div>
+                        </div>
+                        <div class="name">{{item.name}}</div>
+                    </div>
+                    <div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
+                        {{item.data.bonus.value}}
+                    </div>
+                    <div class="weight">{{itemWeight item.data.weight}}</div>
+                    <div class="button">
+                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                     </div>
                 </div>
@@ -93,6 +95,7 @@
                     <div class="weight">{{itemWeight item.data.weight}}</div>
                     <div class="button">
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                     </div>
                 </div>
@@ -122,6 +125,7 @@
                     <div class="weight">{{itemWeight item.data.weight}}</div>
                     <div class="button">
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                     </div>
                 </div>

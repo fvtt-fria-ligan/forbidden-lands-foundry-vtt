@@ -1,4 +1,4 @@
-import { ForbiddenLandsActor } from "./actor/forbidden-lands.js";
+import { ForbiddenLandsActor, ForbiddenLandsItem } from "./actor/forbidden-lands.js";
 import { ForbiddenLandsCharacterSheet } from "./sheet/character.js";
 import { ForbiddenLandsMonsterSheet } from "./sheet/monster.js";
 import { ForbiddenLandsStrongholdSheet } from "./sheet/stronghold.js";
@@ -21,6 +21,7 @@ import { migrateWorld } from "./migration.js";
 Hooks.once("init", () => {
   CONFIG.Combat.initiative = { formula: "1d10", decimals: 0 };
   CONFIG.Actor.entityClass = ForbiddenLandsActor;
+  CONFIG.Item.entityClass = ForbiddenLandsItem;
   CONFIG.fontFamilies.push("IM Fell Great Primer");
   CONFIG.defaultFontFamily = "IM Fell Great Primer";
   Actors.unregisterSheet("core", ActorSheet);

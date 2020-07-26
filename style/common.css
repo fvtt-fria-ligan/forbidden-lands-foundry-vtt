@@ -96,7 +96,8 @@
   width: 100%;
 }
 
-.forbidden-lands.sheet {
+.forbidden-lands .item-control {
+  margin-left: 4px;
 }
 
 .forbidden-lands button {
@@ -239,6 +240,48 @@
 .forbidden-lands.sheet .window-content form {
   /* Force scrolling within the window */
   min-height: 0;
+}
+
+/* Chat */
+.forbidden-lands.chat-item {
+  background: var(--color-background);
+  border-radius: 3px;
+  color: var(--color-foreground);
+  padding: 8px;
+}
+.forbidden-lands.chat-item .border {
+  padding: 8px;
+}
+.forbidden-lands.chat-item h3 {
+  font-family: var(--font-special);
+  font-weight: bold;
+  margin: 0 0 8px;
+  text-align: center;
+}
+.forbidden-lands.chat-item h4 {
+  font-family: var(--font-special);
+  font-variant: small-caps;
+  font-weight: bold;
+  margin: 0 0 8px;
+  text-align: center;
+}
+.forbidden-lands.chat-item h3 + h4 {
+  margin-top: -8px;
+}
+.forbidden-lands.chat-item img {
+  background: radial-gradient(
+    closest-side,
+    var(--color-secondary) 0%,
+    transparent 100%
+  );
+  border: 0;
+  display: block;
+  margin: 0 auto 8px;
+  max-height: 64px;
+  width: auto;
+}
+.forbidden-lands.chat-item p {
+  margin: 0 0 4px;
 }
 
 /* Scrollbars */

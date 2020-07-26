@@ -20,8 +20,8 @@
 
 .forbidden-lands .character .currencies .values label {
   font-family: var(--font-special);
-  font-weight: bold;
-  margin-left: 8px;
+  font-variant: normal;
+  margin: 0 8px;
 }
 
 .forbidden-lands .character .currencies .values input {

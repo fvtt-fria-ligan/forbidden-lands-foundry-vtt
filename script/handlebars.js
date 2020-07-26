@@ -1,5 +1,6 @@
 function preloadHandlebarsTemplates() {
   const templatePaths = [
+    "systems/forbidden-lands/chat/item.html",
     "systems/forbidden-lands/model/character.html",
     "systems/forbidden-lands/model/monster.html",
     "systems/forbidden-lands/model/weapon.html",
@@ -36,8 +37,16 @@ function registerHandlebarsHelpers() {
     }
     return acc;
   });
-  Handlebars.registerHelper("itemWeight", function (range) {
-    switch (range) {
+  Handlebars.registerHelper("armorPart", function (part) {
+    switch (part) {
+      case "body":
+        return game.i18n.localize("ARMOR.BODY");
+      case "helmet":
+        return game.i18n.localize("ARMOR.HELMET");
+    }
+  });
+  Handlebars.registerHelper("itemWeight", function (weight) {
+    switch (weight) {
       case "tiny":
         return game.i18n.localize("WEIGHT.TINY");
       case "light":
@@ -46,6 +55,22 @@ function registerHandlebarsHelpers() {
         return game.i18n.localize("WEIGHT.REGULAR");
       case "heavy":
         return game.i18n.localize("WEIGHT.HEAVY");
+    }
+  });
+  Handlebars.registerHelper("weaponCategory", function (category) {
+    switch (category) {
+      case "melee":
+        return game.i18n.localize("WEAPON.MELEE");
+      case "ranged":
+        return game.i18n.localize("WEAPON.RANGED");
+    }
+  });
+  Handlebars.registerHelper("weaponGrip", function (grip) {
+    switch (grip) {
+      case "1h":
+        return game.i18n.localize("WEAPON.1H");
+      case "2h":
+        return game.i18n.localize("WEAPON.2H");
     }
   });
   Handlebars.registerHelper("weaponRange", function (range) {

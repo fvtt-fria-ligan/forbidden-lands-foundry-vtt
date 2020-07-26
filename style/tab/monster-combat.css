@@ -51,7 +51,7 @@
 }
 .forbidden-lands .monster .monster-talents .monster-talent .button {
   flex-basis: 10%;
-  font-size: small;
+  font-size: 10px;
   text-align: right;
 }
 
@@ -78,6 +78,6 @@
 }
 .forbidden-lands .monster .monster-attacks .monster-attack .button {
   flex-basis: 10%;
-  font-size: small;
+  font-size: 10px;
   text-align: right;
 }

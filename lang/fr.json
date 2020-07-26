@@ -58,7 +58,6 @@
   "HEADER.BUILDING": "BÂTIMENTS",
   "HEADER.HIRELING": "SERVITEURS",
   "HEADER.RAW_MATERIAL": "MATIERES PREMIERES",
-  "HEADER.WEAPON_ARMOR": "ARMES / ARMURES",
 
   "ARMOR.HELMET": "Heaume",
   "ARMOR.BONUS": "Bonus",
@@ -95,6 +94,19 @@
   "WEAPON.DESCRIPTION": "Description",
   "WEAPON.DRAWBACK": "Inconvénient",
   "WEAPON.APPEARANCE": "Apparence",
+  "WEAPON.MELEE": "Melee",
+  "WEAPON.RANGED": "Ranged",
+  "WEAPON.1H": "1H",
+  "WEAPON.2H": "2H",
+
+  "ITEM.ATTACK": "Attaque",
+  "ITEM.BUILDING": "Bâtiment",
+  "ITEM.CRITICAL_INJURY": "Blessure Critique",
+  "ITEM.GEAR": "Équipment",
+  "ITEM.HIRELING": "Serviteur",
+  "ITEM.RAW_MATERIAL": "Matière Première",
+  "ITEM.SPELL": "Sortilège",
+  "ITEM.TALENT": "Talent",
 
   "RANGE.ARM": "Arm's Length",
   "RANGE.NEAR": "Near",

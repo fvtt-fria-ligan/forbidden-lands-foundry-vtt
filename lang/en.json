@@ -58,7 +58,6 @@
   "HEADER.BUILDING": "BUILDINGS",
   "HEADER.HIRELING": "HIRELINGS",
   "HEADER.RAW_MATERIAL": "RAW MATERIALS",
-  "HEADER.WEAPON_ARMOR": "WEAPONS / ARMORS",
 
   "ARMOR.HELMET": "Helmet",
   "ARMOR.BONUS": "Bonus",
@@ -95,6 +94,19 @@
   "WEAPON.DESCRIPTION": "Description",
   "WEAPON.DRAWBACK": "Drawback",
   "WEAPON.APPEARANCE": "Appearance",
+  "WEAPON.MELEE": "Melee",
+  "WEAPON.RANGED": "Ranged",
+  "WEAPON.1H": "1H",
+  "WEAPON.2H": "2H",
+
+  "ITEM.ATTACK": "Attack",
+  "ITEM.BUILDING": "Building",
+  "ITEM.CRITICAL_INJURY": "Critical Injury",
+  "ITEM.GEAR": "Gear",
+  "ITEM.HIRELING": "Hireling",
+  "ITEM.RAW_MATERIAL": "Raw Material",
+  "ITEM.SPELL": "Spell",
+  "ITEM.TALENT": "Talent",
 
   "RANGE.ARM": "Arm's Length",
   "RANGE.NEAR": "Near",
