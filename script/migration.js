@@ -70,10 +70,7 @@ const migrateItemData = (item, worldSchemaVersion) => {
     }
     if (typeof item.data.bonus !== "object") {
       if (item.type === "armor") {
-        update["data.bonus"] = {
-          value: item.data.rating,
-          max: item.data.rating,
-        };
+        update["data.bonus"] = item.data.rating;
       } else if (item.data.bonus) {
         update["data.bonus"] = {
           value: item.data.bonus,

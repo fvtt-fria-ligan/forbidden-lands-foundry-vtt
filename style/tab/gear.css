@@ -21,10 +21,11 @@
 .forbidden-lands .character .currencies .values label {
   font-family: var(--font-special);
   font-weight: bold;
+  margin-left: 8px;
 }
 
 .forbidden-lands .character .currencies .values input {
-  width: 4em;
+  width: 3em;
 }
 
 .forbidden-lands .character .consumables {
@@ -46,6 +47,15 @@
 
 .forbidden-lands .character .gears {
   padding-bottom: 8px;
+}
+
+.forbidden-lands .character .gears .items .header {
+  margin: 0;
+  width: 100%;
+}
+
+.forbidden-lands .character .gears .items div + .header {
+  margin-top: 8px;
 }
 
 .forbidden-lands .character .gears .gear {
