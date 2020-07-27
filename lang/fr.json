@@ -35,10 +35,10 @@
   "SKILL.HEALING": "Guérison",
   "SKILL.ANIMAL_HANDLING": "Dressage",
 
-  "CONDITION.SLEEPLESS": "SOMNOLENT",
-  "CONDITION.THIRSTY": "ASSOIFFÉ",
-  "CONDITION.HUNGRY": "AFFAMÉ",
-  "CONDITION.COLD": "FRIGORIFIÉ",
+  "CONDITION.SLEEPY": "Somnolent",
+  "CONDITION.THIRSTY": "Assoiffé",
+  "CONDITION.HUNGRY": "Affamé",
+  "CONDITION.COLD": "Frigorifié",
 
   "HEADER.ARMOR": "ARMURES",
   "HEADER.CONDITION": "CONDITIONS",
@@ -48,7 +48,6 @@
   "HEADER.SPELL": "SORTS",
   "HEADER.TALENT": "TALENTS",
   "HEADER.GEAR": "ÉQUIPEMENT",
-  "HEADER.ARTIFACT": "ARTEFACTS",
   "HEADER.CURRENCY": "ARGENT",
   "HEADER.PRIDE": "FIERTÉ",
   "HEADER.DARK_SECRET": "NOIR SECRET",
@@ -59,7 +58,6 @@
   "HEADER.BUILDING": "BÂTIMENTS",
   "HEADER.HIRELING": "SERVITEURS",
   "HEADER.RAW_MATERIAL": "MATIERES PREMIERES",
-  "HEADER.WEAPON_ARMOR": "ARMES / ARMURES",
 
   "ARMOR.HELMET": "Heaume",
   "ARMOR.BONUS": "Bonus",
@@ -94,6 +92,38 @@
   "WEAPON.RANGE": "Portée",
   "WEAPON.FEATURE": "Fonctionnalité",
   "WEAPON.DESCRIPTION": "Description",
+  "WEAPON.DRAWBACK": "Inconvénient",
+  "WEAPON.APPEARANCE": "Apparence",
+  "WEAPON.MELEE": "Melee",
+  "WEAPON.RANGED": "Ranged",
+  "WEAPON.1H": "1H",
+  "WEAPON.2H": "2H",
+  "WEAPON.ARTIFACT_BONUS": "Artifact Bonus",
+
+  "ITEM.ATTACK": "Attaque",
+  "ITEM.BUILDING": "Bâtiment",
+  "ITEM.CRITICAL_INJURY": "Blessure Critique",
+  "ITEM.GEAR": "Équipment",
+  "ITEM.HIRELING": "Serviteur",
+  "ITEM.RAW_MATERIAL": "Matière Première",
+  "ITEM.SPELL": "Sortilège",
+  "ITEM.TALENT": "Talent",
+
+  "RANGE.ARM": "Arm's Length",
+  "RANGE.NEAR": "Near",
+  "RANGE.SHORT": "Short",
+  "RANGE.LONG": "Long",
+  "RANGE.DISTANT": "Distant",
+
+  "WEIGHT.TINY": "Tiny",
+  "WEIGHT.LIGHT": "Light",
+  "WEIGHT.REGULAR": "Regular",
+  "WEIGHT.HEAVY": "Heavy",
+
+  "ARTIFACT.NONE": "None",
+  "ARTIFACT.EPIC": "Epic",
+  "ARTIFACT.LEGENDARY": "Legendary",
+  "ARTIFACT.MIGHTY": "Mighty",
 
   "SPELL.NAME": "Nom",
   "SPELL.RANK": "Rang",
@@ -122,10 +152,6 @@
   "GEAR.TALENT": "Talent",
   "GEAR.TOOLS": "Outils",
   "GEAR.EFFECT": "Effets",
-
-  "ARTIFACT.DESCRIPTION": "Description",
-  "ARTIFACT.DRAWBACK": "Inconvénient",
-  "ARTIFACT.APPEARANCE": "Apparence",
 
   "RAW_MATERIAL.SHELF_LIFE": "Durée de vie",
 

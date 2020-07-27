@@ -1,136 +1,155 @@
-.forbidden-lands .character .combat .header {
-    background-color: lightslategrey;
-    border-radius: 10px;
-    text-align: center;
-    margin: 5px;
+.forbidden-lands .combat-tab {
+  display: grid;
+  gap: 8px;
+  grid-template-rows: 2fr 3fr 2fr;
+  height: 100%;
 }
 
 .forbidden-lands .character .armors {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-bottom: 8px;
 }
 
-.forbidden-lands .character .armors .armor {
-    align-items: center;
-    padding: 0 5px 5px 5px;
+.forbidden-lands .character .armors .header {
+  display: flex;
 }
 
-.forbidden-lands .character .armors .armor b {
-    flex-basis: 50%;
+.forbidden-lands .character .armors .item.armor {
+  align-items: center;
+  display: flex;
 }
 
-.forbidden-lands .character .armors .armor b:hover {
-    text-shadow: 0 0 10px darkolivegreen;
+.forbidden-lands .character .armors .armor .name {
+  align-items: center;
+  display: flex;
+  flex-basis: 85%;
 }
 
-.forbidden-lands .character .armors .armor input {
-    flex-basis: 25%;
-    margin-right: 5px;
-    text-align: center;
+.forbidden-lands .character .armors .armor .name .name {
+  display: block;
 }
 
-.forbidden-lands .character .armors .armor input:last-child {
-    margin-right: 0;
-    margin-left: 5px;
+.forbidden-lands .character .armors .item.armor .name .name,
+.forbidden-lands .character .armors .armor .bonus {
+  margin-left: 4px;
 }
 
-.forbidden-lands .character .armors .armor.total input {
-    flex-basis: 50%;
-    margin-right: 5px;
-    margin-left: 5px;
-    text-align: center;
+.forbidden-lands .character .armors .armor .bonus {
+  flex-basis: 15%;
+  text-align: center;
 }
 
-.forbidden-lands .character .conditions {
-}
-
-.forbidden-lands .character .conditions .condition {
-}
-
-.forbidden-lands .character .conditions b.condition,
-.forbidden-lands .character .conditions span.condition {
-    flex-basis: 50%;
-}
-
-.forbidden-lands .character .conditions .condition.active {
-    text-shadow: 0 0 10px red;
-}
-
-.forbidden-lands .character .conditions b.condition:hover,
-.forbidden-lands .character .conditions span.condition:hover {
-    text-shadow: 0 0 10px darkolivegreen;
+.forbidden-lands .character .armors .armor .bonus.broken {
+  color: #a00;
 }
 
 .forbidden-lands .character .critical-injuries {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-bottom: 8px;
 }
 
-.forbidden-lands .character .critical-injuries .critical-injury {
-    align-items: center;
-}
-
-.forbidden-lands .character .critical-injuries .critical-injury.item .name:hover {
-    text-shadow: 0 0 10px darkolivegreen;
+.forbidden-lands .character .critical-injuries .items .critical-injury {
+  align-items: center;
 }
 
 .forbidden-lands .character .critical-injuries .critical-injury .name {
-    flex-basis: 30%;
+  align-items: center;
+  display: flex;
+  flex-basis: 65%;
 }
+
+.forbidden-lands .character .critical-injuries .critical-injury .name .name {
+  flex-grow: 1;
+}
+
+.forbidden-lands .character .critical-injuries .critical-injury .name .name span {
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 4px;
+}
+
+.forbidden-lands .character .critical-injuries .item.critical-injury .name .name,
+.forbidden-lands .character .critical-injuries .critical-injury .lethal,
+.forbidden-lands .character .critical-injuries .critical-injury .limit,
+.forbidden-lands .character .critical-injuries .critical-injury .effect,
+.forbidden-lands .character .critical-injuries .critical-injury .healing-time {
+  margin-left: 4px;
+}
+
 
 .forbidden-lands .character .critical-injuries .critical-injury .lethal {
-    flex-basis: 10%;
-}
-
-.forbidden-lands .character .critical-injuries .critical-injury .limit {
-    flex-basis: 10%;
-}
-
-.forbidden-lands .character .critical-injuries .critical-injury .effect {
-    flex-basis: 30%;
+  flex-basis: 10%;
+  text-align: center;
 }
 
 .forbidden-lands .character .critical-injuries .critical-injury .healing-time {
-    flex-basis: 10%;
+  flex-basis: 15%;
+  text-align: center;
 }
 
 .forbidden-lands .character .critical-injuries .critical-injury .button {
-    flex-basis: 10%;
-}
-
-.forbidden-lands .character .critical-injuries .scrollable {
-    overflow-y: auto;
-    max-height: 120px;
+  flex-basis: 10%;
+  font-size: 10px;
+  text-align: right;
 }
 
 .forbidden-lands .character .weapons {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-bottom: 8px;
 }
 
-.forbidden-lands .character .weapons .weapon {
-    align-items: center;
+.forbidden-lands .character .weapons .header {
+  display: flex;
 }
 
-.forbidden-lands .character .weapons .scrollable {
-    overflow-y: auto;
-    max-height: 170px;
+.forbidden-lands .character .weapons .item .weapon {
+  align-items: center;
+  display: flex;
 }
 
 .forbidden-lands .character .weapons .weapon .name {
-    flex-basis: 20%;
+  align-items: center;
+  display: flex;
+  flex-basis: 55%;
 }
 
-.forbidden-lands .character .weapons .weapon.item .name:hover {
-    text-shadow: 0 0 10px darkolivegreen;
+.forbidden-lands .character .weapons .weapon .name .name {
+  display: block;
+}
+
+.forbidden-lands .character .weapons .item .weapon .name .name,
+.forbidden-lands .character .weapons .weapon .bonus,
+.forbidden-lands .character .weapons .weapon .damage,
+.forbidden-lands .character .weapons .weapon .range {
+    margin-left: 4px;
 }
 
 .forbidden-lands .character .weapons .weapon .bonus {
-    flex-basis: 15%;
+  flex-basis: 15%;
+  text-align: center;
+}
+
+.forbidden-lands .character .weapons .weapon .bonus.broken {
+  color: #a00;
 }
 
 .forbidden-lands .character .weapons .weapon .damage {
-    flex-basis: 15%;
+  flex-basis: 10%;
+  text-align: center;
 }
 
 .forbidden-lands .character .weapons .weapon .range {
-    flex-basis: 20%;
+  flex-basis: 20%;
+  text-align: center;
 }
 
-.forbidden-lands .character .weapons .weapon .feature {
-    flex-basis: 30%;
+.forbidden-lands .character .weapons .item .features {
+  font-style: italic;
+  font-size: 12px;
 }

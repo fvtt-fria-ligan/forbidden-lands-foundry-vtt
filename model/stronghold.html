@@ -1,37 +1,38 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <div class="stronghold flex column">
-        <div class="bio flex column border">
-            <div class="flex row margin align-center">
+    <div class="stronghold">
+        <div class="bio border">
+            <div class="flex row align-center">
                 <div class="avatar">
-                    <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+                    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
                 </div>
-                <div class="flex row margin align-end space-around grow">
-                    <div class="flex row wrap">
-                        <div class="name">
-                            <b>{{localize "BIO.NAME"}}</b>
-                            <input name="name" type="text" value="{{actor.name}}"/>
+                <div class="flex column grow">
+                    <div class="name">
+                        <label>{{localize "BIO.NAME"}}:</label>
+                        <input name="name" type="text" value="{{actor.name}}" />
+                    </div>
+                    <div class="bio-row">
+                        <div class="location">
+                            <label>{{localize "STRONGHOLD.LOCATION"}}:</label>
+                            <input name="data.location" type="text" value="{{data.location}}" />
                         </div>
-                        <div class="location center">
-                            <b>{{localize "STRONGHOLD.LOCATION"}}</b>
-                            <input name="data.location" type="text" value="{{data.location}}"/>
-                        </div>
-                        <div class="defense-rating center">
-                            <b>{{localize "STRONGHOLD.DEFENSE_RATING"}}</b>
-                            <input name="data.defenseRating" type="text" value="{{data.defenseRating}}"/>
+                        <div class="defense-rating">
+                            <label>{{localize "STRONGHOLD.DEFENSE_RATING"}}:</label>
+                            <input name="data.defenseRating" type="number" value="{{data.defenseRating}}"
+                                data-dtype="Number" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="sheet-tabs tabs flex row border" data-group="primary">
+        <div class="sheet-tabs tabs flex row" data-group="primary">
             <b class="item" data-tab="building">{{localize "TAB.BUILDING"}}</b>
             <b class="item" data-tab="hireling">{{localize "TAB.HIRELING"}}</b>
             <b class="item" data-tab="gear">{{localize "TAB.GEAR"}}</b>
             <b class="item" data-tab="note">{{localize "TAB.NOTE"}}</b>
         </div>
 
-        <div class="sheet-body flex row border">
+        <div class="sheet-body">
             <div class="tab" data-group="primary" data-tab="building">
                 {{> systems/forbidden-lands/model/tab/building-stronghold.html}}
             </div>

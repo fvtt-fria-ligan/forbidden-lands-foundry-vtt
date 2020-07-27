@@ -1,52 +1,52 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <div class="character flex column">
-        <div class="bio flex column border">
-            <div class="flex row margin align-center">
+    <div class="character">
+        <div class="bio border">
+            <div class="flex row align-center">
                 <div class="avatar">
-                    <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+                    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
                 </div>
-                <div class="flex row margin align-end space-around grow">
-                    <div class="flex column">
-                        <div class="name">
-                            <b>{{localize "BIO.NAME"}}</b>
-                            <input name="name" type="text" value="{{actor.name}}"/>
-                        </div>
+                <div class="flex column grow">
+                    <div class="name bio-row">
+                        <label>{{localize "BIO.NAME"}}:</label>
+                        <input name="name" type="text" value="{{actor.name}}" />
+                    </div>
+                    <div class="bio-row">
                         <div class="kin">
-                            <b>{{localize data.bio.kin.label}}</b>
-                            <input name="data.bio.kin.value" type="text" value="{{data.bio.kin.value}}"/>
+                            <label>{{localize data.bio.kin.label}}:</label>
+                            <input name="data.bio.kin.value" type="text" value="{{data.bio.kin.value}}" />
                         </div>
                         <div class="profession">
-                            <b>{{localize data.bio.profession.label}}</b>
-                            <input name="data.bio.profession.value" type="text" value="{{data.bio.profession.value}}"/>
+                            <label>{{localize data.bio.profession.label}}:</label>
+                            <input name="data.bio.profession.value" type="text" value="{{data.bio.profession.value}}" />
                         </div>
                     </div>
-                    <div class="flex column center">
-                        <button class="roll border">{{localize "ROLL"}}</button>
+                    <div class="bio-row">
                         <div class="age">
-                            <b>{{localize data.bio.age.label}}</b>
-                            <input name="data.bio.age.value" type="text" value="{{data.bio.age.value}}"/>
+                            <label>{{localize data.bio.age.label}}:</label>
+                            <input name="data.bio.age.value" type="number" value="{{data.bio.age.value}}"
+                                data-dtype="Number" />
                         </div>
                         <div class="reputation">
-                            <b>{{localize data.bio.reputation.label}}</b>
-                            <input name="data.bio.reputation.value" type="text" value="{{data.bio.reputation.value}}"/>
+                            <label>{{localize data.bio.reputation.label}}:</label>
+                            <input name="data.bio.reputation.value" type="number" value="{{data.bio.reputation.value}}"
+                                data-dtype="Number" />
                         </div>
-                    </div>
-                    <div class="flex column center">
-                        <button class="push border">{{localize "PUSH"}}</button>
                         <div class="willpower">
-                            <b>{{localize data.bio.willpower.label}}</b>
-                            <input name="data.bio.willpower.value" type="text" value="{{data.bio.willpower.value}}" min="{{data.bio.willpower.min}}" max="{{data.bio.willpower.max}}"/>
+                            <label>{{localize data.bio.willpower.label}}:</label>
+                            <input name="data.bio.willpower.value" type="number" value="{{data.bio.willpower.value}}"
+                                min="{{data.bio.willpower.min}}" max="{{data.bio.willpower.max}}" data-dtype="Number" />
                         </div>
                         <div class="experience">
-                            <b>{{localize data.bio.experience.label}}</b>
-                            <input name="data.bio.experience.value" type="text" value="{{data.bio.experience.value}}"/>
+                            <label>{{localize data.bio.experience.label}}:</label>
+                            <input name="data.bio.experience.value" type="number" value="{{data.bio.experience.value}}"
+                                data-dtype="Number" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="sheet-tabs tabs flex row border" data-group="primary">
+        <div class="sheet-tabs tabs flex row" data-group="primary">
             <b class="item" data-tab="main">{{localize "TAB.MAIN"}}</b>
             <b class="item" data-tab="combat">{{localize "TAB.COMBAT"}}</b>
             <b class="item" data-tab="talent">{{localize "TAB.TALENT"}}</b>
@@ -55,7 +55,7 @@
             <b class="item" data-tab="note">{{localize "TAB.NOTE"}}</b>
         </div>
 
-        <div class="sheet-body flex row border">
+        <div class="sheet-body">
             <div class="tab" data-group="primary" data-tab="main">
                 {{> systems/forbidden-lands/model/tab/main.html}}
             </div>

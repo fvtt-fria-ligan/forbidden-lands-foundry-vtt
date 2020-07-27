@@ -1,109 +1,102 @@
-<div class="flex column full">
-    <div class="combat flex column grow">
-        <div class="flex row grow" style="flex: 0 0 60%">
-            <div class="flex column" style="flex: 0 0 30%">
-                <div class="flex column" style="flex-basis: 60%">
-                    <div class="armors flex column margin border grow">
-                        <b class="header">{{localize "HEADER.ARMOR"}}</b>
-                        <div class="flex column" style="padding: 5px">
-                            <div class="armor specific flex row" data-key="helmet">
-                                <b>{{localize data.armor.helmet.label}}</b>
-                                <input name="data.armor.helmet.value" type="text" value="{{data.armor.helmet.value}}" data-dtype="Number"/>
-                                /
-                                <input name="data.armor.helmet.max" type="text" value="{{data.armor.helmet.max}}" data-dtype="Number"/>
-                            </div>
-                            <div class="armor specific flex row" data-key="body">
-                                <b>{{localize data.armor.body.label}}</b>
-                                <input name="data.armor.body.value" type="text" value="{{data.armor.body.value}}" data-dtype="Number"/>
-                                /
-                                <input name="data.armor.body.max" type="text" value="{{data.armor.body.max}}" data-dtype="Number"/>
-                            </div>
-                            <div class="armor specific flex row" data-key="bonus">
-                                <b>{{localize data.armor.bonus.label}}</b>
-                                <input name="data.armor.bonus.value" type="text" value="{{data.armor.bonus.value}}" data-dtype="Number"/>
-                                /
-                                <input name="data.armor.bonus.max" type="text" value="{{data.armor.bonus.max}}" data-dtype="Number"/>
-                            </div>
-                            <div class="armor total flex row">
-                                <b>{{localize "ARMOR.TOTAL"}}</b>
-                                <input name="armor.total" type="text" value="{{data.armor.total}}" data-dtype="Number" readonly/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex column" style="flex-basis: 40%">
-                    <div class="conditions flex column margin border grow center">
-                        <b class="header">{{localize "HEADER.CONDITION"}}</b>
-                        <div class="flex row wrap grow center align-center">
-                            {{#each data.condition as |condition key|}}
-                            {{#if condition.value}}
-                            <b class="condition active" data-key="{{key}}">{{localize condition.label}}</b>
-                            {{else}}
-                            <span class="condition" data-key="{{key}}">{{localize condition.label}}</span>
-                            {{/if}}
-                            {{/each}}
-                        </div>
-                    </div>
-                </div>
+<div class="combat-tab">
+    <div class="armors border">
+        <h1><button class="roll-armor total">{{localize "HEADER.ARMOR"}}</button></h1>
+        <div class="item-list">
+            <div class="header armor">
+                <b class="name">{{localize "GEAR.NAME"}}</b>
+                <b class="bonus">{{localize "GEAR.BONUS"}}</b>
             </div>
-            <div class="flex column" style="flex: 0 0 70%">
-                <div class="flex column" style="flex-basis: 100%">
-                    <div class="weapons flex column margin border grow">
-                        <b class="header">{{localize "HEADER.WEAPON"}}</b>
-                        <div class="weapon flex row center">
-                            <b class="name">{{localize "WEAPON.NAME"}}</b>
-                            <b class="bonus">{{localize "WEAPON.BONUS"}}</b>
-                            <b class="damage">{{localize "WEAPON.DAMAGE"}}</b>
-                            <b class="range">{{localize "WEAPON.RANGE"}}</b>
-                            <b class="feature">{{localize "WEAPON.FEATURE"}}</b>
+            <div class="items">
+                {{#each actor.items as |item|}}
+                {{#if item.isArmor}}
+                <div class="item armor" data-item-id="{{item._id}}">
+                    <div class="name">
+                        <div class="image-container">
+                            <div class="image" style="background-image: url('{{item.img}}')"></div>
                         </div>
-                        <div class="scrollable">
-                            {{#each actor.items as |item|}}
-                            {{#if item.isWeaponOrArtifact}}
-                            <div class="weapon item flex row center" data-item-id="{{item._id}}">
-                                <div class="name">{{item.name}}</div>
-                                <div class="bonus">{{item.data.bonus}}</div>
-                                <div class="damage">{{item.data.damage}}</div>
-                                <div class="range">{{item.data.range}}</div>
-                                <div class="feature">{{item.data.features}}</div>
-                            </div>
-                            {{/if}}
-                            {{/each}}
+                        <div class="name">
+                            <button class="roll-armor specific" data-item-id="{{item._id}}">{{item.name}}</button>
                         </div>
                     </div>
+                    <div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
+                        {{item.data.bonus.value}}
+                    </div>
                 </div>
+                {{/if}}
+                {{/each}}
             </div>
         </div>
-        <div class="flex column" style="flex: 0 0 40%">
-            <div class="flex column" style="flex-basis: 100%">
-                <div class="critical-injuries flex column margin border grow">
-                    <b class="header">{{localize "HEADER.CRITICAL_INJURY"}}</b>
-                    <div class="critical-injury flex row center">
-                        <b class="name">{{localize "CRITICAL_INJURY.NAME"}}</b>
-                        <b class="lethal">{{localize "CRITICAL_INJURY.LETHAL"}}</b>
-                        <b class="limit">{{localize "CRITICAL_INJURY.LIMIT"}}</b>
-                        <b class="healing-time">{{localize "CRITICAL_INJURY.HEALING_TIME"}}</b>
-                        <b class="effect">{{localize "CRITICAL_INJURY.EFFECT"}}</b>
-                        <a class="button item-create" title="Add Critical Injury" data-type="criticalInjury"><i class="fas fa-plus"></i></a>
-                    </div>
-                    <div class="scrollable">
-                        {{#each actor.items as |item|}}
-                        {{#if item.isCriticalInjury}}
-                        <div class="critical-injury item flex row center" data-item-id="{{item._id}}">
-                            <div class="name">{{item.name}}</div>
-                            <div class="lethal">{{item.data.lethal}}</div>
-                            <div class="limit">{{item.data.limit}}</div>
-                            <div class="healing-time">{{item.data.healingTime}}</div>
-                            <div class="effect">{{item.data.effect}}</div>
-                            <div class="button">
-                                <a class="item-control item-edit" title="Edit Critical Injury"><i class="fas fa-edit"></i></a>
-                                <a class="item-control item-delete" title="Delete Critical Injury"><i class="fas fa-trash"></i></a>
+    </div>
+    <div class="weapons border">
+        <h1>{{localize "HEADER.WEAPON"}}</h1>
+        <div class="item-list">
+            <div class="header weapon">
+                <b class="name">{{localize "WEAPON.NAME"}}</b>
+                <b class="damage">{{localize "WEAPON.DAMAGE"}}</b>
+                <b class="range">{{localize "WEAPON.RANGE"}}</b>
+                <b class="bonus">{{localize "WEAPON.BONUS"}}</b>
+            </div>
+            <div class="items">
+                {{#each actor.items as |item|}}
+                {{#if item.isWeapon}}
+                <div class="item" data-item-id="{{item._id}}">
+                    <div class="weapon">
+                        <div class="name">
+                            <div class="image-container">
+                                <div class="image" style="background-image: url('{{item.img}}')"></div>
+                            </div>
+                            <div class="name">
+                                <button class="roll-weapon" data-item-id="{{item._id}}">{{item.name}}</button>
+                                {{weaponGrip item.data.grip}},
+                                {{itemWeight item.data.weight}}{{#if item.data.features}}, {{/if}}{{item.data.features}}
                             </div>
                         </div>
-                        {{/if}}
-                        {{/each}}
+                        <div class="damage">{{item.data.damage}}</div>
+                        <div class="range">{{weaponRange item.data.range}}</div>
+                        <div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
+                            {{item.data.bonus.value}}
+                            {{#if item.data.artifactBonus}}+ {{item.data.artifactBonus}}{{/if}}
+                        </div>
                     </div>
                 </div>
+                {{/if}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    <div class="critical-injuries border">
+        <h1>{{localize "HEADER.CRITICAL_INJURY"}}</h1>
+        <div class="item-list">
+            <div class="header critical-injury flex row">
+                <b class="name">{{localize "CRITICAL_INJURY.NAME"}}</b>
+                <b class="lethal">{{localize "CRITICAL_INJURY.LETHAL"}}</b>
+                <b class="healing-time">{{localize "CRITICAL_INJURY.HEALING_TIME"}}</b>
+                <a class="button item-create" title="Add Critical Injury" data-type="criticalInjury"><i
+                        class="fas fa-plus"></i></a>
+            </div>
+            <div class="items">
+                {{#each actor.items as |item|}}
+                {{#if item.isCriticalInjury}}
+                <div class="critical-injury item flex row" data-item-id="{{item._id}}">
+                    <div class="name">
+                        <div class="image-container">
+                            <div class="image" style="background-image: url('{{item.img}}')"></div>
+                        </div>
+                        <div class="name">
+                            <span>{{item.name}}</span> {{item.data.effect}}
+                        </div>
+                    </div>
+                    <div class="lethal">{{# if item.data.lethal}}{{item.data.limit}}{{/if}}</div>
+                    <div class="healing-time">{{item.data.healingTime}}</div>
+                    <div class="button">
+                        <a class="item-control item-edit" title="Edit Critical Injury"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
+                        <a class="item-control item-delete" title="Delete Critical Injury"><i
+                                class="fas fa-trash"></i></a>
+                    </div>
+                </div>
+                {{/if}}
+                {{/each}}
             </div>
         </div>
     </div>

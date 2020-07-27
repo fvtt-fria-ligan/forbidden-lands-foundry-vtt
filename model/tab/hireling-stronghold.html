@@ -1,28 +1,27 @@
-<div class="flex row full">
-    <div class="flex column" style="flex: 0 0 100%">
-        <div class="hirelings flex column border margin grow">
-            <b class="header">{{localize "HEADER.HIRELING"}}</b>
-            <div class="hireling flex row center">
-                <b class="name">{{localize "HIRELING.NAME"}}</b>
-                <b class="salary">{{localize "HIRELING.SALARY"}}</b>
-                <b class="number">{{localize "HIRELING.NUMBER"}}</b>
-                <a class="button item-create" title="Add Hireling" data-type="hireling"><i class="fas fa-plus"></i></a>
-            </div>
-            <div class="scrollable">
-                {{#each actor.items as |item|}}
-                {{#if item.isHireling}}
-                <div class="hireling item flex row center" data-item-id="{{item._id}}">
-                    <div class="name">{{item.name}}</div>
-                    <div class="salary">{{item.data.salary}}</div>
-                    <div class="number">{{item.data.number}}</div>
-                    <div class="button">
-                        <a class="item-control item-edit" title="Edit Hireling"><i class="fas fa-edit"></i></a>
-                        <a class="item-control item-delete" title="Delete Hireling"><i class="fas fa-trash"></i></a>
-                    </div>
+<div class="flex column full">
+    <div class="item-list hirelings flex column border grow">
+        <h1>{{localize "HEADER.HIRELING"}}</h1>
+        <div class="header hireling flex row">
+            <b class="name">{{localize "HIRELING.NAME"}}</b>
+            <b class="salary">{{localize "HIRELING.SALARY"}}</b>
+            <b class="number">{{localize "HIRELING.NUMBER"}}</b>
+            <a class="button item-create" title="Add Hireling" data-type="hireling"><i class="fas fa-plus"></i></a>
+        </div>
+        <div class="items">
+            {{#each actor.items as |item|}}
+            {{#if item.isHireling}}
+            <div class="hireling item flex row" data-item-id="{{item._id}}">
+                <a class="name">{{item.name}}</a>
+                <div class="salary">{{item.data.salary}}</div>
+                <div class="number">{{item.data.number}}</div>
+                <div class="button">
+                    <a class="item-control item-edit" title="Edit Hireling"><i class="fas fa-edit"></i></a>
+                    <a class="item-control item-post" title="Post Hireling"><i class="fas fa-comment"></i></a>
+                    <a class="item-control item-delete" title="Delete Hireling"><i class="fas fa-trash"></i></a>
                 </div>
-                {{/if}}
-                {{/each}}
             </div>
+            {{/if}}
+            {{/each}}
         </div>
     </div>
 </div>
