@@ -78,15 +78,12 @@ const migrateItemData = (item, worldSchemaVersion) => {
           parts.forEach((p) => {
             if (Number.isNumeric(p)) {
               baseBonus += +p;
-            }
-            if (p.toLowerCase().includes("d8")) {
-              artifactBonus = "d8";
-            }
-            if (p.toLowerCase().includes("d10")) {
-              artifactBonus = "d10";
-            }
-            if (p.toLowerCase().includes("d12")) {
-              artifactBonus = "d12";
+            } else {
+              if (artifactBonus.length) {
+                artifactBonus = `${artifactBonus} + ${p}`;
+              } else {
+                artifactBonus = p;
+              }
             }
           });
           update["data.bonus"] = {

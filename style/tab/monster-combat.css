@@ -29,6 +29,8 @@
 }
 
 .forbidden-lands .monster .monster-talents {
+  overflow: hidden;
+  padding-bottom: 8px;
 }
 
 .forbidden-lands .monster .monster-talents .monster-talent {
@@ -56,6 +58,9 @@
 }
 
 .forbidden-lands .monster .monster-attacks {
+  margin-top: 8px;
+  overflow: hidden;
+  padding-bottom: 8px;
 }
 
 .forbidden-lands .monster .monster-attacks .monster-attack {

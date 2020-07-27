@@ -8,6 +8,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
       width: 620,
       height: 740,
       resizable: false,
+      scrollY: [".monster-talents .item-list .items", ".monster-attacks .item-list .items", ".gears.item-list .items"],
       tabs: [
         {
           navSelector: ".sheet-tabs",

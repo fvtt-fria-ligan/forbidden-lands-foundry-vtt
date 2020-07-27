@@ -32,14 +32,7 @@
         </div>
         <div class="artifactBonus">
             <label>{{localize "WEAPON.ARTIFACT_BONUS"}}</label>
-            <select name="data.artifactBonus">
-                {{#select data.artifactBonus}}
-                <option value="">{{localize "ARTIFACT.NONE"}}</option>
-                <option value="d8">{{localize "ARTIFACT.MIGHTY"}}</option>
-                <option value="d10">{{localize "ARTIFACT.EPIC"}}</option>
-                <option value="d12">{{localize "ARTIFACT.LEGENDARY"}}</option>
-                {{/select}}
-            </select>
+            <input name="data.artifactBonus" type="text" value="{{data.artifactBonus}}" />
         </div>
         <div class="grip">
             <label>{{localize "WEAPON.GRIP"}}</label>

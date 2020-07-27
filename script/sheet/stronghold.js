@@ -8,6 +8,7 @@ export class ForbiddenLandsStrongholdSheet extends ForbiddenLandsActorSheet {
       width: 600,
       height: 700,
       resizable: false,
+      scrollY: [".buildings.item-list .items", ".hirelings.item-list .items", ".gears.item-list .items"],
       tabs: [
         {
           navSelector: ".sheet-tabs",
