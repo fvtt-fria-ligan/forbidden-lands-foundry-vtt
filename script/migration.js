@@ -25,13 +25,16 @@ export const migrateWorld = async () => {
     }
     for (let scene of game.scenes.entities) {
       try {
-        const update = migrateScene(scene.data, worldSchemaVersion);
+        const update = migrateSceneData(scene.data, worldSchemaVersion);
         if (!isObjectEmpty(update)) {
           await scene.update(update, { enforceTypes: false });
         }
       } catch (err) {
         console.error(err);
       }
+    }
+    for (let pack of game.packs.filter((p) => p.metadata.package === "world" && ["Actor", "Item", "Scene"].includes(p.metadata.entity))) {
+      await migrateCompendium(pack, worldSchemaVersion);
     }
     game.settings.set("forbidden-lands", "worldSchemaVersion", schemaVersion);
     ui.notifications.info("Upgrade complete!");
@@ -101,7 +104,7 @@ const migrateItemData = (item, worldSchemaVersion) => {
   return update;
 };
 
-const migrateScene = (scene, worldSchemaVersion) => {
+const migrateSceneData = (scene, worldSchemaVersion) => {
   const tokens = duplicate(scene.tokens);
   return {
     tokens: tokens.map((tokenData) => {
@@ -121,4 +124,27 @@ const migrateScene = (scene, worldSchemaVersion) => {
       return tokenData;
     }),
   };
+};
+
+export const migrateCompendium = async function (pack, worldSchemaVersion) {
+  const entity = pack.metadata.entity;
+
+  await pack.migrate();
+  const content = await pack.getContent();
+
+  for (let ent of content) {
+    let updateData = {};
+    if (entity === "Item") {
+      updateData = migrateItemData(ent.data, worldSchemaVersion);
+    } else if (entity === "Actor") {
+      updateData = migrateActorData(ent.data, worldSchemaVersion);
+    } else if (entity === "Scene") {
+      updateData = migrateSceneData(ent.data, worldSchemaVersion);
+    }
+    if (!isObjectEmpty(updateData)) {
+      expandObject(updateData);
+      updateData["_id"] = ent._id;
+      await pack.updateEntity(updateData);
+    }
+  }
 };
