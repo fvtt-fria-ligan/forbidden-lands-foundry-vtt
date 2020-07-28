@@ -99,6 +99,7 @@
   "WEAPON.1H": "1H",
   "WEAPON.2H": "2H",
   "WEAPON.ARTIFACT_BONUS": "Artifact Bonus",
+  "WEAPON.SKILL_BONUS": "Skill Bonus",
 
   "ITEM.ATTACK": "Attack",
   "ITEM.BUILDING": "Building",

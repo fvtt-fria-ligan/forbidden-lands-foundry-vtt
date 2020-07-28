@@ -75,7 +75,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
         skill = this.actor.data.data.skill.marksmanship.value;
       }
       let bonus = this.parseBonus(weapon.data.data.bonus.value);
-      this.prepareRollDialog(testName, base, skill, bonus, weapon.data.data.artifactBonus || "", 0, weapon.data.data.damage);
+      this.prepareRollDialog(testName, base, skill, bonus, weapon.data.data.artifactBonus || "", weapon.data.data.skillBonus, weapon.data.data.damage);
     });
   }
 

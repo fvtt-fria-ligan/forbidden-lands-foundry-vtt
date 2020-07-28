@@ -285,6 +285,7 @@
       "templates": ["bonus", "craftable"],
       "category": "melee",
       "artifactBonus": "",
+      "skillBonus": 0,
       "damage": 1,
       "features": "",
       "grip": "1h",
