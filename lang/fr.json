@@ -60,8 +60,8 @@
   "HEADER.RAW_MATERIAL": "MATIERES PREMIERES",
 
   "ARMOR.HELMET": "Heaume",
-  "ARMOR.BONUS": "Bonus",
-  "ARMOR.BODY": "Armure",
+  "ARMOR.SHIELD": "Bouclier",
+  "ARMOR.BODY": "Corps",
   "ARMOR.RATING": "Cotation",
   "ARMOR.PART": "Partie du corps",
   "ARMOR.TOTAL": "Total",

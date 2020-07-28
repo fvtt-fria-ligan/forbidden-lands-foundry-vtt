@@ -19,7 +19,7 @@ It provides support for **character sheets only**, game content should be drawn 
 ![Chat](https://github.com/Perfectro/forbidden-lands-foundry-vtt/blob/master/asset/chat.png?raw=true)  
 
 ## To be done in the nearest future
-Nothing. You are more than welcome to fork this project !
+Nothing. Any pull request is welcome !
 
 ## Related Website
 - https://foundryvtt.com/

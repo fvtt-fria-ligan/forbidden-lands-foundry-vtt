@@ -31,7 +31,7 @@
                         </div>
                         <div class="name">{{item.name}}</div>
                     </div>
-                    <div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
+                    <div class="bonus {{isBroken item}}">
                         {{item.data.bonus.value}}
                     </div>
                     <div class="weight">{{itemWeight item.data.weight}}</div>
@@ -60,7 +60,7 @@
                         </div>
                         <div class="name">{{item.name}}</div>
                     </div>
-                    <div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
+                    <div class="bonus {{isBroken item}}">
                         {{item.data.bonus.value}}
                         {{#if item.data.artifactBonus}}+ {{item.data.artifactBonus}}{{/if}}
                     </div>
@@ -90,7 +90,7 @@
                         </div>
                         <div class="name">{{item.name}}</div>
                     </div>
-                    <div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
+                    <div class="bonus {{isBroken item}}">
                         {{item.data.bonus.value}}
                     </div>
                     <div class="weight">{{itemWeight item.data.weight}}</div>
@@ -120,7 +120,7 @@
                         </div>
                         <div class="name">{{item.name}}</div>
                     </div>
-                    <div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
+                    <div class="bonus {{isBroken item}}">
                         {{item.data.bonus.value}}
                     </div>
                     <div class="weight">{{itemWeight item.data.weight}}</div>

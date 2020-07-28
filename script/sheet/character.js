@@ -60,14 +60,23 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
       const itemId = $(ev.currentTarget).data("itemId");
       const armor = this.actor.getOwnedItem(itemId);
       let testName = armor.data.name;
-      this.prepareRollDialog(testName, 0, 0, armor.data.data.bonus.value, "", 0, 0);
+      let base;
+      let skill;
+      if (armor.data.data.part === 'shield') {
+        base = this.actor.data.data.attribute.strength.value;
+        skill = this.actor.data.data.skill.melee.value;
+      } else {
+        base = 0;
+        skill = 0;
+      }
+      this.prepareRollDialog(testName, base, skill, armor.data.data.bonus.value, "", 0, 0);
     });
     html.find(".roll-armor.total").click((ev) => {
       let armorTotal = 0;
       const items = this.actor.items;
       items.forEach((item) => {
-        if (item.type == "armor") {
-          armorTotal += item.data.data.bonus.value;
+        if (item.type === "armor" && item.data.data.part !== 'shield') {
+          armorTotal += parseInt(item.data.data.bonus.value, 10);
         }
       });
       let testName = game.i18n.localize("HEADER.ARMOR").toUpperCase();

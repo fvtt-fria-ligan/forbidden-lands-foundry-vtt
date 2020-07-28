@@ -1,6 +1,8 @@
 function preloadHandlebarsTemplates() {
   const templatePaths = [
     "systems/forbidden-lands/chat/item.html",
+    "systems/forbidden-lands/chat/roll.html",
+    "systems/forbidden-lands/chat/consumable.html",
     "systems/forbidden-lands/model/character.html",
     "systems/forbidden-lands/model/monster.html",
     "systems/forbidden-lands/model/weapon.html",
@@ -44,6 +46,8 @@ function registerHandlebarsHelpers() {
         return game.i18n.localize("ARMOR.BODY");
       case "helmet":
         return game.i18n.localize("ARMOR.HELMET");
+      case "shield":
+        return game.i18n.localize("ARMOR.SHIELD");
     }
   });
   Handlebars.registerHelper("itemWeight", function (weight) {
@@ -90,6 +94,13 @@ function registerHandlebarsHelpers() {
         return game.i18n.localize("RANGE.LONG");
       case "distant":
         return game.i18n.localize("RANGE.DISTANT");
+    }
+  });
+  Handlebars.registerHelper("isBroken", function (item) {
+    if (parseInt(item.data.bonus.max, 10) > 0 && parseInt(item.data.bonus.value, 10) === 0) {
+      return "broken";
+    } else {
+      return "";
     }
   });
 }

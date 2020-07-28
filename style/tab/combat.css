@@ -116,7 +116,7 @@
 .forbidden-lands .character .weapons .weapon .name {
   align-items: center;
   display: flex;
-  flex-basis: 55%;
+  flex-basis: 90%;
 }
 
 .forbidden-lands .character .weapons .weapon .name .name {

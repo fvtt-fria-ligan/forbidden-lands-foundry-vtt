@@ -18,7 +18,7 @@
                             <button class="roll-armor specific" data-item-id="{{item._id}}">{{item.name}}</button>
                         </div>
                     </div>
-                    <div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
+                    <div class="bonus {{isBroken item}}">
                         {{item.data.bonus.value}}
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                         </div>
                         <div class="damage">{{item.data.damage}}</div>
                         <div class="range">{{weaponRange item.data.range}}</div>
-                        <div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
+                        <div class="bonus {{isBroken item}}">
                             {{item.data.bonus.value}}
                             {{#if item.data.artifactBonus}}+ {{item.data.artifactBonus}}{{/if}}
                         </div>

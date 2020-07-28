@@ -60,8 +60,8 @@
   "HEADER.RAW_MATERIAL": "RAW MATERIALS",
 
   "ARMOR.HELMET": "Helmet",
-  "ARMOR.BONUS": "Bonus",
-  "ARMOR.BODY": "Armor",
+  "ARMOR.SHIELD": "Shield",
+  "ARMOR.BODY": "Body",
   "ARMOR.RATING": "Rating",
   "ARMOR.PART": "Body Part",
   "ARMOR.TOTAL": "Total",
