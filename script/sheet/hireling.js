@@ -14,6 +14,19 @@ export class ForbiddenLandsHirelingSheet extends ItemSheet {
     return data;
   }
 
+  _getHeaderButtons() {
+    let buttons = super._getHeaderButtons();
+    buttons = [
+      {
+        label: "Post Item",
+        class: "item-post",
+        icon: "fas fa-comment",
+        onclick: (ev) => this.item.sendToChat(),
+      }
+    ].concat(buttons);
+    return buttons;
+  }
+
   activateListeners(html) {
     super.activateListeners(html);
   }

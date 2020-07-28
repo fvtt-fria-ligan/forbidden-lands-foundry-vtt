@@ -9,6 +9,19 @@ export class ForbiddenLandsArmorSheet extends ItemSheet {
     });
   }
 
+  _getHeaderButtons() {
+    let buttons = super._getHeaderButtons();
+    buttons = [
+      {
+        label: "Post Item",
+        class: "item-post",
+        icon: "fas fa-comment",
+        onclick: (ev) => this.item.sendToChat(),
+      }
+    ].concat(buttons);
+    return buttons;
+  }
+
   getData() {
     const data = super.getData();
     return data;

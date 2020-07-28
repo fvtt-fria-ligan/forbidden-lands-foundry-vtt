@@ -38,6 +38,7 @@ function registerHandlebarsHelpers() {
     return acc;
   });
   Handlebars.registerHelper("armorPart", function (part) {
+    part = normalize(part, "body");
     switch (part) {
       case "body":
         return game.i18n.localize("ARMOR.BODY");
@@ -46,6 +47,7 @@ function registerHandlebarsHelpers() {
     }
   });
   Handlebars.registerHelper("itemWeight", function (weight) {
+    weight = normalize(weight, "regular");
     switch (weight) {
       case "tiny":
         return game.i18n.localize("WEIGHT.TINY");
@@ -58,6 +60,7 @@ function registerHandlebarsHelpers() {
     }
   });
   Handlebars.registerHelper("weaponCategory", function (category) {
+    category = normalize(category, "melee");
     switch (category) {
       case "melee":
         return game.i18n.localize("WEAPON.MELEE");
@@ -66,6 +69,7 @@ function registerHandlebarsHelpers() {
     }
   });
   Handlebars.registerHelper("weaponGrip", function (grip) {
+    grip = normalize(grip, "1h");
     switch (grip) {
       case "1h":
         return game.i18n.localize("WEAPON.1H");
@@ -74,6 +78,7 @@ function registerHandlebarsHelpers() {
     }
   });
   Handlebars.registerHelper("weaponRange", function (range) {
+    range = normalize(range, "arm");
     switch (range) {
       case "arm":
         return game.i18n.localize("RANGE.ARM");
@@ -87,6 +92,14 @@ function registerHandlebarsHelpers() {
         return game.i18n.localize("RANGE.DISTANT");
     }
   });
+}
+
+function normalize(data, defaultValue) {
+  if (data) {
+    return data.toLowerCase();
+  } else {
+    return defaultValue;
+  }
 }
 
 export const initializeHandlebars = () => {

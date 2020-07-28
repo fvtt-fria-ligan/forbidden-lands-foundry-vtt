@@ -5,7 +5,7 @@ export class ForbiddenLandsMonsterAttackSheet extends ItemSheet {
             classes: ["forbidden-lands", "sheet", "item"],
             template: "systems/forbidden-lands/model/monster-attack.html",
             width: 400,
-            height: 400,
+            height: 468,
             resizable: false
         });
     }
@@ -13,6 +13,19 @@ export class ForbiddenLandsMonsterAttackSheet extends ItemSheet {
     getData() {
         const data = super.getData();
         return data;
+    }
+
+    _getHeaderButtons() {
+        let buttons = super._getHeaderButtons();
+        buttons = [
+            {
+                label: "Post Item",
+                class: "item-post",
+                icon: "fas fa-comment",
+                onclick: (ev) => this.item.sendToChat(),
+            }
+        ].concat(buttons);
+        return buttons;
     }
 
     activateListeners(html) {

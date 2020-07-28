@@ -120,11 +120,6 @@
   "WEIGHT.REGULAR": "Regular",
   "WEIGHT.HEAVY": "Heavy",
 
-  "ARTIFACT.NONE": "None",
-  "ARTIFACT.EPIC": "Epic",
-  "ARTIFACT.LEGENDARY": "Legendary",
-  "ARTIFACT.MIGHTY": "Mighty",
-
   "SPELL.NAME": "Name",
   "SPELL.RANK": "Rank",
   "SPELL.RANGE": "Range",
@@ -156,7 +151,10 @@
   "RAW_MATERIAL.SHELF_LIFE": "Shelf Life",
 
   "PUSH": "PUSH!",
-  "ROLL": "ROLL!",
+  "PUSHED": "Pushed",
+  "DAMAGE": "Damage",
+  "SUCCEED": "Succeed",
+  "FAILED": "Failed",
 
   "MONSTER.NAME": "Name",
   "MONSTER.DICE": "Dice",

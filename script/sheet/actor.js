@@ -203,40 +203,32 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
     }
   }
 
-  sendRollToChat(isPushed) {
+  async sendRollToChat(isPushed) {
     this.dices.sort(function (a, b) {
       return b.weight - a.weight;
     });
     let numberOfSword = this.countSword();
     let numberOfSkull = this.countSkull();
-    let resultMessage;
-    if (isPushed) {
-      if (numberOfSword > 0) {
-        resultMessage =
-          "<b style='color:green'>" +
-          this.lastTestName +
-          "</b> (PUSHED) <b>" +
-          (numberOfSword + this.lastDamage) +
-          "⚔️ | " +
-          numberOfSkull +
-          " 💀</b></br>";
-      } else {
-        resultMessage = "<b style='color:red'>" + this.lastTestName + "</b> (PUSHED) <b>" + numberOfSword + "⚔️ | " + numberOfSkull + " 💀</b></br>";
-      }
-    } else {
-      if (numberOfSword > 0) {
-        resultMessage =
-          "<b style='color:green'>" + this.lastTestName + "</b> <b>" + (numberOfSword + this.lastDamage) + "⚔️ | " + numberOfSkull + " 💀</b></br>";
-      } else {
-        resultMessage = "<b style='color:red'>" + this.lastTestName + "</b> <b>" + numberOfSword + "⚔️ | " + numberOfSkull + " 💀</b></br>";
-      }
-    }
-    let diceMessage = this.printDices() + "</br>";
+    let rollData = {
+      name: this.lastTestName,
+      isPushed: isPushed,
+      sword: numberOfSword,
+      skull: numberOfSkull,
+      damage: numberOfSword + this.lastDamage,
+      dices: this.dices
+    };
+    const html = await renderTemplate("systems/forbidden-lands/chat/roll.html", rollData);
     let chatData = {
       user: game.user._id,
-      content: resultMessage + diceMessage,
+      rollMode: game.settings.get("core", "rollMode"),
+      content: html,
     };
-    ChatMessage.create(chatData, {});
+    if (["gmroll", "blindroll"].includes(chatData.rollMode)) {
+      chatData.whisper = ChatMessage.getWhisperIDs("GM");
+    } else if (chatData.rollMode === "selfroll") {
+      chatData.whisper = [game.user];
+    }
+    ChatMessage.create(chatData);
   }
 
   countSword() {
@@ -255,19 +247,5 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
       }
     });
     return numberOfSkull;
-  }
-
-  printDices() {
-    let message = "";
-    this.dices.forEach((dice) => {
-      message =
-        message +
-        "<img width='25px' height='25px' style='border:none;margin-right:2px;margin-top:2px' src='systems/forbidden-lands/asset/" +
-        dice.type +
-        "-dice-" +
-        dice.value +
-        ".png'/>";
-    });
-    return message;
   }
 }

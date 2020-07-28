@@ -46,9 +46,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
       const conditionName = $(ev.currentTarget).data("condition");
       const conditionValue = this.actor.data.data.condition[conditionName].value;
       if (conditionName === "sleepy") {
-        this.actor.update({
-          "data.condition.sleepy.value": !conditionValue,
-        });
+        this.actor.update({"data.condition.sleepy.value": !conditionValue,});
       } else if (conditionName === "thirsty") {
         this.actor.update({ "data.condition.thirsty.value": !conditionValue });
       } else if (conditionName === "hungry") {
@@ -125,27 +123,36 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
     this.sendRollToChat(true);
   }
 
-  rollConsumable(consumable) {
+  async rollConsumable(consumable) {
     let consumableName = game.i18n.localize(consumable.label);
-    let resultMessage;
+    let result;
     if (!consumable.value) {
-      resultMessage = "<b>" + consumableName + "</b></br><b style='color:red'>Empty.</b>";
+      result = "FAILED";
     } else {
       let die = new Die(consumable.value);
       die.roll(1);
       if (die.total > 1) {
-        resultMessage = "<b>" + consumableName + "</b></br><b style='color:green'>Succeed</b>";
-      } else if (parseInt(consumable.value, 10) === 6) {
-        resultMessage = "<b>" + consumableName + "</b></br><b style='color:red'>Failed. No more " + consumableName.toLowerCase() + "!</b>";
+        result = "SUCCEED";
       } else {
-        resultMessage = "<b>" + consumableName + "</b></br><b style='color:red'>Failed. Downgrading to " + (consumable.value - 2) + "</b>";
+        result = "FAILED";
       }
     }
+    let consumableData = {
+      name: consumableName,
+      result: game.i18n.localize(result)
+    }
+    const html = await renderTemplate("systems/forbidden-lands/chat/consumable.html", consumableData);
     let chatData = {
       user: game.user._id,
-      content: resultMessage,
+      rollMode: game.settings.get("core", "rollMode"),
+      content: html,
     };
-    ChatMessage.create(chatData, {});
+    if (["gmroll", "blindroll"].includes(chatData.rollMode)) {
+      chatData.whisper = ChatMessage.getWhisperIDs("GM");
+    } else if (chatData.rollMode === "selfroll") {
+      chatData.whisper = [game.user];
+    }
+    ChatMessage.create(chatData);
   }
 
   _getHeaderButtons() {
