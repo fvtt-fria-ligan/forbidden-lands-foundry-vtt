@@ -1,27 +1,32 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <div class="item flex row wrap">
-        <div class="name flex row wrap">
-            <b>{{localize "GEAR.NAME"}}</b>
+    <div class="header">
+        <div class="avatar" style="grid-row: 1/3;">
+            <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+        </div>
+        <div class="name">
+            <label>{{localize "GEAR.NAME"}}</label>
             <input name="name" type="text" value="{{item.name}}"/>
         </div>
-        <div class="rank flex row wrap">
-            <b>{{localize "SPELL.RANK"}}</b>
+        <div class="rank">
+            <label>{{localize "SPELL.RANK"}}</label>
             <input name="data.rank" type="text" value="{{data.rank}}"/>
         </div>
-        <div class="range flex row wrap">
-            <b>{{localize "SPELL.RANGE"}}</b>
+    </div>
+    <div class="item">
+        <div class="range">
+            <label>{{localize "SPELL.RANGE"}}</label>
             <input name="data.range" type="text" value="{{data.range}}"/>
         </div>
-        <div class="duration flex row wrap">
-            <b>{{localize "SPELL.DURATION"}}</b>
+        <div class="duration">
+            <label>{{localize "SPELL.DURATION"}}</label>
             <input name="data.duration" type="text" value="{{data.duration}}"/>
         </div>
-        <div class="ingredient flex row wrap">
-            <b>{{localize "SPELL.INGREDIENT"}}</b>
+        <div class="ingredient">
+            <label>{{localize "SPELL.INGREDIENT"}}</label>
             <input name="data.ingredient" type="text" value="{{data.ingredient}}"/>
         </div>
-        <div class="spell-description flex row wrap">
-            <b>{{localize "SPELL.DESCRIPTION"}}</b>
+        <div class="spell-description">
+            <label>{{localize "SPELL.DESCRIPTION"}}</label>
             <textarea name="data.description">{{data.description}}</textarea>
         </div>
     </div>

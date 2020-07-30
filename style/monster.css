@@ -1,53 +1,68 @@
 .forbidden-lands .monster {
-    height: 100%;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.forbidden-lands .monster .bio label {
+  font-family: var(--font-special);
+}
+.forbidden-lands .monster .bio input {
+  flex-grow: 1;
+  margin: 0 8px;
+}
+
+.forbidden-lands .monster .bio .bio-row {
+  margin: 5px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .forbidden-lands .monster .bio .avatar {
-    flex: 0 0 auto;
+  background: radial-gradient(
+    closest-side,
+    var(--color-secondary) 0%,
+    transparent 100%
+  );
+  flex: 0 0 auto;
+  height: 95px;
+  margin-right: 8px;
+  width: 95px;
 }
 
 .forbidden-lands .monster .bio .avatar img {
-    border: 1px dashed black;
-    border-radius: 10px;
+  border: 0 none;
+  display: block;
+  max-width: 95px;
+  max-height: 95px;
+  min-width: 20px;
+  min-height: 20px;
+  margin: auto;
+}
+.forbidden-lands .monster .bio .avatar img:hover {
+  box-shadow: 0 0 10px red;
+  cursor: pointer;
 }
 
 .forbidden-lands .monster .bio .name {
-    flex: 0 0 100%;
+  display: flex;
+  flex-direction: row;
 }
 
-.forbidden-lands .monster .bio .armor {
-    flex: 0 0 50%;
+.forbidden-lands .monster .bio .armor input {
+  width: 3em;
 }
 
-.forbidden-lands .monster .bio .armor b:hover {
-    text-shadow: 0 0 10px darkolivegreen;
+.forbidden-lands .monster .bio .movement input {
+  width: 3em;
 }
 
-.forbidden-lands .monster .bio .movement {
-    flex: 0 0 50%;
+.forbidden-lands .monster .attributes {
+  grid-column-end: span 2;
 }
 
-.forbidden-lands .monster .monster-talent {
-    margin-left: 5px;
-    margin-right: 5px;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    border-bottom: 1px dashed lightslategrey;
-}
-
-.forbidden-lands .monster .monster-talent:last-child {
-    border-bottom: none;
-}
-
-.forbidden-lands .monster .monster-attack {
-    margin-left: 5px;
-    margin-right: 5px;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    border-bottom: 1px dashed lightslategrey;
-}
-
-.forbidden-lands .monster .monster-attack:last-child {
-    border-bottom: none;
+.forbidden-lands .monster .conditions {
+  display: none;
 }

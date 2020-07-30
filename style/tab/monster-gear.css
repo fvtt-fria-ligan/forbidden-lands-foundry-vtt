@@ -1,35 +1,50 @@
-.forbidden-lands .monsters .gears {
-    flex-basis: 50%;
+.forbidden-lands .monster .gears {
+  padding-bottom: 8px;
 }
 
-.forbidden-lands .monster .gears .header {
-    background-color: lightslategrey;
-    border-radius: 10px;
-    text-align: center;
-    margin: 5px;
+.forbidden-lands .monster .gears .items .header {
+  margin: 0;
+  width: 100%;
+}
+
+.forbidden-lands .monster .gears .items div + .header {
+  margin-top: 8px;
 }
 
 .forbidden-lands .monster .gears .gear {
-    align-items: center;
+  align-items: center;
 }
 
-.forbidden-lands .monster .gears .gear .name {
-    flex-basis: 58%;
+.forbidden-lands .monster .gears .name {
+  align-items: center;
+  flex-basis: 55%;
+  display: flex;
 }
 
-.forbidden-lands .monster .gears .gear.item .name:hover {
-    text-shadow: 0 0 10px darkolivegreen;
+.forbidden-lands .monster .gears .header .name,
+.forbidden-lands .monster .gears .name .name,
+.forbidden-lands .monster .gears .bonus,
+.forbidden-lands .monster .gears .weight,
+.forbidden-lands .monster .gears .button {
+  margin-left: 4px;
 }
 
-.forbidden-lands .monster .gears .gear .bonus {
-    flex-basis: 17%;
+.forbidden-lands .monster .gears .bonus {
+  flex-basis: 15%;
+  text-align: center;
 }
 
-.forbidden-lands .monster .gears .gear .button {
-    flex-basis: 25%;
+.forbidden-lands .monster .gears .bonus.broken {
+  color: #a00;
 }
 
-.forbidden-lands .monster .gears .scrollable {
-    overflow-y: auto;
-    max-height: 185px;
+.forbidden-lands .monster .gears .weight {
+  flex-basis: 15%;
+  text-align: center;
+}
+
+.forbidden-lands .monster .gears .button {
+  flex-basis: 15%;
+  font-size: 10px;
+  text-align: right;
 }

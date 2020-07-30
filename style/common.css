@@ -1,85 +1,361 @@
+@font-face {
+  font-family: "IM Fell Great Primer";
+  src: url("../fonts/IMFellGreatPrimer-Regular.ttf");
+}
+@font-face {
+  font-family: "IM Fell Great Primer";
+  src: url("../fonts/IMFellGreatPrimer-Italic.ttf");
+  font-style: italic;
+}
+
+:root {
+  --color-foreground: #221f20;
+  --color-background: #fff;
+  --color-secondary: #d1d2d4;
+  --color-border: #939598;
+  --font-input: "Signika", serif;
+  --font-special: "IM Fell Great Primer", serif;
+}
+
 .forbidden-lands .border {
-    border: 2px solid black;
-    border-radius: 10px;
+  border: 10px solid transparent;
+  border-image: url("../asset/border-small.png") 20/10px round;
+}
+
+.forbidden-lands h1 {
+  border: 0 none;
+  font-family: var(--font-special);
+  font-size: inherit;
+  font-weight: bold;
+  line-height: initial;
+  margin: 0;
+  padding: 4px 4px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .forbidden-lands .flex {
-    display: flex;
+  display: flex;
 }
 
 .forbidden-lands .row {
-    flex-direction: row;
+  flex-direction: row;
 }
 
 .forbidden-lands .column {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .forbidden-lands .full {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .forbidden-lands .wrap {
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .forbidden-lands .half {
-    flex: 0 0 50%;
+  flex: 0 0 50%;
 }
 
 .forbidden-lands .center {
-    text-align: center;
+  text-align: center;
 }
 
 .forbidden-lands .margin {
-    margin: 5px;
+  margin: 5px;
 }
 
 .forbidden-lands .grow {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 .forbidden-lands .align-center {
-    align-items: center;
+  align-items: center;
 }
 
 .forbidden-lands .align-end {
-    align-items: flex-end;
+  align-items: flex-end;
 }
 
 .forbidden-lands .space-around {
-    justify-content: space-around;
+  justify-content: space-around;
 }
 
+.forbidden-lands .tabs .item {
+  padding: 5px;
+}
 .forbidden-lands .tabs .item.active {
-    text-shadow: 0 0 10px white;
+  color: #fff;
+  text-shadow: 0 0 10px #fff;
 }
 
 .forbidden-lands .tab {
-    width: 100%;
+  height: 100%;
+  width: 100%;
+}
+
+.forbidden-lands .item-control {
+  margin-left: 4px;
+}
+
+.forbidden-lands button {
+  background: transparent;
+  border: 0 none;
+  border-radius: 3px;
+  box-shadow: none;
+  color: var(--color-foreground);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: bold;
+  height: auto;
+  line-height: inherit;
+  padding: 2px 4px;
+  width: auto;
+}
+.forbidden-lands button:focus,
+.forbidden-lands button:hover {
+  background: var(--color-secondary);
+}
+
+.forbidden-lands input[type="number"],
+.forbidden-lands input[type="text"],
+.forbidden-lands select,
+.forbidden-lands textarea {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  box-shadow: inset 0 0 6px var(--color-secondary);
+  color: var(--color-foreground);
+  font-family: var(--font-input);
+  font-size: inherit;
+  height: auto;
+  line-height: inherit;
+  padding: 2px 4px;
+  width: 100%;
+}
+.forbidden-lands input:disabled,
+.forbidden-lands select:disabled,
+.forbidden-lands textarea:disabled {
+  border: 0 none;
+  box-shadow: none;
+}
+
+.forbidden-lands input[type="number"] {
+  -moz-appearance: textfield;
+  text-align: center;
+}
+.forbidden-lands input[type="number"]::-webkit-outer-spin-button,
+.forbidden-lands input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.forbidden-lands input[type="number"]:focus,
+.forbidden-lands input[type="text"]:focus,
+.forbidden-lands select:focus,
+.forbidden-lands textarea:focus {
+  border: 1px solid var(--color-border);
+  box-shadow: 0 0 10px #ff6400;
+  outline: none;
 }
 
 .forbidden-lands .sheet-body {
-    overflow: hidden;
-    flex-grow: 1;
+  overflow: hidden;
+  flex-grow: 1;
 }
 
 .forbidden-lands .editor,
 .forbidden-lands .editor-content {
-    width: 100%;
-    height: 100%;
-    padding: 5px;
-    max-height: 450px;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
 }
 
 .forbidden-lands .sheet-tabs {
-    padding: 5px;
-    background-color: lightslategrey;
-    margin-top: 5px;
-    margin-bottom: 5px;
+  background-color: var(--color-foreground);
+  color: #ddd;
+  font-family: var(--font-special);
+  margin: 8px 0;
+  padding: 0 8px;
 }
 
 .forbidden-lands .sheet-tabs b:hover {
-    text-shadow: 0 0 10px darkolivegreen;
+  cursor: pointer;
+  text-shadow: 0 0 8px red;
+}
+
+.forbidden-lands .item-list {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.forbidden-lands .item-list .header {
+  align-items: flex-end;
+  border-bottom: 2px solid var(--color-border);
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0 8px;
+  padding: 4px 8px;
+  text-transform: uppercase;
+  width: calc(100% - 16px);
+}
+.forbidden-lands .item-list .items {
+  overflow-y: scroll;
+  padding: 0 2px 0 8px;
+  width: 100%;
+}
+.forbidden-lands .item-list .items .item {
+  border-bottom: 1px solid var(--color-border);
+  padding: 1px 8px;
+}
+.forbidden-lands .item-list .items .item:last-child {
+  border-bottom: 0 none;
+}
+.forbidden-lands .item-list .items .item:nth-child(odd) {
+  background-color: var(--color-secondary);
+}
+.forbidden-lands .item-list .items .item:nth-child(odd) button:focus,
+.forbidden-lands .item-list .items .item:nth-child(odd) button:hover {
+    background-color: var(--color-background);
+}
+
+.forbidden-lands .item-list .items .item .image-container {
+  background: radial-gradient(closest-side, var(--color-secondary) 0%, transparent 100%);
+}
+
+.forbidden-lands .item-list .items .item .image {
+  background-size: 32px;
+  background-repeat: no-repeat;
+  height: 32px;
+  width: 32px;
+}
+
+.forbidden-lands.sheet .window-content {
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+.forbidden-lands.sheet .window-content form {
+  /* Force scrolling within the window */
+  min-height: 0;
+}
+
+/* Chat */
+.forbidden-lands.chat-item {
+  background: var(--color-background);
+  border-radius: 3px;
+  color: var(--color-foreground);
+  padding: 8px;
+}
+.forbidden-lands.chat-item .border {
+  padding: 8px;
+}
+.forbidden-lands.chat-item h3 {
+  font-family: var(--font-special);
+  font-weight: bold;
+  margin: 0 0 8px;
+  text-align: center;
+}
+.forbidden-lands.chat-item h4 {
+  font-family: var(--font-special);
+  font-variant: small-caps;
+  font-weight: bold;
+  margin: 0 0 8px;
+  text-align: center;
+}
+.forbidden-lands.chat-item h3 + h4 {
+  margin-top: -8px;
+}
+.forbidden-lands.chat-item img {
+  background: radial-gradient(
+    closest-side,
+    var(--color-secondary) 0%,
+    transparent 100%
+  );
+  border: 0;
+  display: block;
+  margin: 0 auto 8px;
+  max-height: 64px;
+  width: auto;
+}
+.forbidden-lands.chat-item p {
+  margin: 0 0 4px;
+}
+
+.forbidden-lands.roll-item {
+  background: var(--color-background);
+  border-radius: 3px;
+  color: var(--color-foreground);
+  padding: 8px;
+}
+.forbidden-lands.roll-item .border {
+  padding: 8px;
+}
+.forbidden-lands.roll-item h3 {
+  font-family: var(--font-special);
+  font-weight: bold;
+  margin: 0 0 8px;
+  text-align: center;
+}
+.forbidden-lands.roll-item h4 {
+  font-family: var(--font-special);
+  font-variant: small-caps;
+  font-weight: bold;
+  margin: 0 0 8px;
+  text-align: center;
+}
+.forbidden-lands.roll-item h3 + h4 {
+  margin-top: -8px;
+}
+.forbidden-lands.roll-item img {
+  background: radial-gradient(
+          closest-side,
+          var(--color-secondary) 0%,
+          transparent 100%
+  );
+  border: 0;
+  margin: 0 auto 8px;
+  max-height: 64px;
+  width: auto;
+}
+.forbidden-lands.roll-item p {
+  margin: 0 0 4px;
+}
+
+/* Scrollbars */
+.app.window-app.sheet.forbidden-lands.actor ::-webkit-scrollbar {
+  width: 6px;
+}
+.app.window-app.sheet.forbidden-lands.actor ::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border: 0 none;
+}
+
+#chat-log .message {
+  background: white;
+}
+.app,
+#hotbar .macro,
+#hotbar .macro .macro-key,
+#hotbar .bar-controls,
+#controls .scene-control,
+#controls .control-tool,
+#navigation #nav-toggle,
+#navigation #scene-list .scene {
+  background: var(--color-foreground);
+  color: var(--color-background);
+}
+button,
+#chat-form textarea,
+#chat-controls div.roll-type-select select,
+.window-app .window-content,
+.sidebar-tab .directory-header .header-search input {
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+#navigation #scene-list .scene.gm {
+  background: #525252;
+  border: 1px solid var(--color-border);
 }

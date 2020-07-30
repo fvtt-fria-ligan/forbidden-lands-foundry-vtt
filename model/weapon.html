@@ -1,64 +1,118 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <div class="item flex row wrap">
-        <div class="weapon-name flex row wrap">
-            <b>{{localize "GEAR.NAME"}}</b>
-            <input name="name" type="text" value="{{item.name}}"/>
+    <div class="header">
+        <div class="avatar" style="grid-row-end: 3;">
+            <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
         </div>
-        <div class="weapon-category flex row wrap">
-            <b>{{localize "WEAPON.CATEGORY"}}</b>
-            <input name="data.category" type="text" value="{{data.category}}"/>
+        <div class="weapon-name">
+            <label>{{localize "GEAR.NAME"}}</label>
+            <input name="name" type="text" value="{{item.name}}" />
         </div>
-        <div class="grip flex row wrap">
-            <b>{{localize "WEAPON.GRIP"}}</b>
-            <input name="data.grip" type="text" value="{{data.grip}}"/>
+        <div class="weapon-category">
+            <label>{{localize "WEAPON.CATEGORY"}}</label>
+            <select name="data.category">
+                {{#select data.category}}
+                <option value="melee">{{localize "WEAPON.MELEE"}}</option>
+                <option value="ranged">{{localize "WEAPON.RANGED"}}</option>
+                {{/select}}
+            </select>
         </div>
-        <div class="bonus flex row wrap">
-            <b>{{localize "WEAPON.BONUS"}}</b>
-            <input name="data.bonus" type="text" value="{{data.bonus}}"/>
+    </div>
+    <div class="item">
+        <div class="damage">
+            <label>{{localize "WEAPON.DAMAGE"}}</label>
+            <input name="data.damage" type="number" value="{{data.damage}}" data-dtype="Number" />
         </div>
-        <div class="damage flex row wrap">
-            <b>{{localize "WEAPON.DAMAGE"}}</b>
-            <input name="data.damage" type="text" value="{{data.damage}}"/>
+        <div class="bonus">
+            <label>{{localize "WEAPON.BONUS"}}</label>
+            <div class="multivalue">
+                <input name="data.bonus.value" type="number" value="{{data.bonus.value}}" data-dtype="Number" />
+                /
+                <input name="data.bonus.max" type="number" value="{{data.bonus.max}}" data-dtype="Number" />
+            </div>
         </div>
-        <div class="range flex row wrap">
-            <b>{{localize "WEAPON.RANGE"}}</b>
-            <input name="data.range" type="text" value="{{data.range}}"/>
+        <div class="artifactBonus">
+            <label>{{localize "WEAPON.ARTIFACT_BONUS"}}</label>
+            <input name="data.artifactBonus" type="text" value="{{data.artifactBonus}}" />
         </div>
-        <div class="weight flex row wrap">
-            <b>{{localize "GEAR.WEIGHT"}}</b>
-            <input name="data.weight" type="text" value="{{data.weight}}"/>
+        <div class="skillBonus">
+            <label>{{localize "WEAPON.SKILL_BONUS"}}</label>
+            <input name="data.skillBonus" type="number" value="{{data.skillBonus}}" data-dtype="Number" />
         </div>
-        <div class="cost flex row wrap">
-            <b>{{localize "GEAR.COST"}}</b>
-            <input name="data.cost" type="text" value="{{data.cost}}"/>
+        <div class="grip">
+            <label>{{localize "WEAPON.GRIP"}}</label>
+            <select name="data.grip">
+                {{#select data.grip}}
+                <option value="1h">{{localize "WEAPON.1H"}}</option>
+                <option value="2h">{{localize "WEAPON.2H"}}</option>
+                {{/select}}
+            </select>
         </div>
-        <div class="features flex row wrap">
-            <b>{{localize "WEAPON.FEATURE"}}</b>
-            <input name="data.features" type="text" value="{{data.features}}"/>
+        <div class="range">
+            <label>{{localize "WEAPON.RANGE"}}</label>
+            <select name="data.range">
+                {{#select data.range}}
+                <option value="arm">{{localize "RANGE.ARM"}}</option>
+                <option value="near">{{localize "RANGE.NEAR"}}</option>
+                <option value="short">{{localize "RANGE.SHORT"}}</option>
+                <option value="long">{{localize "RANGE.LONG"}}</option>
+                <option value="distant">{{localize "RANGE.DISTANT"}}</option>
+                {{/select}}
+            </select>
         </div>
-        <div class="supply flex row wrap">
-            <b>{{localize "GEAR.SUPPLY"}}</b>
-            <input name="data.supply" type="text" value="{{data.supply}}"/>
+        <div class="weight">
+            <label>{{localize "GEAR.WEIGHT"}}</label>
+            <select name="data.weight">
+                {{#select data.weight}}
+                <option value="tiny">{{localize "WEIGHT.TINY"}}</option>
+                <option value="light">{{localize "WEIGHT.LIGHT"}}</option>
+                <option value="regular">{{localize "WEIGHT.REGULAR"}}</option>
+                <option value="heavy">{{localize "WEIGHT.HEAVY"}}</option>
+                {{/select}}
+            </select>
         </div>
-        <div class="raw-materials flex row wrap">
-            <b>{{localize "GEAR.RAW_MATERIAL"}}</b>
-            <input name="data.rawMaterials" type="text" value="{{data.rawMaterials}}"/>
+        <div class="features">
+            <label>{{localize "WEAPON.FEATURE"}}</label>
+            <input name="data.features" type="text" value="{{data.features}}" />
         </div>
-        <div class="time flex row wrap">
-            <b>{{localize "GEAR.TIME"}}</b>
-            <input name="data.time" type="text" value="{{data.time}}"/>
+        <div class="cost">
+            <label>{{localize "GEAR.COST"}}</label>
+            <input name="data.cost" type="text" value="{{data.cost}}" />
         </div>
-        <div class="talent flex row wrap">
-            <b>{{localize "GEAR.TALENT"}}</b>
-            <input name="data.talent" type="text" value="{{data.talent}}"/>
+        <div class="supply">
+            <label>{{localize "GEAR.SUPPLY"}}</label>
+            <input name="data.supply" type="text" value="{{data.supply}}" />
         </div>
-        <div class="tools flex row wrap">
-            <b>{{localize "GEAR.TOOLS"}}</b>
-            <input name="data.tools" type="text" value="{{data.tools}}"/>
+        <div class="raw-materials">
+            <label>{{localize "GEAR.RAW_MATERIAL"}}</label>
+            <input name="data.rawMaterials" type="text" value="{{data.rawMaterials}}" />
         </div>
-        <div class="effect flex row wrap">
-            <b>{{localize "GEAR.EFFECT"}}</b>
-            <input name="data.effect" type="text" value="{{data.effect}}"/>
+        <div class="time">
+            <label>{{localize "GEAR.TIME"}}</label>
+            <input name="data.time" type="text" value="{{data.time}}" />
+        </div>
+        <div class="talent">
+            <label>{{localize "GEAR.TALENT"}}</label>
+            <input name="data.talent" type="text" value="{{data.talent}}" />
+        </div>
+        <div class="tools">
+            <label>{{localize "GEAR.TOOLS"}}</label>
+            <input name="data.tools" type="text" value="{{data.tools}}" />
+        </div>
+        <div class="effect">
+            <label>{{localize "GEAR.EFFECT"}}</label>
+            <input name="data.effect" type="text" value="{{data.effect}}" />
+        </div>
+        <div class="description">
+            <label>{{localize "WEAPON.DESCRIPTION"}}</label>
+            <textarea name="data.description">{{data.description}}</textarea>
+        </div>
+        <div class="drawback">
+            <label>{{localize "WEAPON.DRAWBACK"}}</label>
+            <textarea name="data.drawback">{{data.drawback}}</textarea>
+        </div>
+        <div class="appearance">
+            <label>{{localize "WEAPON.APPEARANCE"}}</label>
+            <textarea name="data.appearance">{{data.appearance}}</textarea>
         </div>
     </div>
 </form>

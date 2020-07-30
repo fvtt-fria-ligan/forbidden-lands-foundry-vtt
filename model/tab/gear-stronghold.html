@@ -1,89 +1,120 @@
-<div class="flex row full">
-    <div class="flex column" style="flex: 0 0 50%">
-        <div class="gears flex column border margin grow">
-            <b class="header">{{localize "HEADER.WEAPON_ARMOR"}}</b>
-            <div class="gear flex row center">
-                <b class="name">{{localize "GEAR.NAME"}}</b>
-                <b class="bonus">{{localize "GEAR.BONUS"}}</b>
+<div class="flex column full">
+    <div class="gears item-list border grow">
+        <h1>{{localize "HEADER.GEAR"}}</h1>
+        <div class="items">
+            <div class="header flex row">
+                <b class="name">{{localize "HEADER.ARMOR"}}</b>
+                <b class="bonus">{{localize "ARMOR.RATING"}}</b>
+                <b class="weight">{{localize "GEAR.WEIGHT"}}</b>
+                <a class="button item-create" title="Add Armor" data-type="armor"><i class="fas fa-plus"></i></a>
+            </div>
+            <div>
+                {{#each actor.items as |item|}}
+                {{#if item.isArmor}}
+                <div class="gear item flex row" data-item-id="{{item._id}}">
+                    <div class="name">
+                        <div class="image-container">
+                            <div class="image" style="background-image: url('{{item.img}}')"></div>
+                        </div>
+                        <div class="name">{{item.name}}</div>
+                    </div>
+                    <div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
+                        {{item.data.bonus.value}}
+                    </div>
+                    <div class="weight">{{itemWeight item.data.weight}}</div>
+                    <div class="button">
+                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    </div>
+                </div>
+                {{/if}}
+                {{/each}}
+            </div>
+            <div class="header flex row">
+                <b class="name">{{localize "HEADER.WEAPON"}}</b>
+                <b class="bonus">{{localize "WEAPON.BONUS"}}</b>
+                <b class="weight">{{localize "GEAR.WEIGHT"}}</b>
                 <a class="button item-create" title="Add Weapon" data-type="weapon"><i class="fas fa-plus"></i></a>
             </div>
-            <div class="scrollable">
+            <div>
                 {{#each actor.items as |item|}}
-                {{#if item.isWeaponOrArmor}}
-                <div class="gear item flex row center" data-item-id="{{item._id}}">
-                    <div class="name">{{item.name}}</div>
-                    <div class="bonus">{{item.data.bonus}}</div>
+                {{#if item.isWeapon}}
+                <div class="gear item flex row" data-item-id="{{item._id}}">
+                    <div class="name">
+                        <div class="image-container">
+                            <div class="image" style="background-image: url('{{item.img}}')"></div>
+                        </div>
+                        <div class="name">{{item.name}}</div>
+                    </div>
+                    <div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
+                        {{item.data.bonus.value}}
+                        {{#if item.data.artifactBonus}}+ {{item.data.artifactBonus}}{{/if}}
+                    </div>
+                    <div class="weight">{{itemWeight item.data.weight}}</div>
                     <div class="button">
-                        <a class="item-control item-edit" title="Edit Weapon"><i class="fas fa-edit"></i></a>
-                        <a class="item-control item-delete" title="Delete Weapon"><i class="fas fa-trash"></i></a>
+                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                     </div>
                 </div>
                 {{/if}}
                 {{/each}}
             </div>
-        </div>
-        <div class="gears flex column border margin grow">
-            <b class="header">{{localize "HEADER.ARTIFACT"}}</b>
-            <div class="gear flex row center">
-                <b class="name">{{localize "GEAR.NAME"}}</b>
+            <div class="header flex row">
+                <b class="name">{{localize "HEADER.GEAR"}}</b>
                 <b class="bonus">{{localize "GEAR.BONUS"}}</b>
-                <a class="button item-create" title="Add Artifact" data-type="artifact"><i class="fas fa-plus"></i></a>
-            </div>
-            <div class="scrollable">
-                {{#each actor.items as |item|}}
-                {{#if item.isArtifact}}
-                <div class="gear item flex row center" data-item-id="{{item._id}}">
-                    <div class="name">{{item.name}}</div>
-                    <div class="bonus">{{item.data.bonus}}</div>
-                    <div class="button">
-                        <a class="item-control item-edit" title="Edit Artifact"><i class="fas fa-edit"></i></a>
-                        <a class="item-control item-delete" title="Delete Artifact"><i class="fas fa-trash"></i></a>
-                    </div>
-                </div>
-                {{/if}}
-                {{/each}}
-            </div>
-        </div>
-    </div>
-    <div class="flex column" style="flex: 0 0 50%">
-        <div class="gears flex column border margin grow">
-            <b class="header">{{localize "HEADER.GEAR"}}</b>
-            <div class="gear flex row center">
-                <b class="name">{{localize "GEAR.NAME"}}</b>
-                <b class="bonus">{{localize "GEAR.BONUS"}}</b>
+                <b class="weight">{{localize "GEAR.WEIGHT"}}</b>
                 <a class="button item-create" title="Add Gear" data-type="gear"><i class="fas fa-plus"></i></a>
             </div>
-            <div class="scrollable">
+            <div>
                 {{#each actor.items as |item|}}
                 {{#if item.isGear}}
-                <div class="gear item flex row center" data-item-id="{{item._id}}">
-                    <div class="name">{{item.name}}</div>
-                    <div class="bonus">{{item.data.bonus}}</div>
+                <div class="gear item flex row" data-item-id="{{item._id}}">
+                    <div class="name">
+                        <div class="image-container">
+                            <div class="image" style="background-image: url('{{item.img}}')"></div>
+                        </div>
+                        <div class="name">{{item.name}}</div>
+                    </div>
+                    <div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
+                        {{item.data.bonus.value}}
+                    </div>
+                    <div class="weight">{{itemWeight item.data.weight}}</div>
                     <div class="button">
-                        <a class="item-control item-edit" title="Edit Gear"><i class="fas fa-edit"></i></a>
-                        <a class="item-control item-delete" title="Delete Gear"><i class="fas fa-trash"></i></a>
+                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                     </div>
                 </div>
                 {{/if}}
                 {{/each}}
             </div>
-        </div>
-        <div class="gears flex column border margin grow">
-            <b class="header">{{localize "HEADER.RAW_MATERIAL"}}</b>
-            <div class="gear flex row center">
-                <b class="name">{{localize "GEAR.NAME"}}</b>
+            <div class="header flex row">
+                <b class="name">{{localize "HEADER.RAW_MATERIAL"}}</b>
                 <b class="bonus">{{localize "GEAR.BONUS"}}</b>
-                <a class="button item-create" title="Add Raw Material" data-type="rawMaterial"><i class="fas fa-plus"></i></a>
+                <b class="weight">{{localize "GEAR.WEIGHT"}}</b>
+                <a class="button item-create" title="Add Raw Material" data-type="rawMaterial"><i
+                        class="fas fa-plus"></i></a>
             </div>
-            <div class="scrollable">
+            <div>
                 {{#each actor.items as |item|}}
                 {{#if item.isRawMaterial}}
-                <div class="gear item flex row center" data-item-id="{{item._id}}">
-                    <div class="name">{{item.name}}</div>
-                    <div class="bonus">{{item.data.bonus}}</div>
+                <div class="gear item flex row" data-item-id="{{item._id}}">
+                    <div class="name">
+                        <div class="image-container">
+                            <div class="image" style="background-image: url('{{item.img}}')"></div>
+                        </div>
+                        <div class="name">{{item.name}}</div>
+                    </div>
+                    <div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
+                        {{item.data.bonus.value}}
+                    </div>
+                    <div class="weight">{{itemWeight item.data.weight}}</div>
                     <div class="button">
-                        <a class="item-control item-edit" title="Edit Raw Material"><i class="fas fa-edit"></i></a>
-                        <a class="item-control item-delete" title="Delete Raw Material"><i class="fas fa-trash"></i></a>
+                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                     </div>
                 </div>
                 {{/if}}
