@@ -24,7 +24,7 @@
 .forbidden-lands .monster .bio .avatar {
   background: radial-gradient(
     closest-side,
-    var(--color-secondary) 0%,
+    var(--color-highlight) 0%,
     transparent 100%
   );
   flex: 0 0 auto;

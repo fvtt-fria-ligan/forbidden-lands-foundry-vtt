@@ -47,7 +47,8 @@
 :root {
   --color-foreground: #221f20;
   --color-background: #fff;
-  --color-secondary: #d1d2d4;
+  --color-highlight: #d1d2d4;
+  --color-secondary: #e1e2e4;
   --color-border: #939598;
   --font-editor: "IM Fell Great Primer", serif;
   --font-input: "Poppins", sans-serif;
@@ -156,7 +157,7 @@
 }
 .forbidden-lands button:focus,
 .forbidden-lands button:hover {
-  background: var(--color-secondary);
+  background: var(--color-highlight);
 }
 
 .forbidden-lands input[type="number"],
@@ -171,7 +172,7 @@
   font-family: var(--font-input);
   font-size: 12px;
   height: auto;
-  line-height: inherit;
+  line-height: 16px;
   padding: 2px 4px;
   width: 100%;
 }
@@ -265,7 +266,7 @@
 }
 
 .forbidden-lands .item-list .items .item .image-container {
-  background: radial-gradient(closest-side, var(--color-secondary) 0%, transparent 100%);
+  background: radial-gradient(closest-side, var(--color-highlight) 0%, transparent 100%);
 }
 
 .forbidden-lands .item-list .items .item .image {
@@ -321,7 +322,7 @@
 .forbidden-lands.chat-item img {
   background: radial-gradient(
     closest-side,
-    var(--color-secondary) 0%,
+    var(--color-highlight) 0%,
     transparent 100%
   );
   border: 0;
@@ -370,7 +371,7 @@
 .forbidden-lands.roll-item img {
   background: radial-gradient(
     closest-side,
-    var(--color-secondary) 0%,
+    var(--color-highlight) 0%,
     transparent 100%
   );
   border: 0;

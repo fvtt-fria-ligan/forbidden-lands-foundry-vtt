@@ -26,6 +26,10 @@
   display: flex;
 }
 
+.forbidden-lands .character .armors .armor button {
+  margin: -2px -4px;
+}
+
 .forbidden-lands .character .armors .armor .name {
   align-items: center;
   display: flex;
@@ -116,6 +120,10 @@
 .forbidden-lands .character .weapons .item .weapon {
   align-items: center;
   display: flex;
+}
+
+.forbidden-lands .character .weapons .weapon button {
+  margin: -2px -4px;
 }
 
 .forbidden-lands .character .weapons .weapon .name {

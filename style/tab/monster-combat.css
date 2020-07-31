@@ -67,6 +67,10 @@
   align-items: center;
 }
 
+.forbidden-lands .monster .monster-attacks .monster-attack button {
+  margin: -2px -4px;
+}
+
 .forbidden-lands .monster .monster-attacks .monster-attack .name {
   align-items: center;
   display: flex;
