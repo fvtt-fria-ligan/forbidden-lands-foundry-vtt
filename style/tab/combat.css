@@ -12,6 +12,11 @@
   padding-bottom: 8px;
 }
 
+.forbidden-lands .character .armors h1 button {
+  font-weight: inherit;
+  margin: -2px -4px;
+}
+
 .forbidden-lands .character .armors .header {
   display: flex;
 }
@@ -19,6 +24,10 @@
 .forbidden-lands .character .armors .item.armor {
   align-items: center;
   display: flex;
+}
+
+.forbidden-lands .character .armors .armor button {
+  margin: -2px -4px;
 }
 
 .forbidden-lands .character .armors .armor .name {
@@ -113,6 +122,10 @@
   display: flex;
 }
 
+.forbidden-lands .character .weapons .weapon button {
+  margin: -2px -4px;
+}
+
 .forbidden-lands .character .weapons .weapon .name {
   align-items: center;
   display: flex;
@@ -151,5 +164,5 @@
 
 .forbidden-lands .character .weapons .item .features {
   font-style: italic;
-  font-size: 12px;
+  font-size: 10px;
 }

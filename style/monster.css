@@ -14,16 +14,17 @@
 }
 
 .forbidden-lands .monster .bio .bio-row {
-  margin: 5px 0;
+  align-items: baseline;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin: 5px 0;
 }
 
 .forbidden-lands .monster .bio .avatar {
   background: radial-gradient(
     closest-side,
-    var(--color-secondary) 0%,
+    var(--color-highlight) 0%,
     transparent 100%
   );
   flex: 0 0 auto;
@@ -49,6 +50,10 @@
 .forbidden-lands .monster .bio .name {
   display: flex;
   flex-direction: row;
+}
+
+.forbidden-lands .monster .bio .armor button {
+  margin: -2px -4px;
 }
 
 .forbidden-lands .monster .bio .armor input {

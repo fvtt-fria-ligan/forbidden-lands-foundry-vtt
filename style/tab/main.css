@@ -49,7 +49,7 @@
   flex-basis: calc(50% - 4px);
   flex-grow: 1;
   gap: 4px 8px;
-  grid-template-columns: auto 2em;
+  grid-template-columns: 1fr auto;
   padding: 0 8px 8px;
 }
 
@@ -60,4 +60,8 @@
 .forbidden-lands .skills .name {
   font-family: var(--font-special);
   flex-basis: 50%;
+}
+
+.forbidden-lands .skills input {
+  width: 2em;
 }

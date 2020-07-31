@@ -23,7 +23,10 @@ Hooks.once("init", () => {
   CONFIG.Actor.entityClass = ForbiddenLandsActor;
   CONFIG.Item.entityClass = ForbiddenLandsItem;
   CONFIG.fontFamilies.push("IM Fell Great Primer");
-  CONFIG.defaultFontFamily = "IM Fell Great Primer";
+  CONFIG.fontFamilies.push("IM Fell DW Pica");
+  CONFIG.fontFamilies.push("IM Fell DW Pica SC");
+  CONFIG.fontFamilies.push("Poppins");
+  CONFIG.defaultFontFamily = "IM Fell DW Pica";
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("forbidden-lands", ForbiddenLandsCharacterSheet, { types: ["character"], makeDefault: true });
   Actors.registerSheet("forbidden-lands", ForbiddenLandsMonsterSheet, { types: ["monster"], makeDefault: true });
