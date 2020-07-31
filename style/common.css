@@ -1,4 +1,19 @@
 @font-face {
+  font-family: "IM Fell DW Pica";
+  src: url("../fonts/IMFellDWPica-Regular.ttf");
+}
+@font-face {
+  font-family: "IM Fell DW Pica";
+  src: url("../fonts/IMFellDWPica-Italic.ttf");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "IM Fell DW Pica SC";
+  src: url("../fonts/IMFellDWPicaSC-Regular.ttf");
+}
+
+@font-face {
   font-family: "IM Fell Great Primer";
   src: url("../fonts/IMFellGreatPrimer-Regular.ttf");
 }
@@ -8,13 +23,37 @@
   font-style: italic;
 }
 
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Regular.ttf");
+}
+@font-face {
+  font-family: "Poppins";
+  font-weight: bold;
+  src: url("../fonts/Poppins-Bold.ttf");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: italic;
+  src: url("../fonts/Poppins-Italic.ttf");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: italic;
+  font-weight: bold;
+  src: url("../fonts/Poppins-BoldItalic.ttf");
+}
+
 :root {
   --color-foreground: #221f20;
   --color-background: #fff;
   --color-secondary: #d1d2d4;
   --color-border: #939598;
-  --font-input: "Signika", serif;
-  --font-special: "IM Fell Great Primer", serif;
+  --font-editor: "IM Fell Great Primer", serif;
+  --font-input: "Poppins", sans-serif;
+  --font-special: "IM Fell DW Pica", serif;
+  --font-subheader: "IM Fell DW Pica SC", serif;
+  --font-table: "Poppins", sans-serif;
 }
 
 .forbidden-lands .border {
@@ -25,7 +64,7 @@
 .forbidden-lands h1 {
   border: 0 none;
   font-family: var(--font-special);
-  font-size: inherit;
+  font-size: 14px;
   font-weight: bold;
   line-height: initial;
   margin: 0;
@@ -124,13 +163,13 @@
 .forbidden-lands input[type="text"],
 .forbidden-lands select,
 .forbidden-lands textarea {
-  background: transparent;
+  background: var(--color-background);
   border: 1px solid var(--color-border);
   border-radius: 3px;
   box-shadow: inset 0 0 6px var(--color-secondary);
   color: var(--color-foreground);
   font-family: var(--font-input);
-  font-size: inherit;
+  font-size: 12px;
   height: auto;
   line-height: inherit;
   padding: 2px 4px;
@@ -168,9 +207,10 @@
 
 .forbidden-lands .editor,
 .forbidden-lands .editor-content {
-  width: 100%;
+  font-family: var(--font-editor);
   height: 100%;
   padding: 5px;
+  width: 100%;
 }
 
 .forbidden-lands .sheet-tabs {
@@ -189,12 +229,15 @@
 .forbidden-lands .item-list {
   display: flex;
   flex-direction: column;
+  font-family: var(--font-table);
+  font-size: 12px;
+  line-height: 16px;
   min-height: 0;
 }
 .forbidden-lands .item-list .header {
   align-items: flex-end;
   border-bottom: 2px solid var(--color-border);
-  font-size: 12px;
+  font-size: 10px;
   font-weight: bold;
   margin: 0 8px;
   padding: 4px 8px;
@@ -214,11 +257,11 @@
   border-bottom: 0 none;
 }
 .forbidden-lands .item-list .items .item:nth-child(odd) {
-  background-color: var(--color-secondary);
+  background: var(--color-secondary);
 }
 .forbidden-lands .item-list .items .item:nth-child(odd) button:focus,
 .forbidden-lands .item-list .items .item:nth-child(odd) button:hover {
-    background-color: var(--color-background);
+  background: var(--color-background);
 }
 
 .forbidden-lands .item-list .items .item .image-container {
@@ -247,20 +290,27 @@
   background: var(--color-background);
   border-radius: 3px;
   color: var(--color-foreground);
+  font-family: var(--font-table);
+  font-size: 12px;
+  line-height: 16px;
   padding: 8px;
 }
 .forbidden-lands.chat-item .border {
   padding: 8px;
 }
+.forbidden-lands.chat-item strong {
+  text-transform: uppercase;
+}
 .forbidden-lands.chat-item h3 {
   font-family: var(--font-special);
+  font-size: 16px;
   font-weight: bold;
   margin: 0 0 8px;
   text-align: center;
 }
 .forbidden-lands.chat-item h4 {
-  font-family: var(--font-special);
-  font-variant: small-caps;
+  font-family: var(--font-subheader);
+  font-size: 14px;
   font-weight: bold;
   margin: 0 0 8px;
   text-align: center;
@@ -288,19 +338,27 @@
   background: var(--color-background);
   border-radius: 3px;
   color: var(--color-foreground);
+  font-family: var(--font-table);
+  font-size: 12px;
+  line-height: 16px;
   padding: 8px;
 }
 .forbidden-lands.roll-item .border {
   padding: 8px;
 }
+.forbidden-lands.roll-item strong {
+  text-transform: uppercase;
+}
 .forbidden-lands.roll-item h3 {
   font-family: var(--font-special);
+  font-size: 16px;
   font-weight: bold;
   margin: 0 0 8px;
   text-align: center;
 }
 .forbidden-lands.roll-item h4 {
-  font-family: var(--font-special);
+  font-family: var(--font-subheader);
+  font-size: 14px;
   font-variant: small-caps;
   font-weight: bold;
   margin: 0 0 8px;
@@ -311,9 +369,9 @@
 }
 .forbidden-lands.roll-item img {
   background: radial-gradient(
-          closest-side,
-          var(--color-secondary) 0%,
-          transparent 100%
+    closest-side,
+    var(--color-secondary) 0%,
+    transparent 100%
   );
   border: 0;
   margin: 0 auto 8px;

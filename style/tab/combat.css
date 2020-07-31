@@ -12,6 +12,11 @@
   padding-bottom: 8px;
 }
 
+.forbidden-lands .character .armors h1 button {
+  font-weight: inherit;
+  margin: -2px -4px;
+}
+
 .forbidden-lands .character .armors .header {
   display: flex;
 }
@@ -151,5 +156,5 @@
 
 .forbidden-lands .character .weapons .item .features {
   font-style: italic;
-  font-size: 12px;
+  font-size: 10px;
 }

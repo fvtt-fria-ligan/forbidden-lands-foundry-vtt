@@ -14,10 +14,11 @@
 }
 
 .forbidden-lands .character .bio .bio-row {
-  margin: 5px 0;
+  align-items: baseline;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin: 5px 0;
 }
 
 .forbidden-lands .character .bio .avatar {
