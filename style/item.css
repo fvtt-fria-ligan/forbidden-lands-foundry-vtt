@@ -23,7 +23,7 @@
 .forbidden-lands.item .avatar {
   background: radial-gradient(
     closest-side,
-    var(--color-secondary) 0%,
+    var(--color-highlight) 0%,
     transparent 100%
   );
   grid-row: 1/-1;

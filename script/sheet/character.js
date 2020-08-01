@@ -140,7 +140,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
     } else {
       let die = new Die(consumable.value);
       die.roll(1);
-      if (die.total > 1) {
+      if (die.total > 2) {
         result = "SUCCEED";
       } else {
         result = "FAILED";
