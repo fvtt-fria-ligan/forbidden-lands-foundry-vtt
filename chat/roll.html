@@ -6,7 +6,11 @@
             <h3>{{name}}</h3>
         {{/if}}
         <h4>{{sword}} ⚔️ | {{skull}} 💀</h4>
-        <h4 style="text-align: left">{{localize "DAMAGE"}}: {{damage}}</h4>
+        {{#if isSpell}}
+            <h4 style="text-align: left">{{localize "POWER_LEVEL"}}: {{powerLevel}}</h4>
+        {{else}}
+            <h4 style="text-align: left">{{localize "DAMAGE"}}: {{damage}}</h4>
+        {{/if}}
         {{#each dices as |dice|}}
             <img width='25px' height='25px' style='border:none;margin-right:2px;margin-top:2px' src='systems/forbidden-lands/asset/{{dice.type}}-dice-{{dice.value}}.png'/>
         {{/each}}

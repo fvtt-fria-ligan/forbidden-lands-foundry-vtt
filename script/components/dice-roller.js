@@ -2,6 +2,7 @@
 export default class DiceRoller {
 
     dices = [];
+    lastType = "";
     lastRollName = "";
     lastDamage = 0;
 
@@ -16,6 +17,7 @@ export default class DiceRoller {
      */
     roll(rollName, base, skill, gear, artifacts, modifier, damage = 0) {
         this.dices = [];
+        this.lastType = "skill";
         this.lastRollName = rollName;
         let computedSkill = skill + modifier;
         let computedSkillType;
@@ -25,9 +27,9 @@ export default class DiceRoller {
             computedSkill = -computedSkill;
             computedSkillType = "skill-penalty";
         }
-        this.rollDice(base, "base", 6);
-        this.rollDice(computedSkill, computedSkillType, 6);
-        this.rollDice(gear, "gear", 6);
+        this.rollDice(base, "base", 6, 0);
+        this.rollDice(computedSkill, computedSkillType, 6, 0);
+        this.rollDice(gear, "gear", 6, 0);
         artifacts.forEach(artifact => {
             this.rollDice(artifact.dice, "artifact", artifact.face);
         });
@@ -53,7 +55,11 @@ export default class DiceRoller {
                 dice.weight = successAndWeight.weight;
             }
         });
-        this.sendRollToChat(true);
+        if (this.lastType === "spell") {
+            this.sendRollSpellToChat(true);
+        } else {
+            this.sendRollToChat(true);
+        }
     }
 
     /**
@@ -105,6 +111,7 @@ export default class DiceRoller {
         let rollData = {
             name: this.lastRollName,
             isPushed: isPushed,
+            isSpell: false,
             sword: numberOfSword,
             skull: numberOfSkull,
             damage: numberOfSword + this.lastDamage,
@@ -124,18 +131,61 @@ export default class DiceRoller {
         ChatMessage.create(chatData);
     }
 
+    async sendRollSpellToChat(isPushed) {
+        this.dices.sort(function (a, b) {
+            return b.weight - a.weight;
+        });
+        let numberOfSword = this.countSword();
+        let numberOfSkull = this.countSkull();
+        let rollData = {
+            name: this.lastTestName,
+            isPushed: isPushed,
+            isSpell: true,
+            sword: numberOfSword,
+            skull: numberOfSkull,
+            powerLevel: numberOfSword + this.dices.length,
+            dices: this.dices
+        };
+        const html = await renderTemplate("systems/forbidden-lands/chat/roll.html", rollData);
+        let chatData = {
+            user: game.user._id,
+            rollMode: game.settings.get("core", "rollMode"),
+            content: html,
+        };
+        if (["gmroll", "blindroll"].includes(chatData.rollMode)) {
+            chatData.whisper = ChatMessage.getWhisperIDs("GM");
+        } else if (chatData.rollMode === "selfroll") {
+            chatData.whisper = [game.user];
+        }
+        ChatMessage.create(chatData);
+    }
+
+    rollSpell(testName, base, success) {
+      this.dices = [];
+      this.lastType = "spell";
+      this.lastTestName = testName;
+      this.rollDice(base, "base", 6, success);
+      this.lastDamage = 0;
+      this.sendRollSpellToChat(false);
+    }
+
     /**
      * Roll a set of dice
      * 
-     * @param  {number} numberOfDice
-     * @param  {string} typeOfDice
-     * @param  {number} numberOfFaces
+     * @param  {number} numberOfDice     How many dice to roll
+     * @param  {string} typeOfDice       Base/skill/gear
+     * @param  {number} numberOfFaces    What dice to roll
+     * @param  {number} automaticSuccess For spells
      */
-    rollDice(numberOfDice, typeOfDice, numberOfFaces) {
+    rollDice(numberOfDice, typeOfDice, numberOfFaces, automaticSuccess) {
         if (numberOfDice > 0) {
             let die = new Die(numberOfFaces);
             die.roll(numberOfDice);
             die.results.forEach((result) => {
+                if (automaticSuccess > 0) {
+                  result = numberOfFaces;
+                  automaticSuccess -= 1;
+                }
                 let successAndWeight = this.getSuccessAndWeight(result, typeOfDice);
                 this.dices.push({
                     value: result,
@@ -147,7 +197,7 @@ export default class DiceRoller {
             });
         }
     }
-    
+
     /**
      * Retrieves amount of successes from a single die
      * and weight for ordering during display
@@ -174,7 +224,7 @@ export default class DiceRoller {
             return { success: 0, weight: 0 };
         }
     }
-    
+
     /**
      * Count total successes
      */

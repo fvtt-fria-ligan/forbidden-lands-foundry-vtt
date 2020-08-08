@@ -82,6 +82,11 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
       let bonus = this.parseBonus(weapon.data.data.bonus.value);
       RollDialog.prepareRollDialog(testName, base, skill, bonus, weapon.data.data.artifactBonus || "", weapon.data.data.skillBonus, weapon.data.data.damage, this.diceRoller);
     });
+    html.find(".roll-spell").click((ev) => {
+      const itemId = $(ev.currentTarget).data("itemId");
+      const spell = this.actor.getOwnedItem(itemId);
+      RollDialog.prepareSpellDialog(spell);
+    });
   }
 
   parseBonus(bonus) {

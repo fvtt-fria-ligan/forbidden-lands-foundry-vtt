@@ -4,7 +4,7 @@ export class ForbiddenLandsTalentSheet extends ItemSheet {
       classes: ["forbidden-lands", "sheet", "item"],
       template: "systems/forbidden-lands/model/talent.html",
       width: 400,
-      height: 420,
+      height: 425,
       resizable: false,
     });
   }

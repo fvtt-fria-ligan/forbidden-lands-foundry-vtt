@@ -5,15 +5,15 @@ export class RollDialog {
     /**
      * Display roll dialog and execute the roll.
      * 
-     * @param  {string} rollName
-     * @param  {object} baseDefault {name: "somename", value: 5}
-     * @param  {object} skillDefault {name: "somename", value: 5}
-     * @param  {number} gearDefault
-     * @param  {string} artifactDefault
-     * @param  {number} modifierDefault
-     * @param  {number} damage
-     * @param  {DiceRoller} [diceRoller]
-     * @param  {callback} [onAfterRoll]
+     * @param  {string}        rollName
+     * @param  {object|number} baseDefault     {name: "somename", value: 5} | 5
+     * @param  {object|number} skillDefault    {name: "somename", value: 5} | 5
+     * @param  {number}        gearDefault
+     * @param  {string}        artifactDefault
+     * @param  {number}        modifierDefault
+     * @param  {number}        damage
+     * @param  {DiceRoller}    [diceRoller]
+     * @param  {callback}      [onAfterRoll]
      */
     static prepareRollDialog(rollName, baseDefault, skillDefault, gearDefault, artifactDefault, modifierDefault, damage, diceRoller, onAfterRoll) {
         diceRoller = diceRoller || new DiceRoller();
@@ -22,11 +22,11 @@ export class RollDialog {
         if (typeof baseDefault !== 'object') baseDefault = { name: "Base", value: baseDefault };
         if (typeof skillDefault !== 'object') skillDefault = { name: "Skill", value: skillDefault };
 
-        let baseHtml = this.buildInputHtmlDialog(baseDefault.name, baseDefault.value);
-        let skillHtml = this.buildInputHtmlDialog(skillDefault.name, skillDefault.value);
-        let gearHtml = this.buildInputHtmlDialog("Gear", gearDefault);
-        let artifactHtml = this.buildInputHtmlDialog("Artifacts", artifactDefault);
-        let modifierHtml = this.buildInputHtmlDialog("Modifier", modifierDefault);
+        let baseHtml = this.buildInputHtmlDialog(baseDefault.name, baseDefault.name.replace(/[^a-z0-9]/i, '-').toLowerCase(), baseDefault.value);
+        let skillHtml = this.buildInputHtmlDialog(skillDefault.name, skillDefault.name.replace(/[^a-z0-9]/i, '-').toLowerCase(), skillDefault.value);
+        let gearHtml = this.buildInputHtmlDialog("Gear", "gear", gearDefault);
+        let artifactHtml = this.buildInputHtmlDialog("Artifacts", "artifacts", artifactDefault);
+        let modifierHtml = this.buildInputHtmlDialog("Modifier", "modifier", modifierDefault);
 
         let d = new Dialog({
             title: "Roll : " + rollName,
@@ -64,6 +64,43 @@ export class RollDialog {
         });
         d.render(true);
     }
+
+    /**
+     * @param {object}     spell       Spell data
+     * @param {DiceRoller} diceRoller 
+     * @param {Function}   onAfterRoll Callback that is executed after roll is made
+     */
+    static prepareSpellDialog(spell, diceRoller, onAfterRoll) {
+      diceRoller = diceRoller || new DiceRoller();
+      onAfterRoll = onAfterRoll || function () {};
+
+      let baseHtml = this.buildInputHtmlDialog("Base", "base", 1);
+      let successHtml = this.buildInputHtmlDialog("Automatic Success", "success", 0);
+      let d = new Dialog({
+        title: "Spell: " + spell.name,
+        content: this.buildDivHtmlDialog(baseHtml + successHtml),
+        buttons: {
+          roll: {
+            icon: '<i class="fas fa-check"></i>',
+            label: "Roll",
+            callback: (html) => {
+              let base = html.find("#base")[0].value;
+              let success = html.find("#success")[0].value;
+              diceRoller.rollSpell(spell.name, parseInt(base, 10), parseInt(success, 10));
+              onAfterRoll(diceRoller);
+            },
+          },
+          cancel: {
+            icon: '<i class="fas fa-times"></i>',
+            label: "Cancel",
+            callback: () => {},
+          },
+        },
+        default: "roll",
+        close: () => {},
+      });
+      d.render(true);
+    }
     
     /**
      * @param  {string} divContent
@@ -74,10 +111,11 @@ export class RollDialog {
 
     /**
      * @param  {string} diceName
+     * @param  {string} diceId
      * @param  {number} diceValue
      */
-    static buildInputHtmlDialog(diceName, diceValue) {
-        return "<b>" + diceName + "</b><input id='" + diceName.toLowerCase() + "' style='text-align: center' type='text' value='" + diceValue + "'/>";
+    static buildInputHtmlDialog(diceName, diceId, diceValue) {
+        return "<b>" + diceName + "</b><input id='" + diceId  + "' style='text-align: center' type='text' value='" + diceValue + "'/>";
     }
 
     /**
