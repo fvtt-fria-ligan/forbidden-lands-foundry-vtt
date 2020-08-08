@@ -1,4 +1,9 @@
+import { RollDialog } from "../dialog/roll-dialog.js";
+import DiceRoller from "../components/dice-roller.js";
+
 export class ForbiddenLandsActorSheet extends ActorSheet {
+  diceRoller = new DiceRoller();
+
   activateListeners(html) {
     super.activateListeners(html);
 
@@ -52,14 +57,14 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
       const attributeName = $(ev.currentTarget).data("attribute");
       const attribute = this.actor.data.data.attribute[attributeName];
       let testName = game.i18n.localize(attribute.label).toUpperCase();
-      this.prepareRollDialog(testName, attribute.value, 0, 0, "", 0, 0);
+      RollDialog.prepareRollDialog(testName, attribute.value, 0, 0, "", 0, 0, this.diceRoller);
     });
     html.find(".roll-skill").click((ev) => {
       const skillName = $(ev.currentTarget).data("skill");
       const skill = this.actor.data.data.skill[skillName];
       const attribute = this.actor.data.data.attribute[skill.attribute];
       let testName = game.i18n.localize(skill.label).toUpperCase();
-      this.prepareRollDialog(testName, attribute.value, skill.value, 0, "", 0, 0);
+      RollDialog.prepareRollDialog(testName, attribute.value, skill.value, 0, "", 0, 0, this.diceRoller);
     });
     html.find(".roll-weapon").click((ev) => {
       const itemId = $(ev.currentTarget).data("itemId");
@@ -75,7 +80,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
         skill = this.actor.data.data.skill.marksmanship.value;
       }
       let bonus = this.parseBonus(weapon.data.data.bonus.value);
-      this.prepareRollDialog(testName, base, skill, bonus, weapon.data.data.artifactBonus || "", weapon.data.data.skillBonus, weapon.data.data.damage);
+      RollDialog.prepareRollDialog(testName, base, skill, bonus, weapon.data.data.artifactBonus || "", weapon.data.data.skillBonus, weapon.data.data.damage, this.diceRoller);
     });
   }
 
@@ -87,165 +92,5 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
     } else {
       return 0;
     }
-  }
-
-  parseArtifact(artifact) {
-    let regex = /([0-9]*)d([0-9]*)/g;
-    let regexMatch;
-    let artifacts = [];
-    while ((regexMatch = regex.exec(artifact))) {
-      artifacts.push({ dice: +regexMatch[1] || 1, face: +regexMatch[2] });
-    }
-    return artifacts;
-  }
-
-  prepareRollDialog(testName, baseDefault, skillDefault, gearDefault, artifactDefault, modifierDefault, damage) {
-    let baseHtml = this.buildInputHtmlDialog("Base", baseDefault);
-    let skillHtml = this.buildInputHtmlDialog("Skill", skillDefault);
-    let gearHtml = this.buildInputHtmlDialog("Gear", gearDefault);
-    let artifactHtml = this.buildInputHtmlDialog("Artifacts", artifactDefault);
-    let modifierHtml = this.buildInputHtmlDialog("Modifier", modifierDefault);
-    let d = new Dialog({
-      title: "Test: " + testName,
-      content: this.buildDivHtmlDialog(baseHtml + skillHtml + gearHtml + artifactHtml + modifierHtml),
-      buttons: {
-        roll: {
-          icon: '<i class="fas fa-check"></i>',
-          label: "Roll",
-          callback: (html) => {
-            let base = html.find("#base")[0].value;
-            let skill = html.find("#skill")[0].value;
-            let gear = html.find("#gear")[0].value;
-            let artifact = this.parseArtifact(html.find("#artifacts")[0].value);
-            let modifier = html.find("#modifier")[0].value;
-            this.roll(testName, parseInt(base, 10), parseInt(skill, 10), parseInt(gear, 10), artifact, parseInt(modifier, 10), parseInt(damage, 10));
-          },
-        },
-        cancel: {
-          icon: '<i class="fas fa-times"></i>',
-          label: "Cancel",
-          callback: () => {},
-        },
-      },
-      default: "roll",
-      close: () => {},
-    });
-    d.render(true);
-  }
-
-  buildDivHtmlDialog(divContent) {
-    return "<div class='flex row roll-dialog'>" + divContent + "</div>";
-  }
-
-  buildInputHtmlDialog(diceName, diceValue) {
-    return "<b>" + diceName + "</b><input id='" + diceName.toLowerCase() + "' style='text-align: center' type='text' value='" + diceValue + "'/>";
-  }
-
-  roll(testName, base, skill, gear, artifacts, modifier, damage) {
-    this.dices = [];
-    this.lastTestName = testName;
-    let computedSkill = skill + modifier;
-    let computedSkillType;
-    if (computedSkill > 0) {
-      computedSkillType = "skill";
-    } else {
-      computedSkill = -computedSkill;
-      computedSkillType = "skill-penalty";
-    }
-    this.rollDice(base, "base", 6);
-    this.rollDice(computedSkill, computedSkillType, 6);
-    this.rollDice(gear, "gear", 6);
-    artifacts.forEach((artifact) => {
-      this.rollDice(artifact.dice, "artifact", artifact.face);
-    });
-    let computedDamage = damage;
-    if (damage > 0) {
-      computedDamage = computedDamage - 1;
-    }
-    this.lastDamage = computedDamage;
-    this.sendRollToChat(false);
-  }
-
-  rollDice(numberOfDice, typeOfDice, numberOfFaces) {
-    if (numberOfDice > 0) {
-      let die = new Die(numberOfFaces);
-      die.roll(numberOfDice);
-      die.results.forEach((result) => {
-        let successAndWeight = this.getSuccessAndWeight(result, typeOfDice);
-        this.dices.push({
-          value: result,
-          type: typeOfDice,
-          success: successAndWeight.success,
-          weight: successAndWeight.weight,
-          face: numberOfFaces,
-        });
-      });
-    }
-  }
-
-  getSuccessAndWeight(diceValue, diceType) {
-    if (diceValue === 12) {
-      return { success: 4, weight: 4 };
-    } else if (diceValue >= 10) {
-      return { success: 3, weight: 3 };
-    } else if (diceValue >= 8) {
-      return { success: 2, weight: 2 };
-    } else if (diceValue >= 6) {
-      if (diceType === "skill-penalty") {
-        return { success: -1, weight: -1 };
-      } else {
-        return { success: 1, weight: 1 };
-      }
-    } else if (diceValue === 1 && diceType !== "skill-penalty" && diceType !== "skill") {
-      return { success: 0, weight: -2 };
-    } else {
-      return { success: 0, weight: 0 };
-    }
-  }
-
-  async sendRollToChat(isPushed) {
-    this.dices.sort(function (a, b) {
-      return b.weight - a.weight;
-    });
-    let numberOfSword = this.countSword();
-    let numberOfSkull = this.countSkull();
-    let rollData = {
-      name: this.lastTestName,
-      isPushed: isPushed,
-      sword: numberOfSword,
-      skull: numberOfSkull,
-      damage: numberOfSword + this.lastDamage,
-      dices: this.dices
-    };
-    const html = await renderTemplate("systems/forbidden-lands/chat/roll.html", rollData);
-    let chatData = {
-      user: game.user._id,
-      rollMode: game.settings.get("core", "rollMode"),
-      content: html,
-    };
-    if (["gmroll", "blindroll"].includes(chatData.rollMode)) {
-      chatData.whisper = ChatMessage.getWhisperIDs("GM");
-    } else if (chatData.rollMode === "selfroll") {
-      chatData.whisper = [game.user];
-    }
-    ChatMessage.create(chatData);
-  }
-
-  countSword() {
-    let numberOfSword = 0;
-    this.dices.forEach((dice) => {
-      numberOfSword = numberOfSword + dice.success;
-    });
-    return numberOfSword;
-  }
-
-  countSkull() {
-    let numberOfSkull = 0;
-    this.dices.forEach((dice) => {
-      if (dice.value === 1 && (dice.type === "base" || dice.type === "gear")) {
-        numberOfSkull++;
-      }
-    });
-    return numberOfSkull;
   }
 }
