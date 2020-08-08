@@ -2,6 +2,7 @@ import { ForbiddenLandsActorSheet } from "./actor.js";
 
 export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
   dices = [];
+  lastType = "";
   lastTestName = "";
   lastDamage = 0;
 
@@ -129,7 +130,11 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
         dice.weight = successAndWeight.weight;
       }
     });
-    this.sendRollToChat(true);
+    if (this.lastType === "spell") {
+      this.sendRollSpellToChat(true);
+    } else {
+      this.sendRollToChat(true);
+    }
   }
 
   async rollConsumable(consumable) {
