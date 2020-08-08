@@ -77,6 +77,11 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
       let bonus = this.parseBonus(weapon.data.data.bonus.value);
       this.prepareRollDialog(testName, base, skill, bonus, weapon.data.data.artifactBonus || "", weapon.data.data.skillBonus, weapon.data.data.damage);
     });
+    html.find(".roll-spell").click((ev) => {
+      const itemId = $(ev.currentTarget).data("itemId");
+      const spell = this.actor.getOwnedItem(itemId);
+      this.prepareSpellDialog(spell);
+    });
   }
 
   parseBonus(bonus) {
@@ -100,11 +105,11 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
   }
 
   prepareRollDialog(testName, baseDefault, skillDefault, gearDefault, artifactDefault, modifierDefault, damage) {
-    let baseHtml = this.buildInputHtmlDialog("Base", baseDefault);
-    let skillHtml = this.buildInputHtmlDialog("Skill", skillDefault);
-    let gearHtml = this.buildInputHtmlDialog("Gear", gearDefault);
-    let artifactHtml = this.buildInputHtmlDialog("Artifacts", artifactDefault);
-    let modifierHtml = this.buildInputHtmlDialog("Modifier", modifierDefault);
+    let baseHtml = this.buildInputHtmlDialog("Base", "base", baseDefault);
+    let skillHtml = this.buildInputHtmlDialog("Skill", "skill", skillDefault);
+    let gearHtml = this.buildInputHtmlDialog("Gear", "gear", gearDefault);
+    let artifactHtml = this.buildInputHtmlDialog("Artifacts", "artifacts", artifactDefault);
+    let modifierHtml = this.buildInputHtmlDialog("Modifier", "modifier", modifierDefault);
     let d = new Dialog({
       title: "Test: " + testName,
       content: this.buildDivHtmlDialog(baseHtml + skillHtml + gearHtml + artifactHtml + modifierHtml),
@@ -133,16 +138,45 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
     d.render(true);
   }
 
+  prepareSpellDialog(spell) {
+    let baseHtml = this.buildInputHtmlDialog("Base", "base", 1);
+    let successHtml = this.buildInputHtmlDialog("Automatic Success", "success", 0);
+    let d = new Dialog({
+      title: "Spell: " + spell.name,
+      content: this.buildDivHtmlDialog(baseHtml + successHtml),
+      buttons: {
+        roll: {
+          icon: '<i class="fas fa-check"></i>',
+          label: "Roll",
+          callback: (html) => {
+            let base = html.find("#base")[0].value;
+            let success = html.find("#success")[0].value;
+            this.rollSpell(spell.name, parseInt(base, 10), parseInt(success, 10));
+          },
+        },
+        cancel: {
+          icon: '<i class="fas fa-times"></i>',
+          label: "Cancel",
+          callback: () => {},
+        },
+      },
+      default: "roll",
+      close: () => {},
+    });
+    d.render(true);
+  }
+
   buildDivHtmlDialog(divContent) {
     return "<div class='flex row roll-dialog'>" + divContent + "</div>";
   }
 
-  buildInputHtmlDialog(diceName, diceValue) {
-    return "<b>" + diceName + "</b><input id='" + diceName.toLowerCase() + "' style='text-align: center' type='text' value='" + diceValue + "'/>";
+  buildInputHtmlDialog(diceName, diceId, diceValue) {
+    return "<b>" + diceName + "</b><input id='" + diceId + "' style='text-align: center' type='text' value='" + diceValue + "'/>";
   }
 
   roll(testName, base, skill, gear, artifacts, modifier, damage) {
     this.dices = [];
+    this.lastType = "skill";
     this.lastTestName = testName;
     let computedSkill = skill + modifier;
     let computedSkillType;
@@ -152,9 +186,9 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
       computedSkill = -computedSkill;
       computedSkillType = "skill-penalty";
     }
-    this.rollDice(base, "base", 6);
-    this.rollDice(computedSkill, computedSkillType, 6);
-    this.rollDice(gear, "gear", 6);
+    this.rollDice(base, "base", 6, 0);
+    this.rollDice(computedSkill, computedSkillType, 6, 0);
+    this.rollDice(gear, "gear", 6, 0);
     artifacts.forEach((artifact) => {
       this.rollDice(artifact.dice, "artifact", artifact.face);
     });
@@ -166,11 +200,24 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
     this.sendRollToChat(false);
   }
 
-  rollDice(numberOfDice, typeOfDice, numberOfFaces) {
+  rollSpell(testName, base, success) {
+    this.dices = [];
+    this.lastType = "spell";
+    this.lastTestName = testName;
+    this.rollDice(base, "base", 6, success);
+    this.lastDamage = 0;
+    this.sendRollSpellToChat(false);
+  }
+
+  rollDice(numberOfDice, typeOfDice, numberOfFaces, automaticSuccess) {
     if (numberOfDice > 0) {
       let die = new Die(numberOfFaces);
       die.roll(numberOfDice);
       die.results.forEach((result) => {
+        if (automaticSuccess > 0) {
+          result = numberOfFaces;
+          automaticSuccess -= 1;
+        }
         let successAndWeight = this.getSuccessAndWeight(result, typeOfDice);
         this.dices.push({
           value: result,
@@ -212,9 +259,39 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
     let rollData = {
       name: this.lastTestName,
       isPushed: isPushed,
+      isSpell: false,
       sword: numberOfSword,
       skull: numberOfSkull,
       damage: numberOfSword + this.lastDamage,
+      dices: this.dices
+    };
+    const html = await renderTemplate("systems/forbidden-lands/chat/roll.html", rollData);
+    let chatData = {
+      user: game.user._id,
+      rollMode: game.settings.get("core", "rollMode"),
+      content: html,
+    };
+    if (["gmroll", "blindroll"].includes(chatData.rollMode)) {
+      chatData.whisper = ChatMessage.getWhisperIDs("GM");
+    } else if (chatData.rollMode === "selfroll") {
+      chatData.whisper = [game.user];
+    }
+    ChatMessage.create(chatData);
+  }
+
+  async sendRollSpellToChat(isPushed) {
+    this.dices.sort(function (a, b) {
+      return b.weight - a.weight;
+    });
+    let numberOfSword = this.countSword();
+    let numberOfSkull = this.countSkull();
+    let rollData = {
+      name: this.lastTestName,
+      isPushed: isPushed,
+      isSpell: true,
+      sword: numberOfSword,
+      skull: numberOfSkull,
+      powerLevel: numberOfSword + this.dices.length,
       dices: this.dices
     };
     const html = await renderTemplate("systems/forbidden-lands/chat/roll.html", rollData);
