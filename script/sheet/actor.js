@@ -85,7 +85,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
     html.find(".roll-spell").click((ev) => {
       const itemId = $(ev.currentTarget).data("itemId");
       const spell = this.actor.getOwnedItem(itemId);
-      RollDialog.prepareSpellDialog(spell);
+      RollDialog.prepareSpellDialog(spell, this.diceRoller);
     });
   }
 

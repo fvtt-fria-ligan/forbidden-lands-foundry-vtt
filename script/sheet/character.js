@@ -1,4 +1,5 @@
 import { ForbiddenLandsActorSheet } from "./actor.js";
+import { RollDialog } from "../dialog/roll-dialog.js";
 
 export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 
@@ -66,7 +67,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
         base = 0;
         skill = 0;
       }
-      this.prepareRollDialog(testName, base, skill, armor.data.data.bonus.value, "", 0, 0);
+      RollDialog.prepareRollDialog(testName, base, skill, armor.data.data.bonus.value, "", 0, 0, this.diceRoller);
     });
     html.find(".roll-armor.total").click((ev) => {
       let armorTotal = 0;
@@ -77,7 +78,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
         }
       });
       let testName = game.i18n.localize("HEADER.ARMOR").toUpperCase();
-      this.prepareRollDialog(testName, 0, 0, armorTotal, "", 0, 0);
+      RollDialog.prepareRollDialog(testName, 0, 0, armorTotal, "", 0, 0, this.diceRoller);
     });
     html.find(".roll-consumable").click((ev) => {
       const consumableName = $(ev.currentTarget).data("consumable");
@@ -124,7 +125,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
           label: "Roll",
           class: "custom-roll",
           icon: "fas fa-dice",
-          onclick: (ev) => this.prepareRollDialog("Roll", 0, 0, 0, "", 0, 0),
+          onclick: (ev) => RollDialog.prepareRollDialog("Roll", 0, 0, 0, "", 0, 0, this.diceRoller),
         },
         {
           label: "Push",

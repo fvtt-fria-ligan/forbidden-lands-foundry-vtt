@@ -12,11 +12,13 @@ export class RollDialog {
      * @param  {string}        artifactDefault
      * @param  {number}        modifierDefault
      * @param  {number}        damage
-     * @param  {DiceRoller}    [diceRoller]
+     * @param  {DiceRoller}    diceRoller
      * @param  {callback}      [onAfterRoll]
      */
     static prepareRollDialog(rollName, baseDefault, skillDefault, gearDefault, artifactDefault, modifierDefault, damage, diceRoller, onAfterRoll) {
-        diceRoller = diceRoller || new DiceRoller();
+        if (!diceRoller) {
+          throw new Error('DiceRoller object must be passed to prepareRollDialog()');
+        }
         onAfterRoll = onAfterRoll || function () {};
 
         if (typeof baseDefault !== 'object') baseDefault = { name: "Base", value: baseDefault };
