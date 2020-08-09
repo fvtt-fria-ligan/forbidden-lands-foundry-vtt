@@ -1,10 +1,7 @@
 import { ForbiddenLandsActorSheet } from "./actor.js";
+import { RollDialog } from "../dialog/roll-dialog.js";
 
 export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
-  dices = [];
-  lastType = "";
-  lastTestName = "";
-  lastDamage = 0;
 
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
@@ -64,13 +61,19 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
       let base;
       let skill;
       if (armor.data.data.part === 'shield') {
-        base = this.actor.data.data.attribute.strength.value;
-        skill = this.actor.data.data.skill.melee.value;
+        base = {
+          name: game.i18n.localize(game.i18n.localize(this.actor.data.data.attribute.strength.label)), 
+          value: this.actor.data.data.attribute.strength.value
+        };
+        skill = {
+          name: game.i18n.localize(game.i18n.localize(this.actor.data.data.skill.melee.label)), 
+          value: this.actor.data.data.skill.melee.value
+        };
       } else {
         base = 0;
         skill = 0;
       }
-      this.prepareRollDialog(testName, base, skill, armor.data.data.bonus.value, "", 0, 0);
+      RollDialog.prepareRollDialog(testName, base, skill, armor.data.data.bonus.value, "", 0, 0, this.diceRoller);
     });
     html.find(".roll-armor.total").click((ev) => {
       let armorTotal = 0;
@@ -81,12 +84,12 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
         }
       });
       let testName = game.i18n.localize("HEADER.ARMOR").toUpperCase();
-      this.prepareRollDialog(testName, 0, 0, armorTotal, "", 0, 0);
+      RollDialog.prepareRollDialog(testName, 0, 0, armorTotal, "", 0, 0, this.diceRoller);
     });
     html.find(".roll-consumable").click((ev) => {
       const consumableName = $(ev.currentTarget).data("consumable");
       const consumable = this.actor.data.data.consumable[consumableName];
-      this.rollConsumable(consumable);
+      this.diceRoller.rollConsumable(consumable);
     });
   }
 
@@ -119,56 +122,6 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
     this.actor.createEmbeddedEntity("OwnedItem", data, { renderSheet: true });
   }
 
-  push() {
-    this.dices.forEach((dice) => {
-      if ((dice.value < 6 && dice.value > 1 && dice.type !== "skill") || (dice.value < 6 && ["artifact", "skill"].includes(dice.type))) {
-        let die = new Die(dice.face);
-        die.roll(1);
-        dice.value = die.total;
-        let successAndWeight = this.getSuccessAndWeight(dice.value, dice.type);
-        dice.success = successAndWeight.success;
-        dice.weight = successAndWeight.weight;
-      }
-    });
-    if (this.lastType === "spell") {
-      this.sendRollSpellToChat(true);
-    } else {
-      this.sendRollToChat(true);
-    }
-  }
-
-  async rollConsumable(consumable) {
-    let consumableName = game.i18n.localize(consumable.label);
-    let result;
-    if (!consumable.value) {
-      result = "FAILED";
-    } else {
-      let die = new Die(consumable.value);
-      die.roll(1);
-      if (die.total > 2) {
-        result = "SUCCEED";
-      } else {
-        result = "FAILED";
-      }
-    }
-    let consumableData = {
-      name: consumableName,
-      result: game.i18n.localize(result)
-    }
-    const html = await renderTemplate("systems/forbidden-lands/chat/consumable.html", consumableData);
-    let chatData = {
-      user: game.user._id,
-      rollMode: game.settings.get("core", "rollMode"),
-      content: html,
-    };
-    if (["gmroll", "blindroll"].includes(chatData.rollMode)) {
-      chatData.whisper = ChatMessage.getWhisperIDs("GM");
-    } else if (chatData.rollMode === "selfroll") {
-      chatData.whisper = [game.user];
-    }
-    ChatMessage.create(chatData);
-  }
-
   _getHeaderButtons() {
     let buttons = super._getHeaderButtons();
 
@@ -178,13 +131,13 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
           label: "Roll",
           class: "custom-roll",
           icon: "fas fa-dice",
-          onclick: (ev) => this.prepareRollDialog("Roll", 0, 0, 0, "", 0, 0),
+          onclick: (ev) => RollDialog.prepareRollDialog("Roll", 0, 0, 0, "", 0, 0, this.diceRoller),
         },
         {
           label: "Push",
           class: "push-roll",
           icon: "fas fa-skull",
-          onclick: (ev) => this.push(),
+          onclick: (ev) => this.diceRoller.push(),
         },
       ].concat(buttons);
     }

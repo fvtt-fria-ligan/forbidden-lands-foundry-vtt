@@ -103,6 +103,10 @@ function registerHandlebarsHelpers() {
       return "";
     }
   });
+  Handlebars.registerHelper('plaintextToHTML', function(value) {
+    // strip tags, add <br/> tags
+    return new Handlebars.SafeString(value.replace(/(<([^>]+)>)/gi, "").replace(/(?:\r\n|\r|\n)/g, '<br/>'));
+  });
 }
 
 function normalize(data, defaultValue) {
