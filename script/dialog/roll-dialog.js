@@ -68,12 +68,11 @@ export class RollDialog {
     }
 
     /**
-     * @param {object}     spell       Spell data
-     * @param {DiceRoller} diceRoller 
-     * @param {Function}   onAfterRoll Callback that is executed after roll is made
+     * @param {object}   spell       Spell data
+     * @param {Function} onAfterRoll Callback that is executed after roll is made
      */
-    static prepareSpellDialog(spell, diceRoller, onAfterRoll) {
-      diceRoller = diceRoller || new DiceRoller();
+    static prepareSpellDialog(spell, onAfterRoll) {
+      const diceRoller = new DiceRoller();
       onAfterRoll = onAfterRoll || function () {};
 
       let baseHtml = this.buildInputHtmlDialog("Base", "base", 1);

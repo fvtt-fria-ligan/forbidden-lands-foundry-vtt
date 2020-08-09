@@ -61,8 +61,14 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
       let base;
       let skill;
       if (armor.data.data.part === 'shield') {
-        base = this.actor.data.data.attribute.strength.value;
-        skill = this.actor.data.data.skill.melee.value;
+        base = {
+          name: game.i18n.localize(game.i18n.localize(this.actor.data.data.attribute.strength.label)), 
+          value: this.actor.data.data.attribute.strength.value
+        };
+        skill = {
+          name: game.i18n.localize(game.i18n.localize(this.actor.data.data.skill.melee.label)), 
+          value: this.actor.data.data.skill.melee.value
+        };
       } else {
         base = 0;
         skill = 0;

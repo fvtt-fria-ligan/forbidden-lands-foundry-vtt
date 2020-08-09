@@ -56,36 +56,53 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
     html.find(".roll-attribute").click((ev) => {
       const attributeName = $(ev.currentTarget).data("attribute");
       const attribute = this.actor.data.data.attribute[attributeName];
-      let testName = game.i18n.localize(attribute.label).toUpperCase();
-      RollDialog.prepareRollDialog(testName, attribute.value, 0, 0, "", 0, 0, this.diceRoller);
+      const localizedName = game.i18n.localize(attribute.label);
+      let testName = localizedName.toUpperCase();
+      RollDialog.prepareRollDialog(testName, {name: localizedName, value: attribute.value}, 0, 0, "", 0, 0, this.diceRoller);
     });
     html.find(".roll-skill").click((ev) => {
       const skillName = $(ev.currentTarget).data("skill");
       const skill = this.actor.data.data.skill[skillName];
       const attribute = this.actor.data.data.attribute[skill.attribute];
-      let testName = game.i18n.localize(skill.label).toUpperCase();
-      RollDialog.prepareRollDialog(testName, attribute.value, skill.value, 0, "", 0, 0, this.diceRoller);
+      const localizedAttrName = game.i18n.localize(attribute.label);
+      const localizedSkillName = game.i18n.localize(skill.label);
+      let testName = localizedSkillName.toUpperCase();
+      RollDialog.prepareRollDialog(
+        testName, 
+        {name: localizedAttrName, value: attribute.value}, 
+        {name: localizedSkillName, value: skill.value}, 
+        0, "", 0, 0, this.diceRoller
+      );
     });
     html.find(".roll-weapon").click((ev) => {
       const itemId = $(ev.currentTarget).data("itemId");
       const weapon = this.actor.getOwnedItem(itemId);
       let testName = weapon.name;
-      let base;
+      let attribute;
       let skill;
       if (weapon.data.data.category === "melee") {
-        base = this.actor.data.data.attribute.strength.value;
-        skill = this.actor.data.data.skill.melee.value;
+        attribute = this.actor.data.data.attribute.strength;
+        skill = this.actor.data.data.skill.melee;
       } else {
-        base = this.actor.data.data.attribute.agility.value;
-        skill = this.actor.data.data.skill.marksmanship.value;
+        attribute = this.actor.data.data.attribute.agility;
+        skill = this.actor.data.data.skill.marksmanship;
       }
       let bonus = this.parseBonus(weapon.data.data.bonus.value);
-      RollDialog.prepareRollDialog(testName, base, skill, bonus, weapon.data.data.artifactBonus || "", weapon.data.data.skillBonus, weapon.data.data.damage, this.diceRoller);
+      RollDialog.prepareRollDialog(
+        testName, 
+        {name: game.i18n.localize(attribute.label), value: attribute.value}, 
+        {name: game.i18n.localize(skill.label), value: skill.value}, 
+        bonus, 
+        weapon.data.data.artifactBonus || "", 
+        weapon.data.data.skillBonus, 
+        weapon.data.data.damage, 
+        this.diceRoller
+      );
     });
     html.find(".roll-spell").click((ev) => {
       const itemId = $(ev.currentTarget).data("itemId");
       const spell = this.actor.getOwnedItem(itemId);
-      RollDialog.prepareSpellDialog(spell, this.diceRoller);
+      RollDialog.prepareSpellDialog(spell);
     });
   }
 
