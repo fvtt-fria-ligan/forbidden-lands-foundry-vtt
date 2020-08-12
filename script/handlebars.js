@@ -39,6 +39,19 @@ function registerHandlebarsHelpers() {
     }
     return acc;
   });
+  Handlebars.registerHelper("damageType", function (type) {
+    type = normalize(type, "blunt");
+    switch (type) {
+      case "blunt":
+        return game.i18n.localize("ATTACK.BLUNT");
+      case "fear":
+        return game.i18n.localize("ATTACK.FEAR");
+      case "slash":
+        return game.i18n.localize("ATTACK.SLASH");
+      case "stab":
+        return game.i18n.localize("ATTACK.STAB");
+    }
+  });
   Handlebars.registerHelper("armorPart", function (part) {
     part = normalize(part, "body");
     switch (part) {
