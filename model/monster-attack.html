@@ -21,10 +21,11 @@
             <label>{{localize "MONSTER.DAMAGE_TYPE"}}</label>
             <select name="data.damageType">
                 {{#select data.damageType}}
-                <option value="blunt">{{localize "ATTACK.BLUNT"}}</option>
-                <option value="fear">{{localize "ATTACK.FEAR"}}</option>
-                <option value="slash">{{localize "ATTACK.SLASH"}}</option>
-                <option value="stab">{{localize "ATTACK.STAB"}}</option>
+                    <option value="stab">{{localize "ATTACK.STAB"}}</option>
+                    <option value="slash">{{localize "ATTACK.SLASH"}}</option>
+                    <option value="blunt">{{localize "ATTACK.BLUNT"}}</option>
+                    <option value="fear">{{localize "ATTACK.FEAR"}}</option>
+                    <option value="stab">{{localize "ATTACK.OTHER"}}</option>
                 {{/select}}
             </select>
         </div>
@@ -32,10 +33,11 @@
             <label>{{localize "MONSTER.RANGE"}}</label>
             <select name="data.range">
                 {{#select data.range}}
-                <option value="arm">{{localize "RANGE.ARM"}}</option>
-                <option value="near">{{localize "RANGE.NEAR"}}</option>
-                <option value="short">{{localize "RANGE.SHORT"}}</option>
-                <option value="long">{{localize "RANGE.LONG"}}</option>
+                    <option value="arm">{{localize "RANGE.ARM"}}</option>
+                    <option value="near">{{localize "RANGE.NEAR"}}</option>
+                    <option value="short">{{localize "RANGE.SHORT"}}</option>
+                    <option value="long">{{localize "RANGE.LONG"}}</option>
+                    <option value="long">{{localize "RANGE.DISTANT"}}</option>
                 {{/select}}
             </select>
         </div>		

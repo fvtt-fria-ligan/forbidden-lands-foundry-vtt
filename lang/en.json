@@ -189,5 +189,6 @@
   "ATTACK.BLUNT": "Blunt",
   "ATTACK.FEAR": "Fear",
   "ATTACK.SLASH": "Slash",
-  "ATTACK.STAB": "Stab"
+  "ATTACK.STAB": "Stab",
+  "ATTACK.OTHER": "Other"
 }

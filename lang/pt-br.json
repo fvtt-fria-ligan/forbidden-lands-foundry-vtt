@@ -161,7 +161,9 @@
   "MONSTER.NAME": "Nome",
   "MONSTER.DICE": "Dados",
   "MONSTER.DAMAGE": "Dano",
+  "MONSTER.RANGE": "Alcance",
   "MONSTER.DESCRIPTION": "Descrição",
+  "MONSTER.DAMAGE_TYPE": "Tipo de dano",
   "MONSTER.ARMOR": "Valor de Armadura",
   "MOVEMENT": "Movimento",
 
@@ -182,5 +184,11 @@
   "HIRELING.NUMBER": "Número",
   "HIRELING.SALARY": "Salário",
   "HIRELING.DESCRIPTION": "Descrição",
-  "HIRELING.SUPPLY": "Suprimento"
+  "HIRELING.SUPPLY": "Suprimento",
+
+  "ATTACK.BLUNT": "Contundente",
+  "ATTACK.FEAR": "Medo",
+  "ATTACK.SLASH": "Slash",
+  "ATTACK.STAB": "Golpear",
+  "ATTACK.OTHER": "Outros"
 }
