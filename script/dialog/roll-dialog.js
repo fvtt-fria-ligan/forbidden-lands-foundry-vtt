@@ -24,8 +24,8 @@ export class RollDialog {
         if (typeof baseDefault !== 'object') baseDefault = { name: "Base", value: baseDefault };
         if (typeof skillDefault !== 'object') skillDefault = { name: "Skill", value: skillDefault };
 
-        let baseHtml = this.buildInputHtmlDialog(baseDefault.name, baseDefault.name.replace(/[^a-z0-9]/i, '-').toLowerCase(), baseDefault.value);
-        let skillHtml = this.buildInputHtmlDialog(skillDefault.name, skillDefault.name.replace(/[^a-z0-9]/i, '-').toLowerCase(), skillDefault.value);
+        let baseHtml = this.buildInputHtmlDialog(baseDefault.name, "base", baseDefault.value);
+        let skillHtml = this.buildInputHtmlDialog(skillDefault.name, "skill", skillDefault.value);
         let gearHtml = this.buildInputHtmlDialog("Gear", "gear", gearDefault);
         let artifactHtml = this.buildInputHtmlDialog("Artifacts", "artifacts", artifactDefault);
         let modifierHtml = this.buildInputHtmlDialog("Modifier", "modifier", modifierDefault);
@@ -38,8 +38,8 @@ export class RollDialog {
                     icon: '<i class="fas fa-check"></i>',
                     label: "Roll",
                     callback: (html) => {
-                        let base = html.find('#' + baseDefault.name.toLowerCase())[0].value;
-                        let skill = html.find('#' + skillDefault.name.toLowerCase())[0].value;
+                        let base = html.find("#base")[0].value;
+                        let skill = html.find("#skill")[0].value;
                         let gear = html.find('#gear')[0].value;
                         let artifact = this.parseArtifact(html.find('#artifacts')[0].value);
                         let modifier = html.find('#modifier')[0].value;
