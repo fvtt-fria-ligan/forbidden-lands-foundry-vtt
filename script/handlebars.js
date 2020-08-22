@@ -50,6 +50,8 @@ function registerHandlebarsHelpers() {
         return game.i18n.localize("ATTACK.SLASH");
       case "stab":
         return game.i18n.localize("ATTACK.STAB");
+      case "other":
+        return game.i18n.localize("ATTACK.OTHER");
     }
   });
   Handlebars.registerHelper("armorPart", function (part) {
