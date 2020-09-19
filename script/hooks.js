@@ -15,6 +15,9 @@ import { ForbiddenLandsBuildingSheet } from "./sheet/building.js";
 import { ForbiddenLandsHirelingSheet } from "./sheet/hireling.js";
 import { initializeHandlebars } from "./handlebars.js";
 import { migrateWorld } from "./migration.js";
+import { RollDialog } from "./dialog/roll-dialog.js";
+import DiceRoller from "./components/dice-roller.js";
+
 
 // CONFIG.debug.hooks = true;
 
@@ -27,6 +30,8 @@ Hooks.once("init", () => {
   CONFIG.fontFamilies.push("IM Fell DW Pica SC");
   CONFIG.fontFamilies.push("Poppins");
   CONFIG.defaultFontFamily = "IM Fell DW Pica";
+  CONFIG.rollDialog = RollDialog;
+  CONFIG.diceRoller = new DiceRoller();
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("forbidden-lands", ForbiddenLandsCharacterSheet, { types: ["character"], makeDefault: true });
   Actors.registerSheet("forbidden-lands", ForbiddenLandsMonsterSheet, { types: ["monster"], makeDefault: true });
