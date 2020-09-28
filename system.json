@@ -45,6 +45,11 @@
       "lang": "pt-br",
       "name": "Português Brasileiro",
       "path": "lang/pt-br.json"
+    },
+    {
+      "lang": "cs",
+      "name": "Čeština",
+      "path": "lang/cs.json"
     }
   ],
   "gridDistance": 1,
