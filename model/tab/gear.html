@@ -14,6 +14,7 @@
     </div>
     <div class="gears item-list border">
         <h1>{{localize "HEADER.GEAR"}}</h1>
+        <div class="encumbrance{{#if data.encumbrance.over}} overencumbered{{/if}}" title="{{localize "ENCUMBRANCE" }}"><i class="fas fa-weight-hanging"></i> {{data.encumbrance.value}} / {{data.encumbrance.max}}</div>
         <div class="items">
             <div class="header flex row">
                 <b class="name">{{localize "HEADER.ARMOR"}}</b>

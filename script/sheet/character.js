@@ -2,7 +2,6 @@ import { ForbiddenLandsActorSheet } from "./actor.js";
 import { RollDialog } from "../dialog/roll-dialog.js";
 
 export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
-
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["forbidden-lands", "sheet", "actor"],
@@ -32,6 +31,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
     const data = super.getData();
     this.computeSkills(data);
     this.computeItems(data);
+    this.computeEncumbrance(data);
     return data;
   }
 
@@ -44,7 +44,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
       const conditionName = $(ev.currentTarget).data("condition");
       const conditionValue = this.actor.data.data.condition[conditionName].value;
       if (conditionName === "sleepy") {
-        this.actor.update({"data.condition.sleepy.value": !conditionValue,});
+        this.actor.update({ "data.condition.sleepy.value": !conditionValue });
       } else if (conditionName === "thirsty") {
         this.actor.update({ "data.condition.thirsty.value": !conditionValue });
       } else if (conditionName === "hungry") {
@@ -60,14 +60,14 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
       let testName = armor.data.name;
       let base;
       let skill;
-      if (armor.data.data.part === 'shield') {
+      if (armor.data.data.part === "shield") {
         base = {
-          name: game.i18n.localize(game.i18n.localize(this.actor.data.data.attribute.strength.label)), 
-          value: this.actor.data.data.attribute.strength.value
+          name: game.i18n.localize(game.i18n.localize(this.actor.data.data.attribute.strength.label)),
+          value: this.actor.data.data.attribute.strength.value,
         };
         skill = {
-          name: game.i18n.localize(game.i18n.localize(this.actor.data.data.skill.melee.label)), 
-          value: this.actor.data.data.skill.melee.value
+          name: game.i18n.localize(game.i18n.localize(this.actor.data.data.skill.melee.label)),
+          value: this.actor.data.data.skill.melee.value,
         };
       } else {
         base = 0;
@@ -79,7 +79,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
       let armorTotal = 0;
       const items = this.actor.items;
       items.forEach((item) => {
-        if (item.type === "armor" && item.data.data.part !== 'shield') {
+        if (item.type === "armor" && item.data.data.part !== "shield") {
           armorTotal += parseInt(item.data.data.bonus.value, 10);
         }
       });
@@ -112,6 +112,48 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
       item.isSpell = item.type === "spell";
       item.isCriticalInjury = item.type === "criticalInjury";
     }
+  }
+
+  _computerItemEncumbrance(data) {
+    switch (data.type) {
+      case "armor":
+      case "gear":
+      case "weapon":
+        switch (data.data.weight) {
+          case "tiny":
+            return 0;
+          case "light":
+            return 0.5;
+          case "heavy":
+            return 2;
+          default:
+            return 1;
+        }
+      case "rawMaterial":
+        return 1;
+      default:
+        return 0;
+    }
+  }
+
+  computeEncumbrance(data) {
+    let weightCarried = 0;
+    for (let item of Object.values(data.items)) {
+      weightCarried += this._computerItemEncumbrance(item);
+    }
+    for (let consumable of Object.values(data.data.consumable)) {
+      if (consumable.value > 0) {
+        weightCarried += 1;
+      }
+    }
+    const coinsCarried = data.data.currency.gold.value + data.data.currency.silver.value + data.data.currency.copper.value;
+    weightCarried += Math.floor(coinsCarried / 100) * 0.5;
+    const weightAllowed = data.data.attribute.strength.max * 2;
+    data.data.encumbrance = {
+      value: weightCarried,
+      max: weightAllowed,
+      over: weightCarried > weightAllowed,
+    };
   }
 
   onItemCreate(event) {
