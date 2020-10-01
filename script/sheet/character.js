@@ -146,7 +146,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
         weightCarried += 1;
       }
     }
-    const coinsCarried = data.data.currency.gold.value + data.data.currency.silver.value + data.data.currency.copper.value;
+    const coinsCarried = parseInt(data.data.currency.gold.value) + parseInt(data.data.currency.silver.value) + parseInt(data.data.currency.copper.value);
     weightCarried += Math.floor(coinsCarried / 100) * 0.5;
     const weightAllowed = data.data.attribute.strength.max * 2;
     data.data.encumbrance = {
