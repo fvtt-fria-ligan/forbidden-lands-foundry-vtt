@@ -47,6 +47,7 @@
 
 .forbidden-lands .character .gears {
   padding-bottom: 8px;
+  position: relative;
 }
 
 .forbidden-lands .character .gears .items .header {
@@ -56,6 +57,24 @@
 
 .forbidden-lands .character .gears .items div + .header {
   margin-top: 8px;
+}
+
+.forbidden-lands .character .gears .encumbrance {
+  border-bottom: 1px solid var(--color-border);
+  font-family: var(--font-special);
+  font-size: 14px;
+  padding: 4px 8px;
+  position: absolute;
+  right: 8px;
+  top: 0;
+}
+
+.forbidden-lands .character .gears .encumbrance.overencumbered {
+  color: #a00;
+}
+
+.forbidden-lands .character .gears .encumbrance i {
+  font-size: 12px;
 }
 
 .forbidden-lands .character .gears .gear {
