@@ -2,7 +2,7 @@
   "name": "forbidden-lands",
   "title": "Forbidden Lands",
   "description": "There is something beyond the mountains, beyond the howls beyond the mist, there is something behind the veils, behind hearts cold as stone.",
-  "version": "3.13.0",
+  "version": "3.14.0",
   "minimumCoreVersion": "0.6.2",
   "compatibleCoreVersion": "0.6.6",
   "templateVersion": 2,
@@ -50,6 +50,11 @@
       "lang": "cs",
       "name": "Čeština",
       "path": "lang/cs.json"
+    },
+    {
+      "lang": "de",
+      "name": "Deutsch",
+      "path": "lang/de.json"
     }
   ],
   "gridDistance": 1,
