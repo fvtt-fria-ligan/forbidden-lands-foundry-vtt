@@ -38,7 +38,7 @@ export class ForbiddenLandsItem extends Item {
       content: html,
     };
     if (["gmroll", "blindroll"].includes(chatData.rollMode)) {
-      chatData.whisper = ChatMessage.getWhisperIDs("GM");
+      chatData.whisper = ChatMessage.getWhisperRecipients("GM");
     } else if (chatData.rollMode === "selfroll") {
       chatData.whisper = [game.user];
     }

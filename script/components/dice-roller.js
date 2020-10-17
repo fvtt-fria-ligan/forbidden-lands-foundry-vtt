@@ -95,7 +95,7 @@ export default class DiceRoller {
       content: html,
     };
     if (["gmroll", "blindroll"].includes(chatData.rollMode)) {
-      chatData.whisper = ChatMessage.getWhisperIDs("GM");
+      chatData.whisper = ChatMessage.getWhisperRecipients("GM");
     } else if (chatData.rollMode === "selfroll") {
       chatData.whisper = [game.user];
     }
@@ -129,7 +129,7 @@ export default class DiceRoller {
       content: html,
     };
     if (["gmroll", "blindroll"].includes(chatData.rollMode)) {
-      chatData.whisper = ChatMessage.getWhisperIDs("GM");
+      chatData.whisper = ChatMessage.getWhisperRecipients("GM");
     } else if (chatData.rollMode === "selfroll") {
       chatData.whisper = [game.user];
     }
@@ -158,7 +158,7 @@ export default class DiceRoller {
       content: html,
     };
     if (["gmroll", "blindroll"].includes(chatData.rollMode)) {
-      chatData.whisper = ChatMessage.getWhisperIDs("GM");
+      chatData.whisper = ChatMessage.getWhisperRecipients("GM");
     } else if (chatData.rollMode === "selfroll") {
       chatData.whisper = [game.user];
     }
@@ -192,8 +192,7 @@ export default class DiceRoller {
         die = new Die(numberOfFaces);
         die.roll(numberOfDice);
       }
-      console.log("DIE", die);
-      die.rolls.forEach((roll) => {
+      die.results.forEach((roll) => {
         let result = roll.result !== undefined ? roll.result : roll.roll;
         if (automaticSuccess > 0) {
           result = numberOfFaces;
