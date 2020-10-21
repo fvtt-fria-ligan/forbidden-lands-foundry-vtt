@@ -407,6 +407,7 @@
   color: var(--color-background);
 }
 button,
+.dialog .dialog-buttons button.default,
 #chat-form textarea,
 #chat-controls div.roll-type-select select,
 .window-app .window-content,
