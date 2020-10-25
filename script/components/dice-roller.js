@@ -76,8 +76,8 @@ export default class DiceRoller {
     if (!consumable.value) {
       result = "FAILED";
     } else {
-      let die = new Die(consumable.value);
-      die.roll(1);
+      let die = new Die({ faces: consumable.value, number: 1 });
+      die.evaluate();
       if (die.total > 2) {
         result = "SUCCEED";
       } else {
