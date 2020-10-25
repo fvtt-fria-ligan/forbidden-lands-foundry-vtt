@@ -365,6 +365,12 @@
   margin: 0 0 8px;
   text-align: center;
 }
+.forbidden-lands.roll-item h4 img {
+  background: none;
+  height: 16px;
+  margin: 0;
+  vertical-align: middle;
+}
 .forbidden-lands.roll-item h3 + h4 {
   margin-top: -8px;
 }
@@ -381,6 +387,12 @@
 }
 .forbidden-lands.roll-item p {
   margin: 0 0 4px;
+}
+.forbidden-lands.roll-item .roll .die {
+  box-shadow: 0 0 6px var(--color-highlight);
+  height: 36px;
+  margin: 0 8px 8px 0;
+  vertical-align: bottom;
 }
 
 /* Scrollbars */

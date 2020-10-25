@@ -46,18 +46,15 @@ export default class DiceRoller {
   push() {
     this.dices.forEach((dice) => {
       if ((dice.value < 6 && dice.value > 1 && dice.type !== "skill") || (dice.value < 6 && ["artifact", "skill"].includes(dice.type))) {
-        let die;
-        if (DiceTerm !== undefined) {
-          die = new Die({ faces: dice.face, number: 1 });
-          die.evaluate();
-        } else {
-          die = new Die(dice.face);
-          die.roll(1);
-        }
+        let die = new Die({ faces: dice.face, number: 1 });
+        die.evaluate();
         dice.value = die.total;
         let successAndWeight = this.getSuccessAndWeight(dice.value, dice.type);
         dice.success = successAndWeight.success;
         dice.weight = successAndWeight.weight;
+        dice.rolled = true;
+      } else {
+        dice.rolled = false;
       }
     });
     if (this.lastType === "spell") {
@@ -102,6 +99,37 @@ export default class DiceRoller {
     ChatMessage.create(chatData);
   }
 
+  synthetizeFakeRoll(dice) {
+    const terms = [];
+    for (let die of dice) {
+      if (!die.rolled) {
+        continue;
+      }
+      let term = "Die";
+      switch (die.type) {
+        case "artifact":
+          term = `ArtifactD${die.face}`;
+          break;
+        case "base":
+          term = "BaseDie";
+          break;
+        case "gear":
+          term = "GearDie";
+          break;
+        case "skill":
+          term = "SkillDie";
+          break;
+      }
+      terms.push({
+        class: term,
+        faces: die.face,
+        number: 1,
+        results: [{ result: die.value, active: true }],
+      });
+    }
+    return { class: "Roll", dice: [], formula: "", terms: terms };
+  }
+
   /**
    * Display roll in chat
    *
@@ -124,6 +152,7 @@ export default class DiceRoller {
     };
     const html = await renderTemplate("systems/forbidden-lands/chat/roll.html", rollData);
     let chatData = {
+      type: CHAT_MESSAGE_TYPES.ROLL,
       user: game.user._id,
       rollMode: game.settings.get("core", "rollMode"),
       content: html,
@@ -133,6 +162,8 @@ export default class DiceRoller {
     } else if (chatData.rollMode === "selfroll") {
       chatData.whisper = [game.user];
     }
+    const roll = this.synthetizeFakeRoll(this.dices);
+    chatData.roll = JSON.stringify(roll);
     ChatMessage.create(chatData);
   }
 
@@ -184,18 +215,14 @@ export default class DiceRoller {
    */
   rollDice(numberOfDice, typeOfDice, numberOfFaces, automaticSuccess) {
     if (numberOfDice > 0) {
-      let die;
-      if (DiceTerm !== undefined) {
-        die = new Die({ faces: numberOfFaces, number: numberOfDice });
-        die.evaluate();
-      } else {
-        die = new Die(numberOfFaces);
-        die.roll(numberOfDice);
-      }
+      let die = new Die({ faces: numberOfFaces, number: numberOfDice });
+      die.evaluate();
       die.results.forEach((roll) => {
-        let result = roll.result !== undefined ? roll.result : roll.roll;
+        let result = roll.result;
+        let rolled = true;
         if (automaticSuccess > 0) {
           result = numberOfFaces;
+          rolled = false;
           automaticSuccess -= 1;
         }
         let successAndWeight = this.getSuccessAndWeight(result, typeOfDice);
@@ -205,6 +232,7 @@ export default class DiceRoller {
           success: successAndWeight.success,
           weight: successAndWeight.weight,
           face: numberOfFaces,
+          rolled: rolled,
         });
       });
     }

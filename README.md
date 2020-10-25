@@ -9,6 +9,7 @@ It provides support for **character sheets only**, game content should be drawn 
 
 ## Supported Modules
 - [Calendar/Weather](https://foundryvtt.com/packages/calendar-weather/) will be configured with the correct calendar, support for seasons, dusk/dawn, and recurring events
+- [Dice So Nice](https://foundryvtt.com/packages/dice-so-nice/) version 3.0 or later will give you beautiful 3D dice for each roll
 - [Virtual Tabletop Assets - Tokenizer](https://foundryvtt.com/packages/vtta-tokenizer/) is supported on all character sheets
 
 ## Sneaky Preview
@@ -27,6 +28,9 @@ Nothing. Any pull request is welcome !
 
 ## Side note
 Buy this game. Seriously. Buy it.
+
+## Credits
+Dice graphics recreated by [Tomasz 'jarv' Dobrowolski](jarv@monochrome.pl) with permission from Fria Ligan.
 
 ## Licence
 [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/)
