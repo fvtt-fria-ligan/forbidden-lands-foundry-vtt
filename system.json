@@ -9,7 +9,7 @@
   "author": "Perfectro",
   "scripts": [],
   "esmodules": [
-    "script/hooks.js"
+    "script/init.js"
   ],
   "styles": [
     "style/common.css",

@@ -1,18 +1,21 @@
 <div class="forbidden-lands roll-item">
-    <div class="border">
-        {{#if isPushed}}
-            <h3>{{name}} - {{localize "PUSHED"}}</h3>
-        {{else}}
-            <h3>{{name}}</h3>
-        {{/if}}
-        <h4>{{sword}} ⚔️ | {{skull}} 💀</h4>
-        {{#if isSpell}}
-            <h4 style="text-align: left">{{localize "POWER_LEVEL"}}: {{powerLevel}}</h4>
-        {{else}}
-            <h4 style="text-align: left">{{localize "DAMAGE"}}: {{damage}}</h4>
-        {{/if}}
-        {{#each dices as |dice|}}
-            <img width='25px' height='25px' style='border:none;margin-right:2px;margin-top:2px' src='systems/forbidden-lands/asset/{{dice.type}}-dice-{{dice.value}}.png'/>
-        {{/each}}
+  <div class="border">
+    {{#if isPushed}}
+    <h3>{{name}} - {{localize "PUSHED"}}</h3>
+    {{else}}
+    <h3>{{name}}</h3>
+    {{/if}}
+    <h4>
+      {{sword}} <img src="systems/forbidden-lands/asset/sword.png" alt="⚔️" /> | {{skull}}
+      <img src="systems/forbidden-lands/asset/skull.png" alt="💀" />
+    </h4>
+    {{#if isSpell}}
+    <h4 style="text-align: left">{{localize "POWER_LEVEL"}}: {{powerLevel}}</h4>
+    {{else}}
+    <h4 style="text-align: left">{{localize "DAMAGE"}}: {{damage}}</h4>
+    {{/if}}
+    <div class="roll">
+      {{#each dices as |dice|}}<img class="die" src="systems/forbidden-lands/chat/dice/{{dice.type}}-d{{dice.face}}-{{dice.value}}.png" alt="{{dice.value}}" title="{{dice.value}}" />{{/each}}
     </div>
+  </div>
 </div>
