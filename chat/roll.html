@@ -11,7 +11,8 @@
     </h4>
     {{#if isSpell}}
     <h4 style="text-align: left">{{localize "POWER_LEVEL"}}: {{powerLevel}}</h4>
-    {{else}}
+    {{/if}}
+    {{#if hasDamage}}
     <h4 style="text-align: left">{{localize "DAMAGE"}}: {{damage}}</h4>
     {{/if}}
     <div class="roll">

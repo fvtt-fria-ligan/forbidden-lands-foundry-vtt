@@ -33,7 +33,8 @@ export default class DiceRoller {
       this.rollDice(artifact.dice, "artifact", artifact.face);
     });
     let computedDamage = damage;
-    if (damage > 0) {
+    this.hasDamage = damage > 0;
+    if (this.hasDamage) {
       computedDamage = computedDamage - 1;
     }
     this.lastDamage = computedDamage;
@@ -148,6 +149,7 @@ export default class DiceRoller {
       sword: numberOfSword,
       skull: numberOfSkull,
       damage: numberOfSword + this.lastDamage,
+      hasDamage: this.lastDamage > 0,
       dices: this.dices,
     };
     const html = await renderTemplate("systems/forbidden-lands/chat/roll.html", rollData);
@@ -180,6 +182,7 @@ export default class DiceRoller {
       sword: numberOfSword,
       skull: numberOfSkull,
       powerLevel: numberOfSword + this.dices.length,
+      hadDamage: false,
       dices: this.dices,
     };
     const html = await renderTemplate("systems/forbidden-lands/chat/roll.html", rollData);
