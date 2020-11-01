@@ -148,8 +148,8 @@ export default class DiceRoller {
       isSpell: false,
       sword: numberOfSword,
       skull: numberOfSkull,
-      damage: numberOfSword + this.lastDamage,
-      hasDamage: this.lastDamage > 0,
+      damage: numberOfSword > 0 ? numberOfSword + this.lastDamage : 0,
+      hasDamage: this.hasDamage,
       dices: this.dices,
     };
     const html = await renderTemplate("systems/forbidden-lands/chat/roll.html", rollData);
