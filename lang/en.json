@@ -191,5 +191,14 @@
   "ATTACK.FEAR": "Fear",
   "ATTACK.SLASH": "Slash",
   "ATTACK.STAB": "Stab",
-  "ATTACK.OTHER": "Other"
+  "ATTACK.OTHER": "Other",
+
+  "DICE.ROLL": "Roll",
+  "DICE.BASE": "Base",
+  "DICE.SKILL": "Skill",
+  "DICE.GEAR": "Gear",
+  "DICE.ARTIFACTS": "Artifacts",
+  "DICE.MODIFIER": "Modifier",
+  "DICE.CANCEL": "Cancel",
+  "DICE.AUTOMATIC_SUCCESS": "Automatic Success"
 }
