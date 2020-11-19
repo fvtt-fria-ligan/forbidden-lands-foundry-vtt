@@ -5,7 +5,7 @@ export class ForbiddenLandsCriticalInjurySheet extends ForbiddenLandsItemSheet {
     return mergeObject(super.defaultOptions, {
       template: "systems/forbidden-lands/model/critical-injury.html",
       width: 400,
-      height: 250,
+      height: 310,
     });
   }
 }

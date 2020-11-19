@@ -36,7 +36,7 @@
         </div>
         <div class="skillBonus">
             <label>{{localize "WEAPON.SKILL_BONUS"}}</label>
-            <input name="data.skillBonus" type="number" value="{{data.skillBonus}}" data-dtype="Number" />
+            <input name="data.skillBonus" type="text" value="{{data.skillBonus}}" />
         </div>
         <div class="grip">
             <label>{{localize "WEAPON.GRIP"}}</label>
@@ -114,5 +114,6 @@
             <label>{{localize "WEAPON.APPEARANCE"}}</label>
             <textarea name="data.appearance">{{data.appearance}}</textarea>
         </div>
+        {{> systems/forbidden-lands/model/partial/roll-modifiers.html }}
     </div>
 </form>

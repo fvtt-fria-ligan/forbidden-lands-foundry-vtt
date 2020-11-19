@@ -109,6 +109,10 @@
   "ITEM.RAW_MATERIAL": "Raw Material",
   "ITEM.SPELL": "Spell",
   "ITEM.TALENT": "Talent",
+  "ITEM.ROLL_MODIFIERS": "Roll Modifiers",
+  "ITEM.NO_MODIFIERS": "No modifiers",
+  "ITEM.ADD_MODIFIER": "Add modifier",
+  "ITEM.DELETE_MODIFIER": "Delete modifier",
 
   "RANGE.ARM": "Arm's Length",
   "RANGE.NEAR": "Near",

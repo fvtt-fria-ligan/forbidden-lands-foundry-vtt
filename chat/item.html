@@ -140,5 +140,9 @@
         {{#if data.weight}}
         <p><strong>{{localize "GEAR.WEIGHT"}}:</strong> {{itemWeight data.weight}}</p>
         {{/if}}
+
+        {{#if hasRollModifiers }}
+        <p><strong>{{localize "ITEM.ROLL_MODIFIERS"}}:</strong> {{formatRollModifiers data.rollModifiers}}</p>
+        {{/if}}
     </div>
 </div>

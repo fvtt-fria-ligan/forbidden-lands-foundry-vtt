@@ -1,3 +1,7 @@
+.forbidden-lands.item {
+  max-height: 500px;
+}
+
 .forbidden-lands.item label {
   display: block;
   font-family: var(--font-special);
@@ -50,7 +54,6 @@
   display: grid;
   gap: 8px;
   grid-template-columns: 1fr 1fr 1fr;
-  margin-bottom: 8px;
 }
 
 .forbidden-lands.item .item .features {
@@ -88,6 +91,26 @@
   height: 100px;
 }
 
+.forbidden-lands.item .item .roll-modifiers {
+  grid-column: 1/-1;
+}
+
+.forbidden-lands.item .item .roll-modifiers .column-header {
+  border-bottom: 2px solid var(--color-border);
+}
+
+.forbidden-lands.item .item .roll-modifiers a {
+  font-size: 10px
+}
+
+.forbidden-lands.item .item .roll-modifiers .row {
+  margin-bottom: 5px;
+}
+
+.forbidden-lands.item .item .roll-modifiers .row > *{
+  margin-right: 8px;
+}
+
 .forbidden-lands.item .item .spell-description {
   grid-column: 1/-1;
 }
@@ -103,7 +126,7 @@
 
 .forbidden-lands.item .item .talent-description textarea {
   resize: none;
-  height: 250px;
+  height: 200px;
 }
 
 .forbidden-lands.item .item .monster-description {
