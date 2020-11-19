@@ -109,6 +109,10 @@
   "ITEM.RAW_MATERIAL": "Råmaterial",
   "ITEM.SPELL": "Besvärjelse",
   "ITEM.TALENT": "Talang",
+  "ITEM.ROLL_MODIFIERS": "Modifikationer",
+  "ITEM.NO_MODIFIERS": "Inga modifikationer",
+  "ITEM.ADD_MODIFIER": "Ny modifikation",
+  "ITEM.DELETE_MODIFIER": "Ta bort modifikation",
 
   "RANGE.ARM": "Armslängd",
   "RANGE.NEAR": "Nära",

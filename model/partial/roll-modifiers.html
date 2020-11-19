@@ -1,0 +1,54 @@
+<div class="roll-modifiers flex column">
+    <div class="flex row column-header">
+        <label class="grow">{{localize "ITEM.ROLL_MODIFIERS"}}</label>
+        <a class="button add-modifier" title="{{localize 'ITEM.ADD_MODIFIER'}}"><i class="fas fa-plus"></i></a>
+    </div>
+    {{#each data.rollModifiers as |modifier|}}
+    {{#if modifier}}
+    <div class="flex row">
+        <div class="grow">
+            <select name="data.rollModifiers.{{@key}}.name">
+                {{#select modifier.name}}
+                <option value=""></option>
+                <option value="ATTRIBUTE.STRENGTH">{{ toUpperCase (localize "ATTRIBUTE.STRENGTH") }}</option>
+                <option value="SKILL.MIGHT">{{ localize "SKILL.MIGHT" }}</option>
+                <option value="SKILL.ENDURANCE">{{ localize "SKILL.ENDURANCE" }}</option>
+                <option value="SKILL.MELEE">{{ localize "SKILL.MELEE" }}</option>
+                <option value="SKILL.CRAFTING">{{ localize "SKILL.CRAFTING" }}</option>
+                <option value="ATTRIBUTE.AGILITY">{{ toUpperCase (localize "ATTRIBUTE.AGILITY") }}</option>
+                <option value="SKILL.STEALTH">{{ localize "SKILL.STEALTH" }}</option>
+                <option value="SKILL.SLEIGHT_OF_HAND">{{ localize "SKILL.SLEIGHT_OF_HAND" }}</option>
+                <option value="SKILL.MOVE">{{ localize "SKILL.MOVE" }}</option>
+                <option value="SKILL.MARKSMANSHIP">{{ localize "SKILL.MARKSMANSHIP" }}</option>
+                <option value="ATTRIBUTE.WITS">{{ toUpperCase (localize "ATTRIBUTE.WITS") }}</option>
+                <option value="SKILL.SCOUTING">{{ localize "SKILL.SCOUTING" }}</option>
+                <option value="SKILL.LORE">{{ localize "SKILL.LORE" }}</option>
+                <option value="SKILL.SURVIVAL">{{ localize "SKILL.SURVIVAL" }}</option>
+                <option value="SKILL.INSIGHT">{{ localize "SKILL.INSIGHT" }}</option>
+                <option value="ATTRIBUTE.EMPATHY">{{ toUpperCase (localize "ATTRIBUTE.EMPATHY") }}</option>
+                <option value="SKILL.MANIPULATION">{{ localize "SKILL.MANIPULATION" }}</option>
+                <option value="SKILL.PERFORMANCE">{{ localize "SKILL.PERFORMANCE" }}</option>
+                <option value="SKILL.HEALING">{{ localize "SKILL.HEALING" }}</option>
+                <option value="SKILL.ANIMAL_HANDLING">{{ localize "SKILL.ANIMAL_HANDLING" }}</option>
+                {{#each ../data.customRollModifiers as |customRollModifier|}}
+                <option value="{{ customRollModifier }}">{{ customRollModifier }}</option>
+                {{/each}}
+                {{/select}}
+            </select>
+        </div>
+        <div class="grow">
+            <input name="data.rollModifiers.{{@key}}.value" type="text" value="{{ modifier.value }}" />
+        </div>
+        <div style="padding-top: 3px">
+            <a class="button delete-modifier" title="{{localize 'ITEM.DELETE_MODIFIER'}}" data-modifier-id="{{@key}}">
+                <i class="fas fa-trash"></i>
+            </a>
+        </div>
+    </div>
+    {{/if}}
+    {{else}}
+    <div class="flex column center">
+        <i>{{ localize "ITEM.NO_MODIFIERS" }}</i>
+    </div>
+    {{/each}}
+</div>

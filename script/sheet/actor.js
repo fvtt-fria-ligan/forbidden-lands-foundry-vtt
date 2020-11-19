@@ -56,17 +56,33 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
     html.find(".roll-attribute").click((ev) => {
       const attributeName = $(ev.currentTarget).data("attribute");
       const attribute = this.actor.data.data.attribute[attributeName];
-      RollDialog.prepareRollDialog(attribute.label, {name: attribute.label, value: attribute.value}, 0, 0, "", 0, 0, this.diceRoller);
+      let modifiers = this.getRollModifiers(attribute.label);
+      RollDialog.prepareRollDialog(
+        attribute.label,
+        {name: attribute.label, value: attribute.value},
+        0,
+        0,
+        modifiers.artifacts.join(" "),
+        modifiers.modifier,
+        0,
+        this.diceRoller
+      );
     });
     html.find(".roll-skill").click((ev) => {
       const skillName = $(ev.currentTarget).data("skill");
       const skill = this.actor.data.data.skill[skillName];
       const attribute = this.actor.data.data.attribute[skill.attribute];
+      let modifiers = this.getRollModifiers(attribute.label);
+      modifiers = this.getRollModifiers(skill.label, modifiers);
       RollDialog.prepareRollDialog(
         skill.label, 
         {name: attribute.label, value: attribute.value}, 
         {name: skill.label, value: skill.value}, 
-        0, "", 0, 0, this.diceRoller
+        0,
+        modifiers.artifacts.join(" "),
+        modifiers.modifier,
+        0,
+        this.diceRoller,
       );
     });
     html.find(".roll-weapon").click((ev) => {
@@ -83,13 +99,19 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
         skill = this.actor.data.data.skill.marksmanship;
       }
       let bonus = this.parseBonus(weapon.data.data.bonus.value);
+      let modifiers = this.parseModifiers(weapon.data.data.skillBonus);
+      if (weapon.data.data.artifactBonus) {
+        modifiers.artifacts.splice(0, 0, weapon.data.data.artifactBonus);
+      }
+      modifiers = this.getRollModifiers(attribute.label, modifiers);
+      modifiers = this.getRollModifiers(skill.label, modifiers);
       RollDialog.prepareRollDialog(
         testName, 
         {name: attribute.label, value: attribute.value},
         {name: skill.label, value: skill.value},
         bonus, 
-        weapon.data.data.artifactBonus || "", 
-        weapon.data.data.skillBonus, 
+        modifiers.artifacts.join(" "),
+        modifiers.modifier,
         weapon.data.data.damage, 
         this.diceRoller
       );
@@ -101,6 +123,35 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
     });
   }
 
+  parseModifiers(str) {
+    let sep = /[\s\+]+/;
+    let artifacts = []
+    let modifier = 0;
+    if (typeof(str) === "string") {
+      str.split(sep).forEach(item => {
+        if (this.isArtifact(item)) {
+          artifacts.push(item);
+        } else {
+          item = parseInt(item, 10);
+          if (!isNaN(item)) {
+            modifier += item;
+          }
+        }
+      });
+    } else if (typeof(str) === 'number') {
+      modifier = str;
+    }
+    return {
+      artifacts: artifacts,
+      modifier: modifier
+    }
+  }
+
+  isArtifact(artifact) {
+    let regex = /([0-9]*)d([0-9]*)/;
+    return !!regex.exec(artifact);
+  }
+
   parseBonus(bonus) {
     let regex = /([0-9]*[^d+-])/;
     let regexMatch = regex.exec(bonus);
@@ -109,5 +160,24 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
     } else {
       return 0;
     }
+  }
+
+  getRollModifiers(skillLabel, modifiers) {
+    if (!modifiers) {
+      modifiers = {modifier: 0, artifacts: []};
+    }
+    this.actor.items.forEach((item) => {
+      let rollModifiers = item.data.data.rollModifiers;
+      if (rollModifiers) {
+        Object.values(rollModifiers).forEach((mod) => {
+          if (mod && mod.name == skillLabel) {
+            let parsed = this.parseModifiers(mod.value);
+            modifiers.modifier += parsed.modifier;
+            modifiers.artifacts = modifiers.artifacts.concat(parsed.artifacts);
+          }
+        });
+      }
+    });
+    return modifiers;
   }
 }

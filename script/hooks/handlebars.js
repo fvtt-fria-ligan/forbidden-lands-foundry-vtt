@@ -23,6 +23,7 @@ function preloadHandlebarsTemplates() {
     "systems/forbidden-lands/model/tab/building-stronghold.html",
     "systems/forbidden-lands/model/tab/hireling-stronghold.html",
     "systems/forbidden-lands/model/tab/gear-stronghold.html",
+    "systems/forbidden-lands/model/partial/roll-modifiers.html",
   ];
   return loadTemplates(templatePaths);
 }
@@ -116,9 +117,20 @@ function registerHandlebarsHelpers() {
       return "";
     }
   });
+  Handlebars.registerHelper("formatRollModifiers", function (rollModifiers) {
+    let output = [];
+    Object.values(rollModifiers).forEach(mod => {
+      let name = game.i18n.localize(mod.name);
+      output.push(`${name} ${mod.value}`);
+    });
+    return output.join(", ");
+  });
   Handlebars.registerHelper('plaintextToHTML', function(value) {
     // strip tags, add <br/> tags
     return new Handlebars.SafeString(value.replace(/(<([^>]+)>)/gi, "").replace(/(?:\r\n|\r|\n)/g, '<br/>'));
+  });
+  Handlebars.registerHelper('toUpperCase', function(str) {
+    return str.toUpperCase();
   });
 }
 
