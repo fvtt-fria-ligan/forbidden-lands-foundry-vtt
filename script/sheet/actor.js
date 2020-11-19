@@ -56,21 +56,16 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
     html.find(".roll-attribute").click((ev) => {
       const attributeName = $(ev.currentTarget).data("attribute");
       const attribute = this.actor.data.data.attribute[attributeName];
-      const localizedName = game.i18n.localize(attribute.label);
-      let testName = localizedName.toUpperCase();
-      RollDialog.prepareRollDialog(testName, {name: localizedName, value: attribute.value}, 0, 0, "", 0, 0, this.diceRoller);
+      RollDialog.prepareRollDialog(attribute.label, {name: attribute.label, value: attribute.value}, 0, 0, "", 0, 0, this.diceRoller);
     });
     html.find(".roll-skill").click((ev) => {
       const skillName = $(ev.currentTarget).data("skill");
       const skill = this.actor.data.data.skill[skillName];
       const attribute = this.actor.data.data.attribute[skill.attribute];
-      const localizedAttrName = game.i18n.localize(attribute.label);
-      const localizedSkillName = game.i18n.localize(skill.label);
-      let testName = localizedSkillName.toUpperCase();
       RollDialog.prepareRollDialog(
-        testName, 
-        {name: localizedAttrName, value: attribute.value}, 
-        {name: localizedSkillName, value: skill.value}, 
+        skill.label, 
+        {name: attribute.label, value: attribute.value}, 
+        {name: skill.label, value: skill.value}, 
         0, "", 0, 0, this.diceRoller
       );
     });
@@ -90,8 +85,8 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
       let bonus = this.parseBonus(weapon.data.data.bonus.value);
       RollDialog.prepareRollDialog(
         testName, 
-        {name: game.i18n.localize(attribute.label), value: attribute.value}, 
-        {name: game.i18n.localize(skill.label), value: skill.value}, 
+        {name: attribute.label, value: attribute.value},
+        {name: skill.label, value: skill.value},
         bonus, 
         weapon.data.data.artifactBonus || "", 
         weapon.data.data.skillBonus, 

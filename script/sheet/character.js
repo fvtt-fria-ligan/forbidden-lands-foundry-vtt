@@ -62,11 +62,11 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
       let skill;
       if (armor.data.data.part === "shield") {
         base = {
-          name: game.i18n.localize(game.i18n.localize(this.actor.data.data.attribute.strength.label)),
+          name: this.actor.data.data.attribute.strength.label,
           value: this.actor.data.data.attribute.strength.value,
         };
         skill = {
-          name: game.i18n.localize(game.i18n.localize(this.actor.data.data.skill.melee.label)),
+          name: this.actor.data.data.skill.melee.label,
           value: this.actor.data.data.skill.melee.value,
         };
       } else {
@@ -83,8 +83,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
           armorTotal += parseInt(item.data.data.bonus.value, 10);
         }
       });
-      let testName = game.i18n.localize("HEADER.ARMOR").toUpperCase();
-      RollDialog.prepareRollDialog(testName, 0, 0, armorTotal, "", 0, 0, this.diceRoller);
+      RollDialog.prepareRollDialog("HEADER.ARMOR", 0, 0, armorTotal, "", 0, 0, this.diceRoller);
     });
     html.find(".roll-consumable").click((ev) => {
       const consumableName = $(ev.currentTarget).data("consumable");
@@ -173,7 +172,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
           label: "Roll",
           class: "custom-roll",
           icon: "fas fa-dice",
-          onclick: (ev) => RollDialog.prepareRollDialog("Roll", 0, 0, 0, "", 0, 0, this.diceRoller),
+          onclick: (ev) => RollDialog.prepareRollDialog("DICE.ROLL", 0, 0, 0, "", 0, 0, this.diceRoller),
         },
         {
           label: "Push",
