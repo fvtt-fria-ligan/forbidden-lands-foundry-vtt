@@ -1,0 +1,29 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <div class="header">
+        <div class="avatar">
+            <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+        </div>
+        <div class="name">
+            <label>{{localize "CRITICAL_INJURY.NAME"}}</label>
+            <input name="name" type="text" value="{{item.name}}"/>
+        </div>
+    </div>
+    <div class="item">
+        <div class="lethal">
+            <label>{{localize "CRITICAL_INJURY.LETHAL"}}</label>
+            <input name="data.lethal" type="text" value="{{data.lethal}}"/>
+        </div>
+        <div class="limit">
+            <label>{{localize "CRITICAL_INJURY.LIMIT"}}</label>
+            <input name="data.limit" type="text" value="{{data.limit}}"/>
+        </div>
+        <div class="healing-time">
+            <label>{{localize "CRITICAL_INJURY.HEALING_TIME"}}</label>
+            <input name="data.healingTime" type="text" value="{{data.healingTime}}"/>
+        </div>
+        <div class="effect">
+            <label>{{localize "GEAR.EFFECT"}}</label>
+            <input name="data.effect" type="text" value="{{data.effect}}"/>
+        </div>
+    </div>
+</form>

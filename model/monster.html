@@ -1,0 +1,51 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <div class="monster">
+        <div class="bio border">
+            <div class="flex row align-center">
+                <div class="avatar">
+                    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+                </div>
+                <div class="flex column grow">
+                    <div class="name bio-row">
+                        <label>{{localize "BIO.NAME"}}:</label>
+                        <input name="name" type="text" value="{{actor.name}}" />
+                    </div>
+                    <div class="bio-row">
+                        <div class="movement">
+                            <label>{{localize data.movement.label}}:</label>
+                            <input name="data.movement.value" type="number" value="{{data.movement.value}}"
+                                data-dtype="Number" />
+                        </div>
+                        <div class="armor">
+                            <label><button class="roll-armor">{{localize data.armor.label}}</button>:</label>
+                            <input name="data.armor.value" type="number" value="{{data.armor.value}}"
+                                data-dtype="Number" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sheet-tabs tabs flex row" data-group="primary">
+            <b class="item" data-tab="main">{{localize "TAB.MAIN"}}</b>
+            <b class="item" data-tab="combat">{{localize "TAB.COMBAT"}}</b>
+            <b class="item" data-tab="gear">{{localize "TAB.GEAR"}}</b>
+            <b class="item" data-tab="note">{{localize "TAB.NOTE"}}</b>
+        </div>
+
+        <div class="sheet-body">
+            <div class="tab" data-group="primary" data-tab="main">
+                {{> systems/forbidden-lands/model/tab/main.html}}
+            </div>
+            <div class="tab" data-group="primary" data-tab="combat">
+                {{> systems/forbidden-lands/model/tab/combat-monster.html}}
+            </div>
+            <div class="tab" data-group="primary" data-tab="gear">
+                {{> systems/forbidden-lands/model/tab/gear-monster.html}}
+            </div>
+            <div class="tab note" data-group="primary" data-tab="note">
+                {{editor content=data.bio.note.value target="data.bio.note.value" button=true owner=owner editable=editable}}
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,73 @@
+<div class="flex column full">
+    <div class="monster-talents flex column border grow" style="flex: 0 0 40%">
+        <h1>{{localize "HEADER.TALENT"}}</h1>
+        <div class="item-list">
+            <div class="header monster-talent flex row">
+                <b class="name">{{localize "MONSTER.NAME"}}</b>
+                <b class="description">{{localize "MONSTER.DESCRIPTION"}}</b>
+                <a class="button item-create" title="Add Monster Talent" data-type="monsterTalent"><i
+                        class="fas fa-plus"></i></a>
+            </div>
+            <div class="items">
+                {{#each actor.items as |item|}}
+                {{#if item.isMonsterTalent}}
+                <div class="monster-talent item flex row" data-item-id="{{item._id}}">
+                    <div class="name">
+                        <div class="image-container">
+                            <div class="image" style="background-image: url('{{item.img}}')"></div>
+                        </div>
+                        <div class="name">
+                            <b>{{item.name}}</b>
+                            {{item.data.description}}
+                        </div>
+                    </div>
+                    <div class="button">
+                        <a class="item-control item-edit" title="Edit Monster Talent"><i
+                                class="fas fa-edit"></i></a>
+                        <a class="item-control item-post" title="Post Monster Talent"><i
+                                class="fas fa-comment"></i></a>
+                        <a class="item-control item-delete" title="Delete Monster Talent"><i
+                                class="fas fa-trash"></i></a>
+                    </div>
+                </div>
+                {{/if}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    <div class="monster-attacks flex column border grow" style="flex: 1 1 60%">
+        <h1>{{localize "HEADER.ATTACK"}}</h1>
+        <div class="item-list">
+            <div class="header monster-attack flex row">
+                <b class="name">{{localize "MONSTER.NAME"}}</b>
+                <a class="button item-create" title="Add Monster Attack" data-type="monsterAttack"><i
+                        class="fas fa-plus"></i></a>
+            </div>
+            <div class="items">
+                {{#each actor.items as |item|}}
+                {{#if item.isMonsterAttack}}
+                <div class="monster-attack item flex row" data-item-id="{{item._id}}">
+                    <div class="name">
+                        <div class="image-container">
+                            <div class="image" style="background-image: url('{{item.img}}')"></div>
+                        </div>
+                        <div class="name">
+                            <button class="roll-attack" data-item-id="{{item._id}}">{{item.name}}</button>
+                            {{item.data.description}}
+                        </div>
+                    </div>
+                    <div class="button">
+                        <a class="item-control item-edit" title="Edit Monster Attack"><i
+                                class="fas fa-edit"></i></a>
+                        <a class="item-control item-post" title="Post Monster Attack"><i
+                                class="fas fa-comment"></i></a>
+                        <a class="item-control item-delete" title="Delete Monster Attack"><i
+                                class="fas fa-trash"></i></a>
+                    </div>
+                </div>
+                {{/if}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>

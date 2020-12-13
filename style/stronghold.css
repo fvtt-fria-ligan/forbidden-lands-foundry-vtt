@@ -1,0 +1,61 @@
+.forbidden-lands .stronghold {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.forbidden-lands .stronghold .bio label {
+  font-family: var(--font-special);
+}
+.forbidden-lands .stronghold .bio input {
+  flex-grow: 1;
+  margin: 0 8px;
+}
+
+.forbidden-lands .stronghold .bio .bio-row {
+  align-items: baseline;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.forbidden-lands .stronghold .bio .avatar {
+  background: radial-gradient(
+    closest-side,
+    var(--color-highlight) 0%,
+    transparent 100%
+  );
+  flex: 0 0 auto;
+  height: 95px;
+  margin-right: 8px;
+  width: 95px;
+}
+
+.forbidden-lands .stronghold .bio .avatar img {
+  border: 0 none;
+  display: block;
+  max-width: 95px;
+  max-height: 95px;
+  min-width: 20px;
+  min-height: 20px;
+  margin: auto;
+}
+.forbidden-lands .stronghold .bio .avatar img:hover {
+  box-shadow: 0 0 10px red;
+  cursor: pointer;
+}
+
+.forbidden-lands .stronghold .bio .name {
+  display: flex;
+  flex-direction: row;
+}
+
+.forbidden-lands .stronghold .bio .location input {
+  width: 15em;
+}
+
+.forbidden-lands .stronghold .bio .defense-rating input {
+  width: 2em;
+}

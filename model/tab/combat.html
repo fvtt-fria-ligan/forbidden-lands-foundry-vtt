@@ -1,0 +1,103 @@
+<div class="combat-tab">
+    <div class="armors border">
+        <h1><button class="roll-armor total">{{localize "HEADER.ARMOR"}}</button></h1>
+        <div class="item-list">
+            <div class="header armor">
+                <b class="name">{{localize "GEAR.NAME"}}</b>
+                <b class="bonus">{{localize "GEAR.BONUS"}}</b>
+            </div>
+            <div class="items">
+                {{#each actor.items as |item|}}
+                {{#if item.isArmor}}
+                <div class="item armor" data-item-id="{{item._id}}">
+                    <div class="name">
+                        <div class="image-container">
+                            <div class="image" style="background-image: url('{{item.img}}')"></div>
+                        </div>
+                        <div class="name">
+                            <button class="roll-armor specific" data-item-id="{{item._id}}">{{item.name}}</button>
+                        </div>
+                    </div>
+                    <div class="bonus {{isBroken item}}">
+                        {{item.data.bonus.value}}
+                    </div>
+                </div>
+                {{/if}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    <div class="weapons border">
+        <h1>{{localize "HEADER.WEAPON"}}</h1>
+        <div class="item-list">
+            <div class="header weapon">
+                <b class="name">{{localize "WEAPON.NAME"}}</b>
+                <b class="damage">{{localize "WEAPON.DAMAGE"}}</b>
+                <b class="range">{{localize "WEAPON.RANGE"}}</b>
+                <b class="bonus">{{localize "WEAPON.BONUS"}}</b>
+            </div>
+            <div class="items">
+                {{#each actor.items as |item|}}
+                {{#if item.isWeapon}}
+                <div class="item" data-item-id="{{item._id}}">
+                    <div class="weapon">
+                        <div class="name">
+                            <div class="image-container">
+                                <div class="image" style="background-image: url('{{item.img}}')"></div>
+                            </div>
+                            <div class="name">
+                                <button class="roll-weapon" data-item-id="{{item._id}}">{{item.name}}</button>
+                                {{weaponGrip item.data.grip}},
+                                {{itemWeight item.data.weight}}{{#if item.data.features}}, {{/if}}{{item.data.features}}
+                            </div>
+                        </div>
+                        <div class="damage">{{item.data.damage}}</div>
+                        <div class="range">{{weaponRange item.data.range}}</div>
+                        <div class="bonus {{isBroken item}}">
+                            {{item.data.bonus.value}}
+                            {{#if item.data.artifactBonus}}+ {{item.data.artifactBonus}}{{/if}}
+                        </div>
+                    </div>
+                </div>
+                {{/if}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    <div class="critical-injuries border">
+        <h1>{{localize "HEADER.CRITICAL_INJURY"}}</h1>
+        <div class="item-list">
+            <div class="header critical-injury flex row">
+                <b class="name">{{localize "CRITICAL_INJURY.NAME"}}</b>
+                <b class="lethal">{{localize "CRITICAL_INJURY.LETHAL"}}</b>
+                <b class="healing-time">{{localize "CRITICAL_INJURY.HEALING_TIME"}}</b>
+                <a class="button item-create" title="Add Critical Injury" data-type="criticalInjury"><i
+                        class="fas fa-plus"></i></a>
+            </div>
+            <div class="items">
+                {{#each actor.items as |item|}}
+                {{#if item.isCriticalInjury}}
+                <div class="critical-injury item flex row" data-item-id="{{item._id}}">
+                    <div class="name">
+                        <div class="image-container">
+                            <div class="image" style="background-image: url('{{item.img}}')"></div>
+                        </div>
+                        <div class="name">
+                            <span>{{item.name}}</span> {{item.data.effect}}
+                        </div>
+                    </div>
+                    <div class="lethal">{{# if item.data.lethal}}{{item.data.limit}}{{/if}}</div>
+                    <div class="healing-time">{{item.data.healingTime}}</div>
+                    <div class="button">
+                        <a class="item-control item-edit" title="Edit Critical Injury"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
+                        <a class="item-control item-delete" title="Delete Critical Injury"><i
+                                class="fas fa-trash"></i></a>
+                    </div>
+                </div>
+                {{/if}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>

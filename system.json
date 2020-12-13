@@ -1,0 +1,69 @@
+{
+  "name": "forbidden-lands",
+  "title": "Forbidden Lands",
+  "description": "There is something beyond the mountains, beyond the howls beyond the mist, there is something behind the veils, behind hearts cold as stone.",
+  "version": "3.20.0",
+  "minimumCoreVersion": "0.7.5",
+  "compatibleCoreVersion": "0.7.5",
+  "templateVersion": 2,
+  "author": "Perfectro",
+  "scripts": [],
+  "esmodules": [
+    "script/init.js"
+  ],
+  "styles": [
+    "style/common.css",
+    "style/character.css",
+    "style/monster.css",
+    "style/stronghold.css",
+    "style/item.css",
+    "style/dialog.css",
+    "style/tab/main.css",
+    "style/tab/combat.css",
+    "style/tab/monster-combat.css",
+    "style/tab/monster-gear.css",
+    "style/tab/stronghold-gear.css",
+    "style/tab/stronghold-building.css",
+    "style/tab/stronghold-hireling.css",
+    "style/tab/talent.css",
+    "style/tab/gear.css",
+    "style/tab/bio.css"
+  ],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
+    },
+    {
+      "lang": "pt-BR",
+      "name": "Português Brasileiro",
+      "path": "lang/pt-br.json"
+    },
+    {
+      "lang": "cs",
+      "name": "Čeština",
+      "path": "lang/cs.json"
+    },
+    {
+      "lang": "de",
+      "name": "Deutsch",
+      "path": "lang/de.json"
+    }
+  ],
+  "gridDistance": 1,
+  "gridUnits": "m",
+  "primaryTokenAttribute": null,
+  "secondaryTokenAttribute": null,
+  "url": "https://github.com/Perfectro/forbidden-lands-foundry-vtt",
+  "socket": true,
+  "manifest": "https://raw.githubusercontent.com/Perfectro/forbidden-lands-foundry-vtt/master/system.json",
+  "download": "https://github.com/Perfectro/forbidden-lands-foundry-vtt/archive/v3.20.zip",
+  "license": "LICENSE.txt"
+}

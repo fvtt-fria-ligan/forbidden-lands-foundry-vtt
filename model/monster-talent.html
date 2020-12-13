@@ -1,0 +1,17 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <div class="header">
+        <div class="avatar">
+            <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+        </div>
+        <div class="name">
+            <label>{{localize "MONSTER.NAME"}}</label>
+            <input name="name" type="text" value="{{item.name}}"/>
+        </div>
+    </div>
+    <div class="item">
+        <div class="monster-description">
+            <label>{{localize "MONSTER.DESCRIPTION"}}</label>
+            <textarea style="height: 249px" name="data.description">{{data.description}}</textarea>
+        </div>
+    </div>
+</form>
