@@ -139,7 +139,7 @@
     <div class="consumables border">
         {{#each actor.data.consumable as |consumable key|}}
         <div class="consumable">
-            <button class="roll-consumable" data-consumable="{{key}}">{{localize consumable.label}}</button>
+            <button type="button" class="roll-consumable" data-consumable="{{key}}">{{localize consumable.label}}</button>
             <select name="data.consumable.{{key}}.value" data-dtype="Number">
                 {{#select consumable.value}}
                 <option value="0">—</option>

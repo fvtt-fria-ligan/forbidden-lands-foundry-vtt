@@ -3,7 +3,7 @@
         <h1>{{localize "ATTRIBUTES"}}</h1>
         {{#each data.attribute as |attribute key|}}
         <div class="name">
-            <button class="roll-attribute" data-attribute="{{key}}">{{localize attribute.label}}</button>
+            <button type="button" class="roll-attribute" data-attribute="{{key}}">{{localize attribute.label}}</button>
         </div>
         <div class="skulls {{#unless attribute.value }}broken{{/unless}}">
             <a class="change-attribute" data-attribute="{{key}}">
@@ -50,7 +50,7 @@
         <h1>{{localize "ATTRIBUTE.STRENGTH"}}</h1>
         {{#each data.skill as |skill key|}}
         {{#if skill.hasStrength}}
-        <div class="name"><button class="roll-skill" data-skill="{{key}}">{{localize skill.label}}</button></div>
+        <div class="name"><button type="button" class="roll-skill" data-skill="{{key}}">{{localize skill.label}}</button></div>
         <input name="data.skill.{{key}}.value" type="number" value="{{skill.value}}" min="{{skill.min}}"
             data-dtype="Number" />
         {{/if}}
@@ -60,7 +60,7 @@
         <h1>{{localize "ATTRIBUTE.AGILITY"}}</h1>
         {{#each data.skill as |skill key|}}
         {{#if skill.hasAgility}}
-        <div class="name"><button class="roll-skill" data-skill="{{key}}">{{localize skill.label}}</button></div>
+        <div class="name"><button type="button" class="roll-skill" data-skill="{{key}}">{{localize skill.label}}</button></div>
         <input name="data.skill.{{key}}.value" type="number" value="{{skill.value}}" min="{{skill.min}}"
             data-dtype="Number" />
         {{/if}}
@@ -70,7 +70,7 @@
         <h1>{{localize "ATTRIBUTE.WITS"}}</h1>
         {{#each data.skill as |skill key|}}
         {{#if skill.hasWits}}
-        <div class="name"><button class="roll-skill" data-skill="{{key}}">{{localize skill.label}}</button></div>
+        <div class="name"><button type="button" class="roll-skill" data-skill="{{key}}">{{localize skill.label}}</button></div>
         <input name="data.skill.{{key}}.value" type="number" value="{{skill.value}}" min="{{skill.min}}"
             data-dtype="Number" />
         {{/if}}
@@ -80,7 +80,7 @@
         <h1>{{localize "ATTRIBUTE.EMPATHY"}}</h1>
         {{#each data.skill as |skill key|}}
         {{#if skill.hasEmpathy}}
-        <div class="name"><button class="roll-skill" data-skill="{{key}}">{{localize skill.label}}</button></div>
+        <div class="name"><button type="button" class="roll-skill" data-skill="{{key}}">{{localize skill.label}}</button></div>
         <input name="data.skill.{{key}}.value" type="number" value="{{skill.value}}" min="{{skill.min}}"
             data-dtype="Number" />
         {{/if}}
