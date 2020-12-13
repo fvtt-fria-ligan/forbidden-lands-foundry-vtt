@@ -4,7 +4,7 @@ It provides support for **character sheets only**, game content should be drawn 
 
 ## Install
 1. Go to the setup page and choose **Game Systems**.
-2. Click the **Install System** button, and paste in this [manifest link](https://raw.githubusercontent.com/Perfectro/forbidden-lands-foundry-vtt/master/system.json)
+2. Click the **Install System** button, and paste in this [manifest link](https://raw.githubusercontent.com/romelwell/forbidden-lands-foundry-vtt/master/system.json)
 3. Create a Game World using the Forbidden Lands system.
 
 ## Supported Modules
@@ -13,11 +13,11 @@ It provides support for **character sheets only**, game content should be drawn 
 - [Virtual Tabletop Assets - Tokenizer](https://foundryvtt.com/packages/vtta-tokenizer/) is supported on all character sheets
 
 ## Sneaky Preview
-![Character 1](https://github.com/Perfectro/forbidden-lands-foundry-vtt/blob/master/asset/character-1.png?raw=true)  
-![Character 1](https://github.com/Perfectro/forbidden-lands-foundry-vtt/blob/master/asset/character-2.png?raw=true)  
-![Character 1](https://github.com/Perfectro/forbidden-lands-foundry-vtt/blob/master/asset/character-3.png?raw=true)  
-![Monster](https://github.com/Perfectro/forbidden-lands-foundry-vtt/blob/master/asset/monster.png?raw=true)  
-![Chat](https://github.com/Perfectro/forbidden-lands-foundry-vtt/blob/master/asset/chat.png?raw=true)  
+![Character 1](https://github.com/romelwell/forbidden-lands-foundry-vtt/blob/master/asset/character-1.png?raw=true)  
+![Character 1](https://github.com/romelwell/forbidden-lands-foundry-vtt/blob/master/asset/character-2.png?raw=true)  
+![Character 1](https://github.com/romelwell/forbidden-lands-foundry-vtt/blob/master/asset/character-3.png?raw=true)  
+![Monster](https://github.com/romelwell/forbidden-lands-foundry-vtt/blob/master/asset/monster.png?raw=true)  
+![Chat](https://github.com/romelwell/forbidden-lands-foundry-vtt/blob/master/asset/chat.png?raw=true)  
 
 ## To be done in the nearest future
 Nothing. Any pull request is welcome !
