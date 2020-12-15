@@ -133,6 +133,10 @@
   "SPELL.DURATION": "Duration",
   "SPELL.INGREDIENT": "Ingredient",
   "SPELL.DESCRIPTION": "Description",
+  "SPELL.SPELL_TYPE": "Type",
+  "SPELL.SPELL": "Spell",
+  "SPELL.POWER_WORD": "Power Word",
+  "SPELL.RITUAL": "Ritual",
 
   "CRITICAL_INJURY.NAME": "Name",
   "CRITICAL_INJURY.LETHAL": "Lethal",

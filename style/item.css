@@ -20,8 +20,12 @@
   align-items: center;
   display: grid;
   gap: 8px;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto 1fr 1fr;
   margin-bottom: 8px;
+}
+
+.forbidden-lands.item .header .name {
+  grid-column: 2/-1;
 }
 
 .forbidden-lands.item .avatar {
@@ -30,7 +34,7 @@
     var(--color-highlight) 0%,
     transparent 100%
   );
-  grid-row: 1/-1;
+  grid-row: 1/3;
   height: 95px;
   width: 95px;
 }

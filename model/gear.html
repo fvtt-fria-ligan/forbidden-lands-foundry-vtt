@@ -7,16 +7,6 @@
             <label>{{localize "GEAR.NAME"}}</label>
             <input name="name" type="text" value="{{item.name}}" />
         </div>
-    </div>
-    <div class="item">
-        <div class="bonus">
-            <label>{{localize "GEAR.BONUS"}}</label>
-            <div class="multivalue">
-                <input name="data.bonus.value" type="number" value="{{data.bonus.value}}" data-dtype="Number" />
-                /
-                <input name="data.bonus.max" type="number" value="{{data.bonus.max}}" data-dtype="Number" />
-            </div>
-        </div>
         <div class="weight">
             <label>{{localize "GEAR.WEIGHT"}}</label>
             <select name="data.weight">
@@ -28,7 +18,16 @@
                 {{/select}}
             </select>
         </div>
-        <div></div>
+        <div class="bonus">
+            <label>{{localize "GEAR.BONUS"}}</label>
+            <div class="multivalue">
+                <input name="data.bonus.value" type="number" value="{{data.bonus.value}}" data-dtype="Number" />
+                &nbsp;/&nbsp;
+                <input name="data.bonus.max" type="number" value="{{data.bonus.max}}" data-dtype="Number" />
+            </div>
+        </div>
+    </div>
+    <div class="item">
         <div class="cost">
             <label>{{localize "GEAR.COST"}}</label>
             <input name="data.cost" type="text" value="{{data.cost}}" />

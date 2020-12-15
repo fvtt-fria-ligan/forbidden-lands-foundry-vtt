@@ -7,6 +7,10 @@
             <label>{{localize "CRITICAL_INJURY.NAME"}}</label>
             <input name="name" type="text" value="{{item.name}}"/>
         </div>
+        <div class="effect" style="grid-column: 2/-1;">
+            <label>{{localize "GEAR.EFFECT"}}</label>
+            <input name="data.effect" type="text" value="{{data.effect}}"/>
+        </div>
     </div>
     <div class="item">
         <div class="lethal">
@@ -20,10 +24,6 @@
         <div class="healing-time">
             <label>{{localize "CRITICAL_INJURY.HEALING_TIME"}}</label>
             <input name="data.healingTime" type="text" value="{{data.healingTime}}"/>
-        </div>
-        <div class="effect">
-            <label>{{localize "GEAR.EFFECT"}}</label>
-            <input name="data.effect" type="text" value="{{data.effect}}"/>
         </div>
         {{> systems/forbidden-lands/model/partial/roll-modifiers.html }}
     </div>
