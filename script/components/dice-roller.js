@@ -86,7 +86,7 @@ export default class DiceRoller {
       name: consumableName,
       result: game.i18n.localize(result),
     };
-    const html = await renderTemplate("systems/forbidden-lands/chat/consumable.html", consumableData);
+    const html = await renderTemplate("systems/forbidden-lands-rpg/chat/consumable.html", consumableData);
     let chatData = {
       user: game.user._id,
       rollMode: game.settings.get("core", "rollMode"),
@@ -152,7 +152,7 @@ export default class DiceRoller {
       hasDamage: this.hasDamage,
       dices: this.dices,
     };
-    const html = await renderTemplate("systems/forbidden-lands/chat/roll.html", rollData);
+    const html = await renderTemplate("systems/forbidden-lands-rpg/chat/roll.html", rollData);
     let chatData = {
       type: CHAT_MESSAGE_TYPES.ROLL,
       user: game.user._id,
@@ -185,7 +185,7 @@ export default class DiceRoller {
       hadDamage: false,
       dices: this.dices,
     };
-    const html = await renderTemplate("systems/forbidden-lands/chat/roll.html", rollData);
+    const html = await renderTemplate("systems/forbidden-lands-rpg/chat/roll.html", rollData);
     let chatData = {
       user: game.user._id,
       rollMode: game.settings.get("core", "rollMode"),
