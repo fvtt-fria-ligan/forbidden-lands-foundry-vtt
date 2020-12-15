@@ -34,3 +34,7 @@ Dice graphics recreated by [Tomasz 'jarv' Dobrowolski](jarv@monochrome.pl) with 
 
 ## Licence
 [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/)
+
+## Release Notes
+v3.20.1 
+- Incremental release version number only.
