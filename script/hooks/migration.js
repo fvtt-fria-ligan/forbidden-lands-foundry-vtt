@@ -97,6 +97,11 @@ const migrateItemData = (item, worldSchemaVersion) => {
             update["data.artifactBonus"] = artifactBonus;
         }
     }
+    if (worldSchemaVersion <= 3) {
+        if (item.type === "spell" && !item.data.spellType) {
+            update["data.spellType"] = "SPELL.SPELL";
+        }
+    }
     if (!isObjectEmpty(update)) {
         update._id = item._id;
     }

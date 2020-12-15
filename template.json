@@ -310,6 +310,7 @@
       "weight": "regular"
     },
     "spell": {
+      "spellType": "SPELL.SPELL",
       "rank": 1,
       "range": "",
       "duration": "",

@@ -133,6 +133,10 @@
   "SPELL.DURATION": "Varaktighet",
   "SPELL.INGREDIENT": "Ingrediens",
   "SPELL.DESCRIPTION": "Beskrivning",
+  "SPELL.SPELL_TYPE": "Typ",
+  "SPELL.SPELL": "Besvärjelse",
+  "SPELL.POWER_WORD": "Kraftord",
+  "SPELL.RITUAL": "Ritual",
 
   "CRITICAL_INJURY.NAME": "Namn",
   "CRITICAL_INJURY.LETHAL": "Dödlig",
