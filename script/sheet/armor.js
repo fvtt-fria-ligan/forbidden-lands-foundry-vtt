@@ -2,7 +2,7 @@ export class ForbiddenLandsArmorSheet extends ItemSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["forbidden-lands", "sheet", "item"],
-      template: "systems/forbidden-lands/model/armor.html",
+      template: "systems/forbidden-lands-rpg/model/armor.html",
       width: 400,
       height: 400,
       resizable: false,
