@@ -4,7 +4,7 @@ export class ForbiddenLandsStrongholdSheet extends ForbiddenLandsActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["forbidden-lands", "sheet", "actor"],
-      template: "systems/forbidden-lands-rpg/model/stronghold.html",
+      template: "systems/forbidden-lands/model/stronghold.html",
       width: 600,
       height: 700,
       resizable: false,

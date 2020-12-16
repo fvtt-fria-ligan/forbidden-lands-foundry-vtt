@@ -7,7 +7,7 @@ export class ForbiddenLandsD6 extends Die {
   static DENOMINATION = 6;
 
   static getResultLabel(result) {
-    return `<img src="systems/forbidden-lands-rpg/chat/dice/skill-d6-${result}.png" alt="${result}" title="${result}" />`;
+    return `<img src="systems/forbidden-lands/chat/dice/skill-d6-${result}.png" alt="${result}" title="${result}" />`;
   }
 }
 
@@ -15,7 +15,7 @@ export class BaseDie extends ForbiddenLandsD6 {
   static DENOMINATION = "b";
 
   static getResultLabel(result) {
-    return `<img src="systems/forbidden-lands-rpg/chat/dice/base-d6-${result}.png" alt="${result}" title="${result}" />`;
+    return `<img src="systems/forbidden-lands/chat/dice/base-d6-${result}.png" alt="${result}" title="${result}" />`;
   }
 }
 
@@ -23,7 +23,7 @@ export class GearDie extends ForbiddenLandsD6 {
   static DENOMINATION = "g";
 
   static getResultLabel(result) {
-    return `<img src="systems/forbidden-lands-rpg/chat/dice/gear-d6-${result}.png" alt="${result}" title="${result}" />`;
+    return `<img src="systems/forbidden-lands/chat/dice/gear-d6-${result}.png" alt="${result}" title="${result}" />`;
   }
 }
 
@@ -40,7 +40,7 @@ export class ArtifactD8 extends Die {
   static DENOMINATION = 8;
 
   static getResultLabel(result) {
-    return `<img src="systems/forbidden-lands-rpg/chat/dice/artifact-d8-${result}.png" alt="${result}" title="${result}" />`;
+    return `<img src="systems/forbidden-lands/chat/dice/artifact-d8-${result}.png" alt="${result}" title="${result}" />`;
   }
 }
 
@@ -53,7 +53,7 @@ export class ArtifactD10 extends Die {
   static DENOMINATION = 10;
 
   static getResultLabel(result) {
-    return `<img src="systems/forbidden-lands-rpg/chat/dice/artifact-d10-${result}.png" alt="${result}" title="${result}" />`;
+    return `<img src="systems/forbidden-lands/chat/dice/artifact-d10-${result}.png" alt="${result}" title="${result}" />`;
   }
 }
 
@@ -66,6 +66,6 @@ export class ArtifactD12 extends Die {
   static DENOMINATION = 12;
 
   static getResultLabel(result) {
-    return `<img src="systems/forbidden-lands-rpg/chat/dice/artifact-d12-${result}.png" alt="${result}" title="${result}" />`;
+    return `<img src="systems/forbidden-lands/chat/dice/artifact-d12-${result}.png" alt="${result}" title="${result}" />`;
   }
 }

@@ -3,7 +3,7 @@ export class ForbiddenLandsMonsterAttackSheet extends ItemSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             classes: ["forbidden-lands", "sheet", "item"],
-            template: "systems/forbidden-lands-rpg/model/monster-attack.html",
+            template: "systems/forbidden-lands/model/monster-attack.html",
             width: 400,
             height: 468,
             resizable: false

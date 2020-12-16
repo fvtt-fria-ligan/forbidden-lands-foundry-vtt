@@ -3,7 +3,7 @@ export class ForbiddenLandsSpellSheet extends ItemSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             classes: ["forbidden-lands", "sheet", "item"],
-            template: "systems/forbidden-lands-rpg/model/spell.html",
+            template: "systems/forbidden-lands/model/spell.html",
             width: 400,
             height: 470,
             resizable: false

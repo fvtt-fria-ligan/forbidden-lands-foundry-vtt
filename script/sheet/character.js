@@ -5,7 +5,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["forbidden-lands", "sheet", "actor"],
-      template: "systems/forbidden-lands-rpg/model/character.html",
+      template: "systems/forbidden-lands/model/character.html",
       width: 620,
       height: 740,
       resizable: false,
