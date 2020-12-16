@@ -38,3 +38,5 @@ Dice graphics recreated by [Tomasz 'jarv' Dobrowolski](jarv@monochrome.pl) with 
 ## Release Notes
 v3.20.1 
 - Incremental release version number only.
+v3.20.3
+- Rollback of package name to 'forbidden-lands'.

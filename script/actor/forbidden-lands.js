@@ -31,7 +31,7 @@ export class ForbiddenLandsItem extends Item {
     itemData.isSpell = itemData.type === "spell";
     itemData.isTalent = itemData.type === "talent";
     itemData.isWeapon = itemData.type === "weapon";
-    const html = await renderTemplate("systems/forbidden-lands-rpg/chat/item.html", itemData);
+    const html = await renderTemplate("systems/forbidden-lands/chat/item.html", itemData);
     const chatData = {
       user: game.user._id,
       rollMode: game.settings.get("core", "rollMode"),

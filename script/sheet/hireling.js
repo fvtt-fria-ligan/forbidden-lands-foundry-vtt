@@ -2,7 +2,7 @@ export class ForbiddenLandsHirelingSheet extends ItemSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["forbidden-lands", "sheet", "item"],
-      template: "systems/forbidden-lands-rpg/model/hireling.html",
+      template: "systems/forbidden-lands/model/hireling.html",
       width: 400,
       height: 400,
       resizable: false,
