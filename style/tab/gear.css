@@ -48,6 +48,9 @@
 .forbidden-lands .character .gears {
   padding-bottom: 8px;
   position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .forbidden-lands .character .gears .items .header {
@@ -87,7 +90,6 @@
   display: flex;
 }
 
-.forbidden-lands .character .gears .header .name,
 .forbidden-lands .character .gears .name .name,
 .forbidden-lands .character .gears .bonus,
 .forbidden-lands .character .gears .weight,
