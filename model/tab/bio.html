@@ -1,27 +1,22 @@
 <div class="bio-tab border">
-    <div class="section">
-        <h1>{{localize "HEADER.PRIDE"}}</h1>
-        {{editor content=data.bio.pride.value target="data.bio.pride.value"
-        button=true owner=owner editable=editable}}
-    </div>
-    <div class="section">
-        <h1>{{localize "HEADER.DARK_SECRET"}}</h1>
-        {{editor content=data.bio.darkSecret.value target="data.bio.darkSecret.value"
-        button=true owner=owner editable=editable}}
-    </div>
-    <div class="section">
-        <h1>{{localize "HEADER.FACE"}}</h1>
-        {{editor content=data.bio.face.value target="data.bio.face.value"
-        button=true owner=owner editable=editable}}
-    </div>
-    <div class="section">
-        <h1>{{localize "HEADER.BODY"}}</h1>
-        {{editor content=data.bio.body.value target="data.bio.body.value"
-        button=true owner=owner editable=editable}}
-    </div>
-    <div class="section">
-        <h1>{{localize "HEADER.CLOTHING"}}</h1>
-        {{editor content=data.bio.clothing.value target="data.bio.clothing.value"
-        button=true owner=owner editable=editable}}
-    </div>
+	<div class="section">
+		<h1>{{localize "HEADER.PRIDE"}}</h1>
+		<textarea name="data.bio.pride.value">{{data.bio.pride.value}}</textarea>
+	</div>
+	<div class="section">
+		<h1>{{localize "HEADER.DARK_SECRET"}}</h1>
+		<textarea name="data.bio.darkSecret.value">{{data.bio.darkSecret.value}}</textarea>
+	</div>
+	<div class="section">
+		<h1>{{localize "HEADER.FACE"}}</h1>
+		<textarea name="data.bio.face.value">{{data.bio.face.value}}</textarea>
+	</div>
+	<div class="section">
+		<h1>{{localize "HEADER.BODY"}}</h1>
+		<textarea name="data.bio.body.value">{{data.bio.body.value}}</textarea>
+	</div>
+	<div class="section">
+		<h1>{{localize "HEADER.CLOTHING"}}</h1>
+		<textarea name="data.bio.clothing.value">{{data.bio.clothing.value}}</textarea>
+	</div>
 </div>
