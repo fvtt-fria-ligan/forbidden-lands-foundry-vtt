@@ -36,7 +36,9 @@ Dice graphics recreated by [Tomasz 'jarv' Dobrowolski](jarv@monochrome.pl) with 
 [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/)
 
 ## Release Notes
-v3.20.1 
-- Incremental release version number only.
+v3.20.4
+- Thanks to @petternystrom#0024 for providing a simple fix for the undesired indentation of bio data
 v3.20.3
 - Rollback of package name to 'forbidden-lands'.
+v3.20.1 
+- Incremental release version number only.
