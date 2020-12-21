@@ -4,7 +4,7 @@ It provides support for **character sheets only**, game content should be drawn 
 
 ## Install
 1. Go to the setup page and choose **Game Systems**.
-2. Click the **Install System** button, and paste in this [manifest link](https://raw.githubusercontent.com/romelwell/forbidden-lands-foundry-vtt/master/system.json)
+2. Click the **Install System** button, and paste in this [manifest link](https://raw.githubusercontent.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/master/system.json)
 3. Create a Game World using the Forbidden Lands system.
 
 ## Supported Modules
@@ -13,11 +13,11 @@ It provides support for **character sheets only**, game content should be drawn 
 - [Virtual Tabletop Assets - Tokenizer](https://foundryvtt.com/packages/vtta-tokenizer/) is supported on all character sheets
 
 ## Sneaky Preview
-![Character 1](https://github.com/romelwell/forbidden-lands-foundry-vtt/blob/master/asset/character-1.png?raw=true)  
-![Character 1](https://github.com/romelwell/forbidden-lands-foundry-vtt/blob/master/asset/character-2.png?raw=true)  
-![Character 1](https://github.com/romelwell/forbidden-lands-foundry-vtt/blob/master/asset/character-3.png?raw=true)  
-![Monster](https://github.com/romelwell/forbidden-lands-foundry-vtt/blob/master/asset/monster.png?raw=true)  
-![Chat](https://github.com/romelwell/forbidden-lands-foundry-vtt/blob/master/asset/chat.png?raw=true)  
+![Character 1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/blob/master/asset/character-1.png?raw=true)  
+![Character 1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/blob/master/asset/character-2.png?raw=true)  
+![Character 1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/blob/master/asset/character-3.png?raw=true)  
+![Monster](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/blob/master/asset/monster.png?raw=true)  
+![Chat](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/blob/master/asset/chat.png?raw=true)  
 
 ## To be done in the nearest future
 Nothing. Any pull request is welcome !
@@ -36,6 +36,8 @@ Dice graphics recreated by [Tomasz 'jarv' Dobrowolski](jarv@monochrome.pl) with 
 [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/)
 
 ## Release Notes
+v.3.20.5
+- Transferred ownership to GitHub Org fvtt-fria-ligan
 v3.20.4
 - Thanks to @petternystrom#0024 for providing a simple fix for the undesired indentation of bio data
 v3.20.3

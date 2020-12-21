@@ -2,7 +2,7 @@
   "name": "forbidden-lands",
   "title": "Forbidden Lands",
   "description": "There is something beyond the mountains, beyond the howls beyond the mist, there is something behind the veils, behind hearts cold as stone.",
-  "version": "3.20.4",
+  "version": "3.20.5",
   "minimumCoreVersion": "0.7.5",
   "compatibleCoreVersion": "0.7.8",
   "templateVersion": 2,
@@ -61,9 +61,9 @@
   "gridUnits": "m",
   "primaryTokenAttribute": null,
   "secondaryTokenAttribute": null,
-  "url": "https://github.com/romelwell/forbidden-lands-foundry-vtt",
+  "url": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt",
   "socket": true,
-  "manifest": "https://raw.githubusercontent.com/romelwell/forbidden-lands-foundry-vtt/master/system.json",
-  "download": "https://github.com/romelwell/forbidden-lands-foundry-vtt/blob/main/archive/v3.20.4.zip?raw=true",
+  "manifest": "https://raw.githubusercontent.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/master/system.json",
+  "download": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/blob/main/archive/v3.20.5.zip?raw=true",
   "license": "LICENSE.txt"
 }
