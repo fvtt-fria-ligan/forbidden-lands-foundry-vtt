@@ -73,6 +73,13 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 
   async _renderInner(data, options) {
     data.data.customRollModifiers = await this.getCustomRollModifiers();
+    data.showCraftingFields = game.settings.get("forbidden-lands", "showCraftingFields");
+    data.showCostField = game.settings.get("forbidden-lands", "showCostField");
+    data.showSupplyField = game.settings.get("forbidden-lands", "showSupplyField");
+    data.showEffectField = game.settings.get("forbidden-lands", "showEffectField");
+    data.showDescriptionField = game.settings.get("forbidden-lands", "showDescriptionField");
+    data.showDrawbackField = game.settings.get("forbidden-lands", "showDrawbackField");
+    data.showAppearanceField = game.settings.get("forbidden-lands", "showAppearanceField");
     return super._renderInner(data, options);
   }
 }

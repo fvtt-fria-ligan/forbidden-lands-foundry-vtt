@@ -74,14 +74,25 @@
             <label>{{localize "WEAPON.FEATURE"}}</label>
             <input name="data.features" type="text" value="{{data.features}}" />
         </div>
+        {{#if showEffectField}}
+        <div class="effect">
+            <label>{{localize "GEAR.EFFECT"}}</label>
+            <input name="data.effect" type="text" value="{{data.effect}}" />
+        </div>
+        {{/if}}
+        {{#if showCostField}}
         <div class="cost">
             <label>{{localize "GEAR.COST"}}</label>
             <input name="data.cost" type="text" value="{{data.cost}}" />
         </div>
+        {{/if}}
+        {{#if showSupplyField}}
         <div class="supply">
             <label>{{localize "GEAR.SUPPLY"}}</label>
             <input name="data.supply" type="text" value="{{data.supply}}" />
         </div>
+        {{/if}}
+        {{#if showCraftingFields}}
         <div class="raw-materials">
             <label>{{localize "GEAR.RAW_MATERIAL"}}</label>
             <input name="data.rawMaterials" type="text" value="{{data.rawMaterials}}" />
@@ -98,22 +109,25 @@
             <label>{{localize "GEAR.TOOLS"}}</label>
             <input name="data.tools" type="text" value="{{data.tools}}" />
         </div>
-        <div class="effect">
-            <label>{{localize "GEAR.EFFECT"}}</label>
-            <input name="data.effect" type="text" value="{{data.effect}}" />
-        </div>
+        {{/if}}
+        {{#if showDescriptionField}}
         <div class="description">
             <label>{{localize "WEAPON.DESCRIPTION"}}</label>
             <textarea name="data.description">{{data.description}}</textarea>
         </div>
+        {{/if}}
+        {{#if showDrawbackField}}
         <div class="drawback">
             <label>{{localize "WEAPON.DRAWBACK"}}</label>
             <textarea name="data.drawback">{{data.drawback}}</textarea>
         </div>
+        {{/if}}
+        {{#if showAppearanceField}}
         <div class="appearance">
             <label>{{localize "WEAPON.APPEARANCE"}}</label>
             <textarea name="data.appearance">{{data.appearance}}</textarea>
         </div>
+        {{/if}}
         {{> systems/forbidden-lands/model/partial/roll-modifiers.html }}
     </div>
 </form>
