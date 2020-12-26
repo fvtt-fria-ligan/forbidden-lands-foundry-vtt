@@ -29,6 +29,62 @@ Hooks.once("init", () => {
     default: 0,
     type: Number,
   });
+  game.settings.register("forbidden-lands", "showCraftingFields", {
+    name: "Show crafting fields",
+    hint: "Used to show or hide crafting related fields on item sheets.",
+    scope: "world",
+    config: true,
+    default: true,
+    type: Boolean,
+  });
+  game.settings.register("forbidden-lands", "showCostField", {
+    name: "Show cost field",
+    hint: "Used to show or hide the cost field on item sheets.",
+    scope: "world",
+    config: true,
+    default: true,
+    type: Boolean,
+  });
+  game.settings.register("forbidden-lands", "showSupplyField", {
+    name: "Show supply field",
+    hint: "Used to show or hide the supply field on item sheets.",
+    scope: "world",
+    config: true,
+    default: true,
+    type: Boolean,
+  });
+  game.settings.register("forbidden-lands", "showEffectField", {
+    name: "Show effect field",
+    hint: "Used to show or hide the effect field on item sheets.",
+    scope: "world",
+    config: true,
+    default: true,
+    type: Boolean,
+  });
+  game.settings.register("forbidden-lands", "showDescriptionField", {
+    name: "Show description field",
+    hint: "Used to show or hide the description field on item sheets.",
+    scope: "world",
+    config: true,
+    default: true,
+    type: Boolean,
+  });
+  game.settings.register("forbidden-lands", "showDrawbackField", {
+    name: "Show drawback field",
+    hint: "Used to show or hide the drawback field on item sheets.",
+    scope: "world",
+    config: true,
+    default: true,
+    type: Boolean,
+  });
+  game.settings.register("forbidden-lands", "showAppearanceField", {
+    name: "Show appearance field",
+    hint: "Used to show or hide the appearance field on item sheets.",
+    scope: "world",
+    config: true,
+    default: true,
+    type: Boolean,
+  });
 });
 
 Hooks.once("ready", () => {

@@ -36,6 +36,7 @@ export const migrateWorld = async () => {
         for (let pack of game.packs.filter((p) => p.metadata.package === "world" && ["Actor", "Item", "Scene"].includes(p.metadata.entity))) {
           await migrateCompendium(pack, worldSchemaVersion);
         }
+        migrateSettings(worldSchemaVersion);
         game.settings.set("forbidden-lands", "worldSchemaVersion", schemaVersion);
         ui.notifications.info("Upgrade complete!");
     }
@@ -150,5 +151,17 @@ export const migrateCompendium = async function (pack, worldSchemaVersion) {
             updateData["_id"] = ent._id;
             await pack.updateEntity(updateData);
         }
+    }
+};
+
+const migrateSettings = async function (worldSchemaVersion) {
+    if (worldSchemaVersion <= 3) {
+        game.settings.set("forbidden-lands", "showCraftingFields", true);
+        game.settings.set("forbidden-lands", "showCostField", true);
+        game.settings.set("forbidden-lands", "showSupplyField", true);
+        game.settings.set("forbidden-lands", "showEffectField", true);
+        game.settings.set("forbidden-lands", "showDescriptionField", true);
+        game.settings.set("forbidden-lands", "showDrawbackField", true);
+        game.settings.set("forbidden-lands", "showAppearanceField", true);
     }
 };
