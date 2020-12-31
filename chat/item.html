@@ -1,6 +1,9 @@
 <div class="forbidden-lands chat-item">
     <div class="border">
-        <h3>{{name}}</h3>
+        <div class="link-header">
+            <h3>{{name}}</h3>
+            {{link}}
+        </div>
         {{#if isArmor}}
         <h4>{{armorPart data.part}}</h4>
         {{/if}}
@@ -63,8 +66,12 @@
 
         {{#if isCriticalInjury}}
         <p><strong>{{localize "CRITICAL_INJURY.LETHAL"}}:</strong> {{data.lethal}}</p>
+        {{#if data.limit}}
         <p><strong>{{localize "CRITICAL_INJURY.LIMIT"}}:</strong> {{data.limit}}</p>
+        {{/if}}
+        {{#if data.healingTime}}
         <p><strong>{{localize "CRITICAL_INJURY.HEALING_TIME"}}:</strong> {{data.healingTime}}</p>
+        {{/if}}
         {{#if data.effect}}
         <p>{{data.effect}}</p>
         {{/if}}

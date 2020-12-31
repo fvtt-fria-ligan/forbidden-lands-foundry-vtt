@@ -20,6 +20,7 @@ export class ForbiddenLandsItem extends Item {
     if (itemData.img.includes("/mystery-man")) {
       itemData.img = null;
     }
+    itemData.link = this.link;
     itemData.isArmor = itemData.type === "armor";
     itemData.isBuilding = itemData.type === "building";
     itemData.isCriticalInjury = itemData.type === "criticalInjury";
