@@ -1,5 +1,5 @@
 export const migrateWorld = async () => {
-    const schemaVersion = 3.0;
+    const schemaVersion = 4.0;
     const worldSchemaVersion = Number(game.settings.get("forbidden-lands", "worldSchemaVersion"));
     if (worldSchemaVersion !== schemaVersion && game.user.isGM) {
         ui.notifications.info("Upgrading the world, please wait...");
