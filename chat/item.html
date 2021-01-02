@@ -54,7 +54,7 @@
         <p><strong>{{localize "BUILDING.REPUTATION"}}:</strong> {{data.reputation}}</p>
         <p><strong>{{localize "BUILDING.NUMBER"}}:</strong> {{data.number}}</p>
         {{#if data.description}}
-        <p>{{data.description}}</p>
+        <p class="pre-wrap">{{data.description}}</p>
         {{/if}}
         {{#if data.effect}}
         <p>{{data.effect}}</p>
@@ -80,19 +80,19 @@
         <p><strong>{{localize "HIRELING.SALARY"}}:</strong> {{data.salary}}</p>
         <p><strong>{{localize "HIRELING.NUMBER"}}:</strong> {{data.number}}</p>
         {{#if data.description}}
-        <p>{{data.description}}</p>
+        <p class="pre-wrap">{{data.description}}</p>
         {{/if}}
         {{/if}}
 
         {{#if isMonsterAttack}}
         {{#if data.description}}
-        <p>{{data.description}}</p>
+        <p class="pre-wrap">{{data.description}}</p>
         {{/if}}
         {{/if}}
 
         {{#if isMonsterTalent}}
         {{#if data.description}}
-        <p>{{data.description}}</p>
+        <p class="pre-wrap">{{data.description}}</p>
         {{/if}}
         {{/if}}
 
@@ -108,14 +108,14 @@
         <p><strong>{{localize "SPELL.INGREDIENT"}}:</strong> {{data.ingredient}}</p>
         {{/if}}
         {{#if data.description}}
-        <p>{{data.description}}</p>
+        <p class="pre-wrap">{{data.description}}</p>
         {{/if}}
         {{/if}}
 
         {{#if isTalent}}
         <p><strong>{{localize "TALENT.RANK"}}:</strong> {{data.rank}}</p>
         {{#if data.description}}
-        <p>{{plaintextToHTML data.description}}</p>
+        <p class="pre-wrap">{{data.description}}</p>
         {{/if}}
         {{/if}}
 

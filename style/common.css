@@ -431,3 +431,7 @@ button,
   background: #525252;
   border: 1px solid var(--color-border);
 }
+
+.forbidden-lands .pre-wrap {
+  white-space: pre-wrap;
+}
