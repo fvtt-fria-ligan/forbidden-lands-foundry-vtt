@@ -22,6 +22,18 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
       });
     });
 
+    // Willpower markers
+    html.find(".change-willpower").on("click contextmenu", (ev) => {
+      const attribute = this.actor.data.data.bio.willpower;
+      let value = attribute.value;
+      if (ev.type === "click") {
+        value = Math.max(value - 1, 0);
+      } else if (ev.type === "contextmenu") {
+        value = Math.min(value + 1, attribute.max);
+      }
+      this.actor.update({"data.bio.willpower.value": value});
+    });
+
     // Items
     html.find(".item-edit").click((ev) => {
       const div = $(ev.currentTarget).parents(".item");

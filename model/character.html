@@ -5,44 +5,69 @@
                 <div class="avatar">
                     <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
                 </div>
-                <div class="flex column grow">
-                    <div class="name bio-row">
-                        <label>{{localize "BIO.NAME"}}:</label>
-                        <input name="name" type="text" value="{{actor.name}}" />
-                    </div>
-                    <div class="bio-row">
-                        <div class="kin">
+                <table>
+                    <tr>
+                        <td>
+                            <label>{{localize "BIO.NAME"}}:</label>
+                        </td>
+                        <td colspan="3">
+                            <input name="name" type="text" value="{{actor.name}}" />
+                        </td>
+                        <td>
                             <label>{{localize data.bio.kin.label}}:</label>
+                        </td>
+                        <td>
                             <input name="data.bio.kin.value" type="text" value="{{data.bio.kin.value}}" />
-                        </div>
-                        <div class="profession">
-                            <label>{{localize data.bio.profession.label}}:</label>
-                            <input name="data.bio.profession.value" type="text" value="{{data.bio.profession.value}}" />
-                        </div>
-                    </div>
-                    <div class="bio-row">
-                        <div class="age">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
                             <label>{{localize data.bio.age.label}}:</label>
+                        </td>
+                        <td>
                             <input name="data.bio.age.value" type="number" value="{{data.bio.age.value}}"
                                 data-dtype="Number" />
-                        </div>
-                        <div class="reputation">
+                        </td>
+                        <td>
                             <label>{{localize data.bio.reputation.label}}:</label>
+                        </td>
+                        <td>
                             <input name="data.bio.reputation.value" type="number" value="{{data.bio.reputation.value}}"
                                 data-dtype="Number" />
-                        </div>
-                        <div class="willpower">
-                            <label>{{localize data.bio.willpower.label}}:</label>
-                            <input name="data.bio.willpower.value" type="number" value="{{data.bio.willpower.value}}"
-                                min="{{data.bio.willpower.min}}" max="{{data.bio.willpower.max}}" data-dtype="Number" />
-                        </div>
-                        <div class="experience">
+                        </td>
+                        <td>
+                            <label>{{localize data.bio.profession.label}}:</label>
+                        </td>
+                        <td>
+                            <input name="data.bio.profession.value" type="text" value="{{data.bio.profession.value}}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
                             <label>{{localize data.bio.experience.label}}:</label>
+                        </td>
+                        <td>
                             <input name="data.bio.experience.value" type="number" value="{{data.bio.experience.value}}"
                                 data-dtype="Number" />
-                        </div>
-                    </div>
-                </div>
+                        </td>
+                        <td>
+                            <label>{{localize data.bio.willpower.label}}:</label>
+                        </td>
+                        <td>
+                            <input name="data.bio.willpower.value" type="number" value="{{data.bio.willpower.value}}"
+                                min="{{data.bio.willpower.min}}" max="{{data.bio.willpower.max}}" data-dtype="Number" />
+                        </td>
+                        <td colspan="2">
+                            <div class="skulls {{#unless data.bio.willpower.value }}broken{{/unless}} flex row align-center">
+                                <a class="change-willpower">
+                                    {{#skulls data.bio.willpower.value data.bio.willpower.max}}
+                                    <i class="skull far {{#if @damaged}}fa-circle{{else}}fa-times-circle{{/if}}"></i>
+                                    {{/skulls}}
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
 
