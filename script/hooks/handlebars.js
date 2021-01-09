@@ -132,6 +132,12 @@ function registerHandlebarsHelpers() {
   Handlebars.registerHelper('toUpperCase', function(str) {
     return str.toUpperCase();
   });
+  Handlebars.registerHelper('eq', function () {
+    const args = Array.prototype.slice.call(arguments, 0, -1);
+    return args.every(function (expression) {
+      return args[0] === expression;
+    });
+  });
 }
 
 function normalize(data, defaultValue) {
