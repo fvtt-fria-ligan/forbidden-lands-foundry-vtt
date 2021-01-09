@@ -58,6 +58,7 @@
   "HEADER.BUILDING": "BYGGNADER",
   "HEADER.HIRELING": "TJÄNARE",
   "HEADER.RAW_MATERIAL": "RÅMATERIAL",
+  "HEADER.ACTIONS": "HANDLINGAR",
 
   "ARMOR.HELMET": "Huvud",
   "ARMOR.SHIELD": "Sköld",
@@ -110,6 +111,7 @@
   "ITEM.SPELL": "Besvärjelse",
   "ITEM.TALENT": "Talang",
   "ITEM.ROLL_MODIFIERS": "Modifikationer",
+  "ITEM.CUSTOM_ROLL_MODIFIERS": "Egna modifikationer",
   "ITEM.NO_MODIFIERS": "Inga modifikationer",
   "ITEM.ADD_MODIFIER": "Ny modifikation",
   "ITEM.DELETE_MODIFIER": "Ta bort modifikation",
@@ -206,7 +208,18 @@
   "DICE.CANCEL": "Avbryt",
   "DICE.AUTOMATIC_SUCCESS": "Automatisk framgång",
 
+  "ACTION.BREAK_FREE": "Bryt grepp",
+  "ACTION.DISARM": "Avväpna",
+  "ACTION.DODGE": "Ducka",
+  "ACTION.GRAPPLE": "Greppa",
+  "ACTION.GRAPPLE_ATTACK": "Tjuvnyp",
+  "ACTION.PARRY": "Parad",
+  "ACTION.SHOVE": "Knuff",
+  "ACTION.RETREAT": "Retirera",
+  "ACTION.UNARMED_STRIKE": "Obeväpnad attack",
+
   "ATTRIBUTES": "GRUNDEGENSKAPER",
+  "SKILLS": "FÄRDIGHETER",
   "Roll": "Slå tärningar",
   "Push": "Pressa",
   "Post Item": "Visa upp"

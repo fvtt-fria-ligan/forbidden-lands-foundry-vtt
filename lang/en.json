@@ -58,6 +58,7 @@
   "HEADER.BUILDING": "BUILDINGS",
   "HEADER.HIRELING": "HIRELINGS",
   "HEADER.RAW_MATERIAL": "RAW MATERIALS",
+  "HEADER.ACTIONS": "ACTIONS",
 
   "ARMOR.HELMET": "Helmet",
   "ARMOR.SHIELD": "Shield",
@@ -110,6 +111,7 @@
   "ITEM.SPELL": "Spell",
   "ITEM.TALENT": "Talent",
   "ITEM.ROLL_MODIFIERS": "Roll Modifiers",
+  "ITEM.CUSTOM_ROLL_MODIFIERS": "Custom Roll Modifiers",
   "ITEM.NO_MODIFIERS": "No modifiers",
   "ITEM.ADD_MODIFIER": "Add modifier",
   "ITEM.DELETE_MODIFIER": "Delete modifier",
@@ -204,5 +206,15 @@
   "DICE.ARTIFACTS": "Artifacts",
   "DICE.MODIFIER": "Modifier",
   "DICE.CANCEL": "Cancel",
-  "DICE.AUTOMATIC_SUCCESS": "Automatic Success"
+  "DICE.AUTOMATIC_SUCCESS": "Automatic Success",
+
+  "ACTION.BREAK_FREE": "Break free",
+  "ACTION.DISARM": "Disarm",
+  "ACTION.DODGE": "Dodge",
+  "ACTION.GRAPPLE": "Grapple",
+  "ACTION.GRAPPLE_ATTACK": "Grapple attack",
+  "ACTION.PARRY": "Parry",
+  "ACTION.SHOVE": "Shove",
+  "ACTION.RETREAT": "Retreat",
+  "ACTION.UNARMED_STRIKE": "Unarmed strike"
 }

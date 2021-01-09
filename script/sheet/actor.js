@@ -88,7 +88,8 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
     html.find(".roll-weapon").click((ev) => {
       const itemId = $(ev.currentTarget).data("itemId");
       const weapon = this.actor.getOwnedItem(itemId);
-      let testName = weapon.name;
+      const action = $(ev.currentTarget).data("action");
+      let testName =  action || weapon.name;
       let attribute;
       let skill;
       if (weapon.data.data.category === "melee") {
@@ -105,6 +106,9 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
       }
       modifiers = this.getRollModifiers(attribute.label, modifiers);
       modifiers = this.getRollModifiers(skill.label, modifiers);
+      if (action) {
+        modifiers = this.getRollModifiers(action, modifiers);
+      }
       RollDialog.prepareRollDialog(
         testName, 
         {name: attribute.label, value: attribute.value},
@@ -112,7 +116,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
         bonus, 
         modifiers.artifacts.join(" "),
         modifiers.modifier,
-        weapon.data.data.damage, 
+        action ? 0 : weapon.data.data.damage, 
         this.diceRoller
       );
     });
@@ -120,6 +124,25 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
       const itemId = $(ev.currentTarget).data("itemId");
       const spell = this.actor.getOwnedItem(itemId);
       RollDialog.prepareSpellDialog(spell);
+    });
+    html.find(".roll-action").click((ev) => {
+      const rollName = $(ev.currentTarget).data("action");
+      const skillName = $(ev.currentTarget).data("skill");
+      const skill = this.actor.data.data.skill[skillName];
+      const attribute = this.actor.data.data.attribute[skill.attribute];
+      let modifiers = this.getRollModifiers(attribute.label);
+      modifiers = this.getRollModifiers(skill.label, modifiers);
+      modifiers = this.getRollModifiers(rollName, modifiers);
+      RollDialog.prepareRollDialog(
+        rollName,
+        {name: attribute.label, value: attribute.value},
+        {name: skill.label, value: skill.value},
+        0,
+        modifiers.artifacts.join(" "),
+        modifiers.modifier,
+        0,
+        this.diceRoller,
+      );
     });
   }
 
