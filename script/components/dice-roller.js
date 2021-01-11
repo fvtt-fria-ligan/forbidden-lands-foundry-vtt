@@ -46,7 +46,7 @@ export default class DiceRoller {
    */
   push() {
     this.dices.forEach((dice) => {
-      if ((dice.value < 6 && dice.value > 1 && dice.type !== "skill") || (dice.value < 6 && ["artifact", "skill"].includes(dice.type))) {
+      if ((dice.value < 6 && dice.value > 1) || (dice.value < 6 && ["artifact", "skill", "skill-penalty"].includes(dice.type))) {
         let die = new Die({ faces: dice.face, number: 1 });
         die.evaluate();
         dice.value = die.total;

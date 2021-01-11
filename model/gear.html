@@ -7,16 +7,6 @@
             <label>{{localize "GEAR.NAME"}}</label>
             <input name="name" type="text" value="{{item.name}}" />
         </div>
-    </div>
-    <div class="item">
-        <div class="bonus">
-            <label>{{localize "GEAR.BONUS"}}</label>
-            <div class="multivalue">
-                <input name="data.bonus.value" type="number" value="{{data.bonus.value}}" data-dtype="Number" />
-                /
-                <input name="data.bonus.max" type="number" value="{{data.bonus.max}}" data-dtype="Number" />
-            </div>
-        </div>
         <div class="weight">
             <label>{{localize "GEAR.WEIGHT"}}</label>
             <select name="data.weight">
@@ -28,15 +18,35 @@
                 {{/select}}
             </select>
         </div>
-        <div></div>
+        <div class="bonus">
+            <label>{{localize "GEAR.BONUS"}}</label>
+            <div class="multivalue">
+                <input name="data.bonus.value" type="number" value="{{data.bonus.value}}" data-dtype="Number" />
+                &nbsp;/&nbsp;
+                <input name="data.bonus.max" type="number" value="{{data.bonus.max}}" data-dtype="Number" />
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        {{#if showEffectField}}
+        <div class="effect">
+            <label>{{localize "GEAR.EFFECT"}}</label>
+            <input name="data.effect" type="text" value="{{data.effect}}" />
+        </div>
+        {{/if}}
+        {{#if showCostField}}
         <div class="cost">
             <label>{{localize "GEAR.COST"}}</label>
             <input name="data.cost" type="text" value="{{data.cost}}" />
         </div>
+        {{/if}}
+        {{#if showSupplyField}}
         <div class="supply">
             <label>{{localize "GEAR.SUPPLY"}}</label>
             <input name="data.supply" type="text" value="{{data.supply}}" />
         </div>
+        {{/if}}
+        {{#if showCraftingFields}}
         <div class="raw-materials">
             <label>{{localize "GEAR.RAW_MATERIAL"}}</label>
             <input name="data.rawMaterials" type="text" value="{{data.rawMaterials}}" />
@@ -53,9 +63,7 @@
             <label>{{localize "GEAR.TOOLS"}}</label>
             <input name="data.tools" type="text" value="{{data.tools}}" />
         </div>
-        <div class="effect">
-            <label>{{localize "GEAR.EFFECT"}}</label>
-            <input name="data.effect" type="text" value="{{data.effect}}" />
-        </div>
+        {{/if}}
+        {{> systems/forbidden-lands/model/partial/roll-modifiers.html }}
     </div>
 </form>

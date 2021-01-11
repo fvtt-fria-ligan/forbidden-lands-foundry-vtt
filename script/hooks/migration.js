@@ -1,5 +1,5 @@
 export const migrateWorld = async () => {
-    const schemaVersion = 3.0;
+    const schemaVersion = 4.0;
     const worldSchemaVersion = Number(game.settings.get("forbidden-lands", "worldSchemaVersion"));
     if (worldSchemaVersion !== schemaVersion && game.user.isGM) {
         ui.notifications.info("Upgrading the world, please wait...");
@@ -36,6 +36,7 @@ export const migrateWorld = async () => {
         for (let pack of game.packs.filter((p) => p.metadata.package === "world" && ["Actor", "Item", "Scene"].includes(p.metadata.entity))) {
           await migrateCompendium(pack, worldSchemaVersion);
         }
+        migrateSettings(worldSchemaVersion);
         game.settings.set("forbidden-lands", "worldSchemaVersion", schemaVersion);
         ui.notifications.info("Upgrade complete!");
     }
@@ -97,6 +98,11 @@ const migrateItemData = (item, worldSchemaVersion) => {
             update["data.artifactBonus"] = artifactBonus;
         }
     }
+    if (worldSchemaVersion <= 3) {
+        if (item.type === "spell" && !item.data.spellType) {
+            update["data.spellType"] = "SPELL.SPELL";
+        }
+    }
     if (!isObjectEmpty(update)) {
         update._id = item._id;
     }
@@ -145,5 +151,17 @@ export const migrateCompendium = async function (pack, worldSchemaVersion) {
             updateData["_id"] = ent._id;
             await pack.updateEntity(updateData);
         }
+    }
+};
+
+const migrateSettings = async function (worldSchemaVersion) {
+    if (worldSchemaVersion <= 3) {
+        game.settings.set("forbidden-lands", "showCraftingFields", true);
+        game.settings.set("forbidden-lands", "showCostField", true);
+        game.settings.set("forbidden-lands", "showSupplyField", true);
+        game.settings.set("forbidden-lands", "showEffectField", true);
+        game.settings.set("forbidden-lands", "showDescriptionField", true);
+        game.settings.set("forbidden-lands", "showDrawbackField", true);
+        game.settings.set("forbidden-lands", "showAppearanceField", true);
     }
 };

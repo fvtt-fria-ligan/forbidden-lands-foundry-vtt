@@ -58,6 +58,7 @@
   "HEADER.BUILDING": "BUILDINGS",
   "HEADER.HIRELING": "HIRELINGS",
   "HEADER.RAW_MATERIAL": "RAW MATERIALS",
+  "HEADER.ACTIONS": "ACTIONS",
 
   "ARMOR.HELMET": "Helmet",
   "ARMOR.SHIELD": "Shield",
@@ -109,6 +110,11 @@
   "ITEM.RAW_MATERIAL": "Raw Material",
   "ITEM.SPELL": "Spell",
   "ITEM.TALENT": "Talent",
+  "ITEM.ROLL_MODIFIERS": "Roll Modifiers",
+  "ITEM.CUSTOM_ROLL_MODIFIERS": "Custom Roll Modifiers",
+  "ITEM.NO_MODIFIERS": "No modifiers",
+  "ITEM.ADD_MODIFIER": "Add modifier",
+  "ITEM.DELETE_MODIFIER": "Delete modifier",
 
   "RANGE.ARM": "Arm's Length",
   "RANGE.NEAR": "Near",
@@ -127,6 +133,10 @@
   "SPELL.DURATION": "Duration",
   "SPELL.INGREDIENT": "Ingredient",
   "SPELL.DESCRIPTION": "Description",
+  "SPELL.SPELL_TYPE": "Type",
+  "SPELL.SPELL": "Spell",
+  "SPELL.POWER_WORD": "Power Word",
+  "SPELL.RITUAL": "Ritual",
 
   "CRITICAL_INJURY.NAME": "Name",
   "CRITICAL_INJURY.LETHAL": "Lethal",
@@ -191,5 +201,24 @@
   "ATTACK.FEAR": "Fear",
   "ATTACK.SLASH": "Slash",
   "ATTACK.STAB": "Stab",
-  "ATTACK.OTHER": "Other"
+  "ATTACK.OTHER": "Other",
+
+  "DICE.ROLL": "Roll",
+  "DICE.BASE": "Base",
+  "DICE.SKILL": "Skill",
+  "DICE.GEAR": "Gear",
+  "DICE.ARTIFACTS": "Artifacts",
+  "DICE.MODIFIER": "Modifier",
+  "DICE.CANCEL": "Cancel",
+  "DICE.AUTOMATIC_SUCCESS": "Automatic Success",
+
+  "ACTION.BREAK_FREE": "Break free",
+  "ACTION.DISARM": "Disarm",
+  "ACTION.DODGE": "Dodge",
+  "ACTION.GRAPPLE": "Grapple",
+  "ACTION.GRAPPLE_ATTACK": "Grapple attack",
+  "ACTION.PARRY": "Parry",
+  "ACTION.SHOVE": "Shove",
+  "ACTION.RETREAT": "Retreat",
+  "ACTION.UNARMED_STRIKE": "Unarmed strike"
 }

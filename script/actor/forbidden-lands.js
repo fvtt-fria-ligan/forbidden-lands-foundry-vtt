@@ -20,6 +20,7 @@ export class ForbiddenLandsItem extends Item {
     if (itemData.img.includes("/mystery-man")) {
       itemData.img = null;
     }
+    itemData.link = this.link;
     itemData.isArmor = itemData.type === "armor";
     itemData.isBuilding = itemData.type === "building";
     itemData.isCriticalInjury = itemData.type === "criticalInjury";
@@ -31,6 +32,7 @@ export class ForbiddenLandsItem extends Item {
     itemData.isSpell = itemData.type === "spell";
     itemData.isTalent = itemData.type === "talent";
     itemData.isWeapon = itemData.type === "weapon";
+    itemData.hasRollModifiers = itemData.data.rollModifiers && Object.values(itemData.data.rollModifiers).length > 0;
     const html = await renderTemplate("systems/forbidden-lands/chat/item.html", itemData);
     const chatData = {
       user: game.user._id,
