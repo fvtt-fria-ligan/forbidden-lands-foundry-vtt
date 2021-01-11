@@ -1,10 +1,10 @@
 # Forbidden Lands
-An **UNOFFICIAL** system for playing Forbidden Lands on Foundry VTT.  
+An **OFFICIAL**, community managed system for playing Forbidden Lands on Foundry VTT.  
 It provides support for **character sheets only**, game content should be drawn from official source books.
 
 ## Install
 1. Go to the setup page and choose **Game Systems**.
-2. Click the **Install System** button, and paste in this [manifest link](https://raw.githubusercontent.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/master/system.json)
+2. Click the **Install System** button, and paste in this [manifest link](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/latest/download/system.json)
 3. Create a Game World using the Forbidden Lands system.
 
 ## Supported Modules
@@ -13,14 +13,13 @@ It provides support for **character sheets only**, game content should be drawn 
 - [Virtual Tabletop Assets - Tokenizer](https://foundryvtt.com/packages/vtta-tokenizer/) is supported on all character sheets
 
 ## Sneaky Preview
-![Character 1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/blob/master/asset/character-1.png?raw=true)  
-![Character 1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/blob/master/asset/character-2.png?raw=true)  
-![Character 1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/blob/master/asset/character-3.png?raw=true)  
-![Monster](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/blob/master/asset/monster.png?raw=true)  
-![Chat](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/blob/master/asset/chat.png?raw=true)  
+![Character Main](https://user-images.githubusercontent.com/9851733/104242530-95fdda00-545f-11eb-8077-f9ebb2bf1e49.png)  
+![Character Combat](https://user-images.githubusercontent.com/9851733/104243355-b9755480-5460-11eb-8e59-c450e77dfb06.png)  
+![Item Sheet](https://user-images.githubusercontent.com/9851733/104243408-ce51e800-5460-11eb-97ec-6a1afb76807c.png)  
+![Item Chat](https://user-images.githubusercontent.com/9851733/104243430-d742b980-5460-11eb-956f-025188dbe91e.png)  
 
 ## To be done in the nearest future
-Nothing. Any pull request is welcome !
+A projects page will be initiated shortly. Keep an eye on the [Projects](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/projects) page.
 
 ## Related Website
 - https://foundryvtt.com/
@@ -34,13 +33,3 @@ Dice graphics recreated by [Tomasz 'jarv' Dobrowolski](jarv@monochrome.pl) with 
 
 ## Licence
 [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/)
-
-## Release Notes
-v.3.20.5
-- Transferred ownership to GitHub Org fvtt-fria-ligan
-v3.20.4
-- Thanks to @petternystrom#0024 for providing a simple fix for the undesired indentation of bio data
-v3.20.3
-- Rollback of package name to 'forbidden-lands'.
-v3.20.1 
-- Incremental release version number only.
