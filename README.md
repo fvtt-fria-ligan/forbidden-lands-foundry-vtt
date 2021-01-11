@@ -4,7 +4,7 @@ It provides support for **character sheets only**, game content should be drawn 
 
 ## Install
 1. Go to the setup page and choose **Game Systems**.
-2. Click the **Install System** button, and paste in this [manifest link](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/latest/system.json)
+2. Click the **Install System** button, and paste in this [manifest link](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/latest/download/system.json)
 3. Create a Game World using the Forbidden Lands system.
 
 ## Supported Modules
