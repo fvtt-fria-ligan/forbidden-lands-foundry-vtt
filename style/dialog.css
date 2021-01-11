@@ -3,10 +3,12 @@
     flex-wrap: wrap;
 }
 
-.roll-dialog b {
-    flex-basis: 25%;
+.roll-dialog table {
+    background: none;
+    border: none;
+    margin: 0 0 5px 0;
 }
 
-.roll-dialog input {
-    flex-basis: 75%;
+.roll-dialog tbody {
+    width: 100%;
 }

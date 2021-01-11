@@ -7,8 +7,6 @@
             <label>{{localize "MONSTER.NAME"}}</label>
             <input name="name" type="text" value="{{item.name}}"/>
         </div>
-    </div>
-    <div class="item">
         <div class="bonus">
             <label>{{localize "MONSTER.DICE"}}</label>
             <input name="data.dice" type="text" value="{{data.dice}}"/>
@@ -17,7 +15,9 @@
             <label>{{localize "MONSTER.DAMAGE"}}</label>
             <input name="data.damage" type="text" value="{{data.damage}}"/>
         </div>
-         <div class="damageType">
+    </div>
+    <div class="item">
+        <div class="damageType">
             <label>{{localize "MONSTER.DAMAGE_TYPE"}}</label>
             <select name="data.damageType">
                 {{#select data.damageType}}

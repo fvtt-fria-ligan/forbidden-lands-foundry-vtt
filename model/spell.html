@@ -11,6 +11,16 @@
             <label>{{localize "SPELL.RANK"}}</label>
             <input name="data.rank" type="text" value="{{data.rank}}"/>
         </div>
+        <div class="spell-type">
+            <label>{{localize "SPELL.SPELL_TYPE"}}</label>
+            <select name="data.spellType">
+                {{#select data.spellType}}
+                <option value="SPELL.SPELL">{{localize "SPELL.SPELL"}}</option>
+                <option value="SPELL.POWER_WORD">{{localize "SPELL.POWER_WORD"}}</option>
+                <option value="SPELL.RITUAL">{{localize "SPELL.RITUAL"}}</option>
+                {{/select}}
+            </select>
+        </div>
     </div>
     <div class="item">
         <div class="range">
