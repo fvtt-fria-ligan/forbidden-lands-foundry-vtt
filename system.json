@@ -4,7 +4,7 @@
   "description": "There is something beyond the mountains, beyond the howls beyond the mist, there is something behind the veils, behind hearts cold as stone.",
   "version": "4.0.0",
   "minimumCoreVersion": "0.7.5",
-  "compatibleCoreVersion": "0.7.8",
+  "compatibleCoreVersion": "0.7.9",
   "templateVersion": 2,
   "author": "perfectro, romelwell",
   "scripts": [],
