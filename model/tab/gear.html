@@ -15,7 +15,10 @@
     <div class="gears border">
         <h1>{{localize "HEADER.GEAR"}}</h1>
         <div class="item-list">
-            <div class="encumbrance{{#if data.encumbrance.over}} overencumbered{{/if}}" title="{{localize "ENCUMBRANCE" }}"><i class="fas fa-weight-hanging"></i> {{data.encumbrance.value}} / {{data.encumbrance.max}}</div>
+            <div class="encumbrance{{#if data.encumbrance.over}} overencumbered{{/if}}" title="{{localize "ENCUMBRANCE" }}">
+                <i class="fas fa-weight-hanging"></i> {{data.encumbrance.value}} / {{data.encumbrance.max}} +
+                <input name="data.extraEncumbrance" type="number" value="{{data.extraEncumbrance}}" data-dtype="Number" class="extra-encumbrance"/>
+            </div>
             <div class="items">
                 <div class="header flex row">
                     <b class="name">{{localize "HEADER.ARMOR"}}</b>

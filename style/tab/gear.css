@@ -80,6 +80,10 @@
   font-size: 12px;
 }
 
+.forbidden-lands .character .gears .encumbrance .extra-encumbrance {
+  width: 30px;
+}
+
 .forbidden-lands .character .gears .gear {
   align-items: center;
 }
