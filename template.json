@@ -234,7 +234,8 @@
           "label": "CURRENCY.COPPER",
           "value": 0
         }
-      }
+      },
+      "extraEncumbrance": 0
     },
     "monster": {
       "templates": ["attributes", "skills"],
