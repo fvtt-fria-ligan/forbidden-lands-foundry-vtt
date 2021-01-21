@@ -42,6 +42,8 @@
                 <option value="ACTION.SHOVE">{{ localize "ACTION.SHOVE" }}</option>
                 <option value="ACTION.RETREAT">{{ localize "ACTION.RETREAT" }}</option>
                 <option value="ACTION.UNARMED_STRIKE">{{ localize "ACTION.UNARMED_STRIKE" }}</option>
+                <option value="">—{{ toUpperCase (localize "OTHER") }}—</option>
+                <option value="CARRYING_CAPACITY">{{ localize "CARRYING_CAPACITY" }}</option>
                 <option value="">—{{ toUpperCase (localize "ITEM.CUSTOM_ROLL_MODIFIERS") }}—</option>
                 {{#each ../data.customRollModifiers as |customRollModifier|}}
                 <option value="{{ customRollModifier }}">{{ customRollModifier }}</option>
