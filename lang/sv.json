@@ -168,6 +168,8 @@
   "POWER_LEVEL": "Effektgrad",
   "SUCCEED": "Lyckat",
   "FAILED": "Misslyckat",
+  "CARRYING_CAPACITY": "Bärförmåga",
+  "OTHER": "ÖVRIGA",
 
   "MONSTER.NAME": "Namn",
   "MONSTER.DICE": "Tärningar",
