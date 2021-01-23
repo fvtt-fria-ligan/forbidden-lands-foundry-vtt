@@ -11,6 +11,7 @@
 .forbidden-lands .character .currencies .header {
   font-variant: small-caps;
   justify-content: space-between;
+  align-items: center;
   padding: 8px;
 }
 
@@ -21,7 +22,7 @@
 .forbidden-lands .character .currencies .values label {
   font-family: var(--font-special);
   font-variant: normal;
-  margin: 0 8px;
+  margin: 0 8px 0 16px;
 }
 
 .forbidden-lands .character .currencies .values input {
