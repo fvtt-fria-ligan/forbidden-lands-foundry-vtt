@@ -145,6 +145,9 @@
         </div>
     </div>
     <div class="consumables border">
+        <div class="consumable">
+            <i class="fas fa-dice"></i>
+        </div>
         {{#each actor.data.consumable as |consumable key|}}
         <div class="consumable">
             <button type="button" class="roll-consumable" data-consumable="{{key}}">{{localize consumable.label}}</button>

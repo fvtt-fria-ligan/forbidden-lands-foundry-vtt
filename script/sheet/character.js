@@ -86,9 +86,13 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
       RollDialog.prepareRollDialog("HEADER.ARMOR", 0, 0, armorTotal, "", 0, 0, this.diceRoller);
     });
     html.find(".roll-consumable").click((ev) => {
-      const consumableName = $(ev.currentTarget).data("consumable");
-      const consumable = this.actor.data.data.consumable[consumableName];
-      this.diceRoller.rollConsumable(consumable);
+      const consumable = this.actor.data.data.consumable[$(ev.currentTarget).data("consumable")];
+      const consumableName = game.i18n.localize(consumable.label);
+      if (consumable.value == 6) {
+        this.diceRoller.roll(consumableName, 0, 1, 0, [], 0);
+      } else if (consumable.value > 6) {
+        this.diceRoller.roll(consumableName, 0, 0, 0, [{"dice": 1, "face": consumable.value}], 0);
+      }
     });
     html.find(".currency-button").on("click contextmenu", (ev) => {
       const currency = $(ev.currentTarget).data("currency");
