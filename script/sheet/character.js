@@ -90,6 +90,35 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
       const consumable = this.actor.data.data.consumable[consumableName];
       this.diceRoller.rollConsumable(consumable);
     });
+    html.find(".currency-button").on("click contextmenu", (ev) => {
+      const currency = $(ev.currentTarget).data("currency");
+      const operator = $(ev.currentTarget).data("operator");
+      const modifier = ev.type === "contextmenu" ? 5 : 1;
+      let coins = [
+        this.actor.data.data.currency.gold.value,
+        this.actor.data.data.currency.silver.value,
+        this.actor.data.data.currency.copper.value,
+      ];
+      let i = {"gold": 0, "silver": 1, "copper": 2}[currency];
+      if (operator === "plus") {
+        coins[i] += modifier;
+      } else {
+        coins[i] -= modifier;
+        for (; i >= 0; --i) {
+          if (coins[i] < 0 && i > 0) {
+            coins[i - 1] -= 1;
+            coins[i] += 10;
+          }
+        }
+      }
+      if (coins[0] >= 0) {
+        this.actor.update({
+          "data.currency.gold.value": coins[0],
+          "data.currency.silver.value": coins[1],
+          "data.currency.copper.value": coins[2],
+        });
+      }
+    });
   }
 
   computeSkills(data) {
