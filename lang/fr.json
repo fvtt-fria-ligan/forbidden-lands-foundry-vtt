@@ -58,6 +58,7 @@
   "HEADER.BUILDING": "BÂTIMENTS",
   "HEADER.HIRELING": "SERVITEURS",
   "HEADER.RAW_MATERIAL": "MATIERES PREMIERES",
+  "HEADER.ACTIONS": "ACTIONS",
 
   "ARMOR.HELMET": "Heaume",
   "ARMOR.SHIELD": "Bouclier",
@@ -109,6 +110,11 @@
   "ITEM.RAW_MATERIAL": "Matière Première",
   "ITEM.SPELL": "Sortilège",
   "ITEM.TALENT": "Talent",
+  "ITEM.ROLL_MODIFIERS": "Modificateur de jet",
+  "ITEM.CUSTOM_ROLL_MODIFIERS": "Modificateurs de jet personnalisés",
+  "ITEM.NO_MODIFIERS": "Aucun modificateur",
+  "ITEM.ADD_MODIFIER": "Ajouter un modificateur",
+  "ITEM.DELETE_MODIFIER": "Supprimer ce modificateur",
 
   "RANGE.ARM": "Contact",
   "RANGE.NEAR": "Proche",
@@ -127,6 +133,10 @@
   "SPELL.DURATION": "Durée",
   "SPELL.INGREDIENT": "Ingrédient",
   "SPELL.DESCRIPTION": "Description",
+  "SPELL.SPELL_TYPE": "Type",
+  "SPELL.SPELL": "Sortilège",
+  "SPELL.POWER_WORD": "Mot de Pouvoir",
+  "SPELL.RITUAL": "Rituel",
 
   "CRITICAL_INJURY.NAME": "Nom",
   "CRITICAL_INJURY.LETHAL": "Létal",
@@ -154,16 +164,19 @@
   "PUSH": "DOUBLER !",
   "PUSHED": "Doublé",
   "DAMAGE": "Dégât",
+  "ENCUMBRANCE": "Encombrement",
   "POWER_LEVEL": "Puissance",
   "SUCCEED": "Succès",
   "FAILED": "Echec",
+  "OTHER": "AUTRE",
+  "CARRYING_CAPACITY": "Capacité de transport",
 
   "MONSTER.NAME": "Nom",
   "MONSTER.DICE": "Dés",
   "MONSTER.DAMAGE": "Dégâts",
   "MONSTER.RANGE": "Portée",
-  "MONSTER.DESCRIPTION": "Description",
   "MONSTER.DAMAGE_TYPE": "Type de dégâts",
+  "MONSTER.DESCRIPTION": "Description",
   "MONSTER.ARMOR": "Armure",
   "MOVEMENT": "Mouvement",
 
@@ -190,5 +203,24 @@
   "ATTACK.FEAR": "Peur",
   "ATTACK.SLASH": "Coupure",
   "ATTACK.STAB": "Poignarder",
-  "ATTACK.OTHER": "Autre"
+  "ATTACK.OTHER": "Autre",
+
+  "DICE.ROLL": "Jet",
+  "DICE.BASE": "Base",
+  "DICE.SKILL": "Compétence",
+  "DICE.GEAR": "Équipement",
+  "DICE.ARTIFACTS": "Artéfacts",
+  "DICE.MODIFIER": "Modificateur",
+  "DICE.CANCEL": "Annuler",
+  "DICE.AUTOMATIC_SUCCESS": "Succès automatique",
+
+  "ACTION.BREAK_FREE": "Se libérer",
+  "ACTION.DISARM": "Désarmer",
+  "ACTION.DODGE": "Esquiver",
+  "ACTION.GRAPPLE": "Attraper",
+  "ACTION.GRAPPLE_ATTACK": "Attaquer l'ennemi attrapé",
+  "ACTION.PARRY": "Parer",
+  "ACTION.SHOVE": "Bousculer",
+  "ACTION.RETREAT": "Battre en retraite",
+  "ACTION.UNARMED_STRIKE": "Attaquer sans arme"
 }
