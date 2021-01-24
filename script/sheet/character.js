@@ -170,13 +170,13 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
     if (this.actor.owner) {
       buttons = [
         {
-          label: "Roll",
+          label: game.i18n.localize("SHEET.HEADER.ROLL"),
           class: "custom-roll",
           icon: "fas fa-dice",
           onclick: (ev) => RollDialog.prepareRollDialog("DICE.ROLL", 0, 0, 0, "", 0, 0, this.diceRoller),
         },
         {
-          label: "Push",
+          label: game.i18n.localize("SHEET.HEADER.PUSH"),
           class: "push-roll",
           icon: "fas fa-skull",
           onclick: (ev) => this.diceRoller.push(),

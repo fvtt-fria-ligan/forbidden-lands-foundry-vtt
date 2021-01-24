@@ -41,6 +41,8 @@
   "CONDITION.COLD": "Frigorifié",
 
   "HEADER.ARMOR": "ARMURES",
+  "HEADER.ATTRIBUTES": "ATTRIBUTS",
+  "HEADER.SKILLS": "COMPÉTENCES",
   "HEADER.CONDITION": "CONDITIONS",
   "HEADER.CONSUMABLE": "CONSOMMABLES",
   "HEADER.CRITICAL_INJURY": "BLESSURES CRITIQUES",
@@ -222,5 +224,9 @@
   "ACTION.PARRY": "Parer",
   "ACTION.SHOVE": "Bousculer",
   "ACTION.RETREAT": "Battre en retraite",
-  "ACTION.UNARMED_STRIKE": "Attaquer sans arme"
+  "ACTION.UNARMED_STRIKE": "Attaquer sans arme",
+
+  "SHEET.HEADER.ROLL": "Jet",
+  "SHEET.HEADER.PUSH": "Doubler",
+  "SHEET.HEADER.POST_ITEM": "Poster dans le chat"
 }
