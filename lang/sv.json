@@ -41,6 +41,8 @@
   "CONDITION.COLD": "Nedkyld",
 
   "HEADER.ARMOR": "RUSTNING",
+  "HEADER.ATTRIBUTES": "GRUNDEGENSKAPER",
+  "HEADER.SKILLS": "FÄRDIGHETER",
   "HEADER.CONDITION": "TILLSTÅND",
   "HEADER.CONSUMABLE": "RESURSER",
   "HEADER.CRITICAL_INJURY": "KRITISKA SKADOR",
@@ -224,9 +226,7 @@
   "ACTION.RETREAT": "Retirera",
   "ACTION.UNARMED_STRIKE": "Obeväpnad attack",
 
-  "ATTRIBUTES": "GRUNDEGENSKAPER",
-  "SKILLS": "FÄRDIGHETER",
-  "Roll": "Slå tärningar",
-  "Push": "Pressa",
-  "Post Item": "Visa upp"
+  "SHEET.HEADER.ROLL": "Slå tärningar",
+  "SHEET.HEADER.PUSH": "Pressa",
+  "SHEET.HEADER.POST_ITEM": "Visa upp"
 }
