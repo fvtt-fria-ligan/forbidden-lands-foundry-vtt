@@ -12,7 +12,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
     let buttons = super._getHeaderButtons();
     buttons = [
       {
-        label: "Post Item",
+        label: game.i18n.localize("SHEET.HEADER.POST_ITEM"),
         class: "item-post",
         icon: "fas fa-comment",
         onclick: (ev) => this.item.sendToChat(),
