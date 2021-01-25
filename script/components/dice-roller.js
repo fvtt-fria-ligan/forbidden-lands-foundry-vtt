@@ -65,41 +65,6 @@ export default class DiceRoller {
     }
   }
 
-  /**
-   * @param  {object} consumable {label: consumable name, value: number of die faces}
-   */
-  async rollConsumable(consumable) {
-    let consumableName = game.i18n.localize(consumable.label);
-    let result;
-    if (!consumable.value) {
-      result = "FAILED";
-    } else {
-      let die = new Die({ faces: consumable.value, number: 1 });
-      die.evaluate();
-      if (die.total > 2) {
-        result = "SUCCEED";
-      } else {
-        result = "FAILED";
-      }
-    }
-    let consumableData = {
-      name: consumableName,
-      result: game.i18n.localize(result),
-    };
-    const html = await renderTemplate("systems/forbidden-lands/chat/consumable.html", consumableData);
-    let chatData = {
-      user: game.user._id,
-      rollMode: game.settings.get("core", "rollMode"),
-      content: html,
-    };
-    if (["gmroll", "blindroll"].includes(chatData.rollMode)) {
-      chatData.whisper = ChatMessage.getWhisperRecipients("GM");
-    } else if (chatData.rollMode === "selfroll") {
-      chatData.whisper = [game.user];
-    }
-    ChatMessage.create(chatData);
-  }
-
   synthetizeFakeRoll(dice) {
     const terms = [];
     for (let die of dice) {
