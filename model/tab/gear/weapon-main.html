@@ -48,9 +48,59 @@
             {{/select}}
         </select>
     </div>
-    <div class="features">
-        <label>{{localize "WEAPON.FEATURE"}}</label>
-        <input name="data.features" type="text" value="{{data.features}}" />
+</div>
+
+<div class="features border">
+    <h1 class="grid-full-line">{{localize "WEAPON.FEATURES.TITLE"}}</h1>
+
+    {{#if (eq data.category "melee")}}
+    <a class="feature {{# if data.features.edged}}active{{/if}}"
+        data-feature="edged"
+        title="{{localize "WEAPON.FEATURES.EDGED"}}">
+        <i class="far {{#if data.features.edged}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
+        {{localize "WEAPON.FEATURES.EDGED"}}
+    </a>
+
+    <a class="feature {{# if data.features.pointed}}active{{/if}}"
+        data-feature="pointed"
+        title="{{localize "WEAPON.FEATURES.POINTED"}}">
+        <i class="far {{#if data.features.pointed}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
+        {{localize "WEAPON.FEATURES.POINTED"}}
+    </a>
+
+    <a class="feature {{# if data.features.blunt}}active{{/if}}"
+        data-feature="blunt"
+        title="{{localize "WEAPON.FEATURES.BLUNT"}}">
+        <i class="far {{#if data.features.blunt}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
+        {{localize "WEAPON.FEATURES.BLUNT"}}
+    </a>
+
+    <a class="feature {{# if data.features.parrying}}active{{/if}}"
+        data-feature="parrying"
+        title="{{localize "WEAPON.FEATURES.PARRYING"}}">
+        <i class="far {{#if data.features.parrying}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
+        {{localize "WEAPON.FEATURES.PARRYING"}}
+    </a>
+
+    <a class="feature {{# if data.features.hook}}active{{/if}}"
+        data-feature="hook"
+        title="{{localize "WEAPON.FEATURES.HOOK"}}">
+        <i class="far {{#if data.features.hook}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
+        {{localize "WEAPON.FEATURES.HOOK"}}
+    </a>
+    {{/if}}
+    {{#if (eq data.category "ranged")}}
+    <a class="feature  grid-full-line {{# if data.features.slowReload}}active{{/if}}"
+        data-feature="slowReload"
+        title="{{localize "WEAPON.FEATURES.SLOW_RELOAD"}}">
+        <i class="far {{#if data.features.slowReload}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
+        {{localize "WEAPON.FEATURES.SLOW_RELOAD"}}
+    </a>
+    {{/if}}
+
+    <div class="grid-full-line">
+        <label>{{localize "WEAPON.FEATURES.OTHERS"}}</label>
+        <input name="data.features.others" type="text" value="{{data.features.others}}" />
     </div>
 </div>
 <div class="roll-modifiers border">

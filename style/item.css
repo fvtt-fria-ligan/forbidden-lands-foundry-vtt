@@ -177,3 +177,26 @@
   resize: none;
   height: 215px;
 }
+
+.forbidden-lands .features {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px ;
+}
+
+.forbidden-lands .grid-full-line {
+  grid-column: 1/-1;
+}
+
+.forbidden-lands .features .feature {
+  font-family: var(--font-special);
+  text-align: center;
+}
+
+.forbidden-lands .features .feature.active {
+  font-weight: bold;
+}
+
+.forbidden-lands .features .feature > i {
+  vertical-align: middle;
+}
