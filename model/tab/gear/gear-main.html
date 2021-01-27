@@ -21,8 +21,10 @@
             {{/select}}
         </select>
     </div>
-    <div class="features"><label>{{localize "GEAR.EFFECT"}}</label><textarea
-            name="data.effect">{{data.effect}}</textarea></div>
+    <div class="grid-full-line">
+        <label>{{localize "GEAR.EFFECT"}}</label>
+        <textarea name="data.effect">{{data.effect}}</textarea>
+    </div>
 </div>
 <div class="roll-modifiers border">
     {{> systems/forbidden-lands/model/partial/roll-modifiers.html }}
