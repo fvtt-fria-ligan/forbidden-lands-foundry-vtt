@@ -18,14 +18,32 @@
 
 .forbidden-lands.item .header {
   align-items: center;
-  display: grid;
-  gap: 8px;
-  grid-template-columns: auto 1fr 1fr;
+  display: flex;
   margin-bottom: 8px;
+  padding: 8px;
 }
 
-.forbidden-lands.item .header .name {
-  grid-column: 2/-1;
+.forbidden-lands.item .header .header-stats {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+}
+
+.forbidden-lands.item .header .header-stats label {
+  grid-column: 1;
+}
+
+.forbidden-lands.item .header .header-stats .bonus {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+.forbidden-lands.item .header .header-stats .bonus input {
+  width: 2em;
+}
+
+.forbidden-lands.item .header .header-stats .bonus i {
+  vertical-align: middle;
 }
 
 .forbidden-lands.item .avatar {
