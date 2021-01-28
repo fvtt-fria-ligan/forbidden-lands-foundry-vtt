@@ -1,11 +1,50 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <div class="header">
+    <div class="header border">
         <div class="avatar">
             <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
         </div>
-        <div class="name">
+        <div class="header-stats">
             <label>{{localize "GEAR.NAME"}}</label>
             <input name="name" type="text" value="{{item.name}}" />
+
+            <label>{{localize "WEAPON.BONUS"}}</label>
+            <div class="bonus">
+                <div class="skulls {{#unless data.bonus.value }}broken{{/unless}}">
+                    <a class="change-bonus" data-attribute="{{data.bonus}}">
+                        {{#skulls data.bonus.value data.bonus.max}}
+                        <i class="skull far {{#if @damaged}}fa-times-circle{{else}}fa-circle{{/if}}"></i>
+                        {{/skulls}}
+                    </a>
+                </div>
+                <div class="multivalue">
+                    <input name="data.bonus.value" type="number" value="{{data.bonus.value}}" data-dtype="Number" />
+                    &nbsp;/&nbsp;
+                    <input name="data.bonus.max" type="number" value="{{data.bonus.max}}" data-dtype="Number" />
+                </div>
+            </div>
+
+            <label>{{localize "WEAPON.ARTIFACT_BONUS"}}</label>
+            <div class="artifactBonus">
+                <select name="data.artifactBonus">
+                    {{#select data.artifactBonus}}
+                    <option value="">{{localize "ARTIFACT.REGULAR"}}</option>
+                    <option value="d8">{{localize "ARTIFACT.MIGHTY"}} (d8)</option>
+                    <option value="d10">{{localize "ARTIFACT.EPIC"}} (d10)</option>
+                    <option value="d12">{{localize "ARTIFACT.LEGENDARY"}} (d12)</option>
+                    {{/select}}
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="item">
+        <div class="damage">
+            <label>{{localize "WEAPON.DAMAGE"}}</label>
+            <input name="data.damage" type="number" value="{{data.damage}}" data-dtype="Number" />
+        </div>
+        <div class="skillBonus">
+            <label>{{localize "WEAPON.SKILL_BONUS"}}</label>
+            <input name="data.skillBonus" type="text" value="{{data.skillBonus}}" />
         </div>
         <div class="weight">
             <label>{{localize "GEAR.WEIGHT"}}</label>
@@ -17,28 +56,6 @@
                 <option value="heavy">{{localize "WEIGHT.HEAVY"}}</option>
                 {{/select}}
             </select>
-        </div>
-        <div class="bonus">
-            <label>{{localize "WEAPON.BONUS"}}</label>
-            <div class="multivalue">
-                <input name="data.bonus.value" type="number" value="{{data.bonus.value}}" data-dtype="Number" />
-                &nbsp;/&nbsp;
-                <input name="data.bonus.max" type="number" value="{{data.bonus.max}}" data-dtype="Number" />
-            </div>
-        </div>
-    </div>
-    <div class="item">
-        <div class="damage">
-            <label>{{localize "WEAPON.DAMAGE"}}</label>
-            <input name="data.damage" type="number" value="{{data.damage}}" data-dtype="Number" />
-        </div>
-        <div class="artifactBonus">
-            <label>{{localize "WEAPON.ARTIFACT_BONUS"}}</label>
-            <input name="data.artifactBonus" type="text" value="{{data.artifactBonus}}" />
-        </div>
-        <div class="skillBonus">
-            <label>{{localize "WEAPON.SKILL_BONUS"}}</label>
-            <input name="data.skillBonus" type="text" value="{{data.skillBonus}}" />
         </div>
         <div class="weapon-category">
             <label>{{localize "WEAPON.CATEGORY"}}</label>

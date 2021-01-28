@@ -118,6 +118,11 @@
   "ITEM.ADD_MODIFIER": "Ajouter un modificateur",
   "ITEM.DELETE_MODIFIER": "Supprimer ce modificateur",
 
+  "ARTIFACT.REGULAR": "Aucun (objet commun)",
+  "ARTIFACT.MIGHTY": "Remarquable",
+  "ARTIFACT.EPIC": "Épique",
+  "ARTIFACT.LEGENDARY": "Légendaire",
+
   "RANGE.ARM": "Contact",
   "RANGE.NEAR": "Proche",
   "RANGE.SHORT": "Courte",
