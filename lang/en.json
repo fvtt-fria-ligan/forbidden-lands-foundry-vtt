@@ -118,6 +118,11 @@
   "ITEM.ADD_MODIFIER": "Add modifier",
   "ITEM.DELETE_MODIFIER": "Delete modifier",
 
+  "ARTIFACT.REGULAR": "None (regular item)",
+  "ARTIFACT.MIGHTY": "Mighty",
+  "ARTIFACT.EPIC": "Epic",
+  "ARTIFACT.LEGENDARY": "Legendary",
+
   "RANGE.ARM": "Arm's Length",
   "RANGE.NEAR": "Near",
   "RANGE.SHORT": "Short",
