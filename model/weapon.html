@@ -37,114 +37,28 @@
         </div>
     </div>
 
-    <div class="item">
-        <div class="damage">
-            <label>{{localize "WEAPON.DAMAGE"}}</label>
-            <input name="data.damage" type="number" value="{{data.damage}}" data-dtype="Number" />
-        </div>
-        <div class="skillBonus">
-            <label>{{localize "WEAPON.SKILL_BONUS"}}</label>
-            <input name="data.skillBonus" type="text" value="{{data.skillBonus}}" />
-        </div>
-        <div class="weight">
-            <label>{{localize "GEAR.WEIGHT"}}</label>
-            <select name="data.weight">
-                {{#select data.weight}}
-                <option value="tiny">{{localize "WEIGHT.TINY"}}</option>
-                <option value="light">{{localize "WEIGHT.LIGHT"}}</option>
-                <option value="regular">{{localize "WEIGHT.REGULAR"}}</option>
-                <option value="heavy">{{localize "WEIGHT.HEAVY"}}</option>
-                {{/select}}
-            </select>
-        </div>
-        <div class="weapon-category">
-            <label>{{localize "WEAPON.CATEGORY"}}</label>
-            <select name="data.category">
-                {{#select data.category}}
-                <option value="melee">{{localize "WEAPON.MELEE"}}</option>
-                <option value="ranged">{{localize "WEAPON.RANGED"}}</option>
-                {{/select}}
-            </select>
-        </div>
-        <div class="grip">
-            <label>{{localize "WEAPON.GRIP"}}</label>
-            <select name="data.grip">
-                {{#select data.grip}}
-                <option value="1h">{{localize "WEAPON.1H"}}</option>
-                <option value="2h">{{localize "WEAPON.2H"}}</option>
-                {{/select}}
-            </select>
-        </div>
-        <div class="range">
-            <label>{{localize "WEAPON.RANGE"}}</label>
-            <select name="data.range">
-                {{#select data.range}}
-                <option value="arm">{{localize "RANGE.ARM"}}</option>
-                <option value="near">{{localize "RANGE.NEAR"}}</option>
-                <option value="short">{{localize "RANGE.SHORT"}}</option>
-                <option value="long">{{localize "RANGE.LONG"}}</option>
-                <option value="distant">{{localize "RANGE.DISTANT"}}</option>
-                {{/select}}
-            </select>
-        </div>
-        <div class="features">
-            <label>{{localize "WEAPON.FEATURE"}}</label>
-            <input name="data.features" type="text" value="{{data.features}}" />
-        </div>
-        {{#if showEffectField}}
-        <div class="effect">
-            <label>{{localize "GEAR.EFFECT"}}</label>
-            <input name="data.effect" type="text" value="{{data.effect}}" />
-        </div>
+    <div class="sheet-tabs tabs flex row" data-group="primary">
+        <b class="tab-item" data-tab="main">{{localize "TAB.MAIN"}}</b>
+        {{#if artifact}}
+        <b class="tab-item" data-tab="artifact">{{localize "TAB.ARTIFACT"}}</b>
+        {{else}}
+            {{#if (or showCostField showSupplyField showCraftingFields)}}
+            <b class="tab-item" data-tab="supply">{{localize "TAB.CRAFT_SUPPLY"}}</b>
+            {{/if}}
         {{/if}}
-        {{#if showCostField}}
-        <div class="cost">
-            <label>{{localize "GEAR.COST"}}</label>
-            <input name="data.cost" type="text" value="{{data.cost}}" />
+    </div>
+
+    <div class="sheet-body">
+        <div class="tab" data-group="primary" data-tab="main">
+{{> systems/forbidden-lands/model/weapon/tab/weapon_main.html}}
         </div>
-        {{/if}}
-        {{#if showSupplyField}}
-        <div class="supply">
-            <label>{{localize "GEAR.SUPPLY"}}</label>
-            <input name="data.supply" type="text" value="{{data.supply}}" />
+
+        <div class="tab" data-group="primary" data-tab="artifact">
+{{> systems/forbidden-lands/model/weapon/tab/weapon_artifact.html}}
         </div>
-        {{/if}}
-        {{#if showCraftingFields}}
-        <div class="raw-materials">
-            <label>{{localize "GEAR.RAW_MATERIAL"}}</label>
-            <input name="data.rawMaterials" type="text" value="{{data.rawMaterials}}" />
+
+        <div class="tab" data-group="primary" data-tab="supply">
+{{> systems/forbidden-lands/model/weapon/tab/weapon_supply.html}}
         </div>
-        <div class="time">
-            <label>{{localize "GEAR.TIME"}}</label>
-            <input name="data.time" type="text" value="{{data.time}}" />
-        </div>
-        <div class="talent">
-            <label>{{localize "GEAR.TALENT"}}</label>
-            <input name="data.talent" type="text" value="{{data.talent}}" />
-        </div>
-        <div class="tools">
-            <label>{{localize "GEAR.TOOLS"}}</label>
-            <input name="data.tools" type="text" value="{{data.tools}}" />
-        </div>
-        {{/if}}
-        {{#if showDescriptionField}}
-        <div class="description">
-            <label>{{localize "WEAPON.DESCRIPTION"}}</label>
-            <textarea name="data.description">{{data.description}}</textarea>
-        </div>
-        {{/if}}
-        {{#if showDrawbackField}}
-        <div class="drawback">
-            <label>{{localize "WEAPON.DRAWBACK"}}</label>
-            <textarea name="data.drawback">{{data.drawback}}</textarea>
-        </div>
-        {{/if}}
-        {{#if showAppearanceField}}
-        <div class="appearance">
-            <label>{{localize "WEAPON.APPEARANCE"}}</label>
-            <textarea name="data.appearance">{{data.appearance}}</textarea>
-        </div>
-        {{/if}}
-        {{> systems/forbidden-lands/model/partial/roll-modifiers.html }}
     </div>
 </form>
