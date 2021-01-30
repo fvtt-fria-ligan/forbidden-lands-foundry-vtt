@@ -4,6 +4,13 @@ export class ForbiddenLandsWeaponSheet extends ForbiddenLandsItemSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       template: "systems/forbidden-lands/model/weapon.html",
+      tabs: [
+        {
+          navSelector: ".sheet-tabs",
+          contentSelector: ".sheet-body",
+          initial: "attributes",
+        },
+      ],
     });
   }
 
@@ -23,6 +30,21 @@ export class ForbiddenLandsWeaponSheet extends ForbiddenLandsItemSheet {
         ["data.bonus.value"]: value,
       });
     });
+  }
+
+  computeQuality(data) {
+    data.artifact = (data.data.artifactBonus !== "");
+  }
+
+  getData() {
+    const data = super.getData();
+    this.computeQuality(data);
+    return data;
+  }
+
+  async _renderInner(data, options) {
+    data.showAppearanceField = game.settings.get("forbidden-lands", "showAppearanceField");
+    return super._renderInner(data, options);
   }
 
 }

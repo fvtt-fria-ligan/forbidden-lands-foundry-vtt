@@ -71,6 +71,32 @@
   cursor: pointer;
 }
 
+.forbidden-lands.item .tabs .tab-item {
+  padding: 5px;
+  text-align: center;
+}
+
+.forbidden-lands.item .tabs .tab-item.active {
+  color: #fff;
+  text-shadow: 0 0 10px #fff;
+}
+
+.forbidden-lands.item .sheet-body .tab {
+  margin-bottom: 8px;
+}
+
+.forbidden-lands.item .sheet-body .border {
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.forbidden-lands.item .sheet-body .attributes,
+.forbidden-lands.item .sheet-body .supply {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+}
+
 .forbidden-lands.item .item {
   align-items: baseline;
   display: grid;
