@@ -118,6 +118,11 @@
   "ITEM.ADD_MODIFIER": "Ny modifikation",
   "ITEM.DELETE_MODIFIER": "Ta bort modifikation",
 
+  "ARTIFACT.REGULAR": "Ingen (vanligt föremål)",
+  "ARTIFACT.MIGHTY": "Mäktig",
+  "ARTIFACT.EPIC": "Episk",
+  "ARTIFACT.LEGENDARY": "Legendarisk",
+
   "RANGE.ARM": "Armslängd",
   "RANGE.NEAR": "Nära",
   "RANGE.SHORT": "Kort",
