@@ -24,6 +24,9 @@ function preloadHandlebarsTemplates() {
     "systems/forbidden-lands/model/tab/hireling-stronghold.html",
     "systems/forbidden-lands/model/tab/gear-stronghold.html",
     "systems/forbidden-lands/model/partial/roll-modifiers.html",
+    "systems/forbidden-lands/model/weapon/tab/weapon_artifact.html",
+    "systems/forbidden-lands/model/weapon/tab/weapon_attributes.html",
+    "systems/forbidden-lands/model/weapon/tab/weapon_supply.html",
   ];
   return loadTemplates(templatePaths);
 }
@@ -137,6 +140,10 @@ function registerHandlebarsHelpers() {
     return args.every(function (expression) {
       return args[0] === expression;
     });
+  });
+  Handlebars.registerHelper('or', function () {
+    const args = Array.prototype.slice.call(arguments, 0, -1);
+    return args.reduce((x, y) => x || y);
   });
 }
 

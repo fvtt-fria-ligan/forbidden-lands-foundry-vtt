@@ -1,0 +1,59 @@
+<div class="attributes border">
+    <div class="damage">
+        <label>{{localize "WEAPON.DAMAGE"}}</label>
+        <input name="data.damage" type="number" value="{{data.damage}}" data-dtype="Number" />
+    </div>
+    <div class="skillBonus">
+        <label>{{localize "WEAPON.SKILL_BONUS"}}</label>
+        <input name="data.skillBonus" type="text" value="{{data.skillBonus}}" />
+    </div>
+    <div class="weight">
+        <label>{{localize "GEAR.WEIGHT"}}</label>
+        <select name="data.weight">
+            {{#select data.weight}}
+            <option value="tiny">{{localize "WEIGHT.TINY"}}</option>
+            <option value="light">{{localize "WEIGHT.LIGHT"}}</option>
+            <option value="regular">{{localize "WEIGHT.REGULAR"}}</option>
+            <option value="heavy">{{localize "WEIGHT.HEAVY"}}</option>
+            {{/select}}
+        </select>
+    </div>
+    <div class="weapon-category">
+        <label>{{localize "WEAPON.CATEGORY"}}</label>
+        <select name="data.category">
+            {{#select data.category}}
+            <option value="melee">{{localize "WEAPON.MELEE"}}</option>
+            <option value="ranged">{{localize "WEAPON.RANGED"}}</option>
+            {{/select}}
+        </select>
+    </div>
+    <div class="grip">
+        <label>{{localize "WEAPON.GRIP"}}</label>
+        <select name="data.grip">
+            {{#select data.grip}}
+            <option value="1h">{{localize "WEAPON.1H"}}</option>
+            <option value="2h">{{localize "WEAPON.2H"}}</option>
+            {{/select}}
+        </select>
+    </div>
+    <div class="range">
+        <label>{{localize "WEAPON.RANGE"}}</label>
+        <select name="data.range">
+            {{#select data.range}}
+            <option value="arm">{{localize "RANGE.ARM"}}</option>
+            <option value="near">{{localize "RANGE.NEAR"}}</option>
+            <option value="short">{{localize "RANGE.SHORT"}}</option>
+            <option value="long">{{localize "RANGE.LONG"}}</option>
+            <option value="distant">{{localize "RANGE.DISTANT"}}</option>
+            {{/select}}
+        </select>
+    </div>
+    <div class="features">
+        <label>{{localize "WEAPON.FEATURE"}}</label>
+        <input name="data.features" type="text" value="{{data.features}}" />
+    </div>
+</div>
+
+<div class="roll-modifiers border">
+    {{> systems/forbidden-lands/model/partial/roll-modifiers.html }}
+</div>
