@@ -40,7 +40,9 @@
     <div class="sheet-tabs tabs flex row" data-group="primary">
         <b class="tab-item" data-tab="attributes">{{localize "TAB.ATTRIBUTES"}}</b>
         {{#if artifact}}
-        <b class="tab-item" data-tab="artifact">{{localize "TAB.ARTIFACT"}}</b>
+            {{#if (or showDescriptionField showDrawbackField showAppearanceField showEffectField)}}
+            <b class="tab-item" data-tab="artifact">{{localize "TAB.ARTIFACT"}}</b>
+            {{/if}}
         {{else}}
             {{#if (or showCostField showSupplyField showCraftingFields)}}
             <b class="tab-item" data-tab="supply">{{localize "TAB.SUPPLY"}}</b>
