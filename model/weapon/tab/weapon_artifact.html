@@ -1,27 +1,27 @@
 <div class="artifact border item">
     {{#if showEffectField}}
-    <div class="effect">
-        <label>{{localize "GEAR.EFFECT"}}</label>
-        <input name="data.effect" type="text" value="{{data.effect}}" />
-    </div>
+        <div class="effect">
+            <label>{{localize "GEAR.EFFECT"}}</label>
+            <textarea name="data.effect">{{data.effect}}</textarea>
+        </div>
     {{/if}}
     {{#if showDescriptionField}}
-    <div class="description">
-        <label>{{localize "WEAPON.DESCRIPTION"}}</label>
-        <textarea name="data.description">{{data.description}}</textarea>
-    </div>
+        <div class="description">
+            <label>{{localize "WEAPON.DESCRIPTION"}}</label>
+            <textarea name="data.description">{{data.description}}</textarea>
+        </div>
     {{/if}}
     {{#if showDrawbackField}}
-    <div class="drawback">
-        <label>{{localize "WEAPON.DRAWBACK"}}</label>
-        <textarea name="data.drawback">{{data.drawback}}</textarea>
-    </div>
+        <div class="drawback">
+            <label>{{localize "WEAPON.DRAWBACK"}}</label>
+            <textarea name="data.drawback">{{data.drawback}}</textarea>
+        </div>
     {{/if}}
     {{#if showAppearanceField}}
-    <div class="appearance">
-        <label>{{localize "WEAPON.APPEARANCE"}}</label>
-        <textarea name="data.appearance">{{data.appearance}}</textarea>
-    </div>
+        <div class="appearance">
+            <label>{{localize "WEAPON.APPEARANCE"}}</label>
+            <textarea name="data.appearance">{{data.appearance}}</textarea>
+        </div>
     {{/if}}
 
 </div>
