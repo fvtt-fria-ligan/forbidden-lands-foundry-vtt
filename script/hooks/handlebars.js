@@ -25,7 +25,7 @@ function preloadHandlebarsTemplates() {
     "systems/forbidden-lands/model/tab/gear-stronghold.html",
     "systems/forbidden-lands/model/partial/roll-modifiers.html",
     "systems/forbidden-lands/model/weapon/tab/weapon_artifact.html",
-    "systems/forbidden-lands/model/weapon/tab/weapon_attributes.html",
+    "systems/forbidden-lands/model/weapon/tab/weapon_main.html",
     "systems/forbidden-lands/model/weapon/tab/weapon_supply.html",
   ];
   return loadTemplates(templatePaths);
@@ -122,26 +122,26 @@ function registerHandlebarsHelpers() {
   });
   Handlebars.registerHelper("formatRollModifiers", function (rollModifiers) {
     let output = [];
-    Object.values(rollModifiers).forEach(mod => {
+    Object.values(rollModifiers).forEach((mod) => {
       let name = game.i18n.localize(mod.name);
       output.push(`${name} ${mod.value}`);
     });
     return output.join(", ");
   });
-  Handlebars.registerHelper('plaintextToHTML', function(value) {
+  Handlebars.registerHelper("plaintextToHTML", function (value) {
     // strip tags, add <br/> tags
-    return new Handlebars.SafeString(value.replace(/(<([^>]+)>)/gi, "").replace(/(?:\r\n|\r|\n)/g, '<br/>'));
+    return new Handlebars.SafeString(value.replace(/(<([^>]+)>)/gi, "").replace(/(?:\r\n|\r|\n)/g, "<br/>"));
   });
-  Handlebars.registerHelper('toUpperCase', function(str) {
+  Handlebars.registerHelper("toUpperCase", function (str) {
     return str.toUpperCase();
   });
-  Handlebars.registerHelper('eq', function () {
+  Handlebars.registerHelper("eq", function () {
     const args = Array.prototype.slice.call(arguments, 0, -1);
     return args.every(function (expression) {
       return args[0] === expression;
     });
   });
-  Handlebars.registerHelper('or', function () {
+  Handlebars.registerHelper("or", function () {
     const args = Array.prototype.slice.call(arguments, 0, -1);
     return args.reduce((x, y) => x || y);
   });
