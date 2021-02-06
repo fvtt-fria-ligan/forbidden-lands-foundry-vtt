@@ -19,7 +19,7 @@ It provides support for **character sheets only**, game content should be drawn 
 
 ![Character Main](https://user-images.githubusercontent.com/9851733/104242530-95fdda00-545f-11eb-8077-f9ebb2bf1e49.png)
 ![Character Combat](https://user-images.githubusercontent.com/9851733/104243355-b9755480-5460-11eb-8e59-c450e77dfb06.png)
-![Item Sheet](https://user-images.githubusercontent.com/9851733/104243408-ce51e800-5460-11eb-97ec-6a1afb76807c.png)
+![Item Sheet](https://user-images.githubusercontent.com/477392/107005802-88065500-6790-11eb-889e-0dad7db8adff.png)
 ![Item Chat](https://user-images.githubusercontent.com/9851733/104243430-d742b980-5460-11eb-956f-025188dbe91e.png)
 
 ## Project, Issues and Discussions

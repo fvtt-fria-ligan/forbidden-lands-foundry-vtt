@@ -26,11 +26,14 @@
 .forbidden-lands.item .header .header-stats {
   display: grid;
   grid-template-columns: auto 1fr;
+  align-items: center;
   gap: 8px;
+  margin-left: 8px;
 }
 
 .forbidden-lands.item .header .header-stats label {
   grid-column: 1;
+  text-align: right;
 }
 
 .forbidden-lands.item .header .header-stats .bonus {
@@ -47,11 +50,7 @@
 }
 
 .forbidden-lands.item .avatar {
-  background: radial-gradient(
-    closest-side,
-    var(--color-highlight) 0%,
-    transparent 100%
-  );
+  background: radial-gradient(closest-side, var(--color-highlight) 0%, transparent 100%);
   grid-row: 1/3;
   height: 95px;
   width: 95px;
@@ -90,11 +89,25 @@
   margin-bottom: 8px;
 }
 
-.forbidden-lands.item .sheet-body .attributes,
-.forbidden-lands.item .sheet-body .supply {
+.forbidden-lands.item .sheet-body .main {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 8px;
+  align-items: end;
+}
+
+.forbidden-lands.item .sheet-body .main .features {
+  grid-column: 1/-1;
+}
+
+.forbidden-lands.item .sheet-body .supply label,
+.forbidden-lands.item .sheet-body .crafting label {
+  margin-top: 4px;
+}
+
+.forbidden-lands.item .sheet-body .supply label:first-child,
+.forbidden-lands.item .sheet-body .crafting label:first-child {
+  margin-top: unset;
 }
 
 .forbidden-lands.item .item {
@@ -139,23 +152,23 @@
   height: 100px;
 }
 
-.forbidden-lands.item .item .roll-modifiers {
+.forbidden-lands.item .roll-modifiers {
   grid-column: 1/-1;
 }
 
-.forbidden-lands.item .item .roll-modifiers .column-header {
+.forbidden-lands.item .roll-modifiers .column-header {
   border-bottom: 2px solid var(--color-border);
 }
 
-.forbidden-lands.item .item .roll-modifiers a {
-  font-size: 10px
+.forbidden-lands.item .roll-modifiers a {
+  font-size: 10px;
 }
 
-.forbidden-lands.item .item .roll-modifiers .row {
+.forbidden-lands.item .roll-modifiers .row {
   margin-bottom: 5px;
 }
 
-.forbidden-lands.item .item .roll-modifiers .row > *{
+.forbidden-lands.item .roll-modifiers .row > * {
   margin-right: 8px;
 }
 
