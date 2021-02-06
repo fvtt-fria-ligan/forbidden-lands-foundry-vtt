@@ -1,6 +1,6 @@
 # Forbidden Lands
 
-An **OFFICIAL**, community managed system for playing Forbidden Lands on Foundry VTT.
+An **OFFICIAL**, community supported system for playing Forbidden Lands on Foundry VTT.
 It provides support for **character sheets only**, game content should be drawn from official source books.
 
 ## Install
