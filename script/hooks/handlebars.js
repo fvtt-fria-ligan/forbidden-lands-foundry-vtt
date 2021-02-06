@@ -70,6 +70,8 @@ function registerHandlebarsHelpers() {
   Handlebars.registerHelper("itemWeight", function (weight) {
     weight = normalize(weight, "regular");
     switch (weight) {
+      case "none":
+        return game.i18n.localize("WEIGHT.NONE");
       case "tiny":
         return game.i18n.localize("WEIGHT.TINY");
       case "light":
