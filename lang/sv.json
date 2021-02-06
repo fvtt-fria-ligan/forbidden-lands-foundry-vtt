@@ -86,6 +86,8 @@
   "TAB.NOTE": "ANTECKNINGAR",
   "TAB.BUILDING": "BYGGNADER",
   "TAB.HIRELING": "TJÄNARE",
+  "TAB.CRAFT_SUPPLY": "TILLVERKNING",
+  "TAB.ARTIFACT": "ARTEFAKT",
 
   "WEAPON.NAME": "Namn",
   "WEAPON.CATEGORY": "Typ",
@@ -117,6 +119,11 @@
   "ITEM.NO_MODIFIERS": "Inga modifikationer",
   "ITEM.ADD_MODIFIER": "Ny modifikation",
   "ITEM.DELETE_MODIFIER": "Ta bort modifikation",
+
+  "ARTIFACT.REGULAR": "Ingen (vanligt föremål)",
+  "ARTIFACT.MIGHTY": "Mäktig",
+  "ARTIFACT.EPIC": "Episk",
+  "ARTIFACT.LEGENDARY": "Legendarisk",
 
   "RANGE.ARM": "Armslängd",
   "RANGE.NEAR": "Nära",
