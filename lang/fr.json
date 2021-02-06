@@ -86,6 +86,8 @@
   "TAB.NOTE": "NOTE",
   "TAB.BUILDING": "BÂTIMENT",
   "TAB.HIRELING": "SERVITEUR",
+  "TAB.CRAFT_SUPPLY": "CONFECTION & ACHAT",
+  "TAB.ARTIFACT": "ARTÉFACT",
 
   "WEAPON.NAME": "Nom",
   "WEAPON.CATEGORY": "Type",
@@ -117,6 +119,11 @@
   "ITEM.NO_MODIFIERS": "Aucun modificateur",
   "ITEM.ADD_MODIFIER": "Ajouter un modificateur",
   "ITEM.DELETE_MODIFIER": "Supprimer ce modificateur",
+
+  "ARTIFACT.REGULAR": "Aucun (objet commun)",
+  "ARTIFACT.MIGHTY": "Remarquable",
+  "ARTIFACT.EPIC": "Épique",
+  "ARTIFACT.LEGENDARY": "Légendaire",
 
   "RANGE.ARM": "Contact",
   "RANGE.NEAR": "Proche",

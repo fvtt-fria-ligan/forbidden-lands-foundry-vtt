@@ -86,6 +86,8 @@
   "TAB.NOTE": "NOTE",
   "TAB.BUILDING": "BUILDING",
   "TAB.HIRELING": "HIRELING",
+  "TAB.CRAFT_SUPPLY": "CRAFT & SUPPLY",
+  "TAB.ARTIFACT": "ARTIFACT",
 
   "WEAPON.NAME": "Name",
   "WEAPON.CATEGORY": "Category",
@@ -117,6 +119,11 @@
   "ITEM.NO_MODIFIERS": "No modifiers",
   "ITEM.ADD_MODIFIER": "Add modifier",
   "ITEM.DELETE_MODIFIER": "Delete modifier",
+
+  "ARTIFACT.REGULAR": "None (regular item)",
+  "ARTIFACT.MIGHTY": "Mighty",
+  "ARTIFACT.EPIC": "Epic",
+  "ARTIFACT.LEGENDARY": "Legendary",
 
   "RANGE.ARM": "Arm's Length",
   "RANGE.NEAR": "Near",

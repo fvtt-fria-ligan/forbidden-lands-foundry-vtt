@@ -18,14 +18,35 @@
 
 .forbidden-lands.item .header {
   align-items: center;
-  display: grid;
-  gap: 8px;
-  grid-template-columns: auto 1fr 1fr;
+  display: flex;
   margin-bottom: 8px;
+  padding: 8px;
 }
 
-.forbidden-lands.item .header .name {
-  grid-column: 2/-1;
+.forbidden-lands.item .header .header-stats {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 8px;
+  margin-left: 8px;
+}
+
+.forbidden-lands.item .header .header-stats label {
+  grid-column: 1;
+  text-align: right;
+}
+
+.forbidden-lands.item .header .header-stats .bonus {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+.forbidden-lands.item .header .header-stats .bonus input {
+  width: 2em;
+}
+
+.forbidden-lands.item .header .header-stats .bonus i {
+  vertical-align: middle;
 }
 
 .forbidden-lands.item .avatar {
@@ -51,6 +72,46 @@
 .forbidden-lands.item .avatar img:hover {
   box-shadow: 0 0 10px red;
   cursor: pointer;
+}
+
+.forbidden-lands.item .tabs .tab-item {
+  padding: 5px;
+  text-align: center;
+}
+
+.forbidden-lands.item .tabs .tab-item.active {
+  color: #fff;
+  text-shadow: 0 0 10px #fff;
+}
+
+.forbidden-lands.item .sheet-body .tab {
+  margin-bottom: 8px;
+}
+
+.forbidden-lands.item .sheet-body .border {
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.forbidden-lands.item .sheet-body .main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  align-items: end;
+}
+
+.forbidden-lands.item .sheet-body .main .features {
+  grid-column: 1/-1;
+}
+
+.forbidden-lands.item .sheet-body .supply label,
+.forbidden-lands.item .sheet-body .crafting label {
+  margin-top: 4px;
+}
+
+.forbidden-lands.item .sheet-body .supply label:first-child,
+.forbidden-lands.item .sheet-body .crafting label:first-child {
+  margin-top: unset;
 }
 
 .forbidden-lands.item .item {
@@ -95,23 +156,23 @@
   height: 100px;
 }
 
-.forbidden-lands.item .item .roll-modifiers {
+.forbidden-lands.item .roll-modifiers {
   grid-column: 1/-1;
 }
 
-.forbidden-lands.item .item .roll-modifiers .column-header {
+.forbidden-lands.item .roll-modifiers .column-header {
   border-bottom: 2px solid var(--color-border);
 }
 
-.forbidden-lands.item .item .roll-modifiers a {
+.forbidden-lands.item .roll-modifiers a {
   font-size: 10px
 }
 
-.forbidden-lands.item .item .roll-modifiers .row {
+.forbidden-lands.item .roll-modifiers .row {
   margin-bottom: 5px;
 }
 
-.forbidden-lands.item .item .roll-modifiers .row > *{
+.forbidden-lands.item .roll-modifiers .row > *{
   margin-right: 8px;
 }
 
