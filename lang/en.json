@@ -1,4 +1,20 @@
 {
+  "ACTOR.TypeCharacter": "Character",
+  "ACTOR.TypeMonster": "Monster",
+  "ACTOR.TypeStronghold": "Stronghold",
+
+  "ITEM.TypeWeapon": "Weapon",
+  "ITEM.TypeArmor": "Armor",
+  "ITEM.TypeGear": "Gear",
+  "ITEM.TypeRawmaterial": "Raw Material",
+  "ITEM.TypeTalent": "Talent",
+  "ITEM.TypeCriticalinjury": "Critical Injury",
+  "ITEM.TypeSpell": "Spell",
+  "ITEM.TypeMonstertalent": "Monster Talent",
+  "ITEM.TypeMonsterattack": "Monster Attack",
+  "ITEM.TypeBuilding": "Stronghold Building",
+  "ITEM.TypeHireling": "Stronghold Hireling",
+
   "BIO.NAME": "Name",
   "BIO.KIN": "Kin",
   "BIO.PROFESSION": "Profession",
@@ -120,7 +136,7 @@
   "ITEM.ADD_MODIFIER": "Add modifier",
   "ITEM.DELETE_MODIFIER": "Delete modifier",
 
-  "ARTIFACT.REGULAR": "None (regular item)",
+  "ARTIFACT.REGULAR": "Normal Item",
   "ARTIFACT.MIGHTY": "Mighty",
   "ARTIFACT.EPIC": "Epic",
   "ARTIFACT.LEGENDARY": "Legendary",
@@ -131,9 +147,10 @@
   "RANGE.LONG": "Long",
   "RANGE.DISTANT": "Distant",
 
+  "WEIGHT.NONE": "None",
   "WEIGHT.TINY": "Tiny",
   "WEIGHT.LIGHT": "Light",
-  "WEIGHT.REGULAR": "Regular",
+  "WEIGHT.REGULAR": "Normal",
   "WEIGHT.HEAVY": "Heavy",
 
   "SPELL.NAME": "Name",
