@@ -12,7 +12,7 @@
                 <div class="skulls {{#unless data.bonus.value }}broken{{/unless}}">
                     <a class="change-bonus" data-attribute="{{data.bonus}}">
                         {{#skulls data.bonus.value data.bonus.max}}
-                        <i class="skull far {{#if @damaged}}fa-times-circle{{else}}fa-circle{{/if}}"></i>
+                            <i class="skull far {{#if @damaged}}fa-times-circle{{else}}fa-circle{{/if}}"></i>
                         {{/skulls}}
                     </a>
                 </div>
@@ -27,10 +27,10 @@
             <div class="artifactBonus">
                 <select name="data.artifactBonus">
                     {{#select data.artifactBonus}}
-                    <option value="">{{localize "ARTIFACT.REGULAR"}}</option>
-                    <option value="d8">{{localize "ARTIFACT.MIGHTY"}} (d8)</option>
-                    <option value="d10">{{localize "ARTIFACT.EPIC"}} (d10)</option>
-                    <option value="d12">{{localize "ARTIFACT.LEGENDARY"}} (d12)</option>
+                        <option value="">{{localize "ARTIFACT.REGULAR"}}</option>
+                        <option value="d8">{{localize "ARTIFACT.MIGHTY"}} (d8)</option>
+                        <option value="d10">{{localize "ARTIFACT.EPIC"}} (d10)</option>
+                        <option value="d12">{{localize "ARTIFACT.LEGENDARY"}} (d12)</option>
                     {{/select}}
                 </select>
             </div>
@@ -41,26 +41,26 @@
         <b class="tab-item" data-tab="main">{{localize "TAB.MAIN"}}</b>
         {{#if artifact}}
             {{#if (or showDescriptionField showDrawbackField showAppearanceField showEffectField)}}
-            <b class="tab-item" data-tab="artifact">{{localize "TAB.ARTIFACT"}}</b>
+                <b class="tab-item" data-tab="artifact">{{localize "TAB.ARTIFACT"}}</b>
             {{/if}}
         {{else}}
             {{#if (or showCostField showSupplyField showCraftingFields)}}
-            <b class="tab-item" data-tab="supply">{{localize "TAB.CRAFT_SUPPLY"}}</b>
+                <b class="tab-item" data-tab="supply">{{localize "TAB.CRAFT_SUPPLY"}}</b>
             {{/if}}
         {{/if}}
     </div>
 
     <div class="sheet-body">
         <div class="tab" data-group="primary" data-tab="main">
-{{> systems/forbidden-lands/model/weapon/tab/weapon_main.html}}
+            {{> systems/forbidden-lands/model/weapon/tab/weapon_main.html}}
         </div>
 
         <div class="tab" data-group="primary" data-tab="artifact">
-{{> systems/forbidden-lands/model/weapon/tab/weapon_artifact.html}}
+            {{> systems/forbidden-lands/model/weapon/tab/weapon_artifact.html}}
         </div>
 
         <div class="tab" data-group="primary" data-tab="supply">
-{{> systems/forbidden-lands/model/weapon/tab/weapon_supply.html}}
+            {{> systems/forbidden-lands/model/weapon/tab/weapon_supply.html}}
         </div>
     </div>
 </form>
