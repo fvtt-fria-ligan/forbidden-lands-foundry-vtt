@@ -91,19 +91,15 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
       if (consumable.value == 6) {
         this.diceRoller.roll(consumableName, 0, 1, 0, [], 0);
       } else if (consumable.value > 6) {
-        this.diceRoller.roll(consumableName, 0, 0, 0, [{"dice": 1, "face": consumable.value}], 0);
+        this.diceRoller.roll(consumableName, 0, 0, 0, [{ dice: 1, face: consumable.value }], 0);
       }
     });
     html.find(".currency-button").on("click contextmenu", (ev) => {
       const currency = $(ev.currentTarget).data("currency");
       const operator = $(ev.currentTarget).data("operator");
       const modifier = ev.type === "contextmenu" ? 5 : 1;
-      let coins = [
-        this.actor.data.data.currency.gold.value,
-        this.actor.data.data.currency.silver.value,
-        this.actor.data.data.currency.copper.value,
-      ];
-      let i = {"gold": 0, "silver": 1, "copper": 2}[currency];
+      let coins = [this.actor.data.data.currency.gold.value, this.actor.data.data.currency.silver.value, this.actor.data.data.currency.copper.value];
+      let i = { gold: 0, silver: 1, copper: 2 }[currency];
       if (operator === "plus") {
         coins[i] += modifier;
       } else {
@@ -153,6 +149,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
       case "weapon":
         switch (data.data.weight) {
           case "tiny":
+          case "none":
             return 0;
           case "light":
             return 0.5;
@@ -178,7 +175,8 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
         weightCarried += 1;
       }
     }
-    const coinsCarried = parseInt(data.data.currency.gold.value) + parseInt(data.data.currency.silver.value) + parseInt(data.data.currency.copper.value);
+    const coinsCarried =
+      parseInt(data.data.currency.gold.value) + parseInt(data.data.currency.silver.value) + parseInt(data.data.currency.copper.value);
     weightCarried += Math.floor(coinsCarried / 100) * 0.5;
     let modifiers = this.getRollModifiers("CARRYING_CAPACITY");
     const weightAllowed = data.data.attribute.strength.max * 2 + modifiers.modifier;
