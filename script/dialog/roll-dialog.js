@@ -144,7 +144,7 @@ export class RollDialog {
      * @param  {string} artifact
      */
     static parseArtifact(artifact) {
-        let regex = /([0-9]*)d([0-9]*)/g;
+        let regex = /([0-9]*)d([0-9]*)/gi;
         let regexMatch;
         let artifacts = [];
         while (regexMatch = regex.exec(artifact)) {
