@@ -111,16 +111,12 @@
   "WEAPON.BONUS": "Bonus",
   "WEAPON.DAMAGE": "Damage",
   "WEAPON.RANGE": "Range",
-  "WEAPON.FEATURE": "Feature",
-  "WEAPON.DESCRIPTION": "Description",
-  "WEAPON.DRAWBACK": "Drawback",
-  "WEAPON.APPEARANCE": "Appearance",
   "WEAPON.MELEE": "Melee",
   "WEAPON.RANGED": "Ranged",
   "WEAPON.1H": "1H",
   "WEAPON.2H": "2H",
-  "WEAPON.ARTIFACT_BONUS": "Artifact Bonus",
   "WEAPON.SKILL_BONUS": "Skill Bonus",
+  "WEAPON.FEATURE": "Feature",
 
   "ITEM.ATTACK": "Attack",
   "ITEM.BUILDING": "Building",
@@ -136,6 +132,10 @@
   "ITEM.ADD_MODIFIER": "Add modifier",
   "ITEM.DELETE_MODIFIER": "Delete modifier",
 
+  "ARTIFACT.ARTIFACT_BONUS": "Artifact Bonus",
+  "ARTIFACT.DESCRIPTION": "Description",
+  "ARTIFACT.DRAWBACK": "Drawback",
+  "ARTIFACT.APPEARANCE": "Appearance",
   "ARTIFACT.REGULAR": "Normal Item",
   "ARTIFACT.MIGHTY": "Mighty",
   "ARTIFACT.EPIC": "Epic",
@@ -183,7 +183,6 @@
   "GEAR.TIME": "Time",
   "GEAR.TALENT": "Talent",
   "GEAR.TOOLS": "Tools",
-  "GEAR.EFFECT": "Effects",
 
   "RAW_MATERIAL.SHELF_LIFE": "Shelf Life",
 

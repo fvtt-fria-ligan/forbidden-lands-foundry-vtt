@@ -91,14 +91,14 @@
   "WEAPON.DAMAGE": "Dano",
   "WEAPON.RANGE": "Alcance",
   "WEAPON.FEATURE": "Característica",
-  "WEAPON.DESCRIPTION": "Descrição",
-  "WEAPON.DRAWBACK": "Drawback",
-  "WEAPON.APPEARANCE": "Aparência",
+  "ARTIFACT.DESCRIPTION": "Descrição",
+  "ARTIFACT.DRAWBACK": "Drawback",
+  "ARTIFACT.APPEARANCE": "Aparência",
   "WEAPON.MELEE": "Corpo-a-Corpo",
   "WEAPON.RANGED": "À Distância",
   "WEAPON.1H": "1M",
   "WEAPON.2H": "2M",
-  "WEAPON.ARTIFACT_BONUS": "Bônus de Artefato",
+  "ARTIFACT.ARTIFACT_BONUS": "Bônus de Artefato",
   "WEAPON.SKILL_BONUS": "Bônus de Perícia",
 
   "ITEM.ATTACK": "Ataque",
@@ -147,7 +147,7 @@
   "GEAR.TIME": "Tempo",
   "GEAR.TALENT": "Talento",
   "GEAR.TOOLS": "Ferramentas",
-  "GEAR.EFFECT": "Efeitos",
+  "ARTIFACT.EFFECT": "Efeitos",
 
   "RAW_MATERIAL.SHELF_LIFE": "Vida Útil",
 

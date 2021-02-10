@@ -96,14 +96,14 @@
   "WEAPON.DAMAGE": "Skada",
   "WEAPON.RANGE": "Räckvidd",
   "WEAPON.FEATURE": "Egenskaper",
-  "WEAPON.DESCRIPTION": "Beskrivning",
-  "WEAPON.DRAWBACK": "Nackdel",
-  "WEAPON.APPEARANCE": "Utseende",
+  "ARTIFACT.DESCRIPTION": "Beskrivning",
+  "ARTIFACT.DRAWBACK": "Nackdel",
+  "ARTIFACT.APPEARANCE": "Utseende",
   "WEAPON.MELEE": "Närkamp",
   "WEAPON.RANGED": "Avstånd",
   "WEAPON.1H": "1H",
   "WEAPON.2H": "2H",
-  "WEAPON.ARTIFACT_BONUS": "Artefakttärning",
+  "ARTIFACT.ARTIFACT_BONUS": "Artefakttärning",
   "WEAPON.SKILL_BONUS": "Modifikation",
 
   "ITEM.ATTACK": "Attack",
@@ -166,7 +166,7 @@
   "GEAR.TIME": "Tid",
   "GEAR.TALENT": "Talang",
   "GEAR.TOOLS": "Verktyg",
-  "GEAR.EFFECT": "Effekt",
+  "ARTIFACT.EFFECT": "Effekt",
 
   "RAW_MATERIAL.SHELF_LIFE": "Hållbarhetstid",
 
@@ -205,7 +205,7 @@
   "HIRELING.SALARY": "Lön",
   "HIRELING.DESCRIPTION": "Beskrivning",
   "HIRELING.SUPPLY": "Lager",
-  
+
   "ATTACK.BLUNT": "Kross",
   "ATTACK.FEAR": "Skräck",
   "ATTACK.SLASH": "Hugg",

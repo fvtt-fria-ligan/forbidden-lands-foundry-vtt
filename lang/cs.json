@@ -90,15 +90,10 @@
   "WEAPON.BONUS": "Bonus",
   "WEAPON.DAMAGE": "Zranění",
   "WEAPON.RANGE": "Vzdálenost",
-  "WEAPON.FEATURE": "Vlastnosti",
-  "WEAPON.DESCRIPTION": "Popis",
-  "WEAPON.DRAWBACK": "Nevýhoda",
-  "WEAPON.APPEARANCE": "Vzhled",
   "WEAPON.MELEE": "Nablízko",
   "WEAPON.RANGED": "Střelná",
   "WEAPON.1H": "1R",
   "WEAPON.2H": "2R",
-  "WEAPON.ARTIFACT_BONUS": "Bonus artefaktů",
   "WEAPON.SKILL_BONUS": "Dovednostní bonus",
 
   "ITEM.ATTACK": "Útok",
@@ -147,7 +142,13 @@
   "GEAR.TIME": "Čas",
   "GEAR.TALENT": "Talent",
   "GEAR.TOOLS": "Nářádí",
+
+  "ARTIFACT.ARTIFACT_BONUS": "Bonus artefaktů",
   "GEAR.EFFECT": "Účinek",
+  "WEAPON.FEATURE": "Vlastnosti",
+  "ARTIFACT.DESCRIPTION": "Popis",
+  "ARTIFACT.DRAWBACK": "Nevýhoda",
+  "ARTIFACT.APPEARANCE": "Vzhled",
 
   "RAW_MATERIAL.SHELF_LIFE": "Trvanlivost",
 
@@ -183,7 +184,7 @@
   "HIRELING.SALARY": "Mzda",
   "HIRELING.DESCRIPTION": "Popis",
   "HIRELING.SUPPLY": "Dostupnost",
-  
+
   "ATTACK.BLUNT": "Tupá",
   "ATTACK.FEAR": "Hrůza",
   "ATTACK.SLASH": "Řezná",

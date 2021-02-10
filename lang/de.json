@@ -90,15 +90,10 @@
   "WEAPON.BONUS": "Bonus",
   "WEAPON.DAMAGE": "Schaden",
   "WEAPON.RANGE": "Reichweite",
-  "WEAPON.FEATURE": "Merkmal",
-  "WEAPON.DESCRIPTION": "Beschreibung",
-  "WEAPON.DRAWBACK": "Nachteil",
-  "WEAPON.APPEARANCE": "Aussehen",
   "WEAPON.MELEE": "Nah",
   "WEAPON.RANGED": "Fern",
   "WEAPON.1H": "1H",
   "WEAPON.2H": "2H",
-  "WEAPON.ARTIFACT_BONUS": "Artefaktbonus",
   "WEAPON.SKILL_BONUS": "Fertigkeitenbonus",
 
   "ITEM.ATTACK": "Angriff",
@@ -147,7 +142,13 @@
   "GEAR.TIME": "Zeit",
   "GEAR.TALENT": "Talent",
   "GEAR.TOOLS": "Werkzeuge",
+
+  "ARTIFACT.ARTIFACT_BONUS": "Artefaktbonus",
   "GEAR.EFFECT": "Auswirkung",
+  "WEAPON.FEATURE": "Merkmal",
+  "ARTIFACT.DESCRIPTION": "Beschreibung",
+  "ARTIFACT.DRAWBACK": "Nachteil",
+  "ARTIFACT.APPEARANCE": "Aussehen",
 
   "RAW_MATERIAL.SHELF_LIFE": "Haltbarkeit",
 
@@ -184,7 +185,7 @@
   "HIRELING.SALARY": "Lohn",
   "HIRELING.DESCRIPTION": "Beschreibung",
   "HIRELING.SUPPLY": "Verbreitung",
-  
+
   "ATTACK.BLUNT": "Stumpf",
   "ATTACK.FEAR": "Furcht",
   "ATTACK.SLASH": "Schnitt",

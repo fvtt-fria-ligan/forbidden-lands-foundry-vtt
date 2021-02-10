@@ -96,14 +96,14 @@
   "WEAPON.DAMAGE": "Dégâts",
   "WEAPON.RANGE": "Portée",
   "WEAPON.FEATURE": "Fonctionnalité",
-  "WEAPON.DESCRIPTION": "Description",
-  "WEAPON.DRAWBACK": "Inconvénient",
-  "WEAPON.APPEARANCE": "Apparence",
+  "ARTIFACT.DESCRIPTION": "Description",
+  "ARTIFACT.DRAWBACK": "Inconvénient",
+  "ARTIFACT.APPEARANCE": "Apparence",
   "WEAPON.MELEE": "Mêlée",
   "WEAPON.RANGED": "Distance",
   "WEAPON.1H": "1H",
   "WEAPON.2H": "2H",
-  "WEAPON.ARTIFACT_BONUS": "Bonus d'Artéfact",
+  "ARTIFACT.ARTIFACT_BONUS": "Bonus d'Artéfact",
   "WEAPON.SKILL_BONUS": "Bonus de Compétence",
 
   "ITEM.ATTACK": "Attaque",
@@ -166,7 +166,7 @@
   "GEAR.TIME": "Temps",
   "GEAR.TALENT": "Talent",
   "GEAR.TOOLS": "Outils",
-  "GEAR.EFFECT": "Effets",
+  "ARTIFACT.EFFECT": "Effets",
 
   "RAW_MATERIAL.SHELF_LIFE": "Durée de vie",
 
