@@ -1,0 +1,27 @@
+<div class="artifact border item">
+    {{#if showEffectField}}
+        <div class="effect">
+            <label>{{localize "GEAR.EFFECT"}}</label>
+            <textarea name="data.effect">{{data.effect}}</textarea>
+        </div>
+    {{/if}}
+    {{#if showDescriptionField}}
+        <div class="description">
+            <label>{{localize "ARTIFACT.DESCRIPTION"}}</label>
+            <textarea name="data.description">{{data.description}}</textarea>
+        </div>
+    {{/if}}
+    {{#if showDrawbackField}}
+        <div class="drawback">
+            <label>{{localize "ARTIFACT.DRAWBACK"}}</label>
+            <textarea name="data.drawback">{{data.drawback}}</textarea>
+        </div>
+    {{/if}}
+    {{#if showAppearanceField}}
+        <div class="appearance">
+            <label>{{localize "ARTIFACT.APPEARANCE"}}</label>
+            <textarea name="data.appearance">{{data.appearance}}</textarea>
+        </div>
+    {{/if}}
+
+</div>
