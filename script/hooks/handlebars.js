@@ -17,16 +17,18 @@ function preloadHandlebarsTemplates() {
     "systems/forbidden-lands/model/tab/combat.html",
     "systems/forbidden-lands/model/tab/combat-monster.html",
     "systems/forbidden-lands/model/tab/talent.html",
-    "systems/forbidden-lands/model/tab/gear.html",
+    "systems/forbidden-lands/model/tab/gear-character.html",
     "systems/forbidden-lands/model/tab/gear-monster.html",
     "systems/forbidden-lands/model/tab/bio.html",
     "systems/forbidden-lands/model/tab/building-stronghold.html",
     "systems/forbidden-lands/model/tab/hireling-stronghold.html",
     "systems/forbidden-lands/model/tab/gear-stronghold.html",
     "systems/forbidden-lands/model/partial/roll-modifiers.html",
-    "systems/forbidden-lands/model/weapon/tab/weapon_artifact.html",
-    "systems/forbidden-lands/model/weapon/tab/weapon_main.html",
-    "systems/forbidden-lands/model/weapon/tab/weapon_supply.html",
+    "systems/forbidden-lands/model/tab/gear/gear-artifact.html",
+    "systems/forbidden-lands/model/tab/gear/gear-supply.html",
+    "systems/forbidden-lands/model/tab/gear/armor-main.html",
+    "systems/forbidden-lands/model/tab/gear/gear-main.html",
+    "systems/forbidden-lands/model/tab/gear/weapon-main.html",
   ];
   return loadTemplates(templatePaths);
 }
