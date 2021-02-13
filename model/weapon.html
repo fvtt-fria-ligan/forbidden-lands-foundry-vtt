@@ -23,7 +23,7 @@
                 </div>
             </div>
 
-            <label>{{localize "WEAPON.ARTIFACT_BONUS"}}</label>
+            <label>{{localize "ARTIFACT.ARTIFACT_BONUS"}}</label>
             <div class="artifactBonus">
                 <select name="data.artifactBonus">
                     {{#select data.artifactBonus}}
@@ -36,7 +36,6 @@
             </div>
         </div>
     </div>
-
     <div class="sheet-tabs tabs flex row" data-group="primary">
         <b class="tab-item" data-tab="main">{{localize "TAB.MAIN"}}</b>
         {{#if artifact}}
@@ -49,18 +48,15 @@
             {{/if}}
         {{/if}}
     </div>
-
     <div class="sheet-body">
         <div class="tab" data-group="primary" data-tab="main">
-            {{> systems/forbidden-lands/model/weapon/tab/weapon_main.html}}
+{{> systems/forbidden-lands/model/tab/gear/weapon-main.html}}
         </div>
-
         <div class="tab" data-group="primary" data-tab="artifact">
-            {{> systems/forbidden-lands/model/weapon/tab/weapon_artifact.html}}
+{{> systems/forbidden-lands/model/tab/gear/gear-artifact.html}}
         </div>
-
         <div class="tab" data-group="primary" data-tab="supply">
-            {{> systems/forbidden-lands/model/weapon/tab/weapon_supply.html}}
+{{> systems/forbidden-lands/model/tab/gear/gear-supply.html}}
         </div>
     </div>
 </form>
