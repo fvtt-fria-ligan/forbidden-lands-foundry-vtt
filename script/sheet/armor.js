@@ -8,24 +8,9 @@ export class ForbiddenLandsArmorSheet extends ForbiddenLandsItemSheet {
         {
           navSelector: ".sheet-tabs",
           contentSelector: ".sheet-body",
-          initial: "attributes",
+          initial: "main",
         },
       ],
     });
-  }
-
-  computeQuality(data) {
-    data.artifact = data.data.artifactBonus !== "";
-  }
-
-  getData() {
-    const data = super.getData();
-    this.computeQuality(data);
-    return data;
-  }
-
-  async _renderInner(data, options) {
-    data.showAppearanceField = game.settings.get("forbidden-lands", "showAppearanceField");
-    return super._renderInner(data, options);
   }
 }
