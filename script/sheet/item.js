@@ -21,8 +21,15 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
     return buttons;
   }
 
+  _computeQuality(data) {
+    data.artifact = !!data.data.artifactBonus;
+    data.lethal = data.data.lethal === "yes";
+    data.ranks = !data.data.type || data.data.type !== "kin";
+  }
+
   getData() {
     const data = super.getData();
+    this._computeQuality(data);
     return data;
   }
 
