@@ -1,4 +1,20 @@
 {
+  "ACTOR.TypeCharacter": "Character",
+  "ACTOR.TypeMonster": "Monster",
+  "ACTOR.TypeStronghold": "Stronghold",
+
+  "ITEM.TypeWeapon": "Weapon",
+  "ITEM.TypeArmor": "Armor",
+  "ITEM.TypeGear": "Gear",
+  "ITEM.TypeRawmaterial": "Raw Material",
+  "ITEM.TypeTalent": "Talent",
+  "ITEM.TypeCriticalinjury": "Critical Injury",
+  "ITEM.TypeSpell": "Spell",
+  "ITEM.TypeMonstertalent": "Monster Talent",
+  "ITEM.TypeMonsterattack": "Monster Attack",
+  "ITEM.TypeBuilding": "Stronghold Building",
+  "ITEM.TypeHireling": "Stronghold Hireling",
+
   "BIO.NAME": "Jméno",
   "BIO.KIN": "Rod",
   "BIO.PROFESSION": "Povolání",
@@ -95,6 +111,7 @@
   "WEAPON.1H": "1R",
   "WEAPON.2H": "2R",
   "WEAPON.SKILL_BONUS": "Dovednostní bonus",
+  "WEAPON.FEATURE": "Vlastnosti",
 
   "ITEM.ATTACK": "Útok",
   "ITEM.BUILDING": "Budova",
@@ -142,10 +159,9 @@
   "GEAR.TIME": "Čas",
   "GEAR.TALENT": "Talent",
   "GEAR.TOOLS": "Nářádí",
+  "GEAR.EFFECT": "Účinek",
 
   "ARTIFACT.ARTIFACT_BONUS": "Bonus artefaktů",
-  "GEAR.EFFECT": "Účinek",
-  "WEAPON.FEATURE": "Vlastnosti",
   "ARTIFACT.DESCRIPTION": "Popis",
   "ARTIFACT.DRAWBACK": "Nevýhoda",
   "ARTIFACT.APPEARANCE": "Vzhled",

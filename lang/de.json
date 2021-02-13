@@ -1,4 +1,20 @@
 {
+  "ACTOR.TypeCharacter": "Character",
+  "ACTOR.TypeMonster": "Monster",
+  "ACTOR.TypeStronghold": "Stronghold",
+
+  "ITEM.TypeWeapon": "Weapon",
+  "ITEM.TypeArmor": "Armor",
+  "ITEM.TypeGear": "Gear",
+  "ITEM.TypeRawmaterial": "Raw Material",
+  "ITEM.TypeTalent": "Talent",
+  "ITEM.TypeCriticalinjury": "Critical Injury",
+  "ITEM.TypeSpell": "Spell",
+  "ITEM.TypeMonstertalent": "Monster Talent",
+  "ITEM.TypeMonsterattack": "Monster Attack",
+  "ITEM.TypeBuilding": "Stronghold Building",
+  "ITEM.TypeHireling": "Stronghold Hireling",
+
   "BIO.NAME": "Name",
   "BIO.KIN": "Volk",
   "BIO.PROFESSION": "Beruf",
@@ -95,6 +111,7 @@
   "WEAPON.1H": "1H",
   "WEAPON.2H": "2H",
   "WEAPON.SKILL_BONUS": "Fertigkeitenbonus",
+  "WEAPON.FEATURE": "Merkmal",
 
   "ITEM.ATTACK": "Angriff",
   "ITEM.BUILDING": "Gebäude",
@@ -142,10 +159,9 @@
   "GEAR.TIME": "Zeit",
   "GEAR.TALENT": "Talent",
   "GEAR.TOOLS": "Werkzeuge",
+  "GEAR.EFFECT": "Auswirkung",
 
   "ARTIFACT.ARTIFACT_BONUS": "Artefaktbonus",
-  "GEAR.EFFECT": "Auswirkung",
-  "WEAPON.FEATURE": "Merkmal",
   "ARTIFACT.DESCRIPTION": "Beschreibung",
   "ARTIFACT.DRAWBACK": "Nachteil",
   "ARTIFACT.APPEARANCE": "Aussehen",

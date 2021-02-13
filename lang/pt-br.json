@@ -1,4 +1,20 @@
 {
+  "ACTOR.TypeCharacter": "Character",
+  "ACTOR.TypeMonster": "Monster",
+  "ACTOR.TypeStronghold": "Stronghold",
+
+  "ITEM.TypeWeapon": "Weapon",
+  "ITEM.TypeArmor": "Armor",
+  "ITEM.TypeGear": "Gear",
+  "ITEM.TypeRawmaterial": "Raw Material",
+  "ITEM.TypeTalent": "Talent",
+  "ITEM.TypeCriticalinjury": "Critical Injury",
+  "ITEM.TypeSpell": "Spell",
+  "ITEM.TypeMonstertalent": "Monster Talent",
+  "ITEM.TypeMonsterattack": "Monster Attack",
+  "ITEM.TypeBuilding": "Stronghold Building",
+  "ITEM.TypeHireling": "Stronghold Hireling",
+
   "BIO.NAME": "Nome",
   "BIO.KIN": "Ascendência",
   "BIO.PROFESSION": "Profissão",
@@ -91,14 +107,10 @@
   "WEAPON.DAMAGE": "Dano",
   "WEAPON.RANGE": "Alcance",
   "WEAPON.FEATURE": "Característica",
-  "ARTIFACT.DESCRIPTION": "Descrição",
-  "ARTIFACT.DRAWBACK": "Drawback",
-  "ARTIFACT.APPEARANCE": "Aparência",
   "WEAPON.MELEE": "Corpo-a-Corpo",
   "WEAPON.RANGED": "À Distância",
   "WEAPON.1H": "1M",
   "WEAPON.2H": "2M",
-  "ARTIFACT.ARTIFACT_BONUS": "Bônus de Artefato",
   "WEAPON.SKILL_BONUS": "Bônus de Perícia",
 
   "ITEM.ATTACK": "Ataque",
@@ -109,6 +121,11 @@
   "ITEM.RAW_MATERIAL": "Material Bruto",
   "ITEM.SPELL": "Magia",
   "ITEM.TALENT": "Talento",
+
+  "ARTIFACT.ARTIFACT_BONUS": "Bônus de Artefato",
+  "ARTIFACT.DESCRIPTION": "Descrição",
+  "ARTIFACT.DRAWBACK": "Drawback",
+  "ARTIFACT.APPEARANCE": "Aparência",
 
   "RANGE.ARM": "Ao Alcance das Mãos",
   "RANGE.NEAR": "Perto",
@@ -147,7 +164,7 @@
   "GEAR.TIME": "Tempo",
   "GEAR.TALENT": "Talento",
   "GEAR.TOOLS": "Ferramentas",
-  "ARTIFACT.EFFECT": "Efeitos",
+  "GEAR.EFFECT": "Efeitos",
 
   "RAW_MATERIAL.SHELF_LIFE": "Vida Útil",
 
