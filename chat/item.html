@@ -5,151 +5,159 @@
             {{link}}
         </div>
         {{#if isArmor}}
-        <h4>{{armorPart data.part}}</h4>
+            <h4>{{armorPart data.part}}</h4>
         {{/if}}
         {{#if isBuilding}}
-        <h4>{{localize "ITEM.BUILDING"}}</h4>
+            <h4>{{localize "ITEM.TypeBuilding"}}</h4>
         {{/if}}
         {{#if isCriticalInjury}}
-        <h4>{{localize "ITEM.CRITICAL_INJURY"}}</h4>
+            <h4>{{localize "ITEM.TypeCriticalinjury"}}</h4>
         {{/if}}
         {{#if isGear}}
-        <h4>{{localize "ITEM.GEAR"}}</h4>
+            <h4>{{localize "ITEM.TypeGear"}}</h4>
         {{/if}}
         {{#if isHireling}}
-        <h4>{{localize "ITEM.HIRELING"}}</h4>
+            <h4>{{localize "ITEM.TypeHireling"}}</h4>
         {{/if}}
         {{#if isMonsterAttack}}
-        <h4>{{localize "ITEM.ATTACK"}}</h4>
+            <h4>{{localize "ITEM.TypeMonsterattack"}}</h4>
         {{/if}}
         {{#if isMonsterTalent}}
-        <h4>{{localize "ITEM.TALENT"}}</h4>
+            <h4>{{localize "ITEM.TypeMonstertalent"}}</h4>
         {{/if}}
         {{#if isRawMaterial}}
-        <h4>{{localize "ITEM.RAW_MATERIAL"}}</h4>
+            <h4>{{localize "ITEM.TypeRawmaterial"}}</h4>
         {{/if}}
         {{#if isSpell}}
-        <h4>{{localize data.spellType}}</h4>
+            <h4>{{localize data.spellType}}</h4>
         {{/if}}
         {{#if isTalent}}
-        <h4>{{localize "ITEM.TALENT"}}</h4>
+            <h4>{{localize "ITEM.TypeTalent"}}</h4>
         {{/if}}
         {{#if isWeapon}}
-        <h4>{{weaponCategory data.category}}, {{weaponGrip data.grip}}</h4>
+            <h4>{{weaponCategory data.category}}, {{weaponGrip data.grip}}</h4>
         {{/if}}
 
 
         {{#if img}}
-        <img src="{{img}}" title="{{name}}" />
+            <img src="{{img}}" title="{{name}}" />
+        {{/if}}
+
+        {{#if data.artifactBonus}}
+            <p><strong>{{localize "ARTIFACT.ARTIFACT_BONUS"}}:</strong> {{data.artifactBonus}}</p>
         {{/if}}
 
         {{#if isArmor}}
-        <p><strong>{{localize "ARMOR.RATING"}}:</strong> {{data.bonus.value}}</p>
-        {{#if data.features}}
-        <p><strong>{{localize "WEAPON.FEATURE"}}:</strong> {{data.features}}</p>
+            <p><strong>{{localize "ARMOR.RATING"}}:</strong> {{data.bonus.value}}</p>
+            {{#if data.features}}
+                <p><strong>{{localize "WEAPON.FEATURE"}}:</strong> {{data.features}}</p>
+            {{/if}}
+            {{#if data.effect}}
+                <p><strong>{{localize "GEAR.EFFECT"}}:</strong> {{data.effect}}</p>
+            {{/if}}
         {{/if}}
-        {{#if data.effect}}
-        <p>{{data.effect}}</p>
-        {{/if}}
-        {{/if}}
-        
+
         {{#if isBuilding}}
-        <p><strong>{{localize "BUILDING.REPUTATION"}}:</strong> {{data.reputation}}</p>
-        <p><strong>{{localize "BUILDING.NUMBER"}}:</strong> {{data.number}}</p>
-        {{#if data.description}}
-        <p class="pre-wrap">{{data.description}}</p>
-        {{/if}}
-        {{#if data.effect}}
-        <p>{{data.effect}}</p>
-        {{/if}}
+            <p><strong>{{localize "BUILDING.REPUTATION"}}:</strong> {{data.reputation}}</p>
+            <p><strong>{{localize "BUILDING.NUMBER"}}:</strong> {{data.number}}</p>
+            {{#if data.description}}
+                <p class="pre-wrap">{{data.description}}</p>
+            {{/if}}
+            {{#if data.effect}}
+                <p><strong>{{localize "GEAR.EFFECT"}}:</strong> {{data.effect}}</p>
+            {{/if}}
         {{/if}}
 
         {{#if isCriticalInjury}}
-        <p><strong>{{localize "CRITICAL_INJURY.LETHAL"}}:</strong> {{data.lethal}}</p>
-        {{#if data.limit}}
-        <p><strong>{{localize "CRITICAL_INJURY.LIMIT"}}:</strong> {{data.limit}}</p>
-        {{/if}}
-        {{#if data.healingTime}}
-        <p><strong>{{localize "CRITICAL_INJURY.HEALING_TIME"}}:</strong> {{data.healingTime}}</p>
-        {{/if}}
-        {{#if data.effect}}
-        <p>{{data.effect}}</p>
-        {{/if}}
+            <p><strong>{{localize "CRITICAL_INJURY.LETHAL"}}:</strong> {{data.lethal}}</p>
+            {{#if data.limit}}
+                <p><strong>{{localize "CRITICAL_INJURY.LIMIT"}}:</strong> {{data.limit}}</p>
+            {{/if}}
+            {{#if data.healingTime}}
+                <p><strong>{{localize "CRITICAL_INJURY.HEALING_TIME"}}:</strong> {{data.healingTime}}</p>
+            {{/if}}
+            {{#if data.effect}}
+                <p><strong>{{localize "GEAR.EFFECT"}}:</strong> {{data.effect}}</p>
+            {{/if}}
         {{/if}}
 
         {{#if isGear}}
-        {{#if data.effect}}
-        <p>{{data.effect}}</p>
-        {{/if}}
+            {{#if data.effect}}
+                <p><strong>{{localize "GEAR.EFFECT"}}:</strong> {{data.effect}}</p>
+            {{/if}}
         {{/if}}
 
         {{#if isHireling}}
-        <p><strong>{{localize "HIRELING.SALARY"}}:</strong> {{data.salary}}</p>
-        <p><strong>{{localize "HIRELING.NUMBER"}}:</strong> {{data.number}}</p>
-        {{#if data.description}}
-        <p class="pre-wrap">{{data.description}}</p>
-        {{/if}}
+            <p><strong>{{localize "HIRELING.SALARY"}}:</strong> {{data.salary}}</p>
+            <p><strong>{{localize "HIRELING.NUMBER"}}:</strong> {{data.number}}</p>
+            {{#if data.description}}
+                <p class="pre-wrap">{{data.description}}</p>
+            {{/if}}
         {{/if}}
 
         {{#if isMonsterAttack}}
-        {{#if data.description}}
-        <p class="pre-wrap">{{data.description}}</p>
-        {{/if}}
+            {{#if data.description}}
+                <p class="pre-wrap">{{data.description}}</p>
+            {{/if}}
         {{/if}}
 
         {{#if isMonsterTalent}}
-        {{#if data.description}}
-        <p class="pre-wrap">{{data.description}}</p>
-        {{/if}}
+            {{#if data.description}}
+                <p class="pre-wrap">{{data.description}}</p>
+            {{/if}}
         {{/if}}
 
         {{#if isRawMaterial}}
-        <p><strong>{{localize "RAW_MATERIAL.SHELF_LIFE"}}:</strong> {{data.shelfLife}}</p>
+            <p><strong>{{localize "RAW_MATERIAL.SHELF_LIFE"}}:</strong> {{data.shelfLife}}</p>
         {{/if}}
 
         {{#if isSpell}}
-        <p><strong>{{localize "SPELL.RANK"}}:</strong> {{data.rank}}</p>
-        <p><strong>{{localize "SPELL.RANGE"}}:</strong> {{data.range}}</p>
-        <p><strong>{{localize "SPELL.DURATION"}}:</strong> {{data.duration}}</p>
-        {{#if data.ingredient}}
-        <p><strong>{{localize "SPELL.INGREDIENT"}}:</strong> {{data.ingredient}}</p>
-        {{/if}}
-        {{#if data.description}}
-        <p class="pre-wrap">{{data.description}}</p>
-        {{/if}}
+            <p><strong>{{localize "SPELL.RANK"}}:</strong> {{data.rank}}</p>
+            <p><strong>{{localize "SPELL.RANGE"}}:</strong> {{data.range}}</p>
+            <p><strong>{{localize "SPELL.DURATION"}}:</strong> {{data.duration}}</p>
+            {{#if data.ingredient}}
+                <p><strong>{{localize "SPELL.INGREDIENT"}}:</strong> {{data.ingredient}}</p>
+            {{/if}}
+            {{#if data.description}}
+                <p class="pre-wrap">{{data.description}}</p>
+            {{/if}}
         {{/if}}
 
         {{#if isTalent}}
-        <p><strong>{{localize "TALENT.RANK"}}:</strong> {{data.rank}}</p>
-        {{#if data.description}}
-        <p class="pre-wrap">{{data.description}}</p>
-        {{/if}}
+            <p><strong>{{localize "TALENT.RANK"}}:</strong> {{data.rank}}</p>
+            {{#if data.description}}
+                <p class="pre-wrap">{{data.description}}</p>
+            {{/if}}
         {{/if}}
 
         {{#if isWeapon}}
-        <p><strong>{{localize "WEAPON.BONUS"}}:</strong> {{data.bonus.value}}</p>
-        <p><strong>{{localize "WEAPON.DAMAGE"}}:</strong> {{data.damage}}</p>
-        <p><strong>{{localize "WEAPON.RANGE"}}:</strong> {{weaponRange data.range}}</p>
-        {{#if data.features}}
-        <p><strong>{{localize "WEAPON.FEATURE"}}:</strong> {{data.features}}</p>
+            <p><strong>{{localize "WEAPON.BONUS"}}:</strong> {{data.bonus.value}}</p>
+            <p><strong>{{localize "WEAPON.DAMAGE"}}:</strong> {{data.damage}}</p>
+            <p><strong>{{localize "WEAPON.RANGE"}}:</strong> {{weaponRange data.range}}</p>
+            {{#if data.features}}
+                <p><strong>{{localize "WEAPON.FEATURE"}}:</strong> {{data.features}}</p>
+            {{/if}}
+            {{#if data.effect}}
+                <p><strong>{{localize "GEAR.EFFECT"}}:</strong> {{data.effect}}</p>
+            {{/if}}
         {{/if}}
-        {{#if data.appearance}}
-        <p><strong>{{localize "WEAPON.APPEARANCE"}}:</strong> {{data.appearance}}</p>
+        {{#if data.artifactBonus}}
+            {{#if data.appearance}}
+                <p><strong>{{localize "ARTIFACT.APPEARANCE"}}:</strong> {{data.appearance}}</p>
+            {{/if}}
+            {{#if data.description}}
+                <p><strong>{{localize "ARTIFACT.DESCRIPTION"}}:</strong> {{data.description}}</p>
+            {{/if}}
+            {{#if data.drawback}}
+                <p><strong>{{localize "ARTIFACT.DRAWBACK"}}:</strong> {{data.drawback}}</p>
+            {{/if}}
         {{/if}}
-        {{#if data.description}}
-        <p><strong>{{localize "WEAPON.DESCRIPTION"}}:</strong> {{data.description}}</p>
-        {{/if}}
-        {{#if data.drawback}}
-        <p><strong>{{localize "WEAPON.DRAWBACK"}}:</strong> {{data.drawback}}</p>
-        {{/if}}
-        {{/if}}
-
         {{#if data.weight}}
-        <p><strong>{{localize "GEAR.WEIGHT"}}:</strong> {{itemWeight data.weight}}</p>
+            <p><strong>{{localize "GEAR.WEIGHT"}}:</strong> {{itemWeight data.weight}}</p>
         {{/if}}
 
         {{#if hasRollModifiers }}
-        <p><strong>{{localize "ITEM.ROLL_MODIFIERS"}}:</strong> {{formatRollModifiers data.rollModifiers}}</p>
+            <p><strong>{{localize "ITEM.ROLL_MODIFIERS"}}:</strong> {{formatRollModifiers data.rollModifiers}}</p>
         {{/if}}
     </div>
 </div>
