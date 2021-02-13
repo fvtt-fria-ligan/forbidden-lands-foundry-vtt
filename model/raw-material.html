@@ -1,68 +1,29 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <div class="header">
+    <div class="header border">
         <div class="avatar">
             <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
         </div>
-        <div class="name">
+        <div class="header-stats">
             <label>{{localize "GEAR.NAME"}}</label>
             <input name="name" type="text" value="{{item.name}}" />
-        </div>
-        <div class="weight">
-            <label>{{localize "GEAR.WEIGHT"}}</label>
-            <select name="data.weight">
-                {{#select data.weight}}
-                <option value="tiny">{{localize "WEIGHT.TINY"}}</option>
-                <option value="light">{{localize "WEIGHT.LIGHT"}}</option>
-                <option value="regular">{{localize "WEIGHT.REGULAR"}}</option>
-                <option value="heavy">{{localize "WEIGHT.HEAVY"}}</option>
-                {{/select}}
-            </select>
-        </div>
-        <div class="bonus">
-            <label>{{localize "GEAR.BONUS"}}</label>
-            <div class="multivalue">
-                <input name="data.bonus.value" type="number" value="{{data.bonus.value}}" data-dtype="Number" />
-                &nbsp;/&nbsp;
-                <input name="data.bonus.max" type="number" value="{{data.bonus.max}}" data-dtype="Number" />
-            </div>
-        </div>
-    </div>
-    <div class="item">
-        {{#if showEffectField}}
-        <div class="effect">
-            <label>{{localize "GEAR.EFFECT"}}</label>
-            <input name="data.effect" type="text" value="{{data.effect}}" />
-        </div>
-        {{/if}}
-        <div class="shelf-life">
+            <label>{{localize "GEAR.COST"}}</label>
+            <input name="data.cost" type="text" value="{{data.cost}}" />
             <label>{{localize "RAW_MATERIAL.SHELF_LIFE"}}</label>
             <input name="data.shelfLife" type="text" value="{{data.shelfLife}}" />
         </div>
-        {{#if showCostField}}
-        <div class="cost">
-            <label>{{localize "GEAR.COST"}}</label>
-            <input name="data.cost" type="text" value="{{data.cost}}" />
-        </div>
-        {{/if}}
-        {{#if showSupplyField}}
-        <div class="supply">
-            <label>{{localize "GEAR.SUPPLY"}}</label>
-            <input name="data.supply" type="text" value="{{data.supply}}" />
-        </div>
-        {{/if}}
-        {{#if showCraftingFields}}
+    </div>
+    <div class="item">
         <div class="raw-materials">
-            <label>{{localize "GEAR.RAW_MATERIAL"}}</label>
+            <label>{{localize "BUILDING.RAW_MATERIALS"}}</label>
             <input name="data.rawMaterials" type="text" value="{{data.rawMaterials}}" />
         </div>
         <div class="talent">
             <label>{{localize "GEAR.TALENT"}}</label>
             <input name="data.talent" type="text" value="{{data.talent}}" />
         </div>
-        <div class="tools">
+        <div class="features">
             <label>{{localize "GEAR.TOOLS"}}</label>
-            <input name="data.tools" type="text" value="{{data.tools}}" />
+            <textarea name="data.tools">{{data.tools}}</textarea>
         </div>
-        {{/if}}
     </div>
 </form>
