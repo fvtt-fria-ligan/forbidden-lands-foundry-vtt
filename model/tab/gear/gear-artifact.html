@@ -1,10 +1,12 @@
 <div class="artifact border item">
-    {{#if showEffectField}}
-        <div class="effect">
-            <label>{{localize "GEAR.EFFECT"}}</label>
-            <textarea name="data.effect">{{data.effect}}</textarea>
-        </div>
-    {{/if}}
+    {{#unless (eq item.type "gear")}}
+        {{#if showEffectField}}
+            <div class="effect">
+                <label>{{localize "GEAR.EFFECT"}}</label>
+                <textarea name="data.effect">{{data.effect}}</textarea>
+            </div>
+        {{/if}}
+    {{/unless}}
     {{#if showDescriptionField}}
         <div class="description">
             <label>{{localize "ARTIFACT.DESCRIPTION"}}</label>
