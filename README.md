@@ -1,3 +1,4 @@
+[![gitlocalized ](https://gitlocalize.com/repo/5750/whole_project/badge.svg)](https://gitlocalize.com/repo/5750/whole_project?utm_source=badge)
 # Forbidden Lands
 
 An **OFFICIAL**, community supported system for playing Forbidden Lands on Foundry VTT.
