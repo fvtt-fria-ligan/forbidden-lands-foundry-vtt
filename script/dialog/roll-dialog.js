@@ -80,7 +80,7 @@ export class RollDialog {
       let baseHtml = this.buildInputHtmlDialog("DICE.BASE", "base", 1);
       let successHtml = this.buildInputHtmlDialog("DICE.AUTOMATIC_SUCCESS", "success", 0);
       let d = new Dialog({
-        title: game.i18n.localize("ITEM.SPELL") + ": " + spell.name,
+        title: game.i18n.localize("ITEM.TypeSpell") + ": " + spell.name,
         content: this.buildDivHtmlDialog(baseHtml + successHtml),
         buttons: {
           roll: {

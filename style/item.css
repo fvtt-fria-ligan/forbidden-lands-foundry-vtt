@@ -97,7 +97,19 @@
   align-items: end;
 }
 
-.forbidden-lands.item .sheet-body .main .features {
+.forbidden-lands.item .sheet-body .main .features,
+.forbidden-lands.item .item .features,
+.forbidden-lands.item .item .effect,
+.forbidden-lands.item .item .description,
+.forbidden-lands.item .item .drawback,
+.forbidden-lands.item .item .appearance,
+.forbidden-lands.item .roll-modifiers,
+.forbidden-lands.item .item .spell-description,
+.forbidden-lands.item .item .talent-description,
+.forbidden-lands.item .item .monster-description,
+.forbidden-lands.item .item .hireling-description,
+.forbidden-lands.item .item .building-raw-materials,
+.forbidden-lands.item .item .building-description {
   grid-column: 1/-1;
 }
 
@@ -118,47 +130,15 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-.forbidden-lands.item .item .features {
-  grid-column: 1/-1;
-}
-
-.forbidden-lands.item .item .effect {
-  grid-column: 1/-1;
-}
-.forbidden-lands.item .item .effect textarea {
+.forbidden-lands.item textarea {
   resize: none;
-  height: 60px;
+  height: 55px;
 }
 
-.forbidden-lands.item .item .description {
-  grid-column: 1/-1;
-}
-
-.forbidden-lands.item .item .description textarea {
-  resize: none;
-  height: 125px;
-}
-
-.forbidden-lands.item .item .drawback {
-  grid-column: 1/-1;
-}
-
-.forbidden-lands.item .item .drawback textarea {
-  resize: none;
-  height: 125px;
-}
-
-.forbidden-lands.item .item .appearance {
-  grid-column: 1/-1;
-}
-
+.forbidden-lands.item .item .description textarea,
+.forbidden-lands.item .item .drawback textarea,
 .forbidden-lands.item .item .appearance textarea {
-  resize: none;
-  height: 125px;
-}
-
-.forbidden-lands.item .roll-modifiers {
-  grid-column: 1/-1;
+  height: 110px;
 }
 
 .forbidden-lands.item .roll-modifiers .column-header {
@@ -177,17 +157,9 @@
   margin-right: 8px;
 }
 
-.forbidden-lands.item .item .spell-description {
-  grid-column: 1/-1;
-}
-
 .forbidden-lands.item .item .spell-description textarea {
   resize: none;
   height: 250px;
-}
-
-.forbidden-lands.item .item .talent-description {
-  grid-column: 1/-1;
 }
 
 .forbidden-lands.item .item .talent-description textarea {
@@ -195,32 +167,12 @@
   height: 200px;
 }
 
-.forbidden-lands.item .item .monster-description {
-  grid-column: 1/-1;
-}
-
 .forbidden-lands.item .item .monster-description textarea {
   resize: none;
   height: 195px;
 }
 
-.forbidden-lands.item .item .hireling-description {
-  grid-column: 1/-1;
-}
-
-.forbidden-lands.item .item .hireling-description textarea {
-  resize: none;
-  height: 215px;
-}
-
-.forbidden-lands.item .item .building-raw-materials {
-  grid-column: 1/-1;
-}
-
-.forbidden-lands.item .item .building-description {
-  grid-column: 1/-1;
-}
-
+.forbidden-lands.item .item .hireling-description textarea,
 .forbidden-lands.item .item .building-description textarea {
   resize: none;
   height: 215px;

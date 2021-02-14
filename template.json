@@ -282,27 +282,29 @@
       },
       "rollModifiers": {
         "rollModifiers": {}
+      },
+      "artifact": {
+        "artifactBonus": "",
+        "drawback": "",
+        "description": "",
+        "appearance": "",
+        "effect": ""
       }
     },
     "weapon": {
-      "templates": ["bonus", "craftable", "rollModifiers"],
+      "templates": ["bonus", "craftable", "rollModifiers", "artifact"],
       "category": "melee",
-      "artifactBonus": "",
       "skillBonus": "",
       "damage": 1,
       "features": "",
       "grip": "1h",
       "range": "arm",
-      "drawback": "",
-      "description": "",
-      "appearance": "",
       "cost": "",
       "supply": "",
-      "weight": "regular",
-      "effect": ""
+      "weight": "regular"
     },
     "armor": {
-      "templates": ["bonus", "craftable", "rollModifiers"],
+      "templates": ["bonus", "craftable", "rollModifiers", "artifact"],
       "cost": 0,
       "part": "body",
       "features": "",
@@ -319,6 +321,7 @@
     },
     "talent": {
       "templates": ["rollModifiers"],
+      "type": "general",
       "rank": 1,
       "description": ""
     },
@@ -330,11 +333,10 @@
       "healingTime": ""
     },
     "gear": {
-      "templates": ["bonus", "craftable", "rollModifiers"],
+      "templates": ["bonus", "craftable", "rollModifiers", "artifact"],
       "cost": "",
       "supply": "",
-      "weight": "regular",
-      "effect": ""
+      "weight": "regular"
     },
     "rawMaterial": {
       "templates": ["bonus", "craftable"],
