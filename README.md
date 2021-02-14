@@ -1,4 +1,17 @@
-# Forbidden Lands
+<p align="center">
+  <a href="https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/tag/4.1.2" target="_blank"><img alt="Version" src="https://img.shields.io/badge/version-4.1.2-blue.svg?cacheSeconds=2592000"/></a>
+  <a href="https://foundryvtt.com" target="_blank">
+    <img src="https://img.shields.io/badge/Foundry-v0.7.9-informational" alt="foundry-shield-079" style="max-width:100%;"/>
+  </a>
+  <a href="https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/graphs/commit-activity" target="_blank">
+    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg"/>
+  </a>
+  <a href="https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/blob/main/LICENSE" target="_blank">
+    <img alt="License: GPL" src="https://img.shields.io/github/license/fvtt-fria-ligan/forbidden-lands-foundry-vtt"/>
+  </a>
+</p>
+
+# Forbidden Lands for Foundry VTT
 
 An **OFFICIAL**, community supported system for playing Forbidden Lands on Foundry VTT.
 It provides support for **character sheets only**, game content should be drawn from official source books.
@@ -15,7 +28,7 @@ It provides support for **character sheets only**, game content should be drawn 
 - [Dice So Nice](https://foundryvtt.com/packages/dice-so-nice/) version 3.0 or later will give you beautiful 3D dice for each roll
 - [Virtual Tabletop Assets - Tokenizer](https://foundryvtt.com/packages/vtta-tokenizer/) is supported on all character sheets
 
-## Sneaky Preview
+## Preview
 
 ![Character Main](https://user-images.githubusercontent.com/9851733/104242530-95fdda00-545f-11eb-8077-f9ebb2bf1e49.png)
 ![Character Combat](https://user-images.githubusercontent.com/9851733/104243355-b9755480-5460-11eb-8e59-c450e77dfb06.png)
@@ -31,14 +44,23 @@ We have a Project up where you can see what is being worked on and what is up fo
 - https://foundryvtt.com/
 - https://frialigan.se/en/store/?collection_id=84541866032
 
-## Side note
+### Side note
 
-Buy this game. Seriously. Buy it.
+> Buy this game. Seriously. Buy it.
 
 ## Credits
 
-Dice graphics recreated by [Tomasz 'jarv' Dobrowolski](jarv@monochrome.pl) with permission from Fria Ligan.
+:pencil2: System originally created by @Perfectro
 
-## Licence
+:wrench: Currently developed by @aMediocreDad @jimorie and @giant-teapot
 
-[GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/)
+:game_die: Dice graphics recreated by [Tomasz 'jarv' Dobrowolski](jarv@monochrome.pl) with permission from Fria Ligan.
+
+## 📝 License
+
+- Content: [Forbidden Lands](https://frialigan.se/en/store/?collection_id=84541866032) © Fria Ligan / Free League Publishing.
+- Foundry VTT: [Limited License Agreement for module development](https://foundryvtt.com/article/license/).
+- Source code: Copyright © 2021 [Fria Ligan Foundry VTT org.](https://github.com/fvtt-fria-ligan), and licenced under the [GNU General Public License v3.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/blob/main/LICENSE).
+- Fonts:
+  - [IM Fell English Font Family](https://fonts.google.com/specimen/IM+Fell+English)
+  - [Poppins](https://https://fonts.google.com/specimen/Poppins)
