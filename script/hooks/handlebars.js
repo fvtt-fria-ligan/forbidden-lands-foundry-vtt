@@ -117,6 +117,17 @@ function registerHandlebarsHelpers() {
         return game.i18n.localize("RANGE.DISTANT");
     }
   });
+  Handlebars.registerHelper("talentType", function (type) {
+    type = normalize(type, "general");
+    switch (type) {
+      case "general":
+        return game.i18n.localize("TALENT.GENERAL");
+      case "kin":
+        return game.i18n.localize("TALENT.KIN");
+      case "profession":
+        return game.i18n.localize("TALENT.PROFESSION");
+    }
+  });
   Handlebars.registerHelper("isBroken", function (item) {
     if (parseInt(item.data.bonus.max, 10) > 0 && parseInt(item.data.bonus.value, 10) === 0) {
       return "broken";
