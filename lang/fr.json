@@ -12,12 +12,10 @@
   "BIO.NOTE": "Note",
   "BIO.EXPERIENCE": "Expérience",
   "BIO.WILLPOWER": "Volonté",
-
   "ATTRIBUTE.STRENGTH": "FORCE",
   "ATTRIBUTE.AGILITY": "AGILITÉ",
   "ATTRIBUTE.WITS": "ESPRIT",
   "ATTRIBUTE.EMPATHY": "EMPATHIE",
-
   "SKILL.MIGHT": "Puissance",
   "SKILL.ENDURANCE": "Endurance",
   "SKILL.MELEE": "Mêlée",
@@ -34,12 +32,10 @@
   "SKILL.PERFORMANCE": "Représentation",
   "SKILL.HEALING": "Guérison",
   "SKILL.ANIMAL_HANDLING": "Dressage",
-
   "CONDITION.SLEEPY": "Somnolent",
   "CONDITION.THIRSTY": "Assoiffé",
   "CONDITION.HUNGRY": "Affamé",
   "CONDITION.COLD": "Frigorifié",
-
   "HEADER.ARMOR": "ARMURES",
   "HEADER.ATTRIBUTES": "ATTRIBUTS",
   "HEADER.SKILLS": "COMPÉTENCES",
@@ -61,23 +57,19 @@
   "HEADER.HIRELING": "SERVITEURS",
   "HEADER.RAW_MATERIAL": "MATIERES PREMIERES",
   "HEADER.ACTIONS": "ACTIONS",
-
   "ARMOR.HELMET": "Heaume",
   "ARMOR.SHIELD": "Bouclier",
   "ARMOR.BODY": "Corps",
   "ARMOR.RATING": "Cotation",
   "ARMOR.PART": "Partie du corps",
   "ARMOR.TOTAL": "Total",
-
   "CONSUMABLE.FOOD": "NOURRITURE",
   "CONSUMABLE.WATER": "EAU",
   "CONSUMABLE.ARROWS": "FLÈCHES",
   "CONSUMABLE.TORCHES": "TORCHES",
-
   "CURRENCY.GOLD": "Or",
   "CURRENCY.SILVER": "Argent",
   "CURRENCY.COPPER": "Cuivre",
-
   "TAB.MAIN": "PRINCIPAL",
   "TAB.COMBAT": "COMBAT",
   "TAB.TALENT": "TALENT",
@@ -88,7 +80,6 @@
   "TAB.HIRELING": "SERVITEUR",
   "TAB.CRAFT_SUPPLY": "CONFECTION & ACHAT",
   "TAB.ARTIFACT": "ARTÉFACT",
-
   "WEAPON.NAME": "Nom",
   "WEAPON.CATEGORY": "Type",
   "WEAPON.GRIP": "Prise",
@@ -105,7 +96,6 @@
   "WEAPON.2H": "2H",
   "WEAPON.ARTIFACT_BONUS": "Bonus d'Artéfact",
   "WEAPON.SKILL_BONUS": "Bonus de Compétence",
-
   "ITEM.ATTACK": "Attaque",
   "ITEM.BUILDING": "Bâtiment",
   "ITEM.CRITICAL_INJURY": "Blessure Critique",
@@ -119,23 +109,19 @@
   "ITEM.NO_MODIFIERS": "Aucun modificateur",
   "ITEM.ADD_MODIFIER": "Ajouter un modificateur",
   "ITEM.DELETE_MODIFIER": "Supprimer ce modificateur",
-
   "ARTIFACT.REGULAR": "Aucun (objet commun)",
   "ARTIFACT.MIGHTY": "Remarquable",
   "ARTIFACT.EPIC": "Épique",
   "ARTIFACT.LEGENDARY": "Légendaire",
-
   "RANGE.ARM": "Contact",
   "RANGE.NEAR": "Proche",
   "RANGE.SHORT": "Courte",
   "RANGE.LONG": "Longue",
   "RANGE.DISTANT": "Lointaine",
-
   "WEIGHT.TINY": "Minuscule",
   "WEIGHT.LIGHT": "Léger",
   "WEIGHT.REGULAR": "Moyen",
   "WEIGHT.HEAVY": "Lourd",
-
   "SPELL.NAME": "Nom",
   "SPELL.RANK": "Rang",
   "SPELL.RANGE": "Portée",
@@ -146,17 +132,14 @@
   "SPELL.SPELL": "Sortilège",
   "SPELL.POWER_WORD": "Mot de Pouvoir",
   "SPELL.RITUAL": "Rituel",
-
   "CRITICAL_INJURY.NAME": "Nom",
   "CRITICAL_INJURY.LETHAL": "Létal",
   "CRITICAL_INJURY.LIMIT": "Limite",
   "CRITICAL_INJURY.EFFECT": "Effets",
   "CRITICAL_INJURY.HEALING_TIME": "Durée",
-
   "TALENT.NAME": "Nom",
   "TALENT.RANK": "Rang",
   "TALENT.DESCRIPTION": "Description",
-
   "GEAR.NAME": "Nom",
   "GEAR.BONUS": "Bonus",
   "GEAR.COST": "Coût",
@@ -167,9 +150,7 @@
   "GEAR.TALENT": "Talent",
   "GEAR.TOOLS": "Outils",
   "GEAR.EFFECT": "Effets",
-
   "RAW_MATERIAL.SHELF_LIFE": "Durée de vie",
-
   "PUSH": "DOUBLER !",
   "PUSHED": "Doublé",
   "DAMAGE": "Dégât",
@@ -177,7 +158,6 @@
   "POWER_LEVEL": "Puissance",
   "OTHER": "AUTRE",
   "CARRYING_CAPACITY": "Capacité de transport",
-
   "MONSTER.NAME": "Nom",
   "MONSTER.DICE": "Dés",
   "MONSTER.DAMAGE": "Dégâts",
@@ -186,10 +166,8 @@
   "MONSTER.DESCRIPTION": "Description",
   "MONSTER.ARMOR": "Armure",
   "MOVEMENT": "Mouvement",
-
   "STRONGHOLD.LOCATION": "Lieux",
   "STRONGHOLD.DEFENSE_RATING": "Score de défense",
-
   "BUILDING.NAME": "Nom",
   "BUILDING.EFFECT": "Effet",
   "BUILDING.NUMBER": "Nombre",
@@ -199,19 +177,16 @@
   "BUILDING.TOOLS": "Outils",
   "BUILDING.TIME": "Temps",
   "BUILDING.REPUTATION": "Réputation",
-
   "HIRELING.NAME": "Nom",
   "HIRELING.NUMBER": "Nombre",
   "HIRELING.SALARY": "Salaire",
   "HIRELING.DESCRIPTION": "Description",
   "HIRELING.SUPPLY": "Rareté",
-
   "ATTACK.BLUNT": "Contondant",
   "ATTACK.FEAR": "Peur",
   "ATTACK.SLASH": "Coupure",
   "ATTACK.STAB": "Poignarder",
   "ATTACK.OTHER": "Autre",
-
   "DICE.ROLL": "Jet",
   "DICE.BASE": "Base",
   "DICE.SKILL": "Compétence",
@@ -220,7 +195,6 @@
   "DICE.MODIFIER": "Modificateur",
   "DICE.CANCEL": "Annuler",
   "DICE.AUTOMATIC_SUCCESS": "Succès automatique",
-
   "ACTION.BREAK_FREE": "Se libérer",
   "ACTION.DISARM": "Désarmer",
   "ACTION.DODGE": "Esquiver",
@@ -230,8 +204,21 @@
   "ACTION.SHOVE": "Bousculer",
   "ACTION.RETREAT": "Battre en retraite",
   "ACTION.UNARMED_STRIKE": "Attaquer sans arme",
-
   "SHEET.HEADER.ROLL": "Jet",
   "SHEET.HEADER.PUSH": "Doubler",
-  "SHEET.HEADER.POST_ITEM": "Poster dans le chat"
+  "SHEET.HEADER.POST_ITEM": "Poster dans le chat",
+  "ACTOR.TypeCharacter": "Personnage",
+  "ACTOR.TypeMonster": "Monstre",
+  "ACTOR.TypeStronghold": "Forteresse",
+  "ITEM.TypeWeapon": "Arme",
+  "ITEM.TypeArmor": "Armure",
+  "ITEM.TypeGear": "Équipement",
+  "ITEM.TypeRawmaterial": "Matière première",
+  "ITEM.TypeTalent": "Talent",
+  "ITEM.TypeCriticalinjury": "Blessure critique",
+  "ITEM.TypeSpell": "Sortilège",
+  "ITEM.TypeMonstertalent": "Talent de monstre",
+  "ITEM.TypeMonsterattack": "Attaque de monstre",
+  "ITEM.TypeBuilding": "Bâtiment",
+  "ITEM.TypeHireling": "Serviteur"
 }
