@@ -322,7 +322,7 @@
     "talent": {
       "templates": ["rollModifiers"],
       "type": "general",
-      "rank": "",
+      "rank": 1,
       "description": ""
     },
     "criticalInjury": {

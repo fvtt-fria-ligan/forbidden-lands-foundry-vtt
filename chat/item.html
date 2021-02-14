@@ -124,7 +124,12 @@
         {{/if}}
 
         {{#if isTalent}}
-            <p><strong>{{localize "TALENT.RANK"}}:</strong> {{data.rank}}</p>
+            {{#if data.type}}
+                <p><strong>{{localize "TALENT.TYPE"}}:</strong> {{talentType data.type}}</p>
+            {{/if}}
+            {{#unless (eq data.type "kin")}}
+                <p><strong>{{localize "TALENT.RANK"}}:</strong> {{data.rank}}</p>
+            {{/unless}}
             {{#if data.description}}
                 <p class="pre-wrap">{{data.description}}</p>
             {{/if}}
