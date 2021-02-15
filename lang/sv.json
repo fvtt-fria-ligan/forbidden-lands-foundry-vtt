@@ -9,9 +9,9 @@
   "ACTION.SHOVE": "Knuff",
   "ACTION.UNARMED_STRIKE": "Obeväpnad attack",
 
-  "ACTOR.TypeCharacter": "Character",
+  "ACTOR.TypeCharacter": "Karaktär",
   "ACTOR.TypeMonster": "Monster",
-  "ACTOR.TypeStronghold": "Stronghold",
+  "ACTOR.TypeStronghold": "Fäste",
 
   "ARMOR.BODY": "Kropp",
   "ARMOR.HELMET": "Huvud",
@@ -24,11 +24,10 @@
   "ARTIFACT.ARTIFACT_BONUS": "Artefakttärning",
   "ARTIFACT.DESCRIPTION": "Beskrivning",
   "ARTIFACT.DRAWBACK": "Nackdel",
-  "ARTIFACT.EFFECT": "Effekt",
   "ARTIFACT.EPIC": "Episk",
   "ARTIFACT.LEGENDARY": "Legendarisk",
   "ARTIFACT.MIGHTY": "Mäktig",
-  "ARTIFACT.REGULAR": "Ingen (vanligt föremål)",
+  "ARTIFACT.REGULAR": "Vanligt föremål",
 
   "ATTACK.BLUNT": "Kross",
   "ATTACK.FEAR": "Skräck",
@@ -102,6 +101,7 @@
 
   "GEAR.BONUS": "Bonus",
   "GEAR.COST": "Kostnad",
+  "GEAR.EFFECT": "Effekter",
   "GEAR.NAME": "Namn",
   "GEAR.RAW_MATERIAL": "Råmaterial",
   "GEAR.SUPPLY": "Lager",
@@ -148,12 +148,15 @@
   "ITEM.TypeCriticalinjury": "Kritisk skada",
   "ITEM.TypeGear": "Utrustning",
   "ITEM.TypeHireling": "Tjänare",
-  "ITEM.TypeMonsterattack": "Monster Attack",
-  "ITEM.TypeMonstertalent": "Monster Talent",
+  "ITEM.TypeMonsterattack": "Monsterattack",
+  "ITEM.TypeMonstertalent": "Monstertalang",
   "ITEM.TypeRawmaterial": "Råmaterial",
   "ITEM.TypeSpell": "Besvärjelse",
   "ITEM.TypeTalent": "Talang",
-  "ITEM.TypeWeapon": "Weapon",
+  "ITEM.TypeWeapon": "Vapen",
+
+  "LETHAL.NO": "Nej",
+  "LETHAL.YES": "Ja",
 
   "MONSTER.ARMOR": "Skydd",
   "MONSTER.DAMAGE_TYPE": "Skadetyp",
@@ -228,8 +231,12 @@
   "TAB.TALENT": "TALANGER",
 
   "TALENT.DESCRIPTION": "Beskrivning",
+  "TALENT.GENERAL": "Allmän talang",
+  "TALENT.KIN": "Släktestalang",
   "TALENT.NAME": "Namn",
+  "TALENT.PROFESSION": "Yrkestalang",
   "TALENT.RANK": "Nivå",
+  "TALENT.TYPE": "Typ",
 
   "WEAPON.1H": "1H",
   "WEAPON.2H": "2H",
@@ -246,6 +253,7 @@
 
   "WEIGHT.HEAVY": "Tung",
   "WEIGHT.LIGHT": "Lätt",
+  "WEIGHT.NONE": "Ingen",
   "WEIGHT.REGULAR": "Normal",
   "WEIGHT.TINY": "Småsak"
 }
