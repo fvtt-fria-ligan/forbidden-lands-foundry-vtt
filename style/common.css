@@ -309,6 +309,8 @@
   display: none;
   line-height: 16px;
   margin: 0 0 4px;
+  white-space: unset;
+  word-break: unset;
 }
 .forbidden-lands.chat-item .link-header:hover a {
   display: inline-block;
@@ -337,11 +339,7 @@
   margin-top: -8px;
 }
 .forbidden-lands.chat-item img {
-  background: radial-gradient(
-    closest-side,
-    var(--color-highlight) 0%,
-    transparent 100%
-  );
+  background: radial-gradient(closest-side, var(--color-highlight) 0%, transparent 100%);
   border: 0;
   display: block;
   margin: 0 auto 8px;
@@ -392,11 +390,7 @@
   margin-top: -8px;
 }
 .forbidden-lands.roll-item img {
-  background: radial-gradient(
-    closest-side,
-    var(--color-highlight) 0%,
-    transparent 100%
-  );
+  background: radial-gradient(closest-side, var(--color-highlight) 0%, transparent 100%);
   border: 0;
   margin: 0 auto 8px;
   max-height: 64px;
