@@ -21,7 +21,7 @@
   display: flex;
   margin-bottom: 8px;
   padding: 8px;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .forbidden-lands.item .header .header-stats {
