@@ -11,9 +11,11 @@
   </a>
 </p>
 
+![logo](https://user-images.githubusercontent.com/9851733/108642190-0c9ce700-74a4-11eb-9e2b-06f1bca9248e.png)
+
 # Forbidden Lands for Foundry VTT
 
-An **OFFICIAL**, community supported system for playing Forbidden Lands on Foundry VTT.
+The **OFFICIAL**, community supported system for playing Forbidden Lands on Foundry VTT.
 It provides support for **character sheets only**, game content should be drawn from official source books.
 
 ## Install
