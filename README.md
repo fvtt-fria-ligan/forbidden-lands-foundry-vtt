@@ -60,6 +60,7 @@ We have a Project up where you can see what is being worked on and what is up fo
 
 ## 📝 License
 
+- Logo: The Forbidden Lands logo is © Fria Ligan / Free League Publishing
 - Content: [Forbidden Lands](https://frialigan.se/en/store/?collection_id=84541866032) © Fria Ligan / Free League Publishing.
 - Foundry VTT: [Limited License Agreement for module development](https://foundryvtt.com/article/license/).
 - Source code: Copyright © 2021 [Fria Ligan Foundry VTT org.](https://github.com/fvtt-fria-ligan), and licenced under the [GNU General Public License v3.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/blob/main/LICENSE).
