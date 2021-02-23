@@ -66,4 +66,4 @@ We have a Project up where you can see what is being worked on and what is up fo
 - Source code: Copyright © 2021 [Fria Ligan Foundry VTT org.](https://github.com/fvtt-fria-ligan), and licenced under the [GNU General Public License v3.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/blob/main/LICENSE).
 - Fonts:
   - [IM Fell English Font Family](https://fonts.google.com/specimen/IM+Fell+English)
-  - [Poppins](https://https://fonts.google.com/specimen/Poppins)
+  - [Poppins](https://fonts.google.com/specimen/Poppins)
