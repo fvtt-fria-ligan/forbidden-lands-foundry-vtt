@@ -61,7 +61,7 @@
                             <div class="skulls {{#unless data.bio.willpower.value }}broken{{/unless}} flex row align-center">
                                 <a class="change-willpower">
                                     {{#skulls data.bio.willpower.value data.bio.willpower.max}}
-                                    <i class="skull far {{#if @damaged}}fa-circle{{else}}fa-times-circle{{/if}}"></i>
+                                    <i class="skull {{#if @damaged}}far fa-circle{{else}}{{#if alternativeSkulls}} fas fa-circle {{else}} far fa-times-circle{{/if}}{{/if}}"></i>
                                     {{/skulls}}
                                 </a>
                             </div>
