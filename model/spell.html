@@ -1,39 +1,41 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <div class="header">
+    <div class="header border">
         <div class="avatar" style="grid-row: 1/3;">
             <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
         </div>
-        <div class="name">
+        <div class="header-stats">
             <label>{{localize "GEAR.NAME"}}</label>
-            <input name="name" type="text" value="{{item.name}}"/>
-        </div>
-        <div class="rank">
+            <div class="name">
+                <input name="name" type="text" value="{{item.name}}" />
+            </div>
             <label>{{localize "SPELL.RANK"}}</label>
-            <input name="data.rank" type="text" value="{{data.rank}}"/>
-        </div>
-        <div class="spell-type">
+            <div class="rank">
+                <input name="data.rank" type="text" value="{{data.rank}}" />
+            </div>
             <label>{{localize "SPELL.SPELL_TYPE"}}</label>
-            <select name="data.spellType">
-                {{#select data.spellType}}
-                <option value="SPELL.SPELL">{{localize "SPELL.SPELL"}}</option>
-                <option value="SPELL.POWER_WORD">{{localize "SPELL.POWER_WORD"}}</option>
-                <option value="SPELL.RITUAL">{{localize "SPELL.RITUAL"}}</option>
-                {{/select}}
-            </select>
+            <div class="spell-type">
+                <select name="data.spellType">
+                    {{#select data.spellType}}
+                        <option value="SPELL.SPELL">{{localize "SPELL.SPELL"}}</option>
+                        <option value="SPELL.POWER_WORD">{{localize "SPELL.POWER_WORD"}}</option>
+                        <option value="SPELL.RITUAL">{{localize "SPELL.RITUAL"}}</option>
+                    {{/select}}
+                </select>
+            </div>
         </div>
     </div>
     <div class="item">
         <div class="range">
             <label>{{localize "SPELL.RANGE"}}</label>
-            <input name="data.range" type="text" value="{{data.range}}"/>
+            <input name="data.range" type="text" value="{{data.range}}" />
         </div>
         <div class="duration">
             <label>{{localize "SPELL.DURATION"}}</label>
-            <input name="data.duration" type="text" value="{{data.duration}}"/>
+            <input name="data.duration" type="text" value="{{data.duration}}" />
         </div>
         <div class="ingredient">
             <label>{{localize "SPELL.INGREDIENT"}}</label>
-            <input name="data.ingredient" type="text" value="{{data.ingredient}}"/>
+            <input name="data.ingredient" type="text" value="{{data.ingredient}}" />
         </div>
         <div class="spell-description">
             <label>{{localize "SPELL.DESCRIPTION"}}</label>

@@ -80,7 +80,7 @@ export class RollDialog {
       let baseHtml = this.buildInputHtmlDialog("DICE.BASE", "base", 1);
       let successHtml = this.buildInputHtmlDialog("DICE.AUTOMATIC_SUCCESS", "success", 0);
       let d = new Dialog({
-        title: game.i18n.localize("ITEM.SPELL") + ": " + spell.name,
+        title: game.i18n.localize("ITEM.TypeSpell") + ": " + spell.name,
         content: this.buildDivHtmlDialog(baseHtml + successHtml),
         buttons: {
           roll: {
@@ -144,7 +144,7 @@ export class RollDialog {
      * @param  {string} artifact
      */
     static parseArtifact(artifact) {
-        let regex = /([0-9]*)d([0-9]*)/g;
+        let regex = /([0-9]*)d([0-9]*)/gi;
         let regexMatch;
         let artifacts = [];
         while (regexMatch = regex.exec(artifact)) {

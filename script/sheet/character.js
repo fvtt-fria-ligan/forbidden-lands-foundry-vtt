@@ -86,9 +86,38 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
       RollDialog.prepareRollDialog("HEADER.ARMOR", 0, 0, armorTotal, "", 0, 0, this.diceRoller);
     });
     html.find(".roll-consumable").click((ev) => {
-      const consumableName = $(ev.currentTarget).data("consumable");
-      const consumable = this.actor.data.data.consumable[consumableName];
-      this.diceRoller.rollConsumable(consumable);
+      const consumable = this.actor.data.data.consumable[$(ev.currentTarget).data("consumable")];
+      const consumableName = game.i18n.localize(consumable.label);
+      if (consumable.value == 6) {
+        this.diceRoller.roll(consumableName, 0, 1, 0, [], 0);
+      } else if (consumable.value > 6) {
+        this.diceRoller.roll(consumableName, 0, 0, 0, [{ dice: 1, face: consumable.value }], 0);
+      }
+    });
+    html.find(".currency-button").on("click contextmenu", (ev) => {
+      const currency = $(ev.currentTarget).data("currency");
+      const operator = $(ev.currentTarget).data("operator");
+      const modifier = ev.type === "contextmenu" ? 5 : 1;
+      let coins = [this.actor.data.data.currency.gold.value, this.actor.data.data.currency.silver.value, this.actor.data.data.currency.copper.value];
+      let i = { gold: 0, silver: 1, copper: 2 }[currency];
+      if (operator === "plus") {
+        coins[i] += modifier;
+      } else {
+        coins[i] -= modifier;
+        for (; i >= 0; --i) {
+          if (coins[i] < 0 && i > 0) {
+            coins[i - 1] -= 1;
+            coins[i] += 10;
+          }
+        }
+      }
+      if (coins[0] >= 0) {
+        this.actor.update({
+          "data.currency.gold.value": coins[0],
+          "data.currency.silver.value": coins[1],
+          "data.currency.copper.value": coins[2],
+        });
+      }
     });
   }
 
@@ -120,6 +149,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
       case "weapon":
         switch (data.data.weight) {
           case "tiny":
+          case "none":
             return 0;
           case "light":
             return 0.5;
@@ -145,9 +175,11 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
         weightCarried += 1;
       }
     }
-    const coinsCarried = parseInt(data.data.currency.gold.value) + parseInt(data.data.currency.silver.value) + parseInt(data.data.currency.copper.value);
+    const coinsCarried =
+      parseInt(data.data.currency.gold.value) + parseInt(data.data.currency.silver.value) + parseInt(data.data.currency.copper.value);
     weightCarried += Math.floor(coinsCarried / 100) * 0.5;
-    const weightAllowed = data.data.attribute.strength.max * 2;
+    let modifiers = this.getRollModifiers("CARRYING_CAPACITY");
+    const weightAllowed = data.data.attribute.strength.max * 2 + modifiers.modifier;
     data.data.encumbrance = {
       value: weightCarried,
       max: weightAllowed,
@@ -169,13 +201,13 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
     if (this.actor.owner) {
       buttons = [
         {
-          label: "Roll",
+          label: game.i18n.localize("SHEET.HEADER.ROLL"),
           class: "custom-roll",
           icon: "fas fa-dice",
           onclick: (ev) => RollDialog.prepareRollDialog("DICE.ROLL", 0, 0, 0, "", 0, 0, this.diceRoller),
         },
         {
-          label: "Push",
+          label: game.i18n.localize("SHEET.HEADER.PUSH"),
           class: "push-roll",
           icon: "fas fa-skull",
           onclick: (ev) => this.diceRoller.push(),

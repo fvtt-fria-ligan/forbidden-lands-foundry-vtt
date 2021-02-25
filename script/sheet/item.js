@@ -12,17 +12,24 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
     let buttons = super._getHeaderButtons();
     buttons = [
       {
-        label: "Post Item",
+        label: game.i18n.localize("SHEET.HEADER.POST_ITEM"),
         class: "item-post",
         icon: "fas fa-comment",
         onclick: (ev) => this.item.sendToChat(),
-      }
+      },
     ].concat(buttons);
     return buttons;
   }
 
+  _computeQuality(data) {
+    data.artifact = !!data.data.artifactBonus;
+    data.lethal = data.data.lethal === "yes";
+    data.ranks = !data.data.type || data.data.type !== "kin";
+  }
+
   getData() {
     const data = super.getData();
+    this._computeQuality(data);
     return data;
   }
 
@@ -37,7 +44,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
       let update = {};
       update[`data.rollModifiers.${modifierId}`] = {
         name: "",
-        value: ""
+        value: "",
       };
       await this.item.update(update);
     });
@@ -55,10 +62,22 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
       }
       // There seems to be some issue replacing an existing object, if we set
       // it to null first it works better.
-      await this.item.update({"data.rollModifiers": null});
+      await this.item.update({ "data.rollModifiers": null });
       if (Object.keys(rollModifiers).length > 0) {
-        await this.item.update({"data.rollModifiers": rollModifiers});
+        await this.item.update({ "data.rollModifiers": rollModifiers });
       }
+    });
+    html.find(".change-bonus").on("click contextmenu", (ev) => {
+      const bonus = this.object.data.data.bonus;
+      let value = bonus.value;
+      if (ev.type === "click") {
+        value = Math.max(value - 1, 0);
+      } else if (ev.type === "contextmenu") {
+        value = Math.min(value + 1, bonus.max);
+      }
+      this.object.update({
+        ["data.bonus.value"]: value,
+      });
     });
   }
 
@@ -66,7 +85,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
     let pack = game.packs.get("world.customrollmodifiers");
     if (pack) {
       let customRollModifier = await pack.getContent();
-      return customRollModifier.map(item => item.name);
+      return customRollModifier.map((item) => item.name);
     }
     return [];
   }

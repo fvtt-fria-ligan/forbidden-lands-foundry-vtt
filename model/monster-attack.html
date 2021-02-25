@@ -1,19 +1,19 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <div class="header">
+    <div class="header border">
         <div class="avatar">
             <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
         </div>
-        <div class="name">
+        <div class="header-stats">
             <label>{{localize "MONSTER.NAME"}}</label>
-            <input name="name" type="text" value="{{item.name}}"/>
-        </div>
-        <div class="bonus">
+            <input name="name" type="text" value="{{item.name}}" />
             <label>{{localize "MONSTER.DICE"}}</label>
-            <input name="data.dice" type="text" value="{{data.dice}}"/>
-        </div>
-        <div class="damage">
+            <div class="bonus">
+                <input name="data.dice" type="text" value="{{data.dice}}" />
+            </div>
             <label>{{localize "MONSTER.DAMAGE"}}</label>
-            <input name="data.damage" type="text" value="{{data.damage}}"/>
+            <div class="damage">
+                <input name="data.damage" type="text" value="{{data.damage}}" />
+            </div>
         </div>
     </div>
     <div class="item">
@@ -29,7 +29,7 @@
                 {{/select}}
             </select>
         </div>
-		<div class="range">
+        <div class="range">
             <label>{{localize "MONSTER.RANGE"}}</label>
             <select name="data.range">
                 {{#select data.range}}
@@ -40,8 +40,8 @@
                     <option value="distant">{{localize "RANGE.DISTANT"}}</option>
                 {{/select}}
             </select>
-        </div>		
-	   <div class="monster-description">
+        </div>
+        <div class="monster-description">
             <label>{{localize "MONSTER.DESCRIPTION"}}</label>
             <textarea name="data.description">{{data.description}}</textarea>
         </div>
