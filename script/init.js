@@ -29,6 +29,14 @@ Hooks.once("init", () => {
     default: 0,
     type: Number,
   });
+  game.settings.register("forbidden-lands", "alternativeSkulls", {
+    name: "Alternative Sheet Interaction",
+    hint: "Changes the look and interaction of Attribute/Bonus/Willpower radio buttons in the Character, Monster and Item sheets.",
+    scope: "world",
+    config: true,
+    default: false,
+    type: Boolean,
+  });
   game.settings.register("forbidden-lands", "showCraftingFields", {
     name: "Show crafting fields",
     hint: "Used to show or hide crafting related fields on item sheets.",
