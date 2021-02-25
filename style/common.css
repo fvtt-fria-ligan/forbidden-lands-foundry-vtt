@@ -309,6 +309,8 @@
   display: none;
   line-height: 16px;
   margin: 0 0 4px;
+  white-space: unset;
+  word-break: unset;
 }
 .forbidden-lands.chat-item .link-header:hover a {
   display: inline-block;
@@ -449,6 +451,7 @@ button,
 .far.fa-circle,
 .far.fa-times-circle,
 .far.fa-check-circle {
+  font-size: 14px;
   color: #333;
 }
 
@@ -462,4 +465,7 @@ button,
 .condition .far.fa-times-circle,
 .broken .far.fa-check-circle {
   color: #a00;
+}
+.broken .change-willpower .far.fa-circle {
+  color: #333;
 }
