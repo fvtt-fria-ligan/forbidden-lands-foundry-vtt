@@ -123,6 +123,10 @@
   justify-content: space-around;
 }
 
+.forbidden-lands .space-between {
+  justify-content: space-between;
+}
+
 .forbidden-lands .tabs .item {
   padding: 5px;
 }

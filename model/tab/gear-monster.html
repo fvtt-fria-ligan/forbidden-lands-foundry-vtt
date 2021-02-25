@@ -1,6 +1,18 @@
 <div class="flex column full">
     <div class="gears item-list border grow">
         <h1>{{localize "HEADER.GEAR"}}</h1>
+        {{#if (isMonsterTypeMount data.type)}}
+        <div class="flex row space-between">
+            <div class="flex align-center">
+                <input name="data.isMounted" type="checkbox" {{checked data.isMounted}} />
+                <label>{{localize "GEAR.MOUNTED"}}</label>
+            </div>
+            <div class="encumbrance{{#if data.encumbrance.over}} overencumbered{{/if}}"
+                 title="{{localize "ENCUMBRANCE" }}">
+                <i class="fas fa-weight-hanging"></i> {{data.encumbrance.value}} / {{data.encumbrance.max}}
+            </div>
+        </div>
+        {{/if}}
         <div class="items">
             <div class="header flex row">
                 <b class="name">{{localize "HEADER.ARMOR"}}</b>
