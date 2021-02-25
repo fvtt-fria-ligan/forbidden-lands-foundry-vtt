@@ -215,4 +215,26 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
     });
     return modifiers;
   }
+
+  computerItemEncumbrance(data) {
+    switch (data.type) {
+      case "armor":
+      case "gear":
+      case "weapon":
+        switch (data.data.weight) {
+          case "tiny":
+            return 0;
+          case "light":
+            return 0.5;
+          case "heavy":
+            return 2;
+          default:
+            return 1;
+        }
+      case "rawMaterial":
+        return 1;
+      default:
+        return 0;
+    }
+  }
 }

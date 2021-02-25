@@ -109,6 +109,7 @@
   "GEAR.TIME": "Time",
   "GEAR.TOOLS": "Tools",
   "GEAR.WEIGHT": "Weight",
+  "GEAR.MOUNTED": "Mounted",
 
   "HEADER.ACTIONS": "ACTIONS",
   "HEADER.ARMOR": "ARMOR",
@@ -165,6 +166,9 @@
   "MONSTER.DICE": "Dice",
   "MONSTER.NAME": "Name",
   "MONSTER.RANGE": "Range",
+  "MONSTER.TYPE.LABEL": "Type:",
+  "MONSTER.TYPE.MONSTER": "Monster",
+  "MONSTER.TYPE.MOUNT": "Mount",
 
   "MOVEMENT": "Movement",
 
