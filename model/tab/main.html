@@ -10,7 +10,7 @@
                 <a class="change-attribute" data-attribute="{{key}}">
                     {{#skulls attribute.value attribute.max}}
                         <i
-                            class="skull {{#if @damaged}}far fa-times-circle{{else}}{{#if alternativeSkulls}} fas {{else}} far {{/if}} fa-circle{{/if}}"></i>
+                            class="skull {{#if @damaged}}far fa-times-circle{{else}}{{#if ../alternativeSkulls}} fas {{else}} far {{/if}} fa-circle{{/if}}"></i>
                     {{/skulls}}
                 </a>
             </div>
