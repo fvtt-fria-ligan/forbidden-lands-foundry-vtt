@@ -17,13 +17,18 @@ function preloadHandlebarsTemplates() {
     "systems/forbidden-lands/model/tab/combat.html",
     "systems/forbidden-lands/model/tab/combat-monster.html",
     "systems/forbidden-lands/model/tab/talent.html",
-    "systems/forbidden-lands/model/tab/gear.html",
+    "systems/forbidden-lands/model/tab/gear-character.html",
     "systems/forbidden-lands/model/tab/gear-monster.html",
     "systems/forbidden-lands/model/tab/bio.html",
     "systems/forbidden-lands/model/tab/building-stronghold.html",
     "systems/forbidden-lands/model/tab/hireling-stronghold.html",
     "systems/forbidden-lands/model/tab/gear-stronghold.html",
     "systems/forbidden-lands/model/partial/roll-modifiers.html",
+    "systems/forbidden-lands/model/tab/gear/gear-artifact.html",
+    "systems/forbidden-lands/model/tab/gear/gear-supply.html",
+    "systems/forbidden-lands/model/tab/gear/armor-main.html",
+    "systems/forbidden-lands/model/tab/gear/gear-main.html",
+    "systems/forbidden-lands/model/tab/gear/weapon-main.html",
   ];
   return loadTemplates(templatePaths);
 }
@@ -58,7 +63,7 @@ function registerHandlebarsHelpers() {
     switch (part) {
       case "body":
         return game.i18n.localize("ARMOR.BODY");
-      case "helmet":
+      case "head":
         return game.i18n.localize("ARMOR.HELMET");
       case "shield":
         return game.i18n.localize("ARMOR.SHIELD");
@@ -67,6 +72,8 @@ function registerHandlebarsHelpers() {
   Handlebars.registerHelper("itemWeight", function (weight) {
     weight = normalize(weight, "regular");
     switch (weight) {
+      case "none":
+        return game.i18n.localize("WEIGHT.NONE");
       case "tiny":
         return game.i18n.localize("WEIGHT.TINY");
       case "light":
@@ -110,6 +117,17 @@ function registerHandlebarsHelpers() {
         return game.i18n.localize("RANGE.DISTANT");
     }
   });
+  Handlebars.registerHelper("talentType", function (type) {
+    type = normalize(type, "general");
+    switch (type) {
+      case "general":
+        return game.i18n.localize("TALENT.GENERAL");
+      case "kin":
+        return game.i18n.localize("TALENT.KIN");
+      case "profession":
+        return game.i18n.localize("TALENT.PROFESSION");
+    }
+  });
   Handlebars.registerHelper("isBroken", function (item) {
     if (parseInt(item.data.bonus.max, 10) > 0 && parseInt(item.data.bonus.value, 10) === 0) {
       return "broken";
@@ -119,24 +137,28 @@ function registerHandlebarsHelpers() {
   });
   Handlebars.registerHelper("formatRollModifiers", function (rollModifiers) {
     let output = [];
-    Object.values(rollModifiers).forEach(mod => {
+    Object.values(rollModifiers).forEach((mod) => {
       let name = game.i18n.localize(mod.name);
       output.push(`${name} ${mod.value}`);
     });
     return output.join(", ");
   });
-  Handlebars.registerHelper('plaintextToHTML', function(value) {
+  Handlebars.registerHelper("plaintextToHTML", function (value) {
     // strip tags, add <br/> tags
-    return new Handlebars.SafeString(value.replace(/(<([^>]+)>)/gi, "").replace(/(?:\r\n|\r|\n)/g, '<br/>'));
+    return new Handlebars.SafeString(value.replace(/(<([^>]+)>)/gi, "").replace(/(?:\r\n|\r|\n)/g, "<br/>"));
   });
-  Handlebars.registerHelper('toUpperCase', function(str) {
+  Handlebars.registerHelper("toUpperCase", function (str) {
     return str.toUpperCase();
   });
-  Handlebars.registerHelper('eq', function () {
+  Handlebars.registerHelper("eq", function () {
     const args = Array.prototype.slice.call(arguments, 0, -1);
     return args.every(function (expression) {
       return args[0] === expression;
     });
+  });
+  Handlebars.registerHelper("or", function () {
+    const args = Array.prototype.slice.call(arguments, 0, -1);
+    return args.reduce((x, y) => x || y);
   });
 }
 

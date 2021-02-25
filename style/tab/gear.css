@@ -5,12 +5,10 @@
   height: 100%;
 }
 
-.forbidden-lands .character .currencies {
-}
-
 .forbidden-lands .character .currencies .header {
   font-variant: small-caps;
   justify-content: space-between;
+  align-items: center;
   padding: 8px;
 }
 
@@ -21,7 +19,7 @@
 .forbidden-lands .character .currencies .values label {
   font-family: var(--font-special);
   font-variant: normal;
-  margin: 0 8px;
+  margin: 0 8px 0 16px;
 }
 
 .forbidden-lands .character .currencies .values input {
@@ -30,15 +28,16 @@
 
 .forbidden-lands .character .consumables {
   display: grid;
-  gap: 8px;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto;
 }
 
 .forbidden-lands .character .consumables .consumable {
+  display: flex;
+  flex-direction: row;
   align-items: center;
   font-family: var(--font-special);
   padding: 8px 0;
-  text-align: center;
+  justify-content: center;
 }
 
 .forbidden-lands .character .consumables .consumable select {

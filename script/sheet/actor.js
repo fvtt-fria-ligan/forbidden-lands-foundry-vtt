@@ -183,7 +183,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
   }
 
   isArtifact(artifact) {
-    let regex = /([0-9]*)d([0-9]*)/;
+    let regex = /([0-9]*)d([0-9]*)/i;
     return !!regex.exec(artifact);
   }
 
