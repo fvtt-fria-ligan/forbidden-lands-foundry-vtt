@@ -61,7 +61,7 @@
                             <div class="skulls {{#unless data.bio.willpower.value }}broken{{/unless}} flex row align-center">
                                 <a class="change-willpower">
                                     {{#skulls data.bio.willpower.value data.bio.willpower.max}}
-                                    <i class="skull {{#if @damaged}}far fa-circle{{else}}fas fa-circle{{/if}}"></i>
+                                    <i class="skull {{#if @damaged}}far fa-circle{{else}}{{#if alternativeSkulls}} fas fa-circle {{else}} far fa-times-circle{{/if}}{{/if}}"></i>
                                     {{/skulls}}
                                 </a>
                             </div>
@@ -97,7 +97,7 @@
 {{> systems/forbidden-lands/model/tab/bio.html}}
             </div>
             <div class="tab note" data-group="primary" data-tab="note">
-                {{editor content=data.bio.note.value target="data.bio.note.value" button=true owner=owner editable=editable}}
+{{editor content=data.bio.note.value target="data.bio.note.value" button=true owner=owner editable=editable}}
             </div>
         </div>
     </div>
