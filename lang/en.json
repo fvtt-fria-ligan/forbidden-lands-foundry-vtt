@@ -255,5 +255,7 @@
   "WEIGHT.LIGHT": "Light",
   "WEIGHT.NONE": "None",
   "WEIGHT.REGULAR": "Normal",
-  "WEIGHT.TINY": "Tiny"
+  "WEIGHT.TINY": "Tiny",
+  "WEIGHT.TYPE_REGULAR": "Regular",
+  "WEIGHT.TYPE_SPECIAL": "Special"
 }
