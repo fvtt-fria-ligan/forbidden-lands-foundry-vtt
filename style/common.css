@@ -313,19 +313,6 @@
 .forbidden-lands.chat-item .link-header {
   text-align: center;
 }
-.forbidden-lands.chat-item .link-header a {
-  display: none;
-  line-height: 16px;
-  margin: 0 0 4px;
-  white-space: unset;
-  word-break: unset;
-}
-.forbidden-lands.chat-item .link-header:hover a {
-  display: inline-block;
-}
-.forbidden-lands.chat-item .link-header:hover h3 {
-  display: none;
-}
 .forbidden-lands.chat-item strong {
   text-transform: uppercase;
 }

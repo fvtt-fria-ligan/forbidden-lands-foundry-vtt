@@ -141,7 +141,6 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
       item.isCriticalInjury = item.type === "criticalInjury";
     }
   }
-
   computeEncumbrance(data) {
     let weightCarried = 0;
     for (let item of Object.values(data.items)) {

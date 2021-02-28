@@ -4,6 +4,22 @@ import DiceRoller from "../components/dice-roller.js";
 export class ForbiddenLandsActorSheet extends ActorSheet {
   diceRoller = new DiceRoller();
 
+  /**
+   * @override
+   * Extends the sheet drop handler for system specific usages
+   */
+  async _onDrop(event) 
+  {
+    let dragData = JSON.parse(event.dataTransfer.getData("text/plain"));
+
+    // To be extended if future features add more drop functionality
+    if (dragData.type === "itemDrop")
+      this.actor.createEmbeddedEntity("OwnedItem", dragData.item)
+    else // Call base _onDrop for normal FVTT drop handling
+      super._onDrop(event) 
+  }
+
+
   activateListeners(html) {
     super.activateListeners(html);
 
