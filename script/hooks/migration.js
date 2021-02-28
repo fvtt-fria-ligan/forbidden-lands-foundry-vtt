@@ -1,5 +1,5 @@
 export const migrateWorld = async () => {
-    const schemaVersion = 4.0;
+    const schemaVersion = 4.1;
     const worldSchemaVersion = Number(game.settings.get("forbidden-lands", "worldSchemaVersion"));
     if (worldSchemaVersion !== schemaVersion && game.user.isGM) {
         ui.notifications.info("Upgrading the world, please wait...");
@@ -101,6 +101,20 @@ const migrateItemData = (item, worldSchemaVersion) => {
     if (worldSchemaVersion <= 3) {
         if (item.type === "spell" && !item.data.spellType) {
             update["data.spellType"] = "SPELL.SPELL";
+        }
+    }
+    if(worldSchemaVersion < 4.1) {
+        if (item.type === "weapon" && typeof item.data.features === "string") {
+            // Change features from string to object
+            update["data.features"] = {
+                "edged": false,
+                "pointed": false,
+                "blunt": false,
+                "parrying": false,
+                "hook": false,
+                "slowReload": false,
+                "others": item.data.features
+            }
         }
     }
     if (!isObjectEmpty(update)) {
