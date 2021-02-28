@@ -24,6 +24,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
     const data = super.getData();
     this.computeSkills(data);
     this.computeItems(data);
+    this.computeEncumbrance(data);
     return data;
   }
 
@@ -42,6 +43,23 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
       let testName = weapon.name;
       RollDialog.prepareRollDialog(testName, weapon.data.data.dice, 0, 0, "", 0, weapon.data.data.damage, this.diceRoller);
     });
+    html.find(".change-mounted").click(() => {
+      const boolean = this.actor.data.data.isMounted;
+      this.actor.update({ "data.isMounted": !boolean });
+    });
+  }
+
+  computeEncumbrance(data) {
+    let weightCarried = 0;
+    for (let item of Object.values(data.items)) {
+      weightCarried += this.computerItemEncumbrance(item);
+    }
+    const weightAllowed = data.data.attribute.strength.max * 2 * (data.data.isMounted ? 1 : 2);
+    data.data.encumbrance = {
+      value: weightCarried,
+      max: weightAllowed,
+      over: weightCarried > weightAllowed,
+    };
   }
 
   computeSkills(data) {
