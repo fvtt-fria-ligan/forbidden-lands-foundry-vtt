@@ -82,6 +82,8 @@ function registerHandlebarsHelpers() {
         return game.i18n.localize("WEIGHT.REGULAR");
       case "heavy":
         return game.i18n.localize("WEIGHT.HEAVY");
+      default:
+        return weight;
     }
   });
   Handlebars.registerHelper("weaponCategory", function (category) {
