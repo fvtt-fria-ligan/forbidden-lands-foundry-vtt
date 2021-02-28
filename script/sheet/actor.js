@@ -137,6 +137,15 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
       if (action) {
         modifiers = this.getRollModifiers(action, modifiers);
       }
+
+      if (weapon.data.data.category === "melee" && action === "ACTION.PARRY") {
+        // Adjust parry action modifiers based on weapon features
+        const parrying = weapon.data.data.features.parrying;
+        if (!parrying) {
+          modifiers.modifier -= 2;
+        }
+      }
+
       RollDialog.prepareRollDialog(
         testName, 
         {name: attribute.label, value: attribute.value},
