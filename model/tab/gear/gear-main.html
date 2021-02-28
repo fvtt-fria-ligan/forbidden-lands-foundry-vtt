@@ -3,11 +3,21 @@
         <label>{{localize "GEAR.WEIGHT"}}</label>
         <select name="data.weight">
             {{#select data.weight}}
-                <option value="none">{{localize "WEIGHT.NONE"}}</option>
-                <option value="tiny">{{localize "WEIGHT.TINY"}}</option>
-                <option value="light">{{localize "WEIGHT.LIGHT"}}</option>
-                <option value="regular">{{localize "WEIGHT.REGULAR"}}</option>
-                <option value="heavy">{{localize "WEIGHT.HEAVY"}}</option>
+                <optgroup label={{localize "WEIGHT.TYPE_REGULAR" }}>
+                    <option value="none">{{localize "WEIGHT.NONE"}}</option>
+                    <option value="tiny">{{localize "WEIGHT.TINY"}}</option>
+                    <option value="light">{{localize "WEIGHT.LIGHT"}}</option>
+                    <option value="regular">{{localize "WEIGHT.REGULAR"}}</option>
+                    <option value="heavy">{{localize "WEIGHT.HEAVY"}}</option>
+                </optgroup>
+                <optgroup label={{localize "WEIGHT.TYPE_SPECIAL" }}>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                </optgroup>
             {{/select}}
         </select>
     </div>
@@ -15,5 +25,5 @@
             name="data.effect">{{data.effect}}</textarea></div>
 </div>
 <div class="roll-modifiers border">
-{{> systems/forbidden-lands/model/partial/roll-modifiers.html }}
+    {{> systems/forbidden-lands/model/partial/roll-modifiers.html }}
 </div>
