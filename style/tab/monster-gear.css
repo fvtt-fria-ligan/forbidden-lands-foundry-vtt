@@ -49,13 +49,29 @@
   text-align: right;
 }
 
-.forbidden-lands .monster .gears .encumbrance {
+.forbidden-lands .monster .gears .encumbrance-div {
+  padding: 4px 4px 4px 10px;
   border-bottom: 1px solid var(--color-border);
+  line-height: 20px;
+  width: 120px;
+  margin-right: 5px;
+}
+
+.forbidden-lands .monster .gears .encumbrance {
   font-family: var(--font-special);
   font-size: 14px;
-  padding: 4px 8px;
 }
 
 .forbidden-lands .monster .gears .overencumbered {
   color: #a00;
+}
+
+.forbidden-lands .monster .gears .change-mounted {
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.forbidden-lands .monster .gears .change-mounted .fas.fa-horse {
+  font-size: 16px;
+  margin-right: 2px;
 }

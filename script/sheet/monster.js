@@ -43,6 +43,10 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
       let testName = weapon.name;
       RollDialog.prepareRollDialog(testName, weapon.data.data.dice, 0, 0, "", 0, weapon.data.data.damage, this.diceRoller);
     });
+    html.find(".change-mounted").click(() => {
+      const boolean = this.actor.data.data.isMounted;
+      this.actor.update({ "data.isMounted": !boolean });
+    });
   }
 
   computeEncumbrance(data) {
