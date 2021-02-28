@@ -31,9 +31,10 @@
                         </div>
                         <div class="weapon-actions">
                             {{#if (eq item.data.category "melee") }}
-                            {{#if item.data.features.parrying }}
-                            <button type="button" class="roll-weapon" data-item-id="{{item._id}}" data-action="ACTION.PARRY">{{ localize "ACTION.PARRY" }}</button>
-                            {{/if}}
+                            <button type="button" class="roll-weapon" data-item-id="{{item._id}}" data-action="ACTION.PARRY">
+                                {{ localize "ACTION.PARRY" }}
+                                {{#unless item.data.features.parrying }}(-2){{/unless}}
+                            </button>
                             {{#if item.data.features.hook }}
                             <button type="button" class="roll-weapon" data-item-id="{{item._id}}" data-action="ACTION.SHOVE">{{ localize "ACTION.SHOVE" }}</button>
                             {{/if}}
