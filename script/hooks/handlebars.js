@@ -162,6 +162,9 @@ function registerHandlebarsHelpers() {
     const args = Array.prototype.slice.call(arguments, 0, -1);
     return args.reduce((x, y) => x || y);
   });
+  Handlebars.registerHelper('isMonsterTypeMount', function(type) {
+    return type === 'mount';
+  })
 }
 
 function normalize(data, defaultValue) {

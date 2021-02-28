@@ -245,7 +245,9 @@
       "armor": {
         "label": "MONSTER.ARMOR",
         "value": 0
-      }
+      },
+      "isMounted": false,
+      "type": "monster"
     },
     "stronghold": {
       "location": "",
