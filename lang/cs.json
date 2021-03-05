@@ -1,7 +1,17 @@
 {
-  "ACTOR.TypeCharacter": "Character",
-  "ACTOR.TypeMonster": "Monster",
-  "ACTOR.TypeStronghold": "Stronghold",
+  "ACTION.BREAK_FREE": "Vysmeknutí",
+  "ACTION.DISARM": "Odzbrojení",
+  "ACTION.DODGE": "Úhyb",
+  "ACTION.GRAPPLE_ATTACK": "Útok na chyceného",
+  "ACTION.GRAPPLE": "Chycení",
+  "ACTION.PARRY": "Odražení",
+  "ACTION.RETREAT": "Ústup",
+  "ACTION.SHOVE": "Povalení",
+  "ACTION.UNARMED_STRIKE": "Útok beze zbraně",
+
+  "ACTOR.TypeCharacter": "Postava",
+  "ACTOR.TypeMonster": "Nestvůra",
+  "ACTOR.TypeStronghold": "Tvrz",
 
   "ARMOR.BODY": "Tělo",
   "ARMOR.HELMET": "Přilbice",
@@ -14,6 +24,10 @@
   "ARTIFACT.ARTIFACT_BONUS": "Bonus artefaktů",
   "ARTIFACT.DESCRIPTION": "Popis",
   "ARTIFACT.DRAWBACK": "Nevýhoda",
+  "ARTIFACT.EPIC": "Epické",
+  "ARTIFACT.LEGENDARY": "Legendární",
+  "ARTIFACT.MIGHTY": "Mocné",
+  "ARTIFACT.REGULAR": "Normální",
 
   "ATTACK.BLUNT": "Tupá",
   "ATTACK.FEAR": "Hrůza",
@@ -50,6 +64,8 @@
   "BUILDING.TIME": "Čas",
   "BUILDING.TOOLS": "Nářadí",
 
+  "CARRYING_CAPACITY": "Nosnost",
+
   "CONDITION.COLD": "Podchlazení",
   "CONDITION.HUNGRY": "Hlad",
   "CONDITION.SLEEPY": "Ospalost",
@@ -72,6 +88,17 @@
 
   "DAMAGE": "Zranění",
 
+  "DICE.ARTIFACTS": "Kostky artefaktů",
+  "DICE.AUTOMATIC_SUCCESS": "Automatický úspěch",
+  "DICE.BASE": "Základní kostky",
+  "DICE.CANCEL": "Zrušit",
+  "DICE.GEAR": "Kostky vybavení",
+  "DICE.MODIFIER": "Úprava",
+  "DICE.ROLL": "Hod",
+  "DICE.SKILL": "Kostky dovedností",
+
+  "ENCUMBRANCE": "Zátěž",
+
   "GEAR.BONUS": "Bonus",
   "GEAR.COST": "Cena",
   "GEAR.EFFECT": "Účinek",
@@ -82,9 +109,12 @@
   "GEAR.TIME": "Čas",
   "GEAR.TOOLS": "Nářádí",
   "GEAR.WEIGHT": "Váha",
+  "GEAR.MOUNTED": "Mounted",
 
+  "HEADER.ACTIONS": "AKCE",
   "HEADER.ARMOR": "ZBROJ",
   "HEADER.ATTACK": "ÚTOKY",
+  "HEADER.ATTRIBUTES": "VLASTNOSTI",
   "HEADER.BODY": "TĚLO",
   "HEADER.BUILDING": "BUDOVY",
   "HEADER.CLOTHING": "OBLEČENÍ",
@@ -98,6 +128,7 @@
   "HEADER.HIRELING": "SLUŽEBNICTVO",
   "HEADER.PRIDE": "PÝCHA",
   "HEADER.RAW_MATERIAL": "SUROVINY",
+  "HEADER.SKILLS": "DOVEDNOSTI",
   "HEADER.SPELL": "KOUZLA",
   "HEADER.TALENT": "TALENTY",
   "HEADER.WEAPON": "ZBRANĚ",
@@ -108,17 +139,25 @@
   "HIRELING.SALARY": "Mzda",
   "HIRELING.SUPPLY": "Dostupnost",
 
-  "ITEM.TypeArmor": "Armor",
+  "ITEM.ADD_MODIFIER": "Přidat úpravu",
+  "ITEM.CUSTOM_ROLL_MODIFIERS": "Vlastní úpravy hodu",
+  "ITEM.DELETE_MODIFIER": "Smazat úpravu",
+  "ITEM.NO_MODIFIERS": "Žádné úpravy",
+  "ITEM.ROLL_MODIFIERS": "Opravy hodu",
+  "ITEM.TypeArmor": "Zbroj",
   "ITEM.TypeBuilding": "Budova",
   "ITEM.TypeCriticalinjury": "Kritické zranění",
   "ITEM.TypeGear": "Vybavení",
   "ITEM.TypeHireling": "Služebník",
-  "ITEM.TypeMonsterattack": "Monster Attack",
-  "ITEM.TypeMonstertalent": "Monster Talent",
+  "ITEM.TypeMonsterattack": "Útok nestvůry",
+  "ITEM.TypeMonstertalent": "Talent nestvůry",
   "ITEM.TypeRawmaterial": "Surovina",
   "ITEM.TypeSpell": "Kouzlo",
   "ITEM.TypeTalent": "Talent",
-  "ITEM.TypeWeapon": "Weapon",
+  "ITEM.TypeWeapon": "Zbraň",
+
+  "LETHAL.NO": "Ne",
+  "LETHAL.YES": "Ano",
 
   "MONSTER.ARMOR": "Třída zbroje",
   "MONSTER.DAMAGE_TYPE": "Typ zranění",
@@ -127,8 +166,13 @@
   "MONSTER.DICE": "Kostka",
   "MONSTER.NAME": "Název",
   "MONSTER.RANGE": "Vzdálenost",
+  "MONSTER.TYPE.LABEL": "Typ:",
+  "MONSTER.TYPE.MONSTER": "Monstrum",
+  "MONSTER.TYPE.MOUNT": "Mount",
 
   "MOVEMENT": "Pohyblivost",
+
+  "OTHER": "Ostatní",
 
   "POWER_LEVEL": "Síla kouzla",
 
@@ -143,6 +187,10 @@
   "RANGE.SHORT": "Střední",
 
   "RAW_MATERIAL.SHELF_LIFE": "Trvanlivost",
+
+  "SHEET.HEADER.POST_ITEM": "Do chatu",
+  "SHEET.HEADER.PUSH": "Zkusit štěstí",
+  "SHEET.HEADER.ROLL": "Hodit",
 
   "SKILL.ANIMAL_HANDLING": "Zvířata",
   "SKILL.CRAFTING": "Řemesla",
@@ -163,17 +211,23 @@
 
   "SPELL.DESCRIPTION": "Popis",
   "SPELL.DURATION": "Trvání",
-  "SPELL.INGREDIENT": "Přísada",
+  "SPELL.INGREDIENT": "Pomůcka",
   "SPELL.NAME": "Název",
+  "SPELL.POWER_WORD": "Kouzelné slůvko",
   "SPELL.RANGE": "Vzdálenost",
   "SPELL.RANK": "Stupeň",
+  "SPELL.RITUAL": "Rituál",
+  "SPELL.SPELL_TYPE": "Typ kouzla",
+  "SPELL.SPELL": "Kouzlo",
 
   "STRONGHOLD.DEFENSE_RATING": "Obranyschopnost",
   "STRONGHOLD.LOCATION": "Místo",
 
+  "TAB.ARTIFACT": "ARTEFAKTY",
   "TAB.BIO": "BIO",
   "TAB.BUILDING": "BUDOVY",
   "TAB.COMBAT": "BOJ",
+  "TAB.CRAFT_SUPPLY": "VÝROBA",
   "TAB.GEAR": "VYBAVENÍ",
   "TAB.HIRELING": "SLUŽEBNICTVO",
   "TAB.MAIN": "HLAVNÍ",
@@ -181,8 +235,12 @@
   "TAB.TALENT": "TALENTY",
 
   "TALENT.DESCRIPTION": "Popis",
+  "TALENT.GENERAL": "Obecné",
+  "TALENT.KIN": "Rodové",
   "TALENT.NAME": "Název",
+  "TALENT.PROFESSION": "Povolání",
   "TALENT.RANK": "Stupeň",
+  "TALENT.TYPE": "Typ",
 
   "WEAPON.1H": "1R",
   "WEAPON.2H": "2R",
@@ -196,8 +254,12 @@
   "WEAPON.RANGE": "Vzdálenost",
   "WEAPON.RANGED": "Střelná",
   "WEAPON.SKILL_BONUS": "Dovednostní bonus",
+
   "WEIGHT.HEAVY": "Težký",
   "WEIGHT.LIGHT": "Lehký",
+  "WEIGHT.NONE": "Žádný",
   "WEIGHT.REGULAR": "Běžný",
-  "WEIGHT.TINY": "Drobný"
+  "WEIGHT.TINY": "Drobný",
+  "WEIGHT.TYPE_REGULAR": "Regular",
+  "WEIGHT.TYPE_SPECIAL": "Special"
 }
