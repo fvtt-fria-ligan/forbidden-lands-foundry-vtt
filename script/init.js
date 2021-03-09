@@ -104,6 +104,13 @@ Hooks.once("diceSoNiceReady", (dice3d) => {
   registerDiceSoNice(dice3d);
 });
 
+Hooks.on("renderItemSheet", function () {
+	$("textarea").each(function () {
+		this.setAttribute("style","height:"+this.scrollHeight +"px;overflow-y:hidden;")
+		this.readOnly = true
+	})
+})
+
 Hooks.on("renderChatMessage", async (app, html, msg) => {
 
   // Add drag and drop functonality to posted items
