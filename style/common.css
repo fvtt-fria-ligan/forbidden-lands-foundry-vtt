@@ -62,7 +62,8 @@
   border-image: url("../asset/border-small.png") 20/10px round;
 }
 
-.forbidden-lands h1 {
+.forbidden-lands h1,
+.forbidden-lands h3 {
   border: 0 none;
   font-family: var(--font-special);
   font-size: 14px;
@@ -72,6 +73,12 @@
   padding: 4px 4px;
   text-align: center;
   text-transform: uppercase;
+}
+
+.forbidden-lands h3 {
+  font-size: 12px;
+  padding: 0;
+  margin-bottom: 4px;
 }
 
 .forbidden-lands .flex {
@@ -121,6 +128,14 @@
 
 .forbidden-lands .space-around {
   justify-content: space-around;
+}
+
+.forbidden-lands .space-between {
+  justify-content: space-between;
+}
+
+.forbidden-lands .justify-end {
+  justify-content: flex-end;
 }
 
 .forbidden-lands .tabs .item {
@@ -304,19 +319,6 @@
 }
 .forbidden-lands.chat-item .link-header {
   text-align: center;
-}
-.forbidden-lands.chat-item .link-header a {
-  display: none;
-  line-height: 16px;
-  margin: 0 0 4px;
-  white-space: unset;
-  word-break: unset;
-}
-.forbidden-lands.chat-item .link-header:hover a {
-  display: inline-block;
-}
-.forbidden-lands.chat-item .link-header:hover h3 {
-  display: none;
 }
 .forbidden-lands.chat-item strong {
   text-transform: uppercase;

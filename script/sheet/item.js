@@ -80,6 +80,24 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
         ["data.bonus.value"]: value,
       });
     });
+    html.find(".feature").click(async (ev) => {
+      const featureName = $(ev.currentTarget).data("feature");
+      const features = this.object.data.data.features;
+      if (featureName === "parrying") {
+        this.object.update({ "data.features.parrying": !features.parrying });
+      } else if (featureName === "hook") {
+        this.object.update({ "data.features.hook": !features.hook });
+      } else if (featureName === "edged") {
+        this.object.update({ "data.features.edged": !features.edged });
+      } else if (featureName === "pointed") {
+        this.object.update({ "data.features.pointed": !features.pointed });
+      } else if (featureName === "blunt") {
+        this.object.update({ "data.features.blunt": !features.blunt });
+      } else if (featureName === "slowReload") {
+        this.object.update({ "data.features.slowReload": !features.slowReload });
+      }
+      this._render();
+    });
   }
 
   async getCustomRollModifiers() {

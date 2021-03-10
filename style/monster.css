@@ -21,12 +21,13 @@
   margin: 5px 0;
 }
 
+.forbidden-lands .monster .bio .bio-row .npc-type select {
+  width: 10em;
+  margin-right: 8px;
+}
+
 .forbidden-lands .monster .bio .avatar {
-  background: radial-gradient(
-    closest-side,
-    var(--color-highlight) 0%,
-    transparent 100%
-  );
+  background: radial-gradient(closest-side, var(--color-highlight) 0%, transparent 100%);
   flex: 0 0 auto;
   height: 95px;
   margin-right: 8px;
