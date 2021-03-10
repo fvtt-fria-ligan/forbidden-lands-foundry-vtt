@@ -5,6 +5,19 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
   altInteraction = game.settings.get("forbidden-lands", "alternativeSkulls");
   diceRoller = new DiceRoller();
 
+  /**
+   * @override
+   * Extends the sheet drop handler for system specific usages
+   */
+  async _onDrop(event) {
+    let dragData = JSON.parse(event.dataTransfer.getData("text/plain"));
+
+    // To be extended if future features add more drop functionality
+    if (dragData.type === "itemDrop") this.actor.createEmbeddedEntity("OwnedItem", dragData.item);
+    // Call base _onDrop for normal FVTT drop handling
+    else super._onDrop(event);
+  }
+
   activateListeners(html) {
     super.activateListeners(html);
 
@@ -122,6 +135,15 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
       if (action) {
         modifiers = this.getRollModifiers(action, modifiers);
       }
+
+      if (weapon.data.data.category === "melee" && action === "ACTION.PARRY") {
+        // Adjust parry action modifiers based on weapon features
+        const parrying = weapon.data.data.features.parrying;
+        if (!parrying) {
+          modifiers.modifier -= 2;
+        }
+      }
+
       RollDialog.prepareRollDialog(
         testName,
         { name: attribute.label, value: attribute.value },
@@ -219,5 +241,27 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
   async _renderInner(data, options) {
     data.alternativeSkulls = game.settings.get("forbidden-lands", "alternativeSkulls");
     return super._renderInner(data, options);
+  }
+  computerItemEncumbrance(data) {
+    switch (data.type) {
+      case "armor":
+      case "gear":
+      case "weapon":
+        switch (data.data.weight) {
+          case "tiny":
+          case "none":
+            return 0;
+          case "light":
+            return 0.5;
+          case "heavy":
+            return 2;
+          default:
+            return data.data.weight || 1;
+        }
+      case "rawMaterial":
+        return 1;
+      default:
+        return 0;
+    }
   }
 }

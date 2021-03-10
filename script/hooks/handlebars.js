@@ -82,6 +82,8 @@ function registerHandlebarsHelpers() {
         return game.i18n.localize("WEIGHT.REGULAR");
       case "heavy":
         return game.i18n.localize("WEIGHT.HEAVY");
+      default:
+        return weight;
     }
   });
   Handlebars.registerHelper("weaponCategory", function (category) {
@@ -143,6 +145,61 @@ function registerHandlebarsHelpers() {
     });
     return output.join(", ");
   });
+
+  Handlebars.registerHelper("hasWeaponFeatures", function (weaponType, features) {
+    const meleeFeatures = ["edged", "pointed", "blunt", "parry", "hook"];
+    const rangedFeatures = ["slowReload"];
+
+    if (features.others !=="") {
+      return true;
+    } 
+
+    let weaponFeatures = [];
+    if(weaponType == "melee") {
+      weaponFeatures = meleeFeatures;
+    }
+    else if (weaponType == "ranged") {
+      weaponFeatures = rangedFeatures;
+    }
+
+    for (const feature in features) {
+      if (weaponFeatures.includes(feature) && features[feature]) {
+        return true;
+      }
+    }
+    return false;
+  });
+
+  Handlebars.registerHelper("formatWeaponFeatures", function (weaponType, features) {
+    let output = [];
+    if(weaponType === "melee") {
+      if (features.edged) {
+        output.push(game.i18n.localize("WEAPON.FEATURES.EDGED"));
+      }
+      if (features.pointed) {
+        output.push(game.i18n.localize("WEAPON.FEATURES.POINTED"));
+      }
+      if (features.blunt) {
+        output.push(game.i18n.localize("WEAPON.FEATURES.BLUNT"));
+      }
+      if (features.parrying) {
+        output.push(game.i18n.localize("WEAPON.FEATURES.PARRYING"));
+      }
+      if (features.hook) {
+        output.push(game.i18n.localize("WEAPON.FEATURES.HOOK"));
+      }
+    }
+    if (weaponType === "ranged") {
+      if (features.slowReload) {
+        output.push(game.i18n.localize("WEAPON.FEATURES.SLOW_RELOAD"));
+      }
+    }
+    if (features.others !== "") {
+      output.push(features.others)
+    }
+    return output.join(", ");
+  });
+  
   Handlebars.registerHelper("plaintextToHTML", function (value) {
     // strip tags, add <br/> tags
     return new Handlebars.SafeString(value.replace(/(<([^>]+)>)/gi, "").replace(/(?:\r\n|\r|\n)/g, "<br/>"));
@@ -160,6 +217,9 @@ function registerHandlebarsHelpers() {
     const args = Array.prototype.slice.call(arguments, 0, -1);
     return args.reduce((x, y) => x || y);
   });
+  Handlebars.registerHelper('isMonsterTypeMount', function(type) {
+    return type === 'mount';
+  })
 }
 
 function normalize(data, defaultValue) {

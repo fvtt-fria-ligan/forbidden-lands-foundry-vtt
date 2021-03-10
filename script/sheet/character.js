@@ -141,34 +141,10 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
       item.isCriticalInjury = item.type === "criticalInjury";
     }
   }
-
-  _computerItemEncumbrance(data) {
-    switch (data.type) {
-      case "armor":
-      case "gear":
-      case "weapon":
-        switch (data.data.weight) {
-          case "tiny":
-          case "none":
-            return 0;
-          case "light":
-            return 0.5;
-          case "heavy":
-            return 2;
-          default:
-            return 1;
-        }
-      case "rawMaterial":
-        return 1;
-      default:
-        return 0;
-    }
-  }
-
   computeEncumbrance(data) {
     let weightCarried = 0;
     for (let item of Object.values(data.items)) {
-      weightCarried += this._computerItemEncumbrance(item);
+      weightCarried += this.computerItemEncumbrance(item);
     }
     for (let consumable of Object.values(data.data.consumable)) {
       if (consumable.value > 0) {

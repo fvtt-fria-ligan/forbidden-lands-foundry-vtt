@@ -58,6 +58,16 @@
       "lang": "sv",
       "name": "Svenska",
       "path": "lang/sv.json"
+    },
+    {
+      "lang": "es",
+      "name": "Español",
+      "path": "lang/es.json"
+    },
+    {
+      "lang": "zh-TW",
+      "name": "正體中文",
+      "path": "lang/zh-TW.json"
     }
   ],
   "gridDistance": 1,

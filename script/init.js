@@ -103,3 +103,17 @@ Hooks.once("ready", () => {
 Hooks.once("diceSoNiceReady", (dice3d) => {
   registerDiceSoNice(dice3d);
 });
+
+Hooks.on("renderChatMessage", async (app, html, msg) => {
+
+  // Add drag and drop functonality to posted items
+  let postedItem = html.find(".chat-item")[0];
+  if (postedItem)
+  {
+    postedItem.classList.add("draggable")
+    postedItem.setAttribute("draggable", true);
+    postedItem.addEventListener('dragstart', ev => {
+      ev.dataTransfer.setData("text/plain", JSON.stringify({item : app.getFlag("forbidden-lands", "itemData"), type : "itemDrop"}));
+    })
+  }
+})

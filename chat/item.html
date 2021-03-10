@@ -2,7 +2,6 @@
     <div class="border">
         <div class="link-header">
             <h3>{{name}}</h3>
-            {{link}}
         </div>
         {{#if isArmor}}
             <h4>{{armorPart data.part}}</h4>
@@ -139,8 +138,11 @@
             <p><strong>{{localize "WEAPON.BONUS"}}:</strong> {{data.bonus.value}}</p>
             <p><strong>{{localize "WEAPON.DAMAGE"}}:</strong> {{data.damage}}</p>
             <p><strong>{{localize "WEAPON.RANGE"}}:</strong> {{weaponRange data.range}}</p>
-            {{#if data.features}}
-                <p><strong>{{localize "WEAPON.FEATURE"}}:</strong> {{data.features}}</p>
+            {{#if (hasWeaponFeatures data.category data.features)}}
+                <p>
+                    <strong>{{localize "WEAPON.FEATURES.TITLE"}}:</strong>
+                    {{formatWeaponFeatures data.category data.features}}
+                </p>
             {{/if}}
             {{#if data.effect}}
                 <p><strong>{{localize "GEAR.EFFECT"}}:</strong> {{data.effect}}</p>
