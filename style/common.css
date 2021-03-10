@@ -448,3 +448,26 @@ button,
 .forbidden-lands .pre-wrap {
   white-space: pre-wrap;
 }
+
+.fas.fa-circle,
+.far.fa-circle,
+.far.fa-times-circle,
+.far.fa-check-circle {
+  font-size: 14px;
+  color: #333;
+}
+
+.forbidden-lands .broken {
+  color: #a00;
+}
+
+.broken .fas.fa-circle,
+.broken .far.fa-circle,
+.broken .far.fa-times-circle,
+.condition .far.fa-times-circle,
+.broken .far.fa-check-circle {
+  color: #a00;
+}
+.broken .change-willpower .far.fa-circle {
+  color: #333;
+}

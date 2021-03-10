@@ -70,9 +70,10 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
     html.find(".change-bonus").on("click contextmenu", (ev) => {
       const bonus = this.object.data.data.bonus;
       let value = bonus.value;
-      if (ev.type === "click") {
+      const altInteraction = game.settings.get("forbidden-lands", "alternativeSkulls");
+      if ((ev.type === "click" && !altInteraction) || (ev.type === "contextmenu" && altInteraction)) {
         value = Math.max(value - 1, 0);
-      } else if (ev.type === "contextmenu") {
+      } else if ((ev.type === "contextmenu" && !altInteraction) || (ev.type === "click" && altInteraction)) {
         value = Math.min(value + 1, bonus.max);
       }
       this.object.update({
@@ -109,6 +110,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
   }
 
   async _renderInner(data, options) {
+    data.alternativeSkulls = game.settings.get("forbidden-lands", "alternativeSkulls");
     data.data.customRollModifiers = await this.getCustomRollModifiers();
     data.showCraftingFields = game.settings.get("forbidden-lands", "showCraftingFields");
     data.showCostField = game.settings.get("forbidden-lands", "showCostField");
