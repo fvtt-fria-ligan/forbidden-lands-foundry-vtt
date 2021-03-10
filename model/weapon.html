@@ -12,7 +12,7 @@
                 <div class="skulls {{#unless data.bonus.value }}broken{{/unless}}">
                     <a class="change-bonus" data-attribute="{{data.bonus}}">
                         {{#skulls data.bonus.value data.bonus.max}}
-                            <i class="skull far {{#if @damaged}}fa-times-circle{{else}}fa-circle{{/if}}"></i>
+                            <i class="skull {{#if @damaged}}far fa-times-circle{{else}}{{#if alternativeSkulls}} fas {{else}} far {{/if}} fa-circle{{/if}}"></i>
                         {{/skulls}}
                     </a>
                 </div>

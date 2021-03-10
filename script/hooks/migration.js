@@ -224,5 +224,8 @@ const migrateSettings = async function (worldSchemaVersion) {
 		game.settings.set("forbidden-lands", "showDescriptionField", true);
 		game.settings.set("forbidden-lands", "showDrawbackField", true);
 		game.settings.set("forbidden-lands", "showAppearanceField", true);
-	}
+  }
+  if (worldSchemaVersion <= 4) {
+    game.settings.set("forbidden-lands", "alternativeSkulls", false);
+  }
 };

@@ -2,23 +2,21 @@ import { RollDialog } from "../dialog/roll-dialog.js";
 import DiceRoller from "../components/dice-roller.js";
 
 export class ForbiddenLandsActorSheet extends ActorSheet {
+  altInteraction = game.settings.get("forbidden-lands", "alternativeSkulls");
   diceRoller = new DiceRoller();
 
   /**
    * @override
    * Extends the sheet drop handler for system specific usages
    */
-  async _onDrop(event) 
-  {
+  async _onDrop(event) {
     let dragData = JSON.parse(event.dataTransfer.getData("text/plain"));
 
     // To be extended if future features add more drop functionality
-    if (dragData.type === "itemDrop")
-      this.actor.createEmbeddedEntity("OwnedItem", dragData.item)
-    else // Call base _onDrop for normal FVTT drop handling
-      super._onDrop(event) 
+    if (dragData.type === "itemDrop") this.actor.createEmbeddedEntity("OwnedItem", dragData.item);
+    // Call base _onDrop for normal FVTT drop handling
+    else super._onDrop(event);
   }
-
 
   activateListeners(html) {
     super.activateListeners(html);
@@ -28,9 +26,9 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
       const attributeName = $(ev.currentTarget).data("attribute");
       const attribute = this.actor.data.data.attribute[attributeName];
       let value = attribute.value;
-      if (ev.type === "click") {
+      if ((ev.type === "click" && !this.altInteraction) || (ev.type === "contextmenu" && this.altInteraction)) {
         value = Math.max(value - 1, 0);
-      } else if (ev.type === "contextmenu") {
+      } else if ((ev.type === "contextmenu" && !this.altInteraction) || (ev.type === "click" && this.altInteraction)) {
         value = Math.min(value + 1, attribute.max);
       }
       this.actor.update({
@@ -42,9 +40,9 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
     html.find(".change-willpower").on("click contextmenu", (ev) => {
       const attribute = this.actor.data.data.bio.willpower;
       let value = attribute.value;
-      if (ev.type === "click") {
+      if ((ev.type === "click" && !this.altInteraction) || (ev.type === "contextmenu" && this.altInteraction)) {
         value = Math.max(value - 1, 0);
-      } else if (ev.type === "contextmenu") {
+      } else if ((ev.type === "contextmenu" && !this.altInteraction) || (ev.type === "click" && this.altInteraction)) {
         value = Math.min(value + 1, attribute.max);
       }
       this.actor.update({ "data.bio.willpower.value": value });
@@ -70,9 +68,9 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
       const itemId = $(ev.currentTarget).data("itemId");
       const item = this.actor.getOwnedItem(itemId);
       let value = item.data.data.bonus.value;
-      if (ev.type === "click") {
+      if ((ev.type === "click" && !this.altInteraction) || (ev.type === "contextmenu" && this.altInteraction)) {
         value = Math.max(value - 1, 0);
-      } else if (ev.type === "contextmenu") {
+      } else if ((ev.type === "contextmenu" && !this.altInteraction) || (ev.type === "click" && this.altInteraction)) {
         value = Math.min(value + 1, item.data.data.bonus.max);
       }
       item.update({
@@ -240,7 +238,10 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
     });
     return modifiers;
   }
-
+  async _renderInner(data, options) {
+    data.alternativeSkulls = game.settings.get("forbidden-lands", "alternativeSkulls");
+    return super._renderInner(data, options);
+  }
   computerItemEncumbrance(data) {
     switch (data.type) {
       case "armor":
@@ -254,20 +255,8 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
             return 0.5;
           case "heavy":
             return 2;
-          case "3":
-            return 3;
-          case "4":
-            return 4;
-          case "5":
-            return 5;
-          case "6":
-            return 6;
-          case "7":
-            return 7;
-          case "8":
-            return 8;
           default:
-            return 1;
+            return data.data.weight || 1;
         }
       case "rawMaterial":
         return 1;
