@@ -1,29 +1,29 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <div class="header border">
-        <div class="avatar">
-            <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
-        </div>
-        <div class="header-stats">
-            <label>{{localize "GEAR.NAME"}}</label>
-            <input name="name" type="text" value="{{item.name}}" />
-            <label>{{localize "GEAR.COST"}}</label>
-            <input name="data.cost" type="text" value="{{data.cost}}" />
-            <label>{{localize "RAW_MATERIAL.SHELF_LIFE"}}</label>
-            <input name="data.shelfLife" type="text" value="{{data.shelfLife}}" />
-        </div>
-    </div>
-    <div class="item">
-        <div class="raw-materials">
-            <label>{{localize "BUILDING.RAW_MATERIALS"}}</label>
-            <input name="data.rawMaterials" type="text" value="{{data.rawMaterials}}" />
-        </div>
-        <div class="talent">
-            <label>{{localize "GEAR.TALENT"}}</label>
-            <input name="data.talent" type="text" value="{{data.talent}}" />
-        </div>
-        <div class="features">
-            <label>{{localize "GEAR.TOOLS"}}</label>
-            <textarea name="data.tools">{{data.tools}}</textarea>
-        </div>
-    </div>
+	<div class="header border">
+		<div class="avatar">
+			<img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+		</div>
+		<div class="header-stats">
+			<label>{{localize "GEAR.NAME"}}</label>
+			<input name="name" type="text" value="{{item.name}}" />
+			<label>{{localize "GEAR.COST"}}</label>
+			<input name="data.cost" type="text" value="{{data.cost}}" />
+			<label>{{localize "RAW_MATERIAL.SHELF_LIFE"}}</label>
+			<input name="data.shelfLife" type="text" value="{{data.shelfLife}}" />
+		</div>
+	</div>
+	<div class="item">
+		<div class="raw-materials">
+			<label>{{localize "BUILDING.RAW_MATERIALS"}}</label>
+			<input name="data.rawMaterials" type="text" value="{{data.rawMaterials}}" />
+		</div>
+		<div class="talent">
+			<label>{{localize "GEAR.TALENT"}}</label>
+			<input name="data.talent" type="text" value="{{data.talent}}" />
+		</div>
+		<div class="tools">
+			<label>{{localize "GEAR.TOOLS"}}</label>
+			<textarea name="data.tools">{{data.tools}}</textarea>
+		</div>
+	</div>
 </form>
