@@ -62,7 +62,8 @@
   border-image: url("../asset/border-small.png") 20/10px round;
 }
 
-.forbidden-lands h1 {
+.forbidden-lands h1,
+.forbidden-lands h3 {
   border: 0 none;
   font-family: var(--font-special);
   font-size: 14px;
@@ -72,6 +73,12 @@
   padding: 4px 4px;
   text-align: center;
   text-transform: uppercase;
+}
+
+.forbidden-lands h3 {
+  font-size: 12px;
+  padding: 0;
+  margin-bottom: 4px;
 }
 
 .forbidden-lands .flex {

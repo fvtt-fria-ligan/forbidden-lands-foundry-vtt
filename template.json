@@ -298,7 +298,15 @@
       "category": "melee",
       "skillBonus": "",
       "damage": 1,
-      "features": "",
+      "features": {
+        "edged": false,
+        "pointed": false,
+        "blunt": false,
+        "parrying": false,
+        "hook": false,
+        "slowReload": false,
+        "others": ""
+      },
       "grip": "1h",
       "range": "arm",
       "cost": "",
