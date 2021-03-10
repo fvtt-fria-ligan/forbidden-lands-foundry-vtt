@@ -1,82 +1,84 @@
 {
-  "name": "forbidden-lands",
-  "title": "Forbidden Lands",
-  "description": "There is something beyond the mountains, beyond the howls beyond the mist, there is something behind the veils, behind hearts cold as stone.",
-  "version": "4.2.1",
-  "minimumCoreVersion": "0.7.5",
-  "compatibleCoreVersion": "0.7.9",
-  "templateVersion": 2,
-  "author": "perfectro, romelwell, patrys, lasseborly, jimorie, roonel, giant-teapot, aMediocreDad",
-  "scripts": [],
-  "esmodules": ["script/init.js"],
-  "styles": [
-    "style/common.css",
-    "style/character.css",
-    "style/monster.css",
-    "style/stronghold.css",
-    "style/item.css",
-    "style/dialog.css",
-    "style/tab/main.css",
-    "style/tab/combat.css",
-    "style/tab/monster-combat.css",
-    "style/tab/monster-gear.css",
-    "style/tab/stronghold-gear.css",
-    "style/tab/stronghold-building.css",
-    "style/tab/stronghold-hireling.css",
-    "style/tab/talent.css",
-    "style/tab/gear.css",
-    "style/tab/bio.css"
-  ],
-  "packs": [],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
-    },
-    {
-      "lang": "fr",
-      "name": "Français",
-      "path": "lang/fr.json"
-    },
-    {
-      "lang": "pt-BR",
-      "name": "Português Brasileiro",
-      "path": "lang/pt-br.json"
-    },
-    {
-      "lang": "cs",
-      "name": "Čeština",
-      "path": "lang/cs.json"
-    },
-    {
-      "lang": "de",
-      "name": "Deutsch",
-      "path": "lang/de.json"
-    },
-    {
-      "lang": "sv",
-      "name": "Svenska",
-      "path": "lang/sv.json"
-    },
-    {
-      "lang": "es",
-      "name": "Español",
-      "path": "lang/es.json"
-    },
-    {
-      "lang": "zh-TW",
-      "name": "正體中文",
-      "path": "lang/zh-TW.json"
-    }
-  ],
-  "gridDistance": 1,
-  "gridUnits": "m",
-  "primaryTokenAttribute": null,
-  "secondaryTokenAttribute": null,
-  "url": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt",
-  "socket": true,
-  "manifest": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/4.2.1/system.json",
-  "download": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/4.2.1/4.2.1.zip?raw=true",
-  "license": "LICENSE.txt"
+	"name": "forbidden-lands",
+	"title": "Forbidden Lands",
+	"description": "There is something beyond the mountains, beyond the howls beyond the mist, there is something behind the veils, behind hearts cold as stone.",
+	"version": "5.0.0",
+	"minimumCoreVersion": "0.7.5",
+	"compatibleCoreVersion": "0.7.9",
+	"author": "aMediocreDad, jimorie, giant-teapot",
+	"creators": "perfectro, patrys, Maxter",
+	"contributors": "romelwell, roonel, moo-man, lasseborly",
+	"localization": "Rosataker, ptosekigloo, DavidCMeier",
+	"scripts": [],
+	"esmodules": ["script/init.js"],
+	"styles": [
+		"style/common.css",
+		"style/character.css",
+		"style/monster.css",
+		"style/stronghold.css",
+		"style/item.css",
+		"style/dialog.css",
+		"style/tab/main.css",
+		"style/tab/combat.css",
+		"style/tab/monster-combat.css",
+		"style/tab/monster-gear.css",
+		"style/tab/stronghold-gear.css",
+		"style/tab/stronghold-building.css",
+		"style/tab/stronghold-hireling.css",
+		"style/tab/talent.css",
+		"style/tab/gear.css",
+		"style/tab/bio.css"
+	],
+	"packs": [],
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "lang/en.json"
+		},
+		{
+			"lang": "fr",
+			"name": "Français",
+			"path": "lang/fr.json"
+		},
+		{
+			"lang": "pt-BR",
+			"name": "Português Brasileiro",
+			"path": "lang/pt-br.json"
+		},
+		{
+			"lang": "cs",
+			"name": "Čeština",
+			"path": "lang/cs.json"
+		},
+		{
+			"lang": "de",
+			"name": "Deutsch",
+			"path": "lang/de.json"
+		},
+		{
+			"lang": "sv",
+			"name": "Svenska",
+			"path": "lang/sv.json"
+		},
+		{
+			"lang": "es",
+			"name": "Español",
+			"path": "lang/es.json"
+		},
+		{
+			"lang": "zh-TW",
+			"name": "正體中文",
+			"path": "lang/zh-TW.json"
+		}
+	],
+	"gridDistance": 1,
+	"gridUnits": "m",
+	"primaryTokenAttribute": null,
+	"secondaryTokenAttribute": null,
+	"url": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt",
+	"socket": true,
+	"manifest": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/latest/download/system.json",
+	"download": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/4.2.1/4.2.1.zip?raw=true",
+	"license": "LICENSE.txt"
 }
