@@ -3,7 +3,6 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 		return mergeObject(super.defaultOptions, {
 			classes: ["forbidden-lands", "sheet", "item"],
 			width: window.innerWidth * 0.15 + 150,
-			height: window.innerHeight * 0.3 + 200,
 			resizable: false,
 		});
 	}
@@ -31,6 +30,19 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 		const data = super.getData();
 		this._computeQuality(data);
 		return data;
+	}
+
+	_onChangeTab() {
+		$(`#${this.id} textarea`).each(function () {
+			if (this.value) {
+				this.readOnly = true;
+				this.setAttribute(
+					"style",
+					"height:" + this.scrollHeight + "px;overflow-y:hidden;"
+				);
+			}
+		});
+		return super._onChangeTab();
 	}
 
 	activateListeners(html) {
@@ -93,114 +105,37 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 		html.find(".feature").click(async (ev) => {
 			const featureName = $(ev.currentTarget).data("feature");
 			const features = this.object.data.data.features;
-			if (featureName === "parrying") {
-				this.object.update({
-					"data.features.parrying": !features.parrying,
-				});
-			} else if (featureName === "hook") {
-				this.object.update({ "data.features.hook": !features.hook });
-			} else if (featureName === "edged") {
-				this.object.update({ "data.features.edged": !features.edged });
-			} else if (featureName === "pointed") {
-				this.object.update({
-					"data.features.pointed": !features.pointed,
-				});
-			} else if (featureName === "blunt") {
-				this.object.update({ "data.features.blunt": !features.blunt });
-			} else if (featureName === "slowReload") {
-				this.object.update({
-					"data.features.slowReload": !features.slowReload,
-				});
-			}
-			this._render();
-		});
-	}
-	_onChangeTab() {
-		$("textarea").each(function () {
-			this.readOnly = true;
-			this.setAttribute(
-				"style",
-				"height:" + this.scrollHeight + "px;overflow-y:hidden;"
-			);
-		});
-		return super._onChangeTab();
-	}
-
-	activateListeners(html) {
-		super.activateListeners(html);
-		html.find(".add-modifier").click(async (ev) => {
-			ev.preventDefault();
-			let data = this.getData();
-			let rollModifiers = data.data.rollModifiers || {};
-			// To preserve order, make sure the new index is the highest
-			let modifierId =
-				Math.max(-1, ...Object.getOwnPropertyNames(rollModifiers)) + 1;
-			let update = {};
-			update[`data.rollModifiers.${modifierId}`] = {
-				name: "",
-				value: "",
-			};
-			await this.item.update(update);
-		});
-		html.find(".delete-modifier").click(async (ev) => {
-			ev.preventDefault();
-			let data = this.getData();
-			let rollModifiers = duplicate(data.data.rollModifiers || {});
-			let modifierId = $(ev.currentTarget).data("modifier-id");
-			delete rollModifiers[modifierId];
-			// Safety cleanup of null modifiers
-			for (let key in Object.keys(rollModifiers)) {
-				if (!rollModifiers[key]) {
-					delete rollModifiers[key];
-				}
-			}
-			// There seems to be some issue replacing an existing object, if we set
-			// it to null first it works better.
-			await this.item.update({ "data.rollModifiers": null });
-			if (Object.keys(rollModifiers).length > 0) {
-				await this.item.update({ "data.rollModifiers": rollModifiers });
-			}
-		});
-		html.find(".change-bonus").on("click contextmenu", (ev) => {
-			const bonus = this.object.data.data.bonus;
-			let value = bonus.value;
-			if (ev.type === "click") {
-				value = Math.max(value - 1, 0);
-			} else if (ev.type === "contextmenu") {
-				value = Math.min(value + 1, bonus.max);
-			}
-			this.object.update({
-				["data.bonus.value"]: value,
-			});
-		});
-		html.find(".feature").click(async (ev) => {
-			const featureName = $(ev.currentTarget).data("feature");
-			const features = this.object.data.data.features;
 			switch (featureName) {
 				case "parrying":
 					this.object.update({
 						"data.features.parrying": !features.parrying,
 					});
+					break;
 				case "hook":
 					this.object.update({
 						"data.features.hook": !features.hook,
 					});
+					break;
 				case "edged":
 					this.object.update({
 						"data.features.edged": !features.edged,
 					});
+					break;
 				case "pointed":
 					this.object.update({
 						"data.features.pointed": !features.pointed,
 					});
+					break;
 				case "blunt":
 					this.object.update({
 						"data.features.blunt": !features.blunt,
 					});
+					break;
 				case "slowReload":
 					this.object.update({
 						"data.features.slowReload": !features.slowReload,
 					});
+					break;
 			}
 			this._render();
 		});
