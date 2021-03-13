@@ -20,7 +20,12 @@
                             </div>
                             <div class="name">
                                 <button type="button" class="roll-weapon" data-item-id="{{item._id}}">{{item.name}}</button>
-                                <span>{{weaponGrip item.data.grip}}{{#if item.data.features.others}}, {{/if}}{{item.data.features.others}}</span>
+                                <span>
+                                    {{weaponGrip item.data.grip}}
+                                    {{#if (hasWeaponFeatures item.data.category item.data.features)}}
+                                        , {{formatWeaponFeatures item.data.category item.data.features}}
+                                    {{/if}}
+                                </span>
                             </div>
                         </div>
                         <div class="damage">{{item.data.damage}}</div>
