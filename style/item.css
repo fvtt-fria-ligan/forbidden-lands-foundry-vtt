@@ -1,20 +1,21 @@
 .forbidden-lands.item {
-	max-height: 700px;
+	min-height: 250px;
+	min-width: 380px;
+	height: 100%;
 	max-width: 600px;
-	min-width: 400px;
-	min-height: 400px;
+	max-height: 700px;
 }
 
 .forbidden-lands.item label {
 	display: block;
 	font-family: var(--font-special);
 	font-weight: bold;
-	padding: 0 4px;
 }
 
 .forbidden-lands.item .multivalue {
 	align-items: center;
 	display: grid;
+	margin: 0 8px;
 	font-family: var(--font-special);
 	gap: 2px;
 	grid-template-columns: 1fr auto 1fr;
@@ -23,27 +24,29 @@
 .forbidden-lands.item .header {
 	align-items: center;
 	display: flex;
-	margin-bottom: 8px;
 	padding: 8px;
 	justify-content: space-between;
+	height: fit-content;
 }
 
 .forbidden-lands.item .header .header-stats {
 	display: grid;
 	grid-template-columns: auto 1fr;
 	align-items: center;
-	gap: 8px;
+	gap: 2px;
 	margin-left: 8px;
 }
 
 .forbidden-lands.item .header .header-stats label {
 	grid-column: 1;
 	text-align: right;
+	margin-right: 8px;
 }
 
 .forbidden-lands.item .header .header-stats .bonus {
 	display: grid;
 	grid-template-columns: 1fr auto;
+	align-items: center;
 }
 
 .forbidden-lands.item .header .header-stats .bonus input {
@@ -79,14 +82,11 @@
 	cursor: pointer;
 }
 
-.forbidden-lands.item .tabs .tab-item {
-	padding: 5px;
-	text-align: center;
-}
 
-.forbidden-lands.item .tabs .tab-item.active {
-	color: #fff;
-	text-shadow: 0 0 10px #fff;
+
+.forbidden-lands.item .sheet-body {
+	overflow-y: auto;
+	min-height: 0;
 }
 
 .forbidden-lands.item .sheet-body .tab {
@@ -105,6 +105,7 @@
 	align-items: end;
 }
 
+.forbidden-lands.item .item .requirement,
 .forbidden-lands.item .item .tools,
 .forbidden-lands.item .item .effect,
 .forbidden-lands.item .item .description,
@@ -121,7 +122,7 @@
 }
 
 .forbidden-lands.item .item .raw-materials {
-  grid-column: 1/3;
+	grid-column: 1/3;
 }
 
 .forbidden-lands.item .sheet-body .supply label,
@@ -135,6 +136,7 @@
 }
 
 .forbidden-lands.item .item {
+	margin: 8px;
 	align-items: baseline;
 	display: grid;
 	gap: 8px;
@@ -158,7 +160,7 @@
 	box-shadow: none;
 }
 
-.forbidden-lands.item .roll-modifiers .column-header {
+.forbidden-lands.item .column-header {
 	border-bottom: 2px solid var(--color-border);
 }
 
@@ -175,29 +177,24 @@
 }
 
 .forbidden-lands .features {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.forbidden-lands .features > h3 {
-  flex-basis: 100%;
-  flex-shrink: 0;
+	justify-content: flex-start;
 }
 
 .forbidden-lands .grid-full-line {
-  grid-column: 1/-1;
+	grid-column: 1/-1;
 }
 
 .forbidden-lands .features .feature {
-  font-family: var(--font-special);
-  text-align: center;
+	margin: 5px 2px 2px;
+	flex-grow: 1;
+	font-family: var(--font-input);
+	font-size: 12px;
 }
 
 .forbidden-lands .features .feature.active {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 .forbidden-lands .features .feature > i {
-  vertical-align: middle;
+	vertical-align: middle;
 }
