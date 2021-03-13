@@ -9,9 +9,9 @@
   "ACTION.SHOVE": "Bousculer",
   "ACTION.UNARMED_STRIKE": "Attaquer sans arme",
 
-  "ACTOR.TypeCharacter": "Character",
-  "ACTOR.TypeMonster": "Monster",
-  "ACTOR.TypeStronghold": "Stronghold",
+  "ACTOR.TypeCharacter": "Personnage",
+  "ACTOR.TypeMonster": "Monstre",
+  "ACTOR.TypeStronghold": "Forteresse",
 
   "ARMOR.BODY": "Corps",
   "ARMOR.HELMET": "Heaume",
@@ -109,6 +109,7 @@
   "GEAR.TIME": "Temps",
   "GEAR.TOOLS": "Outils",
   "GEAR.WEIGHT": "Poids",
+  "GEAR.MOUNTED": "Monté",
 
   "HEADER.ACTIONS": "ACTIONS",
   "HEADER.ARMOR": "ARMURES",
@@ -155,6 +156,9 @@
   "ITEM.TypeTalent": "Talent",
   "ITEM.TypeWeapon": "Arme",
 
+  "LETHAL.NO": "Non",
+  "LETHAL.YES": "Oui",
+
   "MONSTER.ARMOR": "Armure",
   "MONSTER.DAMAGE_TYPE": "Type de dégâts",
   "MONSTER.DAMAGE": "Dégâts",
@@ -162,6 +166,9 @@
   "MONSTER.DICE": "Dés",
   "MONSTER.NAME": "Nom",
   "MONSTER.RANGE": "Portée",
+  "MONSTER.TYPE.LABEL": "Type:",
+  "MONSTER.TYPE.MONSTER": "Montre",
+  "MONSTER.TYPE.MOUNT": "Monture",
 
   "MOVEMENT": "Mouvement",
 
@@ -228,8 +235,12 @@
   "TAB.TALENT": "TALENT",
 
   "TALENT.DESCRIPTION": "Description",
+  "TALENT.GENERAL": "Général",
+  "TALENT.KIN": "Racial",
   "TALENT.NAME": "Nom",
+  "TALENT.PROFESSION": "Profession",
   "TALENT.RANK": "Rang",
+  "TALENT.TYPE": "Type",
 
   "WEAPON.1H": "1H",
   "WEAPON.2H": "2H",
@@ -254,6 +265,9 @@
 
   "WEIGHT.HEAVY": "Lourd",
   "WEIGHT.LIGHT": "Léger",
+  "WEIGHT.NONE": "Aucun",
   "WEIGHT.REGULAR": "Moyen",
-  "WEIGHT.TINY": "Minuscule"
+  "WEIGHT.TINY": "Minuscule",
+  "WEIGHT.TYPE_REGULAR": "Classique",
+  "WEIGHT.TYPE_SPECIAL": "Spécial"
 }
