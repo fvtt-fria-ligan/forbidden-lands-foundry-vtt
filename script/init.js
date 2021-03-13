@@ -29,71 +29,70 @@ Hooks.once("init", () => {
 		hint:
 			"Used to automatically upgrade worlds data when the system is upgraded.",
 		scope: "world",
-		config: true,
+		config: false,
 		default: 0,
 		type: Number,
 	});
 	game.settings.register("forbidden-lands", "alternativeSkulls", {
-		name: "Alternative Sheet Interaction",
-		hint:
-			"Changes the look and interaction of Attribute/Bonus/Willpower radio buttons in the Character, Monster and Item sheets.",
-		scope: "world",
+		name: "CONFIG.ALTERNATIVESKULLS",
+		hint: "CONFIG.ALTERNATIVESKULLSDESC",
+		scope: "client",
 		config: true,
 		default: false,
 		type: Boolean,
 	});
 	game.settings.register("forbidden-lands", "showCraftingFields", {
-		name: "Show crafting fields",
+		name: "CONFIG.CRAFTINGFIELD",
 		hint: "Used to show or hide crafting related fields on item sheets.",
-		scope: "world",
+		scope: "client",
 		config: true,
 		default: true,
 		type: Boolean,
 	});
 	game.settings.register("forbidden-lands", "showCostField", {
-		name: "Show cost field",
+		name: "CONFIG.COSTFIELD",
 		hint: "Used to show or hide the cost field on item sheets.",
-		scope: "world",
+		scope: "client",
 		config: true,
 		default: true,
 		type: Boolean,
 	});
 	game.settings.register("forbidden-lands", "showSupplyField", {
-		name: "Show supply field",
+		name: "CONFIG.SUPPLYFIELD",
 		hint: "Used to show or hide the supply field on item sheets.",
-		scope: "world",
+		scope: "client",
 		config: true,
 		default: true,
 		type: Boolean,
 	});
 	game.settings.register("forbidden-lands", "showEffectField", {
-		name: "Show effect field",
+		name: "CONFIG.EFFECTFIELD",
 		hint: "Used to show or hide the effect field on item sheets.",
-		scope: "world",
+		scope: "client",
 		config: true,
 		default: true,
 		type: Boolean,
 	});
 	game.settings.register("forbidden-lands", "showDescriptionField", {
-		name: "Show description field",
+		name: "CONFIG.DESCRIPTIONFIELD",
 		hint: "Used to show or hide the description field on item sheets.",
-		scope: "world",
+		scope: "client",
 		config: true,
 		default: true,
 		type: Boolean,
 	});
 	game.settings.register("forbidden-lands", "showDrawbackField", {
-		name: "Show drawback field",
+		name: "CONFIG.DRAWBACKFIELD",
 		hint: "Used to show or hide the drawback field on item sheets.",
-		scope: "world",
+		scope: "client",
 		config: true,
 		default: true,
 		type: Boolean,
 	});
 	game.settings.register("forbidden-lands", "showAppearanceField", {
-		name: "Show appearance field",
+		name: "CONFIG.APPEARANCEFIELD",
 		hint: "Used to show or hide the appearance field on item sheets.",
-		scope: "world",
+		scope: "client",
 		config: true,
 		default: true,
 		type: Boolean,
