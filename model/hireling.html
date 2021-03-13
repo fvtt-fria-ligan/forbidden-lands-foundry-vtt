@@ -1,6 +1,6 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <div class="item">
-        <div class="item border" style="grid-column: 1/-1; padding: 8px;">
+    <div class="border">
+        <div class="item" style="grid-column: 1/-1; padding: 8px;">
             <div class="name" style="grid-column: 1/-1;">
                 <label>{{localize "GEAR.NAME"}}</label>
                 <input name="name" type="text" value="{{item.name}}" />
@@ -17,10 +17,10 @@
                 <label>{{localize "HIRELING.NUMBER"}}</label>
                 <input name="data.number" type="text" value="{{data.number}}" />
             </div>
-        </div>
-        <div class="hireling-description">
-            <label>{{localize "HIRELING.DESCRIPTION"}}</label>
-            <textarea name="data.description">{{data.description}}</textarea>
+			<div class="hireling-description">
+				<label>{{localize "HIRELING.DESCRIPTION"}}</label>
+				<textarea name="data.description">{{data.description}}</textarea>
+			</div>
         </div>
     </div>
 </form>
