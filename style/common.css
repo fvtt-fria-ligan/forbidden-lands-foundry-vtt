@@ -476,7 +476,7 @@ button,
 	padding: 5px;
 	text-align: center;
 	flex: 0;
-	flex-basis: 100%;
+	white-space: nowrap;
 }
 
 .forbidden-lands .tabs .tab-item.active {
