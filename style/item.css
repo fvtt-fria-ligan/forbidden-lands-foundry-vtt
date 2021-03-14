@@ -77,12 +77,11 @@
 	min-height: 20px;
 	margin: auto;
 }
+
 .forbidden-lands.item .avatar img:hover {
 	box-shadow: 0 0 10px red;
 	cursor: pointer;
 }
-
-
 
 .forbidden-lands.item .sheet-body {
 	overflow-y: auto;
@@ -105,7 +104,9 @@
 	align-items: end;
 }
 
-.forbidden-lands.item .sheet-body div:hover {
+.forbidden-lands.item .item div,
+.forbidden-lands.item .sheet-body .artifact div,
+.forbidden-lands.item .sheet-body .main div {
 	position: relative;
 }
 
