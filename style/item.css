@@ -105,6 +105,10 @@
 	align-items: end;
 }
 
+.forbidden-lands.item .sheet-body div:hover {
+	position: relative;
+}
+
 .forbidden-lands.item .item .requirement,
 .forbidden-lands.item .item .tools,
 .forbidden-lands.item .item .effect,
@@ -158,6 +162,26 @@
 
 .forbidden-lands.item textarea:read-only:focus {
 	box-shadow: none;
+}
+
+.forbidden-lands.item textarea:read-only:hover {
+	box-shadow: 0 0 4px black;
+	color: #999;
+	transition: color 0.5s 2s ease;
+}
+
+.forbidden-lands .legend {
+	font-family: var(--font-special);
+    position: absolute;
+	height: auto;
+	opacity: 0;
+    top: 50%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    text-shadow: 0 0 3px #222;
+	pointer-events: none;
+	transition: opacity 0.1s 2.1s;
 }
 
 .forbidden-lands.item .column-header {
