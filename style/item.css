@@ -166,20 +166,24 @@
 
 .forbidden-lands.item textarea:read-only:hover {
 	box-shadow: 0 0 4px black;
-	color: #999;
+	color: #888;
 	transition: color 0.5s 2s ease;
 }
 
 .forbidden-lands .legend {
-	font-family: var(--font-special);
     position: absolute;
 	height: auto;
 	opacity: 0;
-    top: 50%;
+    top: 55%;
     left: 48%;
-    transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	background-color: #333333cc;
+	padding: 4px 8px;
+	border-radius: 5px;
+	box-shadow: 0 0 15px #333;
+	font-family: var(--font-special);
     font-size: 20px;
-    text-shadow: 0 0 3px #222;
+	color: #ddd;
 	pointer-events: none;
 	transition: opacity 0.1s 2.1s;
 }
