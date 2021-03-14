@@ -250,6 +250,7 @@
 	font-family: var(--font-special);
 	margin: 8px 0;
 	padding: 0 8px;
+	flex-wrap: nowrap;
 	justify-content: space-evenly;
 }
 
@@ -475,6 +476,7 @@ button,
 	padding: 5px;
 	text-align: center;
 	flex: 0;
+	flex-basis: 100%;
 }
 
 .forbidden-lands .tabs .tab-item.active {
