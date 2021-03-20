@@ -7,7 +7,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
       classes: ["forbidden-lands", "sheet", "actor"],
       template: "systems/forbidden-lands/model/monster.html",
       width: 620,
-      height: 740,
+      height: 770,
       resizable: false,
       scrollY: [".monster-talents .item-list .items", ".monster-attacks .item-list .items", ".gears.item-list .items"],
       tabs: [
