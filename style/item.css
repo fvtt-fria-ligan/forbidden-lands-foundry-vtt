@@ -171,19 +171,19 @@
 	transition: color 0.5s 2s ease;
 }
 
-.forbidden-lands .legend {
+.forbidden-lands textarea ~ .legend {
     position: absolute;
 	height: auto;
 	opacity: 0;
-    top: 55%;
-    left: 48%;
+    top: calc(50% + 8px);
+    left: calc(50% - 8px);
 	transform: translate(-50%, -50%);
 	background-color: #333333cc;
 	padding: 4px 8px;
 	border-radius: 5px;
 	box-shadow: 0 0 15px #333;
 	font-family: var(--font-special);
-    font-size: 20px;
+    font-size: 16px;
 	color: #ddd;
 	pointer-events: none;
 	transition: opacity 0.1s 2.1s;
