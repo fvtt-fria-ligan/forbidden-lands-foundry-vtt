@@ -1,7 +1,7 @@
 <p align="center">
-  <a href="https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/latest" target="_blank"><img alt="system version" src="https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffvtt-fria-ligan%2Fforbidden-lands-foundry-vtt%2Fmain%2Fsystem.json&label=Version&query=$.version&colorB=blue"/></a>
+  <a href="https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/latest" target="_blank"><img alt="system version" src="https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffvtt-fria-ligan%2Fforbidden-lands-foundry-vtt%2Fmain%2F%src%2Fsystem.json&label=Version&query=$.version&colorB=blue"/></a>
   <a href="https://foundryvtt.com" target="_blank">
-    <img src="https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffvtt-fria-ligan%2Fforbidden-lands-foundry-vtt%2Fmain%2Fsystem.json&label=Foundry&query=$.compatibleCoreVersion&colorB=blue" alt="foundry-compatibility-version" style="max-width:100%;"/>
+    <img src="https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffvtt-fria-ligan%2Fforbidden-lands-foundry-vtt%2Fmain%src%2Fsystem.json&label=Foundry&query=$.compatibleCoreVersion&colorB=blue" alt="foundry-compatibility-version" style="max-width:100%;"/>
   </a>
   <a href="https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/graphs/commit-activity" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg"/>
