@@ -35,7 +35,7 @@ Hooks.once("init", () => {
 	});
 	game.settings.register("forbidden-lands", "alternativeSkulls", {
 		name: "CONFIG.ALTERNATIVESKULLS",
-		hint: "CONFIG.ALTERNATIVESKULLSDESC",
+		hint: "CONFIG.ALTERNATIVESKULLS_DESC",
 		scope: "client",
 		config: true,
 		default: false,
@@ -43,7 +43,7 @@ Hooks.once("init", () => {
 	});
 	game.settings.register("forbidden-lands", "showCraftingFields", {
 		name: "CONFIG.CRAFTINGFIELD",
-		hint: "Used to show or hide crafting related fields on item sheets.",
+		hint: "CONFIG.CRAFTINGFIELD_DESC",
 		scope: "client",
 		config: true,
 		default: true,
@@ -51,7 +51,7 @@ Hooks.once("init", () => {
 	});
 	game.settings.register("forbidden-lands", "showCostField", {
 		name: "CONFIG.COSTFIELD",
-		hint: "Used to show or hide the cost field on item sheets.",
+		hint: "CONFIG.COSTFIELD_DESC",
 		scope: "client",
 		config: true,
 		default: true,
@@ -59,7 +59,7 @@ Hooks.once("init", () => {
 	});
 	game.settings.register("forbidden-lands", "showSupplyField", {
 		name: "CONFIG.SUPPLYFIELD",
-		hint: "Used to show or hide the supply field on item sheets.",
+		hint: "CONFIG.SUPPLYFIELD_DESC",
 		scope: "client",
 		config: true,
 		default: true,
@@ -67,7 +67,7 @@ Hooks.once("init", () => {
 	});
 	game.settings.register("forbidden-lands", "showEffectField", {
 		name: "CONFIG.EFFECTFIELD",
-		hint: "Used to show or hide the effect field on item sheets.",
+		hint: "CONFIG.EFFECTFIELD_DESC",
 		scope: "client",
 		config: true,
 		default: true,
@@ -75,7 +75,7 @@ Hooks.once("init", () => {
 	});
 	game.settings.register("forbidden-lands", "showDescriptionField", {
 		name: "CONFIG.DESCRIPTIONFIELD",
-		hint: "Used to show or hide the description field on item sheets.",
+		hint: "CONFIG.DESCRIPTIONFIELD_DESC",
 		scope: "client",
 		config: true,
 		default: true,
@@ -83,7 +83,7 @@ Hooks.once("init", () => {
 	});
 	game.settings.register("forbidden-lands", "showDrawbackField", {
 		name: "CONFIG.DRAWBACKFIELD",
-		hint: "Used to show or hide the drawback field on item sheets.",
+		hint: "CONFIG.DRAWBACKFIELD_DESC",
 		scope: "client",
 		config: true,
 		default: true,
@@ -91,7 +91,7 @@ Hooks.once("init", () => {
 	});
 	game.settings.register("forbidden-lands", "showAppearanceField", {
 		name: "CONFIG.APPEARANCEFIELD",
-		hint: "Used to show or hide the appearance field on item sheets.",
+		hint: "CONFIG.APPEARANCEFIELD_DESC",
 		scope: "client",
 		config: true,
 		default: true,
