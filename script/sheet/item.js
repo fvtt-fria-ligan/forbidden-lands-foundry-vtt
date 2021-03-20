@@ -146,7 +146,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 					const element = ev.currentTarget;
 					const legend = document.createElement("legend");
 					legend.classList.add("legend");
-					legend.innerText = "Right-click to edit";
+					legend.innerText = game.i18n.localize("SHEET.TEXTAREA_EDIT");
 					switch (ev.type) {
 						case "mouseover":
 							if (element.readOnly) {
