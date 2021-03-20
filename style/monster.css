@@ -24,6 +24,7 @@
 .forbidden-lands .monster .bio .bio-row .npc-type select {
   width: 10em;
   margin-right: 8px;
+  margin-left: 4px;
 }
 
 .forbidden-lands .monster .bio .avatar {
@@ -42,6 +43,7 @@
   min-width: 20px;
   min-height: 20px;
   margin: auto;
+  margin-left: 5px;
 }
 .forbidden-lands .monster .bio .avatar img:hover {
   box-shadow: 0 0 10px red;
