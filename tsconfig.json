@@ -1,34 +1,14 @@
 {
     "compilerOptions": {
-        "target": "es2017",
-        "module": "commonjs",
-        "lib": ["esnext", "dom"],
-        "noEmit": true,
-        "noImplicitThis": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "forceConsistentCasingInFileNames": true,
-        "esModuleInterop": true,
+        "target": "ES2017",
+        "lib": ["DOM", "ES6", "ES2017"],
         "sourceMap": true,
-        "baseUrl": ".",
         "removeComments": false,
-        "resolveJsonModule": true,
-        "paths": {
-            "@actor/*": ["src/app/actor/*"],
-            "@components/*": ["src/app/components/*"],
-            "@dialog/*": ["src/app/dialog/*"],
-            "@hooks/*": ["src/app/hooks/*"],
-            "@sheet/*": ["src/app/sheet/*"],
-            "@module/*": ["src/app/*"]
-		},
+		"allowJs": true,
         "types": [
-            "jquery",
-            "tooltipster",
-            "node",
-            "handlebars",
-            "socket.io",
-            "foundry-pc-types"
+            "foundry-vtt-types"
         ],
-        "typeRoots": ["node_modules/@types", "node_modules/handlebars", "node_modules/foundry-pc-types"]
+		"typeRoots": ["node_modules/@types", "node_modules/@league-of-foundry-developers"],
+		"moduleResolution": "node"
     }
 }

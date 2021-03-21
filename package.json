@@ -17,20 +17,17 @@
 		"url": "git+https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt.git"
 	},
 	"author": "aMediocreDad",
-	"license": "MIT",
+	"license": "GPL-3.0-or-later",
 	"bugs": {
 		"url": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues"
 	},
 	"homepage": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt#readme",
 	"devDependencies": {
+		"@league-of-foundry-developers/foundry-vtt-types": "^0.7.9-3",
 		"@types/fs-extra": "^9.0.8",
-		"@types/jsdom": "^16.2.7",
-		"@types/socket.io": "^2.1.13",
-		"@types/tooltipster": "0.0.30",
 		"archiver": "^5.3.0",
 		"browserify": "^17.0.0",
 		"ember-template-lint-plugin-prettier": "^2.0.0",
-		"foundry-pc-types": "gitlab:foundry-projects/foundry-pc/foundry-pc-types",
 		"fs-extra": "^9.1.0",
 		"gulp": "^4.0.0",
 		"gulp-sass": "^4.1.0",
