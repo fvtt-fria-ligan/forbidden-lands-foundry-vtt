@@ -9,12 +9,11 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	 * @override
 	 * Extends the sheet drop handler for system specific usages
 	 */
-	async _onDrop(event) {
+	async _onDrop(event): Promise<any> {
 		let dragData = JSON.parse(event.dataTransfer.getData("text/plain"));
 
 		// To be extended if future features add more drop functionality
-		if (dragData.type === "itemDrop")
-			this.actor.createEmbeddedEntity("OwnedItem", dragData.item);
+		if (dragData.type === "itemDrop") this.actor.createEmbeddedEntity("OwnedItem", dragData.item);
 		// Call base _onDrop for normal FVTT drop handling
 		else super._onDrop(event);
 	}
@@ -26,10 +25,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			const attributeName = $(ev.currentTarget).data("attribute");
 			const attribute = this.actor.data.data.attribute[attributeName];
 			let value = attribute.value;
-			if (
-				(ev.type === "click" && !this.altInteraction) ||
-				(ev.type === "contextmenu" && this.altInteraction)
-			) {
+			if ((ev.type === "click" && !this.altInteraction) || (ev.type === "contextmenu" && this.altInteraction)) {
 				value = Math.max(value - 1, 0);
 			} else if (
 				(ev.type === "contextmenu" && !this.altInteraction) ||
@@ -46,10 +42,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		html.find(".change-willpower").on("click contextmenu", (ev) => {
 			const attribute = this.actor.data.data.bio.willpower;
 			let value = attribute.value;
-			if (
-				(ev.type === "click" && !this.altInteraction) ||
-				(ev.type === "contextmenu" && this.altInteraction)
-			) {
+			if ((ev.type === "click" && !this.altInteraction) || (ev.type === "contextmenu" && this.altInteraction)) {
 				value = Math.max(value - 1, 0);
 			} else if (
 				(ev.type === "contextmenu" && !this.altInteraction) ||
@@ -73,17 +66,14 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		});
 		html.find(".item-post").click((ev) => {
 			const div = $(ev.currentTarget).parents(".item");
-			const item = this.actor.getOwnedItem(div.data("itemId"));
+			const item: any = this.actor.getOwnedItem(div.data("itemId"));
 			item.sendToChat();
 		});
 		html.find(".change-item-bonus").on("click contextmenu", (ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
 			const item = this.actor.getOwnedItem(itemId);
 			let value = item.data.data.bonus.value;
-			if (
-				(ev.type === "click" && !this.altInteraction) ||
-				(ev.type === "contextmenu" && this.altInteraction)
-			) {
+			if ((ev.type === "click" && !this.altInteraction) || (ev.type === "contextmenu" && this.altInteraction)) {
 				value = Math.max(value - 1, 0);
 			} else if (
 				(ev.type === "contextmenu" && !this.altInteraction) ||
@@ -100,7 +90,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		html.find(".roll-attribute").click((ev) => {
 			const attributeName = $(ev.currentTarget).data("attribute");
 			const attribute = this.actor.data.data.attribute[attributeName];
-			let modifiers = this.getRollModifiers(attribute.label);
+			let modifiers = this.getRollModifiers(attribute.label, null);
 			RollDialog.prepareRollDialog(
 				attribute.label,
 				{ name: attribute.label, value: attribute.value },
@@ -109,14 +99,15 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 				modifiers.artifacts.join(" "),
 				modifiers.modifier,
 				0,
-				this.diceRoller
+				this.diceRoller,
+				null,
 			);
 		});
 		html.find(".roll-skill").click((ev) => {
 			const skillName = $(ev.currentTarget).data("skill");
 			const skill = this.actor.data.data.skill[skillName];
 			const attribute = this.actor.data.data.attribute[skill.attribute];
-			let modifiers = this.getRollModifiers(attribute.label);
+			let modifiers = this.getRollModifiers(attribute.label, null);
 			modifiers = this.getRollModifiers(skill.label, modifiers);
 			RollDialog.prepareRollDialog(
 				skill.label,
@@ -126,7 +117,8 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 				modifiers.artifacts.join(" "),
 				modifiers.modifier,
 				0,
-				this.diceRoller
+				this.diceRoller,
+				null,
 			);
 		});
 		html.find(".roll-weapon").click((ev) => {
@@ -146,11 +138,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			let bonus = this.parseBonus(weapon.data.data.bonus.value);
 			let modifiers = this.parseModifiers(weapon.data.data.skillBonus);
 			if (weapon.data.data.artifactBonus) {
-				modifiers.artifacts.splice(
-					0,
-					0,
-					weapon.data.data.artifactBonus
-				);
+				modifiers.artifacts.splice(0, 0, weapon.data.data.artifactBonus);
 			}
 			modifiers = this.getRollModifiers(attribute.label, modifiers);
 			modifiers = this.getRollModifiers(skill.label, modifiers);
@@ -158,10 +146,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 				modifiers = this.getRollModifiers(action, modifiers);
 			}
 
-			if (
-				weapon.data.data.category === "melee" &&
-				action === "ACTION.PARRY"
-			) {
+			if (weapon.data.data.category === "melee" && action === "ACTION.PARRY") {
 				// Adjust parry action modifiers based on weapon features
 				const parrying = weapon.data.data.features.parrying;
 				if (!parrying) {
@@ -177,20 +162,21 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 				modifiers.artifacts.join(" "),
 				modifiers.modifier,
 				action ? 0 : weapon.data.data.damage,
-				this.diceRoller
+				this.diceRoller,
+				null,
 			);
 		});
 		html.find(".roll-spell").click((ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
 			const spell = this.actor.getOwnedItem(itemId);
-			RollDialog.prepareSpellDialog(spell);
+			RollDialog.prepareSpellDialog(spell, null);
 		});
 		html.find(".roll-action").click((ev) => {
 			const rollName = $(ev.currentTarget).data("action");
 			const skillName = $(ev.currentTarget).data("skill");
 			const skill = this.actor.data.data.skill[skillName];
 			const attribute = this.actor.data.data.attribute[skill.attribute];
-			let modifiers = this.getRollModifiers(attribute.label);
+			let modifiers = this.getRollModifiers(attribute.label, null);
 			modifiers = this.getRollModifiers(skill.label, modifiers);
 			modifiers = this.getRollModifiers(rollName, modifiers);
 			RollDialog.prepareRollDialog(
@@ -201,7 +187,8 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 				modifiers.artifacts.join(" "),
 				modifiers.modifier,
 				0,
-				this.diceRoller
+				this.diceRoller,
+				null,
 			);
 		});
 	}
@@ -211,7 +198,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		let artifacts = [];
 		let modifier = 0;
 		if (typeof str === "string") {
-			str.split(sep).forEach((item) => {
+			str.split(sep).forEach((item: any) => {
 				if (this.isArtifact(item)) {
 					artifacts.push(item);
 				} else {
@@ -252,13 +239,11 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		this.actor.items.forEach((item) => {
 			let rollModifiers = item.data.data.rollModifiers;
 			if (rollModifiers) {
-				Object.values(rollModifiers).forEach((mod) => {
+				Object.values(rollModifiers).forEach((mod: any) => {
 					if (mod && mod.name == skillLabel) {
 						let parsed = this.parseModifiers(mod.value);
 						modifiers.modifier += parsed.modifier;
-						modifiers.artifacts = modifiers.artifacts.concat(
-							parsed.artifacts
-						);
+						modifiers.artifacts = modifiers.artifacts.concat(parsed.artifacts);
 					}
 				});
 			}

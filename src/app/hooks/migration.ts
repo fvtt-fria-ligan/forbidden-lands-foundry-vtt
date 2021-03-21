@@ -1,15 +1,10 @@
 export const migrateWorld = async () => {
 	const schemaVersion = 5;
 	const systemVersion = Number(
-		game.system.data.version.split(".")[0] //Get the first whole integer in system version.
+		game.system.data.version.split(".")[0], //Get the first whole integer in system version.
 	);
-	const trueWorldSchemaVersion = Number(
-		game.settings.get("forbidden-lands", "worldSchemaVersion") || 0
-	); //Moved to a separate variable due to this being an exposed setting that can be set to integer, float or string. This also sets 0 if it evaluates to NaN.
-	const worldSchemaVersion =
-		trueWorldSchemaVersion <= systemVersion
-			? trueWorldSchemaVersion
-			: systemVersion; //Intention here is to prevent worldSchema from being larger than systemversion preventing a migration and potentially "corrupting" the World.
+	const trueWorldSchemaVersion = Number(game.settings.get("forbidden-lands", "worldSchemaVersion") || 0); //Moved to a separate variable due to this being an exposed setting that can be set to integer, float or string. This also sets 0 if it evaluates to NaN.
+	const worldSchemaVersion = trueWorldSchemaVersion <= systemVersion ? trueWorldSchemaVersion : systemVersion; //Intention here is to prevent worldSchema from being larger than systemversion preventing a migration and potentially "corrupting" the World.
 	if (worldSchemaVersion !== schemaVersion && game.user.isGM) {
 		ui.notifications.info("Upgrading the world, please wait...");
 		for (let actor of game.actors.entities) {
@@ -43,29 +38,22 @@ export const migrateWorld = async () => {
 			}
 		}
 		for (let pack of game.packs.filter(
-			(p) =>
-				p.metadata.package === "world" &&
-				["Actor", "Item", "Scene"].includes(p.metadata.entity)
+			(p) => p.metadata.package === "world" && ["Actor", "Item", "Scene"].includes(p.metadata.entity),
 		)) {
 			await migrateCompendium(pack, worldSchemaVersion);
 		}
 		migrateSettings(worldSchemaVersion);
-		game.settings.set(
-			"forbidden-lands",
-			"worldSchemaVersion",
-			schemaVersion
-		);
+		game.settings.set("forbidden-lands", "worldSchemaVersion", schemaVersion);
 		ui.notifications.info("Upgrade complete!");
 	}
 };
 
 const migrateActorData = (actor, worldSchemaVersion) => {
-	const update = {};
+	const update: any = {};
 	if (worldSchemaVersion <= 2) {
 		if (actor.type === "character") {
 			if (!actor.data.condition.sleepy) {
-				update["data.condition.sleepy"] =
-					actor.data.condition.sleepless;
+				update["data.condition.sleepy"] = actor.data.condition.sleepless;
 			}
 		}
 	}
@@ -88,7 +76,7 @@ const migrateActorData = (actor, worldSchemaVersion) => {
 };
 
 const migrateItemData = (item, worldSchemaVersion) => {
-	const update = {};
+	const update: any = {};
 	if (worldSchemaVersion <= 2) {
 		if (item.type === "artifact") {
 			update.type = "weapon";
@@ -143,18 +131,14 @@ const migrateItemData = (item, worldSchemaVersion) => {
 			};
 			let otherFeatures = "";
 			for (const feature of features) {
-				const lcFeature =
-					feature === "slowReload" ? feature : feature.toLowerCase();
+				const lcFeature = feature === "slowReload" ? feature : feature.toLowerCase();
 				if (lcFeature in update["data.features"]) {
 					update["data.features"][lcFeature] = true;
 				} else {
 					otherFeatures += feature + ", ";
 				}
 			}
-			update["data.features"].others = otherFeatures.substr(
-				0,
-				otherFeatures.length - 2
-			);
+			update["data.features"].others = otherFeatures.substr(0, otherFeatures.length - 2);
 		}
 	}
 	if (!isObjectEmpty(update)) {
@@ -167,11 +151,7 @@ const migrateSceneData = (scene, worldSchemaVersion) => {
 	const tokens = duplicate(scene.tokens);
 	return {
 		tokens: tokens.map((tokenData) => {
-			if (
-				!tokenData.actorId ||
-				tokenData.actorLink ||
-				!tokenData.actorData.data
-			) {
+			if (!tokenData.actorId || tokenData.actorLink || !tokenData.actorData.data) {
 				tokenData.actorData = {};
 				return tokenData;
 			}
@@ -180,10 +160,7 @@ const migrateSceneData = (scene, worldSchemaVersion) => {
 				tokenData.actorId = null;
 				tokenData.actorData = {};
 			} else if (!tokenData.actorLink && token.data.actorData.items) {
-				const update = migrateActorData(
-					token.data.actorData,
-					worldSchemaVersion
-				);
+				const update = migrateActorData(token.data.actorData, worldSchemaVersion);
 				console.log("ACTOR CHANGED", token.data.actorData, update);
 				tokenData.actorData = mergeObject(token.data.actorData, update);
 			}
@@ -224,8 +201,8 @@ const migrateSettings = async function (worldSchemaVersion) {
 		game.settings.set("forbidden-lands", "showDescriptionField", true);
 		game.settings.set("forbidden-lands", "showDrawbackField", true);
 		game.settings.set("forbidden-lands", "showAppearanceField", true);
-  }
-  if (worldSchemaVersion <= 4) {
-    game.settings.set("forbidden-lands", "alternativeSkulls", false);
-  }
+	}
+	if (worldSchemaVersion <= 4) {
+		game.settings.set("forbidden-lands", "alternativeSkulls", false);
+	}
 };

@@ -4,8 +4,9 @@ import { RollDialog } from "../dialog/roll-dialog.js";
 export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
+			...super.defaultOptions,
 			classes: ["forbidden-lands", "sheet", "actor"],
-			template: "systems/forbidden-lands/model/character.html",
+			template: "systems/forbidden-lands/template/character.hbs",
 			width: 620,
 			height: 770,
 			resizable: false,
@@ -42,8 +43,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 		});
 		html.find(".condition").click(async (ev) => {
 			const conditionName = $(ev.currentTarget).data("condition");
-			const conditionValue = this.actor.data.data.condition[conditionName]
-				.value;
+			const conditionValue = this.actor.data.data.condition[conditionName].value;
 			if (conditionName === "sleepy") {
 				this.actor.update({
 					"data.condition.sleepy.value": !conditionValue,
@@ -90,7 +90,8 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 				"",
 				0,
 				0,
-				this.diceRoller
+				this.diceRoller,
+				null,
 			);
 		});
 		html.find(".roll-armor.total").click((ev) => {
@@ -101,33 +102,15 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 					armorTotal += parseInt(item.data.data.bonus.value, 10);
 				}
 			});
-			RollDialog.prepareRollDialog(
-				"HEADER.ARMOR",
-				0,
-				0,
-				armorTotal,
-				"",
-				0,
-				0,
-				this.diceRoller
-			);
+			RollDialog.prepareRollDialog("HEADER.ARMOR", 0, 0, armorTotal, "", 0, 0, this.diceRoller, null);
 		});
 		html.find(".roll-consumable").click((ev) => {
-			const consumable = this.actor.data.data.consumable[
-				$(ev.currentTarget).data("consumable")
-			];
+			const consumable = this.actor.data.data.consumable[$(ev.currentTarget).data("consumable")];
 			const consumableName = game.i18n.localize(consumable.label);
 			if (consumable.value == 6) {
 				this.diceRoller.roll(consumableName, 0, 1, 0, [], 0);
 			} else if (consumable.value > 6) {
-				this.diceRoller.roll(
-					consumableName,
-					0,
-					0,
-					0,
-					[{ dice: 1, face: consumable.value }],
-					0
-				);
+				this.diceRoller.roll(consumableName, 0, 0, 0, [{ dice: 1, face: consumable.value }], 0);
 			}
 		});
 		html.find(".currency-button").on("click contextmenu", (ev) => {
@@ -162,7 +145,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	}
 
 	computeSkills(data) {
-		for (let skill of Object.values(data.data.skill)) {
+		for (let skill of Object.values(data.data.skill) as any) {
 			skill.hasStrength = skill.attribute === "strength";
 			skill.hasAgility = skill.attribute === "agility";
 			skill.hasWits = skill.attribute === "wits";
@@ -171,7 +154,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	}
 
 	computeItems(data) {
-		for (let item of Object.values(data.items)) {
+		for (let item of Object.values(data.items) as any) {
 			item.isTalent = item.type === "talent";
 			item.isWeapon = item.type === "weapon";
 			item.isArmor = item.type === "armor";
@@ -186,7 +169,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 		for (let item of Object.values(data.items)) {
 			weightCarried += this.computerItemEncumbrance(item);
 		}
-		for (let consumable of Object.values(data.data.consumable)) {
+		for (let consumable of Object.values(data.data.consumable) as any) {
 			if (consumable.value > 0) {
 				weightCarried += 1;
 			}
@@ -196,9 +179,8 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			parseInt(data.data.currency.silver.value) +
 			parseInt(data.data.currency.copper.value);
 		weightCarried += Math.floor(coinsCarried / 100) * 0.5;
-		let modifiers = this.getRollModifiers("CARRYING_CAPACITY");
-		const weightAllowed =
-			data.data.attribute.strength.max * 2 + modifiers.modifier;
+		let modifiers = this.getRollModifiers("CARRYING_CAPACITY", null);
+		const weightAllowed = data.data.attribute.strength.max * 2 + modifiers.modifier;
 		data.data.encumbrance = {
 			value: weightCarried,
 			max: weightAllowed,
@@ -226,16 +208,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 					class: "custom-roll",
 					icon: "fas fa-dice",
 					onclick: (ev) =>
-						RollDialog.prepareRollDialog(
-							"DICE.ROLL",
-							0,
-							0,
-							0,
-							"",
-							0,
-							0,
-							this.diceRoller
-						),
+						RollDialog.prepareRollDialog("DICE.ROLL", 0, 0, 0, "", 0, 0, this.diceRoller, null),
 				},
 				{
 					label: game.i18n.localize("SHEET.HEADER.PUSH"),
