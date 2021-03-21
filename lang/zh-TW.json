@@ -71,6 +71,23 @@
   "CONDITION.SLEEPY": "睏倦",
   "CONDITION.THIRSTY": "乾渴",
 
+  "CONFIG.ALTERNATIVESKULLS": "備用表互動",
+  "CONFIG.ALTERNATIVESKULLS_DESC": "更改角色、怪物和物品表中屬性/加值/意志可點擊圓圈的外觀和互動。",
+  "CONFIG.CRAFTINGFIELD": "顯示工藝區塊",
+  "CONFIG.CRAFTINGFIELD_DESC":"用於顯示或隱藏物品表上的工藝區塊。",
+  "CONFIG.COSTFIELD": "顯示費用區塊",
+  "CONFIG.COSTFIELD_DESC":"用於顯示或隱藏物品表上的費用區塊。",
+  "CONFIG.SUPPLYFIELD": "顯示供應區塊",
+  "CONFIG.SUPPLYFIELD_DESC":"用於顯示或隱藏物品表上的供應區塊。",
+  "CONFIG.EFFECTFIELD": "顯示效果區塊",
+  "CONFIG.EFFECTFIELD_DESC":"用於顯示或隱藏物品表上的效果區塊。",
+  "CONFIG.DESCRIPTIONFIELD": "顯示描述區塊",
+  "CONFIG.DESCRIPTIONFIELD_DESC":"用於顯示或隱藏物品表上的描述區塊。",
+  "CONFIG.DRAWBACKFIELD": "顯示缺陷區塊",
+  "CONFIG.DRAWBACKFIELD_DESC":"用於顯示或隱藏物品表上的缺陷區塊。",
+  "CONFIG.APPEARANCEFIELD": "顯示外觀區塊",
+  "CONFIG.APPEARANCEFIELD_DESC":"用於顯示或隱藏物品表上的外觀區塊。",
+
   "CONSUMABLE.ARROWS": "箭矢",
   "CONSUMABLE.FOOD": "食物",
   "CONSUMABLE.TORCHES": "火炬",
@@ -188,9 +205,12 @@
 
   "RAW_MATERIAL.SHELF_LIFE": "保存期",
 
+  "ROLL_MODIFIER.SELECT": "請選擇一個調整值",
+
   "SHEET.HEADER.POST_ITEM": "展示物品",
   "SHEET.HEADER.PUSH": "孤注一擲",
   "SHEET.HEADER.ROLL": "擲骰",
+  "SHEET.TEXTAREA_EDIT": "點擊右鍵更改。",
 
   "SKILL.ANIMAL_HANDLING": "馴獸",
   "SKILL.CRAFTING": "工藝",
@@ -248,6 +268,14 @@
   "WEAPON.CATEGORY": "分類",
   "WEAPON.DAMAGE": "傷害",
   "WEAPON.FEATURE": "特性",
+  "WEAPON.FEATURES.TITLE": "特性",
+  "WEAPON.FEATURES.OTHERS": "其他特性",
+  "WEAPON.FEATURES.BLUNT": "鈍器",
+  "WEAPON.FEATURES.EDGED": "鋒刃",
+  "WEAPON.FEATURES.HOOK": "鉤子",
+  "WEAPON.FEATURES.PARRYING": "格檔",
+  "WEAPON.FEATURES.POINTED": "尖銳",
+  "WEAPON.FEATURES.SLOW_RELOAD": "緩慢裝填",  
   "WEAPON.GRIP": "持握",
   "WEAPON.MELEE": "近戰",
   "WEAPON.NAME": "名稱",
@@ -261,5 +289,11 @@
   "WEIGHT.REGULAR": "普通",
   "WEIGHT.TINY": "微型",
   "WEIGHT.TYPE_REGULAR": "常規",
-  "WEIGHT.TYPE_SPECIAL": "特殊"
+  "WEIGHT.TYPE_SPECIAL": "特殊",
+  "WEIGHT.3": "3",
+  "WEIGHT.4": "4",
+  "WEIGHT.5": "5",
+  "WEIGHT.6": "6",
+  "WEIGHT.7": "7",
+  "WEIGHT.8": "8"
 }
