@@ -2,6 +2,6 @@
 workspace.code-workspace
 node_modules
 .vscode
-
+@types
 dist
-
+.template-lintrc.js
