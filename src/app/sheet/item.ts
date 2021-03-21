@@ -1,6 +1,7 @@
 export class ForbiddenLandsItemSheet extends ItemSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
+			...super.defaultOptions,
 			classes: ["forbidden-lands", "sheet", "item"],
 			width: window.innerWidth * 0.15 + 150,
 			resizable: false,
@@ -14,7 +15,10 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 				label: game.i18n.localize("SHEET.HEADER.POST_ITEM"),
 				class: "item-post",
 				icon: "fas fa-comment",
-				onclick: (ev) => this.item.sendToChat(),
+				onclick: (ev) => {
+					const item: any = this.item;
+					item.sendToChat();
+				},
 			},
 		].concat(buttons);
 		return buttons;
@@ -32,28 +36,24 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 		return data;
 	}
 
-	_onChangeTab() {
-		$(`#${this.id} textarea`).each(function () {
+	_onChangeTab(event, tabs, active) {
+		$(`#${this.id} textarea`).each(function (this: any) {
 			if (this.value) {
 				this.readOnly = true;
-				this.setAttribute(
-					"style",
-					"height:" + this.scrollHeight + "px;overflow-y:hidden;"
-				);
+				this.setAttribute("style", "height:" + this.scrollHeight + "px;overflow-y:hidden;");
 			}
 		});
-		return super._onChangeTab();
+		return super._onChangeTab(event, tabs, active);
 	}
 
 	activateListeners(html) {
 		super.activateListeners(html);
 		html.find(".add-modifier").click(async (ev) => {
 			ev.preventDefault();
-			let data = this.getData();
+			let data: any = this.getData();
 			let rollModifiers = data.data.rollModifiers || {};
 			// To preserve order, make sure the new index is the highest
-			let modifierId =
-				Math.max(-1, ...Object.getOwnPropertyNames(rollModifiers)) + 1;
+			let modifierId = Math.max(-1, ...((Object.getOwnPropertyNames(rollModifiers) as unknown) as number[])) + 1;
 			let update = {};
 			update[`data.rollModifiers.${modifierId}`] = {
 				name: "",
@@ -63,7 +63,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 		});
 		html.find(".delete-modifier").click(async (ev) => {
 			ev.preventDefault();
-			let data = this.getData();
+			let data: any = this.getData();
 			let rollModifiers = duplicate(data.data.rollModifiers || {});
 			let modifierId = $(ev.currentTarget).data("modifier-id");
 			delete rollModifiers[modifierId];
@@ -83,19 +83,10 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 		html.find(".change-bonus").on("click contextmenu", (ev) => {
 			const bonus = this.object.data.data.bonus;
 			let value = bonus.value;
-			const altInteraction = game.settings.get(
-				"forbidden-lands",
-				"alternativeSkulls"
-			);
-			if (
-				(ev.type === "click" && !altInteraction) ||
-				(ev.type === "contextmenu" && altInteraction)
-			) {
+			const altInteraction = game.settings.get("forbidden-lands", "alternativeSkulls");
+			if ((ev.type === "click" && !altInteraction) || (ev.type === "contextmenu" && altInteraction)) {
 				value = Math.max(value - 1, 0);
-			} else if (
-				(ev.type === "contextmenu" && !altInteraction) ||
-				(ev.type === "click" && altInteraction)
-			) {
+			} else if ((ev.type === "contextmenu" && !altInteraction) || (ev.type === "click" && altInteraction)) {
 				value = Math.min(value + 1, bonus.max);
 			}
 			this.object.update({
@@ -139,42 +130,36 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 			}
 			this._render();
 		});
-		html.find("textarea").on(
-			"input blur contextmenu dblclick mouseover mouseout",
-			(ev) => {
-				if (game.user.isGM || this.object.isOwned) {
-					const element = ev.currentTarget;
-					const legend = document.createElement("legend");
-					legend.classList.add("legend");
-					legend.innerText = game.i18n.localize("SHEET.TEXTAREA_EDIT");
-					switch (ev.type) {
-						case "mouseover":
-							if (element.readOnly) {
-								element.after(legend);
-								setTimeout(
-									() => (legend.style.opacity = 1),
-									100
-								);
-							}
-							break;
-						case "mouseout":
-							$("textarea ~ legend").remove();
-							break;
-						case "input":
-							element.style.height = element.scrollHeight + "px";
-							break;
-						case "blur":
-							element.readOnly = true;
-							break;
-						case "contextmenu":
-						case "dblclick":
-							element.readOnly = false;
-							$("textarea ~ legend").remove();
-							break;
-					}
+		html.find("textarea").on("input blur contextmenu dblclick mouseover mouseout", (ev) => {
+			if (game.user.isGM || this.object.isOwned) {
+				const element = ev.currentTarget;
+				const legend = document.createElement("legend");
+				legend.classList.add("legend");
+				legend.innerText = game.i18n.localize("SHEET.TEXTAREA_EDIT");
+				switch (ev.type) {
+					case "mouseover":
+						if (element.readOnly) {
+							element.after(legend);
+							setTimeout(() => (legend.style.opacity = "1"), 100);
+						}
+						break;
+					case "mouseout":
+						$("textarea ~ legend").remove();
+						break;
+					case "input":
+						element.style.height = element.scrollHeight + "px";
+						break;
+					case "blur":
+						element.readOnly = true;
+						break;
+					case "contextmenu":
+					case "dblclick":
+						element.readOnly = false;
+						$("textarea ~ legend").remove();
+						break;
 				}
 			}
-		);
+		});
 	}
 
 	async getCustomRollModifiers() {
@@ -187,39 +172,15 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 	}
 
 	async _renderInner(data, options) {
-		data.alternativeSkulls = game.settings.get(
-			"forbidden-lands",
-			"alternativeSkulls"
-		);
+		data.alternativeSkulls = game.settings.get("forbidden-lands", "alternativeSkulls");
 		data.data.customRollModifiers = await this.getCustomRollModifiers();
-		data.showCraftingFields = game.settings.get(
-			"forbidden-lands",
-			"showCraftingFields"
-		);
-		data.showCostField = game.settings.get(
-			"forbidden-lands",
-			"showCostField"
-		);
-		data.showSupplyField = game.settings.get(
-			"forbidden-lands",
-			"showSupplyField"
-		);
-		data.showEffectField = game.settings.get(
-			"forbidden-lands",
-			"showEffectField"
-		);
-		data.showDescriptionField = game.settings.get(
-			"forbidden-lands",
-			"showDescriptionField"
-		);
-		data.showDrawbackField = game.settings.get(
-			"forbidden-lands",
-			"showDrawbackField"
-		);
-		data.showAppearanceField = game.settings.get(
-			"forbidden-lands",
-			"showAppearanceField"
-		);
+		data.showCraftingFields = game.settings.get("forbidden-lands", "showCraftingFields");
+		data.showCostField = game.settings.get("forbidden-lands", "showCostField");
+		data.showSupplyField = game.settings.get("forbidden-lands", "showSupplyField");
+		data.showEffectField = game.settings.get("forbidden-lands", "showEffectField");
+		data.showDescriptionField = game.settings.get("forbidden-lands", "showDescriptionField");
+		data.showDrawbackField = game.settings.get("forbidden-lands", "showDrawbackField");
+		data.showAppearanceField = game.settings.get("forbidden-lands", "showAppearanceField");
 		return super._renderInner(data, options);
 	}
 }

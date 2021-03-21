@@ -1,7 +1,4 @@
-import {
-	ForbiddenLandsActor,
-	ForbiddenLandsItem,
-} from "./actor/forbidden-lands.js";
+import { ForbiddenLandsActor, ForbiddenLandsItem } from "./actor/forbidden-lands.js";
 import { initializeCalendar } from "./hooks/calendar-weather.js";
 import { registerDice } from "./hooks/dice.js";
 import { registerDiceSoNice } from "./hooks/dice-so-nice.js";
@@ -26,8 +23,7 @@ Hooks.once("init", () => {
 	initializeHandlebars();
 	game.settings.register("forbidden-lands", "worldSchemaVersion", {
 		name: "World Version",
-		hint:
-			"Used to automatically upgrade worlds data when the system is upgraded.",
+		hint: "Used to automatically upgrade worlds data when the system is upgraded.",
 		scope: "world",
 		config: false,
 		default: 0,
@@ -111,10 +107,7 @@ Hooks.once("diceSoNiceReady", (dice3d) => {
 Hooks.on("renderItemSheet", function (app, html) {
 	html.find("textarea").each(function () {
 		if (this.value) {
-			this.setAttribute(
-				"style",
-				"height:" + this.scrollHeight + "px;overflow-y:hidden;"
-			);
+			this.setAttribute("style", "height:" + this.scrollHeight + "px;overflow-y:hidden;");
 			this.readOnly = true;
 		}
 	});
@@ -133,7 +126,7 @@ Hooks.on("renderChatMessage", async (app, html, msg) => {
 				JSON.stringify({
 					item: app.getFlag("forbidden-lands", "itemData"),
 					type: "itemDrop",
-				})
+				}),
 			);
 		});
 	}
