@@ -34,7 +34,7 @@ function preloadHandlebarsTemplates() {
 }
 
 function registerHandlebarsHelpers() {
-	Handlebars.registerHelper("skulls", (current: number, max: number, block) => {
+	Handlebars.registerHelper("skulls", function (this: any, current: number, max: number, block) {
 		var acc = "";
 		for (var i = 0; i < max; ++i) {
 			block.data.index = i;
