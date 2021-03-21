@@ -22,7 +22,7 @@
 		}
 	],
 	"scripts": [],
-	"esmodules": ["script/init.js"],
+	"esmodules": ["module/init.js"],
 	"styles": [
 		"style/common.css",
 		"style/character.css",

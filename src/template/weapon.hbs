@@ -6,7 +6,8 @@
 		<div class="header-stats">
 			<label>{{localize "GEAR.NAME"}}</label>
 			<input name="name" type="text" value="{{item.name}}" />
-			<label>{{localize "GEAR.BONUS"}}</label>
+
+			<label>{{localize "WEAPON.BONUS"}}</label>
 			<div class="bonus">
 				<div class="skulls {{#unless data.bonus.value }}broken{{/unless}}">
 					<a class="change-bonus" data-attribute="{{data.bonus}}">
@@ -48,17 +49,17 @@
 		<div class="tab" data-group="primary" data-tab="main">
 			<!-- prettier-ignore -->
 			{{! prettier-ignore }}
-{{> systems/forbidden-lands/model/tab/gear/gear-main.html}}
+{{> systems/forbidden-lands/template/tab/gear/weapon-main.hbs}}
 		</div>
 		<div class="tab" data-group="primary" data-tab="artifact">
 			<!-- prettier-ignore -->
 			{{! prettier-ignore }}
-{{> systems/forbidden-lands/model/tab/gear/gear-artifact.html}}
+{{> systems/forbidden-lands/template/tab/gear/gear-artifact.hbs}}
 		</div>
 		<div class="tab" data-group="primary" data-tab="supply">
 			<!-- prettier-ignore -->
 			{{! prettier-ignore }}
-{{> systems/forbidden-lands/model/tab/gear/gear-supply.html}}
+{{> systems/forbidden-lands/template/tab/gear/gear-supply.hbs}}
 		</div>
 	</div>
 </form>
