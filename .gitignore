@@ -2,4 +2,5 @@
 workspace.code-workspace
 node_modules
 .vscode
-
+dist
+@types
