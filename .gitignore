@@ -1,6 +1,27 @@
+# OS
+__MACOSX/
 
-workspace.code-workspace
-node_modules
+# IDE
+.idea/
+.vs/
 .vscode
+workspace.code-workspace
+
+# Node Modules
+node_modules/
+npm-debug.log
+
+# Local configuration
+foundryconfig.json
+
+# Distribution files
 dist
-@types
+
+# ESLint
+.eslintcache
+
+# Junit results
+junit.xml
+
+# filetypes
+.DS_Store

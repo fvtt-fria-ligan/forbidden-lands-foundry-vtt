@@ -1,0 +1,117 @@
+.forbidden-lands .gear-tab {
+	display: grid;
+	gap: 8px;
+	grid-template-rows: auto 1fr auto;
+	height: 100%;
+}
+
+.forbidden-lands .character .currencies .header {
+	font-variant: small-caps;
+	justify-content: space-between;
+	align-items: center;
+	padding: 8px;
+}
+
+.forbidden-lands .character .currencies .header b {
+	font-family: var(--font-special);
+}
+
+.forbidden-lands .character .currencies .values label {
+	font-family: var(--font-special);
+	font-variant: normal;
+	margin: 0 8px 0 16px;
+}
+
+.forbidden-lands .character .currencies .values input {
+	width: 3em;
+}
+
+.forbidden-lands .character .consumables {
+	display: grid;
+	grid-template-columns: auto auto auto auto auto;
+}
+
+.forbidden-lands .character .consumables .consumable {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	font-family: var(--font-special);
+	padding: 8px 0;
+	justify-content: center;
+}
+
+.forbidden-lands .character .consumables .consumable select {
+	width: auto;
+}
+
+.forbidden-lands .character .gears {
+	padding-bottom: 8px;
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.forbidden-lands .character .gears .items .header {
+	margin: 0;
+	width: 100%;
+}
+
+.forbidden-lands .character .gears .items div + .header {
+	margin-top: 8px;
+}
+
+.forbidden-lands .character .gears .encumbrance {
+	border-bottom: 1px solid var(--color-border);
+	font-family: var(--font-special);
+	font-size: 14px;
+	padding: 4px 8px;
+	position: absolute;
+	right: 8px;
+	top: 0;
+}
+
+.forbidden-lands .character .gears .encumbrance.overencumbered {
+	color: #a00;
+}
+
+.forbidden-lands .character .gears .encumbrance i {
+	font-size: 12px;
+}
+
+.forbidden-lands .character .gears .gear {
+	align-items: center;
+}
+
+.forbidden-lands .character .gears .name {
+	align-items: center;
+	flex-basis: 60%;
+	display: flex;
+}
+
+.forbidden-lands .character .gears .name .name,
+.forbidden-lands .character .gears .bonus,
+.forbidden-lands .character .gears .weight,
+.forbidden-lands .character .gears .button {
+	margin-left: 4px;
+}
+
+.forbidden-lands .character .gears .bonus {
+	flex-basis: 15%;
+	text-align: center;
+}
+
+.forbidden-lands .character .gears .bonus.broken {
+	color: #a00;
+}
+
+.forbidden-lands .character .gears .weight {
+	flex-basis: 15%;
+	text-align: center;
+}
+
+.forbidden-lands .character .gears .button {
+	flex-basis: 10%;
+	font-size: 10px;
+	text-align: right;
+}
