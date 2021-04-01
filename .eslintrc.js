@@ -6,20 +6,19 @@ module.exports = {
 
 	env: {
 		browser: true,
+		jquery: true,
 	},
 
 	extends: [
 		"eslint:recommended",
+		"jquery",
 		"@typhonjs-fvtt/eslint-config-foundry.js/0.7.9",
 		"plugin:prettier/recommended",
-		"@types/jquery",
 	],
 
 	plugins: [],
 
-	rules: {
-		// Specify any specific ESLint rules.
-	},
+	rules: {},
 
 	overrides: [
 		{

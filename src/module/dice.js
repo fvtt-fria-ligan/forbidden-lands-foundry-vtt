@@ -3,7 +3,8 @@ export class ForbiddenLandsD6 extends Die {
 		termData.faces = 6;
 		super(termData);
 	}
-	static DENOMINATION = "6";
+
+	static DENOMINATION = 6;
 
 	static getResultLabel(result) {
 		return `<img src="systems/forbidden-lands/assets/dice/skill-d6-${result}.png" alt="${result}" title="${result}" />`;
@@ -36,7 +37,7 @@ export class ArtifactD8 extends Die {
 		super(termData);
 	}
 
-	static DENOMINATION = "8";
+	static DENOMINATION = 8;
 
 	static getResultLabel(result) {
 		return `<img src="systems/forbidden-lands/assets/dice/artifact-d8-${result}.png" alt="${result}" title="${result}" />`;
@@ -49,7 +50,7 @@ export class ArtifactD10 extends Die {
 		super(termData);
 	}
 
-	static DENOMINATION = "10";
+	static DENOMINATION = 10;
 
 	static getResultLabel(result) {
 		return `<img src="systems/forbidden-lands/assets/dice/artifact-d10-${result}.png" alt="${result}" title="${result}" />`;
@@ -62,7 +63,7 @@ export class ArtifactD12 extends Die {
 		super(termData);
 	}
 
-	static DENOMINATION = "12";
+	static DENOMINATION = 12;
 
 	static getResultLabel(result) {
 		return `<img src="systems/forbidden-lands/assets/dice/artifact-d12-${result}.png" alt="${result}" title="${result}" />`;

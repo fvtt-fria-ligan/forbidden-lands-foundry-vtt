@@ -1,24 +1,24 @@
 .forbidden-lands .monster .gears {
-  padding-bottom: 8px;
+	padding-bottom: 8px;
 }
 
 .forbidden-lands .monster .gears .items .header {
-  margin: 0;
-  width: 100%;
+	margin: 0;
+	width: 100%;
 }
 
 .forbidden-lands .monster .gears .items div + .header {
-  margin-top: 8px;
+	margin-top: 8px;
 }
 
 .forbidden-lands .monster .gears .gear {
-  align-items: center;
+	align-items: center;
 }
 
 .forbidden-lands .monster .gears .name {
-  align-items: center;
-  flex-basis: 55%;
-  display: flex;
+	align-items: center;
+	flex-basis: 55%;
+	display: flex;
 }
 
 .forbidden-lands .monster .gears .header .name,
@@ -26,52 +26,52 @@
 .forbidden-lands .monster .gears .bonus,
 .forbidden-lands .monster .gears .weight,
 .forbidden-lands .monster .gears .button {
-  margin-left: 4px;
+	margin-left: 4px;
 }
 
 .forbidden-lands .monster .gears .bonus {
-  flex-basis: 15%;
-  text-align: center;
+	flex-basis: 15%;
+	text-align: center;
 }
 
 .forbidden-lands .monster .gears .bonus.broken {
-  color: #a00;
+	color: #a00;
 }
 
 .forbidden-lands .monster .gears .weight {
-  flex-basis: 15%;
-  text-align: center;
+	flex-basis: 15%;
+	text-align: center;
 }
 
 .forbidden-lands .monster .gears .button {
-  flex-basis: 15%;
-  font-size: 10px;
-  text-align: right;
+	flex-basis: 15%;
+	font-size: 10px;
+	text-align: right;
 }
 
 .forbidden-lands .monster .gears .encumbrance-div {
-  padding: 4px 4px 4px 10px;
-  border-bottom: 1px solid var(--color-border);
-  line-height: 20px;
-  width: 120px;
-  margin-right: 5px;
+	padding: 4px 4px 4px 10px;
+	border-bottom: 1px solid var(--color-border);
+	line-height: 20px;
+	width: 120px;
+	margin-right: 5px;
 }
 
 .forbidden-lands .monster .gears .encumbrance {
-  font-family: var(--font-special);
-  font-size: 14px;
+	font-family: var(--font-special);
+	font-size: 14px;
 }
 
 .forbidden-lands .monster .gears .overencumbered {
-  color: #a00;
+	color: #a00;
 }
 
 .forbidden-lands .monster .gears .change-mounted {
-  font-size: 14px;
-  margin-right: 10px;
+	font-size: 14px;
+	margin-right: 10px;
 }
 
 .forbidden-lands .monster .gears .change-mounted .fas.fa-horse {
-  font-size: 16px;
-  margin-right: 2px;
+	font-size: 16px;
+	margin-right: 2px;
 }

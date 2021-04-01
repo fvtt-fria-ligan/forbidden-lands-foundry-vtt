@@ -4,8 +4,6 @@ export default class DiceRoller {
 	lastType = "";
 	lastRollName = "";
 	lastDamage = 0;
-	hasDamage = false;
-	lastTestName = "";
 
 	/**
 	 * @param  {string} rollName   Display name for the roll
@@ -32,7 +30,7 @@ export default class DiceRoller {
 		this.rollDice(computedSkill, computedSkillType, 6, 0);
 		this.rollDice(gear, "gear", 6, 0);
 		artifacts.forEach((artifact) => {
-			this.rollDice(1, artifact.dice, "artifact", artifact.face);
+			this.rollDice(artifact.dice, "artifact", artifact.face);
 		});
 		let computedDamage = damage;
 		this.hasDamage = damage > 0;
@@ -210,6 +208,7 @@ export default class DiceRoller {
 			});
 		}
 	}
+
 	/**
 	 * Retrieves amount of successes from a single die
 	 * and weight for ordering during display

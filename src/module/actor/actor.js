@@ -8,7 +8,7 @@ export class ForbiddenLandsActor extends Actor {
 				if (typeof newData.data[key] === "string") {
 					newData.data[key] = newData.data[key].replace(
 						inlineRoll,
-						(match, contents, formula) => new Roll(formula).roll().total,
+						(_match, _contents, formula) => new Roll(formula).roll().total,
 					);
 				}
 			}
