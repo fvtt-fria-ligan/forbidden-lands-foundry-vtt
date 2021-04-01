@@ -22,25 +22,8 @@
 		}
 	],
 	"scripts": [],
-	"esmodules": ["module/init.js"],
-	"styles": [
-		"style/common.css",
-		"style/character.css",
-		"style/monster.css",
-		"style/stronghold.css",
-		"style/item.css",
-		"style/dialog.css",
-		"style/tab/main.css",
-		"style/tab/combat.css",
-		"style/tab/monster-combat.css",
-		"style/tab/monster-gear.css",
-		"style/tab/stronghold-gear.css",
-		"style/tab/stronghold-building.css",
-		"style/tab/stronghold-hireling.css",
-		"style/tab/talent.css",
-		"style/tab/gear.css",
-		"style/tab/bio.css"
-	],
+	"esmodules": ["module/forbidden-lands.js"],
+	"styles": ["forbidden-lands.css"],
 	"packs": [],
 	"languages": [
 		{

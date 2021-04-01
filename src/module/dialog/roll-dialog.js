@@ -50,7 +50,7 @@ export class RollDialog {
 				roll: {
 					icon: '<i class="fas fa-check"></i>',
 					label: game.i18n.localize("DICE.ROLL"),
-					callback: (html: any) => {
+					callback: (html) => {
 						let base = html.find("#base")[0].value;
 						let skill = html.find("#skill")[0].value;
 						let gear = html.find("#gear")[0].value;
@@ -98,7 +98,7 @@ export class RollDialog {
 				roll: {
 					icon: '<i class="fas fa-check"></i>',
 					label: game.i18n.localize("DICE.ROLL"),
-					callback: (html: any) => {
+					callback: (html) => {
 						let base = html.find("#base")[0].value;
 						let success = html.find("#success")[0].value;
 						diceRoller.rollSpell(spell.name, parseInt(base, 10), parseInt(success, 10));

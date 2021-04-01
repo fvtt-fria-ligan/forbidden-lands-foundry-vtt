@@ -49,7 +49,7 @@ export const migrateWorld = async () => {
 };
 
 const migrateActorData = (actor, worldSchemaVersion) => {
-	const update: any = {};
+	const update = {};
 	if (worldSchemaVersion <= 2) {
 		if (actor.type === "character") {
 			if (!actor.data.condition.sleepy) {
@@ -76,7 +76,7 @@ const migrateActorData = (actor, worldSchemaVersion) => {
 };
 
 const migrateItemData = (item, worldSchemaVersion) => {
-	const update: any = {};
+	const update = {};
 	if (worldSchemaVersion <= 2) {
 		if (item.type === "artifact") {
 			update.type = "weapon";

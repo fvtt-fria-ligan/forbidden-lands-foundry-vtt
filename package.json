@@ -3,42 +3,54 @@
 	"name": "forbidden-lands",
 	"version": "5.0.0",
 	"description": "<p align=\"center\">\r   <a href=\"https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/latest\" target=\"_blank\"><img alt=\"system version\" src=\"https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffvtt-fria-ligan%2Fforbidden-lands-foundry-vtt%2Fmain%2Fsystem.json&label=Version&query=$.version&colorB=blue\"/></a>\r   <a href=\"https://foundryvtt.com\" target=\"_blank\">\r     <img src=\"https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffvtt-fria-ligan%2Fforbidden-lands-foundry-vtt%2Fmain%2Fsystem.json&label=Foundry&query=$.compatibleCoreVersion&colorB=blue\" alt=\"foundry-compatibility-version\" style=\"max-width:100%;\"/>\r   </a>\r   <a href=\"https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/graphs/commit-activity\" target=\"_blank\">\r     <img alt=\"Maintenance\" src=\"https://img.shields.io/badge/Maintained%3F-yes-green.svg\"/>\r   </a>\r   <a href=\"https://gitlocalize.com/repo/5750/whole_project?utm_source=badge\" target=\"_blank\"><img alt=\"Localization\" src=\"https://gitlocalize.com/repo/5750/whole_project/badge.svg\" /></a>\r   <a href=\"https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/blob/main/LICENSE\" target=\"_blank\">\r     <img alt=\"License: GPL\" src=\"https://img.shields.io/github/license/fvtt-fria-ligan/forbidden-lands-foundry-vtt\"/>\r   </a>\r   <br/>\r   <br/>\r   <img src=\"https://user-images.githubusercontent.com/9851733/108728684-1a954b00-752a-11eb-9138-6fab6f83b2a8.jpg\" alt=\"Logo\" style=\"max-width:100%;\" />\r </p>",
-	"main": "",
-	"scripts": {
-		"build": "npm run build:packs && webpack --mode production",
-		"test": "jest",
-		"lint": "eslint ./src --ext .ts",
-		"lint:fix": "eslint ./src --ext .ts --fix",
-		"lint:hbs": "ember-template-lint .",
-		"format:hbs": "prettier **/*.hbs --write --parser=glimmer"
-	},
+	"license": "GPL-3.0-or-later",
+	"homepage": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt#readme",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt.git"
 	},
-	"author": "aMediocreDad",
-	"license": "GPL-3.0-or-later",
 	"bugs": {
 		"url": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues"
 	},
-	"homepage": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt#readme",
+	"contributors": [
+		{
+			"name": "aMediocreDad",
+			"email": "amediocredad@outlook.com"
+		}
+	],
+	"scripts": {
+		"build": "gulp build",
+		"build:watch": "gulp watch",
+		"link-project": "gulp link",
+		"clean": "gulp clean",
+		"clean:link": "gulp link --clean",
+		"bump-version": "gulp bumpVersion",
+		"lint": "eslint --ext .js .",
+		"lint:fix": "eslint --ext .js --fix .",
+		"format": "prettier --write \"./**/*.(js|json|scss)\"",
+		"format:hbs": "prettier **/*.hbs --write --parser=glimmer",
+		"postinstall": "husky install"
+	},
 	"devDependencies": {
-		"@league-of-foundry-developers/foundry-vtt-types": "^0.7.9-3",
-		"@types/fs-extra": "^9.0.8",
-		"archiver": "^5.3.0",
-		"browserify": "^17.0.0",
-		"ember-template-lint-plugin-prettier": "^2.0.0",
+		"@rollup/plugin-node-resolve": "^11.2.1",
+		"@typhonjs-fvtt/eslint-config-foundry.js": "^0.7.9",
+		"chalk": "^4.1.0",
+		"eslint": "^7.23.0",
+		"eslint-config-prettier": "^8.1.0",
+		"eslint-plugin-prettier": "^3.3.1",
 		"fs-extra": "^9.1.0",
-		"gulp": "^4.0.0",
+		"gulp": "^4.0.2",
 		"gulp-sass": "^4.1.0",
-		"gulp-typescript": "^6.0.0-alpha.1",
-		"handlebars": "^4.7.7",
-		"path": "^0.12.7",
+		"husky": "^6.0.0",
+		"lint-staged": "^10.5.4",
 		"prettier": "^2.2.1",
+		"rollup": "^2.44.0",
 		"sass": "^1.32.8",
-		"tsify": "^5.0.2",
-		"typescript": "^4.2.3",
-		"vinyl-source-stream": "^2.0.0",
-		"yargs": "^7.1.1"
+		"semver": "^7.3.5",
+		"yargs": "^16.2.0"
+	},
+	"lint-staged": {
+		"*.(js)": "eslint --fix",
+		"*.(json|scss)": "prettier --write"
 	}
 }

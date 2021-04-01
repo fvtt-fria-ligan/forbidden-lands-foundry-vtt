@@ -16,7 +16,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 				class: "item-post",
 				icon: "fas fa-comment",
 				onclick: (ev) => {
-					const item: any = this.item;
+					const item = this.item;
 					item.sendToChat();
 				},
 			},
@@ -37,7 +37,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 	}
 
 	_onChangeTab(event, tabs, active) {
-		$(`#${this.id} textarea`).each(function (this: any) {
+		$(`#${this.id} textarea`).each(function (this) {
 			if (this.value) {
 				this.readOnly = true;
 				this.setAttribute("style", "height:" + this.scrollHeight + "px;overflow-y:hidden;");
@@ -50,10 +50,10 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 		super.activateListeners(html);
 		html.find(".add-modifier").click(async (ev) => {
 			ev.preventDefault();
-			let data: any = this.getData();
+			let data = this.getData();
 			let rollModifiers = data.data.rollModifiers || {};
 			// To preserve order, make sure the new index is the highest
-			let modifierId = Math.max(-1, ...((Object.getOwnPropertyNames(rollModifiers) as unknown) as number[])) + 1;
+			let modifierId = Math.max(-1, ...Object.getOwnPropertyNames(rollModifiers)) + 1;
 			let update = {};
 			update[`data.rollModifiers.${modifierId}`] = {
 				name: "",
@@ -63,7 +63,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 		});
 		html.find(".delete-modifier").click(async (ev) => {
 			ev.preventDefault();
-			let data: any = this.getData();
+			let data = this.getData();
 			let rollModifiers = duplicate(data.data.rollModifiers || {});
 			let modifierId = $(ev.currentTarget).data("modifier-id");
 			delete rollModifiers[modifierId];
