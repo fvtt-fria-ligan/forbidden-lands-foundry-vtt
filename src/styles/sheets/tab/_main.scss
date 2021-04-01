@@ -35,25 +35,25 @@
 }
 
 .forbidden-lands .character .conditions-grid {
-    display: grid;
-    height: 100%;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40% 20%;
-    place-content: center;
-    padding: 5% 10%;
+	display: grid;
+	height: 100%;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 40% 20%;
+	place-content: center;
+	padding: 5% 10%;
 }
 .forbidden-lands .conditions-grid a.condition {
-    font-family: var(--font-special);
-    font-weight: bold;
-    display: inline-grid;
-    grid: inherit;
-    gap: 4px;
-    place-content: baseline;
+	font-family: var(--font-special);
+	font-weight: bold;
+	display: inline-grid;
+	grid: inherit;
+	gap: 4px;
+	place-content: baseline;
 }
 
 .forbidden-lands .character .condition i {
 	font-size: 18px;
-    justify-self: end;
+	justify-self: end;
 }
 
 .forbidden-lands .conditions .condition.active {

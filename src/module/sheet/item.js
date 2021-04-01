@@ -15,7 +15,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 				label: game.i18n.localize("SHEET.HEADER.POST_ITEM"),
 				class: "item-post",
 				icon: "fas fa-comment",
-				onclick: (ev) => {
+				onclick: () => {
 					const item = this.item;
 					item.sendToChat();
 				},

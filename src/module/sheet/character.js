@@ -93,7 +93,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 				null,
 			);
 		});
-		html.find(".roll-armor.total").click((ev) => {
+		html.find(".roll-armor.total").click(() => {
 			let armorTotal = 0;
 			const items = this.actor.items;
 			items.forEach((item) => {
@@ -106,7 +106,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 		html.find(".roll-consumable").click((ev) => {
 			const consumable = this.actor.data.data.consumable[$(ev.currentTarget).data("consumable")];
 			const consumableName = game.i18n.localize(consumable.label);
-			if (consumable.value == 6) {
+			if (consumable.value === 6) {
 				this.diceRoller.roll(consumableName, 0, 1, 0, [], 0);
 			} else if (consumable.value > 6) {
 				this.diceRoller.roll(consumableName, 0, 0, 0, [{ dice: 1, face: consumable.value }], 0);
@@ -191,7 +191,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 		event.preventDefault();
 		let header = event.currentTarget;
 		let data = duplicate(header.dataset);
-		data["name"] = `New ${data.type.capitalize()}`;
+		data.name = `New ${data.type.capitalize()}`;
 		this.actor.createEmbeddedEntity("OwnedItem", data, {
 			renderSheet: true,
 		});
@@ -206,14 +206,13 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 					label: game.i18n.localize("SHEET.HEADER.ROLL"),
 					class: "custom-roll",
 					icon: "fas fa-dice",
-					onclick: (ev) =>
-						RollDialog.prepareRollDialog("DICE.ROLL", 0, 0, 0, "", 0, 0, this.diceRoller, null),
+					onclick: () => RollDialog.prepareRollDialog("DICE.ROLL", 0, 0, 0, "", 0, 0, this.diceRoller, null),
 				},
 				{
 					label: game.i18n.localize("SHEET.HEADER.PUSH"),
 					class: "push-roll",
 					icon: "fas fa-skull",
-					onclick: (ev) => this.diceRoller.push(),
+					onclick: () => this.diceRoller.push(),
 				},
 			].concat(buttons);
 		}

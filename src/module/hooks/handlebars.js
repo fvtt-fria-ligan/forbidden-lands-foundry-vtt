@@ -155,9 +155,9 @@ function registerHandlebarsHelpers() {
 		}
 
 		let weaponFeatures = [];
-		if (weaponType == "melee") {
+		if (weaponType === "melee") {
 			weaponFeatures = meleeFeatures;
-		} else if (weaponType == "ranged") {
+		} else if (weaponType === "ranged") {
 			weaponFeatures = rangedFeatures;
 		}
 
