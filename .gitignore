@@ -1,7 +1,21 @@
-
-workspace.code-workspace
-node_modules
+# IDE
+.idea/
+.vs/
 .vscode
-@types
+workspace.code-workspace
+
+# Node Modules
+node_modules/
+npm-debug.log
+
+# Local configuration
+foundryconfig.json
+
+# Distribution files
 dist
-.template-lintrc.js
+
+# ESLint
+.eslintcache
+
+# Junit results
+junit.xml

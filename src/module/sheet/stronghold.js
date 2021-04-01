@@ -34,7 +34,7 @@ export class ForbiddenLandsStrongholdSheet extends ForbiddenLandsActorSheet {
 	}
 
 	computeItems(data) {
-		for (let item of Object.values(data.items) as any) {
+		for (let item of Object.values(data.items)) {
 			item.isWeapon = item.type === "weapon";
 			item.isArmor = item.type === "armor";
 			item.isGear = item.type === "gear";

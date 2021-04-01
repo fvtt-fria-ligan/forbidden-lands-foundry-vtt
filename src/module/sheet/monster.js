@@ -78,7 +78,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 	}
 
 	computeSkills(data) {
-		for (let skill of Object.values(data.data.skill) as any) {
+		for (let skill of Object.values(data.data.skill)) {
 			skill.hasStrength = skill.attribute === "strength";
 			skill.hasAgility = skill.attribute === "agility";
 			skill.hasWits = skill.attribute === "wits";
@@ -87,7 +87,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 	}
 
 	computeItems(data) {
-		for (let item of Object.values(data.items) as any) {
+		for (let item of Object.values(data.items)) {
 			item.isMonsterAttack = item.type === "monsterAttack";
 			item.isMonsterTalent = item.type === "monsterTalent";
 			item.isWeapon = item.type === "weapon";

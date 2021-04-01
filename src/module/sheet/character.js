@@ -145,7 +145,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	}
 
 	computeSkills(data) {
-		for (let skill of Object.values(data.data.skill) as any) {
+		for (let skill of Object.values(data.data.skill)) {
 			skill.hasStrength = skill.attribute === "strength";
 			skill.hasAgility = skill.attribute === "agility";
 			skill.hasWits = skill.attribute === "wits";
@@ -154,7 +154,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	}
 
 	computeItems(data) {
-		for (let item of Object.values(data.items) as any) {
+		for (let item of Object.values(data.items)) {
 			item.isTalent = item.type === "talent";
 			item.isWeapon = item.type === "weapon";
 			item.isArmor = item.type === "armor";
@@ -169,7 +169,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 		for (let item of Object.values(data.items)) {
 			weightCarried += this.computerItemEncumbrance(item);
 		}
-		for (let consumable of Object.values(data.data.consumable) as any) {
+		for (let consumable of Object.values(data.data.consumable)) {
 			if (consumable.value > 0) {
 				weightCarried += 1;
 			}

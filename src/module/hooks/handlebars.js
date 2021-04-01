@@ -34,7 +34,7 @@ function preloadHandlebarsTemplates() {
 }
 
 function registerHandlebarsHelpers() {
-	Handlebars.registerHelper("skulls", function (this: any, current: number, max: number, block) {
+	Handlebars.registerHelper("skulls", function (this, current, max, block) {
 		var acc = "";
 		for (var i = 0; i < max; ++i) {
 			block.data.index = i;
@@ -139,7 +139,7 @@ function registerHandlebarsHelpers() {
 	});
 	Handlebars.registerHelper("formatRollModifiers", function (rollModifiers) {
 		let output = [];
-		Object.values(rollModifiers).forEach((mod: any) => {
+		Object.values(rollModifiers).forEach((mod) => {
 			let name = game.i18n.localize(mod.name);
 			output.push(`${name} ${mod.value}`);
 		});
