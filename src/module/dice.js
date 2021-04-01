@@ -3,7 +3,6 @@ export class ForbiddenLandsD6 extends Die {
 		termData.faces = 6;
 		super(termData);
 	}
-
 	static DENOMINATION = "6";
 
 	static getResultLabel(result) {

@@ -1,12 +1,11 @@
 import { ForbiddenLandsActorSheet } from "./actor.js";
 import { RollDialog } from "../dialog/roll-dialog.js";
-
 export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			...super.defaultOptions,
 			classes: ["forbidden-lands", "sheet", "actor"],
-			template: "systems/forbidden-lands/template/character.hbs",
+			template: "systems/forbidden-lands/templates/character.hbs",
 			width: 620,
 			height: 770,
 			resizable: false,

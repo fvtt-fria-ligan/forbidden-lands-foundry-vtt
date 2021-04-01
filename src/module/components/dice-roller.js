@@ -1,11 +1,11 @@
 /** This class is responsible for rolling dice */
 export default class DiceRoller {
-	dices: any[];
-	lastType: string;
-	lastRollName: string;
-	lastDamage: number = 0;
-	hasDamage: boolean = false;
-	lastTestName: string;
+	dices = [];
+	lastType = "";
+	lastRollName = "";
+	lastDamage = 0;
+	hasDamage = false;
+	lastTestName = "";
 
 	/**
 	 * @param  {string} rollName   Display name for the roll
@@ -16,7 +16,7 @@ export default class DiceRoller {
 	 * @param  {number} modifier   Increase/decrease amount of skill dice
 	 * @param  {number} [damage=0] Weapon damage
 	 */
-	roll(rollName, base, skill, gear, artifacts, modifier, damage = 0): void {
+	roll(rollName, base, skill, gear, artifacts, modifier, damage = 0) {
 		this.dices = [];
 		this.lastType = "skill";
 		this.lastRollName = rollName;
@@ -122,8 +122,8 @@ export default class DiceRoller {
 			hasDamage: this.hasDamage,
 			dices: this.dices,
 		};
-		const html = await renderTemplate("systems/forbidden-lands/template/chat/roll.hbs", rollData);
-		let chatData: any = {
+		const html = await renderTemplate("systems/forbidden-lands/templates/chat/roll.hbs", rollData);
+		let chatData = {
 			type: CHAT_MESSAGE_TYPES.ROLL,
 			user: game.user._id,
 			rollMode: game.settings.get("core", "rollMode"),
@@ -155,8 +155,8 @@ export default class DiceRoller {
 			hadDamage: false,
 			dices: this.dices,
 		};
-		const html = await renderTemplate("systems/forbidden-lands/template/chat/roll.hbs", rollData);
-		let chatData: any = {
+		const html = await renderTemplate("systems/forbidden-lands/templates/chat/roll.hbs", rollData);
+		let chatData = {
 			user: game.user._id,
 			rollMode: game.settings.get("core", "rollMode"),
 			content: html,

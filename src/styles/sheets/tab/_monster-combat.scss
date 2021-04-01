@@ -1,92 +1,89 @@
-.forbidden-lands .monster .armors {
-}
-
 .forbidden-lands .monster .armors .armor {
-  align-items: center;
-  padding: 0 5px 5px 5px;
+	align-items: center;
+	padding: 0 5px 5px 5px;
 }
 
 .forbidden-lands .monster .armors .armor b {
-  flex-basis: 50%;
+	flex-basis: 50%;
 }
 
 .forbidden-lands .monster .armors .armor input {
-  flex-basis: 25%;
-  margin-right: 5px;
-  text-align: center;
+	flex-basis: 25%;
+	margin-right: 5px;
+	text-align: center;
 }
 
 .forbidden-lands .monster .armors .armor input:last-child {
-  margin-right: 0;
-  margin-left: 5px;
+	margin-right: 0;
+	margin-left: 5px;
 }
 
 .forbidden-lands .monster .armors .armor.total input {
-  flex-basis: 50%;
-  margin-right: 5px;
-  margin-left: 5px;
-  text-align: center;
+	flex-basis: 50%;
+	margin-right: 5px;
+	margin-left: 5px;
+	text-align: center;
 }
 
 .forbidden-lands .monster .monster-talents {
-  overflow: hidden;
-  padding-bottom: 8px;
+	overflow: hidden;
+	padding-bottom: 8px;
 }
 
 .forbidden-lands .monster .monster-talents .monster-talent {
-  align-items: center;
+	align-items: center;
 }
 
 .forbidden-lands .monster .monster-talents .monster-talent .name {
-  align-items: center;
-  display: flex;
-  flex-basis: 90%;
+	align-items: center;
+	display: flex;
+	flex-basis: 90%;
 }
 .forbidden-lands .monster .monster-talents .monster-talent .name b {
-  font-size: small;
-  font-weight: bold;
-  text-transform: uppercase;
+	font-size: small;
+	font-weight: bold;
+	text-transform: uppercase;
 }
 .forbidden-lands .monster .monster-talents .monster-talent .name .name {
-  display: block;
-  padding-left: 4px;
+	display: block;
+	padding-left: 4px;
 }
 .forbidden-lands .monster .monster-talents .monster-talent .button {
-  flex-basis: 10%;
-  font-size: 10px;
-  text-align: right;
+	flex-basis: 10%;
+	font-size: 10px;
+	text-align: right;
 }
 
 .forbidden-lands .monster .monster-attacks {
-  margin-top: 8px;
-  overflow: hidden;
-  padding-bottom: 8px;
+	margin-top: 8px;
+	overflow: hidden;
+	padding-bottom: 8px;
 }
 
 .forbidden-lands .monster .monster-attacks .monster-attack {
-  align-items: center;
+	align-items: center;
 }
 
 .forbidden-lands .monster .monster-attacks .monster-attack button {
-  margin: -2px -4px;
+	margin: -2px -4px;
 }
 
 .forbidden-lands .monster .monster-attacks .monster-attack .name {
-  align-items: center;
-  display: flex;
-  flex-basis: 90%;
+	align-items: center;
+	display: flex;
+	flex-basis: 90%;
 }
 .forbidden-lands .monster .monster-attacks .monster-attack .name a {
-  font-size: small;
-  font-weight: bold;
-  text-transform: uppercase;
+	font-size: small;
+	font-weight: bold;
+	text-transform: uppercase;
 }
 .forbidden-lands .monster .monster-attacks .monster-attack .name .name {
-  display: block;
-  padding-left: 4px;
+	display: block;
+	padding-left: 4px;
 }
 .forbidden-lands .monster .monster-attacks .monster-attack .button {
-  flex-basis: 10%;
-  font-size: 10px;
-  text-align: right;
+	flex-basis: 10%;
+	font-size: 10px;
+	text-align: right;
 }

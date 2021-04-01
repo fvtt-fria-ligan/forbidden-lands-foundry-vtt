@@ -1,11 +1,10 @@
 import { ForbiddenLandsActorSheet } from "./actor.js";
-
 export class ForbiddenLandsStrongholdSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			...super.defaultOptions,
 			classes: ["forbidden-lands", "sheet", "actor"],
-			template: "systems/forbidden-lands/template/stronghold.hbs",
+			template: "systems/forbidden-lands/templates/stronghold.hbs",
 			width: 600,
 			height: 700,
 			resizable: false,

@@ -9,7 +9,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	 * @override
 	 * Extends the sheet drop handler for system specific usages
 	 */
-	async _onDrop(event): Promise<any> {
+	async _onDrop(event) {
 		let dragData = JSON.parse(event.dataTransfer.getData("text/plain"));
 
 		// To be extended if future features add more drop functionality
@@ -66,7 +66,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		});
 		html.find(".item-post").click((ev) => {
 			const div = $(ev.currentTarget).parents(".item");
-			const item: any = this.actor.getOwnedItem(div.data("itemId"));
+			const item = this.actor.getOwnedItem(div.data("itemId"));
 			item.sendToChat();
 		});
 		html.find(".change-item-bonus").on("click contextmenu", (ev) => {
@@ -198,7 +198,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		let artifacts = [];
 		let modifier = 0;
 		if (typeof str === "string") {
-			str.split(sep).forEach((item: any) => {
+			str.split(sep).forEach((item) => {
 				if (this.isArtifact(item)) {
 					artifacts.push(item);
 				} else {
@@ -239,7 +239,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		this.actor.items.forEach((item) => {
 			let rollModifiers = item.data.data.rollModifiers;
 			if (rollModifiers) {
-				Object.values(rollModifiers).forEach((mod: any) => {
+				Object.values(rollModifiers).forEach((mod) => {
 					if (mod && mod.name == skillLabel) {
 						let parsed = this.parseModifiers(mod.value);
 						modifiers.modifier += parsed.modifier;
