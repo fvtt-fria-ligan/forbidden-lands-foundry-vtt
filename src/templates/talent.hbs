@@ -1,0 +1,36 @@
+<form class="{{cssClass}}" autocomplete="off">
+	<div class="header border">
+		<div class="avatar" style="grid-row: 1/3">
+			<img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+		</div>
+		<div class="header-stats">
+			<label>{{localize "GEAR.NAME"}}</label>
+			<div class="name">
+				<input name="name" type="text" value="{{item.name}}" />
+			</div>
+			<label>{{localize "TALENT.TYPE"}}</label>
+			<select name="data.type">
+				{{#select data.type}}
+				<option value="general">{{localize "TALENT.GENERAL"}}</option>
+				<option value="kin">{{localize "TALENT.KIN"}}</option>
+				<option value="profession">{{localize "TALENT.PROFESSION"}}</option>
+				{{/select}}
+			</select>
+			{{#if ranks}}
+			<label>{{localize "TALENT.RANK"}}</label>
+			<div class="rank">
+				<input name="data.rank" type="text" value="{{data.rank}}" />
+			</div>
+			{{/if}}
+		</div>
+	</div>
+	<div class="item">
+		<div class="talent-description">
+			<label>{{localize "TALENT.DESCRIPTION"}}</label>
+			<textarea name="data.description">{{data.description}}</textarea>
+		</div>
+		<!-- prettier-ignore -->
+		{{! prettier-ignore }}
+{{> systems/forbidden-lands/templates/partial/roll-modifiers.hbs }}
+	</div>
+</form>

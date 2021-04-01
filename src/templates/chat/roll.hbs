@@ -1,0 +1,26 @@
+<div class="forbidden-lands roll-item">
+	<div class="border">
+		{{#if isPushed}}
+		<h3>{{name}} - {{localize "PUSHED"}}</h3>
+		{{else}}
+		<h3>{{name}}</h3>
+		{{/if}}
+		<h4>
+			{{sword}} <img src="systems/forbidden-lands/assets/sword.png" alt="⚔️" /> | {{skull}}
+			<img src="systems/forbidden-lands/assets/skull.png" alt="💀" />
+		</h4>
+		{{#if isSpell}}
+		<h4 style="text-align: left">{{localize "POWER_LEVEL"}}: {{powerLevel}}</h4>
+		{{/if}} {{#if hasDamage}}
+		<h4 style="text-align: left">{{localize "DAMAGE"}}: {{damage}}</h4>
+		{{/if}}
+		<div class="roll">
+			{{#each dices as |dice|}}<img
+				class="die"
+				src="systems/forbidden-lands/assets/dice/{{dice.type}}-d{{dice.face}}-{{dice.value}}.png"
+				alt="{{dice.value}}"
+				title="{{dice.value}}"
+			/>{{/each}}
+		</div>
+	</div>
+</div>

@@ -1,0 +1,70 @@
+.forbidden-lands .talent-tab {
+	display: grid;
+	gap: 8px;
+	grid-template-columns: 1fr 1fr;
+	height: 100%;
+}
+
+.forbidden-lands .character .talents {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	padding-bottom: 8px;
+}
+
+.forbidden-lands .character .talents .talent {
+	align-items: center;
+}
+
+.forbidden-lands .character .talents .talent .name {
+	align-items: center;
+	flex-basis: 65%;
+	display: flex;
+}
+
+.forbidden-lands .character .talents .talent .name .name {
+	margin-left: 4px;
+}
+
+.forbidden-lands .character .talents .talent .rank {
+	flex-basis: 15%;
+	text-align: center;
+}
+
+.forbidden-lands .character .talents .talent .button {
+	flex-basis: 20%;
+	font-size: 10px;
+	text-align: right;
+}
+
+.forbidden-lands .character .spells {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	padding-bottom: 8px;
+}
+
+.forbidden-lands .character .spells .spell {
+	align-items: center;
+}
+
+.forbidden-lands .character .spells .spell .name {
+	align-items: center;
+	flex-basis: 65%;
+	display: flex;
+}
+
+.forbidden-lands .character .spells .spell .name .roll-spell {
+	font-weight: normal;
+}
+
+.forbidden-lands .character .spells .spell .rank {
+	flex-basis: 15%;
+	text-align: center;
+}
+
+.forbidden-lands .character .spells .spell .button {
+	flex-basis: 20%;
+	font-size: 10px;
+	text-align: right;
+}

@@ -1,0 +1,75 @@
+.forbidden-lands .character {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+}
+
+.forbidden-lands .character .bio label {
+	font-family: var(--font-special);
+	margin-left: 8px;
+}
+
+.forbidden-lands .character .bio table {
+	width: auto;
+	background: none;
+	border: none;
+	margin: 5px 5px 5px 0;
+}
+
+.forbidden-lands .character .bio table td {
+	padding: 0.25em;
+}
+
+.forbidden-lands .character .bio .skulls {
+	white-space: nowrap;
+	height: 1.75em;
+}
+
+.forbidden-lands .character .bio .avatar {
+	background: radial-gradient(closest-side, var(--color-highlight) 0%, transparent 100%);
+	flex: 0 0 auto;
+	height: 95px;
+	width: 95px;
+}
+
+.forbidden-lands .character .bio .avatar img {
+	border: 0 none;
+	display: block;
+	max-width: 95px;
+	max-height: 95px;
+	min-width: 20px;
+	min-height: 20px;
+	margin: auto;
+	margin-left: 5px;
+}
+.forbidden-lands .character .bio .avatar img:hover {
+	box-shadow: 0 0 10px red;
+	cursor: pointer;
+}
+
+.forbidden-lands .character .roll {
+	background: transparent;
+	border: 0 none;
+	cursor: pointer;
+	font-family: inherit;
+	font-weight: bold;
+}
+
+.forbidden-lands .character .roll:hover {
+	box-shadow: none;
+	text-shadow: 0 0 8px red;
+}
+
+.forbidden-lands .character .push {
+	background: transparent;
+	border: 0 none;
+	cursor: pointer;
+	font-family: inherit;
+	font-weight: bold;
+}
+
+.forbidden-lands .character .push:hover {
+	box-shadow: none;
+	text-shadow: 0 0 8px red;
+}
