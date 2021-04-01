@@ -1,7 +1,7 @@
 <p align="center">
-  <a href="https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/latest" target="_blank"><img alt="system version" src="https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffvtt-fria-ligan%2Fforbidden-lands-foundry-vtt%2Fmain%2F%static%2Fsystem.json&label=Version&query=$.version&colorB=blue"/></a>
+  <a href="https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/latest" target="_blank"><img alt="system version" src="https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffvtt-fria-ligan%2Fforbidden-lands-foundry-vtt%2Fmain%2Fstatic%2Fsystem.json&label=Version&query=$.version&colorB=blue"/></a>
   <a href="https://foundryvtt.com" target="_blank">
-    <img src="https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffvtt-fria-ligan%2Fforbidden-lands-foundry-vtt%2Fmain%static%2Fsystem.json&label=Foundry&query=$.compatibleCoreVersion&colorB=blue" alt="foundry-compatibility-version" style="max-width:100%;"/>
+    <img src="https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffvtt-fria-ligan%2Fforbidden-lands-foundry-vtt%2Fmain%2Fstatic%2Fsystem.json&label=Foundry&query=$.compatibleCoreVersion&colorB=blue" alt="foundry-compatibility-version" style="max-width:100%;"/>
   </a>
   <a href="https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/graphs/commit-activity" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg"/>
@@ -69,7 +69,7 @@ Content for the system is available as addon modules. You can purchase them at F
 
 ## :hammer_and_wrench: Contributing
 
-If you want to contribute to the project, download and build it for something else, or if you simply have an issue, please read [our contributing guide](/../CONTRIBUTING.md) to learn more about how we accept contributions and how to set up the development version of the project.
+If you want to contribute to the project, download and build it for something else, or if you simply have an issue, please read [our contributing guide](CONTRIBUTING.md) to learn more about how we accept contributions and how to set up the development version of the project.
 
 ## :pray: Contributors
 

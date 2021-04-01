@@ -17,6 +17,9 @@ foundryconfig.json
 # Distribution files
 dist
 
+#Static files
+static
+
 # ESLint
 .eslintcache
 
