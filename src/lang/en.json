@@ -289,11 +289,5 @@
 	"WEIGHT.REGULAR": "Normal",
 	"WEIGHT.TINY": "Tiny",
 	"WEIGHT.TYPE_REGULAR": "Regular",
-	"WEIGHT.TYPE_SPECIAL": "Special",
-	"WEIGHT.3": "3",
-	"WEIGHT.4": "4",
-	"WEIGHT.5": "5",
-	"WEIGHT.6": "6",
-	"WEIGHT.7": "7",
-	"WEIGHT.8": "8"
+	"WEIGHT.TYPE_SPECIAL": "Special"
 }
