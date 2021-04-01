@@ -1,4 +1,4 @@
-import { ForbiddenLandsActor, ForbiddenLandsItem } from "./actor/forbidden-lands.js";
+import { ForbiddenLandsActor, ForbiddenLandsItem } from "./actor/actor.js";
 import { initializeCalendar } from "./hooks/calendar-weather.js";
 import { registerDice } from "./hooks/dice.js";
 import { registerDiceSoNice } from "./hooks/dice-so-nice.js";
@@ -114,7 +114,7 @@ Hooks.on("renderItemSheet", function (app, html) {
 	app._element[0].style.height = "auto";
 });
 
-Hooks.on("renderChatMessage", async (app, html, msg) => {
+Hooks.on("renderChatMessage", async (app, html) => {
 	// Add drag and drop functonality to posted items
 	let postedItem = html.find(".chat-item")[0];
 	if (postedItem) {

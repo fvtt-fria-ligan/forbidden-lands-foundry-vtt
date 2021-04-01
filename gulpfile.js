@@ -7,6 +7,7 @@ const path = require("path");
 const rollupConfig = require("./rollup.config");
 const semver = require("semver");
 const sass = require("gulp-sass");
+const sourcemaps = require("gulp-sourcemaps");
 sass.compiler = require("sass");
 
 /********************/
@@ -42,7 +43,9 @@ async function buildCode() {
 function buildStyles() {
 	return gulp
 		.src(`${stylesDirectory}/${name}.${stylesExtension}`)
-		.pipe(sass().on("error", sass.logError))
+		.pipe(sourcemaps.init())
+		.pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
+		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(`${distDirectory}/styles`));
 }
 
@@ -89,7 +92,7 @@ function buildWatch() {
  * Remove built files from `dist` folder while ignoring source files
  */
 async function clean() {
-	const files = [...staticFiles, "module"];
+	const files = [...staticFiles, ...srcFiles, "module"];
 
 	if (fs.existsSync(`${stylesDirectory}/${name}.${stylesExtension}`)) {
 		files.push("styles");

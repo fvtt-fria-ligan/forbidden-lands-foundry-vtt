@@ -23,7 +23,7 @@
 	],
 	"scripts": [],
 	"esmodules": ["module/forbidden-lands.js"],
-	"styles": ["forbidden-lands.css"],
+	"styles": ["/styles/forbidden-lands.css"],
 	"packs": [],
 	"languages": [
 		{

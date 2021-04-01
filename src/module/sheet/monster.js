@@ -1,12 +1,11 @@
 import { ForbiddenLandsActorSheet } from "./actor.js";
 import { RollDialog } from "../dialog/roll-dialog.js";
-
 export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			...super.defaultOptions,
 			classes: ["forbidden-lands", "sheet", "actor"],
-			template: "systems/forbidden-lands/template/monster.hbs",
+			template: "systems/forbidden-lands/templates/monster.hbs",
 			width: 620,
 			height: 770,
 			resizable: false,
@@ -38,7 +37,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 		html.find(".item-create").click((ev) => {
 			this.onItemCreate(ev);
 		});
-		html.find(".roll-armor").click((ev) => {
+		html.find(".roll-armor").click(() => {
 			let armorValue = this.actor.data.data.armor.value;
 			RollDialog.prepareRollDialog("HEADER.ARMOR", 0, 0, armorValue, "", 0, 0, this.diceRoller, null);
 		});
@@ -114,8 +113,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 					label: game.i18n.localize("SHEET.HEADER.ROLL"),
 					class: "custom-roll",
 					icon: "fas fa-dice",
-					onclick: (ev) =>
-						RollDialog.prepareRollDialog("DICE.ROLL", 0, 0, 0, "", 0, 0, this.diceRoller, null),
+					onclick: () => RollDialog.prepareRollDialog("DICE.ROLL", 0, 0, 0, "", 0, 0, this.diceRoller, null),
 				},
 			].concat(buttons);
 		}

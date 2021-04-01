@@ -37,7 +37,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 	}
 
 	_onChangeTab(event, tabs, active) {
-		$(`#${this.id} textarea`).each(function (this) {
+		$(`#${this.id} textarea`).each(function () {
 			if (this.value) {
 				this.readOnly = true;
 				this.setAttribute("style", "height:" + this.scrollHeight + "px;overflow-y:hidden;");
