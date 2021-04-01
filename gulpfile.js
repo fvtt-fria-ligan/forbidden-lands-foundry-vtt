@@ -23,7 +23,10 @@ const sourceFileExtension = "js";
 const srcFiles = ["lang", "templates"];
 const staticFiles = ["assets", "fonts", "system.json", "template.json"];
 const getDownloadURL = (version) =>
-	`https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/latest/download/${version}.zip`;
+	`https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/${version}/${version}.zip`;
+const repoPathing = (relativeSourcePath = ".", sourcemapPath = ".") => {
+	return path.resolve(path.dirname(sourcemapPath), relativeSourcePath);
+};
 
 /********************/
 /*      BUILD       */
@@ -34,7 +37,7 @@ const getDownloadURL = (version) =>
  */
 async function buildCode() {
 	const build = await rollup({ input: rollupConfig.input, plugins: rollupConfig.plugins });
-	return build.write(rollupConfig.output);
+	return build.write({ ...rollupConfig.output, sourcemapPathTransform: repoPathing });
 }
 
 /**
@@ -132,7 +135,7 @@ function getDataPath() {
  */
 async function linkUserData() {
 	let destinationDirectory;
-	if (fs.existsSync(path.resolve(sourceDirectory, "system.json"))) {
+	if (fs.existsSync(path.resolve("static/system.json"))) {
 		destinationDirectory = "systems";
 	} else {
 		throw new Error(`Could not find ${chalk.blueBright("system.json")}`);
@@ -221,7 +224,7 @@ function bumpVersion(cb) {
 
 		manifest.file.version = targetVersion;
 		manifest.file.download = getDownloadURL(targetVersion);
-		fs.writeJSONSync(`${sourceDirectory}/${manifest.name}`, manifest.file, { spaces: 2 });
+		fs.writeJSONSync(`${sourceDirectory}/static/${manifest.name}`, manifest.file, { spaces: 2 });
 
 		return cb();
 	} catch (err) {
