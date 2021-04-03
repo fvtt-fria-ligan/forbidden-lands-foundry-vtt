@@ -1,4 +1,4 @@
-import { ForbiddenLandsActor, ForbiddenLandsItem } from "./actor/actor.js";
+import { ForbiddenLandsActor, ForbiddenLandsItem } from "./system/entities.js";
 import { initializeCalendar } from "./hooks/calendar-weather.js";
 import { registerDice } from "./hooks/dice.js";
 import { registerDiceSoNice } from "./hooks/dice-so-nice.js";
@@ -6,12 +6,17 @@ import { registerFonts } from "./hooks/fonts.js";
 import { initializeHandlebars } from "./hooks/handlebars.js";
 import { migrateWorld } from "./hooks/migration.js";
 import { registerSheets } from "./hooks/sheets.js";
-import { RollDialog } from "./dialog/roll-dialog.js";
+import { RollDialog } from "./components/roll-dialog.js";
 import DiceRoller from "./components/dice-roller.js";
+import registerHooks from "./utils/hotbar-drop.js";
+import FBL from "./system/config.js";
 
-// CONFIG.debug.hooks = true;
+CONFIG.debug.hooks = true;
 
 Hooks.once("init", () => {
+	game.fbl = {
+		config: FBL,
+	};
 	CONFIG.Combat.initiative = { formula: "1d10", decimals: 0 };
 	CONFIG.Actor.entityClass = ForbiddenLandsActor;
 	CONFIG.Item.entityClass = ForbiddenLandsItem;
@@ -98,6 +103,7 @@ Hooks.once("init", () => {
 Hooks.once("ready", () => {
 	migrateWorld();
 	initializeCalendar();
+	registerHooks();
 });
 
 Hooks.once("diceSoNiceReady", (dice3d) => {
