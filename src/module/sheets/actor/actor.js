@@ -1,5 +1,5 @@
-import { RollDialog } from "../dialog/roll-dialog.js";
-import DiceRoller from "../components/dice-roller.js";
+import { RollDialog } from "../../components/roll-dialog.js";
+import DiceRoller from "../../components/dice-roller.js";
 
 export class ForbiddenLandsActorSheet extends ActorSheet {
 	altInteraction = game.settings.get("forbidden-lands", "alternativeSkulls");
@@ -255,27 +255,11 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		return super._renderInner(data, options);
 	}
 	computerItemEncumbrance(data) {
-		switch (data.type) {
-			case "armor":
-			case "gear":
-			case "weapon":
-				switch (data.data.weight) {
-					case "tiny":
-					case "none":
-						return 0;
-					case "light":
-						return 0.5;
-					case "regular":
-						return 1;
-					case "heavy":
-						return 2;
-					default:
-						return Number(data.data.weight) || 1;
-				}
-			case "rawMaterial":
-				return 1;
-			default:
-				return 0;
-		}
+		const config = game.fbl.config.encumbrance;
+		const type = data.type;
+		const weight = data.data?.weight;
+		if (data.type === "rawMaterial") return 1;
+		if (type !== "gear" && type !== "armor" && type !== "weapon") return null;
+		return Number(config[weight] ?? 1) ?? Number(weight) ?? 1;
 	}
 }

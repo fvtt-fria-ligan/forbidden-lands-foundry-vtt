@@ -1,5 +1,5 @@
 import { ForbiddenLandsActorSheet } from "./actor.js";
-import { RollDialog } from "../dialog/roll-dialog.js";
+import { RollDialog } from "../../components/roll-dialog.js";
 export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {

@@ -1,4 +1,4 @@
-import DiceRoller from "../components/dice-roller.js";
+import DiceRoller from "./dice-roller.js";
 export class RollDialog {
 	/**
 	 * Display roll dialog and execute the roll.

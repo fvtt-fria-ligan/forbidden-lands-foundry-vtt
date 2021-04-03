@@ -96,38 +96,8 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 		html.find(".feature").click(async (ev) => {
 			const featureName = $(ev.currentTarget).data("feature");
 			const features = this.object.data.data.features;
-			switch (featureName) {
-				case "parrying":
-					this.object.update({
-						"data.features.parrying": !features.parrying,
-					});
-					break;
-				case "hook":
-					this.object.update({
-						"data.features.hook": !features.hook,
-					});
-					break;
-				case "edged":
-					this.object.update({
-						"data.features.edged": !features.edged,
-					});
-					break;
-				case "pointed":
-					this.object.update({
-						"data.features.pointed": !features.pointed,
-					});
-					break;
-				case "blunt":
-					this.object.update({
-						"data.features.blunt": !features.blunt,
-					});
-					break;
-				case "slowReload":
-					this.object.update({
-						"data.features.slowReload": !features.slowReload,
-					});
-					break;
-			}
+			if (game.fbl.config.weaponFeatures.includes(featureName))
+				this.object.update({ [`data.features.${featureName}`]: !features[featureName] });
 			this._render();
 		});
 		html.find("textarea").on("input blur contextmenu dblclick mouseover mouseout", (ev) => {
@@ -172,15 +142,18 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 	}
 
 	async _renderInner(data, options) {
-		data.alternativeSkulls = game.settings.get("forbidden-lands", "alternativeSkulls");
+		data = {
+			...data,
+			alternativeSkulls: game.settings.get("forbidden-lands", "alternativeSkulls"),
+			showCraftingFields: game.settings.get("forbidden-lands", "showCraftingFields"),
+			showCostField: game.settings.get("forbidden-lands", "showCostField"),
+			showSupplyField: game.settings.get("forbidden-lands", "showSupplyField"),
+			showEffectField: game.settings.get("forbidden-lands", "showEffectField"),
+			showDescriptionField: game.settings.get("forbidden-lands", "showDescriptionField"),
+			showDrawbackField: game.settings.get("forbidden-lands", "showDrawbackField"),
+			showAppearanceField: game.settings.get("forbidden-lands", "showAppearanceField"),
+		};
 		data.data.customRollModifiers = await this.getCustomRollModifiers();
-		data.showCraftingFields = game.settings.get("forbidden-lands", "showCraftingFields");
-		data.showCostField = game.settings.get("forbidden-lands", "showCostField");
-		data.showSupplyField = game.settings.get("forbidden-lands", "showSupplyField");
-		data.showEffectField = game.settings.get("forbidden-lands", "showEffectField");
-		data.showDescriptionField = game.settings.get("forbidden-lands", "showDescriptionField");
-		data.showDrawbackField = game.settings.get("forbidden-lands", "showDrawbackField");
-		data.showAppearanceField = game.settings.get("forbidden-lands", "showAppearanceField");
 		return super._renderInner(data, options);
 	}
 }

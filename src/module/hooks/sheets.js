@@ -1,17 +1,17 @@
-import { ForbiddenLandsCharacterSheet } from "../sheet/character.js";
-import { ForbiddenLandsMonsterSheet } from "../sheet/monster.js";
-import { ForbiddenLandsStrongholdSheet } from "../sheet/stronghold.js";
-import { ForbiddenLandsWeaponSheet } from "../sheet/weapon.js";
-import { ForbiddenLandsArmorSheet } from "../sheet/armor.js";
-import { ForbiddenLandsGearSheet } from "../sheet/gear.js";
-import { ForbiddenLandsRawMaterialSheet } from "../sheet/raw-material.js";
-import { ForbiddenLandsSpellSheet } from "../sheet/spell.js";
-import { ForbiddenLandsTalentSheet } from "../sheet/talent.js";
-import { ForbiddenLandsCriticalInjurySheet } from "../sheet/critical-injury.js";
-import { ForbiddenLandsMonsterTalentSheet } from "../sheet/monster-talent.js";
-import { ForbiddenLandsMonsterAttackSheet } from "../sheet/monster-attack.js";
-import { ForbiddenLandsBuildingSheet } from "../sheet/building.js";
-import { ForbiddenLandsHirelingSheet } from "../sheet/hireling.js";
+import { ForbiddenLandsCharacterSheet } from "../sheets/actor/character.js";
+import { ForbiddenLandsMonsterSheet } from "../sheets/actor/monster.js";
+import { ForbiddenLandsStrongholdSheet } from "../sheets/actor/stronghold.js";
+import { ForbiddenLandsWeaponSheet } from "../sheets/item/weapon.js";
+import { ForbiddenLandsArmorSheet } from "../sheets/item/armor.js";
+import { ForbiddenLandsGearSheet } from "../sheets/item/gear.js";
+import { ForbiddenLandsRawMaterialSheet } from "../sheets/item/raw-material.js";
+import { ForbiddenLandsSpellSheet } from "../sheets/item/spell.js";
+import { ForbiddenLandsTalentSheet } from "../sheets/item/talent.js";
+import { ForbiddenLandsCriticalInjurySheet } from "../sheets/item/critical-injury.js";
+import { ForbiddenLandsMonsterTalentSheet } from "../sheets/item/monster-talent.js";
+import { ForbiddenLandsMonsterAttackSheet } from "../sheets/item/monster-attack.js";
+import { ForbiddenLandsBuildingSheet } from "../sheets/item/building.js";
+import { ForbiddenLandsHirelingSheet } from "../sheets/item/hireling.js";
 
 export function registerSheets() {
 	Actors.unregisterSheet("core", ActorSheet);

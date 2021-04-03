@@ -1,9 +1,8 @@
 import { ForbiddenLandsActorSheet } from "./actor.js";
-import { RollDialog } from "../dialog/roll-dialog.js";
+import { RollDialog } from "../../components/roll-dialog.js";
 export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
-			...super.defaultOptions,
 			classes: ["forbidden-lands", "sheet", "actor"],
 			template: "systems/forbidden-lands/templates/character.hbs",
 			width: 620,
@@ -43,23 +42,8 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 		html.find(".condition").click(async (ev) => {
 			const conditionName = $(ev.currentTarget).data("condition");
 			const conditionValue = this.actor.data.data.condition[conditionName].value;
-			if (conditionName === "sleepy") {
-				this.actor.update({
-					"data.condition.sleepy.value": !conditionValue,
-				});
-			} else if (conditionName === "thirsty") {
-				this.actor.update({
-					"data.condition.thirsty.value": !conditionValue,
-				});
-			} else if (conditionName === "hungry") {
-				this.actor.update({
-					"data.condition.hungry.value": !conditionValue,
-				});
-			} else if (conditionName === "cold") {
-				this.actor.update({
-					"data.condition.cold.value": !conditionValue,
-				});
-			}
+			if (game.fbl.config.conditions.includes(conditionName))
+				this.actor.update({ [`data.condition.${conditionName}.value`]: !conditionValue });
 			this._render();
 		});
 		html.find(".roll-armor.specific").click((ev) => {
@@ -145,24 +129,18 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 
 	computeSkills(data) {
 		for (let skill of Object.values(data.data.skill)) {
-			skill.hasStrength = skill.attribute === "strength";
-			skill.hasAgility = skill.attribute === "agility";
-			skill.hasWits = skill.attribute === "wits";
-			skill.hasEmpathy = skill.attribute === "empathy";
+			skill[`has${skill.attribute.capitalize()}`] = false;
+			if (game.fbl.config.attributes.includes(skill.attribute))
+				skill[`has${skill.attribute.capitalize()}`] = true;
 		}
 	}
 
 	computeItems(data) {
 		for (let item of Object.values(data.items)) {
-			item.isTalent = item.type === "talent";
-			item.isWeapon = item.type === "weapon";
-			item.isArmor = item.type === "armor";
-			item.isGear = item.type === "gear";
-			item.isRawMaterial = item.type === "rawMaterial";
-			item.isSpell = item.type === "spell";
-			item.isCriticalInjury = item.type === "criticalInjury";
+			if (game.fbl.config.itemTypes.includes(item.type)) item[`is${item.type.capitalize()}`] = true;
 		}
 	}
+
 	computeEncumbrance(data) {
 		let weightCarried = 0;
 		for (let item of Object.values(data.items)) {
