@@ -1,5 +1,5 @@
 export class ForbiddenLandsActor extends Actor {
-	createEmbeddedEntity(embeddedName, data, options) /*this will eventually be ironed out */ {
+	createEmbeddedEntity(embeddedName, data, options) {
 		// Replace randomized attributes like "[[d6]] days" with a roll
 		let newData = duplicate(data);
 		const inlineRoll = /\[\[(\/[a-zA-Z]+\s)?([^\]]+)\]\]/gi;
@@ -27,7 +27,7 @@ export class ForbiddenLandsItem extends Item {
 		itemData.hasRollModifiers =
 			itemData.data.rollModifiers && Object.values(itemData.data.rollModifiers).length > 0;
 		const html = await renderTemplate("systems/forbidden-lands/templates/chat/item.hbs", itemData);
-		const chatData /* this will eventually be ironed out */ = {
+		const chatData = {
 			user: game.user._id,
 			rollMode: game.settings.get("core", "rollMode"),
 			content: html,
