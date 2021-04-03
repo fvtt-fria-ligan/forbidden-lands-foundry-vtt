@@ -33,8 +33,10 @@
 	},
 	"devDependencies": {
 		"@rollup/plugin-node-resolve": "^11.2.1",
+		"@types/foundry-vtt-types": "npm:@league-of-foundry-developers/foundry-vtt-types@^0.7.9-5",
 		"@types/jquery": "^3.5.5",
 		"@typhonjs-fvtt/eslint-config-foundry.js": "^0.7.9",
+		"babel-eslint": "^10.1.0",
 		"chalk": "^4.1.0",
 		"eslint": "^7.23.0",
 		"eslint-config-jquery": "^3.0.0",
