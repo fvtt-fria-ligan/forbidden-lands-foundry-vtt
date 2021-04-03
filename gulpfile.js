@@ -14,7 +14,7 @@ sass.compiler = require("sass");
 /*  CONFIGURATION   */
 /********************/
 
-const name = path.basename(path.resolve("."));
+const repoName = path.basename(path.resolve("."));
 const sourceDirectory = "./src";
 const distDirectory = "./dist";
 const stylesDirectory = `${sourceDirectory}/styles`;
@@ -23,7 +23,10 @@ const sourceFileExtension = "js";
 const srcFiles = ["lang", "templates"];
 const staticFiles = ["assets", "fonts", "system.json", "template.json"];
 const getDownloadURL = (version) =>
-	`https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/latest/download/${version}.zip`;
+	`https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/${version}/${version}.zip`;
+const repoPathing = (relativeSourcePath = ".", sourcemapPath = ".") => {
+	return path.resolve(path.dirname(sourcemapPath), relativeSourcePath);
+};
 
 /********************/
 /*      BUILD       */
@@ -34,7 +37,7 @@ const getDownloadURL = (version) =>
  */
 async function buildCode() {
 	const build = await rollup({ input: rollupConfig.input, plugins: rollupConfig.plugins });
-	return build.write(rollupConfig.output);
+	return build.write({ ...rollupConfig.output, sourcemapPathTransform: repoPathing });
 }
 
 /**
@@ -42,7 +45,7 @@ async function buildCode() {
  */
 function buildStyles() {
 	return gulp
-		.src(`${stylesDirectory}/${name}.${stylesExtension}`)
+		.src(`${stylesDirectory}/forbidden-lands.${stylesExtension}`)
 		.pipe(sourcemaps.init())
 		.pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
 		.pipe(sourcemaps.write())
@@ -94,7 +97,7 @@ function buildWatch() {
 async function clean() {
 	const files = [...staticFiles, ...srcFiles, "module"];
 
-	if (fs.existsSync(`${stylesDirectory}/${name}.${stylesExtension}`)) {
+	if (fs.existsSync(`${stylesDirectory}/forbidden-lands.${stylesExtension}`)) {
 		files.push("styles");
 	}
 
@@ -132,13 +135,13 @@ function getDataPath() {
  */
 async function linkUserData() {
 	let destinationDirectory;
-	if (fs.existsSync(path.resolve(sourceDirectory, "system.json"))) {
+	if (fs.existsSync(path.resolve("static/system.json"))) {
 		destinationDirectory = "systems";
 	} else {
 		throw new Error(`Could not find ${chalk.blueBright("system.json")}`);
 	}
 
-	const linkDirectory = path.resolve(getDataPath(), destinationDirectory, name);
+	const linkDirectory = path.resolve(getDataPath(), destinationDirectory, repoName);
 
 	if (argv.clean || argv.c) {
 		console.log(chalk.yellow(`Removing build in ${chalk.blueBright(linkDirectory)}.`));
@@ -221,7 +224,7 @@ function bumpVersion(cb) {
 
 		manifest.file.version = targetVersion;
 		manifest.file.download = getDownloadURL(targetVersion);
-		fs.writeJSONSync(`${sourceDirectory}/${manifest.name}`, manifest.file, { spaces: 2 });
+		fs.writeJSONSync(`${sourceDirectory}/static/${manifest.name}`, manifest.file, { spaces: 2 });
 
 		return cb();
 	} catch (err) {

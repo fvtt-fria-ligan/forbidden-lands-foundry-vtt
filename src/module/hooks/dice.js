@@ -1,4 +1,12 @@
-import { ArtifactD10, ArtifactD12, ArtifactD8, BaseDie, ForbiddenLandsD6, GearDie, SkillDie } from "../dice.js";
+import {
+	ArtifactD10,
+	ArtifactD12,
+	ArtifactD8,
+	BaseDie,
+	ForbiddenLandsD6,
+	GearDie,
+	SkillDie,
+} from "../components/dice.js";
 
 export function registerDice() {
 	CONFIG.Dice.terms.b = BaseDie;
