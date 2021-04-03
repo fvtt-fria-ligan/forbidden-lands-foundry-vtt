@@ -14,7 +14,7 @@ sass.compiler = require("sass");
 /*  CONFIGURATION   */
 /********************/
 
-const name = path.basename(path.resolve("."));
+const repoName = path.basename(path.resolve("."));
 const sourceDirectory = "./src";
 const distDirectory = "./dist";
 const stylesDirectory = `${sourceDirectory}/styles`;
@@ -45,7 +45,7 @@ async function buildCode() {
  */
 function buildStyles() {
 	return gulp
-		.src(`${stylesDirectory}/${name}.${stylesExtension}`)
+		.src(`${stylesDirectory}/forbidden-lands.${stylesExtension}`)
 		.pipe(sourcemaps.init())
 		.pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
 		.pipe(sourcemaps.write())
@@ -97,7 +97,7 @@ function buildWatch() {
 async function clean() {
 	const files = [...staticFiles, ...srcFiles, "module"];
 
-	if (fs.existsSync(`${stylesDirectory}/${name}.${stylesExtension}`)) {
+	if (fs.existsSync(`${stylesDirectory}/forbidden-lands.${stylesExtension}`)) {
 		files.push("styles");
 	}
 
@@ -141,7 +141,7 @@ async function linkUserData() {
 		throw new Error(`Could not find ${chalk.blueBright("system.json")}`);
 	}
 
-	const linkDirectory = path.resolve(getDataPath(), destinationDirectory, name);
+	const linkDirectory = path.resolve(getDataPath(), destinationDirectory, repoName);
 
 	if (argv.clean || argv.c) {
 		console.log(chalk.yellow(`Removing build in ${chalk.blueBright(linkDirectory)}.`));

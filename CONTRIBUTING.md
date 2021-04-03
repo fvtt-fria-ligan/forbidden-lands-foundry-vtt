@@ -41,7 +41,7 @@ Click the "Add Language" button and get started. :+1:
 
 ## :rocket: Get Started
 
-> **Important!** You need to [have node.js installed](https://nodejs.org/en/) with npm available.
+> **Important!** You need to [have node.js LTS-version installed](https://nodejs.org/en/) with npm available.
 
 **Fork** or [Clone](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt.git) the project and open the project folder in your terminal:
 
@@ -67,7 +67,22 @@ Configure a `foundryconfig.json`-file in the project's root folder it should con
 
 ```json
 {
+	// On Linux / macOS
 	"dataPath": "/absolute/path/to/your/FoundryVTT/Data"
+}
+```
+
+```json
+{
+	// On Windows
+	"dataPath": "\\absolute\\path\\to\\your\\FoundryVTT\\Data"
+}
+```
+
+```json
+{
+	// Relative path
+	"dataPath": "../../Data"
 }
 ```
 
