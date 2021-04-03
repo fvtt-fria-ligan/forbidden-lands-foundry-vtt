@@ -1,0 +1,41 @@
+{
+    "FLPS.SETTINGS.ALLOW_PUSH": "Allow Pushing Travel Rolls",
+    "FLPS.SETTINGS.ALLOW_PUSH_HINT": "Some GMs disallow pushing travel rolls to limit willpower accumulation. If this setting is off, then 'Push' button will not be displayed in the party sheet header.",
+    
+    "FLPS.TAB.MAIN": "MAIN",
+    "FLPS.TAB.TRAVEL": "TRAVEL",
+
+    "FLPS.PARTY.NAME": "Party Name",
+    "FLPS.PARTY.MEMBERS": "Party Members",
+    "FLPS.PARTY.HINT_ADD": "Drag & drop characters here to add them to the party.",
+    "FLPS.PARTY.HINT_ASSIGN": "Drag & drop characters to assign them to the desired travel activities.",
+
+    "FLPS.TRAVEL.HIKE": "Hike",
+    "FLPS.TRAVEL.LEAD": "Lead the Way",
+    "FLPS.TRAVEL.WATCH": "Keep Watch",
+    "FLPS.TRAVEL.REST": "Rest",
+    "FLPS.TRAVEL.SLEEP": "Sleep",
+    "FLPS.TRAVEL.FORAGE": "Forage",
+    "FLPS.TRAVEL.HUNT": "Hunt",
+    "FLPS.TRAVEL.FISH": "Fish",
+    "FLPS.TRAVEL.CAMP": "Make Camp",
+    "FLPS.TRAVEL.OTHER": "Other",
+    "FLPS.TRAVEL.RESET": "RESET",
+
+    "FLPS.UI.WHO_ROLLS": "Who rolls?",
+    "FLPS.UI.WHO_PUSHES": "Who pushes?",
+    "FLPS.UI.ATTENTION": "Attention",
+    "FLPS.UI.ERROR.OPEN_SHEET": "Please open your character sheet at least once before making travel rolls.",
+
+    "FLPS.TRAVEL_ROLL.FORCED_MARCH": "Forced March (ENDURANCE)",
+    "FLPS.TRAVEL_ROLL.HIKE_IN_DARKNESS": "Hike in Darkness (SCOUTING)",
+    "FLPS.TRAVEL_ROLL.NAVIGATE": "Lead the Way (SURVIVAL)",
+    "FLPS.TRAVEL_ROLL.KEEP_WATCH": "Keep Watch (SCOUTING)",
+    "FLPS.TRAVEL_ROLL.RECOVER": "Recover",
+    "FLPS.TRAVEL_ROLL.FIND_GOOD_PLACE": "Find a Good Place (SURVIVAL)",
+    "FLPS.TRAVEL_ROLL.FIND_FOOD": "Forage (SURVIVAL)",
+    "FLPS.TRAVEL_ROLL.FIND_PREY": "Find Prey (SURVIVAL)",
+    "FLPS.TRAVEL_ROLL.KILL_PREY": "Kill Prey (MARKSMANSHIP/SURVIVAL)",
+    "FLPS.TRAVEL_ROLL.CATCH_FISH": "Fish (SURVIVAL)",
+    "FLPS.TRAVEL_ROLL.MAKE_CAMP": "Make Camp (SURVIVAL)"
+}
