@@ -1,6 +1,6 @@
 {
 	"Actor": {
-		"types": ["character", "monster", "stronghold"],
+		"types": ["character", "monster", "party", "stronghold"],
 		"templates": {
 			"attributes": {
 				"attribute": {
@@ -248,6 +248,9 @@
 			},
 			"isMounted": false,
 			"type": "monster"
+		},
+		"party": {
+			"description": ""
 		},
 		"stronghold": {
 			"location": "",
