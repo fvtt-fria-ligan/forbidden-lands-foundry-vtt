@@ -1,0 +1,124 @@
+.forbidden-lands .party {
+    height: 100%;
+    width: 100%;
+}
+
+.party .tab-hint {
+    font-style: italic;
+    text-align: center;
+}
+
+.party-member:hover {
+    background-color: lightgray;
+}
+
+.party-member .party-member-avatar {
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    border: 0px;
+    cursor: pointer;
+}
+
+.party-member .party-member-name {
+    line-height: 48px;
+}
+
+.party-member .button {
+    flex: 0 0 24px;
+    width: 24px;
+    height: 48px;
+    line-height: 48px;
+}
+
+.party-member .entity-link {
+    margin-right: 4px;
+    line-height: 44px;
+
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+
+    border: 0px;
+    background-color: inherit;
+}
+
+.party-member .plain-name {
+    margin-right: 4px;
+    margin-right: 4px;
+    line-height: 44px;
+
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+
+    border: 0px;
+    background-color: inherit;
+}
+
+.party-member-list {
+    height: 100%;
+}
+
+table.travel-actions {
+    border: 0px solid;
+    border-spacing: 6px;
+    border-collapse: separate;
+    background: rgb(255, 255, 255);
+    margin-top: 0px;
+}
+
+table.travel-actions td{
+    vertical-align: top;
+    height: 1px;
+}
+
+.travel-action {
+    min-width: 196px;
+    min-height: 90px;
+    height: 100%;
+    margin-bottom: 10px;
+
+    flex-grow: 1;
+}
+
+.travel-action ol {
+    padding-left: 4px;
+}
+
+.travel-action .travel-action-header {
+    text-align: center;
+    font-weight: bold;
+    max-height: 20px;
+    border-bottom: 1px solid;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.travel-action-header .entity-link {
+    background-color: white;
+    border: 0px solid;
+}
+
+.travel-action .travel-action-help {
+    border: 1px solid;
+    border-radius: 6px;
+    background-color: cadetblue;
+    display: flex;
+    width: 20px;
+    margin-left: 4px;
+    justify-content: center;
+}
+.travel-action .travel-action-help:hover {
+    background-color: cyan;
+}
+
+.travel-action button.travel-roll {
+    font-size: 12px;
+    display: block;
+    width: 99%;
+
+    border-bottom: 1px gray dashed;
+}
