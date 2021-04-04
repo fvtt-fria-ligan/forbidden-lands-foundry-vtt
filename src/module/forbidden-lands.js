@@ -8,7 +8,6 @@ import { migrateWorld } from "./hooks/migration.js";
 import { registerSheets } from "./hooks/sheets.js";
 import { RollDialog } from "./components/roll-dialog.js";
 import DiceRoller from "./components/dice-roller.js";
-import registerHooks from "./utils/hotbar-drop.js";
 import FBL from "./system/config.js";
 
 CONFIG.debug.hooks = true;
@@ -33,6 +32,14 @@ Hooks.once("init", () => {
 		config: false,
 		default: 0,
 		type: Number,
+	});
+	game.settings.register("forbidden-lands", "allowTravelRollPush", {
+		name: game.i18n.localize("FLPS.SETTINGS.ALLOW_PUSH"),
+		hint: game.i18n.localize("FLPS.SETTINGS.ALLOW_PUSH_HINT"),
+		scope: "world",
+		config: true,
+		default: true,
+		type: Boolean,
 	});
 	game.settings.register("forbidden-lands", "alternativeSkulls", {
 		name: "CONFIG.ALTERNATIVESKULLS",
@@ -103,7 +110,6 @@ Hooks.once("init", () => {
 Hooks.once("ready", () => {
 	migrateWorld();
 	initializeCalendar();
-	registerHooks();
 });
 
 Hooks.once("diceSoNiceReady", (dice3d) => {

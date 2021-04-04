@@ -11,6 +11,7 @@
 
 	"ACTOR.TypeCharacter": "Character",
 	"ACTOR.TypeMonster": "Monster",
+	"ACTOR.TypeParty": "Party",
 	"ACTOR.TypeStronghold": "Stronghold",
 
 	"ARMOR.BODY": "Body",

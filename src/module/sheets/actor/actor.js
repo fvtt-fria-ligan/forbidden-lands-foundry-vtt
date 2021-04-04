@@ -194,7 +194,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	}
 
 	parseModifiers(str) {
-		let sep = /[\s\+]+/;
+		let sep = /[\s+]+/;
 		let artifacts = [];
 		let modifier = 0;
 		if (typeof str === "string") {
@@ -240,7 +240,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			let rollModifiers = item.data.data.rollModifiers;
 			if (rollModifiers) {
 				Object.values(rollModifiers).forEach((mod) => {
-					if (mod && mod.name == skillLabel) {
+					if (mod && mod.name === skillLabel) {
 						let parsed = this.parseModifiers(mod.value);
 						modifiers.modifier += parsed.modifier;
 						modifiers.artifacts = modifiers.artifacts.concat(parsed.artifacts);
