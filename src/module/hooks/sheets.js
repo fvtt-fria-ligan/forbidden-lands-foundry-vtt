@@ -1,6 +1,7 @@
 import { ForbiddenLandsCharacterSheet } from "../sheets/actor/character.js";
 import { ForbiddenLandsMonsterSheet } from "../sheets/actor/monster.js";
 import { ForbiddenLandsStrongholdSheet } from "../sheets/actor/stronghold.js";
+import { ForbiddenLandsPartySheet } from "../sheets/actor/party-sheet.js";
 import { ForbiddenLandsWeaponSheet } from "../sheets/item/weapon.js";
 import { ForbiddenLandsArmorSheet } from "../sheets/item/armor.js";
 import { ForbiddenLandsGearSheet } from "../sheets/item/gear.js";
@@ -21,6 +22,7 @@ export function registerSheets() {
 		types: ["stronghold"],
 		makeDefault: true,
 	});
+	Actors.registerSheet("forbidden-lands", ForbiddenLandsPartySheet, { types: ["party"], makeDefault: true });
 	Items.unregisterSheet("core", ItemSheet);
 	Items.registerSheet("forbidden-lands", ForbiddenLandsWeaponSheet, { types: ["weapon"], makeDefault: true });
 	Items.registerSheet("forbidden-lands", ForbiddenLandsArmorSheet, { types: ["armor"], makeDefault: true });
