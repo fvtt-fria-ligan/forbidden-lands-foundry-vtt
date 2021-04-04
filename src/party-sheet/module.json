@@ -1,0 +1,59 @@
+{
+  "name": "forbidden-lands-party-sheet",
+  "title": "Forbidden Lands Party Sheet",
+  "description": "Adds a party sheet where you can visually assign party members to various travel activities.",
+  "author": "Maxter",
+  "version": "1.0.7",
+  "minimumCoreVersion": "0.6.5",
+  "compatibleCoreVersion": "0.7.9",
+  "systems": [
+    "forbidden-lands"
+  ],
+  "esmodules": [
+    "scripts/hooks.js"
+  ],
+  "styles": [
+    "styles/party-sheet.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "ru",
+      "name": "Russian",
+      "path": "lang/ru.json"
+    },
+    {
+      "lang": "cs",
+      "name": "Czech",
+      "path": "lang/cs.json"
+    },
+    {
+      "lang": "zh-TW",
+      "name": "正體中文",
+      "path": "lang/zh-TW.json"
+    }
+  ],
+  "packs": [
+    {
+      "name": "forbidden-lands-travel-rules-reference",
+      "label": "Rules reference for travel activities",
+      "path": "packs/forbidden-lands-travel-rules-reference.db",
+      "entity": "JournalEntry",
+      "module": "forbidden-lands-party-sheet"
+    },
+    {
+      "name": "forbidden-lands-travel-roll-tables",
+      "label": "Rollable tables for travel activities",
+      "path": "packs/forbidden-lands-travel-roll-tables.db",
+      "entity": "RollTable",
+      "module": "forbidden-lands-party-sheet"
+    }
+  ],
+  "url": "https://github.com/maxstar/forbidden-lands-party-sheet",
+  "manifest": "https://raw.githubusercontent.com/maxstar/forbidden-lands-party-sheet/master/module.json",
+  "download": "https://github.com/maxstar/forbidden-lands-party-sheet/archive/1.0.7.zip"
+}

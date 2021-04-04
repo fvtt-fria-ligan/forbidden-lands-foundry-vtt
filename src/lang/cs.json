@@ -261,5 +261,44 @@
 	"WEIGHT.REGULAR": "Běžný",
 	"WEIGHT.TINY": "Drobný",
 	"WEIGHT.TYPE_REGULAR": "Regular",
-	"WEIGHT.TYPE_SPECIAL": "Special"
+	"WEIGHT.TYPE_SPECIAL": "Special",
+	"FLPS.SETTINGS.ALLOW_PUSH": "Povolit zkoušku štětí u hodů během cestování",
+	"FLPS.SETTINGS.ALLOW_PUSH_HINT": "Někteří Vypravěči povolují zkoušet štětí u hodů během cestování pouze do výše počtu bodů vůle. Jestliže je tato volba vypnutá, tlačítko zkoušet štěstí nebude zobrazeno v listu skupiny.",
+
+	"FLPS.TAB.MAIN": "HLAVNÍ",
+	"FLPS.TAB.TRAVEL": "CESTOVÁNÍ",
+
+	"FLPS.PARTY.NAME": "Jméno skupiny",
+	"FLPS.PARTY.MEMBERS": "Členové skupiny",
+	"FLPS.PARTY.HINT_ADD": "Přetáhni & pusť zde postavu, abys jí přidal do skupiny.",
+	"FLPS.PARTY.HINT_ASSIGN": "Přetáhni & pusť zde postavu, abys jí přidělil k požadované cestovní aktivitě.",
+
+	"FLPS.TRAVEL.HIKE": "Pochod",
+	"FLPS.TRAVEL.LEAD": "Udávání směru",
+	"FLPS.TRAVEL.WATCH": "Držení hlídky",
+	"FLPS.TRAVEL.REST": "Odpočinek",
+	"FLPS.TRAVEL.SLEEP": "Spánek",
+	"FLPS.TRAVEL.FORAGE": "Hledání potravy",
+	"FLPS.TRAVEL.HUNT": "Lov",
+	"FLPS.TRAVEL.FISH": "Rybaření",
+	"FLPS.TRAVEL.CAMP": "Táboření",
+	"FLPS.TRAVEL.OTHER": "Jiné",
+	"FLPS.TRAVEL.RESET": "RESETOVAT",
+
+	"FLPS.UI.WHO_ROLLS": "Kdo háže?",
+	"FLPS.UI.WHO_PUSHES": "Kdo zkouší štěstí?",
+	"FLPS.UI.ATTENTION": "Pozor",
+	"FLPS.UI.ERROR.OPEN_SHEET": "Před tím než provedete hod na cestování, otevřete prosím nejméně jednou list vaší postavy.",
+
+	"FLPS.TRAVEL_ROLL.FORCED_MARCH": "Nucený pochod (VÝDRŽ)",
+	"FLPS.TRAVEL_ROLL.HIKE_IN_DARKNESS": "Pochod ve tmě (OSTRAŽITOST)",
+	"FLPS.TRAVEL_ROLL.NAVIGATE": "Určování směru (PŘEŽITÍ)",
+	"FLPS.TRAVEL_ROLL.KEEP_WATCH": "Držení hlídky (OSTRAŽITOST)",
+	"FLPS.TRAVEL_ROLL.RECOVER": "Odpočinek",
+	"FLPS.TRAVEL_ROLL.FIND_GOOD_PLACE": "Najít vhodné místo (PŘEŽITÍ)",
+	"FLPS.TRAVEL_ROLL.FIND_FOOD": "Hledání potravy (PŘEŽITÍ)",
+	"FLPS.TRAVEL_ROLL.FIND_PREY": "Nalezení kořisti (PŘEŽITÍ)",
+	"FLPS.TRAVEL_ROLL.KILL_PREY": "Zabití kořisti (STŘELBA/PŘEŽITÍ)",
+	"FLPS.TRAVEL_ROLL.CATCH_FISH": "Rybaření (PŘEŽITÍ)",
+	"FLPS.TRAVEL_ROLL.MAKE_CAMP": "Rozdělání tábora (PŘEŽITÍ)"
 }
