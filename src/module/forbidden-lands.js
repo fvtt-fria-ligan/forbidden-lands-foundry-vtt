@@ -126,6 +126,10 @@ Hooks.on("renderItemSheet", function (app, html) {
 	app._element[0].style.height = "auto";
 });
 
+Hooks.on("renderActorSheet", (app, _html) => {
+	if (app.actor.data.type === "party") app._element[0].style.height = "auto";
+});
+
 Hooks.on("renderChatMessage", async (app, html) => {
 	// Add drag and drop functonality to posted items
 	let postedItem = html.find(".chat-item")[0];

@@ -70,7 +70,7 @@ export let TravelActionsConfig = {
 				class: "travel-forced-march",
 				handler: function (party) {
 					rollTravelAction(
-						party.actor.data.flags.travel.hike,
+						party.actor.data.data.travel.hike,
 						"FLPS.TRAVEL_ROLL.FORCED_MARCH",
 						"endurance",
 						doRollTravelAction,
@@ -82,7 +82,7 @@ export let TravelActionsConfig = {
 				class: "travel-hike-in-darkness",
 				handler: function (party) {
 					rollTravelAction(
-						party.actor.data.flags.travel.hike,
+						party.actor.data.data.travel.hike,
 						"FLPS.TRAVEL_ROLL.HIKE_IN_DARKNESS",
 						"scouting",
 						doRollTravelAction,
@@ -101,7 +101,7 @@ export let TravelActionsConfig = {
 				class: "travel-navigate",
 				handler: function (party) {
 					rollTravelAction(
-						party.actor.data.flags.travel.lead,
+						party.actor.data.data.travel.lead,
 						"FLPS.TRAVEL_ROLL.NAVIGATE",
 						"survival",
 						doRollTravelAction,
@@ -120,7 +120,7 @@ export let TravelActionsConfig = {
 				class: "travel-keep-watch",
 				handler: function (party) {
 					rollTravelAction(
-						party.actor.data.flags.travel.watch,
+						party.actor.data.data.travel.watch,
 						"FLPS.TRAVEL_ROLL.KEEP_WATCH",
 						"scouting",
 						doRollTravelAction,
@@ -145,7 +145,7 @@ export let TravelActionsConfig = {
 				class: "travel-find-good-place",
 				handler: function (party) {
 					rollTravelAction(
-						party.actor.data.flags.travel.sleep,
+						party.actor.data.data.travel.sleep,
 						"FLPS.TRAVEL_ROLL.FIND_GOOD_PLACE",
 						"survival",
 						doRollTravelAction,
@@ -164,7 +164,7 @@ export let TravelActionsConfig = {
 				class: "travel-find-food",
 				handler: function (party) {
 					rollTravelAction(
-						party.actor.data.flags.travel.forage,
+						party.actor.data.data.travel.forage,
 						"FLPS.TRAVEL_ROLL.FIND_FOOD",
 						"survival",
 						doRollTravelAction,
@@ -183,7 +183,7 @@ export let TravelActionsConfig = {
 				class: "travel-find-prey",
 				handler: function (party) {
 					rollTravelAction(
-						party.actor.data.flags.travel.hunt,
+						party.actor.data.data.travel.hunt,
 						"FLPS.TRAVEL_ROLL.FIND_PREY",
 						"survival",
 						doRollTravelAction,
@@ -212,7 +212,7 @@ export let TravelActionsConfig = {
 				class: "travel-kill-prey",
 				handler: function (party) {
 					rollTravelAction(
-						party.actor.data.flags.travel.hunt,
+						party.actor.data.data.travel.hunt,
 						"FLPS.TRAVEL_ROLL.KILL_PREY",
 						"survival",
 						function (character, rollName, _skillName, onAfterRoll) {
@@ -251,7 +251,7 @@ export let TravelActionsConfig = {
 				class: "travel-catch-fish",
 				handler: function (party) {
 					rollTravelAction(
-						party.actor.data.flags.travel.fish,
+						party.actor.data.data.travel.fish,
 						"FLPS.TRAVEL_ROLL.CATCH_FISH",
 						"survival",
 						doRollTravelAction,
@@ -270,7 +270,7 @@ export let TravelActionsConfig = {
 				class: "travel-make-camp",
 				handler: function (party) {
 					rollTravelAction(
-						party.actor.data.flags.travel.camp,
+						party.actor.data.data.travel.camp,
 						"FLPS.TRAVEL_ROLL.MAKE_CAMP",
 						"survival",
 						doRollTravelAction,
