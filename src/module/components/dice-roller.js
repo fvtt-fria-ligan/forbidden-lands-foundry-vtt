@@ -38,14 +38,14 @@ export default class DiceRoller {
 			computedDamage = computedDamage - 1;
 		}
 		this.lastDamage = computedDamage;
-		this.sendRollToChat(false);
+		this.sendRollToChat(this, false);
 	}
 
 	/**
 	 * Push the last roll
 	 */
-	push() {
-		this.dices.forEach((dice) => {
+	push(data) {
+		data.dices.forEach((dice) => {
 			if (
 				(dice.value < 6 && dice.value > 1) ||
 				(dice.value < 6 && ["artifact", "skill", "skill-penalty"].includes(dice.type))
@@ -61,10 +61,10 @@ export default class DiceRoller {
 				dice.rolled = false;
 			}
 		});
-		if (this.lastType === "spell") {
-			this.sendRollSpellToChat(true);
+		if (data.lastType === "spell") {
+			this.sendRollSpellToChat(data, true);
 		} else {
-			this.sendRollToChat(true);
+			this.sendRollToChat(data, true);
 		}
 	}
 
@@ -104,21 +104,22 @@ export default class DiceRoller {
 	 *
 	 * @param  {boolean} isPushed Whether roll was pushed
 	 */
-	async sendRollToChat(isPushed) {
-		this.dices.sort(function (a, b) {
+	async sendRollToChat(data, isPushed) {
+		data.dices.sort(function (a, b) {
 			return b.weight - a.weight;
 		});
 		let numberOfSword = this.countSword();
 		let numberOfSkull = this.countSkull();
 		let rollData = {
-			name: this.lastRollName,
+			name: data.lastRollName,
 			isPushed: isPushed,
 			isSpell: false,
 			sword: numberOfSword,
 			skull: numberOfSkull,
-			damage: numberOfSword > 0 ? numberOfSword + this.lastDamage : 0,
-			hasDamage: this.hasDamage,
-			dices: this.dices,
+			damage: numberOfSword > 0 ? numberOfSword + data.lastDamage : 0,
+			hasDamage: data.hasDamage,
+			dices: data.dices,
+			user: game.userId,
 		};
 		const html = await renderTemplate("systems/forbidden-lands/templates/chat/roll.hbs", rollData);
 		let chatData = {
@@ -132,7 +133,8 @@ export default class DiceRoller {
 		} else if (chatData.rollMode === "selfroll") {
 			chatData.whisper = [game.user];
 		}
-		const roll = this.synthetizeFakeRoll(this.dices);
+		chatData["flags.forbidden-lands.rollData"] = data;
+		const roll = this.synthetizeFakeRoll(data.dices);
 		chatData.roll = JSON.stringify(roll);
 		ChatMessage.create(chatData);
 	}
@@ -152,6 +154,7 @@ export default class DiceRoller {
 			powerLevel: numberOfSword + this.dices.length,
 			hadDamage: false,
 			dices: this.dices,
+			user: game.userId,
 		};
 		const html = await renderTemplate("systems/forbidden-lands/templates/chat/roll.hbs", rollData);
 		let chatData = {
@@ -164,6 +167,7 @@ export default class DiceRoller {
 		} else if (chatData.rollMode === "selfroll") {
 			chatData.whisper = [game.user];
 		}
+		chatData["flags.forbidden-lands.rollData"] = this;
 		ChatMessage.create(chatData);
 	}
 
