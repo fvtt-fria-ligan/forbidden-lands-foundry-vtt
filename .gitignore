@@ -5,7 +5,8 @@ __MACOSX/
 .idea/
 .vs/
 .vscode
-workspace.code-workspace
+*.code-workspace
+.history
 
 # Node Modules
 node_modules/
@@ -15,10 +16,10 @@ npm-debug.log
 foundryconfig.json
 
 # Distribution files
-dist
+dist/
 
 #Static files
-static
+static/
 
 # ESLint
 .eslintcache
