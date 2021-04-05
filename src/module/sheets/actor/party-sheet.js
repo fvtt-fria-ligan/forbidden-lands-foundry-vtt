@@ -1,17 +1,15 @@
 import { TravelActionsConfig } from "../../components/travel-actions.js";
 import { Helpers } from "../../utils/helpers.js";
 import { CharacterPickerDialog } from "../../components/character-picker-dialog.js";
-import { ForbiddenLandsActorSheet } from "./actor.js";
 
-export class ForbiddenLandsPartySheet extends ForbiddenLandsActorSheet {
+export class ForbiddenLandsPartySheet extends ActorSheet {
 	static get defaultOptions() {
 		let dragDrop = [...super.defaultOptions.dragDrop];
 		dragDrop.push({ dragSelector: ".party-member", dropSelector: ".party-member-list" });
 		return mergeObject(super.defaultOptions, {
-			classes: ["forbidden-lands", "sheet", "actor"],
+			classes: ["forbidden-lands", "sheet", "actor", "party"],
 			template: "systems/forbidden-lands/templates/party.hbs",
-			width: 700,
-			height: 840,
+			width: window.innerWidth * 0.05 + 650,
 			resizable: false,
 			tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "main" }],
 			dragDrop: dragDrop,
@@ -20,17 +18,16 @@ export class ForbiddenLandsPartySheet extends ForbiddenLandsActorSheet {
 
 	getData() {
 		const data = super.getData();
-
 		data.partyMembers = {};
 		data.travel = {};
-		data.travelActions = TravelActionsConfig;
+		data.travelActions = this.getTravelActions();
 		let ownedActorId, assignedActorId, travelAction;
-		for (let i = 0; i < (data.actor.flags.partyMembers || []).length; i++) {
-			ownedActorId = data.actor.flags.partyMembers[i];
+		for (let i = 0; i < (data.actor.data.members || []).length; i++) {
+			ownedActorId = data.actor.data.members[i];
 			data.partyMembers[ownedActorId] = game.actors.get(ownedActorId).data;
 		}
-		for (let travelActionKey in data.actor.flags.travel) {
-			travelAction = data.actor.flags.travel[travelActionKey];
+		for (let travelActionKey in data.actor.data.travel) {
+			travelAction = data.actor.data.travel[travelActionKey];
 			data.travel[travelActionKey] = {};
 
 			if (typeof travelAction === "object") {
@@ -50,7 +47,7 @@ export class ForbiddenLandsPartySheet extends ForbiddenLandsActorSheet {
 
 		html.find(".item-delete").click(this.handleRemoveMember.bind(this));
 		html.find(".reset").click(() => {
-			this.assignPartyMembersToAction(this.getPartyMembers(), "other");
+			this.assignPartyMembersToAction(this.actor.data.data.members, "other");
 			this.render(true);
 		});
 
@@ -74,7 +71,7 @@ export class ForbiddenLandsPartySheet extends ForbiddenLandsActorSheet {
 					class: "push-roll",
 					icon: "fas fa-skull",
 					onclick: () => {
-						let ownedPartyMembers = Helpers.getOwnedCharacters(this.actor.data.flags.partyMembers);
+						let ownedPartyMembers = Helpers.getOwnedCharacters(this.actor.data.data.members);
 						let diceRoller;
 
 						if (ownedPartyMembers.length === 1) {
@@ -100,32 +97,37 @@ export class ForbiddenLandsPartySheet extends ForbiddenLandsActorSheet {
 		return buttons;
 	}
 
-	getPartyMembers() {
-		return this.actor.data.flags.partyMembers || [];
+	getTravelActions() {
+		let travelActions = TravelActionsConfig;
+		for (const action of Object.values(travelActions)) {
+			action.displayJournalEntry =
+				action.journalEntryName && game.journal.getName(action.journalEntryName) !== null;
+		}
+		return travelActions;
 	}
 
 	async handleRemoveMember(event) {
 		const div = $(event.currentTarget).parents(".party-member");
 		const entityId = div.data("entity-id");
 
-		let partyMembers = [...this.getPartyMembers()];
+		let partyMembers = this.actor.data.data.members;
 		partyMembers.splice(partyMembers.indexOf(entityId), 1);
 
 		let updateData = {
-			"flags.partyMembers": partyMembers,
+			"data.members": partyMembers,
 		};
 
 		let travelAction, actionParticipants;
-		for (let travelActionKey in this.actor.data.flags.travel) {
-			travelAction = this.actor.data.flags.travel[travelActionKey];
+		for (let travelActionKey in this.actor.data.data.travel) {
+			travelAction = this.actor.data.data.travel[travelActionKey];
 			if (travelAction.indexOf(entityId) < 0) continue;
 
 			if (typeof travelAction === "object") {
 				actionParticipants = [...travelAction];
 				actionParticipants.splice(actionParticipants.indexOf(entityId), 1);
-				updateData["flags.travel." + travelActionKey] = actionParticipants;
+				updateData["data.travel." + travelActionKey] = actionParticipants;
 			} else {
-				updateData["flags.travel." + travelActionKey] = "";
+				updateData["data.travel." + travelActionKey] = "";
 			}
 		}
 
@@ -191,11 +193,11 @@ export class ForbiddenLandsPartySheet extends ForbiddenLandsActorSheet {
 
 			// remove party member from the current assignment
 			let travelAction, actionParticipants;
-			for (let key in this.actor.data.flags.travel) {
-				travelAction = this.actor.data.flags.travel[key];
+			for (let key in this.actor.data.data.travel) {
+				travelAction = this.actor.data.data.travel[key];
 				if (travelAction.indexOf(partyMemberId) < 0) continue;
 
-				updDataKey = "flags.travel." + key;
+				updDataKey = "data.travel." + key;
 				if (typeof travelAction === "object") {
 					if (updateData[updDataKey] === undefined) {
 						actionParticipants = [...travelAction];
@@ -210,10 +212,10 @@ export class ForbiddenLandsPartySheet extends ForbiddenLandsActorSheet {
 			}
 
 			// add party member to a new assignment
-			updDataKey = "flags.travel." + travelActionKey;
-			if (typeof this.actor.data.flags.travel[travelActionKey] === "object") {
+			updDataKey = "data.travel." + travelActionKey;
+			if (typeof this.actor.data.data.travel[travelActionKey] === "object") {
 				if (updateData[updDataKey] === undefined) {
-					actionParticipants = [...this.actor.data.flags.travel[travelActionKey]];
+					actionParticipants = [...this.actor.data.data.travel[travelActionKey]];
 					actionParticipants.push(partyMemberId);
 					updateData[updDataKey] = actionParticipants;
 				} else {
@@ -222,13 +224,13 @@ export class ForbiddenLandsPartySheet extends ForbiddenLandsActorSheet {
 			} else {
 				updateData[updDataKey] = partyMemberId;
 				// if someone was already assigned here we must move that character to the "Other" assignment
-				if (this.actor.data.flags.travel[travelActionKey] !== "") {
-					if (updateData["flags.travel.other"] === undefined) {
-						actionParticipants = [...this.actor.data.flags.travel.other];
-						actionParticipants.push(this.actor.data.flags.travel[travelActionKey]);
-						updateData["flags.travel.other"] = actionParticipants;
+				if (this.actor.data.data.travel[travelActionKey] !== "") {
+					if (updateData["data.travel.other"] === undefined) {
+						actionParticipants = [...this.actor.data.data.travel.other];
+						actionParticipants.push(this.actor.data.data.travel[travelActionKey]);
+						updateData["data.travel.other"] = actionParticipants;
 					} else {
-						updateData["flags.travel.other"].push(this.actor.data.flags.travel[travelActionKey]);
+						updateData["data.travel.other"].push(this.actor.data.data.travel[travelActionKey]);
 					}
 				}
 			}
@@ -238,31 +240,15 @@ export class ForbiddenLandsPartySheet extends ForbiddenLandsActorSheet {
 	}
 
 	async handleAddToParty(actor) {
-		let partyMembers = [...this.getPartyMembers()];
+		let partyMembers = this.actor.data.data.members;
 		let initialCount = partyMembers.length;
 		partyMembers.push(actor.data._id);
 		// eslint-disable-next-line no-undef
 		partyMembers = [...new Set(partyMembers)]; // remove duplicate values
 		if (initialCount === partyMembers.length) return; // nothing changed
 
-		let travelOther = [...this.actor.data.flags.travel.other];
+		let travelOther = [...this.actor.data.data.travel.other];
 		travelOther.push(actor.data._id);
-		await this.actor.update({ "flags.partyMembers": partyMembers, "flags.travel.other": travelOther });
-	}
-
-	async _renderInner(data, options) {
-		const actor = this.object;
-		if (data.actor.flags.partyMembers !== undefined) return super._renderInner(data, options); // everything is already initialized
-
-		console.log("Forbidden Lands Party Sheet: initializing sheet");
-		let initialData = {
-			"flags.partyMembers": [],
-		};
-
-		for (let key in TravelActionsConfig) {
-			initialData[`flags.travel.${key}`] = [];
-		}
-		await actor.update(initialData);
-		return super._renderInner(data, options);
+		await this.actor.update({ "data.members": partyMembers, "data.travel.other": travelOther });
 	}
 }
