@@ -250,7 +250,20 @@
 			"type": "monster"
 		},
 		"party": {
-			"description": ""
+			"description": "",
+			"members": [],
+			"travel": {
+				"camp": [],
+				"fish": [],
+				"forage": [],
+				"hike": [],
+				"hunt": [],
+				"lead": [],
+				"rest": [],
+				"sleep": [],
+				"watch": [],
+				"other": []
+			}
 		},
 		"stronghold": {
 			"location": "",
