@@ -1,0 +1,10 @@
+// @ts-nocheck
+{
+	"compilerOptions": {
+		"module":"es6",
+		"target":"es2020",
+		"moduleResolution": "node"
+	},
+	"include": ["/src/module/**/*"],
+	"exclude": ["node_modules","**/node_modules/*", "dist"]
+}
