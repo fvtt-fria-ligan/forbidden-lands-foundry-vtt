@@ -190,7 +190,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 					label: game.i18n.localize("SHEET.HEADER.PUSH"),
 					class: "push-roll",
 					icon: "fas fa-skull",
-					onclick: () => this.diceRoller.push(),
+					onclick: () => this.diceRoller.push(this.diceRoller),
 				},
 			].concat(buttons);
 		}

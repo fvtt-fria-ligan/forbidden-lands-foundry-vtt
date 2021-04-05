@@ -146,4 +146,18 @@ Hooks.on("renderChatMessage", async (app, html) => {
 			);
 		});
 	}
+	// Push rolls
+	const pushButton = html.find("button.push-roll");
+	if (app.data.flags["forbidden-lands"]?.pushed || app.permission !== 3) {
+		pushButton.each((_i, b) => {
+			b.style.display = "none";
+		});
+	} else {
+		pushButton.on("click", () => {
+			const diceRoller = new DiceRoller();
+			const rollData = app.data.flags["forbidden-lands"].rollData;
+			diceRoller.push(rollData);
+			app.update({ flags: { "forbidden-lands.pushed": true } });
+		});
+	}
 });
