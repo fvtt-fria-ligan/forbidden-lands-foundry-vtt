@@ -1,0 +1,33 @@
+{
+  "name": "forbidden-lands-character-generator",
+  "title": "Forbidden Lands Character Generator",
+  "description": "Allows a GM to quickly generate an NPC with all the stats, gear, talents, and some backsotry. Based on Legends & Adventurers supplement.",
+  "author": "Maxter",
+  "version": "1.0.0",
+  "minimumCoreVersion": "0.7.7",
+  "compatibleCoreVersion": "0.7.7",
+  "systems": [
+    "forbidden-lands"
+  ],
+  "scripts": [
+    "settings-extender.js"
+  ],
+  "esmodules": [
+    "scripts/hooks.js"
+  ],
+  "styles": [
+    "styles/character-generator.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "packs": [
+  ],
+  "url": "https://github.com/maxstar/forbidden-lands-character-generator",
+  "manifest": "https://raw.githubusercontent.com/maxstar/forbidden-lands-character-generator/master/module.json",
+  "download": "https://github.com/maxstar/forbidden-lands-character-generator/archive/1.0.0.zip"
+}
