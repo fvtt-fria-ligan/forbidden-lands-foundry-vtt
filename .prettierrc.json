@@ -12,7 +12,8 @@
 			"files": ["*.scss", "*.css"],
 			"options": {
 				"requirePragma": false,
-				"parser": "scss"
+				"parser": "scss",
+				"tabWidth": 2
 			}
 		},
 		{
