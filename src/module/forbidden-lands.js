@@ -46,10 +46,16 @@ Hooks.on("renderItemSheet", function (app, html) {
 		}
 	});
 	app._element[0].style.height = "auto";
+	html.find(".close").html(`<i class="fas fa-times"></i>` + game.i18n.localize("SHEET.CLOSE"));
+	html.find(".configure-sheet").html(`<i class="fas fa-cog"></i>` + game.i18n.localize("SHEET.CONFIGURE"));
+	html.find(".configure-token").html(`<i class="fas fa-user-circle"></i>` + game.i18n.localize("SHEET.TOKEN"));
 });
 
-Hooks.on("renderActorSheet", (app, _html) => {
+Hooks.on("renderActorSheet", (app, html) => {
 	if (app.actor.data.type === "party") app._element[0].style.height = "auto";
+	html.find(".close").html(`<i class="fas fa-times"></i>` + game.i18n.localize("SHEET.CLOSE"));
+	html.find(".configure-sheet").html(`<i class="fas fa-cog"></i>` + game.i18n.localize("SHEET.CONFIGURE"));
+	html.find(".configure-token").html(`<i class="fas fa-user-circle"></i>` + game.i18n.localize("SHEET.TOKEN"));
 });
 
 Hooks.on("renderChatMessage", async (app, html) => {
