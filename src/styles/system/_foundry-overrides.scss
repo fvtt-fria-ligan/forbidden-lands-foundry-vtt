@@ -1,0 +1,19 @@
+.window-app .window-header a.header-button {
+	@mixin hoverWidth($class) {
+		&.#{$class}:hover {
+			max-width: 200px;
+		}
+	}
+	color: #292929f0;
+	max-width: 20px;
+	margin: -10px 5px;
+	padding: 10px 5px;
+	transition: max-width 0.5s;
+	@include hoverWidth("char-gen");
+	@include hoverWidth("custom-roll");
+	@include hoverWidth("push-roll");
+	@include hoverWidth("configure-sheet");
+	@include hoverWidth("configure-token");
+	@include hoverWidth("item-post");
+	@include hoverWidth("close");
+}
