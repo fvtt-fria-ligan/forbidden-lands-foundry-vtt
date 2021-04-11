@@ -208,9 +208,13 @@
 
 	"ROLL_MODIFIER.SELECT": "Please select a modifier",
 
+	"SHEET.HEADER.CHAR_GEN": "Create New",
+	"SHEET.CLOSE": "Close",
+	"SHEET.CONFIGURE": "Configure",
 	"SHEET.HEADER.POST_ITEM": "Post Item",
 	"SHEET.HEADER.PUSH": "Push",
 	"SHEET.HEADER.ROLL": "Roll",
+	"SHEET.TOKEN": "Token",
 	"SHEET.TEXTAREA_EDIT": "Right-click to edit.",
 
 	"SKILL.ANIMAL_HANDLING": "Animal Handling",
@@ -329,5 +333,21 @@
 	"FLPS.TRAVEL_ROLL.FIND_PREY": "Find Prey (SURVIVAL)",
 	"FLPS.TRAVEL_ROLL.KILL_PREY": "Kill Prey (MARKSMANSHIP/SURVIVAL)",
 	"FLPS.TRAVEL_ROLL.CATCH_FISH": "Fish (SURVIVAL)",
-	"FLPS.TRAVEL_ROLL.MAKE_CAMP": "Make Camp (SURVIVAL)"
+	"FLPS.TRAVEL_ROLL.MAKE_CAMP": "Make Camp (SURVIVAL)",
+	"FLCG.TITLE": "Character Generator",
+	"FLCG.RANDOMIZE": "Randomize All",
+	"FLCG.CREATE": "Create Actor",
+	"FLCG.KIN": "Kin",
+	"FLCG.AGE": "Age",
+	"FLCG.AGE_PENALTY_MESSAGE": "Attribute penalty from age will be applied randomly",
+	"FLCG.CHILDHOOD": "Childhood",
+	"FLCG.PROFESSION": "Profession",
+	"FLCG.PATH": "Path",
+	"FLCG.EVENT": "Formative Event",
+	"FLCG.SKILLS": "Skills",
+	"FLCG.ATTRIBUTES": "Attributes",
+	"FLCG.TALENT": "Talent",
+
+	"FLCG.SETTINGS.DATASET_DIR": "Dataset Directory",
+	"FLCG.SETTINGS.DATASET_DIR_HINT": "Path to a directory with dataset.json file. You can make your own dataset to customize generator's output."
 }

@@ -15,6 +15,14 @@ export default function registerSettings() {
 		default: true,
 		type: Boolean,
 	});
+	game.settings.register("forbidden-lands", "datasetDir", {
+		name: game.i18n.localize("FLCG.SETTINGS.DATASET_DIR"),
+		hint: game.i18n.localize("FLCG.SETTINGS.DATASET_DIR_HINT"),
+		scope: "world",
+		config: true,
+		default: "systems/forbidden-lands/assets",
+		type: window.Azzu.SettingsTypes.DirectoryPicker,
+	});
 	game.settings.register("forbidden-lands", "alternativeSkulls", {
 		name: "CONFIG.ALTERNATIVESKULLS",
 		hint: "CONFIG.ALTERNATIVESKULLS_DESC",

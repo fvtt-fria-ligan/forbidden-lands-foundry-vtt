@@ -1,5 +1,6 @@
 import { ForbiddenLandsActorSheet } from "./actor.js";
 import { RollDialog } from "../../components/roll-dialog.js";
+import { ForbiddenLandsCharacterGenerator } from "../../components/character-generator/character-generator.js";
 export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
@@ -129,7 +130,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 
 	computeSkills(data) {
 		for (let skill of Object.values(data.data.skill)) {
-			skill[`has${skill.attribute.capitalize()}`] = false;
+			skill[`has${skill?.attribute?.capitalize()}`] = false;
 			if (game.fbl.config.attributes.includes(skill.attribute))
 				skill[`has${skill.attribute.capitalize()}`] = true;
 		}
@@ -191,6 +192,15 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 					class: "push-roll",
 					icon: "fas fa-skull",
 					onclick: () => this.diceRoller.push(this.diceRoller),
+				},
+				{
+					label: game.i18n.localize("SHEET.HEADER.CHAR_GEN"),
+					class: "char-gen",
+					icon: "fas fa-leaf",
+					onclick: async () => {
+						const chargen = await ForbiddenLandsCharacterGenerator.getInstance(this.actor);
+						return chargen.render(true);
+					},
 				},
 			].concat(buttons);
 		}
