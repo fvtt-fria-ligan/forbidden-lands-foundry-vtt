@@ -21,9 +21,9 @@
 			"url": "https://user-images.githubusercontent.com/9851733/107130336-8cd02380-68cc-11eb-91e3-d8532a5bc0bc.png"
 		}
 	],
-	"scripts": [],
+	"scripts": ["scripts/settings-extender.js"],
 	"esmodules": ["module/forbidden-lands.js"],
-	"styles": ["/styles/forbidden-lands.css"],
+	"styles": ["styles/forbidden-lands.css"],
 	"packs": [],
 	"languages": [
 		{
