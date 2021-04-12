@@ -1,15 +1,13 @@
 import { CharacterConverter } from "./character-converter.js";
 
 export class ForbiddenLandsCharacterGenerator extends Application {
-	constructor(dataset = {}, options = {}) {
+	constructor(dataset = {}, existActor, options = {}) {
 		super(options);
 
 		this.character = null;
-
+		this.existActor = existActor;
 		this.dataset = dataset;
 	}
-
-	static _instance = null;
 
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
@@ -20,13 +18,6 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 			height: 840,
 			resizable: false,
 		});
-	}
-
-	static async getInstance() {
-		if (this._instance === null) {
-			this._instance = new ForbiddenLandsCharacterGenerator(await this.loadDataset());
-		}
-		return this._instance;
 	}
 
 	static async loadDataset() {
@@ -81,7 +72,9 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 
 	async handleCreateActor() {
 		const coverter = new CharacterConverter(this.dataset);
-		await Actor.create(coverter.convert(this.character));
+		const updateData = await coverter.convert(this.character);
+		await this.existActor.update({ ["data"]: updateData.data });
+		await this.existActor.createEmbeddedEntity("OwnedItem", updateData.items);
 
 		return false;
 	}

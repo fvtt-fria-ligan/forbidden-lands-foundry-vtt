@@ -1,43 +1,43 @@
 .chargen .chargen-roll {
-    width: 40px;
-    height: 40px;
+	width: 40px;
+	height: 40px;
 
-    background-image: url("../assets/rolling-dices.png");
-    background-size: 30px 30px;
-    background-position: center;
-    background-repeat: no-repeat;
+	background-image: url("../assets/rolling-dices.png");
+	background-size: 30px 30px;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 .chargen .chargen-roll:hover {
-    background-image: url("../assets/rolling-dices.png");
-    background-size: 50px 50px;
-    background-position: center;
-    background-repeat: no-repeat;
+	background-image: url("../assets/rolling-dices.png");
+	background-size: 50px 50px;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 .chargen select {
-    width: auto;
+	width: auto;
 }
 
 .chargen input.chargen-age-input {
-    width: 40px;
+	width: 40px;
 }
 
 .chargen .chargen-age {
-    margin-left: 10px;
+	margin-left: 10px;
 }
 
 .chargen .chargen-section {
-    margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 .chargen .chargen-section-content {
-    width: 50%;
+	width: 50%;
 }
 
 .chargen .chargen-description {
-    width: 100%;
+	width: 100%;
 }
 
 .chargen .chargen-list {
-    margin-left: 20px;
+	margin-left: 20px;
 }
