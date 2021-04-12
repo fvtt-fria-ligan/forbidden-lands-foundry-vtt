@@ -4,27 +4,14 @@ export class CharacterConverter {
 		this.dataset = dataset;
 	}
 
-	convert(character) {
+	async convert(character) {
 		this.character = character;
 		let actorData = {
-			name: this.getCharacterName(),
-			type: "character",
-			img: "",
 			data: this.buildCharacterData(),
-			token: {},
 			items: this.buildCharacterItems(),
-			flags: {},
 		};
 
 		return actorData;
-	}
-
-	getCharacterName() {
-		const kin = this.dataset.kin[this.character.kin];
-		const age = this.character.age;
-		const profession = this.dataset.profession[this.character.profession];
-
-		return `${age.ageString} ${kin.name} ${profession.name}`;
 	}
 
 	buildCharacterData() {

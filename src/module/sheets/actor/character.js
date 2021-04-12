@@ -176,6 +176,14 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 		});
 	}
 
+	async _charGen() {
+		const chargen = await new ForbiddenLandsCharacterGenerator(
+			await ForbiddenLandsCharacterGenerator.loadDataset(),
+			this.actor,
+		);
+		return chargen.render(true);
+	}
+
 	_getHeaderButtons() {
 		let buttons = super._getHeaderButtons();
 
@@ -198,8 +206,25 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 					class: "char-gen",
 					icon: "fas fa-leaf",
 					onclick: async () => {
-						const chargen = await ForbiddenLandsCharacterGenerator.getInstance(this.actor);
-						return chargen.render(true);
+						const hasFilledAttributes = Object.values(this.actor.data.data.attribute)
+							.flatMap((a) => a.value + a.max)
+							.some((v) => v > 0);
+
+						if (hasFilledAttributes) {
+							Dialog.confirm({
+								title: game.i18n.localize("FLCG.TITLE"),
+								content: `
+									<h1 style="text-align: center;font-weight: 600; border:none;">${game.i18n.localize("FLCG.WARNING")}</h1>
+									<p>${game.i18n.localize("FLCG.WARNING_DESTRUCTIVE_EDIT")}</p><hr/>
+									<p>${game.i18n.localize("FLCG.WARNING_HINT")}</p>
+									<p style="text-align: center;"><b>${game.i18n.localize("FLCG.WARNING_ARE_YOU_SURE")}</b></p>
+									<br/>`,
+								yes: async () => await this._charGen(),
+								no: () => {},
+							});
+						} else {
+							await this._charGen();
+						}
 					},
 				},
 			].concat(buttons);
