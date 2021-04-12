@@ -259,12 +259,31 @@
 }
 
 /* Scrollbars */
-.app.window-app.sheet.forbidden-lands.actor ::-webkit-scrollbar {
-	width: 6px;
-}
-.app.window-app.sheet.forbidden-lands.actor ::-webkit-scrollbar-thumb {
-	background: var(--color-secondary);
-	border: 0 none;
+.app {
+	&.window-app {
+		color: black;
+		border: 9px solid transparent;
+		border-image: url(../assets/journal-art/box-border-large.webp) 36 repeat;
+		border-image-outset: 1;
+		background-color: white;
+		&.sheet {
+			&.forbidden-lands {
+				&.actor {
+					::-webkit-scrollbar {
+						width: 6px;
+					}
+					::-webkit-scrollbar-thumb {
+						background: var(--color-secondary);
+						border: 0 none;
+					}
+				}
+			}
+		}
+		.journal-sheet {
+			min-width: 500px;
+			min-height: 300px;
+		}
+	}
 }
 
 #chat-log .message {
