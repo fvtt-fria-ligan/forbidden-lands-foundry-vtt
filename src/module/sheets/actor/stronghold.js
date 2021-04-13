@@ -21,7 +21,7 @@ export class ForbiddenLandsStrongholdSheet extends ForbiddenLandsActorSheet {
 
 	getData() {
 		const data = super.getData();
-		this.computeItems(data);
+		this._computeItems(data);
 		return data;
 	}
 
@@ -32,7 +32,7 @@ export class ForbiddenLandsStrongholdSheet extends ForbiddenLandsActorSheet {
 		});
 	}
 
-	computeItems(data) {
+	_computeItems(data) {
 		for (let item of Object.values(data.items)) {
 			item.isWeapon = item.type === "weapon";
 			item.isArmor = item.type === "armor";
@@ -40,6 +40,10 @@ export class ForbiddenLandsStrongholdSheet extends ForbiddenLandsActorSheet {
 			item.isRawMaterial = item.type === "rawMaterial";
 			item.isBuilding = item.type === "building";
 			item.isHireling = item.type === "hireling";
+			if (item.type !== "building" || item.type !== "hireling") {
+				item.totalWeight =
+					game.fbl.config.encumbrance[item.data.weight] ?? item.data.weight ?? 1 * item.data.quantity ?? 1;
+			}
 		}
 	}
 
