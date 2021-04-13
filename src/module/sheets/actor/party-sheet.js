@@ -174,9 +174,10 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 	}
 
 	async handleTravelActionAssignment(event, actor) {
-		let actionContainer = event.toElement.classList.contains("travel-action")
-			? event.toElement
-			: event.toElement.closest(".travel-action");
+		const targetElement = event.toElement ? event.toElement : event.target;
+		let actionContainer = targetElement.classList.contains("travel-action")
+			? targetElement
+			: targetElement.closest(".travel-action");
 		if (actionContainer === null) return; // character was dragged god knows where; just pretend it never happened
 
 		this.assignPartyMembersToAction(actor, actionContainer.dataset.travelAction);
