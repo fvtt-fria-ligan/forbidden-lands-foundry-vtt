@@ -1,6 +1,16 @@
-.forbidden-lands .border {
+.forbidden-lands.item .header {
 	border: 10px solid transparent;
-	border-image: url("../assets/border-small.png") 20/10px round;
+	border-image: url(../assets/journal-art/small-border.webp) 100/18px repeat;
+}
+
+.forbidden-lands .main-tab div.border,
+.forbidden-lands div.bio.border,
+.character div.currencies.border,
+.character div.consumables.border,
+.character div.actions.border {
+    border: 6px solid transparent;
+    border-image: url(../assets/journal-art/small-border.webp)
+        70/12px repeat;
 }
 
 .forbidden-lands h1,
@@ -264,9 +274,13 @@
 	&.window-app {
 		color: black;
 		border: 9px solid transparent;
-		border-image: url(../assets/journal-art/box-border-large.webp) 36 repeat;
+		border-image: url(../assets/journal-art/box-border-large.webp) 108/3 repeat;
 		border-image-outset: 1;
 		background-color: white;
+		.journal-sheet {
+			min-width: 500px;
+			min-height: 300px;
+		}
 		&.sheet {
 			&.forbidden-lands {
 				&.actor {
@@ -391,4 +405,60 @@ button,
 }
 .broken .change-willpower .far.fa-circle {
 	color: #333;
+}
+
+.journal-sheet {
+	form {
+		display: flex;
+		flex-direction: column;
+		.editor {
+			height: 100%;
+		}
+		input[name="name"] {
+			font-family: "IM Fell Three Line Pica";
+			font-size: 3rem;
+			text-transform: uppercase;
+			text-align: center;
+			background-color: #fff;
+			border-image: url("../assets/journal-art/title-border.webp");
+			border-image-slice: 50%;
+			border-image-width: 100%;
+			padding: max(10px, 1%) min(14%, 130px) 0;
+			text-overflow: ellipsis;
+			width: min(100%, 900px);
+			min-height: 200px;
+			height: min(45%, 300px);
+			margin: auto;
+		}
+		input[name="name"]:focus {
+			box-shadow: none;
+		}
+		button[type="submit"] {
+			background: white;
+			width: 120px;
+			line-height: 1;
+			padding: 5px;
+			display: none;
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			bottom: 10px;
+			border: 5px solid transparent;
+			border-image: url("../assets/border-small.png")
+        20/10px repeat;
+			border-image-outset: 1;
+			opacity: 0%;
+			transition: all 0.1s;
+			z-index: 9999;
+		}
+		button[type="submit"]:hover {
+			display: block;
+			opacity: 100%;
+			box-shadow: 0 0 8px grey;
+		}
+		button[type="submit"]:focus {
+			opacity: 100%;
+			box-shadow: 0 0 8px grey;
+		}
+	}
 }
