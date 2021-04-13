@@ -17,3 +17,209 @@
 	@include hoverWidth("item-post");
 	@include hoverWidth("close");
 }
+
+h3 {
+	&.entity-name {
+		& > a {
+			color: black;
+			text-shadow: 0px 0px 5px white;
+			font-weight: bold;
+			text-transform: uppercase;
+			margin: 2%;
+		}
+	}
+}
+
+.window-app {
+	.window-resizable-handle {
+		background: white;
+	}
+	&.image-popout {
+		.form-group {
+			&.title {
+				input {
+					font-family: "IM FELL THREE LINE PICA";
+					font-size: 1.5em;
+					text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
+					text-transform: uppercase;
+					border: none;
+				}
+			}
+			&.picker {
+				opacity: 0.2;
+			}
+		}
+	}
+	.window-header {
+		border: none;
+	}
+	&.sheet {
+		&.minimized {
+			.window-header {
+				border: none;
+				line-height: 14px;
+				padding: 0 6px;
+				flex-basis: 15px;
+				position: relative;
+				top: -3px;
+				.window-title {
+					overflow: hidden;
+					white-space: pre;
+				}
+			}
+		}
+	}
+}
+
+:root {
+	font-size: 62.5%;
+	--font-size--very-small: 1.2rem;
+	--font-size--small: 1.4rem;
+	--font-size--default: 1.6rem;
+	--font-size--large: 1.8rem;
+	--font-size--extra-large: 2rem;
+}
+body,
+button {
+	font-family: "Branding", sans-serif;
+	font-size: var(--font-size--default);
+}
+img {
+	border: none;
+	&.profile {
+		padding: 5px;
+	}
+}
+
+.app,
+#hotbar .macro,
+#hotbar .macro .macro-key,
+#hotbar .bar-controls,
+#controls .scene-control,
+#controls .control-tool,
+#navigation #nav-toggle,
+#navigation #scene-list .scene {
+	background: #292929f0;
+}
+.fa-suitcase {
+	&:before {
+		content: "\f187";
+	}
+}
+a.entity-link,
+a.inline-roll {
+	border: none;
+	background: transparent;
+	border-bottom: 1px dotted grey;
+	padding: 0;
+}
+a {
+	&.inline-roll {
+		border: none;
+	}
+}
+
+#logo {
+	content: url("../assets/fbl-logo.svg");
+	width: 170px;
+}
+#pause {
+	background: none;
+	& > img {
+		content: url("../assets/fbl-sun.webp");
+		width: 200px;
+		height: 200px;
+		top: -50px;
+		left: calc(50% - 100px);
+		opacity: 0.7;
+		-webkit-animation: rotation 10s infinite linear;
+		animation: rotation 10s infinite linear;
+	}
+	h3 {
+		font-family: "IM Fell DW Pica SC";
+		font-size: 32px;
+		text-shadow: 0px 3px 5px rgba(0, 0, 0, 1);
+	}
+}
+#navigation {
+	left: 180px;
+}
+#scenes {
+	.scene {
+		h3 {
+			background-color: rgba(160, 160, 160, 0.3);
+		}
+	}
+}
+#chat-log {
+	.message {
+		position: relative;
+		&:after {
+			content: "";
+			border: 10px solid transparent;
+			border-image: url(../assets/journal-art/small-border.webp)
+        70/15px repeat;
+			position: absolute;
+			height: -webkit-fill-available;
+			margin: -3px 7px 7px -3px;
+			width: -webkit-fill-available;
+			pointer-events: none;
+		}
+	}
+}
+.chat-message {
+	.message-header {
+		padding: 8px 13px;
+		border-bottom: rgba(0, 0, 0, 0.2);
+	}
+	.message-content {
+		border: none;
+		padding: 0 13px 13px;
+	}
+}
+#playlists {
+	li {
+		&.playlist {
+			.sound-control {
+				color: #666;
+			}
+		}
+	}
+}
+
+form {
+	& > select[name="folder"] {
+		display: none;
+	}
+	& > .lightbox-image {
+		background: rgb(255, 255, 255);
+	}
+}
+.window-app.image-popout .form-group.picker:hover,
+.window-app.image-popout .form-group.picker:focus-within {
+	opacity: 1;
+}
+li {
+	&.directory-item {
+		&.entity {
+			background: #eee;
+			color: #222;
+			border-radius: 6px;
+			margin: 0 6px;
+		}
+	}
+}
+
+.app.sidebar-popout .folder > .folder-header .create-folder,
+.app.sidebar-popout li.folder > .folder-header .create-entity {
+	color: #444;
+}
+
+::-webkit-scrollbar-thumb {
+	background: gray;
+	border-color: darkslategray;
+}
+::-webkit-scrollbar-track {
+	box-shadow: 0 0 3px #999 inset;
+	border-radius: 3px;
+}
