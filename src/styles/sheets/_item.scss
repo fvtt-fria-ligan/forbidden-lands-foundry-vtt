@@ -223,3 +223,36 @@
 .forbidden-lands .features .feature > i {
 	vertical-align: middle;
 }
+
+.forbidden-lands.item .tabs .tab-item,
+.forbidden-lands .tabs .item {
+	flex: 1 0;
+	padding: 8px 4px;
+	font-weight: 400;
+	font-size: 15px;
+	color: #fff;
+}
+.forbidden-lands.item .tabs .tab-item.active,
+.forbidden-lands .tabs .item.active {
+	color: #fff;
+	text-shadow: 0 0 6px #fff;
+}
+.forbidden-lands.item .tabs .tab-item:hover,
+.forbidden-lands .tabs .item:hover {
+	text-shadow: 0 0 10px #fff;
+}
+.forbidden-lands.item .tabs .tab-item.active:before,
+.forbidden-lands .tabs .item.active:before {
+	content: "x";
+	font-family: swordlings;
+}
+.forbidden-lands.item .tabs .tab-item.active:after,
+.forbidden-lands .tabs .item.active:after {
+	position: relative;
+	content: "l";
+	font-family: skullz;
+	font-size: 22px;
+	top: 4px;
+	line-height: 14px;
+	margin-left: 1px;
+}
