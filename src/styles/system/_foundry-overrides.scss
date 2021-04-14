@@ -4,18 +4,32 @@
 			max-width: 200px;
 		}
 	}
+	display: flex;
+	flex-flow: row-reverse;
+	align-items: center;
 	color: #292929f0;
-	max-width: 20px;
-	margin: -10px 5px;
-	padding: 10px 5px;
-	transition: max-width 0.5s;
+	max-width: 35px;
+	height: 26px;
+	padding: 6px 10px;
+	white-space: nowrap;
+	line-height: 1;
+	overflow: hidden;
+	margin: 0;
+	transition: max-width 1s ease;
 	@include hoverWidth("char-gen");
 	@include hoverWidth("custom-roll");
 	@include hoverWidth("push-roll");
 	@include hoverWidth("configure-sheet");
 	@include hoverWidth("configure-token");
 	@include hoverWidth("item-post");
+	@include hoverWidth("share-image");
+	@include hoverWidth("entry-text");
+	@include hoverWidth("entry-image");
 	@include hoverWidth("close");
+	> i {
+		font-size: 16px;
+		margin-left: 10px;
+	}
 }
 
 h3 {
@@ -71,17 +85,10 @@ h3 {
 	}
 }
 
-:root {
-	font-size: 62.5%;
-	--font-size--very-small: 1.2rem;
-	--font-size--small: 1.4rem;
-	--font-size--default: 1.6rem;
-	--font-size--large: 1.8rem;
-	--font-size--extra-large: 2rem;
-}
 body,
 button {
-	font-size: var(--font-size--default);
+	font-family: Poppins, sans-serif;
+	font-size: var(--font-size--small);
 }
 img {
 	border: none;
@@ -152,8 +159,7 @@ a {
 		&:after {
 			content: "";
 			border: 10px solid transparent;
-			border-image: url(../assets/journal-art/small-border.webp)
-        70/15px repeat;
+			border-image: url(../assets/journal-art/small-border.webp) 70/15px repeat;
 			position: absolute;
 			height: -webkit-fill-available;
 			margin: -3px 7px 7px -3px;
