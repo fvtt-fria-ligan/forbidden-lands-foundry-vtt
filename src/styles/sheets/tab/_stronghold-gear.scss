@@ -16,7 +16,7 @@
 
 	.name {
 		align-items: center;
-		flex-basis: 60%;
+		flex-basis: 42%;
 		display: flex;
 	}
 
@@ -34,6 +34,11 @@
 	.quantity {
 		flex-basis: 15%;
 		text-align: center;
+	}
+	input.quantity {
+		flex-basis: 8%;
+		margin-right: 3%;
+		margin-left: 5%;
 	}
 
 	.bonus.broken {

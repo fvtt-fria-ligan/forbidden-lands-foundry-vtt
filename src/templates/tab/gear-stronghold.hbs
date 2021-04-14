@@ -6,7 +6,7 @@
 				<b class="name">{{localize "HEADER.ARMOR"}}</b>
 				<b class="bonus">{{localize "ARMOR.RATING"}}</b>
 				<b class="quantity">{{localize "ITEM.QUANTITY"}}</b>
-				<b class="weight">{{localize "GEAR.WEIGHT"}}</b>
+				<b class="weight">{{localize "GEAR.WEIGHT"}} / {{localize "ARMOR.TOTAL"}}</b>
 				<a class="button item-create" title="Add Armor" data-type="armor"><i class="fas fa-plus"></i></a>
 			</div>
 			<div>
@@ -21,8 +21,8 @@
 					<div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
 						{{item.data.bonus.value}}
 					</div>
-					<div class="quantity">{{item.data.quantity}}</div>
-					<div class="weight">{{itemWeight item.data.weight}}</div>
+					<input class="quantity" type="number" data-dtype="Number" value="{{item.data.quantity}}" />
+					<div class="weight">{{itemWeight item.data.weight}} / {{item.totalWeight}}</div>
 					<div class="button">
 						<a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
 						<a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
@@ -35,7 +35,7 @@
 				<b class="name">{{localize "HEADER.WEAPON"}}</b>
 				<b class="bonus">{{localize "WEAPON.BONUS"}}</b>
 				<b class="quantity">{{localize "ITEM.QUANTITY"}}</b>
-				<b class="weight">{{localize "GEAR.WEIGHT"}}</b>
+				<b class="weight">{{localize "GEAR.WEIGHT"}} / {{localize "ARMOR.TOTAL"}}</b>
 				<a class="button item-create" title="Add Weapon" data-type="weapon"><i class="fas fa-plus"></i></a>
 			</div>
 			<div>
@@ -50,8 +50,8 @@
 					<div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
 						{{item.data.bonus.value}} {{#if item.data.artifactBonus}}+ {{item.data.artifactBonus}}{{/if}}
 					</div>
-					<div class="quantity">{{item.data.quantity}}</div>
-					<div class="weight">{{itemWeight item.data.weight}}</div>
+					<input class="quantity" type="number" data-dtype="Number" value="{{item.data.quantity}}" />
+					<div class="weight">{{itemWeight item.data.weight}} / {{item.totalWeight}}</div>
 					<div class="button">
 						<a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
 						<a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
@@ -64,7 +64,7 @@
 				<b class="name">{{localize "HEADER.GEAR"}}</b>
 				<b class="bonus">{{localize "GEAR.BONUS"}}</b>
 				<b class="quantity">{{localize "ITEM.QUANTITY"}}</b>
-				<b class="weight">{{localize "GEAR.WEIGHT"}}</b>
+				<b class="weight">{{localize "GEAR.WEIGHT"}} / {{localize "ARMOR.TOTAL"}}</b>
 				<a class="button item-create" title="Add Gear" data-type="gear"><i class="fas fa-plus"></i></a>
 			</div>
 			<div>
@@ -79,8 +79,8 @@
 					<div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
 						{{item.data.bonus.value}}
 					</div>
-					<div class="quantity">{{item.data.quantity}}</div>
-					<div class="weight">{{itemWeight item.data.weight}}</div>
+					<input class="quantity" type="number" data-dtype="Number" value="{{item.data.quantity}}" />
+					<div class="weight">{{itemWeight item.data.weight}} / {{item.totalWeight}}</div>
 					<div class="button">
 						<a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
 						<a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
@@ -93,7 +93,7 @@
 				<b class="name">{{localize "HEADER.RAW_MATERIAL"}}</b>
 				<b class="bonus">&nbsp;</b>
 				<b class="quantity">{{localize "ITEM.QUANTITY"}}</b>
-				<b class="weight">{{localize "GEAR.WEIGHT"}}</b>
+				<b class="weight">{{localize "GEAR.WEIGHT"}} / {{localize "ARMOR.TOTAL"}}</b>
 				<a class="button item-create" title="Add Raw Material" data-type="rawMaterial"
 					><i class="fas fa-plus"></i
 				></a>
@@ -108,7 +108,7 @@
 						<div class="name">{{item.name}}</div>
 					</div>
 					<div class="bonus">&nbsp;</div>
-					<div class="quantity">{{item.data.quantity}}</div>
+					<input class="quantity" type="number" data-dtype="Number" value="{{item.data.quantity}}" />
 					<div class="weight">{{itemWeight item.data.weight}} / {{item.totalWeight}}</div>
 					<div class="button">
 						<a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>

@@ -96,9 +96,16 @@
 	margin-left: 4px;
 }
 
-.forbidden-lands .character .gears .bonus {
+.forbidden-lands .character .gears .bonus,
+.forbidden-lands .character .gears .quantity {
 	flex-basis: 15%;
 	text-align: center;
+}
+
+.forbidden-lands .character .gears input.quantity {
+	flex-basis: 8%;
+	margin-right: 3%;
+	margin-left: 5%;
 }
 
 .forbidden-lands .character .gears .bonus.broken {
