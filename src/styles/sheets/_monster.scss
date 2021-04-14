@@ -5,9 +5,6 @@
 	width: 100%;
 }
 
-.forbidden-lands .monster .bio label {
-	font-family: var(--font-special);
-}
 .forbidden-lands .monster .bio input {
 	flex-grow: 1;
 	margin: 0 8px;
@@ -21,10 +18,14 @@
 	margin: 5px 0;
 }
 
-.forbidden-lands .monster .bio .bio-row .npc-type select {
-	width: 10em;
-	margin-right: 8px;
-	margin-left: 4px;
+.forbidden-lands .monster .bio .bio-row .npc-type {
+	flex-wrap: nowrap;
+	white-space: nowrap;
+	margin-right: 22px;
+	select {
+		max-width: 100px;
+		margin-left: 4px;
+	}
 }
 
 .forbidden-lands .monster .bio .avatar {

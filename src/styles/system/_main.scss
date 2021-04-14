@@ -8,15 +8,20 @@
 .character div.currencies.border,
 .character div.consumables.border,
 .character div.actions.border {
-    border: 6px solid transparent;
-    border-image: url(../assets/journal-art/small-border.webp)
-        70/12px repeat;
+	border: 6px solid transparent;
+	border-image: url(../assets/journal-art/small-border.webp) 70/12px repeat;
+}
+
+.forbidden-lands.sheet label {
+	font-family: var(--font-special);
+	font-size: 1.05rem;
+	font-weight: bold;
 }
 
 .forbidden-lands h1,
 .forbidden-lands h3 {
 	border: 0 none;
-	font-family: var(--font-special);
+	font-family: var(--font-subheader);
 	font-size: 14px;
 	font-weight: bold;
 	line-height: initial;
@@ -194,21 +199,6 @@
 	width: 100%;
 }
 
-.forbidden-lands .sheet-tabs {
-	background-color: var(--color-foreground);
-	color: #ddd;
-	font-family: var(--font-special);
-	margin: 8px 0;
-	padding: 0 8px;
-	flex-wrap: nowrap;
-	justify-content: space-evenly;
-}
-
-.forbidden-lands .sheet-tabs b:hover {
-	cursor: pointer;
-	text-shadow: 0 0 8px red;
-}
-
 .forbidden-lands .item-list {
 	display: flex;
 	flex-direction: column;
@@ -343,7 +333,6 @@
 	}
 }
 
-
 #chat-log .message {
 	background: white;
 }
@@ -372,16 +361,54 @@ button,
 	border: 1px solid var(--color-border);
 }
 
-.forbidden-lands .tabs .tab-item {
-	padding: 5px;
-	text-align: center;
-	flex: 0;
-	white-space: nowrap;
-}
+.forbidden-lands .sheet-tabs {
+	background-color: var(--color-foreground);
+	color: #ddd;
+	font-family: var(--font-special);
+	margin: 8px 0;
+	padding: 0 8px;
+	flex-wrap: nowrap;
+	justify-content: space-evenly;
 
-.forbidden-lands .tabs .tab-item.active {
-	color: #fff;
-	text-shadow: 0 0 10px #fff;
+	b:hover {
+		cursor: pointer;
+		text-shadow: 0 0 8px red;
+	}
+	.tab-item {
+		position: relative;
+		flex: 1 0;
+		padding: 8px 19px;
+		font-weight: 400;
+		font-size: 15px;
+		color: #fff;
+		text-align: center;
+		white-space: nowrap;
+
+		&:hover {
+			text-shadow: 0 0 10px #fff;
+		}
+		&.active {
+			color: #fff;
+			text-shadow: 0 0 6px #fff;
+
+			&:before {
+				content: "x";
+				position: absolute;
+				font-family: swordlings;
+				margin-left: -16px;
+				margin-top: 1px;
+			}
+			&:after {
+				position: absolute;
+				content: "l";
+				font-family: skullz;
+				font-size: 24px;
+				line-height: 22px;
+				margin-top: 1px;
+				margin-left: 1px;
+			}
+		}
+	}
 }
 
 .fas.fa-circle,
@@ -444,8 +471,7 @@ button,
 			transform: translateX(-50%);
 			bottom: 10px;
 			border: 5px solid transparent;
-			border-image: url("../assets/border-small.png")
-        20/10px repeat;
+			border-image: url("../assets/border-small.png") 20/10px repeat;
 			border-image-outset: 1;
 			opacity: 0%;
 			transition: all 0.1s;

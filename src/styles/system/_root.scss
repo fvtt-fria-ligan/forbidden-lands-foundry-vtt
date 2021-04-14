@@ -9,4 +9,10 @@
 	--font-special: "IM Fell DW Pica", serif;
 	--font-subheader: "IM Fell DW Pica SC", serif;
 	--font-table: "Poppins", sans-serif;
+	--font-size--very-small: 12px;
+	--font-size--small: 14px;
+	--font-size--default: 16px;
+	--font-size--large: 18px;
+	--font-size--extra-large: 20px;
+	font-size: var(--font-size--small);
 }
