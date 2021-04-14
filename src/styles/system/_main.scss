@@ -1,12 +1,27 @@
-.forbidden-lands .border {
+.forbidden-lands.item .header {
 	border: 10px solid transparent;
-	border-image: url("../assets/border-small.png") 20/10px round;
+	border-image: url(../assets/journal-art/small-border.webp) 100/18px repeat;
+}
+
+.forbidden-lands .main-tab div.border,
+.forbidden-lands div.bio.border,
+.character div.currencies.border,
+.character div.consumables.border,
+.character div.actions.border {
+	border: 6px solid transparent;
+	border-image: url(../assets/journal-art/small-border.webp) 70/12px repeat;
+}
+
+.forbidden-lands.sheet label {
+	font-family: var(--font-special);
+	font-size: 1.05rem;
+	font-weight: bold;
 }
 
 .forbidden-lands h1,
 .forbidden-lands h3 {
 	border: 0 none;
-	font-family: var(--font-special);
+	font-family: var(--font-subheader);
 	font-size: 14px;
 	font-weight: bold;
 	line-height: initial;
@@ -184,21 +199,6 @@
 	width: 100%;
 }
 
-.forbidden-lands .sheet-tabs {
-	background-color: var(--color-foreground);
-	color: #ddd;
-	font-family: var(--font-special);
-	margin: 8px 0;
-	padding: 0 8px;
-	flex-wrap: nowrap;
-	justify-content: space-evenly;
-}
-
-.forbidden-lands .sheet-tabs b:hover {
-	cursor: pointer;
-	text-shadow: 0 0 8px red;
-}
-
 .forbidden-lands .item-list {
 	display: flex;
 	flex-direction: column;
@@ -259,12 +259,78 @@
 }
 
 /* Scrollbars */
-.app.window-app.sheet.forbidden-lands.actor ::-webkit-scrollbar {
-	width: 6px;
-}
-.app.window-app.sheet.forbidden-lands.actor ::-webkit-scrollbar-thumb {
-	background: var(--color-secondary);
-	border: 0 none;
+.app {
+	background: #292929 f0;
+	&.window-app {
+		color: black;
+		border: 9px solid transparent;
+		border-image: url(../assets/journal-art/box-border-large.webp) 108/3 repeat;
+		border-image-outset: 1;
+		background-color: white;
+		.journal-sheet {
+			min-width: 500px;
+			min-height: 300px;
+		}
+		&.sheet {
+			&.forbidden-lands {
+				&.actor {
+					::-webkit-scrollbar {
+						width: 6px;
+					}
+					::-webkit-scrollbar-thumb {
+						background: var(--color-secondary);
+						border: 0 none;
+					}
+				}
+			}
+		}
+	}
+	&.sidebar-popout {
+		.window-content {
+			width: 96%;
+			margin: auto;
+			color: #222;
+			margin-bottom: 10px;
+		}
+		.subdirectory {
+			border-color: #555;
+			li {
+				&.folder {
+					& > .folder-header {
+						background: rgba(0, 0, 0, 0.2);
+						color: #222;
+					}
+				}
+			}
+		}
+		li {
+			&.folder {
+				& > .folder-header {
+					background: rgba(255, 255, 255, 0.9);
+					color: #222;
+					h3 {
+						color: #222;
+					}
+					.create-entity {
+						color: #444;
+					}
+				}
+			}
+			&.directory-item {
+				&.entity {
+					background: rgba(0, 0, 0, 0.5);
+					color: #eee;
+				}
+			}
+		}
+		.folder {
+			& > .folder-header {
+				.create-folder {
+					color: #444;
+				}
+			}
+		}
+	}
 }
 
 #chat-log .message {
@@ -295,16 +361,54 @@ button,
 	border: 1px solid var(--color-border);
 }
 
-.forbidden-lands .tabs .tab-item {
-	padding: 5px;
-	text-align: center;
-	flex: 0;
-	white-space: nowrap;
-}
+.forbidden-lands .sheet-tabs {
+	background-color: var(--color-foreground);
+	color: #ddd;
+	font-family: var(--font-special);
+	margin: 8px 0;
+	padding: 0 8px;
+	flex-wrap: nowrap;
+	justify-content: space-evenly;
 
-.forbidden-lands .tabs .tab-item.active {
-	color: #fff;
-	text-shadow: 0 0 10px #fff;
+	b:hover {
+		cursor: pointer;
+		text-shadow: 0 0 8px red;
+	}
+	.tab-item {
+		position: relative;
+		flex: 1 0;
+		padding: 8px 19px;
+		font-weight: 400;
+		font-size: 15px;
+		color: #fff;
+		text-align: center;
+		white-space: nowrap;
+
+		&:hover {
+			text-shadow: 0 0 10px #fff;
+		}
+		&.active {
+			color: #fff;
+			text-shadow: 0 0 6px #fff;
+
+			&:before {
+				content: "x";
+				position: absolute;
+				font-family: swordlings;
+				margin-left: -16px;
+				margin-top: 1px;
+			}
+			&:after {
+				position: absolute;
+				content: "l";
+				font-family: skullz;
+				font-size: 24px;
+				line-height: 22px;
+				margin-top: 1px;
+				margin-left: 1px;
+			}
+		}
+	}
 }
 
 .fas.fa-circle,
@@ -328,4 +432,59 @@ button,
 }
 .broken .change-willpower .far.fa-circle {
 	color: #333;
+}
+
+.journal-sheet {
+	form {
+		display: flex;
+		flex-direction: column;
+		.editor {
+			height: 100%;
+		}
+		input[name="name"] {
+			font-family: "IM Fell Three Line Pica";
+			font-size: 3rem;
+			text-transform: uppercase;
+			text-align: center;
+			background-color: #fff;
+			border-image: url("../assets/journal-art/title-border.webp");
+			border-image-slice: 50%;
+			border-image-width: 100%;
+			padding: max(10px, 1%) min(14%, 130px) 0;
+			text-overflow: ellipsis;
+			width: min(100%, 900px);
+			min-height: 200px;
+			height: min(45%, 300px);
+			margin: auto;
+		}
+		input[name="name"]:focus {
+			box-shadow: none;
+		}
+		button[type="submit"] {
+			background: white;
+			width: 120px;
+			line-height: 1;
+			padding: 5px;
+			display: none;
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			bottom: 10px;
+			border: 5px solid transparent;
+			border-image: url("../assets/border-small.png") 20/10px repeat;
+			border-image-outset: 1;
+			opacity: 0%;
+			transition: all 0.1s;
+			z-index: 9999;
+		}
+		button[type="submit"]:hover {
+			display: block;
+			opacity: 100%;
+			box-shadow: 0 0 8px grey;
+		}
+		button[type="submit"]:focus {
+			opacity: 100%;
+			box-shadow: 0 0 8px grey;
+		}
+	}
 }
