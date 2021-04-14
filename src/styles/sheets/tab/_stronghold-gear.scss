@@ -1,50 +1,53 @@
 .forbidden-lands .stronghold .gears {
 	padding-bottom: 8px;
-}
 
-.forbidden-lands .stronghold .gears .items .header {
-	margin: 0;
-	width: 100%;
-}
+	.items .header {
+		margin: 0;
+		width: 100%;
+	}
 
-.forbidden-lands .stronghold .gears .items div + .header {
-	margin-top: 8px;
-}
+	.items div + .header {
+		margin-top: 8px;
+	}
 
-.forbidden-lands .stronghold .gears .gear {
-	align-items: center;
-}
+	.gear {
+		align-items: center;
+	}
 
-.forbidden-lands .stronghold .gears .name {
-	align-items: center;
-	flex-basis: 60%;
-	display: flex;
-}
+	.name {
+		align-items: center;
+		flex-basis: 42%;
+		display: flex;
+	}
 
-.forbidden-lands .stronghold .gears .header .name,
-.forbidden-lands .stronghold .gears .name .name,
-.forbidden-lands .stronghold .gears .bonus,
-.forbidden-lands .stronghold .gears .weight,
-.forbidden-lands .stronghold .gears .button {
-	margin-left: 4px;
-}
+	.header .name,
+	.name .name,
+	.bonus,
+	.quantity,
+	.weight,
+	.button {
+		margin-left: 4px;
+	}
 
-.forbidden-lands .stronghold .gears .bonus {
-	flex-basis: 15%;
-	text-align: center;
-}
+	.bonus,
+	.weight,
+	.quantity {
+		flex-basis: 15%;
+		text-align: center;
+	}
+	input.quantity {
+		flex-basis: 8%;
+		margin-right: 3%;
+		margin-left: 5%;
+	}
 
-.forbidden-lands .stronghold .gears .bonus.broken {
-	color: #a00;
-}
+	.bonus.broken {
+		color: #a00;
+	}
 
-.forbidden-lands .stronghold .gears .weight {
-	flex-basis: 15%;
-	text-align: center;
-}
-
-.forbidden-lands .stronghold .gears .button {
-	flex-basis: 10%;
-	font-size: 10px;
-	text-align: right;
+	.button {
+		flex-basis: 10%;
+		font-size: 10px;
+		text-align: right;
+	}
 }

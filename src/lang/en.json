@@ -162,6 +162,7 @@
 	"ITEM.DELETE_MODIFIER": "Delete modifier",
 	"ITEM.NO_MODIFIERS": "No modifiers",
 	"ITEM.ROLL_MODIFIERS": "Roll Modifiers",
+	"ITEM.QUANTITY": "Quantity",
 	"ITEM.TypeArmor": "Armor",
 	"ITEM.TypeBuilding": "Stronghold Building",
 	"ITEM.TypeCriticalinjury": "Critical Injury",

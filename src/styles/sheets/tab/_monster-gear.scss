@@ -29,9 +29,16 @@
 	margin-left: 4px;
 }
 
-.forbidden-lands .monster .gears .bonus {
+.forbidden-lands .monster .gears .bonus,
+.forbidden-lands .monster .gears .quantity {
 	flex-basis: 15%;
 	text-align: center;
+}
+
+.forbidden-lands .monster .gears input.quantity {
+	flex-basis: 8%;
+	margin-right: 3%;
+	margin-left: 5%;
 }
 
 .forbidden-lands .monster .gears .bonus.broken {
