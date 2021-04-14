@@ -24,6 +24,7 @@
 
 .forbidden-lands .attributes .value {
 	font-family: var(--font-special);
+	margin-right: 5px;
 }
 
 .forbidden-lands .attributes .value input {
@@ -81,4 +82,5 @@
 
 .forbidden-lands .skills input {
 	width: 2em;
+	margin-right: 2px;
 }
