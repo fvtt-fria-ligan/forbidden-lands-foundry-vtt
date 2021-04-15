@@ -133,18 +133,18 @@ export default class DiceRoller {
 		} else if (chatData.rollMode === "selfroll") {
 			chatData.whisper = [game.user];
 		}
-		chatData["flags.forbidden-lands.rollData"] = data;
+		chatData["flags.forbidden-lands.rollData"] = rollData;
 		const roll = this.synthetizeFakeRoll(data.dices);
 		chatData.roll = JSON.stringify(roll);
 		ChatMessage.create(chatData);
 	}
 
-	async sendRollSpellToChat(isPushed) {
-		this.dices.sort(function (a, b) {
+	async sendRollSpellToChat(data, isPushed) {
+		data.dices.sort(function (a, b) {
 			return b.weight - a.weight;
 		});
-		let numberOfSword = this.countSword();
-		let numberOfSkull = this.countSkull();
+		let numberOfSword = this.countSword(data);
+		let numberOfSkull = this.countSkull(data);
 		let rollData = {
 			name: this.lastTestName,
 			isPushed: isPushed,
@@ -167,7 +167,7 @@ export default class DiceRoller {
 		} else if (chatData.rollMode === "selfroll") {
 			chatData.whisper = [game.user];
 		}
-		chatData["flags.forbidden-lands.rollData"] = this;
+		chatData["flags.forbidden-lands.rollData"] = rollData;
 		ChatMessage.create(chatData);
 	}
 
@@ -177,7 +177,7 @@ export default class DiceRoller {
 		this.lastTestName = testName;
 		this.rollDice(base, "base", 6, success);
 		this.lastDamage = 0;
-		this.sendRollSpellToChat(false);
+		this.sendRollSpellToChat(this, false);
 	}
 
 	/**
@@ -244,6 +244,7 @@ export default class DiceRoller {
 	 * Count total successes
 	 */
 	countSword(data) {
+		if (!data) data = this;
 		let numberOfSword = 0;
 		data.dices.forEach((dice) => {
 			numberOfSword = numberOfSword + dice.success;
@@ -255,6 +256,7 @@ export default class DiceRoller {
 	 * Count total failures
 	 */
 	countSkull(data) {
+		if (!data) data = this;
 		let numberOfSkull = 0;
 		data.dices.forEach((dice) => {
 			if (dice.value === 1 && (dice.type === "base" || dice.type === "gear")) {

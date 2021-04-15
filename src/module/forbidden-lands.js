@@ -78,11 +78,11 @@ Hooks.on("renderChatMessage", async (app, html) => {
 	// Push rolls
 	const pushButton = html.find("button.push-roll");
 	if (!app.roll) return;
-	if (
+	const notPushable =
 		app.data.flags["forbidden-lands"]?.pushed ||
 		app.permission !== 3 ||
-		!app.roll.dice.some((a) => a instanceof BaseDie || a instanceof GearDie)
-	) {
+		!app.roll.dice.some((a) => a instanceof BaseDie || a instanceof GearDie);
+	if (notPushable) {
 		pushButton.each((_i, b) => {
 			b.style.display = "none";
 		});
@@ -92,6 +92,10 @@ Hooks.on("renderChatMessage", async (app, html) => {
 			const rollData = app.data.flags["forbidden-lands"].rollData;
 			diceRoller.push(rollData);
 			app.update({ flags: { "forbidden-lands.pushed": true } });
+			if (app)
+				pushButton.each((_i, b) => {
+					b.style.display = "none";
+				});
 		});
 	}
 });
