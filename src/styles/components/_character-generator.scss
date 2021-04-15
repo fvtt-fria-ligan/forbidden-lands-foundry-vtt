@@ -1,7 +1,6 @@
 .chargen .chargen-roll {
 	width: 40px;
 	height: 40px;
-
 	background-image: url("../assets/rolling-dices.png");
 	background-size: 30px 30px;
 	background-position: center;
@@ -14,30 +13,88 @@
 	background-repeat: no-repeat;
 }
 
-.chargen select {
-	width: auto;
+.chargen-options {
+	background: #363636;
+	padding: 5px;
+	display: flex;
+	justify-content: space-around;
+	button {
+		color: #fff;
+		font-family: "IM FELL DW Pica";
+		text-transform: uppercase;
+		&:hover {
+			text-shadow: 0 0 10px #fff;
+			background: none;
+		}
+	}
 }
 
-.chargen input.chargen-age-input {
-	width: 40px;
+.chargen-title {
+	margin-top: 20px;
+	font-size: 18px;
+	font-family: "IM FELL DW Pica";
+	text-transform: uppercase;
+	color: #363636;
 }
 
-.chargen .chargen-age {
-	margin-left: 10px;
+.chargen-description {
+	font-family: "IM FELL DW Pica";
+	font-size: 18px;
+	text-align: justify;
+	margin: 20px 0;
 }
 
-.chargen .chargen-section {
-	margin-bottom: 10px;
+.chargen-section {
+	align-items: center;
 }
 
-.chargen .chargen-section-content {
-	width: 50%;
+.chargen-section button.chargen-roll {
+	margin: 10px;
+	min-width: 60px;
+	min-height: 60px;
+	color: #fff;
 }
 
-.chargen .chargen-description {
-	width: 100%;
+.chargen-build {
+	min-width: 40%;
+	display: flex;
+	flex-direction: column;
+	color: #363636;
+	flex-wrap: wrap;
+	padding: 20px;
+	margin-left: 30px;
+	font-family: "IM FELL DW Pica";
+	justify-content: space-around;
+	font-size: 18px;
+	background: #fff;
 }
 
-.chargen .chargen-list {
-	margin-left: 20px;
+.chargen-items { font-weight: bold; }
+
+.chargen-list-caption {
+	text-transform: uppercase;
+	border-bottom: 1px solid;
+}
+
+.chargen-list ul {
+	padding: 0;
+}
+
+.chargen-list li {
+	list-style: none;
+}
+
+.chargen-list li strong {
+	text-transform: capitalize;
+}
+
+.chargen-background-table {
+	& > div {
+		border-bottom: 1px solid #363636;
+		padding: 10px;
+	}
+
+	& > div:nth-child(odd) {
+		background: #ccc;
+	}
 }

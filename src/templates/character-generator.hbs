@@ -1,75 +1,85 @@
 <form class="{{cssClass}}" autocomplete="off">
 	<div class="chargen flex column">
-		<div class="flex row chargen-section border">
+		<div class="flex row chargen-section border chargen-options">
 			<button class="chargen-randomize-all" type="button">{{localize "FLCG.RANDOMIZE"}}</button>
 			<button class="chargen-create-actor" type="button">{{localize "FLCG.APPLY"}}</button>
 		</div>
 
 		<div class="flex row chargen-section border">
-			<button class="chargen-roll chargen-roll-kin" type="button"></button>
-			<div class="chargen-section-content">
-				{{localize "FLCG.KIN"}}
-				<select class="chargen-select-kin">
-					{{#select character.kin}} {{#each dataset.kin as |item|}}
-					<option value="{{item.key}}">{{localize item.name}}</option>
-					{{/each}} {{/select}}
-				</select>
-			</div>
-			<button class="chargen-roll chargen-roll-age" type="button"></button>
-			<div class="chargen-section-content">
-				{{localize "FLCG.AGE"}}
-				<input class="chargen-age-input" type="number" maxlength="3" value="{{character.age.ageNumber}}" />
-				<span class="chargen-age">{{localize character.age.ageString}}</span>
-			</div>
 			<div class="chargen-section-content"> {{localize "FLCG.AGE_PENALTY_MESSAGE"}} </div>
 		</div>
 
 		<div class="flex row chargen-section border">
-			<button class="chargen-roll chargen-roll-childhood" type="button"></button>
-			<div class="chargen-section-content">
-				{{localize "FLCG.CHILDHOOD"}}
-				<select class="chargen-select-childhood">
-					{{#select character.childhood.key}} {{#each dataset.childhood as |item|}}
-					<option value="{{item.key}}">{{localize item.name}}</option>
-					{{/each}} {{/select}}
-				</select>
-				<div class="chargen-description">{{character.childhood.description}}</div>
+			<div class="flex column">
+				<div class="flex column">
+					<div class="flex row">
+						<button class="chargen-roll chargen-roll-kin" type="button"></button>
+						<div class="chargen-section-content">
+							<strong>{{localize "FLCG.KIN"}}</strong>
+							<select class="chargen-select-kin">
+								{{#select character.kin}} {{#each dataset.kin as |item|}}
+								<option value="{{item.key}}">{{localize item.name}}</option>
+								{{/each}} {{/select}}
+							</select>
+						</div>
+						<button class="chargen-roll chargen-roll-age" type="button"></button>
+						<div class="chargen-section-content">
+							<strong>{{localize "FLCG.AGE"}}</strong>
+							<input class="chargen-age-input" type="number" maxlength="3" value="{{character.age.ageNumber}}" />
+							<span class="chargen-age">{{localize character.age.ageString}}</span>
+						</div>
+					</div>
+					<div class="flex row">
+						<button class="chargen-roll chargen-roll-profession" type="button"></button>
+						<div class="chargen-section-content">
+							<strong>{{localize "FLCG.PROFESSION"}}</strong>
+							<select class="chargen-select-profession">
+								{{#select character.profession}} {{#each dataset.profession as |item|}}
+								<option value="{{item.key}}">{{localize item.name}}</option>
+								{{/each}} {{/select}}
+							</select>
+						</div>
+
+						<button class="chargen-roll chargen-roll-path" type="button"></button>
+						<div class="chargen-section-content">
+							<strong>{{localize "FLCG.PATH"}}</strong>
+							<select class="chargen-select-path">
+								{{#select character.path}} {{#each dataset.paths as |item key|}}
+								<option value="{{key}}">{{localize item}}</option>
+								{{/each}} {{/select}}
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="flex row">
+					<button class="chargen-roll chargen-roll-childhood" type="button"></button>
+					<div class="chargen-section-content">
+						<strong>{{localize "FLCG.CHILDHOOD"}}</strong>
+						<select class="chargen-select-childhood">
+							{{#select character.childhood.key}} {{#each dataset.childhood as |item|}}
+							<option value="{{item.key}}">{{localize item.name}}</option>
+							{{/each}} {{/select}}
+						</select>
+						<div class="chargen-description">{{character.childhood.description}}</div>
+					</div>
+				</div>
 			</div>
-			<!--prettier-ignore-->
-			{{! prettier-ignore }}
-{{> systems/forbidden-lands/templates/partial/list.hbs title="FLCG.ATTRIBUTES" list=character.childhood.attributes }}
-			<!--prettier-ignore-->
-			{{! prettier-ignore }}
-{{> systems/forbidden-lands/templates/partial/list.hbs title="FLCG.SKILLS" list=character.childhood.skills }}
+			<div class="chargen-build">
+				<!--prettier-ignore-->
+				{{! prettier-ignore }}
+				{{> systems/forbidden-lands/templates/partial/list.hbs title="FLCG.ATTRIBUTES" list=character.childhood.attributes }}
+				<!--prettier-ignore-->
+				{{! prettier-ignore }}
+				{{> systems/forbidden-lands/templates/partial/list.hbs title="FLCG.SKILLS" list=character.childhood.skills }}
+			</div>
 		</div>
 
-		<div class="flex row chargen-section border">
-			<button class="chargen-roll chargen-roll-profession" type="button"></button>
-			<div class="chargen-section-content">
-				{{localize "FLCG.PROFESSION"}}
-				<select class="chargen-select-profession">
-					{{#select character.profession}} {{#each dataset.profession as |item|}}
-					<option value="{{item.key}}">{{localize item.name}}</option>
-					{{/each}} {{/select}}
-				</select>
-			</div>
-
-			<button class="chargen-roll chargen-roll-path" type="button"></button>
-			<div class="chargen-section-content">
-				{{localize "FLCG.PATH"}}
-				<select class="chargen-select-path">
-					{{#select character.path}} {{#each dataset.paths as |item key|}}
-					<option value="{{key}}">{{localize item}}</option>
-					{{/each}} {{/select}}
-				</select>
-			</div>
-		</div>
-
+		<h2 class="chargen-title">{{localize "FLCG.EVENT"}}</h2>
+		<div class="chargen-background-table">
 		{{#each character.formativeEvents as |formativeEvent key|}}
-		<div class="flex row chargen-section border">
+		<div class="flex row chargen-section">
 			<button class="chargen-roll chargen-roll-event" data-key="{{key}}" type="button"></button>
 			<div class="chargen-section-content">
-				{{localize "FLCG.EVENT"}}
 				<select class="chargen-select-event" data-key="{{key}}">
 					{{#select formativeEvent.key}} {{#each ../dataset.formativeEvents as |item|}}
 					<option value="{{item.key}}">{{localize item.name}}</option>
@@ -80,12 +90,19 @@
 			</div>
 			<!--prettier-ignore-->
 			{{! prettier-ignore }}
-{{> systems/forbidden-lands/templates/partial/list.hbs title="FLCG.SKILLS" list=formativeEvent.skills }}
-			<div class="chargen-list">
-				<div class="chargen-caption chargen-talent">{{localize "FLCG.TALENT"}}</div>
-				<div class="chargen-description chargen-talent">{{formativeEvent.talent}}</div>
+			<div class="chargen-build">
+
+				{{> systems/forbidden-lands/templates/partial/list.hbs title="FLCG.SKILLS" list=formativeEvent.skills }}
+
+				<div class="chargen-list">
+					<div class="chargen-list-caption">{{localize "FLCG.TALENT"}}</div>
+					<ul>
+						<li>{{formativeEvent.talent}}</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 		{{/each}}
+		</div>
 	</div>
 </form>
