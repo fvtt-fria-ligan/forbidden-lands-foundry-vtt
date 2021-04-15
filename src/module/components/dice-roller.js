@@ -108,8 +108,8 @@ export default class DiceRoller {
 		data.dices.sort(function (a, b) {
 			return b.weight - a.weight;
 		});
-		let numberOfSword = this.countSword();
-		let numberOfSkull = this.countSkull();
+		let numberOfSword = this.countSword(data);
+		let numberOfSkull = this.countSkull(data);
 		let rollData = {
 			name: data.lastRollName,
 			isPushed: isPushed,
@@ -243,9 +243,9 @@ export default class DiceRoller {
 	/**
 	 * Count total successes
 	 */
-	countSword() {
+	countSword(data) {
 		let numberOfSword = 0;
-		this.dices.forEach((dice) => {
+		data.dices.forEach((dice) => {
 			numberOfSword = numberOfSword + dice.success;
 		});
 		return numberOfSword;
@@ -254,9 +254,9 @@ export default class DiceRoller {
 	/**
 	 * Count total failures
 	 */
-	countSkull() {
+	countSkull(data) {
 		let numberOfSkull = 0;
-		this.dices.forEach((dice) => {
+		data.dices.forEach((dice) => {
 			if (dice.value === 1 && (dice.type === "base" || dice.type === "gear")) {
 				numberOfSkull++;
 			}
