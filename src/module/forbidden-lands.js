@@ -10,6 +10,7 @@ import { RollDialog } from "./components/roll-dialog.js";
 import DiceRoller from "./components/dice-roller.js";
 import FBL from "./system/config.js";
 import registerSettings from "./system/settings.js";
+import { BaseDie, GearDie } from "./components/dice.js";
 
 CONFIG.debug.hooks = true;
 
@@ -76,7 +77,12 @@ Hooks.on("renderChatMessage", async (app, html) => {
 	}
 	// Push rolls
 	const pushButton = html.find("button.push-roll");
-	if (app.data.flags["forbidden-lands"]?.pushed || app.permission !== 3) {
+	if (!app.roll) return;
+	if (
+		app.data.flags["forbidden-lands"]?.pushed ||
+		app.permission !== 3 ||
+		!app.roll.dice.some((a) => a instanceof BaseDie || a instanceof GearDie)
+	) {
 		pushButton.each((_i, b) => {
 			b.style.display = "none";
 		});
