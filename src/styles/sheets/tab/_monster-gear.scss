@@ -52,7 +52,7 @@
 
 .forbidden-lands .monster .gears .button {
 	flex-basis: 15%;
-	font-size: 10px;
+	font-size: 0.71rem;
 	text-align: right;
 }
 
@@ -66,7 +66,7 @@
 
 .forbidden-lands .monster .gears .encumbrance {
 	font-family: var(--font-special);
-	font-size: 14px;
+	font-size: 1.05rem;
 }
 
 .forbidden-lands .monster .gears .overencumbered {
@@ -74,11 +74,11 @@
 }
 
 .forbidden-lands .monster .gears .change-mounted {
-	font-size: 14px;
+	font-size: 1rem;
 	margin-right: 10px;
 }
 
 .forbidden-lands .monster .gears .change-mounted .fas.fa-horse {
-	font-size: 16px;
+	font-size: 1.143rem;
 	margin-right: 2px;
 }

@@ -1,0 +1,20 @@
+@mixin tab-button($add) {
+	#{$add}:before {
+		position: absolute;
+		font-family: swordlings;
+		text-transform: lowercase;
+		content: "x";
+		line-height: 17px;
+		margin-left: -16px;
+		margin-top: 1px;
+	}
+	#{$add}:after {
+		position: absolute;
+		font-family: skullz;
+		text-transform: lowercase;
+		content: "l";
+		font-size: 25px;
+		line-height: 22px;
+		margin-left: 1px;
+	}
+}
