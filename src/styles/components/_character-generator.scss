@@ -1,7 +1,6 @@
 .chargen .chargen-roll {
-	width: 40px;
-	height: 40px;
-
+	width: 30px;
+	height: 30px;
 	background-image: url("../assets/rolling-dices.png");
 	background-size: 30px 30px;
 	background-position: center;
@@ -9,35 +8,115 @@
 }
 .chargen .chargen-roll:hover {
 	background-image: url("../assets/rolling-dices.png");
-	background-size: 50px 50px;
+	background-size: 35px 35px;
 	background-position: center;
 	background-repeat: no-repeat;
 }
 
-.chargen select {
-	width: auto;
+.chargen-options {
+	background: #363636;
+	padding: 5px;
+	display: flex;
+	justify-content: space-around;
+	button {
+		color: #fff;
+		font-family: "IM FELL DW Pica";
+		text-transform: uppercase;
+		&:hover {
+			text-shadow: 0 0 10px #fff;
+			background: none;
+		}
+	}
 }
 
-.chargen input.chargen-age-input {
-	width: 40px;
+.chargen-title {
+	margin-top: 20px;
+	font-size: 18px;
+	font-family: "IM FELL DW Pica";
+	text-transform: uppercase;
+	color: #363636;
 }
 
-.chargen .chargen-age {
-	margin-left: 10px;
+.chargen-description {
+	font-family: "IM FELL DW Pica";
+	font-size: 18px;
+	text-align: justify;
+	margin: 20px 0;
 }
 
-.chargen .chargen-section {
-	margin-bottom: 10px;
+.chargen-section {
+	align-items: flex-start; //To avoid the right-hand side boxes moving too much.
+	button.chargen-roll {
+		margin: 10px 10px 10px 5px;
+		min-width: 40px;
+		min-height: 40px;
+		color: #fff;
+	}
+	.chargen-section-content {
+		display: flex;
+		flex-flow: column;
+		flex: 1 0 20%;
+	}
 }
 
-.chargen .chargen-section-content {
-	width: 50%;
+.chargen-build {
+	min-width: 40%;
+	display: flex;
+	flex-direction: column;
+	color: #363636;
+	flex-wrap: wrap;
+	padding: 15px;
+	margin-top: 10px;
+	margin-left: 30px;
+	font-family: "IM FELL DW Pica";
+	justify-content: space-around;
+	font-size: 18px;
+	background: #fff;
+	border-image-outset: 3px;
 }
 
-.chargen .chargen-description {
-	width: 100%;
+.chargen-items {
+	font-weight: bold;
 }
 
-.chargen .chargen-list {
-	margin-left: 20px;
+.chargen-list-caption {
+	text-transform: uppercase;
+	border-bottom: 1px solid;
+}
+
+.chargen-list ul {
+	padding: 0;
+	li {
+		list-style: none;
+	}
+}
+
+.chargen-select-kin,
+.chargen-select-profession {
+	max-width: 110px;
+}
+
+.chargen-age-container {
+	white-space: nowrap;
+	.chargen-age-input {
+		max-width: 60px;
+	}
+}
+
+.chargen-list li strong {
+	text-transform: capitalize;
+}
+
+.chargen-background-table {
+	& > div {
+		border-bottom: 1px solid #363636;
+		padding: 10px;
+	}
+
+	& > div:nth-child(odd) {
+		background: #ccc;
+	}
+	button:hover {
+		background-color: #fff;
+	}
 }
