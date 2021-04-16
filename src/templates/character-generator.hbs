@@ -6,7 +6,7 @@
 		</div>
 
 		<div class="flex row chargen-section border">
-			<div class="chargen-section-content"> {{localize "FLCG.AGE_PENALTY_MESSAGE"}} </div>
+			<div class="chargen-section-content"><em>&nbsp;*{{localize "FLCG.AGE_PENALTY_MESSAGE"}}</em></div>
 		</div>
 
 		<div class="flex row chargen-section border">
@@ -25,8 +25,16 @@
 						<button class="chargen-roll chargen-roll-age" type="button"></button>
 						<div class="chargen-section-content">
 							<strong>{{localize "FLCG.AGE"}}</strong>
-							<input class="chargen-age-input" type="number" maxlength="3" value="{{character.age.ageNumber}}" />
-							<span class="chargen-age">{{localize character.age.ageString}}</span>
+							<div class="chargen-age-container">
+								<input
+									class="chargen-age-input"
+									type="number"
+									maxlength="3"
+									value="{{character.age.ageNumber}}"
+								/>
+								&nbsp;:&nbsp;
+								<span class="chargen-age">{{localize character.age.ageString}}</span>
+							</div>
 						</div>
 					</div>
 					<div class="flex row">
@@ -67,42 +75,42 @@
 			<div class="chargen-build">
 				<!--prettier-ignore-->
 				{{! prettier-ignore }}
-				{{> systems/forbidden-lands/templates/partial/list.hbs title="FLCG.ATTRIBUTES" list=character.childhood.attributes }}
+{{> systems/forbidden-lands/templates/partial/list.hbs title="FLCG.ATTRIBUTES" list=character.childhood.attributes }}
 				<!--prettier-ignore-->
 				{{! prettier-ignore }}
-				{{> systems/forbidden-lands/templates/partial/list.hbs title="FLCG.SKILLS" list=character.childhood.skills }}
+{{> systems/forbidden-lands/templates/partial/list.hbs title="FLCG.SKILLS" list=character.childhood.skills }}
 			</div>
 		</div>
 
 		<h2 class="chargen-title">{{localize "FLCG.EVENT"}}</h2>
 		<div class="chargen-background-table">
-		{{#each character.formativeEvents as |formativeEvent key|}}
-		<div class="flex row chargen-section">
-			<button class="chargen-roll chargen-roll-event" data-key="{{key}}" type="button"></button>
-			<div class="chargen-section-content">
-				<select class="chargen-select-event" data-key="{{key}}">
-					{{#select formativeEvent.key}} {{#each ../dataset.formativeEvents as |item|}}
-					<option value="{{item.key}}">{{localize item.name}}</option>
-					{{/each}} {{/select}}
-				</select>
-				<div class="chargen-description chargen-event">{{formativeEvent.description}}</div>
-				<div class="chargen-items chargen-event">{{formativeEvent.items}}</div>
-			</div>
-			<!--prettier-ignore-->
-			{{! prettier-ignore }}
-			<div class="chargen-build">
+			{{#each character.formativeEvents as |formativeEvent key|}}
+			<div class="flex row chargen-section">
+				<button class="chargen-roll chargen-roll-event" data-key="{{key}}" type="button"></button>
+				<div class="chargen-section-content">
+					<select class="chargen-select-event" data-key="{{key}}">
+						{{#select formativeEvent.key}} {{#each ../dataset.formativeEvents as |item|}}
+						<option value="{{item.key}}">{{localize item.name}}</option>
+						{{/each}} {{/select}}
+					</select>
+					<div class="chargen-description chargen-event">{{formativeEvent.description}}</div>
+					<div class="chargen-items chargen-event">{{formativeEvent.items}}</div>
+				</div>
+				<!--prettier-ignore-->
+				{{! prettier-ignore }}
+				<div class="chargen-build">
+					{{> systems/forbidden-lands/templates/partial/list.hbs title="FLCG.SKILLS"
+					list=formativeEvent.skills }}
 
-				{{> systems/forbidden-lands/templates/partial/list.hbs title="FLCG.SKILLS" list=formativeEvent.skills }}
-
-				<div class="chargen-list">
-					<div class="chargen-list-caption">{{localize "FLCG.TALENT"}}</div>
-					<ul>
-						<li>{{formativeEvent.talent}}</li>
-					</ul>
+					<div class="chargen-list">
+						<div class="chargen-list-caption">{{localize "FLCG.TALENT"}}</div>
+						<ul>
+							<li>{{formativeEvent.talent}}</li>
+						</ul>
+					</div>
 				</div>
 			</div>
-		</div>
-		{{/each}}
+			{{/each}}
 		</div>
 	</div>
 </form>
