@@ -2,6 +2,10 @@
 	min-height: 540px;
 	height: 100%;
 	max-height: calc(100vh - 10%);
+	.border {
+		border: 6px solid transparent;
+		border-image: url(../assets/journal-art/small-border.webp) 70/12px repeat;
+	}
 }
 
 .forbidden-lands.party .party {
@@ -124,7 +128,7 @@ table.travel-actions td {
 }
 
 .travel-action button.travel-roll {
-	font-size: 12px;
+	font-size: 0.86rem;
 	display: block;
 	width: 99%;
 

@@ -1,3 +1,5 @@
+@use "utils";
+
 .chargen .chargen-roll {
 	width: 30px;
 	height: 30px;
@@ -15,31 +17,33 @@
 
 .chargen-options {
 	background: #363636;
-	padding: 5px;
 	display: flex;
 	justify-content: space-around;
-	button {
+	b {
+		position: relative;
+		font-weight: 400;
+		padding: 8px 19px;
 		color: #fff;
 		font-family: "IM FELL DW Pica";
 		text-transform: uppercase;
 		&:hover {
-			text-shadow: 0 0 10px #fff;
-			background: none;
+			text-shadow: 0 0 6px #fff;
 		}
+		@include utils.tab-button("&:hover");
 	}
 }
 
 .chargen-title {
 	margin-top: 20px;
-	font-size: 18px;
+	font-size: 1.287rem;
 	font-family: "IM FELL DW Pica";
 	text-transform: uppercase;
 	color: #363636;
 }
 
 .chargen-description {
-	font-family: "IM FELL DW Pica";
-	font-size: 18px;
+	font-family: "IM Fell Great Primer";
+	font-size: 1rem;
 	text-align: justify;
 	margin: 20px 0;
 }
@@ -70,7 +74,7 @@
 	margin-left: 30px;
 	font-family: "IM FELL DW Pica";
 	justify-content: space-around;
-	font-size: 18px;
+	font-size: 1.143rem;
 	background: #fff;
 	border-image-outset: 3px;
 }

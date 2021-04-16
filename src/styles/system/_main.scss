@@ -1,3 +1,5 @@
+@use "utils";
+
 .forbidden-lands.item .header {
 	border: 10px solid transparent;
 	border-image: url(../assets/journal-art/small-border.webp) 100/18px repeat;
@@ -23,7 +25,7 @@
 .forbidden-lands h3 {
 	border: 0 none;
 	font-family: var(--font-subheader);
-	font-size: 14px;
+	font-size: 1rem;
 	font-weight: bold;
 	line-height: initial;
 	margin: 0;
@@ -39,7 +41,7 @@
 
 .forbidden-lands .rotated {
 	transform: rotate(90deg);
-	font-size: 10px;
+	font-size: 0.71rem;
 }
 
 .forbidden-lands .pre-wrap {
@@ -155,7 +157,7 @@
 	box-shadow: inset 0 0 6px var(--color-secondary);
 	color: var(--color-foreground);
 	font-family: var(--font-input);
-	font-size: 12px;
+	font-size: 0.86rem;
 	height: auto;
 	line-height: 16px;
 	padding: 2px 4px;
@@ -204,7 +206,7 @@
 	display: flex;
 	flex-direction: column;
 	font-family: var(--font-table);
-	font-size: 12px;
+	font-size: 0.86rem;
 	line-height: 16px;
 	min-height: 0;
 	padding: 4px;
@@ -213,7 +215,7 @@
 	align-items: flex-end;
 	border-bottom: 2px solid var(--color-border);
 	margin-bottom: 4px;
-	font-size: 10px;
+	font-size: 0.71rem;
 	font-weight: bold;
 	padding: 4px;
 	text-transform: uppercase;
@@ -380,34 +382,17 @@ button,
 		flex: 1 0;
 		padding: 8px 19px;
 		font-weight: 400;
-		font-size: 15px;
+		font-size: 1.05rem;
 		color: #fff;
 		text-align: center;
 		white-space: nowrap;
-
 		&:hover {
-			text-shadow: 0 0 10px #fff;
+			text-shadow: 0 0 6px #fff;
 		}
 		&.active {
+			filter: drop-shadow(0 0 2px #999);
 			color: #fff;
-			text-shadow: 0 0 6px #fff;
-
-			&:before {
-				content: "x";
-				position: absolute;
-				font-family: swordlings;
-				margin-left: -16px;
-				margin-top: 1px;
-			}
-			&:after {
-				position: absolute;
-				content: "l";
-				font-family: skullz;
-				font-size: 24px;
-				line-height: 22px;
-				margin-top: 1px;
-				margin-left: 1px;
-			}
+			@include utils.tab-button("&");
 		}
 	}
 }
@@ -416,7 +401,7 @@ button,
 .far.fa-circle,
 .far.fa-times-circle,
 .far.fa-check-circle {
-	font-size: 14px;
+	font-size: 1rem;
 	color: #333;
 }
 
