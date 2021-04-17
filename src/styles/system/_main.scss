@@ -17,7 +17,7 @@
 
 .forbidden-lands.sheet label {
 	font-family: var(--font-special);
-	font-size: 1.05rem;
+	font-size: var(--font-size--default);
 	font-weight: bold;
 }
 
@@ -25,7 +25,7 @@
 .forbidden-lands h3 {
 	border: 0 none;
 	font-family: var(--font-subheader);
-	font-size: 1rem;
+	font-size: var(--font-size--default);
 	font-weight: bold;
 	line-height: initial;
 	margin: 0;
@@ -39,9 +39,13 @@
 	margin-bottom: 4px;
 }
 
+.forbidden-lands .editor-content {
+	font-size: var(--font-size--large);
+}
+
 .forbidden-lands .rotated {
 	transform: rotate(90deg);
-	font-size: 0.71rem;
+	font-size: var(--font-size--default);
 }
 
 .forbidden-lands .pre-wrap {
@@ -157,7 +161,7 @@
 	box-shadow: inset 0 0 6px var(--color-secondary);
 	color: var(--color-foreground);
 	font-family: var(--font-input);
-	font-size: 0.86rem;
+	font-size: var(--font-size--small);
 	height: auto;
 	line-height: 16px;
 	padding: 2px 4px;
@@ -185,7 +189,7 @@
 .forbidden-lands select:focus,
 .forbidden-lands textarea:focus {
 	border: 1px solid var(--color-border);
-	box-shadow: 0 0 10px #ff6400;
+	box-shadow: 0 0 10px #a00;
 	outline: none;
 }
 
@@ -206,7 +210,7 @@
 	display: flex;
 	flex-direction: column;
 	font-family: var(--font-table);
-	font-size: 0.86rem;
+	font-size: var(--font-size--small);
 	line-height: 16px;
 	min-height: 0;
 	padding: 4px;
@@ -215,7 +219,7 @@
 	align-items: flex-end;
 	border-bottom: 2px solid var(--color-border);
 	margin-bottom: 4px;
-	font-size: 0.71rem;
+	font-size: var(--font-size--very-small);
 	font-weight: bold;
 	padding: 4px;
 	text-transform: uppercase;
@@ -230,6 +234,7 @@
 }
 .forbidden-lands .item-list .items .item {
 	border-bottom: 1px solid var(--color-border);
+	font-size: var(--font-size--very-small);
 	padding-right: 4px;
 }
 .forbidden-lands .item-list .items .item:last-child {
@@ -382,7 +387,7 @@ button,
 		flex: 1 0;
 		padding: 8px 19px;
 		font-weight: 400;
-		font-size: 1.05rem;
+		font-size: var(--font-size--default);
 		color: #fff;
 		text-align: center;
 		white-space: nowrap;
@@ -401,7 +406,7 @@ button,
 .far.fa-circle,
 .far.fa-times-circle,
 .far.fa-check-circle {
-	font-size: 1rem;
+	font-size: var(--font-size--small);
 	color: #333;
 }
 
@@ -429,7 +434,7 @@ button,
 		}
 		input[name="name"] {
 			font-family: "IM Fell Three Line Pica";
-			font-size: 2rem;
+			font-size: var(--font-size--extra-large);
 			text-transform: uppercase;
 			text-align: center;
 			line-height: 1.35;

@@ -27,7 +27,7 @@
 	@include hoverWidth("entry-image");
 	@include hoverWidth("close");
 	> i {
-		font-size: 1.143rem;
+		font-size: var(--font-size--default);
 		margin-left: 10px;
 	}
 }
@@ -53,7 +53,7 @@ h3 {
 			&.title {
 				input {
 					font-family: "IM FELL THREE LINE PICA";
-					font-size: 1.5em;
+					font-size: var(--font-size--extra-large);
 					text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
 					text-transform: uppercase;
 					border: none;
@@ -169,6 +169,7 @@ a {
 	}
 }
 .chat-message {
+	font-size: var(--font-size--very-small);
 	.message-header {
 		padding: 8px 13px;
 		border-bottom: rgba(0, 0, 0, 0.2);
@@ -209,6 +210,10 @@ li {
 			margin: 0 6px;
 		}
 	}
+}
+
+.sheet .tabs .item {
+	white-space: nowrap;
 }
 
 .app.sidebar-popout .folder > .folder-header .create-folder,

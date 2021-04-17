@@ -173,7 +173,7 @@
 	border-radius: 5px;
 	box-shadow: 0 0 15px #333;
 	font-family: var(--font-special);
-	font-size: 1.143rem;
+	font-size: var(--font-size--small);
 	color: #ddd;
 	pointer-events: none;
 	transition: opacity 0.1s 2.1s;
@@ -184,7 +184,7 @@
 }
 
 .forbidden-lands.item .roll-modifiers a {
-	font-size: 0.71rem;
+	font-size: var(--font-size--small);
 }
 
 .forbidden-lands.item .roll-modifiers .row {
@@ -207,7 +207,7 @@
 	margin: 5px 2px 2px;
 	flex-grow: 1;
 	font-family: var(--font-input);
-	font-size: 0.86rem;
+	font-size: var(--font-size--small);
 }
 
 .forbidden-lands .features .feature.active {

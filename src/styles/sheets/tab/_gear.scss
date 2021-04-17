@@ -68,7 +68,7 @@ a.currency-button {
 .forbidden-lands .character .gears .encumbrance {
 	border-bottom: 1px solid var(--color-border);
 	font-family: var(--font-special);
-	font-size: 1.05rem;
+	font-size: var(--font-size--default);
 	padding: 4px 8px;
 	position: absolute;
 	right: 8px;
@@ -80,7 +80,7 @@ a.currency-button {
 }
 
 .forbidden-lands .character .gears .encumbrance i {
-	font-size: 0.86rem;
+	font-size: var(--font-size--small);
 }
 
 .forbidden-lands .character .gears .gear {
@@ -123,6 +123,6 @@ a.currency-button {
 
 .forbidden-lands .character .gears .button {
 	flex-basis: 10%;
-	font-size: 0.71rem;
+	font-size: 11px;
 	text-align: right;
 }

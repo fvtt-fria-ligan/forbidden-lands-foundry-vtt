@@ -3,7 +3,7 @@
 	border-radius: 3px;
 	color: var(--color-foreground);
 	font-family: var(--font-table);
-	font-size: 0.86rem;
+	font-size: var(--font-size--very-small);
 	line-height: 16px;
 	padding: 8px;
 }
@@ -18,14 +18,14 @@
 }
 .forbidden-lands.chat-item h3 {
 	font-family: var(--font-subheader);
-	font-size: 1.143rem;
+	font-size: var(--font-size--default);
 	font-weight: bold;
 	margin: 0 0 8px;
 	text-align: center;
 }
 .forbidden-lands.chat-item h4 {
 	font-family: var(--font-special);
-	font-size: 1.05rem;
+	font-size: var(--font-size--small);
 	font-weight: bold;
 	margin: 0 0 8px;
 	text-align: center;
@@ -50,7 +50,7 @@
 	border-radius: 3px;
 	color: var(--color-foreground);
 	font-family: var(--font-table);
-	font-size: 0.86rem;
+	font-size: var(--font-size--very-small);
 	line-height: 16px;
 	padding: 8px;
 
@@ -80,14 +80,14 @@
 }
 .forbidden-lands.roll-item h3 {
 	font-family: var(--font-special);
-	font-size: 1.143rem;
+	font-size: var(--font-size--default);
 	font-weight: bold;
 	margin: 0 0 8px;
 	text-align: center;
 }
 .forbidden-lands.roll-item h4 {
 	font-family: var(--font-subheader);
-	font-size: 1rem;
+	font-size: var(--font-size--default);
 	font-variant: small-caps;
 	font-weight: bold;
 	margin: 0 0 8px;
@@ -181,10 +181,4 @@
 	.entity-link {
 		border: none;
 	}
-}
-.forbidden-lands input[type="number"],
-.forbidden-lands input[type="text"],
-.forbidden-lands select,
-.forbidden-lands textarea {
-	font-size: 1rem;
 }
