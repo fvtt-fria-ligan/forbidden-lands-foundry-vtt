@@ -1,0 +1,231 @@
+.window-app .window-header a.header-button {
+	@mixin hoverWidth($class) {
+		&.#{$class}:hover {
+			max-width: 200px;
+		}
+	}
+	display: flex;
+	flex-flow: row-reverse;
+	align-items: center;
+	color: #292929f0;
+	max-width: 35px;
+	height: 26px;
+	padding: 6px 10px;
+	white-space: nowrap;
+	line-height: 1;
+	overflow: hidden;
+	margin: 0;
+	transition: max-width 1s ease;
+	@include hoverWidth("char-gen");
+	@include hoverWidth("custom-roll");
+	@include hoverWidth("push-roll");
+	@include hoverWidth("configure-sheet");
+	@include hoverWidth("configure-token");
+	@include hoverWidth("item-post");
+	@include hoverWidth("share-image");
+	@include hoverWidth("entry-text");
+	@include hoverWidth("entry-image");
+	@include hoverWidth("close");
+	> i {
+		font-size: var(--font-size--default);
+		margin-left: 10px;
+	}
+}
+
+h3 {
+	&.entity-name {
+		& > a {
+			color: black;
+			text-shadow: 0px 0px 5px white;
+			font-weight: bold;
+			text-transform: uppercase;
+			margin: 2%;
+		}
+	}
+}
+
+.window-app {
+	.window-resizable-handle {
+		background: white;
+	}
+	&.image-popout {
+		.form-group {
+			&.title {
+				input {
+					font-family: "IM FELL THREE LINE PICA";
+					font-size: var(--font-size--extra-large);
+					text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
+					text-transform: uppercase;
+					border: none;
+				}
+			}
+			&.picker {
+				opacity: 0.2;
+			}
+		}
+	}
+	.window-header {
+		border: none;
+	}
+	&.sheet {
+		&.minimized {
+			.window-header {
+				border: none;
+				line-height: 14px;
+				padding: 0 6px;
+				flex-basis: 15px;
+				position: relative;
+				top: -3px;
+				.window-title {
+					overflow: hidden;
+					white-space: pre;
+				}
+			}
+		}
+	}
+}
+
+body,
+button {
+	font-family: Poppins, sans-serif;
+	font-size: var(--font-size--small);
+}
+img {
+	border: none;
+	&.profile {
+		padding: 5px;
+	}
+}
+
+.app,
+#hotbar .macro,
+#hotbar .macro .macro-key,
+#hotbar .bar-controls,
+#controls .scene-control,
+#controls .control-tool,
+#navigation #nav-toggle,
+#navigation #scene-list .scene {
+	background: #292929f0;
+}
+.fa-suitcase {
+	&:before {
+		content: "\f187";
+	}
+}
+a.entity-link,
+a.inline-roll {
+	border: none;
+	background: transparent;
+	border-bottom: 1px dotted grey;
+	padding: 0;
+}
+a {
+	&.inline-roll {
+		border: none;
+	}
+}
+
+#pause {
+	background: none;
+	& > img {
+		content: url("../assets/fbl-sun.webp");
+		width: 200px;
+		height: 200px;
+		top: -50px;
+		left: calc(50% - 100px);
+		opacity: 0.7;
+		-webkit-animation: rotation 10s infinite linear;
+		animation: rotation 10s infinite linear;
+	}
+	h3 {
+		font-family: "IM Fell DW Pica SC";
+		font-size: 32px;
+		text-shadow: 0px 3px 5px rgba(0, 0, 0, 1);
+	}
+}
+#navigation {
+	left: 180px;
+}
+#scenes {
+	.scene {
+		h3 {
+			background-color: rgba(160, 160, 160, 0.3);
+		}
+	}
+}
+#chat-log {
+	.message {
+		position: relative;
+		&:after {
+			content: "";
+			border: 10px solid transparent;
+			border-image: url(../assets/journal-art/small-border.webp) 70/15px repeat;
+			position: absolute;
+			height: -webkit-fill-available;
+			margin: -3px 7px 7px -3px;
+			width: -webkit-fill-available;
+			pointer-events: none;
+		}
+	}
+}
+.chat-message {
+	font-size: var(--font-size--very-small);
+	.message-header {
+		padding: 8px 13px;
+		border-bottom: rgba(0, 0, 0, 0.2);
+	}
+	.message-content {
+		border: none;
+		padding: 0 13px 13px;
+	}
+}
+#playlists {
+	li {
+		&.playlist {
+			.sound-control {
+				color: #666;
+			}
+		}
+	}
+}
+
+form {
+	& > select[name="folder"] {
+		display: none;
+	}
+	& > .lightbox-image {
+		background: rgb(255, 255, 255);
+	}
+}
+.window-app.image-popout .form-group.picker:hover,
+.window-app.image-popout .form-group.picker:focus-within {
+	opacity: 1;
+}
+li {
+	&.directory-item {
+		&.entity {
+			background: #eee;
+			color: #222;
+			border-radius: 6px;
+			margin: 0 6px;
+		}
+	}
+}
+
+.sheet .tabs .item {
+	white-space: nowrap;
+}
+
+.app.sidebar-popout .folder > .folder-header .create-folder,
+.app.sidebar-popout li.folder > .folder-header .create-entity {
+	color: #444;
+}
+
+::-webkit-scrollbar-thumb {
+	background: gray;
+	border-color: darkslategray;
+}
+::-webkit-scrollbar-track {
+	box-shadow: 0 0 3px #999 inset;
+	border-radius: 3px;
+}

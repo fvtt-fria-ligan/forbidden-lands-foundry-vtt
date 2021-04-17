@@ -1,13 +1,31 @@
-.forbidden-lands .border {
+@use "utils";
+
+.forbidden-lands.item .header {
 	border: 10px solid transparent;
-	border-image: url("../assets/border-small.png") 20/10px round;
+	border-image: url(../assets/journal-art/small-border.webp) 100/18px repeat;
+}
+
+.forbidden-lands .main-tab div.border,
+.forbidden-lands div.bio.border,
+.character div.currencies.border,
+.character div.consumables.border,
+.chargen-build,
+.character div.actions.border {
+	border: 6px solid transparent;
+	border-image: url(../assets/journal-art/small-border.webp) 70/12px repeat;
+}
+
+.forbidden-lands.sheet label {
+	font-family: var(--font-special);
+	font-size: var(--font-size--default);
+	font-weight: bold;
 }
 
 .forbidden-lands h1,
 .forbidden-lands h3 {
 	border: 0 none;
-	font-family: var(--font-special);
-	font-size: 14px;
+	font-family: var(--font-subheader);
+	font-size: var(--font-size--default);
 	font-weight: bold;
 	line-height: initial;
 	margin: 0;
@@ -21,9 +39,13 @@
 	margin-bottom: 4px;
 }
 
+.forbidden-lands .editor-content {
+	font-size: var(--font-size--large);
+}
+
 .forbidden-lands .rotated {
 	transform: rotate(90deg);
-	font-size: 10px;
+	font-size: var(--font-size--default);
 }
 
 .forbidden-lands .pre-wrap {
@@ -139,7 +161,7 @@
 	box-shadow: inset 0 0 6px var(--color-secondary);
 	color: var(--color-foreground);
 	font-family: var(--font-input);
-	font-size: 12px;
+	font-size: var(--font-size--small);
 	height: auto;
 	line-height: 16px;
 	padding: 2px 4px;
@@ -167,7 +189,7 @@
 .forbidden-lands select:focus,
 .forbidden-lands textarea:focus {
 	border: 1px solid var(--color-border);
-	box-shadow: 0 0 10px #ff6400;
+	box-shadow: 0 0 10px #a00;
 	outline: none;
 }
 
@@ -184,26 +206,11 @@
 	width: 100%;
 }
 
-.forbidden-lands .sheet-tabs {
-	background-color: var(--color-foreground);
-	color: #ddd;
-	font-family: var(--font-special);
-	margin: 8px 0;
-	padding: 0 8px;
-	flex-wrap: nowrap;
-	justify-content: space-evenly;
-}
-
-.forbidden-lands .sheet-tabs b:hover {
-	cursor: pointer;
-	text-shadow: 0 0 8px red;
-}
-
 .forbidden-lands .item-list {
 	display: flex;
 	flex-direction: column;
 	font-family: var(--font-table);
-	font-size: 12px;
+	font-size: var(--font-size--small);
 	line-height: 16px;
 	min-height: 0;
 	padding: 4px;
@@ -212,7 +219,7 @@
 	align-items: flex-end;
 	border-bottom: 2px solid var(--color-border);
 	margin-bottom: 4px;
-	font-size: 10px;
+	font-size: var(--font-size--very-small);
 	font-weight: bold;
 	padding: 4px;
 	text-transform: uppercase;
@@ -227,6 +234,7 @@
 }
 .forbidden-lands .item-list .items .item {
 	border-bottom: 1px solid var(--color-border);
+	font-size: var(--font-size--very-small);
 	padding-right: 4px;
 }
 .forbidden-lands .item-list .items .item:last-child {
@@ -259,12 +267,78 @@
 }
 
 /* Scrollbars */
-.app.window-app.sheet.forbidden-lands.actor ::-webkit-scrollbar {
-	width: 6px;
-}
-.app.window-app.sheet.forbidden-lands.actor ::-webkit-scrollbar-thumb {
-	background: var(--color-secondary);
-	border: 0 none;
+.app {
+	background: #292929f0;
+	&.window-app {
+		color: black;
+		border: 9px solid transparent;
+		border-image: url(../assets/journal-art/box-border-large.webp) 108/3 repeat;
+		border-image-outset: 1;
+		background-color: white;
+		.journal-sheet {
+			min-width: 500px;
+			min-height: 300px;
+		}
+		&.sheet {
+			&.forbidden-lands {
+				&.actor {
+					::-webkit-scrollbar {
+						width: 6px;
+					}
+					::-webkit-scrollbar-thumb {
+						background: var(--color-secondary);
+						border: 0 none;
+					}
+				}
+			}
+		}
+	}
+	&.sidebar-popout {
+		.window-content {
+			width: 96%;
+			margin: auto;
+			color: #222;
+			margin-bottom: 10px;
+		}
+		.subdirectory {
+			border-color: #555;
+			li {
+				&.folder {
+					& > .folder-header {
+						background: rgba(0, 0, 0, 0.2);
+						color: #222;
+					}
+				}
+			}
+		}
+		li {
+			&.folder {
+				& > .folder-header {
+					background: rgba(255, 255, 255, 0.9);
+					color: #222;
+					h3 {
+						color: #222;
+					}
+					.create-entity {
+						color: #444;
+					}
+				}
+			}
+			&.directory-item {
+				&.entity {
+					background: rgba(0, 0, 0, 0.5);
+					color: #eee;
+				}
+			}
+		}
+		.folder {
+			& > .folder-header {
+				.create-folder {
+					color: #444;
+				}
+			}
+		}
+	}
 }
 
 #chat-log .message {
@@ -295,23 +369,44 @@ button,
 	border: 1px solid var(--color-border);
 }
 
-.forbidden-lands .tabs .tab-item {
-	padding: 5px;
-	text-align: center;
-	flex: 0;
-	white-space: nowrap;
-}
+.forbidden-lands .sheet-tabs {
+	background-color: var(--color-foreground);
+	color: #ddd;
+	font-family: var(--font-special);
+	margin: 8px 0;
+	padding: 0 8px;
+	flex-wrap: nowrap;
+	justify-content: space-evenly;
 
-.forbidden-lands .tabs .tab-item.active {
-	color: #fff;
-	text-shadow: 0 0 10px #fff;
+	b:hover {
+		cursor: pointer;
+		text-shadow: 0 0 8px red;
+	}
+	.tab-item {
+		position: relative;
+		flex: 1 0;
+		padding: 8px 19px;
+		font-weight: 400;
+		font-size: var(--font-size--default);
+		color: #fff;
+		text-align: center;
+		white-space: nowrap;
+		&:hover {
+			text-shadow: 0 0 6px #fff;
+		}
+		&.active {
+			filter: drop-shadow(0 0 2px #999);
+			color: #fff;
+			@include utils.tab-button("&");
+		}
+	}
 }
 
 .fas.fa-circle,
 .far.fa-circle,
 .far.fa-times-circle,
 .far.fa-check-circle {
-	font-size: 14px;
+	font-size: var(--font-size--small);
 	color: #333;
 }
 
@@ -328,4 +423,37 @@ button,
 }
 .broken .change-willpower .far.fa-circle {
 	color: #333;
+}
+
+.journal-sheet {
+	form {
+		display: flex;
+		flex-direction: column;
+		.editor {
+			height: 100%;
+		}
+		input[name="name"] {
+			font-family: "IM Fell Three Line Pica";
+			font-size: var(--font-size--extra-large);
+			text-transform: uppercase;
+			text-align: center;
+			line-height: 1.35;
+			background-color: #fff;
+			border-image: url("../assets/journal-art/title-border.webp");
+			border-image-slice: 50%;
+			border-image-width: 100%;
+			padding: max(10px, 1%) min(14%, 130px) 0;
+			text-overflow: ellipsis;
+			width: min(100%, 900px);
+			min-height: 200px;
+			height: min(45%, 300px);
+			margin: auto;
+		}
+		input[name="name"]:focus {
+			box-shadow: none;
+		}
+		button[type="submit"] {
+			display: none;
+		}
+	}
 }

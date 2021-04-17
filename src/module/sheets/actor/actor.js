@@ -191,10 +191,17 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 				null,
 			);
 		});
+		html.find(".quantity").on("blur", (ev) => {
+			const itemId = ev.currentTarget.parentElement.dataset.itemId;
+			this.actor.updateOwnedItem({
+				_id: itemId,
+				"data.quantity": ev.currentTarget.value,
+			});
+		});
 	}
 
 	parseModifiers(str) {
-		let sep = /[\s\+]+/;
+		let sep = /[\s+]+/;
 		let artifacts = [];
 		let modifier = 0;
 		if (typeof str === "string") {
@@ -240,7 +247,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			let rollModifiers = item.data.data.rollModifiers;
 			if (rollModifiers) {
 				Object.values(rollModifiers).forEach((mod) => {
-					if (mod && mod.name == skillLabel) {
+					if (mod && mod.name === skillLabel) {
 						let parsed = this.parseModifiers(mod.value);
 						modifiers.modifier += parsed.modifier;
 						modifiers.artifacts = modifiers.artifacts.concat(parsed.artifacts);
@@ -258,7 +265,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		const config = game.fbl.config.encumbrance;
 		const type = data.type;
 		const weight = data.data?.weight;
-		if (data.type === "rawMaterial") return 1;
+		if (data.type === "rawMaterial") return 1 * Number(data.data.quantity);
 		if (type !== "gear" && type !== "armor" && type !== "weapon") return null;
 		return Number(config[weight] ?? 1) ?? Number(weight) ?? 1;
 	}

@@ -6,13 +6,19 @@
 		<div class="header-stats">
 			<label>{{localize "GEAR.NAME"}}</label>
 			<input name="name" type="text" value="{{item.name}}" />
-			<label>{{localize "GEAR.COST"}}</label>
-			<input name="data.cost" type="text" value="{{data.cost}}" />
-			<label>{{localize "RAW_MATERIAL.SHELF_LIFE"}}</label>
-			<input name="data.shelfLife" type="text" value="{{data.shelfLife}}" />
+			<label>{{localize "ITEM.QUANTITY"}}</label>
+			<input name="data.quantity" type="text" value="{{data.quantity}}" />
 		</div>
 	</div>
 	<div class="item">
+		<div class="cost">
+			<label>{{localize "GEAR.COST"}}</label>
+			<input name="data.cost" type="text" value="{{data.cost}}" />
+		</div>
+		<div class="shelf-life">
+			<label>{{localize "RAW_MATERIAL.SHELF_LIFE"}}</label>
+			<input name="data.shelfLife" type="text" value="{{data.shelfLife}}" />
+		</div>
 		<div class="raw-materials">
 			<label>{{localize "BUILDING.RAW_MATERIALS"}}</label>
 			<input name="data.rawMaterials" type="text" value="{{data.rawMaterials}}" />

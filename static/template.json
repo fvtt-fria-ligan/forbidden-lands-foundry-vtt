@@ -1,6 +1,6 @@
 {
 	"Actor": {
-		"types": ["character", "monster", "stronghold"],
+		"types": ["character", "monster", "party", "stronghold"],
 		"templates": {
 			"attributes": {
 				"attribute": {
@@ -249,6 +249,22 @@
 			"isMounted": false,
 			"type": "monster"
 		},
+		"party": {
+			"description": "",
+			"members": [],
+			"travel": {
+				"camp": [],
+				"fish": [],
+				"forage": [],
+				"hike": [],
+				"hunt": [],
+				"lead": [],
+				"rest": [],
+				"sleep": [],
+				"watch": [],
+				"other": []
+			}
+		},
 		"stronghold": {
 			"location": "",
 			"description": "",
@@ -282,6 +298,9 @@
 				"talent": "",
 				"tools": ""
 			},
+			"trade": {
+				"quantity": 1
+			},
 			"rollModifiers": {
 				"rollModifiers": {}
 			},
@@ -294,7 +313,7 @@
 			}
 		},
 		"weapon": {
-			"templates": ["bonus", "craftable", "rollModifiers", "artifact"],
+			"templates": ["bonus", "craftable", "rollModifiers", "artifact", "trade"],
 			"category": "melee",
 			"skillBonus": "",
 			"damage": 1,
@@ -314,7 +333,7 @@
 			"weight": "regular"
 		},
 		"armor": {
-			"templates": ["bonus", "craftable", "rollModifiers", "artifact"],
+			"templates": ["bonus", "craftable", "rollModifiers", "artifact", "trade"],
 			"cost": 0,
 			"part": "body",
 			"features": "",
@@ -343,13 +362,13 @@
 			"healingTime": ""
 		},
 		"gear": {
-			"templates": ["bonus", "craftable", "rollModifiers", "artifact"],
+			"templates": ["bonus", "craftable", "rollModifiers", "artifact", "trade"],
 			"cost": "",
 			"supply": "",
 			"weight": "regular"
 		},
 		"rawMaterial": {
-			"templates": ["bonus", "craftable"],
+			"templates": ["bonus", "craftable", "trade"],
 			"cost": "",
 			"shelfLife": ""
 		},
