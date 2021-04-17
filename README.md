@@ -60,12 +60,7 @@ Content for the system is available as addon modules. You can purchase them at F
 
 ## :world_map: Preview
 
-<img src="https://user-images.githubusercontent.com/9851733/107130336-8cd02380-68cc-11eb-91e3-d8532a5bc0bc.png" alt="overview" style="max-width:100%;" />
-
-<img src="https://user-images.githubusercontent.com/9851733/104242530-95fdda00-545f-11eb-8077-f9ebb2bf1e49.png" alt="main sheet" style="max-width:450px;"> <img src="https://user-images.githubusercontent.com/9851733/104243355-b9755480-5460-11eb-8e59-c450e77dfb06.png" alt="sheet combat" style="max-width:450px;">
-
-![Item Sheet](https://user-images.githubusercontent.com/477392/107005802-88065500-6790-11eb-889e-0dad7db8adff.png)
-![Item Chat](https://user-images.githubusercontent.com/9851733/104243430-d742b980-5460-11eb-956f-025188dbe91e.png)
+<img src="https://user-images.githubusercontent.com/9851733/115126329-9cf03780-9fce-11eb-953f-96cc54a097c4.png" alt="example" style="max-width:100%;" />
 
 ## :hammer_and_wrench: Contributing
 
@@ -73,15 +68,13 @@ If you want to contribute to the project, download and build it for something el
 
 ## :pray: Contributors
 
-> If you contributed to the project, but don't see your name here please contact us as we are missing a larger chunk of history from this project.
+:pencil2: System originally created by [@Perfectro](https://github.com/Perfectro)
 
-:pencil2: System originally created by @Perfectro
+:wrench: Currently developed by [@aMediocreDad](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commits?author=aMediocreDad) [@narukaioh](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commits?author=narukaioh) [@maxstar](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commits?author=maxstar) [@jimorie](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commits?author=jimorie) and [@giant-teapot](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commits?author=giant-teapot).
 
-:wrench: Currently developed by @aMediocreDad @jimorie and @giant-teapot
+:sparkles: We have many great contributors to the project including [@patrys]() [@roonel](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commits?author=roonel) [@romelwell](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commits?author=romelwell) [@moo-man](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commits?author=moo-man) [@lasseborly](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commits?author=lasseborly) and [@m0ppers](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commits?author=m0ppers)!
 
-:sparkles: We have many great contributors to the project including @patrys @roonel @Maxter @moo-man @lasseborly and more!
-
-:globe_with_meridians: Localization helpers: @Rosataker, @ptosekigloo, @DavidCMeier and more!
+:globe_with_meridians: Localization contributors: [@Rosataker](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commits?author=Rosataker) (zh-TW), [@ptosekigloo](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commits?author=ptosekigloo) (cs), [@DavidCMeier](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commits?author=DavidCMeier) (es), and [@franklinbenini](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commits?author=franklinbenini) (pt-BR)!
 
 :game_die: Dice graphics recreated by [Tomasz 'jarv' Dobrowolski](jarv@monochrome.pl) with permission from Fria Ligan.
 
@@ -92,12 +85,12 @@ As well as plenty of users who have come with great feedback, either on [the off
 -   [Foundry VTT](https://foundryvtt.com/)
 -   [Fria Ligan: Forbidden Lands](https://frialigan.se/en/store/?collection_id=84541866032)
 
-## 📝 License
+## 📝 Licenses
 
--   Logo: The Forbidden Lands logo is © Fria Ligan / Free League Publishing
--   Content: [Forbidden Lands](https://frialigan.se/en/store/?collection_id=84541866032) © Fria Ligan / Free League Publishing.
--   Foundry VTT: [Limited License Agreement for module development](https://foundryvtt.com/article/license/).
--   Source code: Copyright © 2021 [Fria Ligan Foundry VTT org.](https://github.com/fvtt-fria-ligan), and licenced under the [GNU General Public License v3.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/blob/main/LICENSE).
--   Fonts:
+-   **Logo and Content:** The [Forbidden Lands](https://frialigan.se/en/store/?collection_id=84541866032) logo and content is Copyright © and Trademarked by Free League Publishing. The parts of this project protected under this copyright may not be distributed commercially or freely. This includes art, logo, and copyright text (like the character-generator.json) sourced from the [Forbidden Lands](https://frialigan.se/en/store/?collection_id=84541866032) tabletop RPG.
+    > Some content may be reused under the upcoming Free League's Open Gaming License (to be linked once it becomes available).
+-   **Source Code:** All source code _(javascript, hbs, scss, as well as system templates and the like)_, are Copyright © 2021 [Free League Developer Community](https://github.com/fvtt-fria-ligan), and licenced under the [GNU General Public License v3.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/blob/main/LICENSE).
+-   **Foundry VTT:** The project is created following the Foundry VTT [Limited License Agreement for module development](https://foundryvtt.com/article/license/).
+-   **Fonts:** The fonts used in this project carry their own licenses:
     -   [IM Fell English Font Family](https://fonts.google.com/specimen/IM+Fell+English)
     -   [Poppins](https://fonts.google.com/specimen/Poppins)
