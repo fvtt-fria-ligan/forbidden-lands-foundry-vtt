@@ -1,9 +1,13 @@
+const gulp = require("gulp");
 const { rollup } = require("rollup");
 const argv = require("yargs").argv;
 const chalk = require("chalk");
 const fs = require("fs-extra");
-const gulp = require("gulp");
+const dotenv = require("dotenv");
+const gulpif = require("gulp-if");
+const zip = require("gulp-zip");
 const path = require("path");
+const execa = require("execa");
 const rollupConfig = require("./rollup.config");
 const semver = require("semver");
 const sass = require("gulp-sass");
@@ -28,6 +32,14 @@ const repoPathing = (relativeSourcePath = ".", sourcemapPath = ".") => {
 	return path.resolve(path.dirname(sourcemapPath), relativeSourcePath);
 };
 
+// load environment variables
+const result = dotenv.config();
+if (result.error) {
+	throw result.error;
+}
+const env = process.env.NODE_ENV || "development";
+const stdio = "inherit";
+
 /********************/
 /*      BUILD       */
 /********************/
@@ -37,7 +49,10 @@ const repoPathing = (relativeSourcePath = ".", sourcemapPath = ".") => {
  */
 async function buildCode() {
 	const build = await rollup({ input: rollupConfig.input, plugins: rollupConfig.plugins });
-	return build.write({ ...rollupConfig.output, sourcemapPathTransform: repoPathing });
+	return build.write({
+		...rollupConfig.output,
+		sourcemapPathTransform: env === "development" ? repoPathing : null,
+	});
 }
 
 /**
@@ -46,9 +61,9 @@ async function buildCode() {
 function buildStyles() {
 	return gulp
 		.src(`${stylesDirectory}/forbidden-lands.${stylesExtension}`)
-		.pipe(sourcemaps.init())
+		.pipe(gulpif(env === "development", sourcemaps.init()))
 		.pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
-		.pipe(sourcemaps.write())
+		.pipe(gulpif(env === "development", sourcemaps.write()))
 		.pipe(gulp.dest(`${distDirectory}/styles`));
 }
 
@@ -184,9 +199,35 @@ function getTargetVersion(currentVersion, release) {
 }
 
 /**
+ * Creates a zip file in the "archive" directory with the release tag number as file-name.
+ * @param {String} version tag number to be released.
+ */
+async function zipDist() {
+	const { version } = fs.readJSONSync("package.json");
+	const archive = await gulp
+		.src("dist/**/*")
+		.pipe(zip(`v${version}.zip`))
+		.pipe(gulp.dest("archive"));
+	return archive;
+}
+
+/**
+ *
+ */
+async function commitTagPush() {
+	const { version } = fs.readJSONSync("package.json");
+	const commitMsg = `chore(release): release ${version}`;
+	await execa("git", ["add", "."], { stdio });
+	await execa("git", ["commit", "--message", commitMsg], { stdio });
+	await execa("git", ["tag", `v${version}`], { stdio });
+	await execa("git", ["push", "--follow-tags"], { stdio });
+	return;
+}
+
+/**
  * Update version and download URL.
  */
-function bumpVersion(cb) {
+async function bumpVersion(cb) {
 	const packageJson = fs.readJSONSync("package.json");
 	const packageLockJson = fs.existsSync("package-lock.json") ? fs.readJSONSync("package-lock.json") : undefined;
 	const manifest = getManifest();
@@ -215,16 +256,16 @@ function bumpVersion(cb) {
 		console.log(`Updating version number to '${targetVersion}'`);
 
 		packageJson.version = targetVersion;
-		fs.writeJSONSync("package.json", packageJson, { spaces: 2 });
+		fs.writeJSONSync("package.json", packageJson, { spaces: "\t" });
 
 		if (packageLockJson) {
 			packageLockJson.version = targetVersion;
-			fs.writeJSONSync("package-lock.json", packageLockJson, { spaces: 2 });
+			fs.writeJSONSync("package-lock.json", packageLockJson, { spaces: "\t" });
 		}
 
 		manifest.file.version = targetVersion;
 		manifest.file.download = getDownloadURL(targetVersion);
-		fs.writeJSONSync(`${sourceDirectory}/static/${manifest.name}`, manifest.file, { spaces: 2 });
+		fs.writeJSONSync(`static/${manifest.name}`, manifest.file, { spaces: "\t" });
 
 		return cb();
 	} catch (err) {
@@ -235,7 +276,8 @@ function bumpVersion(cb) {
 const execBuild = gulp.parallel(buildCode, buildStyles, copyFiles, pipeStatics);
 
 exports.build = gulp.series(clean, execBuild);
-exports.watch = buildWatch;
+exports.watch = gulp.series(buildWatch);
 exports.clean = clean;
 exports.link = linkUserData;
-exports.bumpVersion = bumpVersion;
+exports.bumpVersion = gulp.series(bumpVersion, clean, execBuild, zipDist);
+exports.release = commitTagPush;
