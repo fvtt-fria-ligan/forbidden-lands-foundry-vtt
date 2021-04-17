@@ -15,6 +15,11 @@
 }
 
 @font-face {
+	font-family: "IM Fell Three Line Pica";
+	src: url("../fonts/IM_FELL_THREE_LINE_PICA.ttf");
+}
+
+@font-face {
 	font-family: "IM Fell Great Primer";
 	src: url("../fonts/IMFellGreatPrimer-Regular.ttf");
 }
@@ -48,22 +53,6 @@
 	font-style: italic;
 	font-weight: bold;
 	src: url("../fonts/Poppins-BoldItalic.ttf");
-}
-
-@font-face {
-	font-family: "IM Fell Three Line Pica";
-	src: url("../fonts/IM_FELL_THREE_LINE_PICA.ttf");
-}
-
-@font-face {
-	font-family: "IM Fell Great Primer";
-	src: url("../fonts/IM_FELL_Great_Primer_Roman.ttf");
-}
-
-@font-face {
-	font-family: "IM Fell Great Primer";
-	src: url("../fonts/IM_FELL_Great_Primer_Italic.ttf");
-	font-style: italic;
 }
 
 @font-face {
