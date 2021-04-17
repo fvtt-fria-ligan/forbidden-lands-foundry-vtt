@@ -39,6 +39,7 @@
 		"@typhonjs-fvtt/eslint-config-foundry.js": "^0.7.9",
 		"babel-eslint": "^10.1.0",
 		"chalk": "^4.1.0",
+		"cross-env": "^7.0.3",
 		"devmoji": "^2.2.0",
 		"dotenv": "^8.2.0",
 		"eslint": "^7.23.0",
