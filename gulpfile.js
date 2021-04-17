@@ -27,7 +27,7 @@ const sourceFileExtension = "js";
 const srcFiles = ["lang", "templates"];
 const staticFiles = ["assets", "fonts", "scripts", "system.json", "template.json"];
 const getDownloadURL = (version) =>
-	`https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/${version}/${version}.zip`;
+	`https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v${version}/v${version}.zip`;
 const repoPathing = (relativeSourcePath = ".", sourcemapPath = ".") => {
 	return path.resolve(path.dirname(sourcemapPath), relativeSourcePath);
 };
