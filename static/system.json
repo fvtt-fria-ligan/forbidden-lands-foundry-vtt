@@ -18,7 +18,7 @@
 		},
 		{
 			"type": "screenshot",
-			"url": "https://user-images.githubusercontent.com/9851733/107130336-8cd02380-68cc-11eb-91e3-d8532a5bc0bc.png"
+			"url": "https://user-images.githubusercontent.com/9851733/115126329-9cf03780-9fce-11eb-953f-96cc54a097c4.png"
 		}
 	],
 	"scripts": ["scripts/settings-extender.js"],
@@ -69,6 +69,7 @@
 	],
 	"gridDistance": 1,
 	"gridUnits": "m",
+	"background": "assets/splash-page.jpg",
 	"primaryTokenAttribute": null,
 	"secondaryTokenAttribute": null,
 	"url": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt",
