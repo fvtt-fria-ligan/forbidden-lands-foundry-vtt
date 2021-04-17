@@ -1,0 +1,23 @@
+name: Automate release artifacts
+
+on:
+  release:
+    types: [published]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Release
+              uses: ncipollo/release-action@v1
+              env:
+                  version: ${{github.event.release.tag_name}}
+              with:
+                  allowUpdates: true
+                  name: ${{ github.event.release.name }}
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  artifacts: "./static/system.json, ./archive/${{ env.version }}.zip"
+                  tag: ${{ github.event.release.tag_name }}
+                  body: ${{ github.event.release.body }}
