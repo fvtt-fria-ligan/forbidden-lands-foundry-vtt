@@ -1,10 +1,7 @@
 <div class="forbidden-lands roll-item">
 	<div class="border">
-		{{#if isPushed}}
-		<h3>{{name}} - {{localize "PUSHED"}}</h3>
-		{{else}}
-		<h3>{{name}}</h3>
-		{{/if}}
+
+		<h3>{{name}}{{#if isPushed}} &ndash; {{localize "PUSHED"}}{{/if}}</h3>
 		<h4>
 			{{sword}} <img src="systems/forbidden-lands/assets/sword.png" alt="⚔️" /> | {{skull}}
 			<img src="systems/forbidden-lands/assets/skull.png" alt="💀" />
@@ -22,5 +19,6 @@
 				title="{{dice.value}}"
 			/>{{/each}}
 		</div>
+		<button type="button" data-user-id={{user}} class="push-roll {{#if isPushed}}pushed{{/if}}" alt="{{localize "PUSH"}}">{{#if isPushed}}{{localize "PUSHED"}}...{{else}}{{localize "PUSH"}}{{/if}}</button>
 	</div>
 </div>

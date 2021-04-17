@@ -38,6 +38,7 @@
 		"@typhonjs-fvtt/eslint-config-foundry.js": "^0.7.9",
 		"babel-eslint": "^10.1.0",
 		"chalk": "^4.1.0",
+		"devmoji": "^2.2.0",
 		"eslint": "^7.23.0",
 		"eslint-config-jquery": "^3.0.0",
 		"eslint-config-prettier": "^8.1.0",

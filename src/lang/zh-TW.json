@@ -289,5 +289,44 @@
 	"WEIGHT.REGULAR": "普通",
 	"WEIGHT.TINY": "微型",
 	"WEIGHT.TYPE_REGULAR": "常規",
-	"WEIGHT.TYPE_SPECIAL": "特殊"
+	"WEIGHT.TYPE_SPECIAL": "特殊",
+	"FLPS.SETTINGS.ALLOW_PUSH": "允許旅行孤注一擲",
+	"FLPS.SETTINGS.ALLOW_PUSH_HINT": "有些 GM 不允許旅行時孤注一擲，為了限制意志點的累積。如果這個設置是關閉的，那麼 '孤注一擲' 的按鈕將不會顯示在隊伍標頭。",
+
+	"FLPS.TAB.MAIN": "主頁面",
+	"FLPS.TAB.TRAVEL": "旅行",
+
+	"FLPS.PARTY.NAME": "隊伍名稱",
+	"FLPS.PARTY.MEMBERS": "隊伍成員",
+	"FLPS.PARTY.HINT_ADD": "拖曳角色到此並加入隊伍。",
+	"FLPS.PARTY.HINT_ASSIGN": "拖曳角色，將其分配到所需的旅行活動中。",
+
+	"FLPS.TRAVEL.HIKE": "遠行",
+	"FLPS.TRAVEL.LEAD": "帶路",
+	"FLPS.TRAVEL.WATCH": "守望",
+	"FLPS.TRAVEL.REST": "休息",
+	"FLPS.TRAVEL.SLEEP": "睡覺",
+	"FLPS.TRAVEL.FORAGE": "覓食",
+	"FLPS.TRAVEL.HUNT": "狩獵",
+	"FLPS.TRAVEL.FISH": "釣魚",
+	"FLPS.TRAVEL.CAMP": "建立營地",
+	"FLPS.TRAVEL.OTHER": "其他",
+	"FLPS.TRAVEL.RESET": "重設",
+
+	"FLPS.UI.WHO_ROLLS": "誰擲骰?",
+	"FLPS.UI.WHO_PUSHES": "誰孤注一擲?",
+	"FLPS.UI.ATTENTION": "注意",
+	"FLPS.UI.ERROR.OPEN_SHEET": "在進行旅行擲骰之前，請至少打開一次角色表。",
+
+	"FLPS.TRAVEL_ROLL.FORCED_MARCH": "強行軍 (耐性)",
+	"FLPS.TRAVEL_ROLL.HIKE_IN_DARKNESS": "黑暗中遠行 (偵查)",
+	"FLPS.TRAVEL_ROLL.NAVIGATE": "帶路 (求生)",
+	"FLPS.TRAVEL_ROLL.KEEP_WATCH": "守望 (偵查)",
+	"FLPS.TRAVEL_ROLL.RECOVER": "恢復",
+	"FLPS.TRAVEL_ROLL.FIND_GOOD_PLACE": "找個好地點 (求生)",
+	"FLPS.TRAVEL_ROLL.FIND_FOOD": "覓食 (求生)",
+	"FLPS.TRAVEL_ROLL.FIND_PREY": "尋找獵物 (求生)",
+	"FLPS.TRAVEL_ROLL.KILL_PREY": "殺死獵物 (箭術/求生)",
+	"FLPS.TRAVEL_ROLL.CATCH_FISH": "釣魚 (求生)",
+	"FLPS.TRAVEL_ROLL.MAKE_CAMP": "建立營地 (求生)"
 }

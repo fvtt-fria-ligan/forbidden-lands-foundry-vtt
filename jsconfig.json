@@ -1,8 +1,8 @@
 // @ts-nocheck
 {
 	"compilerOptions": {
-		"module":"es6",
-		"target":"es2020",
+		"module": "es6",
+		"target": "es2020",
 		"moduleResolution": "node"
 	},
 	"include": ["src/module/**/*", "src/scripts"],

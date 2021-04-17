@@ -1,0 +1,27 @@
+<form class="{{cssClass}}" autocomplete="off">
+	<div class="party flex column">
+		<div class="sheet-tabs tabs flex row" data-group="primary">
+			<b class="tab-item" data-tab="main">{{localize "FLPS.TAB.MAIN"}}</b>
+			<b class="tab-item" data-tab="travel">{{localize "FLPS.TAB.TRAVEL"}}</b>
+			<b class="tab-item" data-tab="note">{{localize "TAB.NOTE"}}</b>
+		</div>
+
+		<div class="sheet-body flex row">
+			<div class="tab" data-group="primary" data-tab="main">
+				<!-- prettier-ignore -->
+				{{! prettier-ignore }}
+{{> systems/forbidden-lands/templates/tab/party-main.hbs}}
+			</div>
+			<div class="tab" data-group="primary" data-tab="travel">
+				<!-- prettier-ignore -->
+				{{! prettier-ignore }}
+{{> systems/forbidden-lands/templates/tab/travel.hbs}}
+			</div>
+			<div class="tab note" data-group="primary" data-tab="note">
+				<!-- prettier-ignore -->
+				{{! prettier-ignore }}
+{{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+			</div>
+		</div>
+	</div>
+</form>

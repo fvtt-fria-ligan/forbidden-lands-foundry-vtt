@@ -29,6 +29,12 @@ function preloadHandlebarsTemplates() {
 		"systems/forbidden-lands/templates/tab/gear/armor-main.hbs",
 		"systems/forbidden-lands/templates/tab/gear/gear-main.hbs",
 		"systems/forbidden-lands/templates/tab/gear/weapon-main.hbs",
+		"systems/forbidden-lands/templates/tab/party-main.hbs",
+		"systems/forbidden-lands/templates/tab/travel.hbs",
+		"systems/forbidden-lands/templates/partial/travel-action.hbs",
+		"systems/forbidden-lands/templates/partial/party-member.hbs",
+		"systems/forbidden-lands/templates/party.hbs",
+		"systems/forbidden-lands/templates/partial/list.hbs",
 	];
 	return loadTemplates(templatePaths);
 }
@@ -43,6 +49,26 @@ function registerHandlebarsHelpers() {
 		}
 		return acc;
 	});
+	Handlebars.registerHelper("flps_enrich", function (content) {
+		// Enrich the content
+		content = TextEditor.enrichHTML(content, { entities: true });
+		return new Handlebars.SafeString(content);
+	});
+	Handlebars.registerHelper("flps_capitalize", function (value) {
+		return typeof value === "string" && value.length > 0 ? value[0].toUpperCase() + value.slice(1) : value;
+	});
+	Handlebars.registerHelper("flps_strconcat", function () {
+		const args = Array.prototype.slice.call(arguments);
+		args.pop(); // remove unrelated data
+		return args.join("");
+	});
+
+	Handlebars.registerHelper("flps_enrich", function (content) {
+		// Enrich the content
+		content = TextEditor.enrichHTML(content, { entities: true });
+		return new Handlebars.SafeString(content);
+	});
+
 	Handlebars.registerHelper("damageType", function (type) {
 		type = normalize(type, "blunt");
 		switch (type) {

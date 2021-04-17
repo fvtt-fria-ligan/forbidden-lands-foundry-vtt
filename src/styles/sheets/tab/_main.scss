@@ -4,6 +4,7 @@
 	grid-template-columns: 1fr 1fr;
 	height: 100%;
 	overflow-y: auto;
+	font-size: var(--font-size--default);
 }
 
 .forbidden-lands .attributes {
@@ -24,6 +25,7 @@
 
 .forbidden-lands .attributes .value {
 	font-family: var(--font-special);
+	margin-right: 5px;
 }
 
 .forbidden-lands .attributes .value input {
@@ -44,6 +46,7 @@
 }
 .forbidden-lands .conditions-grid a.condition {
 	font-family: var(--font-special);
+	font-size: var(--font-size--default);
 	font-weight: bold;
 	display: inline-grid;
 	grid: inherit;
@@ -52,7 +55,7 @@
 }
 
 .forbidden-lands .character .condition i {
-	font-size: 18px;
+	font-size: var(--font-size--large);
 	justify-self: end;
 }
 
@@ -81,4 +84,5 @@
 
 .forbidden-lands .skills input {
 	width: 2em;
+	margin-right: 2px;
 }

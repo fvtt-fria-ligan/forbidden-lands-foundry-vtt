@@ -29,9 +29,16 @@
 	margin-left: 4px;
 }
 
-.forbidden-lands .monster .gears .bonus {
+.forbidden-lands .monster .gears .bonus,
+.forbidden-lands .monster .gears .quantity {
 	flex-basis: 15%;
 	text-align: center;
+}
+
+.forbidden-lands .monster .gears input.quantity {
+	flex-basis: 8%;
+	margin-right: 3%;
+	margin-left: 5%;
 }
 
 .forbidden-lands .monster .gears .bonus.broken {
@@ -45,7 +52,7 @@
 
 .forbidden-lands .monster .gears .button {
 	flex-basis: 15%;
-	font-size: 10px;
+	font-size: 11px;
 	text-align: right;
 }
 
@@ -59,7 +66,7 @@
 
 .forbidden-lands .monster .gears .encumbrance {
 	font-family: var(--font-special);
-	font-size: 14px;
+	font-size: var(--font-size--default);
 }
 
 .forbidden-lands .monster .gears .overencumbered {
@@ -67,11 +74,11 @@
 }
 
 .forbidden-lands .monster .gears .change-mounted {
-	font-size: 14px;
+	font-size: var(--font-size--default);
 	margin-right: 10px;
 }
 
 .forbidden-lands .monster .gears .change-mounted .fas.fa-horse {
-	font-size: 16px;
+	font-size: var(--font-size--small);
 	margin-right: 2px;
 }

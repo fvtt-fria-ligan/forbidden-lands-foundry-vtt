@@ -12,7 +12,7 @@ FBL.encumbrance = {
 	tiny: 0,
 	none: 0,
 	light: 0.5,
-	normal: 1,
+	regular: 1,
 	heavy: 2,
 };
 

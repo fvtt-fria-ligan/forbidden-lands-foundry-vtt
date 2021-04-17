@@ -113,7 +113,7 @@
                 </div>
                 <div class="header flex row">
                     <b class="name">{{localize "HEADER.RAW_MATERIAL"}}</b>
-                    <b class="bonus">{{localize "GEAR.BONUS"}}</b>
+                    <b class="bonus">{{localize "ITEM.QUANTITY"}}</b>
                     <b class="weight">{{localize "GEAR.WEIGHT"}}</b>
                     <a class="button item-create" title="Add Raw Material" data-type="rawMaterial"><i
                             class="fas fa-plus"></i></a>
@@ -128,9 +128,7 @@
                             </div>
                             <div class="name">{{item.name}}</div>
                         </div>
-                        <div class="bonus {{isBroken item}}">
-                            {{item.data.bonus.value}}
-                        </div>
+						<input class="quantity" type="number" data-dtype="Number" value="{{item.data.quantity}}" />
                         <div class="weight">{{itemWeight item.data.weight}}</div>
                         <div class="button">
                             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
