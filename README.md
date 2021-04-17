@@ -6,7 +6,7 @@
   <a href="https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/graphs/commit-activity" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg"/>
   </a>
-  <a href="https://gitlocalize.com/repo/5750/whole_project?utm_source=badge" target="_blank"><img alt="Localization" src="https://gitlocalize.com/repo/5750/whole_project/badge.svg" /></a>
+<a href="https://gitlocalize.com/repo/6008/whole_project?utm_source=badge"> <img src="https://gitlocalize.com/repo/6008/whole_project/badge.svg" /> </a>
   <a href="https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/blob/main/LICENSE" target="_blank">
     <img alt="License: GPL" src="https://img.shields.io/github/license/fvtt-fria-ligan/forbidden-lands-foundry-vtt"/>
   </a>

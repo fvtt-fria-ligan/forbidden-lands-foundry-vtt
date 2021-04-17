@@ -108,6 +108,28 @@ You can cancel watching the files for changes by using the command `ctrl + c` in
 
 > **It's not working!** If somewhere along the line something failed, or you are not seeing the Forbidden Lands system in Foundry. Do not stress! Please reach out to us in either Discord or the Discussions here. See [But I just have a question!](#but-i-just-have-a-question)
 
+### 5. .Husky
+
+This project uses the [git hooks automator: Husky](https://typicode.github.io/husky/#/). Husky helps improve the workflow of the project by controlling commit messages for semver compatibility, and automates building, linting and formatting. For your own ease of use it is important you make sure that Husky is functioning correctly.
+
+To do so make a test branch in the project and commit a new file using a commit message that will fail. E.g.
+
+```bash
+git checkout -b test-branch
+touch test.file
+git add -A
+git commit -m "test commit"
+```
+
+You should now see Husky running.
+
+If you have permission issues with Husky on Linux or macOS. Run the below commands to set the right executable permissions for Husky and git hooks.
+
+```bash
+chmod ug+x .husky/*
+chmod ug+x .git/hooks/*
+```
+
 ## :package: What's in the Box?
 
 Following are some of the files and folders that you may be interested in editing, and some you shouldn't edit:
@@ -145,7 +167,7 @@ Following are some of the files and folders that you may be interested in editin
 └── rollup.config.json
 ```
 
-1. `.husky`: This is a git enhancment tool. It is used when preparing releases.
+1. `.husky`: This is a git hooks enhancment tool. See [.Husky](#.husky)
 2. `/archive`: This directory contains the previous builds of the system.
 3. `/dist` \*_Generated_: The directory contains the output of the build process. It is not part of the git repository.
 4. `/node_modules` \*_Generated_: A directory generated when running the `npm install` command. It contains all the dependencies of the project.
@@ -196,26 +218,7 @@ We are always looking for someone who can help with the project or one of the ot
 When you are ready to submit a pull request, make sure you do a few things to help speed up the process.
 
 1.  Make sure you have not modified the files in the `/static` directory. If you need to modify static files make sure you explain in detail why, and whether you have dealt with potential migration issues.
-2.  Lint and Format your code to make sure there are no obvious problems with your code or formatting.
-
-    -   First run:
-
-    ```bash
-    npm run lint
-    ```
-
-    -   If there lint comes up with quick fixes, you can then run:
-
-    ```bash
-    npm run lint:fix
-    ```
-
-    -   Finally format the code:
-
-    ```bash
-    npm run format
-    ```
-
+2.  Make sure [Husky](#.husky) has done its job. E.g. check your commit messages to see that they follow [Conventional Commits Standards](https://www.conventionalcommits.org/en/v1.0.0-beta.2/).
 3.  Now you are ready to submit a Pull Request. The project contains three branches: `main`, `dev`, and `localization-gitlocalize`. When submitting a Pull Request make sure to point it to the `dev` branch. `dev` is continuously merged with main after a period of testing. Then a release is cut from main.
 4.  When creating the Pull Request consider prefacing the title with [an emoji that indicates the type of pull request](https://gitmoji.dev/).
 5.  Briefly describe the pull request and whether you have made any deletions or modifications that may be breaking.
