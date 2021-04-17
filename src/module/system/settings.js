@@ -7,12 +7,20 @@ export default function registerSettings() {
 		default: 0,
 		type: Number,
 	});
-	game.settings.register("forbidden-lands", "allowTravelRollPush", {
+	game.settings.register("forbidden-lands", "allowUnlimitedPush", {
 		name: game.i18n.localize("FLPS.SETTINGS.ALLOW_PUSH"),
 		hint: game.i18n.localize("FLPS.SETTINGS.ALLOW_PUSH_HINT"),
 		scope: "world",
 		config: true,
-		default: true,
+		default: false,
+		type: Boolean,
+	});
+	game.settings.register("forbidden-lands", "alternativeSkulls", {
+		name: "CONFIG.ALTERNATIVESKULLS",
+		hint: "CONFIG.ALTERNATIVESKULLS_DESC",
+		scope: "client",
+		config: true,
+		default: false,
 		type: Boolean,
 	});
 	game.settings.register("forbidden-lands", "datasetDir", {
@@ -22,14 +30,6 @@ export default function registerSettings() {
 		config: true,
 		default: "systems/forbidden-lands/assets",
 		type: window.Azzu.SettingsTypes.DirectoryPicker,
-	});
-	game.settings.register("forbidden-lands", "alternativeSkulls", {
-		name: "CONFIG.ALTERNATIVESKULLS",
-		hint: "CONFIG.ALTERNATIVESKULLS_DESC",
-		scope: "client",
-		config: true,
-		default: false,
-		type: Boolean,
 	});
 	game.settings.register("forbidden-lands", "showCraftingFields", {
 		name: "CONFIG.CRAFTINGFIELD",

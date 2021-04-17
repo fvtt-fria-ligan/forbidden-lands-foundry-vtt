@@ -263,7 +263,7 @@
 
 /* Scrollbars */
 .app {
-	background: #292929 f0;
+	background: #292929f0;
 	&.window-app {
 		color: black;
 		border: 9px solid transparent;
@@ -429,9 +429,10 @@ button,
 		}
 		input[name="name"] {
 			font-family: "IM Fell Three Line Pica";
-			font-size: 3rem;
+			font-size: 2rem;
 			text-transform: uppercase;
 			text-align: center;
+			line-height: 1.35;
 			background-color: #fff;
 			border-image: url("../assets/journal-art/title-border.webp");
 			border-image-slice: 50%;
@@ -447,30 +448,7 @@ button,
 			box-shadow: none;
 		}
 		button[type="submit"] {
-			background: white;
-			width: 120px;
-			line-height: 1;
-			padding: 5px;
 			display: none;
-			position: absolute;
-			left: 50%;
-			transform: translateX(-50%);
-			bottom: 10px;
-			border: 5px solid transparent;
-			border-image: url("../assets/border-small.png") 20/10px repeat;
-			border-image-outset: 1;
-			opacity: 0%;
-			transition: all 0.1s;
-			z-index: 9999;
-		}
-		button[type="submit"]:hover {
-			display: block;
-			opacity: 100%;
-			box-shadow: 0 0 8px grey;
-		}
-		button[type="submit"]:focus {
-			opacity: 100%;
-			box-shadow: 0 0 8px grey;
 		}
 	}
 }

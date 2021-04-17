@@ -63,8 +63,7 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 	_getHeaderButtons() {
 		let buttons = super._getHeaderButtons();
 
-		const allowTravelRollPush = game.settings.get("forbidden-lands", "allowTravelRollPush");
-		if (this.actor.owner && allowTravelRollPush) {
+		if (this.actor.owner) {
 			buttons = [
 				{
 					label: "Push",
