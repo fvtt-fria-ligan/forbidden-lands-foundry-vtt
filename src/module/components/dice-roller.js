@@ -17,7 +17,7 @@ export default class DiceRoller {
 	roll(rollName, base, skill, gear, artifacts, modifier, damage = 0) {
 		this.dices = [];
 		this.lastType = "skill";
-		this.lastRollName = rollName;
+		this.name = rollName;
 		let computedSkill = skill + modifier;
 		let computedSkillType;
 		if (computedSkill > 0) {
@@ -32,12 +32,12 @@ export default class DiceRoller {
 		artifacts.forEach((artifact) => {
 			this.rollDice(artifact.dice, "artifact", artifact.face);
 		});
-		let computedDamage = damage;
+		this.weaponDamage = damage;
+		this.damage = this.weaponDamage;
 		this.hasDamage = damage > 0;
 		if (this.hasDamage) {
-			computedDamage = computedDamage - 1;
+			this.damage = damage - 1;
 		}
-		this.lastDamage = computedDamage;
 		this.sendRollToChat(this, false);
 	}
 
@@ -111,12 +111,13 @@ export default class DiceRoller {
 		let numberOfSword = this.countSword(data);
 		let numberOfSkull = this.countSkull(data);
 		let rollData = {
-			name: data.lastRollName,
+			name: data.name,
 			isPushed: isPushed,
 			isSpell: false,
 			sword: numberOfSword,
 			skull: numberOfSkull,
-			damage: numberOfSword > 0 ? numberOfSword + data.lastDamage : 0,
+			damage: numberOfSword > 0 ? numberOfSword + data.weaponDamage - 1 : 0,
+			weaponDamage: data.weaponDamage,
 			hasDamage: data.hasDamage,
 			dices: data.dices,
 			user: game.userId,
@@ -146,14 +147,14 @@ export default class DiceRoller {
 		let numberOfSword = this.countSword(data);
 		let numberOfSkull = this.countSkull(data);
 		let rollData = {
-			name: this.lastTestName,
+			name: data.name,
 			isPushed: isPushed,
 			isSpell: true,
 			sword: numberOfSword,
 			skull: numberOfSkull,
 			powerLevel: numberOfSword + this.dices.length,
 			hadDamage: false,
-			dices: this.dices,
+			dices: data.dices,
 			user: game.userId,
 		};
 		const html = await renderTemplate("systems/forbidden-lands/templates/chat/roll.hbs", rollData);
@@ -168,15 +169,17 @@ export default class DiceRoller {
 			chatData.whisper = [game.user];
 		}
 		chatData["flags.forbidden-lands.rollData"] = rollData;
+		const roll = this.synthetizeFakeRoll(data.dices);
+		chatData.roll = JSON.stringify(roll);
 		ChatMessage.create(chatData);
 	}
 
 	rollSpell(testName, base, success) {
 		this.dices = [];
 		this.lastType = "spell";
-		this.lastTestName = testName;
+		this.name = testName;
 		this.rollDice(base, "base", 6, success);
-		this.lastDamage = 0;
+		this.damage = 0;
 		this.sendRollSpellToChat(this, false);
 	}
 

@@ -78,10 +78,14 @@ Hooks.on("renderChatMessage", async (app, html) => {
 	// Push rolls
 	const pushButton = html.find("button.push-roll");
 	if (!app.roll) return;
+	const rollData = app.data.flags["forbidden-lands"].rollData;
 	const notPushable =
 		app.data.flags["forbidden-lands"]?.pushed ||
 		app.permission !== 3 ||
-		!app.roll.dice.some((a) => a instanceof BaseDie || a instanceof GearDie);
+		!app.roll.dice.some((a) => a instanceof BaseDie || a instanceof GearDie) ||
+		rollData.isSpell ||
+		(rollData.isPushed && !game.settings.get("forbidden-lands", "allowUnlimitedPush")) ||
+		(game.user.isGM && !game.settings.get("forbidden-lands", "allowUnlimitedPush"));
 	if (notPushable) {
 		pushButton.each((_i, b) => {
 			b.style.display = "none";
@@ -89,13 +93,8 @@ Hooks.on("renderChatMessage", async (app, html) => {
 	} else {
 		pushButton.on("click", () => {
 			const diceRoller = new DiceRoller();
-			const rollData = app.data.flags["forbidden-lands"].rollData;
 			diceRoller.push(rollData);
 			app.update({ flags: { "forbidden-lands.pushed": true } });
-			if (app)
-				pushButton.each((_i, b) => {
-					b.style.display = "none";
-				});
 		});
 	}
 });

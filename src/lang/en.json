@@ -296,8 +296,8 @@
 	"WEIGHT.TINY": "Tiny",
 	"WEIGHT.TYPE_REGULAR": "Regular",
 	"WEIGHT.TYPE_SPECIAL": "Special",
-	"FLPS.SETTINGS.ALLOW_PUSH": "Allow Pushing Travel Rolls",
-	"FLPS.SETTINGS.ALLOW_PUSH_HINT": "Some GMs disallow pushing travel rolls to limit willpower accumulation. If this setting is off, then 'Push' button will not be displayed in the party sheet header.",
+	"FLPS.SETTINGS.ALLOW_PUSH": "Allow Unlimited Pushing",
+	"FLPS.SETTINGS.ALLOW_PUSH_HINT": "If your character is a dwarf, or maybe your GM allows an unlimited number of pushed rolls, OR you are a GM who wants to be able to push NPC rolls, check this setting to display a push button on pushed rolls.",
 
 	"FLPS.TAB.MAIN": "MAIN",
 	"FLPS.TAB.TRAVEL": "TRAVEL",
