@@ -4,8 +4,8 @@
 		font-family: swordlings;
 		text-transform: lowercase;
 		content: "x";
-		line-height: 18px;
-		margin-left: -17px;
+		line-height: 17px;
+		margin-left: -15px;
 		margin-top: 1px;
 	}
 	#{$add}:after {
@@ -15,6 +15,5 @@
 		content: "l";
 		font-size: 25px;
 		line-height: 23px;
-		margin-left: 1px;
 	}
 }

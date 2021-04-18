@@ -5,7 +5,7 @@ export class ForbiddenLandsStrongholdSheet extends ForbiddenLandsActorSheet {
 			...super.defaultOptions,
 			classes: ["forbidden-lands", "sheet", "actor"],
 			template: "systems/forbidden-lands/templates/stronghold.hbs",
-			width: 600,
+			width: 650,
 			height: 700,
 			resizable: false,
 			scrollY: [".buildings.item-list .items", ".hirelings.item-list .items", ".gears.item-list .items"],
