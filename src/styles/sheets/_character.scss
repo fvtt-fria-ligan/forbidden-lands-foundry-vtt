@@ -19,11 +19,28 @@
 
 .forbidden-lands .character .bio table td {
 	padding: 0.25em;
+	input {
+		max-width: 50px;
+		&.kin,
+		&.profession {
+			max-width: 120px;
+		}
+		&.name {
+			max-width: 225px;
+		}
+	}
 }
 
-.forbidden-lands .character .bio .skulls {
-	white-space: nowrap;
-	height: 1.75em;
+.forbidden-lands .character .bio {
+	.willpower.skulls {
+		justify-content: flex-start;
+		align-items: flex-end;
+		white-space: nowrap;
+		height: 1.75em;
+		.change-willpower > i.skull {
+			font-size: var(--font-size--default);
+		}
+	}
 }
 
 .forbidden-lands .character .bio .avatar {

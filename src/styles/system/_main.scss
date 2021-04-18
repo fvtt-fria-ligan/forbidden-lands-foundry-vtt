@@ -384,10 +384,10 @@ button,
 	}
 	.tab-item {
 		position: relative;
-		flex: 1 0;
-		padding: 8px 19px;
+		flex: 0;
+		padding: 8px 12px;
 		font-weight: 400;
-		font-size: var(--font-size--default);
+		font-size: 1.5rem;
 		color: #fff;
 		text-align: center;
 		white-space: nowrap;

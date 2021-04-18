@@ -6,7 +6,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 			...super.defaultOptions,
 			classes: ["forbidden-lands", "sheet", "actor"],
 			template: "systems/forbidden-lands/templates/monster.hbs",
-			width: 620,
+			width: 700,
 			height: 770,
 			resizable: false,
 			scrollY: [

@@ -1,7 +1,7 @@
 <form class="{{cssClass}}" autocomplete="off">
 	<div class="character">
 		<div class="bio border">
-			<div class="flex row align-center">
+			<div class="flex row align-center space-between">
 				<div class="avatar">
 					<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
 				</div>
@@ -11,13 +11,13 @@
 							<label>{{localize "BIO.NAME"}}:</label>
 						</td>
 						<td colspan="3">
-							<input name="name" type="text" value="{{actor.name}}" />
+							<input class="name" name="name" type="text" value="{{actor.name}}" />
 						</td>
 						<td>
 							<label>{{localize data.bio.kin.label}}:</label>
 						</td>
 						<td>
-							<input name="data.bio.kin.value" type="text" value="{{data.bio.kin.value}}" />
+							<input class="kin" name="data.bio.kin.value" type="text" value="{{data.bio.kin.value}}" />
 						</td>
 					</tr>
 					<tr>
@@ -47,7 +47,12 @@
 							<label>{{localize data.bio.profession.label}}:</label>
 						</td>
 						<td>
-							<input name="data.bio.profession.value" type="text" value="{{data.bio.profession.value}}" />
+							<input
+								class="profession"
+								name="data.bio.profession.value"
+								type="text"
+								value="{{data.bio.profession.value}}"
+							/>
 						</td>
 					</tr>
 					<tr>
@@ -77,7 +82,7 @@
 						</td>
 						<td colspan="2">
 							<div
-								class="skulls {{#unless data.bio.willpower.value }}broken{{/unless}} flex row align-center"
+								class="skulls willpower {{#unless data.bio.willpower.value }}broken{{/unless}} flex row align-center"
 							>
 								<a class="change-willpower">
 									{{#skulls data.bio.willpower.value data.bio.willpower.max}}

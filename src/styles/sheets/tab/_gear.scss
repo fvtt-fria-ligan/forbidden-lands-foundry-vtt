@@ -18,6 +18,7 @@ a.currency-button {
 
 .forbidden-lands .character .currencies .header b {
 	font-family: var(--font-special);
+	font-size: var(--font-size--default);
 }
 
 .forbidden-lands .character .currencies .values label {
@@ -42,6 +43,15 @@ a.currency-button {
 	font-family: var(--font-special);
 	padding: 8px 0;
 	justify-content: center;
+	font-size: var(--font-size--default);
+	i {
+		margin-left: 5px;
+		margin-bottom: 2px;
+		font-size: 2.3rem;
+	}
+	button {
+		margin-right: 6px;
+	}
 }
 
 .forbidden-lands .character .consumables .consumable select {
