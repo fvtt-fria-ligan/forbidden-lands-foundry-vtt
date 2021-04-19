@@ -30,6 +30,11 @@ FBL.itemTypes = [
 	"weapon",
 ];
 
+FBL.dataSetConfig = {
+	en: "dataset",
+	"pt-BR": "dataset-pt-br",
+};
+
 FBL.weaponFeatures = ["blunt", "edged", "hook", "parrying", "pointed", "slowReload"];
 
 export default FBL;
