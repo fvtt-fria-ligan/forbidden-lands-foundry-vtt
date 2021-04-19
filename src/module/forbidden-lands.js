@@ -12,7 +12,7 @@ import FBL from "./system/config.js";
 import registerSettings from "./system/settings.js";
 import { BaseDie, GearDie } from "./components/dice.js";
 
-CONFIG.debug.hooks = true;
+//CONFIG.debug.hooks = true;
 
 Hooks.once("init", () => {
 	game.fbl = {
