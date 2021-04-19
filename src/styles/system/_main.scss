@@ -202,6 +202,7 @@
 .forbidden-lands .editor-content {
 	font-family: var(--font-editor);
 	height: 100%;
+	min-height: 200px;
 	padding: 5px;
 	width: 100%;
 }
@@ -434,10 +435,10 @@ button,
 		}
 		input[name="name"] {
 			font-family: "IM Fell Three Line Pica";
-			font-size: var(--font-size--extra-large);
+			font-size: 2.5rem;
 			text-transform: uppercase;
 			text-align: center;
-			line-height: 1.35;
+			line-height: 2;
 			background-color: #fff;
 			border-image: url("../assets/journal-art/title-border.webp");
 			border-image-slice: 50%;
