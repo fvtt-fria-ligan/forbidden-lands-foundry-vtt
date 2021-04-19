@@ -15,6 +15,10 @@ export class ForbiddenLandsActor extends Actor {
 		}
 		return super.createEmbeddedEntity(embeddedName, newData, options);
 	}
+	static async create(data, options) {
+		if (!data.img && data.type === "party") data.img = "systems/forbidden-lands/assets/fbl-sun.webp";
+		super.create(data, options);
+	}
 }
 
 export class ForbiddenLandsItem extends Item {
