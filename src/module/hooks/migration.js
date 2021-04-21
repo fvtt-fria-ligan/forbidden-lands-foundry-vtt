@@ -14,7 +14,7 @@ export const migrateWorld = async () => {
 					await actor.update(update, { enforceTypes: false });
 				}
 			} catch (e) {
-				console.error(e);
+				ui.notifications.error("Migration of actors failed.");
 			}
 		}
 		for (let item of game.items.entities) {
@@ -24,7 +24,7 @@ export const migrateWorld = async () => {
 					await item.update(update, { enforceTypes: false });
 				}
 			} catch (e) {
-				console.error(e);
+				ui.notifications.error("Migration of items failed.");
 			}
 		}
 		for (let scene of game.scenes.entities) {
@@ -33,8 +33,8 @@ export const migrateWorld = async () => {
 				if (!isObjectEmpty(update)) {
 					await scene.update(update, { enforceTypes: false });
 				}
-			} catch (err) {
-				console.error(err);
+			} catch (e) {
+				ui.notifications.error("Migration of scenes failed.");
 			}
 		}
 		for (let pack of game.packs.filter(
