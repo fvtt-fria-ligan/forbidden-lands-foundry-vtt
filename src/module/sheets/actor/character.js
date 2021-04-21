@@ -221,6 +221,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 									<br/>`,
 								yes: async () => await this._charGen(),
 								no: () => {},
+								defaultYes: false,
 							});
 						} else {
 							await this._charGen();
