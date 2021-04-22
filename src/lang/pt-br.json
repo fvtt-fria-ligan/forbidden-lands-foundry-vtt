@@ -36,10 +36,10 @@
   "ATTACK.SLASH": "Cortante",
   "ATTACK.STAB": "Golpear",
 
-  "ATTRIBUTE.AGILITY": "AGILIDADE",
-  "ATTRIBUTE.EMPATHY": "EMPATIA",
-  "ATTRIBUTE.STRENGTH": "FORÇA",
-  "ATTRIBUTE.WITS": "ASTÚCIA",
+  "ATTRIBUTE.AGILITY": "Agilidade",
+  "ATTRIBUTE.EMPATHY": "Empatia",
+  "ATTRIBUTE.STRENGTH": "Força",
+  "ATTRIBUTE.WITS": "Astúcia",
 
   "BIO.AGE": "Idade",
   "BIO.BODY": "Corpo",
