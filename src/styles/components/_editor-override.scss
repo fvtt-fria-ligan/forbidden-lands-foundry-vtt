@@ -1,0 +1,111 @@
+@use "utils";
+
+.app.sheet {
+	form {
+		display: flex;
+		flex-direction: column;
+		.editor {
+			min-height: 200px;
+			height: 100%;
+			.editor-content {
+				width: 100%;
+				font-family: "IM Fell Great Primer";
+				font-size: var(--font-size--large);
+				line-height: 1.6;
+				text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+				color: #333;
+				padding: 0 3em;
+				display: flex;
+				flex-flow: column;
+				align-items: center;
+				* {
+					max-width: 70ch;
+				}
+				#{utils.fromTo(h,1,6)} {
+					font-family: "IM Fell Three Line Pica";
+					text-transform: uppercase;
+					text-indent: 0px;
+					text-align: center;
+					border: unset;
+				}
+				h5 {
+					margin: 0px auto;
+					font-family: "IM Fell Three Line Pica";
+					text-transform: uppercase;
+					border-top: 1px solid black;
+					width: 18%;
+					padding-top: 4px;
+				}
+				p + p {
+					text-indent: 14px;
+					margin-top: -0.5em;
+					a.entity-link {
+						text-indent: 0px;
+					}
+				}
+				blockquote {
+					margin: 20px auto;
+					max-width: 55ch;
+					padding: 0 50px;
+					font-size: 2.4rem;
+					font-style: italic;
+					border: unset;
+				}
+				table {
+					font-family: "Poppins";
+					font-size: var(--font-size--small);
+					line-height: 1;
+					padding: 25px 0;
+					max-width: 100%;
+					border: none;
+					border-collapse: collapse;
+					margin: auto;
+					margin-bottom: 15px;
+					h4 {
+						font-family: "Poppins";
+						font-weight: bold;
+						margin: 0;
+						text-align: left;
+						text-transform: uppercase;
+					}
+					tr:nth-child(2) {
+						border-top: 1px solid #7a7971;
+					}
+					tr:nth-child(even) {
+						background-color: rgb(170, 170, 170);
+					}
+					td {
+						padding-right: 10px;
+						max-width: 200px;
+						p {
+							text-indent: 0;
+						}
+					}
+				}
+			}
+		}
+		& > input[name="name"] {
+			font-family: "IM Fell Three Line Pica";
+			font-size: 4rem;
+			text-transform: uppercase;
+			text-align: center;
+			line-height: 2;
+			background-color: #fff;
+			border-image: url("../assets/journal-art/title-border.webp");
+			border-image-slice: 50%;
+			border-image-width: 100%;
+			padding: max(10px, 1%) min(14%, 130px) 0;
+			text-overflow: ellipsis;
+			width: min(100%, 900px);
+			min-height: 200px;
+			height: min(45%, 300px);
+			margin: auto;
+			&:focus {
+				box-shadow: none;
+			}
+		}
+		& > button[type="submit"] {
+			display: none;
+		}
+	}
+}
