@@ -1,0 +1,7 @@
+@function fromTo($pref: h, $from: 1, $to: 6) {
+	@if $from == $to {
+		@return "#{$pref}#{$from}";
+	} @else {
+		@return "#{$pref}#{$from},"+fromTo($pref, $from + 1, $to);
+	}
+}
