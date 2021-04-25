@@ -10,7 +10,7 @@ export default function registerSettings() {
 	game.settings.register("forbidden-lands", "allowUnlimitedPush", {
 		name: game.i18n.localize("FLPS.SETTINGS.ALLOW_PUSH"),
 		hint: game.i18n.localize("FLPS.SETTINGS.ALLOW_PUSH_HINT"),
-		scope: "world",
+		scope: "client",
 		config: true,
 		default: false,
 		type: Boolean,
