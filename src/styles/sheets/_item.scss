@@ -4,6 +4,10 @@
 	height: 100%;
 	max-width: 600px;
 	max-height: 700px;
+	.header {
+		border: 6px solid transparent;
+		border-image: url(../assets/journal-art/small-border.webp) 100/18px repeat;
+	}
 }
 
 .forbidden-lands.item .multivalue {
@@ -69,7 +73,7 @@
 }
 
 .forbidden-lands.item .avatar img:hover {
-	box-shadow: 0 0 10px red;
+	box-shadow: 0 0 10px #a00;
 	cursor: pointer;
 }
 
