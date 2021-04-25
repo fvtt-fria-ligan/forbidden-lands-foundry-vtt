@@ -56,7 +56,7 @@ npm install
 
 ```bash
 # Build the dist folder where the system package lives.
-npm run build
+npm run dev
 ```
 
 ### 3. Link dist folder in systems.
@@ -101,7 +101,7 @@ If you do, congratulations:tada:! To begin editing the code:
 
 ```bash
 # Run the command that builds the dist folder then watches it for changes.
-npm run build:watch
+npm run dev:watch
 ```
 
 You can cancel watching the files for changes by using the command `ctrl + c` in the terminal window.
