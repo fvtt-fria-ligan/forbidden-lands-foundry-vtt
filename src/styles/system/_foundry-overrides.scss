@@ -68,22 +68,17 @@ h3 {
 	.window-header {
 		border: none;
 	}
-	&.sheet {
-		&.minimized {
-			.window-header {
-				border: none;
-				margin-top: -10px;
-				display: flex;
-				align-items: center;
-				line-height: 1.5;
-				padding: unset;
-				a {
-					margin-right: -10px;
-				}
-				.window-title {
-					overflow: hidden;
-					white-space: pre;
-				}
+	&.minimized {
+		.window-header {
+			border: none;
+			margin-top: -10px;
+			display: flex;
+			align-items: center;
+			line-height: 1.5;
+			padding: unset;
+			.window-title {
+				overflow: hidden;
+				white-space: pre;
 			}
 		}
 	}
@@ -153,7 +148,13 @@ a {
 #scenes {
 	.scene {
 		h3 {
-			background-color: rgba(160, 160, 160, 0.3);
+			background-color: #cccccc60;
+			white-space: pre-wrap;
+			line-height: 1;
+			display: grid;
+			& > a {
+				place-self: center;
+			}
 		}
 	}
 }
