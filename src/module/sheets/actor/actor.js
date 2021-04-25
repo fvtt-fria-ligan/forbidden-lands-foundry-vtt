@@ -20,6 +20,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 
 	activateListeners(html) {
 		super.activateListeners(html);
+		if (!game.user.isGM && this.actor.limited) return;
 		// Attribute markers
 		html.find(".change-attribute").on("click contextmenu", (ev) => {
 			const attributeName = $(ev.currentTarget).data("attribute");

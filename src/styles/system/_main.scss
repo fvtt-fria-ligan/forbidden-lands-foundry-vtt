@@ -1,10 +1,5 @@
 @use "utils";
 
-.forbidden-lands.item .header {
-	border: 10px solid transparent;
-	border-image: url(../assets/journal-art/small-border.webp) 100/18px repeat;
-}
-
 .forbidden-lands .main-tab div.border,
 .forbidden-lands div.bio.border,
 .character div.currencies.border,
@@ -281,6 +276,10 @@
 			min-height: 300px;
 		}
 		&.sheet {
+			&.journal-sheet {
+				min-height: 260px;
+				min-width: 560px;
+			}
 			&.forbidden-lands {
 				&.actor {
 					::-webkit-scrollbar {
@@ -424,37 +423,4 @@ button,
 }
 .broken .change-willpower .far.fa-circle {
 	color: #333;
-}
-
-.journal-sheet {
-	form {
-		display: flex;
-		flex-direction: column;
-		.editor {
-			height: 100%;
-		}
-		input[name="name"] {
-			font-family: "IM Fell Three Line Pica";
-			font-size: 2.5rem;
-			text-transform: uppercase;
-			text-align: center;
-			line-height: 2;
-			background-color: #fff;
-			border-image: url("../assets/journal-art/title-border.webp");
-			border-image-slice: 50%;
-			border-image-width: 100%;
-			padding: max(10px, 1%) min(14%, 130px) 0;
-			text-overflow: ellipsis;
-			width: min(100%, 900px);
-			min-height: 200px;
-			height: min(45%, 300px);
-			margin: auto;
-		}
-		input[name="name"]:focus {
-			box-shadow: none;
-		}
-		button[type="submit"] {
-			display: none;
-		}
-	}
 }
