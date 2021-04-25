@@ -5,9 +5,8 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			classes: ["forbidden-lands", "sheet", "actor"],
-			template: "systems/forbidden-lands/templates/character.hbs",
 			width: 700,
-			height: 770,
+			height: 780,
 			resizable: false,
 			scrollY: [
 				".armors .item-list .items",
@@ -25,6 +24,11 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 				},
 			],
 		});
+	}
+
+	get template() {
+		if (!game.user.isGM && this.actor.limited) return "systems/forbidden-lands/templates/limited-character.hbs";
+		return "systems/forbidden-lands/templates/character.hbs";
 	}
 
 	getData() {
