@@ -237,13 +237,22 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 		let kin = kinKey ? this.dataset.kin[kinKey] : this.rollOn(this.dataset.kin);
 
 		character.kin = kin.key;
-		if (character.age === undefined) {
-			character.age = this.rollAge(kin.age);
+		if (character.kin === "elf") {
+			character.age = {
+				ageNumber: NaN,
+				ageKey: 1,
+				ageString: "Adult",
+			};
+			character = this.rollFormativeEvents(character);
 		} else {
-			character.age.ageNumber = this.rollNumber(
-				kin.age[character.age.ageKey][0],
-				kin.age[character.age.ageKey][1],
-			);
+			if (character.age === undefined) {
+				character.age = this.rollAge(kin.age);
+			} else {
+				character.age.ageNumber = this.rollNumber(
+					kin.age[character.age.ageKey][0],
+					kin.age[character.age.ageKey][1],
+				);
+			}
 		}
 		character.childhood = this.rollOn(kin.childhood);
 
@@ -258,6 +267,7 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 
 	rollFormativeEvents(character) {
 		let profession = this.dataset.profession[character.profession];
+		if (!profession) return character;
 		let formativeEvents = [];
 		let rolled = [];
 		let event = {};
@@ -304,8 +314,8 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 		const mapping = ["Young", "Adult", "Old"];
 		let age = {};
 		age.ageKey = this.rollNumber(0, 2);
-		age.ageString = mapping[age.ageKey];
 		age.ageNumber = this.rollNumber(ageRanges[age.ageKey][0], ageRanges[age.ageKey][1]);
+		age.ageString = mapping[age.ageKey];
 
 		return age;
 	}
