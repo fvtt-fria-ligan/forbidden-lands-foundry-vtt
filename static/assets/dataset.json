@@ -602,11 +602,7 @@
 			"key": "elf",
 			"name": "Elf",
 			"weight": 2,
-			"age": [
-				[20, 40],
-				[41, 200],
-				[201, 400]
-			],
+			"age": [[0, 0]],
 			"talent": "Inner Peace",
 			"childhood": {
 				"loner": {
@@ -681,7 +677,7 @@
 					"name": "Pilgrimage",
 					"weight": 1,
 					"description": "You performed a pilgrimage that lead you across the Forbidden Lands. You reached your destination after many hardships, but you will never forget your perilous journey.",
-					"items": "✣ Receive a staff, a backpack, and a waterskin.",
+					"items": "✥ Receive a staff, a backpack, and a waterskin.",
 					"skills": { "lore": "1", "survival": "1" },
 					"talent": "Wanderer"
 				},
@@ -690,7 +686,7 @@
 					"name": "Hunted",
 					"weight": 1,
 					"description": "Something happened that forced you to run for your life. Maybe you rubbed the wrong person the wrong way, maybe you were accused of something you hadn't done.",
-					"items": "✣ Receive D3 doses sleeping poison and a dagger.",
+					"items": "✥ Receive D3 doses sleeping poison and a dagger.",
 					"skills": { "melee": "1", "move": "1" },
 					"talent": "Sixth Sense"
 				},
@@ -699,7 +695,7 @@
 					"name": "Unexpected Find",
 					"weight": 1,
 					"description": "You found a treasure marked with the sign of your god. You saw this as a sign that your mission was righteous, but others didn't see it the same way. Maybe there is still someone looking for the treasure?",
-					"items": "✣ Roll once on the table for Valuable finds in the lair, reroll if the result is below 32.",
+					"items": "✥ Roll once on the table for @Macro[Valuable Finds in the Lair], reroll if the result is too hheavy to carry.",
 					"skills": { "crafting": "1", "survival": "1" },
 					"talent": "Lucky"
 				},
@@ -708,7 +704,7 @@
 					"name": "Studied With A Master",
 					"weight": 1,
 					"description": "A wise druid took you under his/her wing and taught you for a long period. It was an intense time, but also educational. Maybe your master is still alive somewhere, maybe he/she was killed by the Iron Guard.",
-					"items": "✣ Receive parchment, ink, and quill.",
+					"items": "✥ Receive parchment, ink, and quill.",
 					"skills": { "lore": "1", "healing": "1" },
 					"talent": "Sharp Tongue"
 				},
@@ -717,7 +713,7 @@
 					"name": "Protected The Forest",
 					"weight": 1,
 					"description": "You took it upon yourself to protect a forest against the evil and violence of strangers. You lived in the cover of proud trees, one with the beings of the forest.",
-					"items": "✣ Receive a short bow and a D12 Resource Die for arrows.",
+					"items": "✥ Receive a short bow and a D12 Resource Die for arrows.",
 					"skills": { "marksmanship": "1", "animal handling": "1" },
 					"talent": "Herbalist"
 				},
@@ -726,7 +722,7 @@
 					"name": "Lived As A Hermit",
 					"weight": 1,
 					"description": "You sought the beauty of nature, away from the violent conflicts of the Forbidden Lands. When you finally returned to the land, you did so with newfound strength.",
-					"items": "✣ Receive a tent and a field kitchen.",
+					"items": "✥ Receive a tent and a field kitchen.",
 					"skills": { "endurance": "1", "survival": "1" },
 					"talent": "Pathfinder"
 				}
@@ -737,7 +733,7 @@
 			"name": "Fighter",
 			"weight": 1,
 			"paths": ["Path of the Blade", "Path of the Enemy", "Path of the Shield"],
-			"equipment": ["One-handed Weapon", "Studded Leather Armor", "Trade Goods"],
+			"equipment": ["One-handed Weapon", "Studded Leather", "Trade Goods"],
 			"consumables": { "food": 8, "water": 8, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
@@ -746,7 +742,7 @@
 					"name": "Captured",
 					"weight": 1,
 					"description": "You were shamefully captured by enemies. You were thrown in a dungeon to be forgotten and die. When the opportunity arose to escape, you took it.",
-					"items": "✣ Receive studded leather armor.",
+					"items": "✥ Receive studded leather armor.",
 					"skills": { "might": "1", "survival": "1" },
 					"talent": "Pain Resistant"
 				},
@@ -755,7 +751,7 @@
 					"name": "Bloody Battle",
 					"weight": 1,
 					"description": "You took part in a terrible battle and were badly injured. When dawn broke, your friends had been defeated to the last man, and the enemy had left you to the ravens.",
-					"items": "✣ Receive a longsword.",
+					"items": "✥ Receive a longsword.",
 					"skills": { "melee": "2" },
 					"talent": "Sword Fighter"
 				},
@@ -764,7 +760,7 @@
 					"name": "A Long March",
 					"weight": 1,
 					"description": "You signed on as a soldier and marched across the Forbidden Lands. You barely remember what you fought for, or who your enemies were. But you remember how the forces of nature took your friends one by one.",
-					"items": "✣ Receive a tent, a blanket, and a cauldron.",
+					"items": "✥ Receive a tent, a blanket, and a cauldron.",
 					"skills": { "survival": "1", "healing": "1" },
 					"talent": "Pack Rat"
 				},
@@ -773,7 +769,7 @@
 					"name": "On Horseback",
 					"weight": 1,
 					"description": "You learned to ride and signed on as a knight with a lord. You fought in skirmishes, patrolled and guarded the country from enemies.",
-					"items": "✣ Receive a mount of your choice (not warhorse)",
+					"items": "✥ Receive a mount of your choice (not warhorse)",
 					"skills": { "melee": "1", "animal handling": "1" },
 					"talent": "Horseback Fighter"
 				},
@@ -782,7 +778,7 @@
 					"name": "Scout",
 					"weight": 1,
 					"description": "You signed on with a company of soldiers and were placed in the vanguard as a scout. Your task to discover the enemy before they discovered you, and you were good at it. Maybe something happened to your squad, maybe you weren't paying much attention just that once?",
-					"items": "✣ Receive a light crossbow and a D12 Resource Die for arrows.",
+					"items": "✥ Receive a light crossbow and a D12 Resource Die for arrows.",
 					"skills": { "scouting": "1", "marksmanship": "1" },
 					"talent": "Defender"
 				},
@@ -791,7 +787,7 @@
 					"name": "Commander",
 					"weight": 1,
 					"description": "You commanded a squad of soldiers. Your comrades looked up to you and would die for you. But something happened, maybe you were betrayed, maybe defeated in an ambush. Your comrades fell or fled, but you survived.",
-					"items": "✣ Receive chainmail armor and a closed helmet.",
+					"items": "✥ Receive chainmail armor and a closed helmet.",
 					"skills": { "lore": "1", "manipulation": "1" },
 					"talent": "Cold Blooded"
 				}
@@ -811,7 +807,7 @@
 					"name": "Hunted A Beast",
 					"weight": 1,
 					"description": "The hunt was everything. You tracked the beast over land, water, and mountain. At times, the roles were reversed, maybe at times you were the prey?",
-					"items": "✣ Receive a short spear and a bear trap.",
+					"items": "✥ Receive a short spear and a bear trap.",
 					"skills": { "melee": "1", "scouting": "1" },
 					"talent": "Spear Fighter"
 				},
@@ -820,7 +816,7 @@
 					"name": "Lived Off The Forest",
 					"weight": 1,
 					"description": "You dwelt in the forest and lived off it. During the days you hunted, and at night, you slept under the open sky. It was a simple but good life. It had to end one day.",
-					"items": "✣ Receive a throwing spear and a dagger.",
+					"items": "✥ Receive a throwing spear and a dagger.",
 					"skills": { "marksmanship": "1", "survival": "1" },
 					"talent": "Master Of The Hunt"
 				},
@@ -829,7 +825,7 @@
 					"name": "Tamed A Mount",
 					"weight": 1,
 					"description": "You caught a wild horse (or another suitable animal). It wasn't easy, but after a long time you tamed the creature and in time you became inseparable.",
-					"items": "✣ Receive a mount of your choice. It cannot be a warhorse.",
+					"items": "✥ Receive a mount of your choice. It cannot be a warhorse.",
 					"skills": { "animal handling": "2" },
 					"talent": "Horseback Fighter"
 				},
@@ -838,7 +834,7 @@
 					"name": "Won An Archery Competition",
 					"weight": 1,
 					"description": "You realized early on that you had a natural talent for archery, and set out to become even better. When you visited a large village or castle, you participated in a competition and won.",
-					"items": "✣ Receive a longbow and a D12 Resource Die for arrows.",
+					"items": "✥ Receive a longbow and a D12 Resource Die for arrows.",
 					"skills": { "marksmanship": "2" },
 					"talent": "Sharpshooter"
 				},
@@ -847,7 +843,7 @@
 					"name": "Guide",
 					"weight": 1,
 					"description": "You loaned your talents as a guide to those who paid the best. You led caravans of peddlers, troops of soldiers, and curious adventurers. You learned the art of traversing the Forbidden Lands and living off of it.",
-					"items": "✣ Receive a tent, a cauldron, and a blanket.",
+					"items": "✥ Receive a tent, a cauldron, and a blanket.",
 					"skills": { "scouting": "2" },
 					"talent": "Pathfinder"
 				},
@@ -856,7 +852,7 @@
 					"name": "Hunted For A Lord",
 					"weight": 1,
 					"description": "A nobleman noticed your skills and hired you as his forester. You lived a good life, half of the time in comfort in the lord's castle, the rest of the time hunting in the woods.",
-					"items": "✣ Receive a well-sewn cloak and a sleeping fur.",
+					"items": "✥ Receive a well-sewn cloak and a sleeping fur.",
 					"skills": { "marksmanship": "1", "insight": "1" },
 					"talent": "Sixth Sense"
 				}
@@ -876,7 +872,7 @@
 					"name": "Wrote A Popular Ballad",
 					"weight": 1,
 					"description": "A ballad or story that you wrote became immensely popular in the surrounding area. To this day, you hear local minstrels performing your piece.",
-					"items": "✣ Receive ink, a feather, and parchment.",
+					"items": "✥ Receive ink, a feather, and parchment.",
 					"skills": { "manipulation": "1", "performance": "1" },
 					"talent": "Lucky"
 				},
@@ -885,7 +881,7 @@
 					"name": "Worked As A Minstrel",
 					"weight": 1,
 					"description": "You used your artistic talents to make a living as a minstre. Maybe you were of the traveling kind, maybe you worked at a more permanent location, like a tavern or a castle.",
-					"items": "✣ Receive a lute.",
+					"items": "✥ Receive a lute.",
 					"skills": { "performance": "2" },
 					"talent": "Sharp Tongue"
 				},
@@ -894,7 +890,7 @@
 					"name": "Inspirational Journey",
 					"weight": 1,
 					"description": "You went on a journey across the Forbidden Lands, to learn of the kin, cultures, and legends. On your journey you encountered many adventures and gathered enough material to fill a smaller book of ballads.",
-					"items": "✣ Receive a small tent, a blanket, and a cauldron.",
+					"items": "✥ Receive a small tent, a blanket, and a cauldron.",
 					"skills": { "lore": "1", "survival": "1" },
 					"talent": "Fearless"
 				},
@@ -903,7 +899,7 @@
 					"name": "Sang For A Lord",
 					"weight": 1,
 					"description": "Your talent drew the attention of a local lord and he offered you a place as an entertainer at his court. Your time in the castle was filled with wine, delicious food, and clinking silver. But also insidious intrigue, assassinations, and jealousy.",
-					"items": "✣ Receive fine garments and a dagger",
+					"items": "✥ Receive fine garments and a dagger",
 					"skills": { "insight": "1", "performance": "1" },
 					"talent": "Sixth Sense"
 				},
@@ -912,7 +908,7 @@
 					"name": "Enlisted",
 					"weight": 1,
 					"description": "Life took an unexpected turn and you were enlisted in a company of soldiers. Life in the field was rough, but you made faithful friends and learned to live off the land.",
-					"items": "✣ Receive leather armor and an open helmet.",
+					"items": "✥ Receive leather armor and an open helmet.",
 					"skills": { "melee": "1", "survival": "1" },
 					"talent": "Defender"
 				},
@@ -921,7 +917,7 @@
 					"name": "Dueled A Rival",
 					"weight": 1,
 					"description": "A rival saw you as a thorn in his side. For a period, your fates were interwined in the most troublesome ways: love, money, and work. In the end, it was too much. You were challenged to a duel, and you were injured. Maybe your rival is still out somewhere.",
-					"items": "✣ Receive a short sword.",
+					"items": "✥ Receive a short sword.",
 					"skills": { "melee": "1", "healing": "1" },
 					"talent": "Sword Fighter"
 				}
@@ -941,7 +937,7 @@
 					"name": "Caravan",
 					"weight": 1,
 					"description": "You were part of an arduous trade caravan that traveled through the Forbidden Lands. The caravan encountered many dangers, and not everyone made it to the final destination. Maybe someone was left behind on the way?",
-					"items": "✣ Receive a donkey",
+					"items": "✥ Receive a donkey",
 					"skills": { "animal handling": "1", "manipulation": "1" },
 					"talent": "Wanderer"
 				},
@@ -950,7 +946,7 @@
 					"name": "Local Business",
 					"weight": 1,
 					"description": "You saw a financial opportunity and you made the most of it. Maybe you imported fruit to a lord's castle, maybe you sold fabrics from Alderland. Business went swimmingly - for a while.",
-					"items": "✣ Receive a cart",
+					"items": "✥ Receive a cart",
 					"skills": { "insight": "1", "manipulation": "1" },
 					"talent": "Lucky"
 				},
@@ -959,7 +955,7 @@
 					"name": "Cheated",
 					"weight": 1,
 					"description": "A trusted companion deceived you and left you destitute. You learned and important lesson the hard way, and had to spend a long time rebuilding your life from the rubble. Maybe your old companion still alive?",
-					"items": "✣ Receive a small tent, a blanket and a cauldron.",
+					"items": "✥ Receive a small tent, a blanket and a cauldron.",
 					"skills": { "insight": "2" },
 					"talent": "Incorruptible"
 				},
@@ -968,7 +964,7 @@
 					"name": "Side Mission",
 					"weight": 1,
 					"description": "You teamed up with a group of adventurers and went on a great adventure in the Forbidden Lands. You had to face many dangers, and many perished on the journey, but you learned a lot about yourself on the way.",
-					"items": "✣ Receive a chainmail armor and a small shield.",
+					"items": "✥ Receive a chainmail armor and a small shield.",
 					"skills": { "melee": "1", "lore": "1" },
 					"talent": "Fearless"
 				},
@@ -977,7 +973,7 @@
 					"name": "Smuggler",
 					"weight": 1,
 					"description": "You created a lucrative business by smuggling contraband between the settlements of the Forbidden Lands. Maybe you smuggled weapons, maybe forbidden drugs. You learned the importance of discretion and how to avoid attention.",
-					"items": "✣ Receive a spyglass.",
+					"items": "✥ Receive a spyglass.",
 					"skills": { "scouting": "1", "insight": "1" },
 					"talent": "Sixth Sense"
 				},
@@ -986,7 +982,7 @@
 					"name": "Ran A Shop",
 					"weight": 1,
 					"description": "You chose to settle in a village and run a shop for a period of your life. You could live off of it, but not very well. In the end, you realized that the quiet existance wasn't for you.",
-					"items": "✣ Receive a scale, ink, a quill, and parchment.",
+					"items": "✥ Receive a scale, ink, a quill, and parchment.",
 					"skills": { "manipulation": "2" },
 					"talent": "Sharp Tongue"
 				}
@@ -1006,7 +1002,7 @@
 					"name": "Enlisted",
 					"weight": 1,
 					"description": "You joined a company of soldiers. Maybe you joined of your own free will, maybe you were conscripted. With your comrades you braved many hardships: battles, long marches, and harsh weather. In the end, something happened to make you leave the company.",
-					"items": "✣ Receive studded leather armor and a large shield.",
+					"items": "✥ Receive studded leather armor and a large shield.",
 					"skills": { "melee": "1", "marksmanship": "1" },
 					"talent": "Horseback Fighter"
 				},
@@ -1015,7 +1011,7 @@
 					"name": "Competed",
 					"weight": 1,
 					"description": "You earned a living as a competitive rider, and traveled from village to village, castle to castle and competed against other riders. As long as you were winning you had a good life, but when you started losing, it was time to move on.",
-					"items": "✣ Receive a cloak.",
+					"items": "✥ Receive a cloak.",
 					"skills": { "move": "1", "animal handling": "1" },
 					"talent": "Fast Footwork"
 				},
@@ -1024,7 +1020,7 @@
 					"name": "Traveled The Land",
 					"weight": 1,
 					"description": "Your lust for adventure took over, and you went out for a long ride across the Forbidden Lands. You rode through miserable wastes, severe storms, and braves many dangers.",
-					"items": "✣ Receive a small tent, a cauldron, and a blanket.",
+					"items": "✥ Receive a small tent, a cauldron, and a blanket.",
 					"skills": { "survival": "1", "scouting": "1" },
 					"talent": "Herbalist"
 				},
@@ -1033,7 +1029,7 @@
 					"name": "Caravan Guard",
 					"weight": 1,
 					"description": "You took employment as a guard in a caravan, and escorted peddlers through dark forests and high mountains.",
-					"items": "✣ Receive a short spear",
+					"items": "✥ Receive a short spear",
 					"skills": { "melee": "1", "scouting": "1" },
 					"talent": "Pathfinder"
 				},
@@ -1042,7 +1038,7 @@
 					"name": "Cattle Herder",
 					"weight": 1,
 					"description": "You herded livestock to greener pastures in the Forbidden Lands. In the daytime, you guarded the herd from horseback. At night, you slept under the open sky.",
-					"items": "✣ Receive a lantern and a waterskin.",
+					"items": "✥ Receive a lantern and a waterskin.",
 					"skills": { "move": "1", "animal handling": "1" },
 					"talent": "Quartermaster"
 				},
@@ -1051,7 +1047,7 @@
 					"name": "Steppe Rider",
 					"weight": 1,
 					"description": "You rode across the everlasting steppes of the Forbidden Lands and lived simply by hunting and selling meat and animals hides.",
-					"items": "✣ Receive a short bow and a D12 Resource Die for arrows",
+					"items": "✥ Receive a short bow and a D12 Resource Die for arrows",
 					"skills": { "marksmanship": "1", "animal handling": "1" },
 					"talent": "Tanner"
 				}
@@ -1071,7 +1067,7 @@
 					"name": "Stole From The Wrong Person",
 					"weight": 1,
 					"description": "It was the perfect crime. For a while. You stole something valuable from the wrong person, at the wrong time. You were hunted and had to run for your life.",
-					"items": "✣ Receive lockpicks.",
+					"items": "✥ Receive lockpicks.",
 					"skills": { "sleight of hand": "1", "move": "1" },
 					"talent": "Lightning Fast"
 				},
@@ -1080,7 +1076,7 @@
 					"name": "Imprisoned",
 					"weight": 1,
 					"description": "Guilty or not, you were caught and thrown in jail. You had to spend a long time in the darkness but never gave up. Finally, the chance to escape emerged, and you took it.",
-					"items": "✣ Receive a dagger.",
+					"items": "✥ Receive a dagger.",
 					"skills": { "endurance": "1", "survival": "1" },
 					"talent": "Pain Resistant"
 				},
@@ -1089,7 +1085,7 @@
 					"name": "Successful Heist",
 					"weight": 1,
 					"description": "You planned and successfully performed a heist. Maybe it was against a rich peddler, maybe against a local lord.",
-					"items": "✣ Receive an item from Valuable finds in a lair. Reroll if the result is below 33.",
+					"items": "✥ Receive an item from Valuable finds in a lair. Reroll if the result is below 33.",
 					"skills": { "sleight of hand": "1", "stealth": "1" },
 					"talent": "Lucky"
 				},
@@ -1098,7 +1094,7 @@
 					"name": "Joined A Guild Of Thieves",
 					"weight": 1,
 					"description": "You sought out an association of thieves and became part of the community. Together, you planned heists, and carried out dangerous missions.",
-					"items": "✣ Receive leather armor.",
+					"items": "✥ Receive leather armor.",
 					"skills": { "insight": "1", "scouting": "1" },
 					"talent": "Sixth Sense"
 				},
@@ -1107,7 +1103,7 @@
 					"name": "Enlisted",
 					"weight": 1,
 					"description": "You found yourself, probably against your will, enlisted in a company of soldiers. There you worked as a scout, and ranged far ahead of the others. Your time there was filled with misery and dangers, but also friendship.",
-					"items": "✣ Receive a short bow and a D12 Resource Die for arrows.",
+					"items": "✥ Receive a short bow and a D12 Resource Die for arrows.",
 					"skills": { "marksmanship": "1", "scouting": "1" },
 					"talent": "Pathfinder"
 				},
@@ -1116,7 +1112,7 @@
 					"name": "Band Of Robbers",
 					"weight": 1,
 					"description": "You disappeared into the woods and joined a band of robbers that lived off peddlers and caravans who stumbled into their path. Life in the forest was carefree and good for as long as it lasted, but in the end, the robbers were ousted from the woods.",
-					"items": "✣ Receive a short sword.",
+					"items": "✥ Receive a short sword.",
 					"skills": { "melee": "1", "survival": "1" },
 					"talent": "Lightning Fast"
 				}
@@ -1136,7 +1132,7 @@
 					"name": "Failed Experiment",
 					"weight": 1,
 					"description": "You performed a magical experiment that failed catastrophically. Maybe someone was seriously injured, maybe you were banished from your home.",
-					"items": "✣ Receive a D6 doses of hallucinogenic poison.",
+					"items": "✥ Receive a D6 doses of hallucinogenic poison.",
 					"skills": { "lore": "1", "healing": "1" },
 					"talent": "Poisoner"
 				},
@@ -1145,7 +1141,7 @@
 					"name": "Secluded Studies",
 					"weight": 1,
 					"description": "You sought out a secluded location to immerse yourself in the study of magic. You lived off nature and your books and scrolls were your only companions.",
-					"items": "✣ Receive a small tent and a cauldron.",
+					"items": "✥ Receive a small tent and a cauldron.",
 					"skills": { "lore": "1", "survival": "1" },
 					"talent": "Quartermaster"
 				},
@@ -1154,7 +1150,7 @@
 					"name": "Found Strange Artifact",
 					"weight": 1,
 					"description": "You found a strange artifact during your travels through the Forbidden Lands. You became obsessed with its history and the thought that it might hold magical powers.",
-					"items": "✣ Roll once on the table for Valuable finds in the lair. Re-roll if the result is below 32.",
+					"items": "✥ Roll once on the table for Valuable finds in the lair. Re-roll if the result is below 32.",
 					"skills": { "crafting": "1", "insight": "1" },
 					"talent": "Incorruptible"
 				},
@@ -1163,7 +1159,7 @@
 					"name": "Court Magician",
 					"weight": 1,
 					"description": "You took employment with a local lord and served as his arcane advisor. Maybe the lord had a hidden agenda, maybe you got into a conflict with higher ranking advisors. You learned much about people in positions of power.",
-					"items": "✣ Receive a bottle of expensive wine and a cloak.",
+					"items": "✥ Receive a bottle of expensive wine and a cloak.",
 					"skills": { "insight": "1", "manipulation": "1" },
 					"talent": "Sharp Tongue"
 				},
@@ -1172,7 +1168,7 @@
 					"name": "Entertainer",
 					"weight": 1,
 					"description": "You worked as an entertainer, using your knowledge of magic to perform illusioins and tricks. Maybe you worked at a run down inn, maybe you were employed at a lord's court.",
-					"items": "✣ Receive fine garments and a crystal ball.",
+					"items": "✥ Receive fine garments and a crystal ball.",
 					"skills": { "manipulation": "2" },
 					"talent": "Lightning Fast"
 				},
@@ -1181,7 +1177,7 @@
 					"name": "Enlisted",
 					"weight": 1,
 					"description": "You were enlisted in a company of soldiers. You spent a long time in the field where you assisted with your magical expertise. You saw comrades killed, but you managed to make it out with just an ugly scar or two.",
-					"items": "✣ Receive studded leather armor and a closed helmet.",
+					"items": "✥ Receive studded leather armor and a closed helmet.",
 					"skills": { "melee": "1", "healing": "1" },
 					"talent": "Defender"
 				}

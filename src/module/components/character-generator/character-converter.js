@@ -125,7 +125,7 @@ export class CharacterConverter {
 		return new ItemClass({
 			name: name,
 			type: type || "gear",
-			data: type === "talent" ? {} : { weight: "tiny" },
+			data: type === "talent" ? {} : { weight: "none" },
 		});
 	}
 
