@@ -1,6 +1,7 @@
 @use "utils";
 
-.app.sheet {
+.app.journal-sheet,
+.app.sheet.actor {
 	form {
 		display: flex;
 		flex-direction: column;
@@ -104,8 +105,11 @@
 				box-shadow: none;
 			}
 		}
-		& > button[type="submit"] {
-			display: none;
-		}
+	}
+}
+
+.app.journal-sheet form {
+	& > button[type="submit"] {
+		display: none;
 	}
 }

@@ -1,12 +1,10 @@
 export function initializeCalendar() {
 	// Init support for the Calendar/Weather module
-	if (
-		!game.modules.get("calendar-weather")?.active &&
-		game.settings.get("forbidden-lands", "worldSchemaVersion") === 0
-	) {
-		ui.notifications.notify(
-			"Install the Calendar/Weather module for calendar support: https://foundryvtt.com/packages/calendar-weather/",
-		);
+	if (!game.modules.get("calendar-weather")?.active) {
+		if (game.settings.get("forbidden-lands", "worldSchemaVersion") === 0)
+			ui.notifications.notify(
+				"Install the Calendar/Weather module for calendar support: https://foundryvtt.com/packages/calendar-weather/",
+			);
 		return;
 	}
 

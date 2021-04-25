@@ -1,10 +1,5 @@
 @use "utils";
 
-.forbidden-lands.item .header {
-	border: 10px solid transparent;
-	border-image: url(../assets/journal-art/small-border.webp) 100/18px repeat;
-}
-
 .forbidden-lands .main-tab div.border,
 .forbidden-lands div.bio.border,
 .character div.currencies.border,
