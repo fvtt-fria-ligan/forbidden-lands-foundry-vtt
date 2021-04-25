@@ -22,9 +22,11 @@ module.exports = {
 			  })
 			: null,
 		nodeResolve(),
-		terser({
-			mangle: false,
-			module: true,
-		}),
+		env === "production"
+			? terser({
+					mangle: false,
+					module: true,
+			  })
+			: null,
 	],
 };
