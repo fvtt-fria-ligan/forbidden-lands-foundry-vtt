@@ -54,7 +54,7 @@
 					"key": "laborer",
 					"name": "Trabalhadora",
 					"weight": 1,
-					"description": "Você trabalhou em uma fazenda realizando trabalhos braçais. Você sabe tudo sobre grãos, gado e colheitas. No fundo, porém, você almejava outra coisa.", 
+					"description": "Você trabalhou em uma fazenda realizando trabalhos braçais. Você sabe tudo sobre grãos, gado e colheitas. No fundo, porém, você almejava outra coisa.",
 					"attributes": { "strength": "5", "agility": "3", "wits": "3", "empathy": "4" },
 					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal handling": "1" }
 				},
@@ -967,7 +967,7 @@
 					"key": "side mission",
 					"name": "Missão Secundária",
 					"weight": 1,
-					"description": "Você se juntou a um grupo de aventureiros e foi se aventurar nas Terras Proibidas. Você enfrentou muitos perigos, evitando a Névoa de Sangue que tomou a vida de muitos de seus amigos, e aprendeu muito sobre si mesma no caminho.", 
+					"description": "Você se juntou a um grupo de aventureiros e foi se aventurar nas Terras Proibidas. Você enfrentou muitos perigos, evitando a Névoa de Sangue que tomou a vida de muitos de seus amigos, e aprendeu muito sobre si mesma no caminho.",
 					"items": "✣ Receba uma cota de malha e uma espada curta.",
 					"skills": { "melee": "1", "lore": "1" },
 					"talent": "Destemido"
@@ -976,7 +976,7 @@
 					"key": "smuggler",
 					"name": "Contrabandista",
 					"weight": 1,
-					"description": "Você ganhava muita prata ao contrabandear entre os assentamentos das Terras Proibidas, sempre evitando a Irmandade Enferrujada e a Névoa de Sangue. Você aprendeu a importância de ser discreta e de evitar atenção a qualquer custo.", 
+					"description": "Você ganhava muita prata ao contrabandear entre os assentamentos das Terras Proibidas, sempre evitando a Irmandade Enferrujada e a Névoa de Sangue. Você aprendeu a importância de ser discreta e de evitar atenção a qualquer custo.",
 					"items": "✣ Receba uma luneta e uma adaga.",
 					"skills": { "scouting": "1", "insight": "1" },
 					"talent": "Sexto Sentido"
@@ -1023,7 +1023,7 @@
 					"key": "traveled the land",
 					"name": "Viajou pela Terra",
 					"weight": 1,
-					"description": "O desejo de aventura a tomou, e você saiu em uma longa viagem pelas Terras Proibidas, desafiando a mortal Névoa de Sangue. Você cavalgou através de terras devastadas e de tempestades  sombrias, e desafiou muitos perigos.", 
+					"description": "O desejo de aventura a tomou, e você saiu em uma longa viagem pelas Terras Proibidas, desafiando a mortal Névoa de Sangue. Você cavalgou através de terras devastadas e de tempestades  sombrias, e desafiou muitos perigos.",
 					"items": "✣ Recebe uma tenda pequena, um caldeirão e um cobertor.",
 					"skills": { "survival": "1", "scouting": "1" },
 					"talent": "Herbalista"
@@ -1180,7 +1180,7 @@
 					"key": "enlisted",
 					"name": "Alistada",
 					"weight": 1,
-					"description": "Você foi alistada em uma companhia de soldados. Você passou um longo tempo em campo, onde ajudava com seus conhecimentos mágicos. Você viu companheiros sendo mortos, mas conseguiu fugir disso com apenas uma ou duas cicatrizes feias.", 
+					"description": "Você foi alistada em uma companhia de soldados. Você passou um longo tempo em campo, onde ajudava com seus conhecimentos mágicos. Você viu companheiros sendo mortos, mas conseguiu fugir disso com apenas uma ou duas cicatrizes feias.",
 					"items": "✣ Receba uma armadura de couro batido, um elmo fechado e uma espada curta.",
 					"skills": { "melee": "1", "healing": "1" },
 					"talent": "Defensor"
