@@ -21,11 +21,14 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 	}
 
 	static async loadDataset() {
-		if (game.fbl.config.dataset) return game.fbl.config.dataset;
+		let dataset;
+		if (game.settings.get("forbidden-lands", "datasetDirSet")) {
+			dataset = game.settings.get("forbidden-lands", "datasetDir");
+		}
 		const lang = game.i18n.lang;
 		const datasetName = game.fbl.config.dataSetConfig[lang] || "dataset";
-		const dataset = `systems/forbidden-lands/assets/datasets/chargen/${datasetName}.json`;
-		const resp = await fetch(dataset).catch((_err) => {
+		const defaultDataset = `systems/forbidden-lands/assets/datasets/chargen/${datasetName}.json`;
+		const resp = await fetch(dataset ? dataset : defaultDataset).catch((_err) => {
 			return {};
 		});
 		return resp.json();
