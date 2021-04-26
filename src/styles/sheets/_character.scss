@@ -14,7 +14,7 @@
 	width: auto;
 	background: none;
 	border: none;
-	margin: 5px 5px 5px 0;
+	margin: 5px 0;
 }
 
 .forbidden-lands .character .bio table td {
@@ -32,6 +32,31 @@
 }
 
 .forbidden-lands .character .bio {
+	padding: 0 8px;
+	.avatar {
+		background: radial-gradient(closest-side, var(--color-highlight) 0%, transparent 100%);
+		flex: 0 0 auto;
+		height: 95px;
+		width: 95px;
+		padding: 0 0.25em;
+		&:hover {
+			box-shadow: 0 0 10px #a00;
+			cursor: pointer;
+		}
+		img {
+			border: 0 none;
+			display: block;
+			max-width: 95px;
+			max-height: 95px;
+			min-width: 20px;
+			min-height: 20px;
+			margin: auto;
+			&:hover {
+				box-shadow: 0 0 10px #a00;
+				cursor: pointer;
+			}
+		}
+	}
 	.willpower.skulls {
 		justify-content: flex-start;
 		align-items: flex-end;
@@ -43,29 +68,18 @@
 	}
 }
 
-.forbidden-lands .character .bio .avatar {
-	background: radial-gradient(closest-side, var(--color-highlight) 0%, transparent 100%);
-	flex: 0 0 auto;
-	height: 95px;
-	width: 95px;
-}
-
-.forbidden-lands .character .bio .avatar img {
-	border: 0 none;
-	display: block;
-	max-width: 95px;
-	max-height: 95px;
-	min-width: 20px;
-	min-height: 20px;
-	margin: auto;
-	margin-left: 5px;
-}
-.forbidden-lands .character .bio .avatar img:hover {
-	box-shadow: 0 0 10px red;
-	cursor: pointer;
-}
-
-.forbidden-lands .character .roll {
+.forbidden-lands
+	.character
+	.bio
+	.avatar
+	.forbidden-lands
+	.character
+	.bio
+	.avatar
+	img
+	.forbidden-lands
+	.character
+	.roll {
 	background: transparent;
 	border: 0 none;
 	cursor: pointer;
@@ -75,7 +89,7 @@
 
 .forbidden-lands .character .roll:hover {
 	box-shadow: none;
-	text-shadow: 0 0 8px red;
+	text-shadow: 0 0 8px #a00;
 }
 
 .forbidden-lands .character .push {
@@ -88,7 +102,7 @@
 
 .forbidden-lands .character .push:hover {
 	box-shadow: none;
-	text-shadow: 0 0 8px red;
+	text-shadow: 0 0 8px #a00;
 }
 
 .forbidden-lands .monster h1,

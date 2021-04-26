@@ -22,6 +22,7 @@
 								{{/each}} {{/select}}
 							</select>
 						</div>
+						{{#unless (eq character.kin "elf")}}
 						<button class="chargen-roll chargen-roll-age" type="button"></button>
 						<div class="chargen-section-content">
 							<strong>{{localize "FLCG.AGE"}}</strong>
@@ -36,6 +37,7 @@
 								<span class="chargen-age">{{localize character.age.ageString}}</span>
 							</div>
 						</div>
+						{{/unless}}
 					</div>
 					<div class="flex row">
 						<button class="chargen-roll chargen-roll-profession" type="button"></button>

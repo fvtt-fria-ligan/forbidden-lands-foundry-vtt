@@ -12,7 +12,12 @@ import FBL from "./system/config.js";
 import registerSettings from "./system/settings.js";
 import { BaseDie, GearDie } from "./components/dice.js";
 
-CONFIG.debug.hooks = true;
+/**
+ * We use this label to remove the debug option in production builds. @See rollup.config.js
+ */
+// eslint-disable-next-line no-unused-labels
+hookDebug: CONFIG.debug.hooks = true;
+console.warn("HOOKS DEBUG ENABLED: ", CONFIG.debug.hooks);
 
 Hooks.once("init", () => {
 	game.fbl = {
@@ -31,8 +36,8 @@ Hooks.once("init", () => {
 });
 
 Hooks.once("ready", () => {
-	migrateWorld();
 	initializeCalendar();
+	migrateWorld();
 });
 
 Hooks.once("diceSoNiceReady", (dice3d) => {
