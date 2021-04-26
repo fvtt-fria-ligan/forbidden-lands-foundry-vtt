@@ -19,7 +19,7 @@ foundryconfig.json
 dist/
 
 #Static files
-
+static/
 
 # ESLint
 .eslintcache
