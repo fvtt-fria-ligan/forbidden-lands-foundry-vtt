@@ -25,7 +25,7 @@ const stylesDirectory = `${sourceDirectory}/styles`;
 const stylesExtension = "scss";
 const sourceFileExtension = "js";
 const srcFiles = ["lang", "templates"];
-const staticFiles = ["assets", "fonts", "scripts", "system.json", "template.json"];
+const staticFiles = ["assets", "fonts", "scripts", "system.json", "template.json", "LICENSE"];
 const getDownloadURL = (version) =>
 	`https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v${version}/v${version}.zip`;
 const repoPathing = (relativeSourcePath = ".", sourcemapPath = ".") => {

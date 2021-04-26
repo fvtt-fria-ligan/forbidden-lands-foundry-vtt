@@ -24,6 +24,7 @@
 	"ARTIFACT.APPEARANCE": "Appearance",
 	"ARTIFACT.ARTIFACT_BONUS": "Artifact Bonus",
 	"ARTIFACT.DESCRIPTION": "Description",
+	"ARTIFACT.DICELESS": "Special",
 	"ARTIFACT.DRAWBACK": "Drawback",
 	"ARTIFACT.EPIC": "Epic",
 	"ARTIFACT.LEGENDARY": "Legendary",
@@ -350,9 +351,9 @@
 	"FLCG.TALENT": "Talent",
 
 	"FLCG.SETTINGS.DATASET_DIR": "Dataset Directory",
-	"FLCG.SETTINGS.DATASET_DIR_HINT": "Path to a directory with dataset.json file. You can make your own dataset to customize generator's output.",
+	"FLCG.SETTINGS.DATASET_DIR_HINT": "Path to a directory with dataset.json file. You can make your own dataset to customize the generator's output.",
 	"FLCG.WARNING": "WARNING!",
 	"FLCG.WARNING_DESTRUCTIVE_EDIT": "You are about to destructively edit your character.",
-	"FLCG.WARNING_HINT": "Clicking the \"Apply!\"-button in the character generator will change your character with no way to reset the changes.",
+	"FLCG.WARNING_HINT": "Clicking the \"Apply!\"-button in the character generator will permanently change your character with no way to revert these changes.",
 	"FLCG.WARNING_ARE_YOU_SURE": "Are you sure you want to do this?"
 }
