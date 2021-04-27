@@ -352,6 +352,7 @@
 
 	"FLCG.SETTINGS.DATASET_DIR": "Dataset Directory",
 	"FLCG.SETTINGS.DATASET_DIR_HINT": "Path to a directory with dataset.json file. You can make your own dataset to customize the generator's output.",
+	"FLCG.SETTINGS.RESET_DIR": "Reset chargen dataset directory.",
 	"FLCG.WARNING": "WARNING!",
 	"FLCG.WARNING_DESTRUCTIVE_EDIT": "You are about to destructively edit your character.",
 	"FLCG.WARNING_HINT": "Clicking the \"Apply!\"-button in the character generator will permanently change your character with no way to revert these changes.",
