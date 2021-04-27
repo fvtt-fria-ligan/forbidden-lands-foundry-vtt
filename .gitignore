@@ -1,28 +1,28 @@
 # OS
-__MACOSX/
+/__MACOSX
 
 # IDE
-.idea/
-.vs/
-.vscode
+/.idea
+/.vs
+/.vscode
 *.code-workspace
 .history
 
 # Node Modules
-node_modules/
+/node_modules
 npm-debug.log
 
 # Local configuration
 foundryconfig.json
 
 # Distribution files
-dist/
+/dist
 
 #Static files
-
+/static
 
 # ESLint
-.eslintcache
+/.eslintcache
 
 # Junit results
 junit.xml
