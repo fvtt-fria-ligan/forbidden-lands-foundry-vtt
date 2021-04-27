@@ -259,6 +259,12 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 		}
 		character.childhood = this.rollOn(kin.childhood);
 
+		character.childhood.attributes = {
+			"ATTRIBUTE.STRENGTH": character.childhood.attributes.strength,
+			"ATTRIBUTE.AGILITY": character.childhood.attributes.agility,
+			"ATTRIBUTE.EMPATHY": character.childhood.attributes.empathy,
+			"ATTRIBUTE.WITS": character.childhood.attributes.wits,
+		};
 		return character;
 	}
 
