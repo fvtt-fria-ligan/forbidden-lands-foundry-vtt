@@ -21,10 +21,9 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 	}
 
 	static async loadDataset() {
-		let dataset;
-		if (game.settings.get("forbidden-lands", "datasetDirSet")) {
-			dataset = game.settings.get("forbidden-lands", "datasetDir");
-		}
+		const dataset = game.settings.get("forbidden-lands", "datasetDir") || null;
+		if (dataset && dataset.substr(-4, 4) !== "json")
+			throw ForbiddenLandsCharacterGenerator.handleBadDataset("Dataset is not a JSON file.");
 		const lang = game.i18n.lang;
 		const datasetName = game.fbl.config.dataSetConfig[lang] || "dataset";
 		const defaultDataset = `systems/forbidden-lands/assets/datasets/chargen/${datasetName}.json`;
@@ -34,18 +33,16 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 		return resp.json();
 	}
 
-	getData() {
+	async getData() {
 		const data = super.getData();
 		if (this.character === null) {
-			this.character = this.generateCharacter();
+			this.character = await this.generateCharacter();
 		}
-
 		data.character = this.character;
 		data.dataset = this.dataset;
 		data.dataset.childhood = this.dataset.kin[this.character.kin].childhood;
 		data.dataset.paths = this.dataset.profession[this.character.profession].paths;
 		data.dataset.formativeEvents = this.dataset.profession[this.character.profession].formativeEvents;
-
 		return data;
 	}
 
@@ -221,14 +218,16 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 		return false;
 	}
 
-	handleRandomizeAll(_event) {
-		this.character = this.generateCharacter();
+	async handleRandomizeAll(_event) {
+		this.character = await this.generateCharacter();
 		this.render(true);
 
 		return false;
 	}
 
-	generateCharacter() {
+	async generateCharacter() {
+		if (!this.dataset.profession || !this.dataset.kin)
+			throw ForbiddenLandsCharacterGenerator.handleBadDataset("Dataset is not in the correct format.", this);
 		let character = {};
 		character = this.setKin(character);
 		let profession = this.rollOn(this.dataset.profession);
@@ -350,5 +349,19 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 
 	rollTable(rollTable) {
 		return rollTable[this.rollNumber(0, rollTable.length - 1)];
+	}
+
+	static async handleBadDataset(err, app) {
+		console.error(err);
+		if (!app) return ui.notifications.error("Cannot recover, try again.");
+		ui.notifications.warn("Warning: Dataset not valid. See console for details. Attempting to recover.");
+		app.close();
+
+		await game.settings.set("forbidden-lands", "datasetDir", "");
+		const newChargen = await new ForbiddenLandsCharacterGenerator(
+			await ForbiddenLandsCharacterGenerator.loadDataset(),
+			app.existActor,
+		);
+		return newChargen.render(true);
 	}
 }
