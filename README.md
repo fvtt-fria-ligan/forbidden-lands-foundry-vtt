@@ -1,4 +1,4 @@
- <h1 align="center"> ⚠️ REWRITE AT 1800 UTC 29.04.21 ⚠️ <br> ANY WORK YOU WANT TO AVOID REBASING NEEDS A PULL REQUEST BY THAT TIME </h1>
+ <h1 align="center"> CONTRIBUTING?<br>⚠️ <a href="https://github.com/aMediocreDad/forbidden-lands-foundry-vtt/blob/main/CONTRIBUTING.md#recycle-history-rewrite">PLEASE READ THIS</a> BEFORE MAKING A PULL REQUEST! ⚠️</h1>
 
 <p align="center">
   <a href="https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/latest" target="_blank"><img alt="system version" src="https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffvtt-fria-ligan%2Fforbidden-lands-foundry-vtt%2Fmain%2Fstatic%2Fsystem.json&label=Version&query=$.version&colorB=blue"/></a>

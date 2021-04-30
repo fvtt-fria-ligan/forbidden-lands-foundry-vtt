@@ -39,6 +39,28 @@ Once you are done, click the yellow button that says "Create Review Request" and
 
 Click the "Add Language" button and get started. :+1:
 
+## :recycle: History Rewrite
+> It all started when we recently got a hold of a missing piece of history for this repository.
+
+The history rewrite was necessary to attach the origin history of this repo onto its original base. The base was lost back in december, but it is now reattached.
+
+### I have a fork. What do I do?
+Ideally, wipe your local repo and clone this one as upstream, then run:
+```bash
+git push -f --prune --mirror
+```
+### But I already have a downstream branch in development
+Recovering from this requires a bit more work. If you have only a few commits on the downstream branch [make a diff patch](https://git-scm.com/docs/diff-generate-patch) and run:
+```bash
+git branch --set-upstream-to upstream
+git reset hard @{u}
+```
+Then reapply the patch: `git apply /path/to/patch.diff` and push to your server like above.
+
+Even if you have several commits you may want to consider doing the above diff patch method. The alternative is a rebase. For guidance on this look at the easy and hard case [in this document](https://htmlpreview.github.io/?https://raw.githubusercontent.com/newren/git-filter-repo/docs/html/git-rebase.html). Try the easy case first (there has been no changes to the recent history beyond commit id changes), if this doesn't work get back to where you started and attempt the hard case. Good luck!
+
+Should you have any issues please open a discussion.
+
 ## :rocket: Get Started
 
 > **Important!** You need to [have node.js LTS-version installed](https://nodejs.org/en/) with npm available.
