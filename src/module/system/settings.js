@@ -1,36 +1,16 @@
-class JSONPicker extends FilePicker {
-	// Override
-	_onSubmit(event) {
-		game.settings.set("forbidden-lands", "datasetDirSet", true);
-		super._onSubmit(event);
-	}
-	// Override
-	static fromButton(button, _options) {
-		if (!(button instanceof HTMLElement)) throw "You must pass an HTML button";
-		let type = button.getAttribute("data-type");
-
-		let form = button.form,
-			target = form[button.getAttribute("data-target")];
-		if (!target) return;
-
-		return new JSONPicker({ field: target, type: type, current: target.value, button: button });
-	}
-}
-
 Hooks.on("renderSettingsConfig", (_app, html, _user) => {
 	const filePickerButton = $(
-		`<button type="button" class="file-picker" title="Select Custom Dataset" data-type="JSON" data-target="forbidden-lands.datasetDir"><i class="fas fa-file-import fa-fw"></i></button>`,
+		`<button type="button" class="file-picker" title="Select Custom Dataset" data-type="json" data-target="forbidden-lands.datasetDir"><i class="fas fa-file-import fa-fw"></i></button>`,
 	);
 	filePickerButton.on("click", function () {
-		const picker = JSONPicker.fromButton(this);
+		const picker = FilePicker.fromButton(this);
 		return picker.render(true);
 	});
 	const resetButton = $(
 		`<button type="button" class="file-picker" title="Reset to default dataset"><i class="fas fa-undo"></i></button>`,
 	);
 	resetButton.on("click", function () {
-		game.settings.set("forbidden-lands", "datasetDirSet", false);
-		ui.notifications.notify(game.i18n.localize("FLCG.SETTINGS.RESET_DIR"));
+		this.previousElementSibling.value = "";
 		this.blur();
 	});
 
@@ -68,20 +48,12 @@ export default function registerSettings() {
 		default: false,
 		type: Boolean,
 	});
-	game.settings.register("forbidden-lands", "datasetDirSet", {
-		name: "Custom File Set",
-		hint: "This is a boolean used to track whether a custom dir is set.",
-		scope: "world",
-		config: false,
-		default: false,
-		type: Boolean,
-	});
 	game.settings.register("forbidden-lands", "datasetDir", {
 		name: game.i18n.localize("FLCG.SETTINGS.DATASET_DIR"),
 		hint: game.i18n.localize("FLCG.SETTINGS.DATASET_DIR_HINT"),
 		scope: "world",
 		config: true,
-		default: `/systems/forbidden-lands/assets/datasets/chargen/dataset.json`,
+		default: "",
 		type: String,
 	});
 	game.settings.register("forbidden-lands", "showCraftingFields", {
