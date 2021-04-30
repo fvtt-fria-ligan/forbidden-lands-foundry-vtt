@@ -1,3 +1,28 @@
+Hooks.on("renderSettingsConfig", (_app, html, _user) => {
+	const filePickerButton = $(
+		`<button type="button" class="file-picker" title="Select Custom Dataset" data-type="json" data-target="forbidden-lands.datasetDir"><i class="fas fa-file-import fa-fw"></i></button>`,
+	);
+	filePickerButton.on("click", function () {
+		const picker = FilePicker.fromButton(this);
+		return picker.render(true);
+	});
+	const resetButton = $(
+		`<button type="button" class="file-picker" title="Reset to default dataset"><i class="fas fa-undo"></i></button>`,
+	);
+	resetButton.on("click", function () {
+		this.previousElementSibling.value = "";
+		this.blur();
+	});
+
+	const target = html.find("input[data-dtype='String'");
+	const { name } = target[0];
+	const parent = target.parent();
+
+	if (name !== "forbidden-lands.datasetDir") return;
+
+	parent.append([resetButton, filePickerButton]);
+});
+
 export default function registerSettings() {
 	game.settings.register("forbidden-lands", "worldSchemaVersion", {
 		name: "World Version",
@@ -28,8 +53,8 @@ export default function registerSettings() {
 		hint: game.i18n.localize("FLCG.SETTINGS.DATASET_DIR_HINT"),
 		scope: "world",
 		config: true,
-		default: "systems/forbidden-lands/assets",
-		type: window.Azzu.SettingsTypes.DirectoryPicker,
+		default: "",
+		type: String,
 	});
 	game.settings.register("forbidden-lands", "showCraftingFields", {
 		name: "CONFIG.CRAFTINGFIELD",
