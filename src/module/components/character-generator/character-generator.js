@@ -260,14 +260,29 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 			}
 		}
 		character.childhood = this.rollOn(kin.childhood);
+		character.childhood.attributes = this.mappingAttributes(character);
+		character.childhood.skills = this.mappingSkills(character.childhood.skills);
+		return character;
+	}
 
-		character.childhood.attributes = {
+	mappingAttributes(character) {
+		return {
 			"ATTRIBUTE.STRENGTH": character.childhood.attributes.strength,
 			"ATTRIBUTE.AGILITY": character.childhood.attributes.agility,
 			"ATTRIBUTE.EMPATHY": character.childhood.attributes.empathy,
 			"ATTRIBUTE.WITS": character.childhood.attributes.wits,
 		};
-		return character;
+	}
+
+	mappingSkills(skills) {
+		const normalize = (skill) => {
+			let SKILL_NAME = skill.shift().toUpperCase().replace(/\s/g, "_");
+			return SKILL_NAME.split(".").shift() === "SKILL" ? SKILL_NAME : `SKILL.${SKILL_NAME}`;
+		};
+
+		return Object.entries(skills)
+			.map((skill) => ({ [normalize(skill)]: skill.pop() }))
+			.reduce((skill, item) => ({ ...skill, [Object.keys(item)]: item[Object.keys(item)] }), {});
 	}
 
 	rollPath(character) {
@@ -311,7 +326,11 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 			// no change needed
 			formativeEvents = character.formativeEvents;
 		}
-		character.formativeEvents = formativeEvents;
+
+		character.formativeEvents = formativeEvents.map((event) => ({
+			...event,
+			skills: this.mappingSkills(event.skills),
+		}));
 
 		return character;
 	}
