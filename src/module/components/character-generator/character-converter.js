@@ -139,10 +139,10 @@ export class CharacterConverter {
 		}
 
 		return {
-			strength: { value: attributes["ATTRIBUTE.STRENGTH"], max: attributes["ATTRIBUTE.STRENGTH"] },
-			agility: { value: attributes["ATTRIBUTE.AGILITY"], max: attributes["ATTRIBUTE.AGILITY"] },
-			wits: { value: attributes["ATTRIBUTE.WITS"], max: attributes["ATTRIBUTE.WITS"] },
-			empathy: { value: attributes["ATTRIBUTE.EMPATHY"], max: attributes["ATTRIBUTE.EMPATHY"] },
+			strength: { value: attributes.strength, max: attributes.strength },
+			agility: { value: attributes.agility, max: attributes.agility },
+			wits: { value: attributes.wits, max: attributes.wits },
+			empathy: { value: attributes.empathy, max: attributes.empathy },
 		};
 	}
 
@@ -167,8 +167,7 @@ export class CharacterConverter {
 		for (const skillName in tmpSkills) {
 			// eslint-disable-next-line no-prototype-builtins
 			if (tmpSkills.hasOwnProperty(skillName)) {
-				let SKILL_NAME = skillName.toLowerCase().replace("_", /\s/g).split(".").pop();
-				skills[SKILL_NAME] = { value: tmpSkills[skillName] };
+				skills[skillName] = { value: tmpSkills[skillName] };
 			}
 		}
 		return skills;
