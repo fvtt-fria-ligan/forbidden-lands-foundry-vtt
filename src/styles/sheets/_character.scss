@@ -38,23 +38,18 @@
 		flex: 0 0 auto;
 		height: 95px;
 		width: 95px;
-		padding: 0 0.25em;
 		&:hover {
 			box-shadow: 0 0 10px #a00;
 			cursor: pointer;
 		}
 		img {
-			border: 0 none;
+			place-self: center;
+			border: none;
 			display: block;
-			max-width: 95px;
-			max-height: 95px;
+			max-width: 100%;
+			max-height: 100%;
 			min-width: 20px;
 			min-height: 20px;
-			margin: auto;
-			&:hover {
-				box-shadow: 0 0 10px #a00;
-				cursor: pointer;
-			}
 		}
 	}
 	.willpower.skulls {
