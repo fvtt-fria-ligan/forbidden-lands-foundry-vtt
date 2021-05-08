@@ -74,12 +74,26 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 	}
 
 	async handleCreateActor() {
+		if (!this.existActor) {
+			ui.notifications.error("Could not find the actor that initiated this session.");
+			return this.close();
+		}
 		const coverter = new CharacterConverter(this.dataset);
 		const updateData = await coverter.convert(this.character);
+
+		if (this.existActor.items.entries.length > 0) await this.handleDeleteExistingItems();
+
 		await this.existActor.update({ ["data"]: updateData.data });
 		await this.existActor.createEmbeddedEntity("OwnedItem", updateData.items);
 
 		return this.close();
+	}
+
+	async handleDeleteExistingItems() {
+		const items = this.existActor.items;
+		const toDelete = items.map((item) => item.id);
+
+		return await this.existActor.deleteEmbeddedEntity("OwnedItem", toDelete);
 	}
 
 	handleInputKin(event) {

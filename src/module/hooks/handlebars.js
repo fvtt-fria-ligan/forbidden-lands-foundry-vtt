@@ -247,7 +247,6 @@ function registerHandlebarsHelpers() {
 	});
 
 	Handlebars.registerHelper("chargenLoc", function (item) {
-		console.log(item);
 		let localizedString = game.fbl.config.attributes[item];
 		if (!localizedString) {
 			const SKILL_NAME = item.toUpperCase().replace(/\s/g, "_");
