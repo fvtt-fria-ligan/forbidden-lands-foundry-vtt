@@ -4,7 +4,12 @@
 
 const FBL = {};
 
-FBL.attributes = ["agility", "empathy", "strength", "wits"];
+FBL.attributes = {
+	agility: "ATTRIBUTE.AGILITY",
+	empathy: "ATTRIBUTE.EMPATHY",
+	strength: "ATTRIBUTE.STRENGTH",
+	wits: "ATTRIBUTE.WITS",
+};
 
 FBL.conditions = ["cold", "hungry", "sleepy", "thirsty"];
 

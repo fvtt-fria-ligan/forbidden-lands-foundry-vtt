@@ -167,7 +167,8 @@ export class CharacterConverter {
 		for (const skillName in tmpSkills) {
 			// eslint-disable-next-line no-prototype-builtins
 			if (tmpSkills.hasOwnProperty(skillName)) {
-				skills[skillName] = { value: tmpSkills[skillName] };
+				let SKILL_NAME = skillName.toLowerCase().replace("_", /\s/g).split(".").pop();
+				skills[SKILL_NAME] = { value: tmpSkills[skillName] };
 			}
 		}
 		return skills;
