@@ -126,7 +126,7 @@ a {
 		border: none;
 	}
 	&:hover {
-			text-shadow: 0 0 5px #a00;
+		text-shadow: 0 0 5px #a00;
 	}
 }
 
@@ -170,7 +170,7 @@ a {
 		&:after {
 			content: "";
 			border: 10px solid transparent;
-			border-image: url(../assets/journal-art/small-border.webp) 100/10px repeat;;
+			border-image: url(../assets/journal-art/small-border.webp) 100/10px repeat;
 			position: absolute;
 			height: calc(100% - 24px);
 			width: calc(100% - 24px);
@@ -235,7 +235,7 @@ li {
 #player-config {
 	.avatar {
 		border: 2px dotted #444;
-		border-image: url(../assets/journal-art/small-border.webp) 100/10px repeat;;
+		border-image: url(../assets/journal-art/small-border.webp) 100/10px repeat;
 	}
 	.directory-item.context {
 		border-top: 1px solid black;

@@ -122,7 +122,6 @@
 .forbidden-lands {
 	&.chat-item {
 		.link-header {
-			height: 24px;
 			a {
 				line-height: 18px;
 			}
@@ -146,7 +145,7 @@
 	&.item {
 		.header {
 			border: 10px solid transparent;
-			border-image: url(../assets/journal-art/small-border.webp) 100/10px repeat;;
+			border-image: url(../assets/journal-art/small-border.webp) 100/10px repeat;
 			.header-stats {
 				.bonus {
 					grid-gap: 5px;

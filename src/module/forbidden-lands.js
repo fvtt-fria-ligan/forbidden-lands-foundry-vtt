@@ -110,7 +110,7 @@ Hooks.on("renderChatMessage", async (app, html) => {
 	 */
 	const pushButton = html.find("button.push-roll");
 	if (!app.roll) return;
-	const rollData = app.data.flags["forbidden-lands"].rollData;
+	const rollData = app.data.flags["forbidden-lands"]?.rollData;
 	const notPushable =
 		app.data.flags["forbidden-lands"]?.pushed ||
 		app.permission !== 3 ||
