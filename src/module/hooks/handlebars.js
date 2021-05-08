@@ -245,6 +245,16 @@ function registerHandlebarsHelpers() {
 	Handlebars.registerHelper("isMonsterTypeMount", function (type) {
 		return type === "mount";
 	});
+
+	Handlebars.registerHelper("chargenLoc", function (item) {
+		console.log(item);
+		let localizedString = game.fbl.config.attributes[item];
+		if (!localizedString) {
+			const SKILL_NAME = item.toUpperCase().replace(/\s/g, "_");
+			localizedString = `SKILL.${SKILL_NAME}`;
+		}
+		return localizedString;
+	});
 }
 
 function normalize(data, defaultValue) {

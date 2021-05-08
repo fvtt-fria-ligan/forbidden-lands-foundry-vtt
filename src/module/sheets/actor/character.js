@@ -135,7 +135,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	computeSkills(data) {
 		for (let skill of Object.values(data.data.skill)) {
 			skill[`has${skill?.attribute?.capitalize()}`] = false;
-			if (game.fbl.config.attributes.includes(skill.attribute))
+			if (Object.keys(game.fbl.config.attributes).includes(skill.attribute))
 				skill[`has${skill.attribute.capitalize()}`] = true;
 		}
 	}
