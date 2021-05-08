@@ -2,7 +2,7 @@
 	<div class="chargen-list-caption">{{localize title}}</div>
 	<ul>
 		{{#each list as |value key|}}
-		<li><strong>{{localize key}}</strong>: {{value}}</li>
+		<li><strong>{{localize (chargenLoc key)}}</strong>: {{value}}</li>
 		{{/each}}
 	</ul>
 </div>
