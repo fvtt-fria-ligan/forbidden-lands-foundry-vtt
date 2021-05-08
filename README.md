@@ -1,18 +1,14 @@
- <h1 align="center"> CONTRIBUTING?<br>⚠️ <a href="https://github.com/aMediocreDad/forbidden-lands-foundry-vtt/blob/main/CONTRIBUTING.md#recycle-history-rewrite">PLEASE READ THIS</a> BEFORE MAKING A PULL REQUEST! ⚠️</h1>
-
 <p align="center">
-  <a href="https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/latest" target="_blank"><img alt="system version" src="https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffvtt-fria-ligan%2Fforbidden-lands-foundry-vtt%2Fmain%2Fstatic%2Fsystem.json&label=Version&query=$.version&colorB=blue"/></a>
-  <a href="https://foundryvtt.com" target="_blank">
-    <img src="https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffvtt-fria-ligan%2Fforbidden-lands-foundry-vtt%2Fmain%2Fstatic%2Fsystem.json&label=Foundry&query=$.compatibleCoreVersion&colorB=blue" alt="foundry-compatibility-version" style="max-width:100%;"/>
-  </a>
-  <a href="https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/graphs/commit-activity" target="_blank">
-    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg"/>
-  </a>
-<a href="https://gitlocalize.com/repo/6008/whole_project?utm_source=badge"> <img src="https://gitlocalize.com/repo/6008/whole_project/badge.svg" /> </a>
   <a href="https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/blob/main/LICENSE" target="_blank">
-    <img alt="License: GPL" src="https://img.shields.io/github/license/fvtt-fria-ligan/forbidden-lands-foundry-vtt"/>
-  </a>
+    <img alt="License: GPL" src="https://img.shields.io/github/license/fvtt-fria-ligan/forbidden-lands-foundry-vtt?style=flat-square&label=License"/></a>
+  <a href="https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/latest" target="_blank"><img alt="system version" src="https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffvtt-fria-ligan%2Fforbidden-lands-foundry-vtt%2Fmain%2Fstatic%2Fsystem.json&label=Version&query=$.version&colorB=blue&style=flat-square"/></a>
+  <a href="https://foundryvtt.com" target="_blank">
+    <img src="https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffvtt-fria-ligan%2Fforbidden-lands-foundry-vtt%2Fmain%2Fstatic%2Fsystem.json&label=Foundry&query=$.compatibleCoreVersion&colorB=blue&style=flat-square" alt="foundry-compatibility-version"/></a>
+  <a href="https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/graphs/commit-activity" target="_blank"><img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/fvtt-fria-ligan/forbidden-lands-foundry-vtt?style=flat-square&color=purple&label=Last%20commit"></a>
+ <a href="https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/latest/" target="_blank"><img alt="GitHub release (latest by SemVer including pre-releases)" src="https://img.shields.io/badge/dynamic/json?color=red&label=Downloads&query=$.assets.1.download_count&url=https%3A%2F%2Fapi.github.com%2Frepos%2Ffvtt-fria-ligan%2Fforbidden-lands-foundry-vtt%2Freleases%2Flatest&style=flat-square"></a>
+  <a href="https://gitlocalize.com/repo/6008/whole_project?utm_source=badge" target="_blank"> <img src="https://gitlocalize.com/repo/6008/whole_project/badge.svg?style=flat-square&label=Gitlocalized" /></a>
   <br/>
+   <h2 align="center">⚠️ <a href="https://github.com/aMediocreDad/forbidden-lands-foundry-vtt/blob/main/CONTRIBUTING.md#recycle-history-rewrite">PLEASE READ THIS</a> BEFORE MAKING A PULL REQUEST ⚠️</h2>
   <br/>
   <img src="https://user-images.githubusercontent.com/9851733/108728684-1a954b00-752a-11eb-9138-6fab6f83b2a8.jpg" alt="Logo" style="max-width:100%;" />
 </p>
