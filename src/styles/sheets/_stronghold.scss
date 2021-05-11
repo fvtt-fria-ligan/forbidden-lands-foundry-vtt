@@ -3,6 +3,9 @@
 	flex-direction: column;
 	height: 100%;
 	width: 100%;
+	.bio {
+		padding: 8px;
+	}
 }
 
 .forbidden-lands .stronghold .bio input {
@@ -34,7 +37,6 @@
 	min-width: 20px;
 	min-height: 20px;
 	margin: auto;
-	margin-left: 5px;
 }
 .forbidden-lands .stronghold .bio .avatar img:hover {
 	box-shadow: 0 0 10px red;

@@ -44,7 +44,14 @@ Hooks.once("diceSoNiceReady", (dice3d) => {
 	registerDiceSoNice(dice3d);
 });
 
+/**
+ * Override item sheets as they are rendered.
+ */
 Hooks.on("renderItemSheet", function (app, html) {
+	/**
+	 * Render item sheets with read-only textareas.
+	 * Also add "height:auto" to container.
+	 */
 	html.find("textarea").each(function () {
 		if (this.value) {
 			this.setAttribute("style", "height:" + this.scrollHeight + "px;overflow-y:hidden;");
@@ -52,20 +59,37 @@ Hooks.on("renderItemSheet", function (app, html) {
 		}
 	});
 	app._element[0].style.height = "auto";
+
+	/**
+	 * Localize sheet header-buttons. These are hardcoded in English in Foundry system.
+	 */
 	html.find(".close").html(`<i class="fas fa-times"></i>` + game.i18n.localize("SHEET.CLOSE"));
 	html.find(".configure-sheet").html(`<i class="fas fa-cog"></i>` + game.i18n.localize("SHEET.CONFIGURE"));
 	html.find(".configure-token").html(`<i class="fas fa-user-circle"></i>` + game.i18n.localize("SHEET.TOKEN"));
 });
 
+/**
+ * Override Actor sheets as they are rendered.
+ */
 Hooks.on("renderActorSheet", (app, html) => {
+	// set "height: auto" to sheet container if party sheet.
 	if (app.actor.data.type === "party") app._element[0].style.height = "auto";
+
+	/**
+	 * Localize sheet header-buttons. These are hardcoded in English in Foundry system.
+	 */
 	html.find(".close").html(`<i class="fas fa-times"></i>` + game.i18n.localize("SHEET.CLOSE"));
 	html.find(".configure-sheet").html(`<i class="fas fa-cog"></i>` + game.i18n.localize("SHEET.CONFIGURE"));
 	html.find(".configure-token").html(`<i class="fas fa-user-circle"></i>` + game.i18n.localize("SHEET.TOKEN"));
 });
 
+/**
+ * Override chat messages as they are rendered.
+ */
 Hooks.on("renderChatMessage", async (app, html) => {
-	// Add drag and drop functonality to posted items
+	/**
+	 * Add drag and drop functonality to posted items
+	 */
 	let postedItem = html.find(".chat-item")[0];
 	if (postedItem) {
 		postedItem.classList.add("draggable");
@@ -80,17 +104,19 @@ Hooks.on("renderChatMessage", async (app, html) => {
 			);
 		});
 	}
-	// Push rolls
+
+	/**
+	 * Add a push button to chat messages.
+	 */
 	const pushButton = html.find("button.push-roll");
 	if (!app.roll) return;
-	const rollData = app.data.flags["forbidden-lands"].rollData;
+	const rollData = app.data.flags["forbidden-lands"]?.rollData;
 	const notPushable =
 		app.data.flags["forbidden-lands"]?.pushed ||
 		app.permission !== 3 ||
 		!app.roll.dice.some((a) => a instanceof BaseDie || a instanceof GearDie) ||
 		rollData.isSpell ||
-		(rollData.isPushed && !game.settings.get("forbidden-lands", "allowUnlimitedPush")) ||
-		(game.user.isGM && !game.settings.get("forbidden-lands", "allowUnlimitedPush"));
+		(rollData.isPushed && !game.settings.get("forbidden-lands", "allowUnlimitedPush"));
 	if (notPushable) {
 		pushButton.each((_i, b) => {
 			b.style.display = "none";

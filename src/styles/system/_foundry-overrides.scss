@@ -13,6 +13,8 @@
 	white-space: nowrap;
 	line-height: 1;
 	overflow: hidden;
+	padding: 0 6px;
+	margin: 0 0 0 4px;
 	color: transparent;
 	transition: max-width 1s ease;
 	@include hoverWidth("char-gen");
@@ -111,6 +113,7 @@ img {
 		content: "\f187";
 	}
 }
+
 a.entity-link,
 a.inline-roll {
 	border: none;
@@ -121,6 +124,9 @@ a.inline-roll {
 a {
 	&.inline-roll {
 		border: none;
+	}
+	&:hover {
+		text-shadow: 0 0 5px #a00;
 	}
 }
 
@@ -164,7 +170,7 @@ a {
 		&:after {
 			content: "";
 			border: 10px solid transparent;
-			border-image: url(../assets/journal-art/small-border.webp) 70/12px repeat;
+			border-image: url(../assets/journal-art/small-border.webp) 100/10px repeat;
 			position: absolute;
 			height: calc(100% - 24px);
 			width: calc(100% - 24px);
@@ -229,7 +235,7 @@ li {
 #player-config {
 	.avatar {
 		border: 2px dotted #444;
-		border-image: url(../assets/journal-art/small-border.webp) 100/15px repeat;
+		border-image: url(../assets/journal-art/small-border.webp) 100/10px repeat;
 	}
 	.directory-item.context {
 		border-top: 1px solid black;
@@ -248,9 +254,9 @@ li {
 	}
 }
 
-#player-config ::-webkit-scrollbar-thumb {
-	background: gray;
-	border-color: darkslategray;
+::-webkit-scrollbar-thumb {
+	background: #999;
+	border-color: #005d67;
 }
 ::-webkit-scrollbar-track {
 	box-shadow: 0 0 3px #999 inset;
