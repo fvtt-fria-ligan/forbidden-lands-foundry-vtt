@@ -15,12 +15,12 @@ Hooks.on("renderSettingsConfig", (_app, html, _user) => {
 	});
 
 	const target = html.find("input[data-dtype='String'");
-	const { name } = target[0];
-	const parent = target.parent();
+	const { name: iName } = target[0];
+	const iParent = target.parent();
 
-	if (name !== "forbidden-lands.datasetDir") return;
+	if (iName !== "forbidden-lands.datasetDir") return;
 
-	parent.append([resetButton, filePickerButton]);
+	iParent.append([resetButton, filePickerButton]);
 });
 
 export default function registerSettings() {

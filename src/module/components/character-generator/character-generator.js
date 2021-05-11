@@ -84,7 +84,7 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 		if (this.existActor.items.entries.length > 0) await this.handleDeleteExistingItems();
 
 		await this.existActor.update({ ["data"]: updateData.data });
-		await this.existActor.createEmbeddedEntity("OwnedItem", updateData.items);
+		await this.existActor.createEmbeddedEntity("Item", updateData.items);
 
 		return this.close();
 	}

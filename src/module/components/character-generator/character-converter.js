@@ -96,34 +96,34 @@ export class CharacterConverter {
 		return talents;
 	}
 
-	getExactItem(name, type = false) {
-		const nameLowerCase = name.toLowerCase();
+	getExactItem(itemName, type = false) {
+		const nameLowerCase = itemName.toLowerCase();
 		type = type ? type.toLowerCase() : type;
 		let item = game.items.find(
 			(i) => i.name.toLowerCase() === nameLowerCase && (type === false || i.type === type),
 		);
 		if (!item) {
-			item = this.createNewItem(name, type);
+			item = this.createNewItem(itemName, type);
 		}
 		return item;
 	}
 
-	getItem(name, type = false) {
-		const nameLowerCase = name.toLowerCase();
+	getItem(itemName, type = false) {
+		const nameLowerCase = itemName.toLowerCase();
 		type = type ? type.toLowerCase() : type;
 		let item = game.items.find(
 			(i) => i.name.toLowerCase().includes(nameLowerCase) && (type === false || i.type === type),
 		);
 		if (!item) {
-			item = this.createNewItem(name, type);
+			item = this.createNewItem(itemName, type);
 		}
 		return item;
 	}
 
-	createNewItem(name, type = false) {
+	createNewItem(itemName, type = false) {
 		let ItemClass = CONFIG.Item.entityClass;
 		return new ItemClass({
-			name: name,
+			name: itemName,
 			type: type || "gear",
 			data: type === "talent" ? {} : { weight: "none" },
 		});

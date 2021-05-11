@@ -1,49 +1,49 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <div class="header border">
-        <div class="avatar">
-            <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
-        </div>
-        <div class="header-stats">
-            <label>{{localize "MONSTER.NAME"}}</label>
-            <input name="name" type="text" value="{{item.name}}" />
-            <label>{{localize "MONSTER.DICE"}}</label>
-            <div class="bonus">
-                <input name="data.dice" type="text" value="{{data.dice}}" />
-            </div>
-            <label>{{localize "MONSTER.DAMAGE"}}</label>
-            <div class="damage">
-                <input name="data.damage" type="text" value="{{data.damage}}" />
-            </div>
-        </div>
-    </div>
-    <div class="item">
-        <div class="damageType">
-            <label>{{localize "MONSTER.DAMAGE_TYPE"}}</label>
-            <select name="data.damageType">
-                {{#select data.damageType}}
-                    <option value="stab">{{localize "ATTACK.STAB"}}</option>
-                    <option value="slash">{{localize "ATTACK.SLASH"}}</option>
-                    <option value="blunt">{{localize "ATTACK.BLUNT"}}</option>
-                    <option value="fear">{{localize "ATTACK.FEAR"}}</option>
-                    <option value="other">{{localize "ATTACK.OTHER"}}</option>
-                {{/select}}
-            </select>
-        </div>
-        <div class="range">
-            <label>{{localize "MONSTER.RANGE"}}</label>
-            <select name="data.range">
-                {{#select data.range}}
-                    <option value="arm">{{localize "RANGE.ARM"}}</option>
-                    <option value="near">{{localize "RANGE.NEAR"}}</option>
-                    <option value="short">{{localize "RANGE.SHORT"}}</option>
-                    <option value="long">{{localize "RANGE.LONG"}}</option>
-                    <option value="distant">{{localize "RANGE.DISTANT"}}</option>
-                {{/select}}
-            </select>
-        </div>
-        <div class="monster-description">
-            <label>{{localize "MONSTER.DESCRIPTION"}}</label>
-            <textarea name="data.description">{{data.description}}</textarea>
-        </div>
-    </div>
+	<div class="header border">
+		<div class="avatar">
+			<img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" />
+		</div>
+		<div class="header-stats">
+			<label>{{localize "MONSTER.NAME"}}</label>
+			<input name="name" type="text" value="{{name}}" />
+			<label>{{localize "MONSTER.DICE"}}</label>
+			<div class="bonus">
+				<input name="data.dice" type="text" value="{{data.dice}}" />
+			</div>
+			<label>{{localize "MONSTER.DAMAGE"}}</label>
+			<div class="damage">
+				<input name="data.damage" type="text" value="{{data.damage}}" />
+			</div>
+		</div>
+	</div>
+	<div class="item">
+		<div class="damageType">
+			<label>{{localize "MONSTER.DAMAGE_TYPE"}}</label>
+			<select name="data.damageType">
+				{{#select data.damageType}}
+				<option value="stab">{{localize "ATTACK.STAB"}}</option>
+				<option value="slash">{{localize "ATTACK.SLASH"}}</option>
+				<option value="blunt">{{localize "ATTACK.BLUNT"}}</option>
+				<option value="fear">{{localize "ATTACK.FEAR"}}</option>
+				<option value="other">{{localize "ATTACK.OTHER"}}</option>
+				{{/select}}
+			</select>
+		</div>
+		<div class="range">
+			<label>{{localize "MONSTER.RANGE"}}</label>
+			<select name="data.range">
+				{{#select data.range}}
+				<option value="arm">{{localize "RANGE.ARM"}}</option>
+				<option value="near">{{localize "RANGE.NEAR"}}</option>
+				<option value="short">{{localize "RANGE.SHORT"}}</option>
+				<option value="long">{{localize "RANGE.LONG"}}</option>
+				<option value="distant">{{localize "RANGE.DISTANT"}}</option>
+				{{/select}}
+			</select>
+		</div>
+		<div class="monster-description">
+			<label>{{localize "MONSTER.DESCRIPTION"}}</label>
+			<textarea name="data.description">{{data.description}}</textarea>
+		</div>
+	</div>
 </form>

@@ -196,7 +196,7 @@ export let TravelActionsConfig = {
 									rolltable.draw();
 								} else {
 									let chatData = {
-										user: game.user._id,
+										user: game.userId,
 										content:
 											"You've spotted a prey!<br><i>Create a roll table named 'Find a Prey' to automatically find out what creature have you spotted.<i>",
 									};

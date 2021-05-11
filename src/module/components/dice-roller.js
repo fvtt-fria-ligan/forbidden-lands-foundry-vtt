@@ -124,8 +124,8 @@ export default class DiceRoller {
 		};
 		const html = await renderTemplate("systems/forbidden-lands/templates/chat/roll.hbs", rollData);
 		let chatData = {
-			type: CHAT_MESSAGE_TYPES.ROLL,
-			user: game.user._id,
+			type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+			user: game.userId,
 			rollMode: game.settings.get("core", "rollMode"),
 			content: html,
 		};
@@ -159,7 +159,7 @@ export default class DiceRoller {
 		};
 		const html = await renderTemplate("systems/forbidden-lands/templates/chat/roll.hbs", rollData);
 		let chatData = {
-			user: game.user._id,
+			user: game.userId,
 			rollMode: game.settings.get("core", "rollMode"),
 			content: html,
 		};

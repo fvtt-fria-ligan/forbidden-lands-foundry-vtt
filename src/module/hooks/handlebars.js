@@ -63,12 +63,6 @@ function registerHandlebarsHelpers() {
 		return args.join("");
 	});
 
-	Handlebars.registerHelper("flps_enrich", function (content) {
-		// Enrich the content
-		content = TextEditor.enrichHTML(content, { entities: true });
-		return new Handlebars.SafeString(content);
-	});
-
 	Handlebars.registerHelper("damageType", function (type) {
 		type = normalize(type, "blunt");
 		switch (type) {
@@ -166,8 +160,8 @@ function registerHandlebarsHelpers() {
 	Handlebars.registerHelper("formatRollModifiers", function (rollModifiers) {
 		let output = [];
 		Object.values(rollModifiers).forEach((mod) => {
-			let name = game.i18n.localize(mod.name);
-			output.push(`${name} ${mod.value}`);
+			let modName = game.i18n.localize(mod.name);
+			output.push(`${modName} ${mod.value}`);
 		});
 		return output.join(", ");
 	});

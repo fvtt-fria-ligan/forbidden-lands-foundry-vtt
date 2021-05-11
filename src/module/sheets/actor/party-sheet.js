@@ -17,17 +17,18 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 	}
 
 	getData() {
-		const data = super.getData();
+		const superData = super.getData();
+		const data = superData.data;
 		data.partyMembers = {};
 		data.travel = {};
 		data.travelActions = this.getTravelActions();
 		let ownedActorId, assignedActorId, travelAction;
-		for (let i = 0; i < (data.actor.data.members || []).length; i++) {
-			ownedActorId = data.actor.data.members[i];
+		for (let i = 0; i < (data.data.members || []).length; i++) {
+			ownedActorId = data.data.members[i];
 			data.partyMembers[ownedActorId] = game.actors.get(ownedActorId).data;
 		}
-		for (let travelActionKey in data.actor.data.travel) {
-			travelAction = data.actor.data.travel[travelActionKey];
+		for (let travelActionKey in data.data.travel) {
+			travelAction = data.data.travel[travelActionKey];
 			data.travel[travelActionKey] = {};
 
 			if (typeof travelAction === "object") {
@@ -155,10 +156,9 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 	async _onDrop(event) {
 		super._onDrop(event);
 
-		const json = event.dataTransfer.getData("text/plain");
-		if (!json) return;
+		const draggedItem = JSON.parse(event.dataTransfer.getData("text/plain"));
+		if (!draggedItem) return;
 
-		let draggedItem = JSON.parse(json);
 		if (draggedItem.type !== "Actor") return;
 
 		const actor = game.actors.get(draggedItem.id);

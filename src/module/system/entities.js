@@ -46,7 +46,7 @@ export class ForbiddenLandsItem extends Item {
 			itemData.data.rollModifiers && Object.values(itemData.data.rollModifiers).length > 0;
 		const html = await renderTemplate("systems/forbidden-lands/templates/chat/item.hbs", itemData);
 		const chatData = {
-			user: game.user._id,
+			user: game.userId,
 			rollMode: game.settings.get("core", "rollMode"),
 			content: html,
 			["flags.forbidden-lands.itemData"]: this.data, // Adds posted item data to chat message flags for item drag/drop

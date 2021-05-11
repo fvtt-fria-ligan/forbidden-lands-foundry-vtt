@@ -32,11 +32,12 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	}
 
 	getData() {
-		const data = super.getData();
-		this.computeSkills(data);
-		this.computeItems(data);
-		this.computeEncumbrance(data);
-		return data;
+		const superData = super.getData();
+		const actorData = superData.data;
+		this.computeSkills(actorData);
+		this.computeItems(actorData);
+		this.computeEncumbrance(actorData);
+		return actorData;
 	}
 
 	activateListeners(html) {
@@ -175,7 +176,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 		let header = event.currentTarget;
 		let data = duplicate(header.dataset);
 		data.name = `New ${data.type.capitalize()}`;
-		this.actor.createEmbeddedEntity("OwnedItem", data, {
+		this.actor.createEmbeddedEntity("Item", data, {
 			renderSheet: true,
 		});
 	}
@@ -191,7 +192,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	_getHeaderButtons() {
 		let buttons = super._getHeaderButtons();
 
-		if (this.actor.owner) {
+		if (this.actor.isOwner) {
 			buttons = [
 				{
 					label: game.i18n.localize("SHEET.HEADER.ROLL"),

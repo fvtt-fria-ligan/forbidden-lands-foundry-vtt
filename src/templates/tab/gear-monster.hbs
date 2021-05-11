@@ -25,7 +25,7 @@
 				<a class="button item-create" title="Add Armor" data-type="armor"><i class="fas fa-plus"></i></a>
 			</div>
 			<div>
-				{{#each actor.items as |item|}} {{#if item.isArmor}}
+				{{#each items as |item|}} {{#if item.isArmor}}
 				<div class="gear item flex row" data-item-id="{{item._id}}">
 					<div class="name">
 						<div class="image-container">
@@ -52,7 +52,7 @@
 				<a class="button item-create" title="Add Weapon" data-type="weapon"><i class="fas fa-plus"></i></a>
 			</div>
 			<div>
-				{{#each actor.items as |item|}} {{#if item.isWeapon}}
+				{{#each items as |item|}} {{#if item.isWeapon}}
 				<div class="gear item flex row" data-item-id="{{item._id}}">
 					<div class="name">
 						<div class="image-container">
@@ -79,7 +79,7 @@
 				<a class="button item-create" title="Add Gear" data-type="gear"><i class="fas fa-plus"></i></a>
 			</div>
 			<div>
-				{{#each actor.items as |item|}} {{#if item.isGear}}
+				{{#each items as |item|}} {{#if item.isGear}}
 				<div class="gear item flex row" data-item-id="{{item._id}}">
 					<div class="name">
 						<div class="image-container">
@@ -108,7 +108,7 @@
 				></a>
 			</div>
 			<div>
-				{{#each actor.items as |item|}} {{#if item.isRawMaterial}}
+				{{#each items as |item|}} {{#if item.isRawMaterial}}
 				<div class="gear item flex row" data-item-id="{{item._id}}">
 					<div class="name">
 						<div class="image-container">

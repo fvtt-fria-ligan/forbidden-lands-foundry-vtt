@@ -3,12 +3,12 @@
 		<div class="bio border">
 			<div class="flex row align-center space-between">
 				<div class="avatar">
-					<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+					<img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" />
 				</div>
 				<div class="flex column">
 					<div class="name bio-row">
 						<label>{{localize "BIO.NAME"}}:</label>
-						<input name="name" type="text" value="{{actor.name}}" />
+						<input name="name" type="text" value="{{name}}" />
 					</div>
 					<div class="bio-row">
 						<div class="movement">
@@ -71,7 +71,7 @@
 			<div class="tab note" data-group="primary" data-tab="note">
 				<!-- prettier-ignore -->
 				{{! prettier-ignore }}
-{{editor content=data.bio.note.value target="data.bio.note.value" button=true owner=owner editable=editable}}
+{{editor content=data.bio.note.value target="data.bio.note.value" button=true owner=owner editable=true}}
 			</div>
 		</div>
 	</div>

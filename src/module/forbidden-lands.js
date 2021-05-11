@@ -26,8 +26,8 @@ Hooks.once("init", () => {
 		config: FBL,
 	};
 	CONFIG.Combat.initiative = { formula: "1d10", decimals: 0 };
-	CONFIG.Actor.entityClass = ForbiddenLandsActor;
-	CONFIG.Item.entityClass = ForbiddenLandsItem;
+	CONFIG.Actor.documentClass = ForbiddenLandsActor;
+	CONFIG.Item.documentClass = ForbiddenLandsItem;
 	CONFIG.rollDialog = RollDialog;
 	CONFIG.diceRoller = new DiceRoller();
 	registerFonts();
@@ -89,7 +89,7 @@ Hooks.on("renderChatMessage", async (app, html) => {
 	}
 
 	const pushButton = html.find("button.push-roll");
-	if (!app.roll) return;
+	if (!app.isRoll) return;
 	const rollData = app.data.flags["forbidden-lands"]?.rollData;
 	const notPushable =
 		app.data.flags["forbidden-lands"]?.pushed ||

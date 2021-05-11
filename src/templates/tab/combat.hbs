@@ -10,7 +10,7 @@
 				<b class="weapon-actions">{{localize "HEADER.ACTIONS"}}</b>
 			</div>
 			<div class="items">
-				{{#each actor.items as |item|}} {{#if item.isWeapon}}
+				{{#each items as |item|}} {{#if item.isWeapon}}
 				<div class="item" data-item-id="{{item._id}}">
 					<div class="weapon">
 						<div class="name">
@@ -81,7 +81,7 @@
 				<b class="bonus">{{localize "GEAR.BONUS"}}</b>
 			</div>
 			<div class="items">
-				{{#each actor.items as |item|}} {{#if item.isArmor}}
+				{{#each items as |item|}} {{#if item.isArmor}}
 				<div class="item armor" data-item-id="{{item._id}}">
 					<div class="name">
 						<div class="image-container">
@@ -110,7 +110,7 @@
 				></a>
 			</div>
 			<div class="items">
-				{{#each actor.items as |item|}} {{#if item.isCriticalInjury}}
+				{{#each items as |item|}} {{#if item.isCriticalInjury}}
 				<div class="critical-injury item flex row" data-item-id="{{item._id}}">
 					<div class="name">
 						<div class="image-container">
