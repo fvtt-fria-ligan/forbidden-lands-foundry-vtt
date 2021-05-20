@@ -93,7 +93,7 @@ Hooks.on("renderChatMessage", async (app, html) => {
 		app.data.flags["forbidden-lands"]?.pushed ||
 		app.permission !== 3 ||
 		!app.roll.dice.some((a) => a instanceof BaseDie || a instanceof GearDie) ||
-		rollData.isSpell ||
+		rollData?.isSpell ||
 		(rollData.isPushed && !game.settings.get("forbidden-lands", "allowUnlimitedPush"));
 	if (notPushable) {
 		pushButton.each((_i, b) => {
@@ -106,15 +106,24 @@ Hooks.on("renderChatMessage", async (app, html) => {
 			app.update({ flags: { "forbidden-lands.pushed": true } });
 		});
 	}
+});
 
-	/**
-	 * GM screen module causes buttons in Actor sheets to disable.
-	 * Undo this, so its possible to roll Attributes, Skills, etc. from GM Screen.
-	 */
-	Hooks.on("renderCompactGenericEntityDisplay", (_app, html, _data) => {
-		const buttons = html.find("button");
+/**
+ * GM screen module causes buttons in Actor sheets to disable.
+ * Undo this, so its possible to roll Attributes, Skills, etc. from GM Screen.
+ */
+Hooks.on("gmScreenOpenClose", (app, _config) => {
+	const html = app.element;
+	const buttons = html.find("button");
+	buttons.each((_i, button) => {
+		button.disabled = false;
+	});
+});
+Hooks.on("renderActorSheet", (app, form, _css) => {
+	if (app.cellId?.match(/#gm-screen.+/)) {
+		const buttons = form.find("button");
 		buttons.each((_i, button) => {
 			button.disabled = false;
 		});
-	});
+	}
 });
