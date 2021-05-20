@@ -217,10 +217,10 @@ async function zipDist() {
 async function commitTagPush() {
 	const { version } = fs.readJSONSync("package.json");
 	const commitMsg = `chore(release): release ${version}`;
-	await execa("git", ["add", "."], { stdio });
+	await execa("git", ["add", "-A"], { stdio });
 	await execa("git", ["commit", "--message", commitMsg], { stdio });
 	await execa("git", ["tag", `v${version}`], { stdio });
-	await execa("git", ["push", "--follow-tags"], { stdio });
+	await execa("git", ["push", "upstream", "--follow-tags"], { stdio });
 	return;
 }
 
