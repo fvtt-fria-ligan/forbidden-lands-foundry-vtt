@@ -13,7 +13,8 @@ import registerSettings from "./system/settings.js";
 import { BaseDie, GearDie } from "./components/dice.js";
 
 /**
- * We use this label to remove the debug option in production builds. @See rollup.config.js
+ * We use this label to remove the debug option in production builds.
+ * @See rollup.config.js
  */
 // eslint-disable-next-line no-unused-labels
 hookDebug: CONFIG.debug.hooks = true;
@@ -44,14 +45,7 @@ Hooks.once("diceSoNiceReady", (dice3d) => {
 	registerDiceSoNice(dice3d);
 });
 
-/**
- * Override item sheets as they are rendered.
- */
 Hooks.on("renderItemSheet", function (app, html) {
-	/**
-	 * Render item sheets with read-only textareas.
-	 * Also add "height:auto" to container.
-	 */
 	html.find("textarea").each(function () {
 		if (this.value) {
 			this.setAttribute("style", "height:" + this.scrollHeight + "px;overflow-y:hidden;");
@@ -61,35 +55,22 @@ Hooks.on("renderItemSheet", function (app, html) {
 	app._element[0].style.height = "auto";
 
 	/**
-	 * Localize sheet header-buttons. These are hardcoded in English in Foundry system.
+	 * These are hardcoded in English in Foundry. Bad practice. Thus we fix.
 	 */
 	html.find(".close").html(`<i class="fas fa-times"></i>` + game.i18n.localize("SHEET.CLOSE"));
 	html.find(".configure-sheet").html(`<i class="fas fa-cog"></i>` + game.i18n.localize("SHEET.CONFIGURE"));
 	html.find(".configure-token").html(`<i class="fas fa-user-circle"></i>` + game.i18n.localize("SHEET.TOKEN"));
 });
 
-/**
- * Override Actor sheets as they are rendered.
- */
 Hooks.on("renderActorSheet", (app, html) => {
-	// set "height: auto" to sheet container if party sheet.
 	if (app.actor.data.type === "party") app._element[0].style.height = "auto";
 
-	/**
-	 * Localize sheet header-buttons. These are hardcoded in English in Foundry system.
-	 */
 	html.find(".close").html(`<i class="fas fa-times"></i>` + game.i18n.localize("SHEET.CLOSE"));
 	html.find(".configure-sheet").html(`<i class="fas fa-cog"></i>` + game.i18n.localize("SHEET.CONFIGURE"));
 	html.find(".configure-token").html(`<i class="fas fa-user-circle"></i>` + game.i18n.localize("SHEET.TOKEN"));
 });
 
-/**
- * Override chat messages as they are rendered.
- */
 Hooks.on("renderChatMessage", async (app, html) => {
-	/**
-	 * Add drag and drop functonality to posted items
-	 */
 	let postedItem = html.find(".chat-item")[0];
 	if (postedItem) {
 		postedItem.classList.add("draggable");
@@ -105,9 +86,6 @@ Hooks.on("renderChatMessage", async (app, html) => {
 		});
 	}
 
-	/**
-	 * Add a push button to chat messages.
-	 */
 	const pushButton = html.find("button.push-roll");
 	if (!app.roll) return;
 	const rollData = app.data.flags["forbidden-lands"]?.rollData;
@@ -128,4 +106,15 @@ Hooks.on("renderChatMessage", async (app, html) => {
 			app.update({ flags: { "forbidden-lands.pushed": true } });
 		});
 	}
+
+	/**
+	 * GM screen module causes buttons in Actor sheets to disable.
+	 * Undo this, so its possible to roll Attributes, Skills, etc. from GM Screen.
+	 */
+	Hooks.on("renderCompactGenericEntityDisplay", (_app, html, _data) => {
+		const buttons = html.find("button");
+		buttons.each((_i, button) => {
+			button.disabled = false;
+		});
+	});
 });
