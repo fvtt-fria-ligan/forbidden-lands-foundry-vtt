@@ -8,7 +8,9 @@
 
 	"env": {
 		"browser": true,
-		"jquery": true
+		"jquery": true,
+		"node": true,
+		"es6": true
 	},
 
 	"extends": [
@@ -20,15 +22,5 @@
 
 	"plugins": [],
 
-	"rules": {},
-
-	"overrides": [
-		{
-			"files": ["./*.js"],
-			"env": {
-				"node": true,
-				"es6": true
-			}
-		}
-	]
+	"rules": {}
 }
