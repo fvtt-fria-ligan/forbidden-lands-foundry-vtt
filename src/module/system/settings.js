@@ -32,6 +32,14 @@ export default function registerSettings() {
 		default: 0,
 		type: Number,
 	});
+	game.settings.register("forbidden-lands", "messages", {
+		name: "Displayed Messages",
+		hint: "Used to track which messages have been displayed.",
+		scope: "world",
+		config: "false",
+		default: [],
+		type: Array,
+	});
 	game.settings.register("forbidden-lands", "allowUnlimitedPush", {
 		name: game.i18n.localize("FLPS.SETTINGS.ALLOW_PUSH"),
 		hint: game.i18n.localize("FLPS.SETTINGS.ALLOW_PUSH_HINT"),
