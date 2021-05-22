@@ -278,7 +278,9 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 	}
 
 	rollPath(character) {
-		character.path = this.rollNumber(0, 2);
+		const numberOfPaths =
+			this.dataset.paths.length - 1 || this.dataset.profession[character.profession].paths.length - 1 || 2;
+		character.path = this.rollNumber(0, numberOfPaths);
 
 		return character;
 	}
