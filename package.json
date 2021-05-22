@@ -31,7 +31,8 @@
 		"lint:fix": "eslint --ext .js --fix .",
 		"format": "prettier --write \"./**/*.(js|json|scss)\"",
 		"format:hbs": "prettier **/*.hbs --write --parser=glimmer",
-		"postinstall": "husky install"
+		"postinstall": "husky install",
+		"test": "uvu tests"
 	},
 	"devDependencies": {
 		"@rollup/plugin-node-resolve": "^11.2.1",
@@ -62,6 +63,7 @@
 		"rollup-plugin-terser": "^7.0.2",
 		"sass": "^1.32.8",
 		"semver": "^7.3.5",
+		"uvu": "^0.5.1",
 		"yargs": "^16.2.0"
 	},
 	"lint-staged": {

@@ -11,6 +11,7 @@ import DiceRoller from "./components/dice-roller.js";
 import FBL from "./system/config.js";
 import registerSettings from "./system/settings.js";
 import { BaseDie, GearDie } from "./components/dice.js";
+import displayMessages from "./hooks/message-system.js";
 
 /**
  * We use this label to remove the debug option in production builds.
@@ -39,6 +40,7 @@ Hooks.once("init", () => {
 Hooks.once("ready", () => {
 	initializeCalendar();
 	migrateWorld();
+	displayMessages();
 });
 
 Hooks.once("diceSoNiceReady", (dice3d) => {

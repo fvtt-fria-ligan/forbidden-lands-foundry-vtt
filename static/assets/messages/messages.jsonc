@@ -1,0 +1,14 @@
+{
+	"messages": [
+		{
+			"min-core-version": "0.7.9", //optional, inclusive
+			"max-core-version": "0.8.0", //optional, exclusive
+			//"min-sys-version": "", //optional, inclusive
+			//"max-sys-version": "", //optional, exclusive
+			"type": "prompt", // Type of message: [prompt, chat]
+			"display": "once", // Time until it goes away: [once, infinite, mm.dd.yyyy]
+			"title": "0.8 Upgrade",
+			"content": "<h2>The Road to Foundry 0.8</h2><p>Hello {name}!</p><p>The release of Foundry Version 0.8 is rapidly approaching, and Forbidden Lands will of course be playable on the new version of Foundry. We know you may be eager to upgrade, and to accommodate you early adopters there will be a release of the system that is compatible with Foundry 0.8. It is important that you understand there has been a lot of underlying changes to Foundry's structure. As such the road ahead is likely to be a bumpy one. If you have an important game and want the least amount of headaches when running the game, we suggest waiting with updating until version 0.8 has matured a bit. If you are uncertain, feel free to ask in the #free-league channel over on the Foundry Discord.</p><p>Before you upgrade to 0.8 there is one tremendously important thing we want you to do, and that is <b>back up your data folder</b>. For information on where to find the data directory, follow this link: <a href='https://foundryvtt.com/article/configuration/'>Foundry Configuration</a></p><h3><b>What about the official content?</b></h3><p>Unfortunately, it will take some time to publish a stable update to the modules since testing cannot be completed until 0.8.6 is released at the earliest. </p><p>If you want to start a new World and import the official content in 0.8 you will have to wait patiently a bit longer. A workaround is to import the content while on 0.7.9 then updating to 0.8 once the Forbidden Lands system is compatible).</p> <p>The official content modules compatible with 0.8 will be version 2.0.0. An update like this one will be posted once they become available.</p>"
+		}
+	]
+}
