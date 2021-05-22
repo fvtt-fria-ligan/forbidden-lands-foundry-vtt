@@ -1,0 +1,1187 @@
+{
+	"kin": {
+		"alderlander": {
+			"key": "alderlander",
+			"name": "Humana Aliseo",
+			"weight": 8,
+			"age": [
+				[16, 25],
+				[26, 50],
+				[51, 80]
+			],
+			"talent": "Adaptable",
+			"childhood": {
+				"orphaned": {
+					"key": "orphaned",
+					"name": "Huérfana",
+					"weight": 1,
+					"description": "No conoces a tu padre ni a tu madre y nunca has tenido familia. Has cuidado de ti misma desde pequeña. Fue duro y te ha hecho fuerte, pero hay un sentimiento de desarraigo que te corroe.",
+					"attributes": { "strength": "3", "agility": "5", "wits": "3", "empathy": "4" },
+					"skills": {
+						"endurance": "1",
+						"melee": "1",
+						"scouting": "1",
+						"sleight of hand": "1",
+						"survival": "1",
+						"insight": "1"
+					}
+				},
+				"herder": {
+					"key": "herder",
+					"name": "Pastora",
+					"weight": 1,
+					"description": "De niña te enseñaron que el ganado es la fuente de la vida. Como aprendiza recorriste las llanuras de las Tierras Prohibidas mientras cuidabas de tu rebaño. Pasaste las noches bajo las estrellas, soñando con vivir aventuras.",
+					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"skills": { "might": "1", "crafting": "1", "scouting": "2", "animal handling": "2" }
+				},
+				"vagabond": {
+					"key": "vagabond",
+					"name": "Vagabunda",
+					"weight": 1,
+					"description": "Tu familia y tú viajasteis de pueblo a pueblo para ganaros la vida con pequeños trabajos. Nunca tuvisteis un hogar, cada día era una nueva aventura. Aprendiste a vivir de la tierra y que era muy importante mantenerse unidos.",
+					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
+					"skills": { "endurance": "1", "melee": "1", "scouting": "1", "survival": "2", "insight": "1" }
+				},
+				"squire": {
+					"key": "squire",
+					"name": "Escudera",
+					"weight": 1,
+					"description": "Serviste a las órdenes de una orgullosa guerrera. Llevabas sus armas y equipo, cuidabas de su caballo y aprendiste todo lo que pudiste. Soñabas con hacerte un nombre en las Tierras Prohibidas y que un día serías tu propia señora.",
+					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"skills": { "endurance": "1", "melee": "2", "marksmanship": "1", "move": "1", "healing": "1" }
+				},
+				"laborer": {
+					"key": "laborer",
+					"name": "Trabajadora",
+					"weight": 1,
+					"description": "Trabajaste en una granja haciendo las pesadas tareas rutinarias. Lo sabes todo de cereales, ganado y cosechas. Pero algo dentro de ti ansiaba algo más.",
+					"attributes": { "strength": "5", "agility": "3", "wits": "3", "empathy": "4" },
+					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal handling": "1" }
+				},
+				"hard studies": {
+					"key": "hard studies",
+					"name": "Pupila",
+					"weight": 1,
+					"description": "Un hombre o mujer docto te tomó bajo su tutela y te puso a estudiar los escritos antiguos. Los días eran largos, pero aprendiste mucho y, al final, te diste cuenta de que el conocimiento era la clave de todo.",
+					"attributes": { "strength": "3", "agility": "3", "wits": "5", "empathy": "4" },
+					"skills": { "crafting": "1", "lore": "3", "insight": "1", "manipulation": "1" }
+				}
+			}
+		},
+		"aslene": {
+			"key": "aslene",
+			"name": "Humana Aslena",
+			"weight": 5,
+			"age": [
+				[16, 25],
+				[26, 50],
+				[51, 80]
+			],
+			"talent": "Adaptable",
+			"childhood": {
+				"born in the saddle": {
+					"key": "born in the saddle",
+					"name": "Criada en la silla",
+					"weight": 1,
+					"description": "Siempre te has sentido más conectada con los animales que con los humanos, y solo te sientes verdaderamente libre en la grupa de tu caballo y el viento en tu cara. Juntos sois uno mientras cabalgáis por las interminables extensiones en nombre del dios Asta.",
+					"attributes": { "strength": "4", "agility": "5", "wits": "3", "empathy": "3" },
+					"skills": { "move": "2", "survival": "2", "animal handling": "2" }
+				},
+				"dreamer": {
+					"key": "dreamer",
+					"name": "Soñadora",
+					"weight": 1,
+					"description": "Siempre has soñado con dioses, leyendas y mitos. De pequeña te sentabas en el fuego para escuchar al juglar del clan cantando historias del dios volcán Asta, vuestros orgullosos ancestros y las invasiones de demonios. Es en los sueños de tu pueblo, de héroes y leyendas, donde te sientes totalmente viva. ¿Serás una leyenda algún día?",
+					"attributes": { "strength": "3", "agility": "3", "wits": "4", "empathy": "5" },
+					"skills": { "lore": "2", "manipulation": "1", "performance": "1", "animal handling": "1" }
+				},
+				"strongest of the clan": {
+					"key": "strongest of the clan",
+					"name": "La más fuerte del clan",
+					"weight": 1,
+					"description": "Ya de pequeña aprendiste que eras más grande y fuerte que los demás. Tuviste que trabajar más duro, ser más responsable, la más difícil de vencer en combate. Algunos te idolatraban, otros te despreciaban.",
+					"attributes": { "strength": "5", "agility": "3", "wits": "3", "empathy": "4" },
+					"skills": { "might": "2", "endurance": "1", "melee": "2", "animal handling": "1" }
+				},
+				"taught by a wise women": {
+					"key": "taught by a wise women",
+					"name": "Discípula de una sabia",
+					"weight": 1,
+					"description": "De niña te hiciste amiga de una sabia del clan. Pronto fuiste su aprendiza y aprendiste todo sobre la historia de tu gente, las antiguas hazañas heroicas y las guerras sangrientas.",
+					"attributes": { "strength": "3", "agility": "3", "wits": "5", "empathy": "4" },
+					"skills": { "lore": "2", "insight": "1", "healing": "2", "animal handling": "1" }
+				},
+				"hunter": {
+					"key": "hunter",
+					"name": "Cazadora",
+					"weight": 1,
+					"description": "De niña aprendiste a vivir en sintonía con la naturaleza. Tu tarea es la caza, y aunque aprendiste a matar, también aprendiste a honrar la importancia de la vida de cada animal.",
+					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
+					"skills": { "marksmanship": "2", "scouting": "2", "survival": "1", "animal handling": "1" }
+				},
+				"child of the winds": {
+					"key": "child of the winds",
+					"name": "Hija de los vientos",
+					"weight": 1,
+					"description": "Fuiste elegida hija de los vientos y emprendiste un largo peregrinaje a las tierras altas y las montañas, todo por el bien de tu clan. Cumpliste tu deber, pero ahora no estás segura de dónde sentirte como en casa.",
+					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"skills": {
+						"melee": "1",
+						"marksmanship": "1",
+						"endurance": "1",
+						"survival": "2",
+						"animal handling": "1"
+					}
+				}
+			}
+		},
+		"ailander": {
+			"key": "ailander",
+			"name": "Humana Ayea",
+			"weight": 3,
+			"age": [
+				[16, 25],
+				[26, 50],
+				[51, 80]
+			],
+			"talent": "Adaptable",
+			"childhood": {
+				"child of the raven": {
+					"key": "child of the raven",
+					"name": "Hija del cuervo",
+					"weight": 1,
+					"description": "Creciste entre las Hermanas del Cuervo y te enseñaron a venerar al dios Cuervo. Aprendiste a temer a los Hermanos Herrumbrosos, y a vivir de la tierra. Es al aire libre donde te sientes mejor.",
+					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
+					"skills": { "crafting": "1", "move": "1", "scouting": "1", "lore": "2", "insight": "1" }
+				},
+				"druid's apprentice": {
+					"key": "druid's apprentice",
+					"name": "Aprendiz del druida",
+					"weight": 1,
+					"description": "Estuviste bajo la tutela de un druida y aprendiste todo lo que pudiste de los misterios sagrados, de rituales y hechicerías. Tu maestro hace tiempo que murió, pero aún recuerdas sus palabras.",
+					"attributes": { "strength": "3", "agility": "4", "wits": "5", "empathy": "3" },
+					"skills": { "scouting": "1", "lore": "1", "survival": "2", "healing": "1", "animal handling": "1" }
+				},
+				"guardian": {
+					"key": "guardian",
+					"name": "Guardiana",
+					"weight": 1,
+					"description": "Los ayeos siempre fueron un pueblo perseguido y oprimido. Lo aprendiste enseguida, y fuiste entrenada para proteger a tu gente con una espada y un escudo. Pronto te endureciste en batalla, y llevas las cicatrices que lo demuestran.",
+					"attributes": { "strength": "5", "agility": "4", "wits": "3", "empathy": "3" },
+					"skills": { "might": "1", "melee": "2", "marksmanship": "2", "move": "1" }
+				},
+				"wanderer": {
+					"key": "wanderer",
+					"name": "Nómada",
+					"weight": 1,
+					"description": "No vivías en ningún lugar, el camino era tu hogar, y las Tierras Prohibidas tu vecindad. Ya de niña viste más tierras que la mayoría.",
+					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"skills": {
+						"endurance": "1",
+						"melee": "1",
+						"scouting": "1",
+						"survival": "2",
+						"animal handling": "1"
+					}
+				},
+				"laborer": {
+					"key": "laborer",
+					"name": "Granjera",
+					"weight": 1,
+					"description": "Trabajaste en una granja realizando quehaceres domésticos y laboriosos. Lo sabes todo sobre cereales, ganado y cosechas. Pero en el fondo deseabas algo más.",
+					"attributes": { "strength": "5", "agility": "3", "wits": "3", "empathy": "4" },
+					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal handling": "1" }
+				},
+				"herder": {
+					"key": "herder",
+					"name": "Pastora",
+					"weight": 1,
+					"description": "De niña te enseñaron que el ganado es la fuente de la vida. Como aprendiza recorriste las llanuras de las Tierras Prohibidas mientras cuidabas de tu rebaño. Pasaste las noches bajo las estrellas, soñando con vivir aventuras.",
+					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"skills": { "might": "1", "crafting": "1", "scouting": "2", "animal handling": "2" }
+				}
+			}
+		},
+		"halfelf": {
+			"key": "halfelf",
+			"name": "Semielfa",
+			"weight": 3,
+			"age": [
+				[16, 30],
+				[31, 100],
+				[101, 200]
+			],
+			"talent": "Poder psíquico",
+			"childhood": {
+				"on the run": {
+					"key": "on the run",
+					"name": "Siempre huyendo",
+					"weight": 1,
+					"description": "Siempre has estado huyendo de algo. Nunca te has sentido a salvo y nunca has tenido un hogar. Has estado viajando de ciudad en ciudad por las Tierras Prohibidas, pero nunca has podido dormir de espaldas a la puerta.",
+					"attributes": { "strength": "4", "agility": "5", "wits": "3", "empathy": "3" },
+					"skills": { "melee": "1", "stealth": "2", "scouting": "2", "insight": "1" }
+				},
+				"artist": {
+					"key": "artist",
+					"name": "Artista",
+					"weight": 1,
+					"description": "Ya de pequeña descubriste que tenías talento para las empresas artísticas. Es en las artes y las letras donde encuentras la paz, donde te sientes plena.",
+					"attributes": { "strength": "3", "agility": "3", "wits": "4", "empathy": "5" },
+					"skills": { "crafting": "2", "move": "1", "lore": "1", "performance": "2" }
+				},
+				"student": {
+					"key": "student",
+					"name": "Estudiante",
+					"weight": 1,
+					"description": "Siempre supiste que tus amigos te veían como una pequeña sabia. Te sumergiste en los misterios del mundo cuando un docto maestro te tomó como aprendiza. Encontraste en los libros lo que siempre habías soñado, y mucho más.",
+					"attributes": { "strength": "3", "agility": "4", "wits": "5", "empathy": "3" },
+					"skills": { "crafting": "1", "lore": "3", "insight": "1", "healing": "1" }
+				},
+				"acrobat": {
+					"key": "acrobat",
+					"name": "Acróbata",
+					"weight": 1,
+					"description": "De niña eras ágil y veloz, trepabas a todas partes y descubrías todos los recovecos de tu pueblo. Aprendiste el arte de la interpretación y la importancia de lo hermoso en las Tierras Prohibidas.",
+					"attributes": { "strength": "3", "agility": "5", "wits": "3", "empathy": "4" },
+					"skills": { "stealth": "1", "move": "2", "sleight of hand": "2", "performance": "1" }
+				},
+				"fighter": {
+					"key": "fighter",
+					"name": "Luchadora",
+					"weight": 1,
+					"description": "Aprendiste pronto que tenías talento para las armas. De muy joven te tomaron como aprendiza de un guerrero que te enseñó los secretos del combate. Entrenaste mucho, y con el tiempo igualaste a tu maestro.",
+					"attributes": { "strength": "4", "agility": "5", "wits": "3", "empathy": "3" },
+					"skills": { "might": "1", "endurance": "1", "melee": "2", "marksmanship": "2" }
+				},
+				"ghost child": {
+					"key": "ghost child",
+					"name": "Niña perdida",
+					"weight": 1,
+					"description": "Creciste sin familia ni hogar, así que siempre buscabas a otros jóvenes que hubieran huido de casa o que los hubieran echado. Te llamaban niña perdida, y siempre viviste de robar y de hacer trabajitos de vez en cuando.",
+					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
+					"skills": { "melee": "1", "stealth": "2", "sleight of hand": "2", "insight": "1" }
+				}
+			}
+		},
+		"halfling": {
+			"key": "halfling",
+			"name": "Mediana",
+			"weight": 3,
+			"age": [
+				[16, 25],
+				[26, 60],
+				[61, 100]
+			],
+			"talent": "Escurridizo",
+			"childhood": {
+				"baker's apprentice": {
+					"key": "baker's apprentice",
+					"name": "Aprendiz de panadero",
+					"weight": 1,
+					"description": "Siempre te encantó el olor del pan recién hecho. Trabajaste en la cocina desde pequeña, haciendo el pan que después haría la boca agua a los demás.",
+					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"skills": {
+						"crafting": "2",
+						"sleight of hand": "1",
+						"lore": "1",
+						"survival": "1",
+						"performance": "1"
+					}
+				},
+				"laborer": {
+					"key": "laborer",
+					"name": "Granjera",
+					"weight": 1,
+					"description": "Trabajaste en una granja realizando quehaceres domésticos y laboriosos. Lo sabes todo sobre cereales, ganado y cosechas. Pero en el fondo deseabas algo más.",
+					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal handling": "1" }
+				},
+				"craftsman": {
+					"key": "craftsman",
+					"name": "Artesana",
+					"weight": 1,
+					"description": "Siempre fuiste habilidosa con los dedos y pronto te convertiste en una experta artesana. Te expresas a través de los objetos que creas, pero también te hacen desear ver las obras de los maestros de verdad.",
+					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
+					"skills": { "melee": "1", "crafting": "3", "lore": "1", "insight": "1" }
+				},
+				"raised in the kitchen": {
+					"key": "raised in the kitchen",
+					"name": "Criada en la cocina",
+					"weight": 1,
+					"description": "Pasaste casi toda tu infancia en la cocina, entre los olores de las sopas, estofados e infusiones. Aprendiste los secretos de las especias y el placer de una comida bien hecha.",
+					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"skills": {
+						"crafting": "2",
+						"sleight of hand": "1",
+						"lore": "1",
+						"survival": "1",
+						"animal handling": "1"
+					}
+				},
+				"bookworm": {
+					"key": "bookworm",
+					"name": "Ratón de biblioteca",
+					"weight": 1,
+					"description": "Los demás niños jugaban en el bosque, pero tú preferías enterrar tu nariz en los libros viejos y leer sobre mitos, dragones y tesoros.",
+					"attributes": { "strength": "3", "agility": "3", "wits": "5", "empathy": "4" },
+					"skills": { "lore": "3", "insight": "1", "manipulation": "1", "animal handling": "1" }
+				},
+				"loner": {
+					"key": "loner",
+					"name": "Solitaria",
+					"weight": 1,
+					"description": "Nunca te has sentido a gusto entre tu gente, siempre te has buscado la vida tú sola. Creciste a la sombra de los tuyos. Viste cosas que ellos no vieron, hiciste cosas que nunca imaginaron.",
+					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
+					"skills": {
+						"melee": "1",
+						"stealth": "2",
+						"sleight of hand": "1",
+						"scouting": "1",
+						"manipulation": "1"
+					}
+				}
+			}
+		},
+		"goblin": {
+			"key": "goblin",
+			"name": "Goblin",
+			"weight": 4,
+			"age": [
+				[16, 25],
+				[26, 60],
+				[61, 100]
+			],
+			"talent": "Nocturno",
+			"childhood": {
+				"wolfling": {
+					"key": "wolfling",
+					"name": "Criada con los lobos",
+					"weight": 1,
+					"description": "Tus padres te abandonaron cuando eras una niña, pero encontraste un nuevo hogar en una manada de lobos. Fuiste una de ellos, aullaste a la luna, corriste dando zancadas por las llanuras y comiste carne cruda.",
+					"attributes": { "strength": "3", "agility": "5", "wits": "3", "empathy": "4" },
+					"skills": { "endurance": "1", "melee": "1", "stealth": "1", "move": "1", "animal handling": "2" }
+				},
+				"scrounger": {
+					"key": "scrounger",
+					"name": "Buscavidas",
+					"weight": 1,
+					"description": "De niña aprendiste que la propiedad no era sino una idea efímera. Siempre has tenido talento para adquirir cosas que no eran tuyas. Era como si… aparecieran de repente.",
+					"attributes": { "strength": "3", "agility": "5", "wits": "3", "empathy": "4" },
+					"skills": { "stealth": "2", "scouting": "2", "insight": "1", "manipulation": "1" }
+				},
+				"child of the woods": {
+					"key": "child of the woods",
+					"name": "Hija del bosque",
+					"weight": 1,
+					"description": "Creciste al abrigo del bosque. Trepaste a los árboles, sentiste el viento susurrar entre las hojas. En el bosque te sientes segura, y sabes que sus criaturas siempre te protegerán.",
+					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
+					"skills": { "endurance": "1", "move": "1", "marksmanship": "1", "scouting": "1", "survival": "2" }
+				},
+				"wildling": {
+					"key": "wildling",
+					"name": "Salvaje",
+					"weight": 1,
+					"description": "Tu clan era un puñado de disidentes a los que no les importaban las tradiciones y los pactos. Creciste salvaje y libre, nadie pudo decirte nunca qué tenías que hacer.",
+					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"skills": { "might": "1", "melee": "2", "move": "2", "survival": "1" }
+				},
+				"wanderer": {
+					"key": "wanderer",
+					"name": "Nómada",
+					"weight": 1,
+					"description": "No vivías en ningún lugar, el camino era tu hogar, y las Tierras Prohibidas tu vecindad. Ya de niña viste más tierras que la mayoría.",
+					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
+					"skills": {
+						"endurance": "1",
+						"melee": "1",
+						"scouting": "1",
+						"survival": "2",
+						"animal handling": "1"
+					}
+				},
+				"storyteller": {
+					"key": "storyteller",
+					"name": "Cuentacuentos",
+					"weight": 1,
+					"description": "Cuando eras una pequeña goblin te sentabas al calor del fuego, con los ojos como platos, para escuchar las leyendas de tu pueblo que contaba el anciano del clan. Viajaste con tu imaginación a través del espacio y el tiempo para revivir esas fantásticas historias. Te aseguraste de aprender todo lo que pudiste de ese viejo goblin, y al poco tiempo te convertiste en una de las cuentacuentos del clan.",
+					"attributes": { "strength": "3", "agility": "4", "wits": "3", "empathy": "5" },
+					"skills": { "lore": "1", "manipulation": "2", "performance": "3" }
+				}
+			}
+		},
+		"orc": {
+			"key": "orc",
+			"name": "Orca",
+			"weight": 4,
+			"age": [
+				[13, 20],
+				[21, 45],
+				[46, 70]
+			],
+			"talent": "Imbatible",
+			"childhood": {
+				"minstrel": {
+					"key": "minstrel",
+					"name": "Trovadora",
+					"weight": 1,
+					"description": "Era en las historias de sufrimiento de tu pueblo donde te encontrabas a ti misma. De pequeña aprendiste las canciones de la traición de los elfos y de la sangre derramada en las guerras. Nunca lo olvidarás.",
+					"attributes": { "strength": "3", "agility": "3", "wits": "4", "empathy": "5" },
+					"skills": { "lore": "1", "insight": "1", "manipulation": "1", "performance": "1" }
+				},
+				"worker": {
+					"key": "worker",
+					"name": "Trabajadora",
+					"weight": 1,
+					"description": "La vida era dura, incluso desde que eras joven. Has trabajado muy duro desde que tienes memoria, te has esforzado para poder vivir tu vida como has querido.",
+					"attributes": { "strength": "5", "agility": "4", "wits": "3", "empathy": "3" },
+					"skills": { "might": "2", "endurance": "2", "crafting": "2" }
+				},
+				"brigand": {
+					"key": "brigand",
+					"name": "Forajida",
+					"weight": 1,
+					"description": "Una orco fuerte es una orco que puede cuidar de sí misma. Aprendiste pronto que tenías que robar para sobrevivir. ¿Y por qué no? A los orcos los han traicionado una y otra vez.",
+					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
+					"skills": { "melee": "2", "stealth": "1", "sleight of hand": "1", "scouting": "1", "survival": "1" }
+				},
+				"drifter": {
+					"key": "drifter",
+					"name": "Vagabunda",
+					"weight": 1,
+					"description": "Creciste en el camino, en el bosque, en las llanuras. Nunca has podido asentarte en un lugar. Tus incansables piernas no te dejarían.",
+					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"skills": {
+						"endurance": "1",
+						"melee": "1",
+						"scouting": "1",
+						"survival": "2",
+						"animal handling": "1"
+					}
+				},
+				"warrior": {
+					"key": "warrior",
+					"name": "Guerrera",
+					"weight": 1,
+					"description": "Creciste en el campo de batalla. Mataste a tu primer enemigo siendo muy joven. Fue con un arma en las manos cuando te sentiste respetada por primera vez.",
+					"attributes": { "strength": "5", "agility": "4", "wits": "3", "empathy": "3" },
+					"skills": { "might": "1", "melee": "2", "marksmanship": "2", "move": "1" }
+				},
+				"loner": {
+					"key": "loner",
+					"name": "Solitaria",
+					"weight": 1,
+					"description": "Nunca te has sentido a gusto entre tu gente, siempre te has buscado la vida tú sola. Creciste a la sombra de los tuyos. Viste cosas que ellos no vieron, hiciste cosas que nunca imaginaron.",
+					"attributes": { "strength": "4", "agility": "3", "wits": "5", "empathy": "3" },
+					"skills": { "melee": "1", "scouting": "1", "insight": "2", "survival": "2" }
+				}
+			}
+		},
+		"wolfkin": {
+			"key": "wolfkin",
+			"name": "Lupina",
+			"weight": 2,
+			"age": [
+				[13, 20],
+				[21, 40],
+				[41, 65]
+			],
+			"talent": "Instinto de caza",
+			"childhood": {
+				"howler": {
+					"key": "howler",
+					"name": "Aulladora",
+					"weight": 1,
+					"description": "Creciste entre los aulladores, lupinos que se movían entre clanes, libres, siendo sus propios amos. Aprendiste todo lo que sabes en los relatos de las trágicas leyendas que se han contado durante generaciones por los aulladores que te precedieron.",
+					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
+					"skills": { "lore": "1", "manipulation": "1", "performance": "3", "survival": "1" }
+				},
+				"hunter": {
+					"key": "hunter",
+					"name": "Cazadora",
+					"weight": 1,
+					"description": "Ya cuando eras una cachorra aprendiste que la sangre es la vida. Los cazadores ancianos del clan te enseñaron a respetar a los animales, incluso cuando los matabas. La caza es la base de la vida.",
+					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
+					"skills": { "endurance": "1", "melee": "1", "scouting": "2", "survival": "2" }
+				},
+				"outcast": {
+					"key": "outcast",
+					"name": "Paria",
+					"weight": 1,
+					"description": "Cuando los demás cachorros corrieron con la manada, te dejaron a un lado. Aprendiste sola a vivir en el bosque y que otras razas podían ser más amables que la tuya propia. Algún día regresarás a casa.",
+					"attributes": { "strength": "4", "agility": "3", "wits": "5", "empathy": "3" },
+					"skills": { "melee": "1", "scouting": "1", "insight": "2", "survival": "2" }
+				},
+				"tracker": {
+					"key": "tracker",
+					"name": "Rastreadora",
+					"weight": 1,
+					"description": "Aprendiste pronto que tu sentido del olfato era mejor que el de tus hermanos, y te diste cuenta de que podías encontrar las cosas más maravillosas si seguías a tu hocico.",
+					"attributes": { "strength": "3", "agility": "4", "wits": "5", "empathy": "3" },
+					"skills": { "stealth": "2", "scouting": "3", "survival": "1" }
+				},
+				"fighter": {
+					"key": "fighter",
+					"name": "Luchadora",
+					"weight": 1,
+					"description": "Eras la más fuerte de la camada, y siempre ganabas en los juegos de tus hermanos. Al crecer, los ancianos del clan te vieron como una luchadora natural y te entrenaron en los secretos de la batalla.",
+					"attributes": { "strength": "5", "agility": "4", "wits": "3", "empathy": "3" },
+					"skills": { "might": "2", "melee": "3", "move": "1" }
+				},
+				"child of the forest": {
+					"key": "child of the forest",
+					"name": "Hija del bosque",
+					"weight": 1,
+					"description": "Desde que eras una cachorra te has sentido atraída por los frutos de los bosques, las flores, hierbas y lagos. Aprendiste todo lo que pudiste del herborista del clan, la esencia de cada flor y qué plantas nutrían la vida… o terminaban con ella.",
+					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
+					"skills": { "lore": "2", "scouting": "1", "survival": "3" }
+				}
+			}
+		},
+		"dwarf": {
+			"key": "dwarf",
+			"name": "Enana",
+			"weight": 2,
+			"age": [
+				[20, 40],
+				[41, 80],
+				[81, 160]
+			],
+			"talent": "Testa dura",
+			"childhood": {
+				"smith's apprentice": {
+					"key": "smith's apprentice",
+					"name": "Aprendiz del herrero",
+					"weight": 1,
+					"description": "Siempre te has sentido cómoda en el sofocante calor de la forja. Aprendiste el secreto del acero en los largos días a la luz del brillo del fuego.",
+					"attributes": { "strength": "5", "agility": "3", "wits": "4", "empathy": "3" },
+					"skills": { "might": "1", "endurance": "1", "melee": "1", "crafting": "3" }
+				},
+				"mineborn": {
+					"key": "mineborn",
+					"name": "Nacida en la mina",
+					"weight": 1,
+					"description": "Ya de niña aprendiste a orientarte a oscuras en las profundidades bajo tierra. Te sientes como en casa cuando estás rodeada de piedra y frío.",
+					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
+					"skills": { "endurance": "2", "crafting": "1", "scouting": "1", "survival": "2" }
+				},
+				"scout's apprentice": {
+					"key": "scout's apprentice",
+					"name": "Aprendiz del explorador",
+					"weight": 1,
+					"description": "Siempre has sido muy perspicaz y curiosa. Pronto llamaste la atención de tu clan y te eligieron para que aprendieras el oficio de explorador. Pasaste muchos días escondida observando los peligros de las Tierras Prohibidas.",
+					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
+					"skills": { "melee": "1", "stealth": "2", "scouting": "2", "survival": "1" }
+				},
+				"guardian": {
+					"key": "guardian",
+					"name": "Guardiana novel",
+					"weight": 1,
+					"description": "Te eligieron para ser una guardiana novel, una especie de escudera al servicio de un orgulloso y poderoso guerrero enano. Fue un trabajo duro, pero también aprendiste mucho. Tu señor te enseñó a manejar las armas, a templar tu coraje y a mantenerte firme ante cualquier peligro.",
+					"attributes": { "strength": "5", "agility": "4", "wits": "3", "empathy": "3" },
+					"skills": { "might": "2", "endurance": "1", "melee": "2", "marksmanship": "1" }
+				},
+				"carver": {
+					"key": "carver",
+					"name": "Tallista",
+					"weight": 1,
+					"description": "Los enanos siempre han excavado muy abajo y profundo. Crearon vida a partir de la roca. De niña te fascinaba el arte de tallar la montaña según tus ideas. Te hiciste tallista, ingeniera y constructora, y trabajaste tanto con la mente como con la pura fuerza bruta.",
+					"attributes": { "strength": "4", "agility": "3", "wits": "5", "empathy": "3" },
+					"skills": { "might": "1", "crafting": "2", "lore": "2", "survival": "1" }
+				},
+				"hard studies": {
+					"key": "hard studies",
+					"name": "Buena estudiante",
+					"weight": 1,
+					"description": "Un enano docto te tomó bajo su tutela y te puso a estudiar los escritos antiguos. Los días eran largos, pero al final descubriste que el conocimiento era la clave de todo.",
+					"attributes": { "strength": "3", "agility": "3", "wits": "5", "empathy": "4" },
+					"skills": { "crafting": "1", "lore": "3", "insight": "1", "manipulation": "1" }
+				}
+			}
+		},
+		"elf": {
+			"key": "elf",
+			"name": "Elfa",
+			"weight": 2,
+			"age": [[0, 0]],
+			"talent": "Paz interior",
+			"childhood": {
+				"loner": {
+					"key": "loner",
+					"name": "Solitaria",
+					"weight": 1,
+					"description": "Nunca te has sentido a gusto entre tu gente, siempre te has buscado la vida tú sola. Creciste a la sombra de los tuyos. Viste cosas que ellos no vieron, hiciste cosas que nunca imaginaron.",
+					"attributes": { "strength": "4", "agility": "3", "wits": "5", "empathy": "3" },
+					"skills": { "melee": "1", "scouting": "1", "insight": "2", "survival": "2" }
+				},
+				"fighter": {
+					"key": "fighter",
+					"name": "Luchadora",
+					"weight": 1,
+					"description": "Aprendiste pronto que tenías talento para las armas. De muy joven te tomaron como aprendiza de un guerrero que te enseñó los secretos del combate. Entrenaste mucho, y con el tiempo igualaste a tu maestro.",
+					"attributes": { "strength": "4", "agility": "5", "wits": "3", "empathy": "3" },
+					"skills": { "might": "1", "endurance": "1", "melee": "2", "marksmanship": "2" }
+				},
+				"child of the forest": {
+					"key": "child of the forest",
+					"name": "Hija del bosque",
+					"weight": 1,
+					"description": "Desde que eras niña te has sentido atraída por los frutos de los bosques, las flores, hierbas y lagos. Aprendiste todo lo que pudiste del herborista del clan, la esencia de cada flor y qué plantas nutrían la vida… o terminaban con ella.",
+					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
+					"skills": { "lore": "2", "scouting": "1", "survival": "3" }
+				},
+				"hard studies": {
+					"key": "hard studies",
+					"name": "Buena estudiante",
+					"weight": 1,
+					"description": "Un elfo docto te tomó bajo su tutela y te puso a estudiar los escritos antiguos. Los días eran largos, pero al final descubriste que el conocimiento era la clave de todo.",
+					"attributes": { "strength": "3", "agility": "3", "wits": "5", "empathy": "4" },
+					"skills": { "crafting": "1", "lore": "3", "insight": "1", "manipulation": "1" }
+				},
+				"wanderer": {
+					"key": "wanderer",
+					"name": "Nómada",
+					"weight": 1,
+					"description": "No vivías en ningún lugar, el camino era tu hogar, y las Tierras Prohibidas tu vecindad. Ya de niña viste más tierras que la mayoría.",
+					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"skills": {
+						"endurance": "1",
+						"melee": "1",
+						"scouting": "1",
+						"survival": "2",
+						"animal handling": "1"
+					}
+				},
+				"druid's apprentice": {
+					"key": "druid's apprentice",
+					"name": "Aprendi del druida",
+					"weight": 1,
+					"description": "Estuviste bajo la tutela de un druida y aprendiste todo lo que pudiste de los misterios sagrados, de rituales y hechicerías. Tu maestro hace tiempo que murió, pero aún recuerdas sus palabras.",
+					"attributes": { "strength": "3", "agility": "4", "wits": "5", "empathy": "3" },
+					"skills": { "scouting": "1", "lore": "1", "survival": "2", "healing": "1", "animal handling": "1" }
+				}
+			}
+		}
+	},
+	"profession": {
+		"druid": {
+			"key": "druid",
+			"name": "Druida",
+			"weight": 1,
+			"paths": ["Sendda de la Curación", "Senda del Cambio de Forma", "Senda de la Visión"],
+			"equipment": [["Bastón", "Cuchillo"], "Mercancías"],
+			"consumables": { "food": 8, "water": 6, "arrows": 0, "torches": 0 },
+			"currency": { "gold": 0, "silver": 6, "copper": 0 },
+			"formativeEvents": {
+				"pilgrimage": {
+					"key": "pilgrimage",
+					"name": "Peregrinaje",
+					"weight": 1,
+					"description": "Llevaste a cabo una peregrinación por las Tierras Salvajes. Llegaste a tu destino después de muchas adversidades y nunca olvidarás el peligroso viaje.",
+					"items": "✥ Obtienes un bastón, una mochila y un odre de agua.",
+					"skills": { "lore": "1", "survival": "1" },
+					"talent": "Caminante"
+				},
+				"hunted": {
+					"key": "hunted",
+					"name": "Perseguida",
+					"weight": 1,
+					"description": "Algo te pasó que te obligó a correr por tu vida. Puede que te tropezaras con la persona equivocada o que te acusaran de algo que no hiciste.",
+					"items": "✥ Obtienes 1D3 dosis de veneno narcótico y una daga.",
+					"skills": { "melee": "1", "move": "1" },
+					"talent": "Sexto sentido"
+				},
+				"unexpected find": {
+					"key": "unexpected find",
+					"name": "Hallazgo inesperado",
+					"weight": 1,
+					"description": "Encontraste un tesoro marcado con el signo de tu dios. Viste esto como una señal de que tu misión era recta, pero los demás no pensaron lo mismo. ¿Puede que aún haya alguien buscando el tesoro?",
+					"items": "✥ Tira en la tabla de «Hallazgos valiosos en guarida »; vuelve a tirar si el resultado es menor de 32.",
+					"skills": { "crafting": "1", "survival": "1" },
+					"talent": "Afortunada"
+				},
+				"studied with a master": {
+					"key": "studied with a master",
+					"name": "Aprendiz de maestro",
+					"weight": 1,
+					"description": "Un sabio druida te tomó bajo su tutela y te enseñó durante mucho tiempo. Fue una época dura, pero también aprendiste mucho. Puede que tu maestro esté vivo en alguna parte, o puede que lo matara la Guardia de Hierro.",
+					"items": "✥ Obtienes pergamino, tinta y pluma.",
+					"skills": { "lore": "1", "healing": "1" },
+					"talent": "Lengua afilada"
+				},
+				"protected the forest": {
+					"key": "protected the forest",
+					"name": "Protectora del bosque",
+					"weight": 1,
+					"description": "Tomaste la responsabilidad de proteger el bosque contra el mal y la violencia de los extraños. Viviste al abrigo de los imponentes árboles y te hiciste una con el bosque.",
+					"items": "✥ Obtienes un arco corto y un D12 como dado de recursos para flechas.",
+					"skills": { "marksmanship": "1", "animal handling": "1" },
+					"talent": "Herborista"
+				},
+				"lived as a hermit": {
+					"key": "lived as a hermit",
+					"name": "Hermitaña",
+					"weight": 1,
+					"description": "Buscaste la belleza de la naturaleza, lejos de los conflictos violentos de las Tierras Prohibidas. Cuando finalmente volviste, lo hiciste con una fuerza nueva.",
+					"items": "✥ Obtienes una tienda de campaña pequeña y utensilios de cocina.",
+					"skills": { "endurance": "1", "survival": "1" },
+					"talent": "Buscasendas"
+				}
+			}
+		},
+		"fighter": {
+			"key": "fighter",
+			"name": "Guerrero",
+			"weight": 1,
+			"paths": ["Senda de la Espada", "Senda del Enemigo", "Senda del Escudo"],
+			"equipment": ["Arma a una mano", "Armadura de cuero tachonado", "Mercancías"],
+			"consumables": { "food": 8, "water": 8, "arrows": 0, "torches": 0 },
+			"currency": { "gold": 0, "silver": 6, "copper": 0 },
+			"formativeEvents": {
+				"captured": {
+					"key": "captured",
+					"name": "Capturada",
+					"weight": 1,
+					"description": "Fuiste capturada de forma vergonzosa por enemigos. Te arrojaron a una mazmorra para olvidarse de ti y que murieras. Cuando apareció la oportunidad de escapar, la aprovechaste.",
+					"items": "✥ Obtienes una armadura de cuero tachonado.",
+					"skills": { "might": "1", "survival": "1" },
+					"talent": "Resistente al dolor"
+				},
+				"bloody battle": {
+					"key": "bloody battle",
+					"name": "Batalla sangrienta",
+					"weight": 1,
+					"description": "Tomaste parte en una batalla terrible y te hirieron gravemente. Cuando amaneció, tu bando había sido derrotado hasta el último hombre y el enemigo había dejado tu cuerpo a los cuervos.",
+					"items": "✥ Obtienes una espada bastarda.",
+					"skills": { "melee": "2" },
+					"talent": "Maestra de la espada"
+				},
+				"a long march": {
+					"key": "a long march",
+					"name": "Una larga marcha",
+					"weight": 1,
+					"description": "Te afiliaste como soldado y marchaste por las Tierras Prohibidas. Casi no recuerdas por qué luchabas o quién era vuestro enemigo, pero sí recuerdas que las fuerzas de la naturaleza se llevaron a tus compañeros uno a uno.",
+					"items": "✥ Obtienes una tienda de campaña pequeña, una manta y un caldero.",
+					"skills": { "survival": "1", "healing": "1" },
+					"talent": "Diógenes"
+				},
+				"on horseback": {
+					"key": "on horseback",
+					"name": "En la grupa de un caballo",
+					"weight": 1,
+					"description": "Aprendiste a montar y te hiciste caballera con un señor. Luchaste en escaramuzas, formaste parte de patrullas y protegiste las tierras de tu señor.",
+					"items": "✥ Obtienes una montura de tu elección (excepto caballo de guerra).",
+					"skills": { "melee": "1", "animal handling": "1" },
+					"talent": "Guerrera montada"
+				},
+				"scout": {
+					"key": "scout",
+					"name": "Exploradora",
+					"weight": 1,
+					"description": "Te uniste a una compañía de soldados y te pusieron a la vanguardia como exploradora. Tu misión era descubrir al enemigo antes de que os descubrieran, y eras buena en eso. ¿Le pasó algo a tu pelotón, o que justo en esa ocasión no estuviste atenta?",
+					"items": "✥ Obtienes un arco corto y un D12 como dado de recurso para flechas",
+					"skills": { "scouting": "1", "marksmanship": "1" },
+					"talent": "Defensora"
+				},
+				"commander": {
+					"key": "commander",
+					"name": "Comandante",
+					"weight": 1,
+					"description": "Estabas al mando de un pelotón de soldados. Tus compañeros de armas te respetaban y juraron morir por ti. Pero algo pasó, puede que te traicionaran o que os tendieron una emboscada. Tus compañeros cayeron o huyeron, pero tú sobreviviste.",
+					"items": "✥ Obtienes una cota de malla y una celada descubierta.",
+					"skills": { "lore": "1", "manipulation": "1" },
+					"talent": "Sangre fria"
+				}
+			}
+		},
+		"hunter": {
+			"key": "hunter",
+			"name": "Cazador",
+			"weight": 1,
+			"paths": ["Senda de la Flecha", "Senda de la Bestia", "Senda del Bosque"],
+			"equipment": [["Arco", "Honda"], "Mercancías", "Mercancías"],
+			"consumables": { "food": 8, "water": 8, "arrows": 10, "torches": 0 },
+			"currency": { "gold": 0, "silver": 6, "copper": 0 },
+			"formativeEvents": {
+				"hunted a beast": {
+					"key": "hunted a beast",
+					"name": "Bestia cazada",
+					"weight": 1,
+					"description": "La caza lo era todo. Perseguiste a la bestia por tierra, agua y montañas. Algunas veces tú eras la presa.",
+					"items": "✥ Obtienes una lanza corta y una trampa de osos.",
+					"skills": { "melee": "1", "scouting": "1" },
+					"talent": "Maestra de la lanza"
+				},
+				"lived off the forest": {
+					"key": "lived off the forest",
+					"name": "Criada en el bosque",
+					"weight": 1,
+					"description": "Viviste en el bosque y este te dio sustento. De día cazabas, y de noche dormías bajo las estrellas. Era una vida sencilla, pero te gustaba, y un día se terminó.",
+					"items": "✥ Obtienes una jabalina y una daga.",
+					"skills": { "marksmanship": "1", "survival": "1" },
+					"talent": "Maestra de la caza"
+				},
+				"tamed a mount": {
+					"key": "tamed a mount",
+					"name": "Montura domesticada",
+					"weight": 1,
+					"description": "Atrapaste a un caballo salvaje (u otro animal que encaje). No fue fácil, pero por fin lo domesticaste y con el tiempo os hicisteis inseparables.",
+					"items": "✥ Obtienes una montura de tu elección. No puede ser un caballo de guerra.",
+					"skills": { "animal handling": "2" },
+					"talent": "Guerrera montada"
+				},
+				"won an archery competition": {
+					"key": "won an archery competition",
+					"name": "Ganadora de una competición de arco",
+					"weight": 1,
+					"description": "Te diste cuenta pronto de que tenías un talento natural con el arco, y te dispusiste a ser incluso mejor. Participaste en una competición cuando visitaste un pueblo grande o un castillo, y ganaste.",
+					"items": "✥ Obtienes un arco largo y un D12 como dado de recursos para flechas.",
+					"skills": { "marksmanship": "2" },
+					"talent": "Tiradora avezada"
+				},
+				"guide": {
+					"key": "guide",
+					"name": "Guía",
+					"weight": 1,
+					"description": "Prestaste tu talento como guía a aquellos que pagaban bien. Guiaste caravanas de mercaderes, tropas de soldados y aventureros curiosos. Aprendiste el arte de cruzar las Tierras Prohibidas y a vivir de ellas.",
+					"items": "✥ Obtienes una tienda de campaña pequeña, un caldero y una manta.",
+					"skills": { "scouting": "2" },
+					"talent": "Buscasendas"
+				},
+				"hunted for a lord": {
+					"key": "hunted for a lord",
+					"name": "Cazadora de un señor",
+					"weight": 1,
+					"description": "Un noble se dio cuenta de tus habilidades y te contrató como guardabosques. Viviste una buena vida: la mitad del tiempo entre las comodidades del castillo y el resto cazando en el bosque.",
+					"items": "✥ Obtienes una capa de buena factura y pieles de dormir.",
+					"skills": { "marksmanship": "1", "insight": "1" },
+					"talent": "Sexto sentido"
+				}
+			}
+		},
+		"minstrel": {
+			"key": "minstrel",
+			"name": "Juglar",
+			"weight": 1,
+			"paths": ["Senda del Himno", "Senda de la Canción", "Senda del Grito de Guerra"],
+			"equipment": [["Laud", "Flauta"], "Cuchillo", "Mercancías"],
+			"consumables": { "food": 8, "water": 6, "arrows": 0, "torches": 0 },
+			"currency": { "gold": 0, "silver": 8, "copper": 0 },
+			"formativeEvents": {
+				"wrote a popular ballad": {
+					"key": "wrote a popular ballad",
+					"name": "Autora de una balada popular",
+					"weight": 1,
+					"description": "Una balada o canción que escribiste se hizo inmensamente popular en los alrededores. Hoy sigues escuchando a los juglares locales tocando tu pieza.",
+					"items": "✥ Obtienes tinta, pluma y pergamino.",
+					"skills": { "manipulation": "1", "performance": "1" },
+					"talent": "Afortunada"
+				},
+				"worked as a minstrel": {
+					"key": "worked as a minstrel",
+					"name": "Trovadora",
+					"weight": 1,
+					"description": "Usaste tus talentos artísticos para vivir de trovadora. Puede que fueras itinerante o que trabajaras en un lugar fijo, como una taberna o un castillo.",
+					"items": "✥ Obtienes un laúd.",
+					"skills": { "performance": "2" },
+					"talent": "Lengua afilada"
+				},
+				"inspirational journey": {
+					"key": "inspirational journey",
+					"name": "Viaje inspirador",
+					"weight": 1,
+					"description": "Viajaste por las Tierras Prohibidas para aprender de las razas, culturas y leyendas. En tu viaje te encontraste muchas aventuras y reuniste suficiente material para un libro de baladas.",
+					"items": "✥ Obtienes una tienda de campaña pequeña, una manta y un caldero.",
+					"skills": { "lore": "1", "survival": "1" },
+					"talent": "Intrépida"
+				},
+				"sang for a lord": {
+					"key": "sang for a lord",
+					"name": "Cantante de un señor",
+					"weight": 1,
+					"description": "Tu talento llamó la atención de un señor local, que te ofreció un puesto para entretener a su corte. El tiempo que pasaste en el castillo se llenó de vino, comida deliciosa y el tintineo de la plata, pero también de intrigas insidiosas, asesinatos y celos.",
+					"items": "✥ Obtienes ropa buena y una daga.",
+					"skills": { "insight": "1", "performance": "1" },
+					"talent": "Sexto sentido"
+				},
+				"enlisted": {
+					"key": "enlisted",
+					"name": "Reclutada",
+					"weight": 1,
+					"description": "La vida dio un giro repentino y te reclutaron en una compañía de soldados. La vida fue dura, pero hiciste amigos leales y aprendiste a vivir de la tierra.",
+					"items": "✥ Obtienes una armadura de cuero y un casquete.",
+					"skills": { "melee": "1", "survival": "1" },
+					"talent": "Defensora"
+				},
+				"dueled a rival": {
+					"key": "dueled a rival",
+					"name": "Duelo",
+					"weight": 1,
+					"description": "Un rival te vio como una piedra en su zapato. Durante un tiempo vuestros destinos se cruzaron de las formas más problemáticas: amor, dinero y trabajo. Al final fue demasiado. Te retó a un duelo y te hirió. Puede que tu rival aún esté por alguna parte.",
+					"items": "✥ Obtienes una espada corta.",
+					"skills": { "melee": "1", "healing": "1" },
+					"talent": "Maestra de la espada"
+				}
+			}
+		},
+		"peddler": {
+			"key": "peddler",
+			"name": "Buhonero",
+			"weight": 1,
+			"paths": ["Senda del Oro", "Senda de las Mentiras", "Senda de las Muchas Cosas"],
+			"equipment": ["Cuchillo", "Mercancías", "Mercancías", "Mercancías"],
+			"consumables": { "food": 8, "water": 8, "arrows": 0, "torches": 0 },
+			"currency": { "gold": 0, "silver": 12, "copper": 0 },
+			"formativeEvents": {
+				"caravan": {
+					"key": "caravan",
+					"name": "Caravana",
+					"weight": 1,
+					"description": "Formaste parte de una dura caravana comercial que viajó por las Tierras Prohibidas. La caravana se encontró con muchos peligros y no todos llegaron a su destino. ¿Puede que dejarais a alguien atrás?",
+					"items": "✥ Obtienes un burro.",
+					"skills": { "animal handling": "1", "manipulation": "1" },
+					"talent": "Caminante"
+				},
+				"local business": {
+					"key": "local business",
+					"name": "Negocio local",
+					"weight": 1,
+					"description": "Viste una oportunidad financiera y la aprovechaste al máximo. Puede que importaras fruta al castillo de un señor o que vendieras telas en Alisea. Los negocios fueron viento en popa, al menos por un tiempo.",
+					"items": "✥ Obtienes una carreta.",
+					"skills": { "insight": "1", "manipulation": "1" },
+					"talent": "Afortunada"
+				},
+				"cheated": {
+					"key": "cheated",
+					"name": "Engañada",
+					"weight": 1,
+					"description": "Un compañero en el que confiabas te engañó y te dejó sin nada. Aprendiste una lección importante de la forma más dura, y pasaste mucho tiempo reconstruyendo tu vida desde cero. ¿Puede que tu antiguo compañero siga vivo?",
+					"items": "✥ Obtienes una tienda de campaña pequeña, una manta y un caldero.",
+					"skills": { "insight": "2" },
+					"talent": "Incorruptible"
+				},
+				"side mission": {
+					"key": "side mission",
+					"name": "De aventuras",
+					"weight": 1,
+					"description": "Te uniste a un grupo de aventureros y fuiste a vivir grandes aventuras en las Tierras Prohibidas. Os enfrentasteis a muchos peligros y muchos perecieron durante el viaje, pero aprendiste mucho sobre ti misma.",
+					"items": "✥ Obtienes una cota de malla y un escudo pequeño.",
+					"skills": { "melee": "1", "lore": "1" },
+					"talent": "Intrépida"
+				},
+				"smuggler": {
+					"key": "smuggler",
+					"name": "Contrabandista",
+					"weight": 1,
+					"description": "Creaste un lucrativo negocio de contrabando entre asentamientos de las Tierras Prohibidas. Puede que traficaras con armas o drogas prohibidas. Aprendiste lo importante de ser discreta y cómo evitar llamar la atención.",
+					"items": "✥ Obtienes un catalejo.",
+					"skills": { "scouting": "1", "insight": "1" },
+					"talent": "Sexto sentido"
+				},
+				"ran a shop": {
+					"key": "ran a shop",
+					"name": "Dueña de una tienda",
+					"weight": 1,
+					"description": "Elegiste asentarte en un pueblo y llevaste una tienda durante un tiempo. Pudiste vivir de ello, pero no de forma holgada. Al final te diste cuenta de que la vida tranquila no era para ti.",
+					"items": "✥ Obtienes una balanza, tinta, pluma y pergamino.",
+					"skills": { "manipulation": "2" },
+					"talent": "Lengua afilada"
+				}
+			}
+		},
+		"rider": {
+			"key": "rider",
+			"name": "Jinete",
+			"weight": 1,
+			"paths": ["Senda del Compañero", "Senda del Caballero", "Senda de las Llanuras"],
+			"equipment": ["Caballo de monta", ["Lanza", "Hacha de mano"], ["Arco Corto", "Honda"], "Mercancías"],
+			"consumables": { "food": 8, "water": 8, "arrows": 10, "torches": 0 },
+			"currency": { "gold": 0, "silver": 6, "copper": 0 },
+			"formativeEvents": {
+				"enlisted": {
+					"key": "enlisted",
+					"name": "Recutada",
+					"weight": 1,
+					"description": "Te uniste a una compañía de soldados. Puede que te unieras por tu propia voluntad o que te obligaran. Con tus compañeros de armas os enfrentasteis a muchas adversidades: batallas, largas marchas y tiempo inclemente. Y al final, pasó algo y dejaste la compañía.",
+					"items": "✥ Obtienes una armadura de cuero tachonado y un escudo grande.",
+					"skills": { "melee": "1", "marksmanship": "1" },
+					"talent": "Guerrera montada"
+				},
+				"competed": {
+					"key": "competed",
+					"name": "Competición",
+					"weight": 1,
+					"description": "Te ganaste la vida como jinete de competiciones y viajaste de pueblo en pueblo y de castillo a castillo para competir contra otros jinetes. Vivías bien mientras ganabas, pero cuando empezaste a perder fue el momento de seguir adelante.",
+					"items": "✥ Obtienes una capa.",
+					"skills": { "move": "1", "animal handling": "1" },
+					"talent": "Pies ligeros"
+				},
+				"traveled the land": {
+					"key": "traveled the land",
+					"name": "Viajera",
+					"weight": 1,
+					"description": "Tu deseo de aventura te absorbió y te marchaste para cabalgar a lo largo y ancho de las Tierras Prohibidas. Cabalgaste por páramos desolados y fuertes tormentas y te enfrentaste a muchos peligros.",
+					"items": "✥ Obtienes una tienda de campaña pequeña, una manta y un caldero.",
+					"skills": { "survival": "1", "scouting": "1" },
+					"talent": "Herborista"
+				},
+				"caravan guard": {
+					"key": "caravan guard",
+					"name": "Guardia de caravana",
+					"weight": 1,
+					"description": "Conseguiste empleo como guardia de una caravana y escoltaste a los comerciantes a través de los bosques oscuros y las altas montañas.",
+					"items": "✥ Obtienes una lanza corta.",
+					"skills": { "melee": "1", "scouting": "1" },
+					"talent": "Buscasendas"
+				},
+				"cattle herder": {
+					"key": "cattle herder",
+					"name": "Pastora de ganado",
+					"weight": 1,
+					"description": "Arreaste al ganado hacia los pastos más verdes de las Tierras Prohibidas. De día cuidabas del rebaño en la grupa de tu caballo, de noche dormías bajo las estrellas.",
+					"items": "✥ Obtienes un farol y un odre de agua.",
+					"skills": { "move": "1", "animal handling": "1" },
+					"talent": "Intendente"
+				},
+				"steppe rider": {
+					"key": "steppe rider",
+					"name": "Jinete de las estepas",
+					"weight": 1,
+					"description": "Cabalgaste por las interminables estepas de las Tierras Prohibidas y viviste solo de lo que cazabas y de vender la carne y las pieles de los animales.",
+					"items": "✥ Obtienes un arco corto y un D12 como dado de recursos para flechas.",
+					"skills": { "marksmanship": "1", "animal handling": "1" },
+					"talent": "Curtidora"
+				}
+			}
+		},
+		"rogue": {
+			"key": "rogue",
+			"name": "Pícaro",
+			"weight": 1,
+			"paths": ["Senda del Rostro", "Senda del Asesino", "Senda del Veneno"],
+			"equipment": ["Daga", "Mercancías", "Mercancías"],
+			"consumables": { "food": 6, "water": 6, "arrows": 0, "torches": 0 },
+			"currency": { "gold": 0, "silver": 10, "copper": 0 },
+			"formativeEvents": {
+				"stole from the wrong person": {
+					"key": "stole from the wrong person",
+					"name": "Robaste a la persona equivocada",
+					"weight": 1,
+					"description": "Era el crimen perfecto, al menos durante un tiempo. Robaste algo valioso a la persona equivocada en el momento equivocado. Te pillaron y tuviste que correr por tu vida.",
+					"items": "✥ Obtienes unas ganzúas.",
+					"skills": { "sleight of hand": "1", "move": "1" },
+					"talent": "Como el rayo"
+				},
+				"imprisoned": {
+					"key": "imprisoned",
+					"name": "Presa",
+					"weight": 1,
+					"description": "Culpable o no, te pillaron y te mandaron a la cárcel. Pasaste mucho tiempo en la oscuridad, pero nunca te rendiste. Al final surgió una oportunidad para escapar y la aprovechaste.",
+					"items": "✥ Obtienes una daga.",
+					"skills": { "endurance": "1", "survival": "1" },
+					"talent": "Resistente al dolor"
+				},
+				"successful heist": {
+					"key": "successful heist",
+					"name": "Golpe exitoso",
+					"weight": 1,
+					"description": "Planeaste un golpe y salió bien. Puede que fuera a un comerciante rico, puede que a un señor local.",
+					"items": "✥ Tira en la tabla de «Hallazgos valiosos en guarida »; vuelve a tirar si el resultado es menor de 33.",
+					"skills": { "sleight of hand": "1", "stealth": "1" },
+					"talent": "Afortunada"
+				},
+				"joined a guild of thieves": {
+					"key": "joined a guild of thieves",
+					"name": "Miembro de un gremio de ladrones",
+					"weight": 1,
+					"description": "Buscaste una asociación de ladrones e ingresaste en su comunidad. Juntos planeasteis golpes y llevasteis a cabo misiones peligrosas.",
+					"items": "✥ Obtienes una armadura de cuero.",
+					"skills": { "insight": "1", "scouting": "1" },
+					"talent": "Sexto sentido"
+				},
+				"enlisted": {
+					"key": "enlisted",
+					"name": "Alistada",
+					"weight": 1,
+					"description": "Te encontraste, probablemente en contra de tu voluntad, alistada en una compañía de soldados. Trabajaste como exploradora a mucha distancia por delante de los demás. Pasaste muchas horas llenas de miseria y peligro, pero también de amistad.",
+					"items": "✥ Recibes un arco corto y un D12 como dado de recursos para flechas.",
+					"skills": { "marksmanship": "1", "scouting": "1" },
+					"talent": "Buscasendas"
+				},
+				"band of robbers": {
+					"key": "band of robbers",
+					"name": "Banda de ladrones",
+					"weight": 1,
+					"description": "Desapareciste en el bosque y te uniste a una banda de ladrones que vivían de los mercaderes y caravanas que se tropezaban en su camino. La vida en el bosque era llevadera y buena, al menos mientras duró, pero al final fuisteis expulsados del bosque.",
+					"items": "✥ Obtienes una espada corta.",
+					"skills": { "melee": "1", "survival": "1" },
+					"talent": "Como el rayo"
+				}
+			}
+		},
+		"sorcerer": {
+			"key": "sorcerer",
+			"name": "Hechicero",
+			"weight": 1,
+			"paths": ["Senda de la Sangre", "Senda de la Muerte", "Senda de los Signos", "Senda de la Piedra"],
+			"equipment": [["Bastón", "Cuchillo"], "Mercancías"],
+			"consumables": { "food": 6, "water": 8, "arrows": 0, "torches": 0 },
+			"currency": { "gold": 0, "silver": 8, "copper": 0 },
+			"formativeEvents": {
+				"failed experiment": {
+					"key": "failed experiment",
+					"name": "Experimento fallido",
+					"weight": 1,
+					"description": "Realizaste un experimento mágico que fracasó estrepitosamente. Puede que alguien saliera herido o que te expulsaran de tu hogar.",
+					"items": "✥ Obtienes 1D6 dosis de veneno alucinógeno.",
+					"skills": { "lore": "1", "healing": "1" },
+					"talent": "Envenenadora"
+				},
+				"secluded studies": {
+					"key": "secluded studies",
+					"name": "Recuida en los estudios",
+					"weight": 1,
+					"description": "Saliste en busca de un lugar apartado para sumergirte en el estudio de la magia. Viviste de lo que te daba la naturaleza y tus únicos compañeros fueron los libros y los pergaminos.",
+					"items": "✥ Obtienes una tienda de campaña pequeña y un caldero.",
+					"skills": { "lore": "1", "survival": "1" },
+					"talent": "Intendente"
+				},
+				"found strange artifact": {
+					"key": "found strange artifact",
+					"name": "Artefacto extraño encontrado",
+					"weight": 1,
+					"description": "Te encontraste un extraño artefacto en tus viajes por las Tierras Prohibidas. Te obsesionaste con su historia y creíste que podía tener poderes mágicos.",
+					"items": "✥ Tira en la tabla de «Hallazgos valiosos en guarida »; vuelve a tirar si el resultado es menor de 32.",
+					"skills": { "crafting": "1", "insight": "1" },
+					"talent": "Incorruptible"
+				},
+				"court magician": {
+					"key": "court magician",
+					"name": "Maga de la corte",
+					"weight": 1,
+					"description": "Un señor local te contrató y le serviste como su consejera arcana. Puede que él tuviera unos objetivos secretos, puede que entraras en conflicto con otros consejeros que estaban por encima de ti. De todas formas, aprendiste mucho de los poderosos.",
+					"items": "✥ Obtienes una botella de vino caro y una capa.",
+					"skills": { "insight": "1", "manipulation": "1" },
+					"talent": "Lengua afilada"
+				},
+				"entertainer": {
+					"key": "entertainer",
+					"name": "Artista",
+					"weight": 1,
+					"description": "Trabajaste como artista ambulante y usaste tu conocimiento de la magia para realizar ilusiones y trucos mágicos. Puede que trabajaras en una taberna de mala muerte o que te contrataran en la corte de un noble.",
+					"items": "✥ Obtienes una bola de cristal y ropa buena.",
+					"skills": { "manipulation": "2" },
+					"talent": "Como el rayo"
+				},
+				"enlisted": {
+					"key": "enlisted",
+					"name": "Reclutada",
+					"weight": 1,
+					"description": "Te reclutaron en una compañía de soldados. Pasaste mucho tiempo en el terreno, donde ayudaste con tus conocimientos mágicos. Viste morir a tus compañeros, pero te las arreglaste para salir con solo una o dos cicatrices.",
+					"items": "✥ Obtienes una armadura de cuero tachonado y una celada descubierta.",
+					"skills": { "melee": "1", "healing": "1" },
+					"talent": "Defensora"
+				}
+			}
+		}
+	}
+}
