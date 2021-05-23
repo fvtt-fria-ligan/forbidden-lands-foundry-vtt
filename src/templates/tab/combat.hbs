@@ -1,130 +1,167 @@
 <div class="combat-tab">
-    <div class="weapons border">
-        <h1>{{localize "HEADER.WEAPON"}}</h1>
-        <div class="item-list">
-            <div class="header weapon">
-                <b class="name">{{localize "WEAPON.NAME"}}</b>
-                <b class="damage">{{localize "WEAPON.DAMAGE"}}</b>
-                <b class="range">{{localize "WEAPON.RANGE"}}</b>
-                <b class="bonus">{{localize "WEAPON.BONUS"}}</b>
-                <b class="weapon-actions">{{localize "HEADER.ACTIONS"}}</b>
-            </div>
-            <div class="items">
-                {{#each actor.items as |item|}}
-                {{#if item.isWeapon}}
-                <div class="item" data-item-id="{{item._id}}">
-                    <div class="weapon">
-                        <div class="name">
-                            <div class="image-container">
-                                <div class="image" style="background-image: url('{{item.img}}')"></div>
-                            </div>
-                            <div class="name">
-                                <button type="button" class="roll-weapon" data-item-id="{{item._id}}">{{item.name}}</button>
-                                <span>
-                                    {{weaponGrip item.data.grip}}
-                                    {{#if (hasWeaponFeatures item.data.category item.data.features)}}
-                                        , {{formatWeaponFeatures item.data.category item.data.features}}
-                                    {{/if}}
-                                </span>
-                            </div>
-                        </div>
-                        <div class="damage">{{item.data.damage}}</div>
-                        <div class="range">{{weaponRange item.data.range}}</div>
-                        <div class="bonus {{isBroken item}}">
-                            {{item.data.bonus.value}}
-                            {{#if item.data.artifactBonus}}+ {{item.data.artifactBonus}}{{/if}}
-                        </div>
-                        <div class="weapon-actions">
-                            {{#if (eq item.data.category "melee") }}
-                            <button type="button" class="roll-weapon" data-item-id="{{item._id}}" data-action="ACTION.PARRY">
-                                {{ localize "ACTION.PARRY" }}
-                                {{#unless item.data.features.parrying }}(-2){{/unless}}
-                            </button>
-                            {{#if item.data.features.hook }}
-                            <button type="button" class="roll-weapon" data-item-id="{{item._id}}" data-action="ACTION.SHOVE">{{ localize "ACTION.SHOVE" }}</button>
-                            {{/if}}
-                            <button type="button" class="roll-weapon" data-item-id="{{item._id}}" data-action="ACTION.DISARM">{{ localize "ACTION.DISARM" }}</button>
-                            {{/if}}
-                        </div>
-                    </div>
-                </div>
-                {{/if}}
-                {{/each}}
-            </div>
-        </div>
-    </div>
-    <div class="armors border">
-        <h1><button type="button" class="roll-armor total"><i class="fas fa-dice"></i> {{localize "HEADER.ARMOR"}}</button></h1>
+	<div class="weapons border">
+		<h1>{{localize "HEADER.WEAPON"}}</h1>
+		<div class="item-list">
+			<div class="header weapon">
+				<b class="name">{{localize "WEAPON.NAME"}}</b>
+				<b class="damage">{{localize "WEAPON.DAMAGE"}}</b>
+				<b class="range">{{localize "WEAPON.RANGE"}}</b>
+				<b class="bonus">{{localize "WEAPON.BONUS"}}</b>
+				<b class="weapon-actions">{{localize "HEADER.ACTIONS"}}</b>
+			</div>
+			<div class="items">
+				{{#each actor.items as |item|}} {{#if item.isWeapon}}
+				<div class="item" data-item-id="{{item._id}}">
+					<div class="weapon">
+						<div class="name">
+							<div class="image-container">
+								<div class="image" style="background-image: url('{{item.img}}')"></div>
+							</div>
+							<div class="name">
+								<button type="button" class="roll-weapon" data-item-id="{{item._id}}"
+									>{{item.name}}</button
+								>
+								<span>
+									{{weaponGrip item.data.grip}} {{#if (hasWeaponFeatures item.data.category
+									item.data.features)}} , {{formatWeaponFeatures item.data.category
+									item.data.features}} {{/if}}
+								</span>
+							</div>
+						</div>
+						<div class="damage">{{item.data.damage}}</div>
+						<div class="range">{{weaponRange item.data.range}}</div>
+						<div class="bonus {{isBroken item}}">
+							{{item.data.bonus.value}} {{#if item.data.artifactBonus}}+
+							{{item.data.artifactBonus}}{{/if}}
+						</div>
+						<div class="weapon-actions">
+							{{#if (eq item.data.category "melee") }}
+							<button
+								type="button"
+								class="roll-weapon"
+								data-item-id="{{item._id}}"
+								data-action="ACTION.PARRY"
+							>
+								{{ localize "ACTION.PARRY" }} {{#unless item.data.features.parrying }}(-2){{/unless}}
+							</button>
+							{{#if item.data.features.hook }}
+							<button
+								type="button"
+								class="roll-weapon"
+								data-item-id="{{item._id}}"
+								data-action="ACTION.SHOVE"
+								>{{ localize "ACTION.SHOVE" }}</button
+							>
+							{{/if}}
+							<button
+								type="button"
+								class="roll-weapon"
+								data-item-id="{{item._id}}"
+								data-action="ACTION.DISARM"
+								>{{ localize "ACTION.DISARM" }}</button
+							>
+							{{/if}}
+						</div>
+					</div>
+				</div>
+				{{/if}} {{/each}}
+			</div>
+		</div>
+	</div>
+	<div class="armors border">
+		<h1
+			><button type="button" class="roll-armor total"
+				><i class="fas fa-dice"></i> {{localize "HEADER.ARMOR"}}</button
+			></h1
+		>
 
-        <div class="item-list">
-            <div class="header armor">
-                <b class="name">{{localize "GEAR.NAME"}}</b>
-                <b class="bonus">{{localize "GEAR.BONUS"}}</b>
-            </div>
-            <div class="items">
-                {{#each actor.items as |item|}}
-                {{#if item.isArmor}}
-                <div class="item armor" data-item-id="{{item._id}}">
-                    <div class="name">
-                        <div class="image-container">
-                            <div class="image" style="background-image: url('{{item.img}}')"></div>
-                        </div>
-                        <div class="name">
-                            <button type="button" class="roll-armor specific" data-item-id="{{item._id}}">{{item.name}}</button>
-                        </div>
-                    </div>
-                    <div class="bonus {{isBroken item}}">
-                        {{item.data.bonus.value}}
-                    </div>
-                </div>
-                {{/if}}
-                {{/each}}
-            </div>
-        </div>
-    </div>
-    <div class="critical-injuries border">
-        <h1>{{localize "HEADER.CRITICAL_INJURY"}}</h1>
-        <div class="item-list">
-            <div class="header critical-injury flex row">
-                <b class="name">{{localize "CRITICAL_INJURY.NAME"}}</b>
-                <a class="button item-create" title="Add Critical Injury" data-type="criticalInjury"><i
-                        class="fas fa-plus"></i></a>
-            </div>
-            <div class="items">
-                {{#each actor.items as |item|}}
-                {{#if item.isCriticalInjury}}
-                <div class="critical-injury item flex row" data-item-id="{{item._id}}">
-                    <div class="name">
-                        <div class="image-container">
-                            <div class="image" style="background-image: url('{{item.img}}')"></div>
-                        </div>
-                        <div class="name">
-                            <span>{{item.name}}</span>
-                        </div>
-                    </div>
-                    <div class="button">
-                        <a class="item-control item-edit" title="Edit Critical Injury"><i class="fas fa-edit"></i></a>
-                        <a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
-                        <a class="item-control item-delete" title="Delete Critical Injury"><i
-                                class="fas fa-trash"></i></a>
-                    </div>
-                </div>
-                {{/if}}
-                {{/each}}
-            </div>
-        </div>
-    </div>
-    <div class="actions border flex row">
-        <h1 class="grow">{{localize "HEADER.ACTIONS"}}</h1>
-        <div class="flex row wrap">
-            <button type="button" class="roll-action" data-action="ACTION.UNARMED_STRIKE" data-skill="melee">{{ localize "ACTION.UNARMED_STRIKE" }}</button>
-            <button type="button" class="roll-action" data-action="ACTION.SHOVE" data-skill="melee">{{ localize "ACTION.SHOVE" }}</button>
-            <button type="button" class="roll-action" data-action="ACTION.DISARM" data-skill="melee">{{ localize "ACTION.DISARM" }}</button>
-            <button type="button" class="roll-action" data-action="ACTION.GRAPPLE" data-skill="melee">{{ localize "ACTION.GRAPPLE" }}</button>
-            <button type="button" class="roll-action" data-action="ACTION.BREAK_FREE" data-skill="melee">{{ localize "ACTION.BREAK_FREE" }}</button>
-            <button type="button" class="roll-action" data-action="ACTION.GRAPPLE_ATTACK" data-skill="melee">{{ localize "ACTION.GRAPPLE_ATTACK" }}</button>
-            <button type="button" class="roll-action" data-action="ACTION.DODGE" data-skill="move">{{ localize "ACTION.DODGE" }}</button>
-            <button type="button" class="roll-action" data-action="ACTION.RETREAT" data-skill="move">{{ localize "ACTION.RETREAT" }}</button>
-        </div>
-    </div>
+		<div class="item-list">
+			<div class="header armor">
+				<b class="name">{{localize "GEAR.NAME"}}</b>
+				<b class="bonus">{{localize "GEAR.BONUS"}}</b>
+			</div>
+			<div class="items">
+				{{#each actor.items as |item|}} {{#if item.isArmor}}
+				<div class="item armor" data-item-id="{{item._id}}">
+					<div class="name">
+						<div class="image-container">
+							<div class="image" style="background-image: url('{{item.img}}')"></div>
+						</div>
+						<div class="name">
+							<button type="button" class="roll-armor specific" data-item-id="{{item._id}}"
+								>{{item.name}}</button
+							>
+						</div>
+					</div>
+					<div class="bonus {{isBroken item}}"> {{item.data.bonus.value}} </div>
+				</div>
+				{{/if}} {{/each}}
+			</div>
+		</div>
+	</div>
+	<div class="critical-injuries border">
+		<h1>{{localize "HEADER.CRITICAL_INJURY"}}</h1>
+		<div class="item-list">
+			<div class="header critical-injury flex row">
+				<b class="name">{{localize "CRITICAL_INJURY.NAME"}}</b>
+				<b class="healtime">{{localize "CRITICAL_INJURY.HEALING_TIME"}}</b>
+				<a class="button item-create" title="Add Critical Injury" data-type="criticalInjury"
+					><i class="fas fa-plus"></i
+				></a>
+			</div>
+			<div class="items">
+				{{#each actor.items as |item|}} {{#if item.isCriticalInjury}}
+				<div class="critical-injury item flex row" data-item-id="{{item._id}}">
+					<div class="name">
+						<div class="image-container">
+							<div class="image" style="background-image: url('{{item.img}}')"></div>
+						</div>
+						<div class="name">
+							<span>{{item.name}}</span>
+						</div>
+					</div>
+					<div class="healtime">
+						<span>{{item.data.healingTime}}</span>
+					</div>
+					<div class="button">
+						<a class="item-control item-edit" title="Edit Critical Injury"><i class="fas fa-edit"></i></a>
+						<a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
+						<a class="item-control item-delete" title="Delete Critical Injury"
+							><i class="fas fa-trash"></i
+						></a>
+					</div>
+				</div>
+				{{/if}} {{/each}}
+			</div>
+		</div>
+	</div>
+	<div class="actions border flex row">
+		<h1 class="grow">{{localize "HEADER.ACTIONS"}}</h1>
+		<div class="flex row wrap">
+			<button type="button" class="roll-action" data-action="ACTION.UNARMED_STRIKE" data-skill="melee"
+				>{{ localize "ACTION.UNARMED_STRIKE" }}</button
+			>
+			<button type="button" class="roll-action" data-action="ACTION.SHOVE" data-skill="melee"
+				>{{ localize "ACTION.SHOVE" }}</button
+			>
+			<button type="button" class="roll-action" data-action="ACTION.DISARM" data-skill="melee"
+				>{{ localize "ACTION.DISARM" }}</button
+			>
+			<button type="button" class="roll-action" data-action="ACTION.GRAPPLE" data-skill="melee"
+				>{{ localize "ACTION.GRAPPLE" }}</button
+			>
+			<button type="button" class="roll-action" data-action="ACTION.BREAK_FREE" data-skill="melee"
+				>{{ localize "ACTION.BREAK_FREE" }}</button
+			>
+			<button type="button" class="roll-action" data-action="ACTION.GRAPPLE_ATTACK" data-skill="melee"
+				>{{ localize "ACTION.GRAPPLE_ATTACK" }}</button
+			>
+			<button type="button" class="roll-action" data-action="ACTION.DODGE" data-skill="move"
+				>{{ localize "ACTION.DODGE" }}</button
+			>
+			<button type="button" class="roll-action" data-action="ACTION.RETREAT" data-skill="move"
+				>{{ localize "ACTION.RETREAT" }}</button
+			>
+		</div>
+	</div>
 </div>

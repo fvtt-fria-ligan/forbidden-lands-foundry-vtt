@@ -4,16 +4,16 @@
 		font-family: swordlings;
 		text-transform: lowercase;
 		content: "x";
-		line-height: 17px;
-		margin-left: -15px;
-		margin-top: 1px;
+		line-height: 1.5rem;
+		margin-left: -16px;
 	}
 	#{$add}:after {
 		position: absolute;
 		font-family: skullz;
 		text-transform: lowercase;
 		content: "l";
-		font-size: 25px;
-		line-height: 23px;
+		font-size: 26px;
+		line-height: 1.5rem;
+		transform: translateY(0.15rem);
 	}
 }

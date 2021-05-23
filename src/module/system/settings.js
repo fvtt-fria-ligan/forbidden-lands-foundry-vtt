@@ -36,7 +36,7 @@ export default function registerSettings() {
 		name: "Displayed Messages",
 		hint: "Used to track which messages have been displayed.",
 		scope: "world",
-		config: "false",
+		config: false,
 		default: [],
 		type: Array,
 	});
