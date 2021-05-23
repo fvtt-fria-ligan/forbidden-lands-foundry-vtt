@@ -61,26 +61,27 @@
 	flex-direction: column;
 	overflow: hidden;
 	padding-bottom: 8px;
-}
-
-.forbidden-lands .character .critical-injuries .items .critical-injury {
-	align-items: center;
-}
-
-.forbidden-lands .character .critical-injuries .critical-injury .name {
-	align-items: center;
-	display: flex;
-	flex-basis: 80%;
-}
-
-.forbidden-lands .character .critical-injuries .item.critical-injury .name .name {
-	margin-left: 4px;
-}
-
-.forbidden-lands .character .critical-injuries .critical-injury .button {
-	flex-basis: 20%;
-	font-size: 11px;
-	text-align: right;
+	.critical-injury {
+		align-items: center;
+		.button {
+			flex-basis: 20%;
+			font-size: 11px;
+			text-align: right;
+		}
+		.name {
+			align-items: center;
+			display: flex;
+			flex-basis: 55%;
+			.name {
+				margin-left: 4px;
+			}
+		}
+		.healtime {
+			align-items: center;
+			flex-basis: 30%;
+			text-align: center;
+		}
+	}
 }
 
 .forbidden-lands .character .weapons {
