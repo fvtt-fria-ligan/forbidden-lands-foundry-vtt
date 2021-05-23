@@ -18,6 +18,7 @@ const handleDisplay = (msg) => {
 	const { content, title, type } = msg;
 	if (!isCurrent(msg)) return;
 	if (type === "prompt") return displayPrompt(title, content);
+	if (type === "chat") return sendToChat(title, content);
 };
 
 const isCurrent = (msg) => {
@@ -38,7 +39,7 @@ const isCurrent = (msg) => {
 };
 
 const hasDisplayed = (identifier) => {
-	const settings = game.settings.get("forbidden-lands", "messages")[0];
+	const settings = game.settings.get("forbidden-lands", "messages");
 	if (settings?.includes(identifier)) return true;
 	else return false;
 };
@@ -50,10 +51,21 @@ const displayPrompt = (title, content) => {
 		content: content,
 		label: "Understood!",
 		options: { width: 600 },
-		callback: async () => {
-			const settings = game.settings.get("forbidden-lands", "messages");
-			settings[0].push(title);
-			await game.settings.set("forbidden-lands", "messages", settings.flat());
-		},
+		callback: () => setDisplayed(title),
 	});
+};
+
+const sendToChat = (title, content) => {
+	content = content.replace("{name}", game.user.name);
+	setDisplayed(title);
+	return ChatMessage.create({
+		title: title,
+		content: `<div class="forbidden-lands chat-item">${content}</div>`,
+	});
+};
+
+const setDisplayed = async (identifier) => {
+	const settings = game.settings.get("forbidden-lands", "messages");
+	settings.push(identifier);
+	await game.settings.set("forbidden-lands", "messages", settings.flat());
 };

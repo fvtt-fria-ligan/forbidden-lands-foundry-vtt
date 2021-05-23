@@ -1,20 +1,27 @@
 export class ForbiddenLandsActor extends Actor {
-	createEmbeddedDocuments(embeddedName, data, options) {
+	async createEmbeddedDocuments(embeddedName, data, options) {
 		// Replace randomized attributes like "[[d6]] days" with a roll
-		const newData = duplicate(data);
+		const newData = deepClone(data);
 		const inlineRoll = /\[\[(\/[a-zA-Z]+\s)?([^\]]+)\]\]/gi;
-		if (newData.data) {
-			for (const key of Object.keys(newData.data.data)) {
-				if (typeof newData.data.data[key] === "string") {
-					newData.data.data[key] = newData.data.data[key].replace(
-						inlineRoll,
-						(_match, _contents, formula) => new Roll(formula).roll().total,
-					);
-				}
+		for (let entity of newData) {
+			if (entity.data) {
+				entity.data = Object.entries(entity.data).reduce((obj, entries) => {
+					let [key, value] = entries;
+					let newValue;
+					if (typeof value === "string") {
+						newValue = value.replace(inlineRoll, (_match, _contents, formula) => {
+							const roll = new Roll(formula);
+							const result = roll.roll({ async: false }); // This refactor was an attempt at accommodating rolls becoming async. This will require a different solution.
+							return result.total;
+						});
+					}
+					return { ...obj, [key]: newValue };
+				}, {});
 			}
 		}
 		return super.createEmbeddedDocuments(embeddedName, newData, options);
 	}
+
 	/**
 	 * Override initializing a character to set default portraits.
 	 * @param {object} data object of an initialized character.
