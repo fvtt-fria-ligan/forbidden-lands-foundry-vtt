@@ -102,13 +102,13 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 		let header = event.currentTarget;
 		let data = duplicate(header.dataset);
 		data.name = `New ${data.type.capitalize()}`;
-		this.actor.createEmbeddedEntity("Item", data, { renderSheet: true });
+		this.actor.createEmbeddedDocuments("Item", data, { renderSheet: true });
 	}
 
 	_getHeaderButtons() {
 		let buttons = super._getHeaderButtons();
 
-		if (this.actor.owner) {
+		if (this.actor.isOwner) {
 			buttons = [
 				{
 					label: game.i18n.localize("SHEET.HEADER.ROLL"),

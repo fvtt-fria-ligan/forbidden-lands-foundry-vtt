@@ -54,6 +54,6 @@ export class ForbiddenLandsStrongholdSheet extends ForbiddenLandsActorSheet {
 		let header = event.currentTarget;
 		let data = duplicate(header.dataset);
 		data.name = `New ${data.type.capitalize()}`;
-		this.actor.createEmbeddedEntity("Item", data, { renderSheet: true });
+		this.actor.createEmbeddedDocuments("Item", data, { renderSheet: true });
 	}
 }

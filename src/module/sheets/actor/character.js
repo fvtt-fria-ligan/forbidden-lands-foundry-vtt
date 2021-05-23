@@ -176,7 +176,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 		let header = event.currentTarget;
 		let data = duplicate(header.dataset);
 		data.name = `New ${data.type.capitalize()}`;
-		this.actor.createEmbeddedEntity("Item", data, {
+		this.actor.createEmbeddedDocuments("Item", data, {
 			renderSheet: true,
 		});
 	}

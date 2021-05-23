@@ -81,10 +81,10 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 		const coverter = new CharacterConverter(this.dataset);
 		const updateData = await coverter.convert(this.character);
 
-		if (this.existActor.items.entries.length > 0) await this.handleDeleteExistingItems();
+		if (this.existActor.items.contents.length > 0) await this.handleDeleteExistingItems();
 
 		await this.existActor.update({ ["data"]: updateData.data });
-		await this.existActor.createEmbeddedEntity("Item", updateData.items);
+		await this.existActor.createEmbeddedDocuments("Item", updateData.items);
 
 		return this.close();
 	}
@@ -93,7 +93,7 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 		const items = this.existActor.items;
 		const toDelete = items.map((item) => item.id);
 
-		return await this.existActor.deleteEmbeddedEntity("OwnedItem", toDelete);
+		return await this.existActor.deleteEmbeddedDocuments("Item", toDelete);
 	}
 
 	handleInputKin(event) {

@@ -121,12 +121,12 @@ export class CharacterConverter {
 	}
 
 	createNewItem(itemName, type = false) {
-		let ItemClass = CONFIG.Item.entityClass;
+		let ItemClass = CONFIG.Item.documentClass;
 		return new ItemClass({
 			name: itemName,
 			type: type || "gear",
 			data: type === "talent" ? {} : { weight: "none" },
-		});
+		}).data;
 	}
 
 	generateAttributes() {

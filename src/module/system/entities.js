@@ -1,19 +1,19 @@
 export class ForbiddenLandsActor extends Actor {
-	createEmbeddedEntity(embeddedName, data, options) {
+	createEmbeddedDocuments(embeddedName, data, options) {
 		// Replace randomized attributes like "[[d6]] days" with a roll
 		const newData = duplicate(data);
 		const inlineRoll = /\[\[(\/[a-zA-Z]+\s)?([^\]]+)\]\]/gi;
 		if (newData.data) {
-			for (const key of Object.keys(newData.data)) {
-				if (typeof newData.data[key] === "string") {
-					newData.data[key] = newData.data[key].replace(
+			for (const key of Object.keys(newData.data.data)) {
+				if (typeof newData.data.data[key] === "string") {
+					newData.data.data[key] = newData.data.data[key].replace(
 						inlineRoll,
 						(_match, _contents, formula) => new Roll(formula).roll().total,
 					);
 				}
 			}
 		}
-		return super.createEmbeddedEntity(embeddedName, newData, options);
+		return super.createEmbeddedDocuments(embeddedName, newData, options);
 	}
 	/**
 	 * Override initializing a character to set default portraits.
@@ -37,7 +37,7 @@ export class ForbiddenLandsActor extends Actor {
 
 export class ForbiddenLandsItem extends Item {
 	async sendToChat() {
-		const itemData = duplicate(this.data);
+		const itemData = deepClone(this.data);
 		if (itemData.img.includes("/mystery-man")) {
 			itemData.img = null;
 		}
@@ -49,13 +49,13 @@ export class ForbiddenLandsItem extends Item {
 			user: game.userId,
 			rollMode: game.settings.get("core", "rollMode"),
 			content: html,
-			["flags.forbidden-lands.itemData"]: this.data, // Adds posted item data to chat message flags for item drag/drop
 		};
 		if (["gmroll", "blindroll"].includes(chatData.rollMode)) {
 			chatData.whisper = ChatMessage.getWhisperRecipients("GM");
 		} else if (chatData.rollMode === "selfroll") {
 			chatData.whisper = [game.user];
 		}
-		ChatMessage.create(chatData);
+		const message = await ChatMessage.create(chatData);
+		await message.setFlag("forbidden-lands", "itemData", itemData); // Adds posted item data to chat message flags for item drag/drop
 	}
 }

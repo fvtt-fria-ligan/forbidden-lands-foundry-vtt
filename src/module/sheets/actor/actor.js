@@ -9,13 +9,15 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	 * @override
 	 * Extends the sheet drop handler for system specific usages
 	 */
-	async _onDrop(event) {
+	async _onDrop(event, data) {
 		let dragData = JSON.parse(event.dataTransfer.getData("text/plain"));
 
-		// To be extended if future features add more drop functionality
-		if (dragData.type === "itemDrop") this.actor.createEmbeddedEntity("Item", dragData.item);
-		// Call base _onDrop for normal FVTT drop handling
-		else super._onDrop(event);
+		if (dragData.type === "itemDrop") {
+			dragData.item.effects = []; //This is a workaround for a bug caused by Foundry VTT where this._source on effects is non-iterable.
+			this.actor.createEmbeddedDocuments("Item", [dragData.item]);
+		} else {
+			super._onDrop(event, data);
+		}
 	}
 
 	activateListeners(html) {
@@ -62,7 +64,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		});
 		html.find(".item-delete").click((ev) => {
 			const div = $(ev.currentTarget).parents(".item");
-			this.actor.deleteOwnedItem(div.data("itemId"));
+			this.actor.deleteEmbeddedDocuments("Item", [div.data("itemId")]);
 			div.slideUp(200, () => this.render(false));
 		});
 		html.find(".item-post").click((ev) => {
