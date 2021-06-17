@@ -44,7 +44,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 		});
 		html.find(".roll-attack").click((ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
-			const weapon = this.actor.getOwnedItem(itemId);
+			const weapon = this.actor.items.get(itemId);
 			let testName = weapon.name;
 			RollDialog.prepareRollDialog(
 				testName,
