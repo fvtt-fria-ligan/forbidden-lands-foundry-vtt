@@ -21,7 +21,7 @@
 						"endurance": "1",
 						"melee": "1",
 						"scouting": "1",
-						"sleight of hand": "1",
+						"sleight-of-hand": "1",
 						"survival": "1",
 						"insight": "1"
 					}
@@ -32,7 +32,7 @@
 					"weight": 1,
 					"description": "De niña te enseñaron que el ganado es la fuente de la vida. Como aprendiza recorriste las llanuras de las Tierras Prohibidas mientras cuidabas de tu rebaño. Pasaste las noches bajo las estrellas, soñando con vivir aventuras.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
-					"skills": { "might": "1", "crafting": "1", "scouting": "2", "animal handling": "2" }
+					"skills": { "might": "1", "crafting": "1", "scouting": "2", "animal-handling": "2" }
 				},
 				"vagabond": {
 					"key": "vagabond",
@@ -56,7 +56,7 @@
 					"weight": 1,
 					"description": "Trabajaste en una granja haciendo las pesadas tareas rutinarias. Lo sabes todo de cereales, ganado y cosechas. Pero algo dentro de ti ansiaba algo más.",
 					"attributes": { "strength": "5", "agility": "3", "wits": "3", "empathy": "4" },
-					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal handling": "1" }
+					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal-handling": "1" }
 				},
 				"hard studies": {
 					"key": "hard studies",
@@ -85,7 +85,7 @@
 					"weight": 1,
 					"description": "Siempre te has sentido más conectada con los animales que con los humanos, y solo te sientes verdaderamente libre en la grupa de tu caballo y el viento en tu cara. Juntos sois uno mientras cabalgáis por las interminables extensiones en nombre del dios Asta.",
 					"attributes": { "strength": "4", "agility": "5", "wits": "3", "empathy": "3" },
-					"skills": { "move": "2", "survival": "2", "animal handling": "2" }
+					"skills": { "move": "2", "survival": "2", "animal-handling": "2" }
 				},
 				"dreamer": {
 					"key": "dreamer",
@@ -93,7 +93,7 @@
 					"weight": 1,
 					"description": "Siempre has soñado con dioses, leyendas y mitos. De pequeña te sentabas en el fuego para escuchar al juglar del clan cantando historias del dios volcán Asta, vuestros orgullosos ancestros y las invasiones de demonios. Es en los sueños de tu pueblo, de héroes y leyendas, donde te sientes totalmente viva. ¿Serás una leyenda algún día?",
 					"attributes": { "strength": "3", "agility": "3", "wits": "4", "empathy": "5" },
-					"skills": { "lore": "2", "manipulation": "1", "performance": "1", "animal handling": "1" }
+					"skills": { "lore": "2", "manipulation": "1", "performance": "1", "animal-handling": "1" }
 				},
 				"strongest of the clan": {
 					"key": "strongest of the clan",
@@ -101,7 +101,7 @@
 					"weight": 1,
 					"description": "Ya de pequeña aprendiste que eras más grande y fuerte que los demás. Tuviste que trabajar más duro, ser más responsable, la más difícil de vencer en combate. Algunos te idolatraban, otros te despreciaban.",
 					"attributes": { "strength": "5", "agility": "3", "wits": "3", "empathy": "4" },
-					"skills": { "might": "2", "endurance": "1", "melee": "2", "animal handling": "1" }
+					"skills": { "might": "2", "endurance": "1", "melee": "2", "animal-handling": "1" }
 				},
 				"taught by a wise women": {
 					"key": "taught by a wise women",
@@ -109,7 +109,7 @@
 					"weight": 1,
 					"description": "De niña te hiciste amiga de una sabia del clan. Pronto fuiste su aprendiza y aprendiste todo sobre la historia de tu gente, las antiguas hazañas heroicas y las guerras sangrientas.",
 					"attributes": { "strength": "3", "agility": "3", "wits": "5", "empathy": "4" },
-					"skills": { "lore": "2", "insight": "1", "healing": "2", "animal handling": "1" }
+					"skills": { "lore": "2", "insight": "1", "healing": "2", "animal-handling": "1" }
 				},
 				"hunter": {
 					"key": "hunter",
@@ -117,7 +117,7 @@
 					"weight": 1,
 					"description": "De niña aprendiste a vivir en sintonía con la naturaleza. Tu tarea es la caza, y aunque aprendiste a matar, también aprendiste a honrar la importancia de la vida de cada animal.",
 					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
-					"skills": { "marksmanship": "2", "scouting": "2", "survival": "1", "animal handling": "1" }
+					"skills": { "marksmanship": "2", "scouting": "2", "survival": "1", "animal-handling": "1" }
 				},
 				"child of the winds": {
 					"key": "child of the winds",
@@ -130,7 +130,7 @@
 						"marksmanship": "1",
 						"endurance": "1",
 						"survival": "2",
-						"animal handling": "1"
+						"animal-handling": "1"
 					}
 				}
 			}
@@ -160,7 +160,7 @@
 					"weight": 1,
 					"description": "Estuviste bajo la tutela de un druida y aprendiste todo lo que pudiste de los misterios sagrados, de rituales y hechicerías. Tu maestro hace tiempo que murió, pero aún recuerdas sus palabras.",
 					"attributes": { "strength": "3", "agility": "4", "wits": "5", "empathy": "3" },
-					"skills": { "scouting": "1", "lore": "1", "survival": "2", "healing": "1", "animal handling": "1" }
+					"skills": { "scouting": "1", "lore": "1", "survival": "2", "healing": "1", "animal-handling": "1" }
 				},
 				"guardian": {
 					"key": "guardian",
@@ -181,7 +181,7 @@
 						"melee": "1",
 						"scouting": "1",
 						"survival": "2",
-						"animal handling": "1"
+						"animal-handling": "1"
 					}
 				},
 				"laborer": {
@@ -190,7 +190,7 @@
 					"weight": 1,
 					"description": "Trabajaste en una granja realizando quehaceres domésticos y laboriosos. Lo sabes todo sobre cereales, ganado y cosechas. Pero en el fondo deseabas algo más.",
 					"attributes": { "strength": "5", "agility": "3", "wits": "3", "empathy": "4" },
-					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal handling": "1" }
+					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal-handling": "1" }
 				},
 				"herder": {
 					"key": "herder",
@@ -198,7 +198,7 @@
 					"weight": 1,
 					"description": "De niña te enseñaron que el ganado es la fuente de la vida. Como aprendiza recorriste las llanuras de las Tierras Prohibidas mientras cuidabas de tu rebaño. Pasaste las noches bajo las estrellas, soñando con vivir aventuras.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
-					"skills": { "might": "1", "crafting": "1", "scouting": "2", "animal handling": "2" }
+					"skills": { "might": "1", "crafting": "1", "scouting": "2", "animal-handling": "2" }
 				}
 			}
 		},
@@ -243,7 +243,7 @@
 					"weight": 1,
 					"description": "De niña eras ágil y veloz, trepabas a todas partes y descubrías todos los recovecos de tu pueblo. Aprendiste el arte de la interpretación y la importancia de lo hermoso en las Tierras Prohibidas.",
 					"attributes": { "strength": "3", "agility": "5", "wits": "3", "empathy": "4" },
-					"skills": { "stealth": "1", "move": "2", "sleight of hand": "2", "performance": "1" }
+					"skills": { "stealth": "1", "move": "2", "sleight-of-hand": "2", "performance": "1" }
 				},
 				"fighter": {
 					"key": "fighter",
@@ -259,7 +259,7 @@
 					"weight": 1,
 					"description": "Creciste sin familia ni hogar, así que siempre buscabas a otros jóvenes que hubieran huido de casa o que los hubieran echado. Te llamaban niña perdida, y siempre viviste de robar y de hacer trabajitos de vez en cuando.",
 					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
-					"skills": { "melee": "1", "stealth": "2", "sleight of hand": "2", "insight": "1" }
+					"skills": { "melee": "1", "stealth": "2", "sleight-of-hand": "2", "insight": "1" }
 				}
 			}
 		},
@@ -282,7 +282,7 @@
 					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
 					"skills": {
 						"crafting": "2",
-						"sleight of hand": "1",
+						"sleight-of-hand": "1",
 						"lore": "1",
 						"survival": "1",
 						"performance": "1"
@@ -294,7 +294,7 @@
 					"weight": 1,
 					"description": "Trabajaste en una granja realizando quehaceres domésticos y laboriosos. Lo sabes todo sobre cereales, ganado y cosechas. Pero en el fondo deseabas algo más.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
-					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal handling": "1" }
+					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal-handling": "1" }
 				},
 				"craftsman": {
 					"key": "craftsman",
@@ -312,10 +312,10 @@
 					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
 					"skills": {
 						"crafting": "2",
-						"sleight of hand": "1",
+						"sleight-of-hand": "1",
 						"lore": "1",
 						"survival": "1",
-						"animal handling": "1"
+						"animal-handling": "1"
 					}
 				},
 				"bookworm": {
@@ -324,7 +324,7 @@
 					"weight": 1,
 					"description": "Los demás niños jugaban en el bosque, pero tú preferías enterrar tu nariz en los libros viejos y leer sobre mitos, dragones y tesoros.",
 					"attributes": { "strength": "3", "agility": "3", "wits": "5", "empathy": "4" },
-					"skills": { "lore": "3", "insight": "1", "manipulation": "1", "animal handling": "1" }
+					"skills": { "lore": "3", "insight": "1", "manipulation": "1", "animal-handling": "1" }
 				},
 				"loner": {
 					"key": "loner",
@@ -335,7 +335,7 @@
 					"skills": {
 						"melee": "1",
 						"stealth": "2",
-						"sleight of hand": "1",
+						"sleight-of-hand": "1",
 						"scouting": "1",
 						"manipulation": "1"
 					}
@@ -359,7 +359,7 @@
 					"weight": 1,
 					"description": "Tus padres te abandonaron cuando eras una niña, pero encontraste un nuevo hogar en una manada de lobos. Fuiste una de ellos, aullaste a la luna, corriste dando zancadas por las llanuras y comiste carne cruda.",
 					"attributes": { "strength": "3", "agility": "5", "wits": "3", "empathy": "4" },
-					"skills": { "endurance": "1", "melee": "1", "stealth": "1", "move": "1", "animal handling": "2" }
+					"skills": { "endurance": "1", "melee": "1", "stealth": "1", "move": "1", "animal-handling": "2" }
 				},
 				"scrounger": {
 					"key": "scrounger",
@@ -396,7 +396,7 @@
 						"melee": "1",
 						"scouting": "1",
 						"survival": "2",
-						"animal handling": "1"
+						"animal-handling": "1"
 					}
 				},
 				"storyteller": {
@@ -442,7 +442,7 @@
 					"weight": 1,
 					"description": "Una orco fuerte es una orco que puede cuidar de sí misma. Aprendiste pronto que tenías que robar para sobrevivir. ¿Y por qué no? A los orcos los han traicionado una y otra vez.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
-					"skills": { "melee": "2", "stealth": "1", "sleight of hand": "1", "scouting": "1", "survival": "1" }
+					"skills": { "melee": "2", "stealth": "1", "sleight-of-hand": "1", "scouting": "1", "survival": "1" }
 				},
 				"drifter": {
 					"key": "drifter",
@@ -455,7 +455,7 @@
 						"melee": "1",
 						"scouting": "1",
 						"survival": "2",
-						"animal handling": "1"
+						"animal-handling": "1"
 					}
 				},
 				"warrior": {
@@ -648,7 +648,7 @@
 						"melee": "1",
 						"scouting": "1",
 						"survival": "2",
-						"animal handling": "1"
+						"animal-handling": "1"
 					}
 				},
 				"druid's apprentice": {
@@ -657,7 +657,7 @@
 					"weight": 1,
 					"description": "Estuviste bajo la tutela de un druida y aprendiste todo lo que pudiste de los misterios sagrados, de rituales y hechicerías. Tu maestro hace tiempo que murió, pero aún recuerdas sus palabras.",
 					"attributes": { "strength": "3", "agility": "4", "wits": "5", "empathy": "3" },
-					"skills": { "scouting": "1", "lore": "1", "survival": "2", "healing": "1", "animal handling": "1" }
+					"skills": { "scouting": "1", "lore": "1", "survival": "2", "healing": "1", "animal-handling": "1" }
 				}
 			}
 		}
@@ -714,7 +714,7 @@
 					"weight": 1,
 					"description": "Tomaste la responsabilidad de proteger el bosque contra el mal y la violencia de los extraños. Viviste al abrigo de los imponentes árboles y te hiciste una con el bosque.",
 					"items": "✥ Obtienes un arco corto y un D12 como dado de recursos para flechas.",
-					"skills": { "marksmanship": "1", "animal handling": "1" },
+					"skills": { "marksmanship": "1", "animal-handling": "1" },
 					"talent": "Herborista"
 				},
 				"lived as a hermit": {
@@ -770,7 +770,7 @@
 					"weight": 1,
 					"description": "Aprendiste a montar y te hiciste caballera con un señor. Luchaste en escaramuzas, formaste parte de patrullas y protegiste las tierras de tu señor.",
 					"items": "✥ Obtienes una montura de tu elección (excepto caballo de guerra).",
-					"skills": { "melee": "1", "animal handling": "1" },
+					"skills": { "melee": "1", "animal-handling": "1" },
 					"talent": "Guerrera montada"
 				},
 				"scout": {
@@ -826,7 +826,7 @@
 					"weight": 1,
 					"description": "Atrapaste a un caballo salvaje (u otro animal que encaje). No fue fácil, pero por fin lo domesticaste y con el tiempo os hicisteis inseparables.",
 					"items": "✥ Obtienes una montura de tu elección. No puede ser un caballo de guerra.",
-					"skills": { "animal handling": "2" },
+					"skills": { "animal-handling": "2" },
 					"talent": "Guerrera montada"
 				},
 				"won an archery competition": {
@@ -938,7 +938,7 @@
 					"weight": 1,
 					"description": "Formaste parte de una dura caravana comercial que viajó por las Tierras Prohibidas. La caravana se encontró con muchos peligros y no todos llegaron a su destino. ¿Puede que dejarais a alguien atrás?",
 					"items": "✥ Obtienes un burro.",
-					"skills": { "animal handling": "1", "manipulation": "1" },
+					"skills": { "animal-handling": "1", "manipulation": "1" },
 					"talent": "Caminante"
 				},
 				"local business": {
@@ -1012,7 +1012,7 @@
 					"weight": 1,
 					"description": "Te ganaste la vida como jinete de competiciones y viajaste de pueblo en pueblo y de castillo a castillo para competir contra otros jinetes. Vivías bien mientras ganabas, pero cuando empezaste a perder fue el momento de seguir adelante.",
 					"items": "✥ Obtienes una capa.",
-					"skills": { "move": "1", "animal handling": "1" },
+					"skills": { "move": "1", "animal-handling": "1" },
 					"talent": "Pies ligeros"
 				},
 				"traveled the land": {
@@ -1039,7 +1039,7 @@
 					"weight": 1,
 					"description": "Arreaste al ganado hacia los pastos más verdes de las Tierras Prohibidas. De día cuidabas del rebaño en la grupa de tu caballo, de noche dormías bajo las estrellas.",
 					"items": "✥ Obtienes un farol y un odre de agua.",
-					"skills": { "move": "1", "animal handling": "1" },
+					"skills": { "move": "1", "animal-handling": "1" },
 					"talent": "Intendente"
 				},
 				"steppe rider": {
@@ -1048,7 +1048,7 @@
 					"weight": 1,
 					"description": "Cabalgaste por las interminables estepas de las Tierras Prohibidas y viviste solo de lo que cazabas y de vender la carne y las pieles de los animales.",
 					"items": "✥ Obtienes un arco corto y un D12 como dado de recursos para flechas.",
-					"skills": { "marksmanship": "1", "animal handling": "1" },
+					"skills": { "marksmanship": "1", "animal-handling": "1" },
 					"talent": "Curtidora"
 				}
 			}
@@ -1068,7 +1068,7 @@
 					"weight": 1,
 					"description": "Era el crimen perfecto, al menos durante un tiempo. Robaste algo valioso a la persona equivocada en el momento equivocado. Te pillaron y tuviste que correr por tu vida.",
 					"items": "✥ Obtienes unas ganzúas.",
-					"skills": { "sleight of hand": "1", "move": "1" },
+					"skills": { "sleight-of-hand": "1", "move": "1" },
 					"talent": "Como el rayo"
 				},
 				"imprisoned": {
@@ -1086,7 +1086,7 @@
 					"weight": 1,
 					"description": "Planeaste un golpe y salió bien. Puede que fuera a un comerciante rico, puede que a un señor local.",
 					"items": "✥ Tira en la tabla de «Hallazgos valiosos en guarida »; vuelve a tirar si el resultado es menor de 33.",
-					"skills": { "sleight of hand": "1", "stealth": "1" },
+					"skills": { "sleight-of-hand": "1", "stealth": "1" },
 					"talent": "Afortunada"
 				},
 				"joined a guild of thieves": {

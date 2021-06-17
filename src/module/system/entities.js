@@ -4,8 +4,8 @@ export class ForbiddenLandsActor extends Actor {
 		const newData = deepClone(data);
 		const inlineRoll = /\[\[(\/[a-zA-Z]+\s)?([^\]]+)\]\]/gi;
 		for (let entity of newData) {
-			if (entity.data) {
-				entity.data = Object.entries(entity.data).reduce((obj, entries) => {
+			if (entity.data.data) {
+				entity.data.data = Object.entries(entity.data.data).reduce((obj, entries) => {
 					let [key, value] = entries;
 					let newValue;
 					if (typeof value === "string") {

@@ -13,6 +13,12 @@ FBL.attributes = {
 
 FBL.conditions = ["cold", "hungry", "sleepy", "thirsty"];
 
+FBL.dataSetConfig = {
+	en: "dataset",
+	"pt-BR": "dataset-pt-br",
+	es: "dataset-es",
+};
+
 FBL.encumbrance = {
 	tiny: 0,
 	none: 0,
@@ -35,10 +41,23 @@ FBL.itemTypes = [
 	"weapon",
 ];
 
-FBL.dataSetConfig = {
-	en: "dataset",
-	"pt-BR": "dataset-pt-br",
-	es: "dataset-es",
+FBL.skills = {
+	"animal-handling": "SKILL.ANIMAL_HANDLING",
+	crafting: "SKILL.CRAFTING",
+	endurance: "SKILL.ENDURANCE",
+	healing: "SKILL.HEALING",
+	insight: "SKILL.INSIGHT",
+	lore: "SKILL.LORE",
+	manipulation: "SKILL.MANIPULATION",
+	marksmanship: "SKILL.MARKSMANSHIP",
+	melee: "SKILL.MELEE",
+	might: "SKILL.MIGHT",
+	move: "SKILL.MOVE",
+	performance: "SKILL.PERFORMANCE",
+	scouting: "SKILL.SCOUTING",
+	"sleight-of-hand": "SKILL.SLEIGHT_OF_HAND",
+	stealth: "SKILL.STEALTH",
+	survival: "SKILL.SURVIVAL",
 };
 
 FBL.weaponFeatures = ["blunt", "edged", "hook", "parrying", "pointed", "slowReload"];
