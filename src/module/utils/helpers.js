@@ -6,9 +6,9 @@ export class Helpers {
 		if (!character) return;
 
 		let charSheetClass = function () {};
-		for (let name in CONFIG.Actor.sheetClasses.character) {
-			if (name === "forbidden-lands.ForbiddenLandsCharacterSheet") {
-				charSheetClass = CONFIG.Actor.sheetClasses.character[name].cls;
+		for (let chName in CONFIG.Actor.sheetClasses.character) {
+			if (chName === "forbidden-lands.ForbiddenLandsCharacterSheet") {
+				charSheetClass = CONFIG.Actor.sheetClasses.character[chName].cls;
 				break;
 			}
 		}

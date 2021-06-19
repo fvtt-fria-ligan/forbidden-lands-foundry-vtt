@@ -1,11 +1,11 @@
 <form class="{{cssClass}}" autocomplete="off">
 	<div class="header border">
 		<div class="avatar">
-			<img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+			<img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" />
 		</div>
 		<div class="header-stats">
 			<label>{{localize "GEAR.NAME"}}</label>
-			<input name="name" type="text" value="{{item.name}}" />
+			<input name="name" type="text" value="{{name}}" />
 			<label>{{localize "ARMOR.RATING"}}</label>
 			<div class="bonus">
 				<div class="skulls {{#unless data.bonus.value }}broken{{/unless}}">

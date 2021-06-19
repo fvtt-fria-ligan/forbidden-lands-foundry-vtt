@@ -50,7 +50,6 @@ export class CharacterConverter {
 		let items = [];
 
 		items = items.concat(this.buildTalents());
-		items = items.concat(this.buildGear());
 		items = items.concat(this.buildEventGear());
 
 		return items;
@@ -61,21 +60,6 @@ export class CharacterConverter {
 		for (let i = 0; i < this.character.formativeEvents.length; i++) {
 			let event = this.character.formativeEvents[i];
 			gear.push(this.createNewItem(event.items));
-		}
-
-		return gear;
-	}
-
-	buildGear() {
-		const profession = this.dataset.profession[this.character.profession];
-		let gear = [];
-		for (let i = 0; i < profession.equipment.length; i++) {
-			let item = profession.equipment[i];
-			if (Array.isArray(item)) {
-				// array from which only one item must be picked
-				item = item[this.rollNumber(0, item.length - 1)];
-			}
-			gear.push(this.getExactItem(item));
 		}
 
 		return gear;
@@ -96,37 +80,37 @@ export class CharacterConverter {
 		return talents;
 	}
 
-	getExactItem(name, type = false) {
-		const nameLowerCase = name.toLowerCase();
+	getExactItem(itemName, type = false) {
+		const nameLowerCase = itemName.toLowerCase();
 		type = type ? type.toLowerCase() : type;
 		let item = game.items.find(
 			(i) => i.name.toLowerCase() === nameLowerCase && (type === false || i.type === type),
 		);
 		if (!item) {
-			item = this.createNewItem(name, type);
+			item = this.createNewItem(itemName, type);
 		}
-		return item;
+		return item.data;
 	}
 
-	getItem(name, type = false) {
-		const nameLowerCase = name.toLowerCase();
+	getItem(itemName, type = false) {
+		const nameLowerCase = itemName.toLowerCase();
 		type = type ? type.toLowerCase() : type;
 		let item = game.items.find(
 			(i) => i.name.toLowerCase().includes(nameLowerCase) && (type === false || i.type === type),
 		);
 		if (!item) {
-			item = this.createNewItem(name, type);
+			item = this.createNewItem(itemName, type);
 		}
-		return item;
+		return item.data;
 	}
 
-	createNewItem(name, type = false) {
-		let ItemClass = CONFIG.Item.entityClass;
+	createNewItem(itemName, type = false) {
+		let ItemClass = CONFIG.Item.documentClass;
 		return new ItemClass({
-			name: name,
+			name: itemName,
 			type: type || "gear",
 			data: type === "talent" ? {} : { weight: "none" },
-		});
+		}).data;
 	}
 
 	generateAttributes() {
@@ -147,29 +131,23 @@ export class CharacterConverter {
 	}
 
 	generateSkills() {
-		let tmpSkills = JSON.parse(JSON.stringify(this.character.childhood.skills));
-		let skills = {};
+		const skills = Object.keys(game.fbl.config.skills).reduce((obj, skill) => {
+			const skillValue = { value: 0 };
+			return { ...obj, [skill]: skillValue };
+		}, {});
 
-		for (let i = 0; i < this.character.formativeEvents.length; i++) {
-			const eventSkills = this.character.formativeEvents[i].skills;
-			for (const skillName in eventSkills) {
-				// eslint-disable-next-line no-prototype-builtins
-				if (eventSkills.hasOwnProperty(skillName)) {
-					if (tmpSkills[skillName] === undefined) {
-						tmpSkills[skillName] = 0;
-					} else {
-						tmpSkills[skillName] = parseInt(tmpSkills[skillName]);
-					}
-					tmpSkills[skillName] += parseInt(eventSkills[skillName]);
-				}
+		function increaseSkill(skillObj) {
+			for (const [skillName, skillValue] of Object.entries(skillObj)) {
+				skills[skillName].value += parseInt(skillValue);
 			}
 		}
-		for (const skillName in tmpSkills) {
-			// eslint-disable-next-line no-prototype-builtins
-			if (tmpSkills.hasOwnProperty(skillName)) {
-				skills[skillName] = { value: tmpSkills[skillName] };
-			}
+
+		increaseSkill(this.character.childhood.skills);
+
+		for (const event of this.character.formativeEvents) {
+			increaseSkill(event.skills);
 		}
+
 		return skills;
 	}
 

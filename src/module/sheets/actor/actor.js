@@ -9,13 +9,15 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	 * @override
 	 * Extends the sheet drop handler for system specific usages
 	 */
-	async _onDrop(event) {
+	async _onDrop(event, data) {
 		let dragData = JSON.parse(event.dataTransfer.getData("text/plain"));
 
-		// To be extended if future features add more drop functionality
-		if (dragData.type === "itemDrop") this.actor.createEmbeddedEntity("OwnedItem", dragData.item);
-		// Call base _onDrop for normal FVTT drop handling
-		else super._onDrop(event);
+		if (dragData.type === "itemDrop") {
+			dragData.item.effects = []; //This is a workaround for a bug caused by Foundry VTT where this._source on effects is non-iterable.
+			this.actor.createEmbeddedDocuments("Item", [dragData.item]);
+		} else {
+			super._onDrop(event, data);
+		}
 	}
 
 	activateListeners(html) {
@@ -57,22 +59,22 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		// Items
 		html.find(".item-edit").click((ev) => {
 			const div = $(ev.currentTarget).parents(".item");
-			const item = this.actor.getOwnedItem(div.data("itemId"));
+			const item = this.actor.items.get(div.data("itemId"));
 			item.sheet.render(true);
 		});
 		html.find(".item-delete").click((ev) => {
 			const div = $(ev.currentTarget).parents(".item");
-			this.actor.deleteOwnedItem(div.data("itemId"));
+			this.actor.deleteEmbeddedDocuments("Item", [div.data("itemId")]);
 			div.slideUp(200, () => this.render(false));
 		});
 		html.find(".item-post").click((ev) => {
 			const div = $(ev.currentTarget).parents(".item");
-			const item = this.actor.getOwnedItem(div.data("itemId"));
+			const item = this.actor.items.get(div.data("itemId"));
 			item.sendToChat();
 		});
 		html.find(".change-item-bonus").on("click contextmenu", (ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
-			const item = this.actor.getOwnedItem(itemId);
+			const item = this.actor.items.get(itemId);
 			let value = item.data.data.bonus.value;
 			if ((ev.type === "click" && !this.altInteraction) || (ev.type === "contextmenu" && this.altInteraction)) {
 				value = Math.max(value - 1, 0);
@@ -124,7 +126,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		});
 		html.find(".roll-weapon").click((ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
-			const weapon = this.actor.getOwnedItem(itemId);
+			const weapon = this.actor.items.get(itemId);
 			const action = $(ev.currentTarget).data("action");
 			let testName = action || weapon.name;
 			let attribute;
@@ -169,7 +171,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		});
 		html.find(".roll-spell").click((ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
-			const spell = this.actor.getOwnedItem(itemId);
+			const spell = this.actor.items.get(itemId);
 			RollDialog.prepareSpellDialog(spell, null);
 		});
 		html.find(".roll-action").click((ev) => {

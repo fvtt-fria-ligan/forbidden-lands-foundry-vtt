@@ -21,7 +21,7 @@
 						"endurance": "1",
 						"melee": "1",
 						"scouting": "1",
-						"sleight of hand": "1",
+						"sleight-of-hand": "1",
 						"survival": "1",
 						"insight": "1"
 					}
@@ -32,7 +32,7 @@
 					"weight": 1,
 					"description": "You were taught as a child that livestock are the source of life. As an apprentice, you wandered the plains of the Forbidden Lands, guarding your herd. You spent your nights under starry skies, dreaming of adventure.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
-					"skills": { "might": "1", "crafting": "1", "scouting": "2", "animal handling": "2" }
+					"skills": { "might": "1", "crafting": "1", "scouting": "2", "animal-handling": "2" }
 				},
 				"vagabond": {
 					"key": "vagabond",
@@ -56,7 +56,7 @@
 					"weight": 1,
 					"description": "You worked on a farm performing menial laborious chores. You know everything about grains, cattle, and crops. But deep inside you longed for something else.",
 					"attributes": { "strength": "5", "agility": "3", "wits": "3", "empathy": "4" },
-					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal handling": "1" }
+					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal-handling": "1" }
 				},
 				"hard studies": {
 					"key": "hard studies",
@@ -85,7 +85,7 @@
 					"weight": 1,
 					"description": "You have always felt more kinship with animals than humans, and it is only on the back of your horse, with the wind whipping your face, that you feel truly free. Together you are one entity, riding across everlasting expanses in the name of the god Horn.",
 					"attributes": { "strength": "4", "agility": "5", "wits": "3", "empathy": "3" },
-					"skills": { "move": "2", "survival": "2", "animal handling": "2" }
+					"skills": { "move": "2", "survival": "2", "animal-handling": "2" }
 				},
 				"dreamer": {
 					"key": "dreamer",
@@ -93,7 +93,7 @@
 					"weight": 1,
 					"description": "You have always dreamed of gods, legends, and myhts. Ever since you were a tiny tot, you sat by the campfire listening to the clan's minstrel telling stories of the volcano god Horn, proud ancestors, and demonic invasions. It is in the dreams of your people, of heroes and legends, that you live to the fullest. Maybe one day you'll be able to create a legend of your own?",
 					"attributes": { "strength": "3", "agility": "3", "wits": "4", "empathy": "5" },
-					"skills": { "lore": "2", "manipulation": "1", "performance": "1", "animal handling": "1" }
+					"skills": { "lore": "2", "manipulation": "1", "performance": "1", "animal-handling": "1" }
 				},
 				"strongest of the clan": {
 					"key": "strongest of the clan",
@@ -101,7 +101,7 @@
 					"weight": 1,
 					"description": "Already as a child you learned that you were bigger and stronger than others. You had to work harder, be more responsible, fight the hardest. Some idolized you, others despised you.",
 					"attributes": { "strength": "5", "agility": "3", "wits": "3", "empathy": "4" },
-					"skills": { "might": "2", "endurance": "1", "melee": "2", "animal handling": "1" }
+					"skills": { "might": "2", "endurance": "1", "melee": "2", "animal-handling": "1" }
 				},
 				"taught by a wise women": {
 					"key": "taught by a wise women",
@@ -109,7 +109,7 @@
 					"weight": 1,
 					"description": "As a child you befriended a wise women of the clan. Soon you became her apprentice, and learned all about the history of your people, of ancient feats of heroism, and bloody wars.",
 					"attributes": { "strength": "3", "agility": "3", "wits": "5", "empathy": "4" },
-					"skills": { "lore": "2", "insight": "1", "healing": "2", "animal handling": "1" }
+					"skills": { "lore": "2", "insight": "1", "healing": "2", "animal-handling": "1" }
 				},
 				"hunter": {
 					"key": "hunter",
@@ -117,7 +117,7 @@
 					"weight": 1,
 					"description": "As a child you learned to live in tune with nature. The hunt is your task, and even if you learned to kill, you also learned to honor the value of the life of every animal.",
 					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
-					"skills": { "marksmanship": "2", "scouting": "2", "survival": "1", "animal handling": "1" }
+					"skills": { "marksmanship": "2", "scouting": "2", "survival": "1", "animal-handling": "1" }
 				},
 				"child of the winds": {
 					"key": "child of the winds",
@@ -130,7 +130,7 @@
 						"marksmanship": "1",
 						"endurance": "1",
 						"survival": "2",
-						"animal handling": "1"
+						"animal-handling": "1"
 					}
 				}
 			}
@@ -160,7 +160,7 @@
 					"weight": 1,
 					"description": "You were apprenticed to a druid, and learned everything you could of the holy mysteries, of rituals and sorcery. Your master is long dead, but you still remember his/her words.",
 					"attributes": { "strength": "3", "agility": "4", "wits": "5", "empathy": "3" },
-					"skills": { "scouting": "1", "lore": "1", "survival": "2", "healing": "1", "animal handling": "1" }
+					"skills": { "scouting": "1", "lore": "1", "survival": "2", "healing": "1", "animal-handling": "1" }
 				},
 				"guardian": {
 					"key": "guardian",
@@ -181,7 +181,7 @@
 						"melee": "1",
 						"scouting": "1",
 						"survival": "2",
-						"animal handling": "1"
+						"animal-handling": "1"
 					}
 				},
 				"laborer": {
@@ -190,7 +190,7 @@
 					"weight": 1,
 					"description": "You worked on a farm performing menial laborious chores. You know everything about grains, cattle, and crops. But deep inside you longed for something else.",
 					"attributes": { "strength": "5", "agility": "3", "wits": "3", "empathy": "4" },
-					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal handling": "1" }
+					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal-handling": "1" }
 				},
 				"herder": {
 					"key": "herder",
@@ -198,7 +198,7 @@
 					"weight": 1,
 					"description": "You were taught as a child that livestock are the source of life. As an apprentice, you wandered the plains of the Forbidden Lands, guarding your herd. You spent your nights under starry skies, dreaming of adventure.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
-					"skills": { "might": "1", "crafting": "1", "scouting": "2", "animal handling": "2" }
+					"skills": { "might": "1", "crafting": "1", "scouting": "2", "animal-handling": "2" }
 				}
 			}
 		},
@@ -243,7 +243,7 @@
 					"weight": 1,
 					"description": "As a child you were agile and nimble, climbed everywhere, and discovered every nook in your neighborhood of the village. You learned the art of performance, and the importance of the beauty in the Forbidden Lands.",
 					"attributes": { "strength": "3", "agility": "5", "wits": "3", "empathy": "4" },
-					"skills": { "stealth": "1", "move": "2", "sleight of hand": "2", "performance": "1" }
+					"skills": { "stealth": "1", "move": "2", "sleight-of-hand": "2", "performance": "1" }
 				},
 				"fighter": {
 					"key": "fighter",
@@ -259,7 +259,7 @@
 					"weight": 1,
 					"description": "You grew up without a real family or home. Instead, you sought out other youths who had run away or been cast out. You were called ghost children, and lived by stealing and performing odd jobs.",
 					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
-					"skills": { "melee": "1", "stealth": "2", "sleight of hand": "2", "insight": "1" }
+					"skills": { "melee": "1", "stealth": "2", "sleight-of-hand": "2", "insight": "1" }
 				}
 			}
 		},
@@ -282,7 +282,7 @@
 					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
 					"skills": {
 						"crafting": "2",
-						"sleight of hand": "1",
+						"sleight-of-hand": "1",
 						"lore": "1",
 						"survival": "1",
 						"performance": "1"
@@ -294,7 +294,7 @@
 					"weight": 1,
 					"description": "You worked on a farm performing menial laborious chores. You know everything about grains, cattle, and crops. But deep inside you longed for something else.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
-					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal handling": "1" }
+					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal-handling": "1" }
 				},
 				"craftsman": {
 					"key": "craftsman",
@@ -312,10 +312,10 @@
 					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
 					"skills": {
 						"crafting": "2",
-						"sleight of hand": "1",
+						"sleight-of-hand": "1",
 						"lore": "1",
 						"survival": "1",
-						"animal handling": "1"
+						"animal-handling": "1"
 					}
 				},
 				"bookworm": {
@@ -324,7 +324,7 @@
 					"weight": 1,
 					"description": "When other children played in the forest, you preffered to bury your nose in an old book, reading of myths, dragons, and treasures.",
 					"attributes": { "strength": "3", "agility": "3", "wits": "5", "empathy": "4" },
-					"skills": { "lore": "3", "insight": "1", "manipulation": "1", "animal handling": "1" }
+					"skills": { "lore": "3", "insight": "1", "manipulation": "1", "animal-handling": "1" }
 				},
 				"loner": {
 					"key": "loner",
@@ -335,7 +335,7 @@
 					"skills": {
 						"melee": "1",
 						"stealth": "2",
-						"sleight of hand": "1",
+						"sleight-of-hand": "1",
 						"scouting": "1",
 						"manipulation": "1"
 					}
@@ -359,7 +359,7 @@
 					"weight": 1,
 					"description": "Your parents abandoned you when you were a child, but you found a new home with a wolf pack. You became one of the wolves, howled at the moon, loped across the plains, and ate raw flesh.",
 					"attributes": { "strength": "3", "agility": "5", "wits": "3", "empathy": "4" },
-					"skills": { "endurance": "1", "melee": "1", "stealth": "1", "move": "1", "animal handling": "2" }
+					"skills": { "endurance": "1", "melee": "1", "stealth": "1", "move": "1", "animal-handling": "2" }
 				},
 				"scrounger": {
 					"key": "scrounger",
@@ -396,7 +396,7 @@
 						"melee": "1",
 						"scouting": "1",
 						"survival": "2",
-						"animal handling": "1"
+						"animal-handling": "1"
 					}
 				},
 				"storyteller": {
@@ -442,7 +442,7 @@
 					"weight": 1,
 					"description": "A strong orc is an orc that can care for himself. You realized early on that you must steal to survive. And why not? The orcs have been betrayed time and time again.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
-					"skills": { "melee": "2", "stealth": "1", "sleight of hand": "1", "scouting": "1", "survival": "1" }
+					"skills": { "melee": "2", "stealth": "1", "sleight-of-hand": "1", "scouting": "1", "survival": "1" }
 				},
 				"drifter": {
 					"key": "drifter",
@@ -455,7 +455,7 @@
 						"melee": "1",
 						"scouting": "1",
 						"survival": "2",
-						"animal handling": "1"
+						"animal-handling": "1"
 					}
 				},
 				"warrior": {
@@ -648,7 +648,7 @@
 						"melee": "1",
 						"scouting": "1",
 						"survival": "2",
-						"animal handling": "1"
+						"animal-handling": "1"
 					}
 				},
 				"druid's apprentice": {
@@ -657,7 +657,7 @@
 					"weight": 1,
 					"description": "You were apprenticed to a druid, and learned everything you could of the holy mysteries, of rituals and sorcery. Your master is long dead, but you still remember his/her words.",
 					"attributes": { "strength": "3", "agility": "4", "wits": "5", "empathy": "3" },
-					"skills": { "scouting": "1", "lore": "1", "survival": "2", "healing": "1", "animal handling": "1" }
+					"skills": { "scouting": "1", "lore": "1", "survival": "2", "healing": "1", "animal-handling": "1" }
 				}
 			}
 		}
@@ -714,7 +714,7 @@
 					"weight": 1,
 					"description": "You took it upon yourself to protect a forest against the evil and violence of strangers. You lived in the cover of proud trees, one with the beings of the forest.",
 					"items": "✥ Receive a short bow and a D12 Resource Die for arrows.",
-					"skills": { "marksmanship": "1", "animal handling": "1" },
+					"skills": { "marksmanship": "1", "animal-handling": "1" },
 					"talent": "Herbalist"
 				},
 				"lived as a hermit": {
@@ -770,7 +770,7 @@
 					"weight": 1,
 					"description": "You learned to ride and signed on as a knight with a lord. You fought in skirmishes, patrolled and guarded the country from enemies.",
 					"items": "✥ Receive a mount of your choice (not warhorse)",
-					"skills": { "melee": "1", "animal handling": "1" },
+					"skills": { "melee": "1", "animal-handling": "1" },
 					"talent": "Horseback Fighter"
 				},
 				"scout": {
@@ -826,7 +826,7 @@
 					"weight": 1,
 					"description": "You caught a wild horse (or another suitable animal). It wasn't easy, but after a long time you tamed the creature and in time you became inseparable.",
 					"items": "✥ Receive a mount of your choice. It cannot be a warhorse.",
-					"skills": { "animal handling": "2" },
+					"skills": { "animal-handling": "2" },
 					"talent": "Horseback Fighter"
 				},
 				"won an archery competition": {
@@ -938,7 +938,7 @@
 					"weight": 1,
 					"description": "You were part of an arduous trade caravan that traveled through the Forbidden Lands. The caravan encountered many dangers, and not everyone made it to the final destination. Maybe someone was left behind on the way?",
 					"items": "✥ Receive a donkey",
-					"skills": { "animal handling": "1", "manipulation": "1" },
+					"skills": { "animal-handling": "1", "manipulation": "1" },
 					"talent": "Wanderer"
 				},
 				"local business": {
@@ -1012,7 +1012,7 @@
 					"weight": 1,
 					"description": "You earned a living as a competitive rider, and traveled from village to village, castle to castle and competed against other riders. As long as you were winning you had a good life, but when you started losing, it was time to move on.",
 					"items": "✥ Receive a cloak.",
-					"skills": { "move": "1", "animal handling": "1" },
+					"skills": { "move": "1", "animal-handling": "1" },
 					"talent": "Fast Footwork"
 				},
 				"traveled the land": {
@@ -1039,7 +1039,7 @@
 					"weight": 1,
 					"description": "You herded livestock to greener pastures in the Forbidden Lands. In the daytime, you guarded the herd from horseback. At night, you slept under the open sky.",
 					"items": "✥ Receive a lantern and a waterskin.",
-					"skills": { "move": "1", "animal handling": "1" },
+					"skills": { "move": "1", "animal-handling": "1" },
 					"talent": "Quartermaster"
 				},
 				"steppe rider": {
@@ -1048,7 +1048,7 @@
 					"weight": 1,
 					"description": "You rode across the everlasting steppes of the Forbidden Lands and lived simply by hunting and selling meat and animals hides.",
 					"items": "✥ Receive a short bow and a D12 Resource Die for arrows",
-					"skills": { "marksmanship": "1", "animal handling": "1" },
+					"skills": { "marksmanship": "1", "animal-handling": "1" },
 					"talent": "Tanner"
 				}
 			}
@@ -1068,7 +1068,7 @@
 					"weight": 1,
 					"description": "It was the perfect crime. For a while. You stole something valuable from the wrong person, at the wrong time. You were hunted and had to run for your life.",
 					"items": "✥ Receive lockpicks.",
-					"skills": { "sleight of hand": "1", "move": "1" },
+					"skills": { "sleight-of-hand": "1", "move": "1" },
 					"talent": "Lightning Fast"
 				},
 				"imprisoned": {
@@ -1086,7 +1086,7 @@
 					"weight": 1,
 					"description": "You planned and successfully performed a heist. Maybe it was against a rich peddler, maybe against a local lord.",
 					"items": "✥ Receive an item from Valuable finds in a lair. Reroll if the result is below 33.",
-					"skills": { "sleight of hand": "1", "stealth": "1" },
+					"skills": { "sleight-of-hand": "1", "stealth": "1" },
 					"talent": "Lucky"
 				},
 				"joined a guild of thieves": {

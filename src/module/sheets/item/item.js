@@ -31,7 +31,8 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 	}
 
 	getData() {
-		const data = super.getData();
+		const superData = super.getData();
+		const data = superData.data;
 		this._computeQuality(data);
 		return data;
 	}

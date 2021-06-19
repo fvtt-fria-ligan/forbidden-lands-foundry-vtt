@@ -16,11 +16,13 @@
 	"extends": [
 		"eslint:recommended",
 		"jquery",
-		"@typhonjs-fvtt/eslint-config-foundry.js/0.7.9",
+		"@typhonjs-fvtt/eslint-config-foundry.js/0.8.0",
 		"plugin:prettier/recommended"
 	],
 
 	"plugins": [],
 
-	"rules": {}
+	"rules": {
+		"no-shadow": ["error", { "builtinGlobals": true, "hoist": "all", "allow": ["event"] }]
+	}
 }

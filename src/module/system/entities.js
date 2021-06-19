@@ -1,20 +1,27 @@
 export class ForbiddenLandsActor extends Actor {
-	createEmbeddedEntity(embeddedName, data, options) {
+	async createEmbeddedDocuments(embeddedName, data, options) {
 		// Replace randomized attributes like "[[d6]] days" with a roll
-		const newData = duplicate(data);
+		const newData = deepClone(data);
 		const inlineRoll = /\[\[(\/[a-zA-Z]+\s)?([^\]]+)\]\]/gi;
-		if (newData.data) {
-			for (const key of Object.keys(newData.data)) {
-				if (typeof newData.data[key] === "string") {
-					newData.data[key] = newData.data[key].replace(
-						inlineRoll,
-						(_match, _contents, formula) => new Roll(formula).roll().total,
-					);
-				}
+		for (let entity of newData) {
+			if (entity.data.data) {
+				entity.data.data = Object.entries(entity.data.data).reduce((obj, entries) => {
+					let [key, value] = entries;
+					let newValue;
+					if (typeof value === "string") {
+						newValue = value.replace(inlineRoll, (_match, _contents, formula) => {
+							const roll = new Roll(formula);
+							const result = roll.roll({ async: false }); // This refactor was an attempt at accommodating rolls becoming async. This will require a different solution.
+							return result.total;
+						});
+					}
+					return { ...obj, [key]: newValue };
+				}, {});
 			}
 		}
-		return super.createEmbeddedEntity(embeddedName, newData, options);
+		return super.createEmbeddedDocuments(embeddedName, newData, options);
 	}
+
 	/**
 	 * Override initializing a character to set default portraits.
 	 * @param {object} data object of an initialized character.
@@ -37,7 +44,7 @@ export class ForbiddenLandsActor extends Actor {
 
 export class ForbiddenLandsItem extends Item {
 	async sendToChat() {
-		const itemData = duplicate(this.data);
+		const itemData = deepClone(this.data);
 		if (itemData.img.includes("/mystery-man")) {
 			itemData.img = null;
 		}
@@ -46,16 +53,16 @@ export class ForbiddenLandsItem extends Item {
 			itemData.data.rollModifiers && Object.values(itemData.data.rollModifiers).length > 0;
 		const html = await renderTemplate("systems/forbidden-lands/templates/chat/item.hbs", itemData);
 		const chatData = {
-			user: game.user._id,
+			user: game.userId,
 			rollMode: game.settings.get("core", "rollMode"),
 			content: html,
-			["flags.forbidden-lands.itemData"]: this.data, // Adds posted item data to chat message flags for item drag/drop
 		};
 		if (["gmroll", "blindroll"].includes(chatData.rollMode)) {
 			chatData.whisper = ChatMessage.getWhisperRecipients("GM");
 		} else if (chatData.rollMode === "selfroll") {
 			chatData.whisper = [game.user];
 		}
-		ChatMessage.create(chatData);
+		const message = await ChatMessage.create(chatData);
+		await message.setFlag("forbidden-lands", "itemData", itemData); // Adds posted item data to chat message flags for item drag/drop
 	}
 }

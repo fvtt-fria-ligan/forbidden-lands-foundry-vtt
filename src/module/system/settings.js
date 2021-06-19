@@ -10,17 +10,25 @@ Hooks.on("renderSettingsConfig", (_app, html, _user) => {
 		`<button type="button" class="file-picker" title="Reset to default dataset"><i class="fas fa-undo"></i></button>`,
 	);
 	resetButton.on("click", function () {
-		this.previousElementSibling.value = "";
+		this.parentElement.querySelector('input[name="forbidden-lands.datasetDir"]').value = "";
+		this.blur();
+	});
+	const experimentalButton = $(
+		`<button type="button" class="file-picker" title="Generator from Reforged Power | Experimental"><i class="fas fa-flask"></i></button>`,
+	);
+	experimentalButton.on("click", function () {
+		this.parentElement.querySelector('input[name="forbidden-lands.datasetDir"]').value =
+			"systems/forbidden-lands/assets/datasets/chargen/dataset-experimental.json";
 		this.blur();
 	});
 
 	const target = html.find("input[data-dtype='String'");
-	const { name } = target[0];
-	const parent = target.parent();
+	const { name: iName } = target[0];
+	const iParent = target.parent();
 
-	if (name !== "forbidden-lands.datasetDir") return;
+	if (iName !== "forbidden-lands.datasetDir") return;
 
-	parent.append([resetButton, filePickerButton]);
+	iParent.append([resetButton, experimentalButton, filePickerButton]);
 });
 
 export default function registerSettings() {

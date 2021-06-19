@@ -142,7 +142,7 @@ const migrateItemData = (item, worldSchemaVersion) => {
 		}
 	}
 	if (!isObjectEmpty(update)) {
-		update._id = item._id;
+		update.id = item.id;
 	}
 	return update;
 };
@@ -186,7 +186,7 @@ export const migrateCompendium = async function (pack, worldSchemaVersion) {
 		}
 		if (!isObjectEmpty(updateData)) {
 			expandObject(updateData);
-			updateData._id = ent._id;
+			updateData.id = ent.id;
 			await pack.updateEntity(updateData);
 		}
 	}

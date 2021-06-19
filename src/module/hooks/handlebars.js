@@ -63,12 +63,6 @@ function registerHandlebarsHelpers() {
 		return args.join("");
 	});
 
-	Handlebars.registerHelper("flps_enrich", function (content) {
-		// Enrich the content
-		content = TextEditor.enrichHTML(content, { entities: true });
-		return new Handlebars.SafeString(content);
-	});
-
 	Handlebars.registerHelper("damageType", function (type) {
 		type = normalize(type, "blunt");
 		switch (type) {
@@ -166,8 +160,8 @@ function registerHandlebarsHelpers() {
 	Handlebars.registerHelper("formatRollModifiers", function (rollModifiers) {
 		let output = [];
 		Object.values(rollModifiers).forEach((mod) => {
-			let name = game.i18n.localize(mod.name);
-			output.push(`${name} ${mod.value}`);
+			let modName = game.i18n.localize(mod.name);
+			output.push(`${modName} ${mod.value}`);
 		});
 		return output.join(", ");
 	});
@@ -247,9 +241,9 @@ function registerHandlebarsHelpers() {
 	});
 
 	Handlebars.registerHelper("chargenLoc", function (item) {
-		let localizedString = game.fbl.config.attributes[item];
+		let localizedString = game.fbl.config.attributes[item] || game.fbl.config.skills[item];
 		if (!localizedString) {
-			const SKILL_NAME = item.toUpperCase().replace(/\s/g, "_");
+			const SKILL_NAME = item.toUpperCase().replace(/[\s-]/g, "_");
 			localizedString = `SKILL.${SKILL_NAME}`;
 		}
 		return localizedString;

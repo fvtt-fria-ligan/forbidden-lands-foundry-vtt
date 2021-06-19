@@ -25,11 +25,12 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 	}
 
 	getData() {
-		const data = super.getData();
-		this.computeSkills(data);
-		this.computeItems(data);
-		this.computeEncumbrance(data);
-		return data;
+		const superData = super.getData();
+		const actorData = superData.data;
+		this.computeSkills(actorData);
+		this.computeItems(actorData);
+		this.computeEncumbrance(actorData);
+		return actorData;
 	}
 
 	activateListeners(html) {
@@ -43,7 +44,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 		});
 		html.find(".roll-attack").click((ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
-			const weapon = this.actor.getOwnedItem(itemId);
+			const weapon = this.actor.items.get(itemId);
 			let testName = weapon.name;
 			RollDialog.prepareRollDialog(
 				testName,
@@ -101,13 +102,13 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 		let header = event.currentTarget;
 		let data = duplicate(header.dataset);
 		data.name = `New ${data.type.capitalize()}`;
-		this.actor.createEmbeddedEntity("OwnedItem", data, { renderSheet: true });
+		this.actor.createEmbeddedDocuments("Item", data, { renderSheet: true });
 	}
 
 	_getHeaderButtons() {
 		let buttons = super._getHeaderButtons();
 
-		if (this.actor.owner) {
+		if (this.actor.isOwner) {
 			buttons = [
 				{
 					label: game.i18n.localize("SHEET.HEADER.ROLL"),

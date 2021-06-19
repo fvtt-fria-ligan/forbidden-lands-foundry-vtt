@@ -30,7 +30,7 @@
                     <a class="button item-create" title="Add Armor" data-type="armor"><i class="fas fa-plus"></i></a>
                 </div>
                 <div>
-                    {{#each actor.items as |item|}}
+                    {{#each items as |item|}}
                     {{#if item.isArmor}}
                     <div class="gear item flex row" data-item-id="{{item._id}}">
                         <div class="name">
@@ -59,7 +59,7 @@
                     <a class="button item-create" title="Add Weapon" data-type="weapon"><i class="fas fa-plus"></i></a>
                 </div>
                 <div>
-                    {{#each actor.items as |item|}}
+                    {{#each items as |item|}}
                     {{#if item.isWeapon}}
                     <div class="gear item flex row" data-item-id="{{item._id}}">
                         <div class="name">
@@ -89,7 +89,7 @@
                     <a class="button item-create" title="Add Gear" data-type="gear"><i class="fas fa-plus"></i></a>
                 </div>
                 <div>
-                    {{#each actor.items as |item|}}
+                    {{#each items as |item|}}
                     {{#if item.isGear}}
                     <div class="gear item flex row" data-item-id="{{item._id}}">
                         <div class="name">
@@ -119,7 +119,7 @@
                             class="fas fa-plus"></i></a>
                 </div>
                 <div>
-                    {{#each actor.items as |item|}}
+                    {{#each items as |item|}}
                     {{#if item.isRawMaterial}}
                     <div class="gear item flex row" data-item-id="{{item._id}}">
                         <div class="name">
@@ -146,7 +146,7 @@
         <div class="consumable">
             <i class="fas fa-dice"></i>
         </div>
-        {{#each actor.data.consumable as |consumable key|}}
+        {{#each data.consumable as |consumable key|}}
         <div class="consumable">
             <button type="button" class="roll-consumable" data-consumable="{{key}}">{{localize consumable.label}}</button>
             <select name="data.consumable.{{key}}.value" data-dtype="Number">
