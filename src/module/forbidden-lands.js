@@ -92,11 +92,10 @@ Hooks.on("renderChatMessage", async (app, html) => {
 	if (!app.isRoll) return;
 	const rollData = app.data.flags["forbidden-lands"]?.rollData;
 	const notPushable =
-		app.data.flags["forbidden-lands"]?.pushed ||
-		app.permission !== 3 ||
+		(rollData.isPushed && !game.settings.get("forbidden-lands", "allowUnlimitedPush")) ||
 		!app.roll.dice.some((a) => a instanceof BaseDie || a instanceof GearDie) ||
 		rollData?.isSpell ||
-		(rollData.isPushed && !game.settings.get("forbidden-lands", "allowUnlimitedPush"));
+		(!app.isAuthor && !game.user.isGM);
 	if (notPushable) {
 		pushButton.each((_i, b) => {
 			b.style.display = "none";
