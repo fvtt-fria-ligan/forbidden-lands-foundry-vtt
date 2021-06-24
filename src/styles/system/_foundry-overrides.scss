@@ -52,6 +52,9 @@ h3 {
 		background: white;
 	}
 	&.image-popout {
+		form.flexcol {
+			background: white;
+		}
 		.form-group {
 			&.title {
 				input {
@@ -64,6 +67,10 @@ h3 {
 			}
 			&.picker {
 				opacity: 0.2;
+			}
+			input,
+			button {
+				background: #999;
 			}
 		}
 	}
