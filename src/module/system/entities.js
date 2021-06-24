@@ -4,8 +4,8 @@ export class ForbiddenLandsActor extends Actor {
 		const newData = deepClone(data);
 		const inlineRoll = /\[\[(\/[a-zA-Z]+\s)?([^\]]+)\]\]/gi;
 		for (let entity of newData) {
-			if (entity.data.data) {
-				entity.data.data = Object.entries(entity.data.data).reduce((obj, entries) => {
+			if (entity.data) {
+				entity.data = Object.entries(entity.data).reduce((obj, entries) => {
 					let [key, value] = entries;
 					let newValue;
 					if (typeof value === "string") {
@@ -44,7 +44,7 @@ export class ForbiddenLandsActor extends Actor {
 
 export class ForbiddenLandsItem extends Item {
 	async sendToChat() {
-		const itemData = deepClone(this.data);
+		const itemData = this.data.toObject();
 		if (itemData.img.includes("/mystery-man")) {
 			itemData.img = null;
 		}
@@ -63,6 +63,8 @@ export class ForbiddenLandsItem extends Item {
 			chatData.whisper = [game.user];
 		}
 		const message = await ChatMessage.create(chatData);
+		const healingTime = message.data.content.match(/data-type="healtime.+?<\/i> (\d+?)<\/a>/);
+		if (healingTime) itemData.data.healingTime = healingTime[1] + " days";
 		await message.setFlag("forbidden-lands", "itemData", itemData); // Adds posted item data to chat message flags for item drag/drop
 	}
 }
