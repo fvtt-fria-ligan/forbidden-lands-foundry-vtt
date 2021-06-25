@@ -1,35 +1,28 @@
 Hooks.on("renderSettingsConfig", (_app, html, _user) => {
-	const filePickerButton = $(
-		`<button type="button" class="file-picker" title="Select Custom Dataset" data-type="json" data-target="forbidden-lands.datasetDir"><i class="fas fa-file-import fa-fw"></i></button>`,
-	);
-	filePickerButton.on("click", function () {
-		const picker = FilePicker.fromButton(this);
-		return picker.render(true);
-	});
+	const target = html.find('input[name="forbidden-lands.datasetDir"]')[0];
+	if (!target) return;
+
+	const targetParent = target.previousElementSibling;
+
 	const resetButton = $(
 		`<button type="button" class="file-picker" title="Reset to default dataset"><i class="fas fa-undo"></i></button>`,
 	);
 	resetButton.on("click", function () {
-		this.parentElement.querySelector('input[name="forbidden-lands.datasetDir"]').value = "";
+		target.value = "";
 		this.blur();
 	});
 	const experimentalButton = $(
 		`<button type="button" class="file-picker" title="Generator from Reforged Power | Experimental"><i class="fas fa-flask"></i></button>`,
 	);
 	experimentalButton.on("click", function () {
-		this.parentElement.querySelector('input[name="forbidden-lands.datasetDir"]').value =
-			"systems/forbidden-lands/assets/datasets/chargen/dataset-experimental.json";
+		target.value = "systems/forbidden-lands/assets/datasets/chargen/dataset-experimental.json";
 		this.blur();
 	});
 
-	const target = html.find("input[data-dtype='String'");
-	const { name: iName } = target[0];
-	const iParent = target.parent();
-
-	if (iName !== "forbidden-lands.datasetDir") return;
-
-	iParent.append([resetButton, experimentalButton, filePickerButton]);
+	targetParent.before(resetButton[0], experimentalButton[0]);
 });
+
+const debouncedReload = foundry.utils.debounce(window.location.reload, 100);
 
 export default function registerSettings() {
 	game.settings.register("forbidden-lands", "worldSchemaVersion", {
@@ -62,6 +55,7 @@ export default function registerSettings() {
 		scope: "client",
 		config: true,
 		default: false,
+		onChange: debouncedReload,
 		type: Boolean,
 	});
 	game.settings.register("forbidden-lands", "datasetDir", {
@@ -70,6 +64,7 @@ export default function registerSettings() {
 		scope: "world",
 		config: true,
 		default: "",
+		filePicker: "folder",
 		type: String,
 	});
 	game.settings.register("forbidden-lands", "showCraftingFields", {
