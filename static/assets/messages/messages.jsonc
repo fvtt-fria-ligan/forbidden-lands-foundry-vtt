@@ -11,14 +11,14 @@
 			"content": "<h2>The Road to Foundry 0.8</h2><p>Hello {name}!</p><p>The release of Foundry Version 0.8 is rapidly approaching, and Forbidden Lands will of course be playable on the new version of Foundry. We know you may be eager to upgrade, and to accommodate you early adopters there will be a release of the system that is compatible with Foundry 0.8. It is important that you understand there has been a lot of underlying changes to Foundry's structure. As such the road ahead is likely to be a bumpy one. If you have an important game and want the least amount of headaches when running the game, we suggest waiting with updating until version 0.8 has matured a bit. If you are uncertain, feel free to ask in the #free-league channel over on the Foundry Discord.</p><p>Before you upgrade to 0.8 there is one tremendously important thing we want you to do, and that is <b>back up your data folder</b>. For information on where to find the data directory, follow this link: <a href='https://foundryvtt.com/article/configuration/'>Foundry Configuration</a></p><h3><b>What about the official content?</b></h3><p>Unfortunately, it will take some time to publish a stable update to the modules since testing cannot be completed until 0.8.6 is released at the earliest. </p><p>If you want to start a new World and import the official content in 0.8 you will have to wait patiently a bit longer. A workaround is to import the content while on 0.7.9 then updating to 0.8 once the Forbidden Lands system is compatible).</p> <p>The official content modules compatible with 0.8 will be version 2.0.0. An update like this one will be posted once they become available.</p>"
 		},
 		{
-			"min-core-version": "0.8.0", //optional, inclusive
-			"max-core-version": "0.9.0", //optional, exclusive
+			"min-core-version": "0.8.8", //optional, inclusive
+			"max-core-version": "0.8.9", //optional, exclusive
 			//"min-sys-version": "", //optional, inclusive
 			//"max-sys-version": "", //optional, exclusive
 			"type": "chat", // Type of message: [prompt, chat]
 			"display": "once", // Time until it goes away: [once, infinite, mm.dd.yyyy]
-			"title": "Welcome to 0.8!",
-			"content": "<h3>Welcome!</h3><p>Hello {name}!</p><p>I hope you <b>backed up your data</b>.</p><p>This is an alpha version of the 0.8 compatible system. This means stuff might break. It is unfortunately difficult to test every aspec of a system, so if you encounter any bugs please report them in the discord or on github.</p><p><em>Good luck out there!</em></p>"
+			"title": "welcome-to-0.8.8",
+			"content": "<h3>Welcome to the Forbidden Lands!</h3><p><b>Hello {name}!</b></p><p>I hope you enjoy your stay in the Forbidden Lands and Bitter Reach.</p><p>With this version you are ready for the updated official content modules, if you own those. And the updates should be with you shortly.</p><p>If you have any questions, troubleshooting or bugs you want to report, please head on over to the Foundry discord and find the #free-league channel.</p><p><b>Remember to backup your data folder regularly</b> (check the support pages on the FoundryVTT website if you are uncertain).</p><p>And do not forget:</p><em>Beware the beggar from Varassa</em></p>"
 		}
 	]
 }

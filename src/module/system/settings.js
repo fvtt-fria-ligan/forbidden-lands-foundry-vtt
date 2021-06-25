@@ -22,7 +22,7 @@ Hooks.on("renderSettingsConfig", (_app, html, _user) => {
 	targetParent.before(resetButton[0], experimentalButton[0]);
 });
 
-const debouncedReload = foundry.utils.debounce(window.location.reload, 100);
+const debouncedReload = foundry.utils.debounce(() => window.location.reload(), 100);
 
 export default function registerSettings() {
 	game.settings.register("forbidden-lands", "worldSchemaVersion", {
