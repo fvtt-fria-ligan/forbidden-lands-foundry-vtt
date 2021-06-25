@@ -13,7 +13,6 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		let dragData = JSON.parse(event.dataTransfer.getData("text/plain"));
 
 		if (dragData.type === "itemDrop") {
-			dragData.item.effects = []; //This is a workaround for a bug caused by Foundry VTT where this._source on effects is non-iterable.
 			this.actor.createEmbeddedDocuments("Item", [dragData.item]);
 		} else {
 			super._onDrop(event, data);

@@ -92,7 +92,7 @@ Hooks.on("renderChatMessage", async (app, html) => {
 	if (!app.isRoll) return;
 	const rollData = app.data.flags["forbidden-lands"]?.rollData;
 	const notPushable =
-		(rollData.isPushed && !game.settings.get("forbidden-lands", "allowUnlimitedPush")) ||
+		(rollData?.isPushed && !game.settings.get("forbidden-lands", "allowUnlimitedPush")) ||
 		!app.roll.dice.some((a) => a instanceof BaseDie || a instanceof GearDie) ||
 		rollData?.isSpell ||
 		(!app.isAuthor && !game.user.isGM);
