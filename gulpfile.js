@@ -10,7 +10,7 @@ const path = require("path");
 const execa = require("execa");
 const rollupConfig = require("./rollup.config");
 const semver = require("semver");
-const sass = require("gulp-sass");
+const sass = require("gulp-sass")(require("sass"));
 const sourcemaps = require("gulp-sourcemaps");
 sass.compiler = require("sass");
 
