@@ -195,10 +195,12 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		});
 		html.find(".quantity").on("blur", (ev) => {
 			const itemId = ev.currentTarget.parentElement.dataset.itemId;
-			this.actor.updateOwnedItem({
-				_id: itemId,
-				"data.quantity": ev.currentTarget.value,
-			});
+			this.actor.updateEmbeddedDocuments("Item", [
+				{
+					_id: itemId,
+					"data.quantity": ev.currentTarget.value,
+				},
+			]);
 		});
 	}
 

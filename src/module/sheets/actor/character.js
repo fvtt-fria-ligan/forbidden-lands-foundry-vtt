@@ -54,7 +54,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 		});
 		html.find(".roll-armor.specific").click((ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
-			const armor = this.actor.getOwnedItem(itemId);
+			const armor = this.actor.items.get(itemId);
 			let testName = armor.data.name;
 			let base;
 			let skill;
