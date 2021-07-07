@@ -1,21 +1,22 @@
 export class ForbiddenLandsActor extends Actor {
 	async createEmbeddedDocuments(embeddedName, data, options) {
-		// Replace randomized attributes like "[[d6]] days" with a roll
-		const newData = deepClone(data);
-		const inlineRoll = /\[\[(\/[a-zA-Z]+\s)?([^\]]+)\]\]/gi;
-		for (let entity of newData) {
+		// Replace randomized Item.properties like "[[d6]] days" with a roll
+		let newData = deepClone(data);
+		if (!Array.isArray(newData)) newData = [newData]; // Small technical debt. During redesign of NPC sheet createEmbeddedDocuments needs to be passed an array.
+		const inlineRoll = /\[\[([d\d+\-*]+)\]\]/i;
+		const createRoll = async ([_match, group]) => {
+			const roll = await new Roll(group).roll();
+			return roll.total;
+		};
+		for await (const entity of newData) {
 			if (entity.data) {
-				entity.data = Object.entries(entity.data).reduce((obj, entries) => {
-					let [key, value] = entries;
-					let newValue;
-					if (typeof value === "string") {
-						newValue = value.replace(inlineRoll, (_match, _contents, formula) => {
-							const roll = new Roll(formula);
-							const result = roll.roll({ async: false }); // This refactor was an attempt at accommodating rolls becoming async. This will require a different solution.
-							return result.total;
-						});
+				entity.data = await Object.entries(entity.data).reduce(async (obj, [key, value]) => {
+					if (typeof value === "string" && value.match(inlineRoll)) {
+						const result = await createRoll(inlineRoll.exec(value));
+						value = value.replace(inlineRoll, result);
 					}
-					return { ...obj, [key]: newValue };
+					const resolved = await obj;
+					return { ...resolved, [key]: value };
 				}, {});
 			}
 		}
