@@ -59,7 +59,7 @@ export class CharacterConverter {
 		let gear = [];
 		for (let i = 0; i < this.character.formativeEvents.length; i++) {
 			let event = this.character.formativeEvents[i];
-			gear.push(this.createNewItem(event.items));
+			gear.push(this.createNewItem(event.items).toObject());
 		}
 
 		return gear;
@@ -89,7 +89,7 @@ export class CharacterConverter {
 		if (!item) {
 			item = this.createNewItem(itemName, type);
 		}
-		return item.data;
+		return item.toObject();
 	}
 
 	getItem(itemName, type = false) {
@@ -101,7 +101,7 @@ export class CharacterConverter {
 		if (!item) {
 			item = this.createNewItem(itemName, type);
 		}
-		return item.data;
+		return item.toObject();
 	}
 
 	createNewItem(itemName, type = false) {
@@ -110,7 +110,7 @@ export class CharacterConverter {
 			name: itemName,
 			type: type || "gear",
 			data: type === "talent" ? {} : { weight: "none" },
-		}).data;
+		});
 	}
 
 	generateAttributes() {
