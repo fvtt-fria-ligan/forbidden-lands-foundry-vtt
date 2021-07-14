@@ -18,9 +18,6 @@ foundryconfig.json
 # Distribution files
 /dist
 
-#Static files
-/static
-
 # ESLint
 /.eslintcache
 
@@ -29,4 +26,3 @@ junit.xml
 
 # filetypes
 .DS_Store
-.env
