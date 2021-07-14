@@ -5,7 +5,6 @@ const chalk = require("chalk");
 const fs = require("fs-extra");
 const dotenv = require("dotenv");
 const gulpif = require("gulp-if");
-const zip = require("gulp-zip");
 const path = require("path");
 const execa = require("execa");
 const rollupConfig = require("./rollup.config");
@@ -27,7 +26,7 @@ const sourceFileExtension = "js";
 const srcFiles = ["lang", "templates"];
 const staticFiles = ["assets", "fonts", "scripts", "system.json", "template.json", "LICENSE"];
 const getDownloadURL = (version) =>
-	`https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v${version}/v${version}.zip`;
+	`https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v${version}/fbl-fvtt_v${version}.zip`;
 const repoPathing = (relativeSourcePath = ".", sourcemapPath = ".") => {
 	return path.resolve(path.dirname(sourcemapPath), relativeSourcePath);
 };
@@ -99,6 +98,11 @@ function buildWatch() {
 		srcFiles.map((file) => `${sourceDirectory}/${file}`),
 		{ ignoreInitial: false },
 		copyFiles,
+	);
+	gulp.watch(
+		staticFiles.map((file) => `static/${file}`),
+		{ ignoreInitial: false },
+		pipeStatics,
 	);
 }
 
@@ -198,25 +202,16 @@ function getTargetVersion(currentVersion, release) {
 	}
 }
 
-/**
- * Creates a zip file in the "archive" directory with the release tag number as file-name.
- * @param {String} version tag number to be released.
- */
-async function zipDist() {
-	const { version } = fs.readJSONSync("package.json");
-	const archive = await gulp
-		.src("dist/**/*")
-		.pipe(zip(`v${version}.zip`))
-		.pipe(gulp.dest("archive"));
-	return archive;
+async function changelog() {
+	await execa("npx", ["standard-version", "--skip.bump", "--skip.tag", "--skip.commit"], { stdio });
 }
 
 /**
- *
+ * Commit and push release to Github Upstream
  */
 async function commitTagPush() {
 	const { version } = fs.readJSONSync("package.json");
-	const commitMsg = `chore(release): release ${version}`;
+	const commitMsg = `chore(release): Release ${version}`;
 	await execa("git", ["add", "-A"], { stdio });
 	await execa("git", ["commit", "--message", commitMsg], { stdio });
 	await execa("git", ["tag", `v${version}`], { stdio });
@@ -280,5 +275,5 @@ exports.build = gulp.series(clean, execBuild);
 exports.watch = gulp.series(buildWatch);
 exports.clean = clean;
 exports.link = linkUserData;
-exports.bumpVersion = gulp.series(bumpVersion, clean, execBuild, zipDist);
+exports.bump = gulp.series(bumpVersion, changelog, clean, execBuild);
 exports.release = commitTagPush;

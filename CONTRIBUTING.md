@@ -27,6 +27,8 @@ Otherwise, discussion about the development of the Forbidden Lands system can be
 
 5. [Pull Requests](#dart-pull-requests)
 
+6. [History Rewrite](#recycle-history-rewrite)
+
 ## :globe_with_meridians: Localization
 
 We are grateful for any and all localization support we can get. To localize the system you do not need to download or set up the system. To make it easier to help with localization we are using GitLocalize. All you need is a GitHub account. Then you can [head over to our GitLocalize page](https://gitlocalize.com/repo/6008) and start translating.
@@ -38,28 +40,6 @@ Once you are done, click the yellow button that says "Create Review Request" and
 > Don't worry!
 
 Click the "Add Language" button and get started. :+1:
-
-## :recycle: History Rewrite
-> It all started when we recently got a hold of a missing piece of history for this repository.
-
-The history rewrite was necessary to attach the origin history of this repo onto its original base. The base was lost back in december, but it is now reattached.
-
-### I have a fork. What do I do?
-Ideally, wipe your local repo and clone this one as upstream, then run:
-```bash
-git push -f --prune --mirror
-```
-### But I already have a downstream branch in development
-Recovering from this requires a bit more work. If you have only a few commits on the downstream branch [make a diff patch](https://git-scm.com/docs/diff-generate-patch) and run:
-```bash
-git branch --set-upstream-to upstream
-git reset hard @{u}
-```
-Then reapply the patch: `git apply /path/to/patch.diff` and push to your server like above.
-
-Even if you have several commits you may want to consider doing the above diff patch method. The alternative is a rebase. For guidance on this look at the easy and hard case [in this document](https://htmlpreview.github.io/?https://raw.githubusercontent.com/newren/git-filter-repo/docs/html/git-rebase.html). Try the easy case first (there has been no changes to the recent history beyond commit id changes), if this doesn't work get back to where you started and attempt the hard case. Good luck!
-
-Should you have any issues please open a discussion.
 
 ## :rocket: Get Started
 
@@ -90,6 +70,7 @@ Configure a `foundryconfig.json`-file in the project's root folder it should con
 ```json
 {
 	// On Linux / macOS
+
 	"dataPath": "/absolute/path/to/your/FoundryVTT/Data"
 }
 ```
@@ -97,6 +78,7 @@ Configure a `foundryconfig.json`-file in the project's root folder it should con
 ```json
 {
 	// On Windows
+
 	"dataPath": "\\absolute\\path\\to\\your\\FoundryVTT\\Data"
 }
 ```
@@ -104,6 +86,7 @@ Configure a `foundryconfig.json`-file in the project's root folder it should con
 ```json
 {
 	// Relative path
+
 	"dataPath": "../../Data"
 }
 ```
@@ -112,6 +95,7 @@ Once you have configured where your Foundry VTT Data-folder is, you can link the
 
 ```bash
 # Run the project linking command.
+
 npm run link-project
 ```
 
@@ -123,7 +107,10 @@ If you do, congratulations:tada:! To begin editing the code:
 
 ```bash
 # Run the command that builds the dist folder then watches it for changes.
-npm run dev:watch
+
+npm run dev #This builds the dist directory and ports static files
+
+npm run dev:watch #Same as above and watches for files changes.
 ```
 
 You can cancel watching the files for changes by using the command `ctrl + c` in the terminal window.
@@ -139,11 +126,10 @@ To do so make a test branch in the project and commit a new file using a commit 
 ```bash
 git checkout -b test-branch
 touch test.file
-git add -A
-git commit -m "test commit"
+git commit -am "feat: test commit"
 ```
 
-You should now see Husky running.
+You should now see Husky running. And if it works correctly the commit should pass and an emoji should be added to the commit message lke so `feat: ✨ test commit`.
 
 If you have permission issues with Husky on Linux or macOS. Run the below commands to set the right executable permissions for Husky and git hooks.
 
@@ -170,18 +156,22 @@ Following are some of the files and folders that you may be interested in editin
 │   │	├── forbidden-lands.scss
 │   ├── templates
 ├── static
+│	├── assets
 │   ├── system.json
 │   ├── template.json
 ├── .editorconfig
+├── .env
 ├── .eslintignore
 ├── .eslintrc.js
 ├── .gitignore
 ├── .nvmrc
 ├── .prettierignore
 ├── .prettierrc
+├── CHANGELOG.md
 ├── CONTRIBUTING.md
 ├── foundryconfig-example.json
 ├── gulpfile.js
+├── jsconfig.json
 ├── LICENSE
 ├── package-lock.json
 ├── package.json
@@ -189,23 +179,24 @@ Following are some of the files and folders that you may be interested in editin
 └── rollup.config.json
 ```
 
-1. `.husky`: This is a git hooks enhancment tool. See [.Husky](#.husky)
-2. `/archive`: This directory contains the previous builds of the system.
-3. `/dist` \*_Generated_: The directory contains the output of the build process. It is not part of the git repository.
-4. `/node_modules` \*_Generated_: A directory generated when running the `npm install` command. It contains all the dependencies of the project.
-5. `src`: This is the directory you want to focus most of your attention on. It contains the following subdirectories:
+0. `.github/`: This directory contains Github Actions CI files and Github Issue Templates.
+1. `.husky/`: This is a git hooks enhancment tool. See [.Husky](#.husky)
+2. `dist/` \*_Generated_: The directory contains the output of the build process. It is not part of the git repository.
+3. `node_modules/` \*_Generated_: A directory generated when running the `npm install` command. It contains all the dependencies of the project.
+4. `src/`: This is the directory you want to focus most of your attention on. It contains the following subdirectories:
     - `lang`: Language files. You may opt to do localization directly on the files. _**Note:** This is not the preferred way of doing localization._
     - `module`: Javascript modules. The main file `forbidden-lands.js` imports the scripts in the subdirectories and configures the system.
     - `styles`: The project uses SASS (SCSS). It is almost like CSS except it allows for modularization and more perks. `forbidden-lands.scss` only imports the various partial files.
     - `templates`: This is the folder that contains all the html, or handlebars partials if you like. They are formatted as `.hbs`.
-6. `/static`: The static directory is special. It is usually ignored by `git`, and so you should be vary of changing anything within this directory. Pull requests changing the contents of this folder will likely be rejected, unless there is good reason to modify these files.
-7. `.editorconfig`, `.eslintrc.js`, `.prettierrc`: These two files achieve the same goal. They lint and format the code to comply with the style guide.
-8. `.eslintignore`, `.gitignore`, `.nvmrc`, `.prettierignore`: These are ignore files configured to ignore certain directories that do not require linting or configuring.
+5. `static/`: The static directory contains assets and the system- and template.json files. This directory rarely sees changes. Character generation datasets are contained in `assets/`.
+6. `.editorconfig`, `.eslintrc.json`, `.prettierrc.json`: These files achieve the same goal. They lint and format the code to comply with the style guide.
+7. `.eslintignore`, `.gitignore`, `.nvmrc`, `.prettierignore`: These are ignore files configured to ignore certain directories that do not require linting or configuring.
+8. `CHANGELOG.md`: This file contains changes made up until the latest release. It is automatically generated when one of the admins bumps the version of the system.
 9. `CONTRIBUTING.md`: You are reading it.
 10. `foundryconfig-example.json`: Rename this file `foundryconfig.json` and edit it to contain the absolute path to your `Foundry VTT/Data`-folder.
-11. `gulpfile.js`: This file contains the configuration for the scripts used to build and watch the project as well as releases.
+11. `.jsconfig.json` and `gulpfile.js`: These files contains the configuration for the scripts used to build and watch the project as well as releases.
 12. `LICENSE`: The License file for the project.
-13. `package-lock.json` and `package.json`: These files are used by `npm` to configure the project, and track dependencies.
+13. `package-lock.json` and `package.json`, as well as `.env`: These files are used by `npm` to configure the project, and track dependencies.
 14. `README.md`: The Readme and project page.
 15. `rollup-config.json`: The config file for javascript concatenation.
 
@@ -239,9 +230,44 @@ We are always looking for someone who can help with the project or one of the ot
 
 When you are ready to submit a pull request, make sure you do a few things to help speed up the process.
 
-1.  Make sure you have not modified the files in the `/static` directory. If you need to modify static files make sure you explain in detail why, and whether you have dealt with potential migration issues.
-2.  Make sure [Husky](#.husky) has done its job. E.g. check your commit messages to see that they follow [Conventional Commits Standards](https://www.conventionalcommits.org/en/v1.0.0-beta.2/).
-3.  Now you are ready to submit a Pull Request. The project contains three branches: `main`, `dev`, and `localization-gitlocalize`. When submitting a Pull Request make sure to point it to the `dev` branch. `dev` is continuously merged with main after a period of testing. Then a release is cut from main.
+1.  Keep it tidy. Fewer commits with changes logically grouped together makes it easier to review them.
+2.  Make sure [Husky](#.husky) has done its job. E.g. check your commit messages to confirm that they follow [Conventional Commits Standards](https://www.conventionalcommits.org/en/v1.0.0-beta.2/).
+3.  Now you are ready to submit a Pull Request. The project contains two branches: `main`, and `localization`. When submitting a Pull Request make sure to point it to the `main` branch. Unless, you are pushing a **localization** change, then point to `localization` instead.
 4.  When creating the Pull Request consider prefacing the title with [an emoji that indicates the type of pull request](https://gitmoji.dev/).
 5.  Briefly describe the pull request and whether you have made any deletions or modifications that may be breaking.
 6.  That's it! Thank you so much for your help with improving this project:purple_heart:
+
+## :recycle: The History Rewrite
+
+> If you are new around here, this information is for already existing forks.
+
+### It all started when we got hold of a missing piece...
+
+of the history of this repository. The rewrite was necessary to reattach the missing piece. #74 details most of what happened.
+
+In short, on the 1st. of May a full git rewrite (filter-repo) was force pushed to the public repository. And so any forks, clones or otherwise made before that date are not compatible with the current repository.
+
+### I have a fork. What do I do?
+
+Ideally, wipe your local repo and clone this one as upstream, then run:
+
+```bash
+git push -f --prune --mirror
+```
+
+To force push the reset to your origin repository.
+
+### But I already have a downstream branch in development
+
+Recovering from this requires a bit more work. If you have only a few commits on the downstream branch [make a diff patch](https://git-scm.com/docs/diff-generate-patch) and run:
+
+```bash
+git branch --set-upstream-to upstream
+git reset hard @{u}
+```
+
+Then reapply the patch: `git apply /path/to/patch.diff` and push to your server like above.
+
+Even if you have several commits you may want to consider doing the above diff patch method. The alternative is a rebase. For guidance on this look at the easy and hard case [in this document](https://htmlpreview.github.io/?https://raw.githubusercontent.com/newren/git-filter-repo/docs/html/git-rebase.html). Try the easy case first (there has been no changes to the recent history beyond commit id changes), if this doesn't work get back to where you started and attempt the hard case. Good luck!
+
+Should you have any issues please open a discussion.

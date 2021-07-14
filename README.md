@@ -8,8 +8,6 @@
  <a href="https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/latest/" target="_blank"><img alt="GitHub release (latest by SemVer including pre-releases)" src="https://img.shields.io/badge/dynamic/json?color=red&label=Downloads&query=$.assets.1.download_count&url=https%3A%2F%2Fapi.github.com%2Frepos%2Ffvtt-fria-ligan%2Fforbidden-lands-foundry-vtt%2Freleases%2Flatest&style=flat-square"></a>
   <a href="https://gitlocalize.com/repo/6008/whole_project?utm_source=badge" target="_blank"> <img src="https://gitlocalize.com/repo/6008/whole_project/badge.svg?style=flat-square&label=Gitlocalized" /></a>
   <br/>
-   <h2 align="center">⚠️ <a href="https://github.com/aMediocreDad/forbidden-lands-foundry-vtt/blob/main/CONTRIBUTING.md#recycle-history-rewrite">PLEASE READ THIS</a> BEFORE MAKING A PULL REQUEST ⚠️</h2>
-  <br/>
   <img src="https://user-images.githubusercontent.com/9851733/108728684-1a954b00-752a-11eb-9138-6fab6f83b2a8.jpg" alt="Logo" style="max-width:100%;" />
 </p>
 
@@ -26,6 +24,8 @@ The core system features no content. It only provides support for various mechan
     -   Including the ability to drag-and-drop Gear, Talents, Spells and Critical Injuries.
     -   Integrated consumables roll mechanics.
     -   Automation through Roll Modifiers and Encumbrance tracking.
+-   Party Sheet
+    -   Bring the party together on Journeys. @maxstar's famous [Party Sheet](https://github.com/maxstar/forbidden-lands-party-sheet) is now part of the system.
 -   Stronghold Sheets.
     -   Giving you the ability to track the buildings, hirelings, and resources in a stronghold through drag-and-drop.
 -   Items:
@@ -55,6 +55,8 @@ Content for the system is available as addon modules. You can purchase them at F
 -   [Calendar/Weather](https://foundryvtt.com/packages/calendar-weather/) will be configured with the correct calendar, support for seasons, dusk/dawn, and recurring events
 -   [Dice So Nice](https://foundryvtt.com/packages/dice-so-nice/) version 3.0 or later will give you beautiful 3D dice for each roll
 -   [Virtual Tabletop Assets - Tokenizer](https://foundryvtt.com/packages/vtta-tokenizer/) is supported on all character sheets
+-   [Year Zero Actions](https://foundryvtt.com/packages/alien-actions) For a better overview of what actions have been taken in combat.
+-   [Reverse Initiative Order](https://foundryvtt.com/packages/reverse-initiative-order) Lets you reverse the initiative order in the combat tracker and add non-actor combat tokens (good for multiple initiatives).
 
 ## :world_map: Preview
 

@@ -1,23 +1,43 @@
-name: Automate release artifacts
+name: Create Release
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - main
+    tags:
+      - "*"
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v2
-            - name: Release
-              uses: ncipollo/release-action@v1
-              env:
-                  version: ${{github.event.release.tag_name}}
-              with:
-                  allowUpdates: true
-                  name: ${{ github.event.release.name }}
-                  token: ${{ secrets.GITHUB_TOKEN }}
-                  artifacts: "./static/system.json, ./archive/${{ env.version }}.zip"
-                  tag: ${{ github.event.release.tag_name }}
-                  body: ${{ github.event.release.body }}
+  release:
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+          cache: "npm"
+      - name: "Install Dependencies"
+        run: npm ci
+      - name: Build Project
+        run: npm run build
+      - name: Get Version Tag
+        id: version
+        uses: ncipollo/semantic-version-action@v1
+      - name: Generate Changelog
+        id: changelog
+        uses: mikepenz/release-changelog-builder-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create Zipped Artifact
+        run: |
+          cd dist/
+          zip -r ../fbl-fvtt_${{ steps.version.outputs.tag }}.zip *
+      - name: Create Release
+        uses: ncipollo/release-action@v1.8.6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          artifacts: "./dist/system.json, fbl-fvtt_${{ steps.version.outputs.tag }}.zip"
+          body: ${{ steps.generate_changelog.outputs.changelog }}
