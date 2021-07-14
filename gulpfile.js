@@ -99,6 +99,11 @@ function buildWatch() {
 		{ ignoreInitial: false },
 		copyFiles,
 	);
+	gulp.watch(
+		staticFiles.map((file) => `static/${file}`),
+		{ ignoreInitial: false },
+		pipeStatics,
+	);
 }
 
 /********************/
