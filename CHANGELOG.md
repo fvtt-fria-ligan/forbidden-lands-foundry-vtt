@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.4](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v6.0.3...v6.0.4) (2021-07-14)
+
+
+### Bug Fixes
+
+* 🐛 Fixed issue with character generator not generating items ([8770a95](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/8770a956208e4a4cad26ce6e1840b20ab954a94c))
+* 🐛 Fixes [#138](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/138), and fixes [#139](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/139) ([dc73941](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/dc739410b29948b613fa133ebecc1a0f373fde2f))
+* 🐛 Various V9 fixes for upcoming Foundry release ([0f29572](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/0f2957296cbf1c3ec72262cca92155ddae767fcb))
+
 ### [6.0.3](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v6.0.2...v6.0.3) (2021-06-25)
 
 
