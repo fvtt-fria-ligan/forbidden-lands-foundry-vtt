@@ -1,0 +1,32 @@
+<div class="flex row roll-dialog">
+	{{#each roll as |roll key|}}
+	<div class="input-section">
+		<label>{{localize label}}</label>
+		{{#unless (eq key "artifact")}}
+		<a class="modifier-button" data-operator="minus" data-field="{{key}}">
+			<i class="fas fa-minus-square"></i>
+		</a>
+		<input
+			data-dtype="Number"
+			type="number"
+			name="data.roll.{{key}}.value"
+			id="{{key}}"
+			value="{{value}}"
+			default="0"
+		/>
+		<a class="modifier-button" data-operator="plus" data-field="{{key}}">
+			<i class="fas fa-plus-square"></i>
+		</a>
+		{{else}}
+		<input
+			data-dtype="String"
+			type="text"
+			name="data.roll.{{key}}.value"
+			id="{{key}}"
+			value="{{value}}"
+			default=""
+		/>
+		{{/unless}}
+	</div>
+	{{/each}}
+</div>

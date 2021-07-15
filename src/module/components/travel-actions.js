@@ -1,4 +1,4 @@
-import { RollDialog } from "./roll-dialog.js";
+/* eslint-disable no-unused-vars */
 import { CharacterPickerDialog } from "./character-picker-dialog.js";
 import { Helpers } from "../utils/helpers.js";
 
@@ -18,21 +18,6 @@ function doRollTravelAction(character, rollName, skillName, onAfterRoll) {
 
 	const data = character.data.data;
 	const skill = data.skill[skillName];
-
-	RollDialog.prepareRollDialog(
-		game.i18n.localize(rollName),
-		{
-			name: game.i18n.localize(data.attribute[skill.attribute].label),
-			value: data.attribute[skill.attribute].value,
-		},
-		{ name: game.i18n.localize(skill.label), value: skill.value },
-		0,
-		"",
-		0,
-		0,
-		diceRoller,
-		onAfterRoll,
-	);
 }
 
 /**
@@ -223,18 +208,6 @@ export let TravelActionsConfig = {
 
 							const data = character.data.data;
 							const skill = data.skill.marksmanship;
-
-							RollDialog.prepareRollDialog(
-								game.i18n.localize(rollName),
-								data.attribute[skill.attribute].value,
-								skill.value,
-								0,
-								"",
-								0,
-								0,
-								diceRoller,
-								onAfterRoll,
-							);
 						},
 					);
 				},

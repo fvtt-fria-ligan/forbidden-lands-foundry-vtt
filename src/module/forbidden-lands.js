@@ -1,17 +1,15 @@
 import { ForbiddenLandsActor, ForbiddenLandsItem } from "./system/entities.js";
 import { initializeCalendar } from "./hooks/calendar-weather.js";
-import { registerDice } from "./hooks/dice.js";
 import { registerDiceSoNice } from "./hooks/dice-so-nice.js";
 import { registerFonts } from "./hooks/fonts.js";
 import { initializeHandlebars } from "./hooks/handlebars.js";
 import { migrateWorld } from "./hooks/migration.js";
 import { registerSheets } from "./hooks/sheets.js";
-import { RollDialog } from "./components/roll-dialog.js";
-import DiceRoller from "./components/dice-roller.js";
 import FBL from "./system/config.js";
 import registerSettings from "./system/settings.js";
-import { BaseDie, GearDie } from "./components/dice.js";
 import displayMessages from "./hooks/message-system.js";
+import { YearZeroRollManager } from "foundry-year-zero-roller/lib/yzur";
+import { ForbiddenLandsD6, registerYZURLabels } from "./components/roll-engine/dice-labels";
 
 /**
  * We use this label to remove the debug option in production builds.
@@ -28,11 +26,15 @@ Hooks.once("init", () => {
 	CONFIG.Combat.initiative = { formula: "1d10", decimals: 0 };
 	CONFIG.Actor.documentClass = ForbiddenLandsActor;
 	CONFIG.Item.documentClass = ForbiddenLandsItem;
-	CONFIG.rollDialog = RollDialog;
-	CONFIG.diceRoller = new DiceRoller();
+	YearZeroRollManager.register("fbl", {
+		"ROLL.chatTemplate": "systems/forbidden-lands/templates/dice/roll.hbs",
+		"ROLL.tooltipTemplate": "systems/forbidden-lands/templates/dice/tooltip.hbs",
+		"ROLL.infosTemplate": "systems/forbidden-lands/templates/dice/infos.hbs",
+	});
+	CONFIG.Dice.terms["6"] = ForbiddenLandsD6;
+	registerYZURLabels();
 	registerFonts();
 	registerSheets();
-	registerDice();
 	initializeHandlebars();
 	registerSettings();
 });
@@ -72,6 +74,28 @@ Hooks.on("renderActorSheet", (app, html) => {
 	html.find(".configure-token").html(`<i class="fas fa-user-circle"></i>` + game.i18n.localize("SHEET.TOKEN"));
 });
 
+Hooks.on("renderChatLog", (_app, html, _data) => {
+	html.on("click", ".dice-button.push", _onPush);
+});
+
+async function _onPush(event) {
+	event.preventDefault();
+
+	// Gets the message.
+	let chatCard = event.currentTarget.closest(".chat-message");
+	let messageId = chatCard.dataset.messageId;
+	let message = game.messages.get(messageId);
+
+	// Copies the roll.
+	let roll = message.roll.duplicate();
+
+	// Pushes the roll.
+	if (roll.pushable) {
+		await roll.push({ async: true });
+		roll.toMessage();
+	}
+}
+
 Hooks.on("renderChatMessage", async (app, html) => {
 	let postedItem = html.find(".chat-item")[0];
 	if (postedItem) {
@@ -85,27 +109,6 @@ Hooks.on("renderChatMessage", async (app, html) => {
 					type: "itemDrop",
 				}),
 			);
-		});
-	}
-
-	const pushButton = html.find("button.push-roll");
-	const rollData = app.data.flags["forbidden-lands"]?.rollData;
-	if (!rollData) return;
-	const notPushable =
-		(rollData.isPushed && !game.settings.get("forbidden-lands", "allowUnlimitedPush")) ||
-		!app.roll.dice.some((a) => a instanceof BaseDie || a instanceof GearDie) ||
-		rollData.isSpell ||
-		(!app.isAuthor && !game.user.isGM);
-	if (notPushable) {
-		pushButton.each((_i, b) => {
-			b.style.display = "none";
-		});
-	} else {
-		pushButton.on("click", () => {
-			const diceRoller = new DiceRoller();
-			diceRoller.push(rollData);
-			rollData.isPushed = true;
-			app.update({ flags: { "forbidden-lands.rollData": rollData } });
 		});
 	}
 });

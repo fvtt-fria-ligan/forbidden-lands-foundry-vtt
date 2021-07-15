@@ -1,5 +1,5 @@
+/* eslint-disable no-unused-vars */
 import { ForbiddenLandsActorSheet } from "./actor.js";
-import { RollDialog } from "../../components/roll-dialog.js";
 export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
@@ -40,23 +40,11 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 		});
 		html.find(".roll-armor").click(() => {
 			let armorValue = this.actor.data.data.armor.value;
-			RollDialog.prepareRollDialog("HEADER.ARMOR", 0, 0, armorValue, "", 0, 0, this.diceRoller, null);
 		});
 		html.find(".roll-attack").click((ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
 			const weapon = this.actor.items.get(itemId);
 			let testName = weapon.name;
-			RollDialog.prepareRollDialog(
-				testName,
-				weapon.data.data.dice,
-				0,
-				0,
-				"",
-				0,
-				weapon.data.data.damage,
-				this.diceRoller,
-				null,
-			);
 		});
 		html.find(".change-mounted").click(() => {
 			const boolean = this.actor.data.data.isMounted;
@@ -114,7 +102,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 					label: game.i18n.localize("SHEET.HEADER.ROLL"),
 					class: "custom-roll",
 					icon: "fas fa-dice",
-					onclick: () => RollDialog.prepareRollDialog("DICE.ROLL", 0, 0, 0, "", 0, 0, this.diceRoller, null),
+					onclick: () => "",
 				},
 			].concat(buttons);
 		}

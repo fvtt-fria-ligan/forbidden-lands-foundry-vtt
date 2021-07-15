@@ -1,0 +1,32 @@
+<div class="dice-tooltip">
+  {{#each parts}}
+  <section class="tooltip-part">
+    <div class="dice">
+      <header class="part-header flexrow">
+        <span class="part-formula">{{this.formula}}</span>
+        {{#if this.flavor}}<span class="part-flavor">{{this.flavor}}</span>{{/if}}
+        <span class="part-total">{{this.total}}</span>
+      </header>
+      <ol class="dice-rolls">
+        {{#if ../pushed}}
+          {{#each this.rolls as | lineRolls |}}
+          <div class="dice-rolls" style="margin-top: 0; margin-bottom: 0;">
+            {{#each lineRolls}}
+              {{#if this}}
+              <span class="roll {{this.classes}}">{{{this.result}}}</span>
+              {{else}}
+              <span class="roll discarded" style="background-image: none;">&nbsp;</span>
+              {{/if}}
+            {{/each}}
+          </div>
+          {{/each}}
+        {{else}}
+          {{#each this.rolls}}
+          <li class="roll {{this.classes}}">{{{this.result}}}</li>
+          {{/each}}
+        {{/if}}
+      </ol>
+    </div>
+  </section>
+  {{/each}}
+</div>

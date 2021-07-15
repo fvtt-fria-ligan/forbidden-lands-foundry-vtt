@@ -1,9 +1,6 @@
-import { RollDialog } from "../../components/roll-dialog.js";
-import DiceRoller from "../../components/dice-roller.js";
-
+/* eslint-disable no-unused-vars */
 export class ForbiddenLandsActorSheet extends ActorSheet {
 	altInteraction = game.settings.get("forbidden-lands", "alternativeSkulls");
-	diceRoller = new DiceRoller();
 
 	/**
 	 * @override
@@ -93,17 +90,6 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			const attributeName = $(ev.currentTarget).data("attribute");
 			const attribute = this.actor.data.data.attribute[attributeName];
 			let modifiers = this.getRollModifiers(attribute.label, null);
-			RollDialog.prepareRollDialog(
-				attribute.label,
-				{ name: attribute.label, value: attribute.value },
-				0,
-				0,
-				modifiers.artifacts.join(" "),
-				modifiers.modifier,
-				0,
-				this.diceRoller,
-				null,
-			);
 		});
 		html.find(".roll-skill").click((ev) => {
 			const skillName = $(ev.currentTarget).data("skill");
@@ -111,17 +97,6 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			const attribute = this.actor.data.data.attribute[skill.attribute];
 			let modifiers = this.getRollModifiers(attribute.label, null);
 			modifiers = this.getRollModifiers(skill.label, modifiers);
-			RollDialog.prepareRollDialog(
-				skill.label,
-				{ name: attribute.label, value: attribute.value },
-				{ name: skill.label, value: skill.value },
-				0,
-				modifiers.artifacts.join(" "),
-				modifiers.modifier,
-				0,
-				this.diceRoller,
-				null,
-			);
 		});
 		html.find(".roll-weapon").click((ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
@@ -155,23 +130,10 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 					modifiers.modifier -= 2;
 				}
 			}
-
-			RollDialog.prepareRollDialog(
-				testName,
-				{ name: attribute.label, value: attribute.value },
-				{ name: skill.label, value: skill.value },
-				bonus,
-				modifiers.artifacts.join(" "),
-				modifiers.modifier,
-				action ? 0 : weapon.data.data.damage,
-				this.diceRoller,
-				null,
-			);
 		});
 		html.find(".roll-spell").click((ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
 			const spell = this.actor.items.get(itemId);
-			RollDialog.prepareSpellDialog(spell, null);
 		});
 		html.find(".roll-action").click((ev) => {
 			const rollName = $(ev.currentTarget).data("action");
@@ -181,17 +143,6 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			let modifiers = this.getRollModifiers(attribute.label, null);
 			modifiers = this.getRollModifiers(skill.label, modifiers);
 			modifiers = this.getRollModifiers(rollName, modifiers);
-			RollDialog.prepareRollDialog(
-				rollName,
-				{ name: attribute.label, value: attribute.value },
-				{ name: skill.label, value: skill.value },
-				0,
-				modifiers.artifacts.join(" "),
-				modifiers.modifier,
-				0,
-				this.diceRoller,
-				null,
-			);
 		});
 		html.find(".quantity").on("blur", (ev) => {
 			const itemId = ev.currentTarget.parentElement.dataset.itemId;
