@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/blob/main/LICENSE" target="_blank">
-    <img alt="License: GPL" src="https://img.shields.io/github/license/fvtt-fria-ligan/forbidden-lands-foundry-vtt?style=flat-square&label=License"/></a>
+    <img alt="License: GPL" src="https://img.shields.io/badge/license-GPL--3.0-red?style=flat-square&label=License"/></a>
   <a href="https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/latest" target="_blank"><img alt="system version" src="https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffvtt-fria-ligan%2Fforbidden-lands-foundry-vtt%2Fmain%2Fstatic%2Fsystem.json&label=Version&query=$.version&colorB=blue&style=flat-square"/></a>
   <a href="https://foundryvtt.com" target="_blank">
     <img src="https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffvtt-fria-ligan%2Fforbidden-lands-foundry-vtt%2Fmain%2Fstatic%2Fsystem.json&label=Foundry&query=$.compatibleCoreVersion&colorB=blue&style=flat-square" alt="foundry-compatibility-version"/></a>
