@@ -72,6 +72,6 @@
 		"*.(json|scss)": "prettier --write"
 	},
 	"dependencies": {
-		"foundry-year-zero-roller": "github:Stefouch/foundry-year-zero-roller#1.2.1"
+		"foundry-year-zero-roller": "github:Stefouch/foundry-year-zero-roller#2.0.0"
 	}
 }
