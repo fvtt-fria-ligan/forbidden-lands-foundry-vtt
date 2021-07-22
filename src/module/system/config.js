@@ -4,12 +4,29 @@
 
 const FBL = {};
 
-FBL.attributes = {
-	agility: "ATTRIBUTE.AGILITY",
-	empathy: "ATTRIBUTE.EMPATHY",
-	strength: "ATTRIBUTE.STRENGTH",
-	wits: "ATTRIBUTE.WITS",
+FBL.actionSkillMap = {
+	slash: "melee",
+	stab: "melee",
+	unarmed: "melee",
+	grapple: "melee",
+	"break-free": "melee",
+	melee: "melee",
+	ranged: "marksmanship",
+	shoot: "marksmanship",
+	persuade: "manipulation",
+	taunt: "performance",
+	flee: "move",
+	heal: "heal",
+	dodge: "move",
+	parry: "melee",
+	shove: "melee",
+	disarm: "melee",
+	run: "move",
+	retreat: "move",
+	"grapple-attack": "melee",
 };
+
+FBL.attributes = ["agility", "empathy", "strength", "wits"];
 
 FBL.conditions = ["cold", "hungry", "sleepy", "thirsty"];
 
@@ -27,21 +44,11 @@ FBL.encumbrance = {
 	heavy: 2,
 };
 
-FBL.itemTypes = [
-	"armor",
-	"building",
-	"criticalInjury",
-	"gear",
-	"hireling",
-	"monsterAttack",
-	"monsterTalent",
-	"rawMaterial",
-	"spell",
-	"talent",
-	"weapon",
-];
-
-FBL.skills = {
+FBL.i18n = {
+	agility: "ATTRIBUTE.AGILITY",
+	empathy: "ATTRIBUTE.EMPATHY",
+	strength: "ATTRIBUTE.STRENGTH",
+	wits: "ATTRIBUTE.WITS",
 	"animal-handling": "SKILL.ANIMAL_HANDLING",
 	crafting: "SKILL.CRAFTING",
 	endurance: "SKILL.ENDURANCE",
@@ -58,6 +65,57 @@ FBL.skills = {
 	"sleight-of-hand": "SKILL.SLEIGHT_OF_HAND",
 	stealth: "SKILL.STEALTH",
 	survival: "SKILL.SURVIVAL",
+	slash: "ACTION.SLASH",
+	stab: "ACTION.STAB",
+	unarmed: "ACTION.UNARMED",
+	grapple: "ACTION.GRAPPLE",
+	"break-free": "ACTION.BREAK_FREE",
+	ranged: "WEAPON.RANGED",
+	shoot: "ACTION.SHOOT",
+	persuade: "ACTION.PERSUADE",
+	taunt: "ACTION.TAUNT",
+	flee: "ACTION.FLEE",
+	heal: "ACTION.HEAL",
+	dodge: "ACTION.DODGE",
+	parry: "ACTION.PARRY",
+	shove: "ACTION.SHOVE",
+	disarm: "ACTION.DISARM",
+	run: "ACTION.RUN",
+	retreat: "ACTION.RETREAT",
+	"grapple-attack": "ACTION.GRAPPLE_ATTACK",
+};
+
+FBL.itemTypes = [
+	"armor",
+	"building",
+	"criticalInjury",
+	"gear",
+	"hireling",
+	"monsterAttack",
+	"monsterTalent",
+	"rawMaterial",
+	"spell",
+	"talent",
+	"weapon",
+];
+
+FBL.skillAttributeMap = {
+	"animal-handling": "empathy",
+	crafting: "strength",
+	endurance: "strength",
+	healing: "empathy",
+	insight: "wits",
+	lore: "wits",
+	manipulation: "empathy",
+	marksmanship: "agility",
+	melee: "strength",
+	might: "strength",
+	move: "agility",
+	performance: "empathy",
+	scouting: "wits",
+	"sleight-of-hand": "agility",
+	stealth: "agility",
+	survival: "wits",
 };
 
 FBL.weaponFeatures = ["blunt", "edged", "hook", "parrying", "pointed", "slowReload"];

@@ -48,7 +48,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 		html.find(".condition").click(async (ev) => {
 			const conditionName = $(ev.currentTarget).data("condition");
 			const conditionValue = this.actor.data.data.condition[conditionName].value;
-			if (game.fbl.config.conditions.includes(conditionName))
+			if (CONFIG.fbl.conditions.includes(conditionName))
 				this.actor.update({ [`data.condition.${conditionName}.value`]: !conditionValue });
 			this._render();
 		});
@@ -124,21 +124,20 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	computeSkills(data) {
 		for (let skill of Object.values(data.data.skill)) {
 			skill[`has${skill?.attribute?.capitalize()}`] = false;
-			if (Object.keys(game.fbl.config.attributes).includes(skill.attribute))
-				skill[`has${skill.attribute.capitalize()}`] = true;
+			if (CONFIG.fbl.attributes.includes(skill.attribute)) skill[`has${skill.attribute.capitalize()}`] = true;
 		}
 	}
 
 	computeItems(data) {
 		for (let item of Object.values(data.items)) {
-			if (game.fbl.config.itemTypes.includes(item.type)) item[`is${item.type.capitalize()}`] = true;
+			if (CONFIG.fbl.itemTypes.includes(item.type)) item[`is${item.type.capitalize()}`] = true;
 		}
 	}
 
 	computeEncumbrance(data) {
 		let weightCarried = 0;
 		for (let item of Object.values(data.items)) {
-			weightCarried += this.computerItemEncumbrance(item);
+			weightCarried += this.computeItemEncumbrance(item);
 		}
 		for (let consumable of Object.values(data.data.consumable)) {
 			if (consumable.value > 0) {
@@ -150,8 +149,9 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			parseInt(data.data.currency.silver.value) +
 			parseInt(data.data.currency.copper.value);
 		weightCarried += Math.floor(coinsCarried / 100) * 0.5;
-		let modifiers = this.getRollModifiers("CARRYING_CAPACITY", null);
-		const weightAllowed = data.data.attribute.strength.max * 2 + modifiers.modifier;
+		/* Needs Fix */
+		//let modifiers = this.getRollModifiers("CARRYING_CAPACITY", null);
+		const weightAllowed = data.data.attribute.strength.max * 2; /* + modifiers.modifier; */
 		data.data.encumbrance = {
 			value: weightCarried,
 			max: weightAllowed,

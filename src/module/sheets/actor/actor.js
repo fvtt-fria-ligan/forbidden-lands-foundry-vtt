@@ -1,6 +1,20 @@
+import { FBLRollHandler } from "../../components/roll-engine/engine";
+
 /* eslint-disable no-unused-vars */
 export class ForbiddenLandsActorSheet extends ActorSheet {
 	altInteraction = game.settings.get("forbidden-lands", "alternativeSkulls");
+
+	get actorData() {
+		return this.actor.data;
+	}
+
+	get actorProperties() {
+		return this.actorData.data;
+	}
+
+	get rollData() {
+		return this.actor.getRollData();
+	}
 
 	/**
 	 * @override
@@ -88,62 +102,28 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		// Rolls
 		html.find(".roll-attribute").click((ev) => {
 			const attributeName = $(ev.currentTarget).data("attribute");
-			const attribute = this.actor.data.data.attribute[attributeName];
-			let modifiers = this.getRollModifiers(attribute.label, null);
+			return this.rollAttribute(attributeName);
 		});
 		html.find(".roll-skill").click((ev) => {
 			const skillName = $(ev.currentTarget).data("skill");
-			const skill = this.actor.data.data.skill[skillName];
-			const attribute = this.actor.data.data.attribute[skill.attribute];
-			let modifiers = this.getRollModifiers(attribute.label, null);
-			modifiers = this.getRollModifiers(skill.label, modifiers);
+			return this.rollSkill(skillName);
 		});
 		html.find(".roll-weapon").click((ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
-			const weapon = this.actor.items.get(itemId);
-			const action = $(ev.currentTarget).data("action");
-			let testName = action || weapon.name;
-			let attribute;
-			let skill;
-			if (weapon.data.data.category === "melee") {
-				attribute = this.actor.data.data.attribute.strength;
-				skill = this.actor.data.data.skill.melee;
-			} else {
-				attribute = this.actor.data.data.attribute.agility;
-				skill = this.actor.data.data.skill.marksmanship;
-			}
-			let bonus = this.parseBonus(weapon.data.data.bonus.value);
-			let modifiers = this.parseModifiers(weapon.data.data.skillBonus);
-			if (weapon.data.data.artifactBonus) {
-				modifiers.artifacts.splice(0, 0, weapon.data.data.artifactBonus);
-			}
-			modifiers = this.getRollModifiers(attribute.label, modifiers);
-			modifiers = this.getRollModifiers(skill.label, modifiers);
-			if (action) {
-				modifiers = this.getRollModifiers(action, modifiers);
-			}
-
-			if (weapon.data.data.category === "melee" && action === "ACTION.PARRY") {
-				// Adjust parry action modifiers based on weapon features
-				const parrying = weapon.data.data.features.parrying;
-				if (!parrying) {
-					modifiers.modifier -= 2;
-				}
-			}
+			this.rollGear(itemId);
 		});
+
 		html.find(".roll-spell").click((ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
 			const spell = this.actor.items.get(itemId);
 		});
+
 		html.find(".roll-action").click((ev) => {
 			const rollName = $(ev.currentTarget).data("action");
-			const skillName = $(ev.currentTarget).data("skill");
-			const skill = this.actor.data.data.skill[skillName];
-			const attribute = this.actor.data.data.attribute[skill.attribute];
-			let modifiers = this.getRollModifiers(attribute.label, null);
-			modifiers = this.getRollModifiers(skill.label, modifiers);
-			modifiers = this.getRollModifiers(rollName, modifiers);
+			const itemId = $(ev.currentTarget).data("itemId");
+			this.rollAction(rollName, itemId ? itemId : null);
 		});
+
 		html.find(".quantity").on("blur", (ev) => {
 			const itemId = ev.currentTarget.parentElement.dataset.itemId;
 			this.actor.updateEmbeddedDocuments("Item", [
@@ -153,6 +133,89 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 				},
 			]);
 		});
+	}
+
+	getRollOptions(...rollIdentifiers) {
+		return {
+			...this.rollData,
+			modifiers: this.actor.getRollModifierOptions(...rollIdentifiers),
+		};
+	}
+
+	getAttribute(identifier) {
+		const attributeName = CONFIG.fbl.skillAttributeMap[identifier] || identifier;
+		const attribute = this.actor.attributes[attributeName];
+		if (!attribute) return {};
+		return {
+			name: attributeName,
+			...attribute,
+		};
+	}
+
+	getSkill(identifier) {
+		const skillName = CONFIG.fbl.actionSkillMap[identifier] || identifier;
+		const skill = this.actor.skills[skillName];
+		if (!skill) return {};
+		const attribute = this.getAttribute(skillName);
+		return {
+			skill: { name: skillName, ...skill },
+			attribute: { ...attribute },
+		};
+	}
+
+	getGear(itemId) {
+		const gear = this.actor.items.get(itemId).getRollData();
+		const properties = this.getSkill(CONFIG.fbl.actionSkillMap[gear.category] || "melee");
+		return {
+			gear: gear,
+			...properties,
+		};
+	}
+
+	rollAction(actionName, itemId = undefined) {
+		const properties = itemId ? this.getGear(itemId) : this.getSkill(actionName);
+		const data = {
+			title: actionName,
+			...properties,
+		};
+		const options = {
+			...this.getRollOptions(actionName, data.skill?.name, data.attribute?.name),
+		};
+		return FBLRollHandler.createRoll(data, options);
+	}
+
+	rollAttribute(attrName) {
+		const data = {
+			title: attrName,
+			attribute: this.getAttribute(attrName),
+		};
+		const options = {
+			...this.getRollOptions(attrName),
+		};
+		return FBLRollHandler.createRoll(data, options);
+	}
+
+	rollGear(itemId) {
+		const properties = this.getGear(itemId);
+		const data = {
+			title: properties.gear.name,
+			...properties,
+		};
+		const options = {
+			...this.getRollOptions(data.skill?.name, data.attribute?.name),
+		};
+		return FBLRollHandler.createRoll(data, options);
+	}
+
+	rollSkill(skillName) {
+		const data = {
+			title: skillName,
+			...this.getSkill(skillName),
+		};
+		const options = {
+			...this.getRollOptions(skillName, data.attribute?.name),
+		};
+		return FBLRollHandler.createRoll(data, options);
 	}
 
 	parseModifiers(str) {
@@ -194,30 +257,13 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		}
 	}
 
-	getRollModifiers(skillLabel, modifiers) {
-		if (!modifiers) {
-			modifiers = { modifier: 0, artifacts: [] };
-		}
-		this.actor.items.forEach((item) => {
-			let rollModifiers = item.data.data.rollModifiers;
-			if (rollModifiers) {
-				Object.values(rollModifiers).forEach((mod) => {
-					if (mod && mod.name === skillLabel) {
-						let parsed = this.parseModifiers(mod.value);
-						modifiers.modifier += parsed.modifier;
-						modifiers.artifacts = modifiers.artifacts.concat(parsed.artifacts);
-					}
-				});
-			}
-		});
-		return modifiers;
-	}
 	async _renderInner(data, options) {
 		data.alternativeSkulls = this.altInteraction;
 		return super._renderInner(data, options);
 	}
-	computerItemEncumbrance(data) {
-		const config = game.fbl.config.encumbrance;
+
+	computeItemEncumbrance(data) {
+		const config = CONFIG.fbl.encumbrance;
 		const type = data.type;
 		const weight = data.data?.weight;
 		if (data.type === "rawMaterial") return 1 * Number(data.data.quantity);

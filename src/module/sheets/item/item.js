@@ -1,4 +1,16 @@
 export class ForbiddenLandsItemSheet extends ItemSheet {
+	get itemData() {
+		return this.item.data;
+	}
+
+	get itemProperties() {
+		return this.itemData.data;
+	}
+
+	get config() {
+		return CONFIG.fbl;
+	}
+
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			...super.defaultOptions,
@@ -97,7 +109,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 		html.find(".feature").click(async (ev) => {
 			const featureName = $(ev.currentTarget).data("feature");
 			const features = this.object.data.data.features;
-			if (game.fbl.config.weaponFeatures.includes(featureName))
+			if (CONFIG.fbl.weaponFeatures.includes(featureName))
 				this.object.update({ [`data.features.${featureName}`]: !features[featureName] });
 			this._render();
 		});

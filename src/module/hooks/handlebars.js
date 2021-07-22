@@ -1,8 +1,8 @@
 function preloadHandlebarsTemplates() {
 	const templatePaths = [
 		"systems/forbidden-lands/templates/chat/item.hbs",
-		"systems/forbidden-lands/templates/chat/roll.hbs",
 		"systems/forbidden-lands/templates/chat/consumable.hbs",
+		"systems/forbidden-lands/templates/dice/dialog.hbs",
 		"systems/forbidden-lands/templates/character.hbs",
 		"systems/forbidden-lands/templates/monster.hbs",
 		"systems/forbidden-lands/templates/weapon.hbs",
@@ -241,7 +241,7 @@ function registerHandlebarsHelpers() {
 	});
 
 	Handlebars.registerHelper("chargenLoc", function (item) {
-		let localizedString = game.fbl.config.attributes[item] || game.fbl.config.skills[item];
+		let localizedString = CONFIG.fbl.i18n[item];
 		if (!localizedString) {
 			const SKILL_NAME = item.toUpperCase().replace(/[\s-]/g, "_");
 			localizedString = `SKILL.${SKILL_NAME}`;

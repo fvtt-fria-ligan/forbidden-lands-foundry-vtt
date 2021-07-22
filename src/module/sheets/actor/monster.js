@@ -55,7 +55,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 	computeEncumbrance(data) {
 		let weightCarried = 0;
 		for (let item of Object.values(data.items)) {
-			weightCarried += this.computerItemEncumbrance(item);
+			weightCarried += this.computeItemEncumbrance(item);
 		}
 		const weightAllowed = data.data.attribute.strength.max * 2 * (data.data.isMounted ? 1 : 2);
 		data.data.encumbrance = {

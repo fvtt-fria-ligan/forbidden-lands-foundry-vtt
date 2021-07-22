@@ -10,6 +10,7 @@ import registerSettings from "./system/settings.js";
 import displayMessages from "./hooks/message-system.js";
 import { YearZeroRollManager } from "foundry-year-zero-roller/lib/yzur";
 import { ForbiddenLandsD6, registerYZURLabels } from "./components/roll-engine/dice-labels";
+import { FBLRollHandler } from "./components/roll-engine/engine.js";
 
 /**
  * We use this label to remove the debug option in production builds.
@@ -22,9 +23,11 @@ console.warn("HOOKS DEBUG ENABLED: ", CONFIG.debug.hooks);
 Hooks.once("init", () => {
 	game.fbl = {
 		config: FBL,
+		roll: FBLRollHandler.genericRoll,
 	};
-	CONFIG.Combat.initiative = { formula: "1d10", decimals: 0 };
 	CONFIG.Actor.documentClass = ForbiddenLandsActor;
+	CONFIG.Combat.initiative = { formula: "1d10", decimals: 0 };
+	CONFIG.fbl = FBL;
 	CONFIG.Item.documentClass = ForbiddenLandsItem;
 	YearZeroRollManager.register("fbl", {
 		"ROLL.chatTemplate": "systems/forbidden-lands/templates/dice/roll.hbs",
@@ -74,30 +77,8 @@ Hooks.on("renderActorSheet", (app, html) => {
 	html.find(".configure-token").html(`<i class="fas fa-user-circle"></i>` + game.i18n.localize("SHEET.TOKEN"));
 });
 
-Hooks.on("renderChatLog", (_app, html, _data) => {
-	html.on("click", ".dice-button.push", _onPush);
-});
-
-async function _onPush(event) {
-	event.preventDefault();
-
-	// Gets the message.
-	let chatCard = event.currentTarget.closest(".chat-message");
-	let messageId = chatCard.dataset.messageId;
-	let message = game.messages.get(messageId);
-
-	// Copies the roll.
-	let roll = message.roll.duplicate();
-
-	// Pushes the roll.
-	if (roll.pushable) {
-		await roll.push({ async: true });
-		roll.toMessage();
-	}
-}
-
 Hooks.on("renderChatMessage", async (app, html) => {
-	let postedItem = html.find(".chat-item")[0];
+	const postedItem = html.find(".chat-item")[0];
 	if (postedItem) {
 		postedItem.classList.add("draggable");
 		postedItem.setAttribute("draggable", true);
@@ -109,6 +90,19 @@ Hooks.on("renderChatMessage", async (app, html) => {
 					type: "itemDrop",
 				}),
 			);
+		});
+	}
+
+	const pushButton = html.find(".fbl-button.push")[0];
+	if (pushButton) {
+		pushButton.addEventListener("click", async () => {
+			if (app.roll.pushable) {
+				await app.roll.push({ async: true });
+				app.roll.toMessage();
+				Hooks.once("diceSoNiceRollComplete", () => {
+					app.delete();
+				});
+			}
 		});
 	}
 });
@@ -124,6 +118,7 @@ Hooks.on("gmScreenOpenClose", (app, _config) => {
 		button.disabled = false;
 	});
 });
+
 Hooks.on("renderActorSheet", (app, form, _css) => {
 	if (app.cellId?.match(/#gm-screen.+/)) {
 		const buttons = form.find("button");
