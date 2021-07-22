@@ -1,0 +1,48 @@
+.skullz {
+	font-family: skullz;
+	font-size: 1.3em;
+	line-height: 1em;
+	height: 1em;
+	transform: translateY(0.2em);
+	margin: 0 0.2rem 0 0;
+	display: block;
+	font-weight: 400;
+}
+
+.sword {
+	font-family: swordlings;
+	font-size: 0.8em;
+	margin: 0 0.2rem;
+	display: block;
+	font-weight: 600;
+}
+
+.special-number {
+	line-height: 1.2rem;
+	display: block;
+}
+
+.fbl-button {
+	padding: 0.2em 2em;
+	font-weight: bold;
+	font-size: max(1rem, 100%);
+	border: none;
+	box-shadow: 0 0 2px #1116;
+	width: max(2em, 60%);
+	display: block;
+	margin: 0 auto;
+
+	&:focus {
+		box-shadow: 0 0 2px #1116;
+	}
+
+	&:hover,
+	&:focus-visible {
+		box-shadow: 0 0 2px #1113;
+		background: var(--color-highlight);
+	}
+
+	&:active {
+		box-shadow: inset 0 0 3px #1116;
+	}
+}
