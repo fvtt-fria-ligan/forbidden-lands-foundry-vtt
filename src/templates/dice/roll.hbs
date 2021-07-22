@@ -1,22 +1,22 @@
 <div class="dice-roll">
-  {{#if flavor}}
-  <div class="dice-flavor">{{flavor}}</div>
-  {{/if}}
-  <div class="dice-result">
-    <div class="dice-formula">{{formula}}</div>
-    {{{tooltip}}}
-    <h4 class="dice-total">{{total}}</h4>
-  </div>
+	<h4 class="dice-formula"
+		>{{#if flavor}}{{flavor}}{{else}}{{formula}}{{/if}}{{#if roll.pushed}}&nbsp;–&nbsp;{{localize
+		"PUSHED"}}{{/if}}</h4
+	>
+	<div class="dice-result">
+		{{{tooltip}}}
+		<h4 class="dice-total"
+			><span class="sword">x</span><span class="special-number">{{success}}</span> {{#if (gt roll.baneCount 0) }}
+			&nbsp;|&nbsp;<span class="skullz">l</span>
+			<span class="special-number">{{roll.baneCount}}</span>
+			{{/if}}</h4
+		>
+	</div>
 </div>
 
-{{!-- Extra info added for Year Zero rolls --}}
-{{#if showInfos}}
-{{{infos}}}
-{{/if}}
-
-{{!-- Push button --}}
-{{#if pushable}}
+{{!-- Extra info added for Year Zero rolls --}} {{#if showInfos}} {{{infos}}} {{/if}} {{!-- Push button --}} {{#if
+pushable}}
 <div class="dice-buttons">
-  <button class="dice-button push" data-action="push">{{localize "YZUR.CHAT.ROLL.push"}}</button>
+	<button class="fbl-button push" data-action="push">{{localize "PUSH"}}</button>
 </div>
 {{/if}}

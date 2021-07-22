@@ -1,32 +1,10 @@
-<div class="flex row roll-dialog">
-	{{#each roll as |roll key|}}
-	<div class="input-section">
-		<label>{{localize label}}</label>
-		{{#unless (eq key "artifact")}}
-		<a class="modifier-button" data-operator="minus" data-field="{{key}}">
-			<i class="fas fa-minus-square"></i>
-		</a>
-		<input
-			data-dtype="Number"
-			type="number"
-			name="data.roll.{{key}}.value"
-			id="{{key}}"
-			value="{{value}}"
-			default="0"
-		/>
-		<a class="modifier-button" data-operator="plus" data-field="{{key}}">
-			<i class="fas fa-plus-square"></i>
-		</a>
-		{{else}}
-		<input
-			data-dtype="String"
-			type="text"
-			name="data.roll.{{key}}.value"
-			id="{{key}}"
-			value="{{value}}"
-			default=""
-		/>
-		{{/unless}}
-	</div>
-	{{/each}}
-</div>
+<form class="flex row roll-dialog">
+	<label for="base">Attribute: </label
+	><input type="number" id="base" name="b" min="0" value="{{base}}" autofocus /><label for="skill">Skill: </label
+	><input type="number" id="skill" name="s" min="0" value="{{skill}}" /><label for="gear">Gear:</label
+	><input type="number" id="gear" name="g" min="0" value="{{gear}}" /><label for="Artifact">Artifact:</label
+	><input type="text" id="artifact" name="a" value="{{artifact}}" autocomplete="off" /><label for="modifier"
+		>Modifier:</label
+	><input type="number" id="modifier" name="modifier" value="{{modifier}}" />
+	<button type="submit" id="submit">Roll!</button><button type="reset" id="cancel">Cancel</button>
+</form>
