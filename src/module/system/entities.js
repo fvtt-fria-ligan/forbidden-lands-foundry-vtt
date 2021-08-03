@@ -34,6 +34,7 @@ export class ForbiddenLandsActor extends Actor {
 			consumables: this.consumables,
 			actorId: this.id,
 			actorType: this.data.type,
+			isBroken: this.isBroken,
 			willpower: this.willpower,
 		};
 	}
@@ -129,12 +130,12 @@ export class ForbiddenLandsItem extends Item {
 
 	/* Override */
 	getRollData() {
-		if (this.isBroken) return {};
 		return {
 			artifactDie: this.artifactDie,
 			bonus: this.bonus || 0,
 			category: this.category,
 			damage: this.damage || 0,
+			isBroken: this.isBroken,
 			itemId: this.id,
 			name: this.name,
 			range: this.range,
@@ -143,6 +144,7 @@ export class ForbiddenLandsItem extends Item {
 	}
 
 	getRollModifier(...rollIdentifiers) {
+		if (!this.rollModifiers) return null;
 		const modifiers = Object.values(this.rollModifiers).reduce(
 			(value, mod) => (rollIdentifiers.includes(mod.name) ? (value += Number(mod.value)) : value),
 			0,

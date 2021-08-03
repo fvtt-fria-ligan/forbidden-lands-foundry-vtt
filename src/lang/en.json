@@ -270,6 +270,11 @@
 	"TALENT.RANK": "Rank",
 	"TALENT.TYPE": "Type",
 
+	"WARNING.ACTOR_BROKEN": "You are broken and cannot act.",
+	"WARNING.ITEM_BROKEN": "The item is broken and cannot be used.",
+	"WARNING.NO_ARMOR": "You have no armor equipped.",
+	"WARNING.NO_CONSUMABLE": "You have no Consumable of this type left.",
+
 	"WEAPON.1H": "1H",
 	"WEAPON.2H": "2H",
 	"WEAPON.BONUS": "Bonus",

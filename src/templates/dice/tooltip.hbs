@@ -4,10 +4,10 @@
 		<div class="dice">
 			<header class="part-header flexrow">
 				<span class="part-formula">{{#if this.flavor}}{{this.flavor}}{{else}}{{this.formula}}{{/if}}</span>
-				<span class="sword">x</span><span class="part-total">{{this.total}}</span> {{#if
-				this.banes}}&nbsp;|&nbsp;<span class="skullz">l</span>
+				<span class="sword">x</span><span class="part-total">{{this.total}}</span> {{#unless (eq this.type
+				"skill")}}{{#if this.banes}}&nbsp;|&nbsp;<span class="skullz">l</span>
 				<span class="part-total">{{this.banes}}</span>
-				{{/if}}
+				{{/if}}{{/unless}}
 			</header>
 			<ol class="dice-rolls">
 				{{#if ../pushed}} {{#each this.rolls as | lineRolls |}}

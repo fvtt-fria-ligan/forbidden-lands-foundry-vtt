@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { ForbiddenLandsActorSheet } from "./actor.js";
+import { FBLRoll } from "../../components/roll-engine/engine.js";
+import localizeString from "../../utils/localize-string.js";
 export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
@@ -38,19 +40,59 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 		html.find(".item-create").click((ev) => {
 			this.onItemCreate(ev);
 		});
-		html.find(".roll-armor").click(() => {
-			let armorValue = this.actor.data.data.armor.value;
-		});
+		html.find(".roll-armor").click(() => this.rollArmor());
+		html.find("#monster-attack-btn").click(() => this.rollAttack());
 		html.find(".roll-attack").click((ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
-			const weapon = this.actor.items.get(itemId);
-			let testName = weapon.name;
+			return this.rollSpecificAttack(itemId);
 		});
 		html.find(".change-mounted").click(() => {
 			const boolean = this.actor.data.data.isMounted;
 			this.actor.update({ "data.isMounted": !boolean });
 		});
 	}
+
+	/************************************************/
+	/***         Monster Specific Rolls           ***/
+	/************************************************/
+
+	async rollAttack() {
+		const attacks = this.actor.itemTypes.monsterAttack;
+		const roll = await new Roll(`1d${attacks.length}`).roll({ async: true });
+		const attack = attacks[parseInt(roll.result) - 1];
+		attack.sendToChat();
+		this.rollSpecificAttack(attack.id);
+	}
+
+	async rollSpecificAttack(attackId) {
+		if (this.actor.isBroken) throw this.broken();
+		const attack = this.actor.items.get(attackId);
+		const data = {
+			name: attack.name,
+			maxPush: "0",
+			...this.getRollOptions(),
+		};
+		const roll = new FBLRoll(`${attack.data.data.dice}ds[${attack.name}]`, data);
+		await roll.roll({ async: true });
+		return roll.toMessage();
+	}
+
+	/* Override Actor Roll */
+	async rollArmor() {
+		const armor = this.actorProperties.armor;
+		const rollName = `${localizeString("ITEM.TypeArmor")}: ${this.actor.name}`;
+		const data = {
+			name: rollName,
+			maxPush: "0",
+			...this.getRollOptions,
+		};
+		const roll = new FBLRoll(`${armor.value}dg[${rollName}]`, data);
+		await roll.roll({ async: true });
+		return roll.toMessage();
+	}
+
+	/************************************************/
+	/************************************************/
 
 	computeEncumbrance(data) {
 		let weightCarried = 0;

@@ -28,6 +28,13 @@ FBL.actionSkillMap = {
 
 FBL.attributes = ["agility", "empathy", "strength", "wits"];
 
+FBL.consumableDice = {
+	6: "1db",
+	8: "1d8",
+	10: "1d10",
+	12: "1d12",
+};
+
 FBL.conditions = ["cold", "hungry", "sleepy", "thirsty"];
 
 FBL.dataSetConfig = {
@@ -98,6 +105,8 @@ FBL.itemTypes = [
 	"talent",
 	"weapon",
 ];
+
+FBL.prideDice = "1d12";
 
 FBL.skillAttributeMap = {
 	"animal-handling": "empathy",

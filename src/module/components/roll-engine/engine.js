@@ -1,4 +1,4 @@
-import { YearZeroRoll, YearZeroDie } from "foundry-year-zero-roller/lib/yzur";
+import { YearZeroRoll, YearZeroDie, YearZeroRollManager } from "foundry-year-zero-roller/lib/yzur";
 import localizeString from "../../utils/localize-string";
 
 /**
@@ -97,10 +97,10 @@ export class FBLRollHandler extends FormApplication {
 	getRollData() {
 		const unlimitedPush = game.settings.get("forbidden-lands", "allowUnlimitedPush");
 		// eslint-disable-next-line no-nested-ternary
-		const maxPush = unlimitedPush ? 100 : this.options.type !== "monster" ? 0 : 1;
+		const maxPush = unlimitedPush ? Infinity : this.options.type !== "monster" ? 0 : 1;
 		return {
 			name: this.title,
-			maxPush: maxPush,
+			maxPush: this.options.maxPush || maxPush,
 		};
 	}
 
@@ -164,7 +164,7 @@ export class FBLRollHandler extends FormApplication {
 		const formula = Object.values(this.roll)
 			.filter((term) => term)
 			.join("+");
-		const roll = new YearZeroRoll(formula, { ...this.getRollData() });
+		const roll = new FBLRoll(formula, { ...this.getRollData() });
 		await roll.roll({ async: true });
 		return roll.toMessage();
 	}
@@ -184,15 +184,44 @@ export class FBLRollHandler extends FormApplication {
 	}
 }
 
-YearZeroRoll.prototype.getRollInfos = function (template = null) {
-	template = template ?? CONFIG.YZUR?.ROLL?.infosTemplate;
-	const context = {
-		roll: this,
-		attributeLabel: localizeString(this.data.attributeName),
-		gearLabel: localizeString(this.data.gearName),
-	};
-	return renderTemplate(template, context);
+/**************************************************/
+/*                                                */
+/*                 YZUR OVERRIDES                 */
+/*                                                */
+/**************************************************/
+YearZeroRollManager.registerRoll = function (cls = FBLRoll, i = 0) {
+	CONFIG.Dice.rolls[i] = cls;
+	CONFIG.Dice.rolls[i].CHAT_TEMPLATE = CONFIG.YZUR.ROLL.chatTemplate;
+	CONFIG.Dice.rolls[i].TOOLTIP_TEMPLATE = CONFIG.YZUR.ROLL.tooltipTemplate;
+	CONFIG.YZUR.ROLL.index = i;
 };
+
+export class FBLRoll extends YearZeroRoll {
+	getRollInfos(template = null) {
+		template = template ?? CONFIG.YZUR?.ROLL?.infosTemplate;
+		const context = {
+			roll: this,
+			attributeLabel: localizeString(this.data.attributeName),
+			gearLabel: localizeString(this.data.gearName),
+		};
+		return renderTemplate(template, context);
+	}
+
+	async toMessage(messageData = {}, { rollMode = null, create = true } = {}) {
+		messageData = foundry.utils.mergeObject(
+			{
+				user: game.user.id,
+				flavor: this.data.flavor,
+				//actorId is passed to the roll and used to display the actor's name
+				speaker: ChatMessage.getSpeaker({ actor: game.actors.get(this.data.actorId) }),
+				content: this.total,
+				type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+			},
+			messageData,
+		);
+		return await super.toMessage(messageData, { rollMode, create });
+	}
+}
 
 YearZeroDie.prototype.getTooltipData = function () {
 	return {

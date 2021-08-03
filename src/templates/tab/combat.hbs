@@ -22,8 +22,8 @@
 									>{{item.name}}</button
 								>
 								<span>
-									{{weaponGrip item.data.grip}} {{#if (hasWeaponFeatures item.data.category
-									item.data.features)}} , {{formatWeaponFeatures item.data.category
+									{{weaponGrip item.data.grip}}{{#if (hasWeaponFeatures item.data.category
+									item.data.features)}}, {{formatWeaponFeatures item.data.category
 									item.data.features}} {{/if}}
 								</span>
 							</div>
@@ -34,20 +34,22 @@
 							{{item.data.bonus.value}} {{#if item.data.artifactBonus}}+
 							{{item.data.artifactBonus}}{{/if}}
 						</div>
+						<!--There's a non-trivial amount of wrangling going on here to get shields to be treated as weapons despite being of the armor type-->
 						<div class="weapon-actions">
-							{{#if (eq item.data.category "melee") }}
+							{{#if (or (eq item.data.part "shield") (eq item.data.category "melee")) }}
 							<button type="button" class="roll-action" data-item-id="{{item._id}}" data-action="parry">
-								{{ localize "ACTION.PARRY" }} {{#unless item.data.features.parrying }}(-2){{/unless}}
+								{{ localize "ACTION.PARRY" }} {{#unless (or (eq item.data.part "shield")
+								item.data.features.parrying) }}(-2){{/unless}}
 							</button>
-							{{#if item.data.features.hook }}
+							{{#if (or (eq item.data.part "shield") item.data.features.hook) }}
 							<button type="button" class="roll-action" data-item-id="{{item._id}}" data-action="shove"
 								>{{ localize "ACTION.SHOVE" }}</button
 							>
-							{{/if}}
+							{{/if}} {{#unless (eq item.data.part "shield")}}
 							<button type="button" class="roll-action" data-item-id="{{item._id}}" data-action="disarm"
 								>{{ localize "ACTION.DISARM" }}</button
 							>
-							{{/if}}
+							{{/unless}} {{/if}}
 						</div>
 					</div>
 				</div>

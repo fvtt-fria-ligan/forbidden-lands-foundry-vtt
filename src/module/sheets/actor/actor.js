@@ -1,4 +1,5 @@
 import { FBLRollHandler } from "../../components/roll-engine/engine";
+import localizeString from "../../utils/localize-string";
 
 /* eslint-disable no-unused-vars */
 export class ForbiddenLandsActorSheet extends ActorSheet {
@@ -110,18 +111,18 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		});
 		html.find(".roll-weapon").click((ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
-			this.rollGear(itemId);
+			return this.rollGear(itemId);
 		});
 
 		html.find(".roll-spell").click((ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
-			const spell = this.actor.items.get(itemId);
+			return this.rollSpell(itemId);
 		});
 
 		html.find(".roll-action").click((ev) => {
 			const rollName = $(ev.currentTarget).data("action");
 			const itemId = $(ev.currentTarget).data("itemId");
-			this.rollAction(rollName, itemId ? itemId : null);
+			return this.rollAction(rollName, itemId ? itemId : null);
 		});
 
 		html.find(".quantity").on("blur", (ev) => {
@@ -133,6 +134,13 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 				},
 			]);
 		});
+	}
+
+	broken(type) {
+		const msg = type === "item" ? "WARNING.ITEM_BROKEN" : "WARNING.ACTOR_BROKEN";
+		const locmsg = localizeString(msg);
+		ui.notifications.warn(locmsg);
+		return new Error(locmsg);
 	}
 
 	getRollOptions(...rollIdentifiers) {
@@ -165,6 +173,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 
 	getGear(itemId) {
 		const gear = this.actor.items.get(itemId).getRollData();
+		if (gear.isBroken) throw this.broken("item");
 		const properties = this.getSkill(CONFIG.fbl.actionSkillMap[gear.category] || "melee");
 		return {
 			gear: gear,
@@ -172,7 +181,12 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		};
 	}
 
+	/************************************************/
+	/***               Actor Rolls                ***/
+	/************************************************/
+
 	rollAction(actionName, itemId = undefined) {
+		if (this.actor.isBroken) throw this.broken();
 		const properties = itemId ? this.getGear(itemId) : this.getSkill(actionName);
 		const data = {
 			title: actionName,
@@ -184,7 +198,46 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		return FBLRollHandler.createRoll(data, options);
 	}
 
+	rollArmor() {
+		const rollName = `${localizeString("ITEM.TypeArmor")}: ${localizeString("ARMOR.TOTAL")}`;
+		const totalArmor = this.actor.itemTypes.armor.reduce((sum, armor) => {
+			if (armor.itemProperties.part === "shield") return sum;
+			const value = armor.itemProperties.bonus.value;
+			return (sum += value);
+		}, 0);
+		if (!totalArmor) return ui.notifications.warn(localizeString("WARNING.NO_ARMOR"));
+		const mainArmorData = this.actor.items.find((item) => item.itemProperties.part === "body").getRollData();
+		if (mainArmorData.isBroken) throw this.broken("item");
+		mainArmorData.bonus = totalArmor;
+		mainArmorData.name = rollName;
+		const data = {
+			title: rollName,
+			gear: mainArmorData,
+		};
+		const options = {
+			maxPush: "0",
+			...this.getRollOptions(),
+		};
+		return FBLRollHandler.createRoll(data, options);
+	}
+
+	rollSpecificArmor(armorId) {
+		const rollData = this.actor.items.get(armorId).getRollData();
+		if (rollData.isBroken) throw this.broken("item");
+		const rollName = `${localizeString("ITEM.TypeArmor")}: ${rollData.name}`;
+		const data = {
+			title: rollName,
+			gear: rollData,
+		};
+		const options = {
+			maxPush: "0",
+			...this.getRollOptions(),
+		};
+		return FBLRollHandler.createRoll(data, options);
+	}
+
 	rollAttribute(attrName) {
+		if (this.actor.isBroken) throw this.broken();
 		const data = {
 			title: attrName,
 			attribute: this.getAttribute(attrName),
@@ -196,6 +249,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	}
 
 	rollGear(itemId) {
+		if (this.actor.isBroken) throw this.broken();
 		const properties = this.getGear(itemId);
 		const data = {
 			title: properties.gear.name,
@@ -208,6 +262,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	}
 
 	rollSkill(skillName) {
+		if (this.actor.isBroken) throw this.broken();
 		const data = {
 			title: skillName,
 			...this.getSkill(skillName),
@@ -217,6 +272,26 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		};
 		return FBLRollHandler.createRoll(data, options);
 	}
+
+	rollSpell(spellId) {
+		if (this.actor.isBroken) throw this.broken();
+		const spell = this.actor.items.get(spellId);
+		const data = {
+			title: spell.name,
+			attribute: {
+				name: spell.name,
+				value: 1,
+			},
+		};
+		const options = {
+			maxPush: "0",
+			...this.getRollOptions(),
+		};
+		return FBLRollHandler.createRoll(data, options);
+	}
+
+	/************************************************/
+	/************************************************/
 
 	parseModifiers(str) {
 		let sep = /[\s+]+/;

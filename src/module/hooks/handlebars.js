@@ -207,14 +207,14 @@ function registerHandlebarsHelpers() {
 			if (features.hook) {
 				output.push(game.i18n.localize("WEAPON.FEATURES.HOOK"));
 			}
-		}
-		if (weaponType === "ranged") {
+		} else if (weaponType === "ranged") {
 			if (features.slowReload) {
 				output.push(game.i18n.localize("WEAPON.FEATURES.SLOW_RELOAD"));
 			}
-		}
-		if (features.others !== "") {
+		} else if (features.others) {
 			output.push(features.others);
+		} else if (features) {
+			output.push(features);
 		}
 		return output.join(", ");
 	});
