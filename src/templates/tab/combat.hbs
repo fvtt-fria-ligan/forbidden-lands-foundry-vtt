@@ -3,11 +3,11 @@
 		<h1>{{localize "HEADER.WEAPON"}}</h1>
 		<div class="item-list">
 			<div class="header weapon">
-				<b class="name">{{localize "WEAPON.NAME"}}</b>
+				<b class="name"><i class="fas fa-dice"></i>&nbsp;{{localize "WEAPON.NAME"}}</b>
 				<b class="damage">{{localize "WEAPON.DAMAGE"}}</b>
 				<b class="range">{{localize "WEAPON.RANGE"}}</b>
 				<b class="bonus">{{localize "WEAPON.BONUS"}}</b>
-				<b class="weapon-actions">{{localize "HEADER.ACTIONS"}}</b>
+				<b class="weapon-actions"><i class="fas fa-dice"></i>&nbsp;{{localize "HEADER.ACTIONS"}}</b>
 			</div>
 			<div class="items">
 				{{#each items as |item|}} {{#if item.isWeapon}}
@@ -66,7 +66,7 @@
 
 		<div class="item-list">
 			<div class="header armor">
-				<b class="name">{{localize "GEAR.NAME"}}</b>
+				<b class="name"><i class="fas fa-dice"></i>&nbsp;{{localize "GEAR.NAME"}}</b>
 				<b class="bonus">{{localize "GEAR.BONUS"}}</b>
 			</div>
 			<div class="items">
@@ -125,7 +125,7 @@
 		</div>
 	</div>
 	<div class="actions border flex row">
-		<h1 class="grow">{{localize "HEADER.ACTIONS"}}</h1>
+		<i class="fas fa-dice grow"></i>
 		<div class="flex row wrap">
 			<button type="button" class="roll-action" data-action="unarmed"
 				>{{ localize "ACTION.UNARMED_STRIKE" }}</button
