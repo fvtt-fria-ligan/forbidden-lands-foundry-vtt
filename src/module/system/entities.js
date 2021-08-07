@@ -1,3 +1,5 @@
+import { objectSearch } from "../utils/object-search";
+
 export class ForbiddenLandsActor extends Actor {
 	get actorProperties() {
 		return this.data.data;
@@ -16,7 +18,7 @@ export class ForbiddenLandsActor extends Actor {
 	}
 
 	get isBroken() {
-		return Object.values(this.attributes).some((attribute) => attribute.value <= 0);
+		return Object.values(this.attributes).some((attribute) => attribute.value <= 0 && attribute.max > 0);
 	}
 
 	get skills() {
@@ -30,11 +32,12 @@ export class ForbiddenLandsActor extends Actor {
 	/* Override */
 	getRollData() {
 		return {
-			conditions: this.conditions,
-			consumables: this.consumables,
+			alias: this.token?.name || this.name,
 			actorId: this.id,
 			actorType: this.data.type,
 			isBroken: this.isBroken,
+			sceneId: this.token?.parent.id,
+			tokenId: this.token?.id,
 			willpower: this.willpower,
 		};
 	}
@@ -132,11 +135,12 @@ export class ForbiddenLandsItem extends Item {
 	getRollData() {
 		return {
 			artifactDie: this.artifactDie,
-			bonus: this.bonus || 0,
+			value: this.bonus || 0,
 			category: this.category,
 			damage: this.damage || 0,
 			isBroken: this.isBroken,
 			itemId: this.id,
+			label: this.name,
 			name: this.name,
 			range: this.range,
 			type: this.type,
@@ -144,15 +148,19 @@ export class ForbiddenLandsItem extends Item {
 	}
 
 	getRollModifier(...rollIdentifiers) {
-		if (!this.rollModifiers) return null;
-		const modifiers = Object.values(this.rollModifiers).reduce(
-			(value, mod) => (rollIdentifiers.includes(mod.name) ? (value += Number(mod.value)) : value),
+		if (!this.rollModifiers || foundry.utils.isObjectEmpty(this.rollModifiers)) return null;
+		const modifier = Object.values(this.rollModifiers).reduce(
+			(value, mod) =>
+				rollIdentifiers.includes(objectSearch(CONFIG.fbl.i18n, mod.name))
+					? (value += Number(mod.value))
+					: value,
 			0,
 		);
-		if (!modifiers) return null;
+		if (!modifier) return null;
 		return {
-			link: this.link,
-			modifier: modifiers,
+			name: this.name,
+			value: modifier > 0 ? `+${modifier}` : modifier.toFixed(),
+			active: modifier < 0 ? true : false,
 		};
 	}
 

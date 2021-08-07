@@ -1,0 +1,115 @@
+.roll-dialog {
+	display: flex;
+	flex-direction: column;
+	padding: 0 2rem;
+	gap: 1rem;
+
+	h2 {
+		text-align: center;
+		font-family: "IM FELL DW PICA SC";
+		text-transform: uppercase;
+		border-bottom: none;
+		font-weight: bold;
+		font-size: 1.8rem;
+	}
+
+	h3 {
+		border-bottom: 2px solid #3336;
+	}
+
+	label {
+		display: block;
+		font-weight: bold;
+		text-align: left;
+	}
+
+	.container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+		text-align: center;
+	}
+
+	.dice {
+		input {
+			width: 70%;
+			margin: 0.5rem 0.5rem 0 0;
+		}
+
+		label {
+			margin-top: 1rem;
+		}
+	}
+
+	.options {
+		display: flex;
+		flex-direction: column;
+
+		input[type="checkbox"] {
+			position: relative;
+			left: 50%;
+			transform: translate(-50%);
+		}
+
+		.legend,
+		.modifiers {
+			text-align: center;
+			display: grid;
+			grid-template-columns: 1fr 3fr 1fr;
+			gap: 2rem;
+			align-items: center;
+		}
+
+		.legend {
+			font-weight: bold;
+			font-family: var(--font-subheader);
+		}
+
+		.modifiers {
+			label {
+				display: inline;
+				text-align: center;
+			}
+		}
+
+		.final-modifier {
+			margin: auto 0 0;
+		}
+	}
+
+	.form-actions {
+		padding: 1rem;
+		justify-items: center;
+
+		button {
+			background: #eee;
+			padding: 0.5em 2em;
+			font-weight: bold;
+			font-size: max(1rem, 100%);
+			border: none;
+			box-shadow: 0 0 2px #1116;
+			width: max(2em, 80%);
+			display: block;
+			margin: 0 auto;
+
+			&:focus {
+				box-shadow: 0 0 2px #1116;
+			}
+
+			&:hover,
+			&:focus-visible {
+				box-shadow: 0 0 2px #1113;
+				background: var(--color-highlight);
+			}
+
+			&:active {
+				box-shadow: inset 0 0 3px #1116;
+			}
+		}
+	}
+
+	input#artifact,
+	input#modifier {
+		width: 90%;
+	}
+}

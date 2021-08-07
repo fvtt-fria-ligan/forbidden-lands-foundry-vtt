@@ -70,9 +70,8 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 		const data = {
 			name: attack.name,
 			maxPush: "0",
-			...this.getRollOptions(),
 		};
-		const roll = new FBLRoll(`${attack.data.data.dice}ds[${attack.name}]`, data);
+		const roll = FBLRoll.create(`${attack.data.data.dice}ds[${attack.name}]`, data, this.getRollOptions());
 		await roll.roll({ async: true });
 		return roll.toMessage();
 	}
@@ -84,9 +83,8 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 		const data = {
 			name: rollName,
 			maxPush: "0",
-			...this.getRollOptions,
 		};
-		const roll = new FBLRoll(`${armor.value}dg[${rollName}]`, data);
+		const roll = FBLRoll.create(`${armor.value}dg[${rollName}]`, data, this.getRollOptions());
 		await roll.roll({ async: true });
 		return roll.toMessage();
 	}

@@ -163,9 +163,8 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 		const data = {
 			name: rollName,
 			maxPush: "0",
-			...this.getRollOptions,
 		};
-		const roll = new FBLRoll(dice + `[${rollName}]`, data);
+		const roll = FBLRoll.create(dice + `[${rollName}]`, data, this.getRollOptions());
 		await roll.roll({ async: true });
 		return roll.toMessage();
 	}
@@ -174,13 +173,12 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 		if (this.actor.isBroken) throw this.broken();
 		const pride = this.actor.actorProperties.bio.pride;
 		const rollName = localizeString(pride.label);
-		const options = {
+		const data = {
 			name: rollName,
 			flavor: `<span class="chat-flavor">${pride.value}</span>`,
 			maxPush: "0",
-			...this.getRollOptions(),
 		};
-		const roll = new FBLRoll(CONFIG.fbl.prideDice + `[${rollName}]`, options);
+		const roll = FBLRoll.create(CONFIG.fbl.prideDice + `[${rollName}]`, data, this.getRollOptions());
 		await roll.roll({ async: true });
 		roll.toMessage();
 	}

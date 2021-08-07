@@ -187,6 +187,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 
 	rollAction(actionName, itemId = undefined) {
 		if (this.actor.isBroken) throw this.broken();
+
 		const properties = itemId ? this.getGear(itemId) : this.getSkill(actionName);
 		const data = {
 			title: actionName,
@@ -206,10 +207,13 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			return (sum += value);
 		}, 0);
 		if (!totalArmor) return ui.notifications.warn(localizeString("WARNING.NO_ARMOR"));
+
 		const mainArmorData = this.actor.items.find((item) => item.itemProperties.part === "body").getRollData();
 		if (mainArmorData.isBroken) throw this.broken("item");
-		mainArmorData.bonus = totalArmor;
+
+		mainArmorData.value = totalArmor;
 		mainArmorData.name = rollName;
+
 		const data = {
 			title: rollName,
 			gear: mainArmorData,
@@ -218,13 +222,15 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			maxPush: "0",
 			...this.getRollOptions(),
 		};
+
 		return FBLRollHandler.createRoll(data, options);
 	}
 
 	rollSpecificArmor(armorId) {
 		const rollData = this.actor.items.get(armorId).getRollData();
-		if (rollData.isBroken) throw this.broken("item");
 		const rollName = `${localizeString("ITEM.TypeArmor")}: ${rollData.name}`;
+		if (rollData.isBroken) throw this.broken("item");
+
 		const data = {
 			title: rollName,
 			gear: rollData,
@@ -238,6 +244,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 
 	rollAttribute(attrName) {
 		if (this.actor.isBroken) throw this.broken();
+
 		const data = {
 			title: attrName,
 			attribute: this.getAttribute(attrName),
@@ -250,6 +257,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 
 	rollGear(itemId) {
 		if (this.actor.isBroken) throw this.broken();
+
 		const properties = this.getGear(itemId);
 		const data = {
 			title: properties.gear.name,
@@ -263,6 +271,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 
 	rollSkill(skillName) {
 		if (this.actor.isBroken) throw this.broken();
+
 		const data = {
 			title: skillName,
 			...this.getSkill(skillName),
@@ -275,6 +284,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 
 	rollSpell(spellId) {
 		if (this.actor.isBroken) throw this.broken();
+
 		const spell = this.actor.items.get(spellId);
 		const data = {
 			title: spell.name,

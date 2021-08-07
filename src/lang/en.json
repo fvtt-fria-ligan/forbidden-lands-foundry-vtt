@@ -9,6 +9,8 @@
 	"ACTION.SHOVE": "Shove",
 	"ACTION.UNARMED_STRIKE": "Unarmed strike",
 
+	"ACTIVE": "Active",
+
 	"ACTOR.TypeCharacter": "Character",
 	"ACTOR.TypeMonster": "Monster",
 	"ACTOR.TypeParty": "Party",
@@ -113,6 +115,7 @@
 	"DICE.CANCEL": "Cancel",
 	"DICE.GEAR": "Gear",
 	"DICE.MODIFIER": "Modifier",
+	"DICE.NEGATIVE": "Negative",
 	"DICE.ROLL": "Roll",
 	"DICE.SKILL": "Skill",
 
@@ -192,6 +195,8 @@
 
 	"MOVEMENT": "Movement",
 
+	"MODIFIERS": "Modifiers",
+
 	"OTHER": "OTHER",
 
 	"POWER_LEVEL": "Power Level",
@@ -269,6 +274,8 @@
 	"TALENT.PROFESSION": "Profession",
 	"TALENT.RANK": "Rank",
 	"TALENT.TYPE": "Type",
+
+	"VALUE": "Value",
 
 	"WARNING.ACTOR_BROKEN": "You are broken and cannot act.",
 	"WARNING.ITEM_BROKEN": "The item is broken and cannot be used.",
