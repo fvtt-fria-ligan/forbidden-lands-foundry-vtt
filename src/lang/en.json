@@ -121,6 +121,8 @@
 
 	"ENCUMBRANCE": "Encumbrance",
 
+	"ERROR.NOT_PUSHED": "Cannot confirm that the roll was pushed. Failed to apply damage and reduce Willpower!",
+
 	"GEAR.BONUS": "Bonus",
 	"GEAR.COST": "Price",
 	"GEAR.EFFECT": "Effects",
@@ -196,6 +198,9 @@
 	"MOVEMENT": "Movement",
 
 	"MODIFIERS": "Modifiers",
+
+	"NOTIFY.YOU_ARE_BROKEN": "You are broken!",
+	"NOTIFY.YOUR_ITEM_BROKE": "Your item broke!",
 
 	"OTHER": "OTHER",
 
@@ -281,6 +286,7 @@
 	"WARNING.ITEM_BROKEN": "The item is broken and cannot be used.",
 	"WARNING.NO_ARMOR": "You have no armor equipped.",
 	"WARNING.NO_CONSUMABLE": "You have no Consumable of this type left.",
+	"WARNING.NO_WILLPOWER": "You do not have enough willpower!",
 
 	"WEAPON.1H": "1H",
 	"WEAPON.2H": "2H",
@@ -310,6 +316,15 @@
 	"WEIGHT.TINY": "Tiny",
 	"WEIGHT.TYPE_REGULAR": "Regular",
 	"WEIGHT.TYPE_SPECIAL": "Special",
+
+	"YZUR.DIETYPES.BaseDie": "Base Dice",
+	"YZUR.DIETYPES.SkillDie": "SKill Dice",
+	"YZUR.DIETYPES.GearDie": "Gear Dice",
+	"YZUR.DIETYPES.D8ArtifactDie": "D8 Aritfact",
+	"YZUR.DIETYPES.D10ArtifactDie": "D10 Aritfact",
+	"YZUR.DIETYPES.D12ArtifactDie": "D12 Aritfact",
+	"YZUR.DIETYPES.NegativeDie": "Negative Dice",
+
 	"FLPS.SETTINGS.ALLOW_PUSH": "Allow Unlimited Pushing",
 	"FLPS.SETTINGS.ALLOW_PUSH_HINT": "If your character is a dwarf, or maybe your GM allows an unlimited number of pushed rolls, OR you are a GM who wants to be able to push NPC rolls, check this setting to display a push button on pushed rolls.",
 

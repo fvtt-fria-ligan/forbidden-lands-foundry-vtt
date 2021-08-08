@@ -139,12 +139,19 @@ export class FBLRollHandler extends FormApplication {
 			actorId: this.options.actorId,
 			actorType: this.options.actorType,
 			alias: this.options.alias,
+			attribute: this.base.name,
 			damage: this.gear.damage,
 			tokenId: this.options.tokenId,
 			sceneId: this.options.sceneId,
+			item: this.gear.name,
 			itemId: this.gear.itemId,
 			willpower: this.options.willpower,
 		};
+	}
+
+	static getSpeaker({ actor, scene, token }) {
+		if (scene && token) return game.scenes.get(scene)?.tokens.get(token);
+		else return game.actors.get(actor);
 	}
 
 	async _updateObject(event, formData) {
@@ -212,6 +219,13 @@ export class FBLRollHandler extends FormApplication {
 		return roll.toMessage();
 	}
 
+	static isValidArtifact(input) {
+		const isEmpty = !input;
+		const containsArtifactDice = !!input.match(/[\d]*[d]8|10|12/i);
+		const isDiceFormula = !input.match(/[^\dd+, ]/i);
+		return isEmpty || (isDiceFormula && containsArtifactDice);
+	}
+
 	static createRoll(data = {}, options = {}) {
 		if (!data) console.warn("No roll data passed. Executing generic roll.");
 		return new FBLRollHandler(data, { ...options, title: localizeString(data.title) || "ACTION.GENERIC" }).render(
@@ -219,11 +233,55 @@ export class FBLRollHandler extends FormApplication {
 		);
 	}
 
-	static isValidArtifact(input) {
-		const isEmpty = !input;
-		const containsArtifactDice = !!input.match(/[\d]*[d]8|10|12/i);
-		const isDiceFormula = !input.match(/[^\dd+, ]/i);
-		return isEmpty || (isDiceFormula && containsArtifactDice);
+	static async pushRoll(msg) {
+		const push = async () => {
+			await msg.roll.push({ async: true });
+			return msg.roll.toMessage();
+		};
+
+		let speaker = this.getSpeaker(msg.data.speaker);
+		if (speaker?.object instanceof Token) speaker = speaker.actor;
+
+		if (!speaker) return push();
+		else push();
+
+		if (msg.roll.pushed) return await this.updateActor(msg.roll, speaker);
+		else throw ui.notifications.error(localizeString("ERROR.NOT_PUSHED"));
+	}
+
+	static async updateActor(roll, speaker) {
+		if (roll.gearDamage) await this.applyGearDamage(roll, speaker);
+		if (roll.attributeTrauma) await this.applyAttributDamage(roll, speaker);
+	}
+
+	static async applyAttributDamage({ attributeTrauma, options: { attribute } = "" }, speaker) {
+		let value = speaker?.attributes[attribute]?.value;
+		if (!value) return;
+		await this.addWillpower(speaker, attributeTrauma);
+
+		value = Math.max(value - attributeTrauma, 0);
+
+		if (value === 0) ui.notifications.notify(localizeString("NOTIFY.YOU_ARE_BROKEN"));
+		if (value >= 0) return await speaker.update({ [`data.attribute.${attribute}.value`]: value });
+	}
+
+	static async applyGearDamage({ gearDamage, options: { itemId } = "" }, speaker) {
+		const item = speaker.items.get(itemId);
+		if (!item) return;
+
+		const value = Math.max(item?.bonus - gearDamage, 0);
+
+		if (value === 0) ui.notifications.notify(localizeString("NOTIFY.YOUR_ITEM_BROKE"));
+		if (value >= 0)
+			return await speaker.updateEmbeddedDocuments("Item", [{ _id: itemId, "data.bonus.value": value }]);
+	}
+
+	static async addWillpower(speaker, add) {
+		let willpower = speaker.willpower;
+		if (!willpower) return;
+
+		willpower = Math.min(willpower.value + add, willpower.max);
+		return await speaker.update({ "data.bio.willpower.value": willpower });
 	}
 }
 
@@ -249,8 +307,8 @@ export class FBLRoll extends YearZeroRoll {
 		template = template ?? CONFIG.YZUR?.ROLL?.infosTemplate;
 		const context = {
 			roll: this,
-			attributeLabel: localizeString(this.data.attributeName),
-			gearLabel: localizeString(this.data.gearName),
+			attributeLabel: localizeString(this.options.attribute),
+			gearLabel: localizeString(this.options.item),
 		};
 		return renderTemplate(template, context);
 	}

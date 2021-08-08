@@ -23,7 +23,7 @@ console.warn("HOOKS DEBUG ENABLED: ", CONFIG.debug.hooks);
 Hooks.once("init", () => {
 	game.fbl = {
 		config: FBL,
-		roll: FBLRollHandler.genericRoll,
+		roll: FBLRollHandler.createRoll,
 	};
 	CONFIG.Actor.documentClass = ForbiddenLandsActor;
 	CONFIG.Combat.initiative = { formula: "1d10", decimals: 0 };
@@ -97,8 +97,7 @@ Hooks.on("renderChatMessage", async (app, html) => {
 	if (pushButton) {
 		pushButton.addEventListener("click", async () => {
 			if (app.roll.pushable) {
-				await app.roll.push({ async: true });
-				app.roll.toMessage();
+				await FBLRollHandler.pushRoll(app);
 				Hooks.once("diceSoNiceRollComplete", () => {
 					app.delete();
 				});
