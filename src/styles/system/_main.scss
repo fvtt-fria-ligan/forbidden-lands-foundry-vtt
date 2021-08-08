@@ -225,10 +225,11 @@
 	width: 36px;
 }
 .forbidden-lands .item-list .items {
-	overflow-y: scroll;
+	overflow-y: auto;
 	scrollbar-width: none;
 }
 .forbidden-lands .item-list .items .item {
+	overflow-y: hidden;
 	border-bottom: 1px solid var(--color-border);
 	font-size: var(--font-size--very-small);
 	padding-right: 4px;
