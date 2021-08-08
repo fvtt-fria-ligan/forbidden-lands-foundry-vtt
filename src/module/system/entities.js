@@ -149,17 +149,20 @@ export class ForbiddenLandsItem extends Item {
 
 	getRollModifier(...rollIdentifiers) {
 		if (!this.rollModifiers || foundry.utils.isObjectEmpty(this.rollModifiers)) return null;
-		const modifier = Object.values(this.rollModifiers).reduce(
-			(value, mod) =>
-				rollIdentifiers.includes(objectSearch(CONFIG.fbl.i18n, mod.name))
-					? (value += Number(mod.value))
-					: value,
-			0,
-		);
+
+		const modifier = Object.values(this.rollModifiers).reduce((value, mod) => {
+			const match = rollIdentifiers.includes(objectSearch(CONFIG.fbl.i18n, mod.name));
+			if (match) {
+				if (mod.value.match(/\d?d8|10|12/i)) return mod.value;
+				else return (value += Number(mod.value));
+			} else return value;
+		}, 0);
+
 		if (!modifier) return null;
+
 		return {
 			name: this.name,
-			value: modifier > 0 ? `+${modifier}` : modifier.toFixed(),
+			value: typeof modifier === "string" || modifier > 0 ? `+${modifier}` : modifier.toFixed(),
 			active: modifier < 0 ? true : false,
 		};
 	}

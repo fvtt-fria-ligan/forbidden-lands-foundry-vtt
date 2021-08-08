@@ -1,6 +1,6 @@
 .chat-message .message-content .dice-roll {
 	font-family: var(--font-table);
-	background: rgba(0, 0, 0, 0.1);
+	background: var(--color-secondary);
 	border-radius: 4px;
 	box-shadow: inset 0 0 2px #9996;
 	padding: 1rem;
@@ -113,4 +113,16 @@
 	.result {
 		font-size: 2rem;
 	}
+}
+
+.consumable-result {
+	font-size: 9rem;
+	font-family: "IM Fell Great Primer";
+	align-self: flex-start;
+	line-height: 7rem;
+}
+
+.consumable-icon {
+	width: 100px;
+	transform: translateX(-15%);
 }

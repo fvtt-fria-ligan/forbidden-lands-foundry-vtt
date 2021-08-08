@@ -85,6 +85,7 @@ export class FBLRollHandler extends FormApplication {
 	activateListeners(html) {
 		super.activateListeners(html);
 		const totalModifierInput = html[0].querySelector("input#modifier");
+		const artifactInput = html[0].querySelector("input#artifact");
 
 		html.find("#base").focus();
 		html.find("input").focus((ev) => ev.currentTarget.select());
@@ -99,6 +100,13 @@ export class FBLRollHandler extends FormApplication {
 		});
 
 		html.find("input.option").on("change", function () {
+			//Handle artifact modifiers
+			if (FBLRollHandler.isValidArtifact(this.dataset.value.slice(1))) {
+				if (this.checked) artifactInput.value += this.dataset.value;
+				else artifactInput.value = artifactInput.value.replace(this.dataset.value, "");
+				return;
+			}
+			// Handle normal modifiers
 			let currentValue = Number(totalModifierInput.value);
 			if (this.checked) currentValue += Number(this.dataset.value);
 			else currentValue -= Number(this.dataset.value);
@@ -283,6 +291,22 @@ export class FBLRollHandler extends FormApplication {
 		willpower = Math.min(willpower.value + add, willpower.max);
 		return await speaker.update({ "data.bio.willpower.value": willpower });
 	}
+
+	static async decreaseConsumable(messageId) {
+		let {
+			data: { speaker },
+			roll: { name: consumable },
+		} = game.messages.get(messageId);
+
+		speaker = this.getSpeaker(speaker);
+		if (speaker?.object instanceof Token) speaker = speaker.actor;
+
+		let value = speaker.consumables[consumable].value;
+		if (value <= 6) value = 0;
+		else value -= 2;
+
+		await speaker.update({ [`data.consumable.${consumable}.value`]: value });
+	}
 }
 
 /**************************************************/
@@ -301,6 +325,7 @@ export class FBLRoll extends YearZeroRoll {
 	constructor(formula, data = {}, options = {}) {
 		super(formula, data);
 		this.options = options;
+		this.type = data.type || "yz";
 	}
 
 	getRollInfos(template = null) {

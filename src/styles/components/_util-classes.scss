@@ -23,7 +23,7 @@
 }
 
 .fbl-button {
-	background: #eee;
+	background: var(--color-secondary);
 	padding: 0.2em 2em;
 	font-weight: bold;
 	font-size: max(1rem, 100%);

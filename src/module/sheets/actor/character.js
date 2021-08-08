@@ -161,8 +161,9 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 		const rollName = localizeString(consumable.label);
 		const dice = CONFIG.fbl.consumableDice[consumable.value];
 		const data = {
-			name: rollName,
+			name: rollName.toLowerCase(),
 			maxPush: "0",
+			type: "consumable",
 		};
 		const roll = FBLRoll.create(dice + `[${rollName}]`, data, this.getRollOptions());
 		await roll.roll({ async: true });
@@ -180,7 +181,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 		};
 		const roll = FBLRoll.create(CONFIG.fbl.prideDice + `[${rollName}]`, data, this.getRollOptions());
 		await roll.roll({ async: true });
-		roll.toMessage();
+		return roll.toMessage();
 	}
 
 	/************************************************/

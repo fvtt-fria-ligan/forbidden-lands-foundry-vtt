@@ -11,6 +11,7 @@ import displayMessages from "./hooks/message-system.js";
 import { YearZeroRollManager } from "foundry-year-zero-roller/lib/yzur";
 import { ForbiddenLandsD6, registerYZURLabels } from "./components/roll-engine/dice-labels";
 import { FBLRollHandler } from "./components/roll-engine/engine.js";
+import localizeString from "./utils/localize-string.js";
 
 /**
  * We use this label to remove the debug option in production builds.
@@ -104,6 +105,16 @@ Hooks.on("renderChatMessage", async (app, html) => {
 			}
 		});
 	}
+});
+
+Hooks.on("getChatLogEntryContext", function (_html, options) {
+	const isConsumableRoll = (li) => li.find(".consumable-result").length;
+	options.push({
+		name: localizeString("CONTEXT.REDUCE_CONSUMABLE"),
+		icon: "<i class='fas fa-arrow-down'></i>",
+		condition: isConsumableRoll,
+		callback: (li) => FBLRollHandler.decreaseConsumable(li.attr("data-message-id")),
+	});
 });
 
 /**
