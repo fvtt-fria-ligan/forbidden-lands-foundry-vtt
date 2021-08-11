@@ -38,7 +38,6 @@ export class ForbiddenLandsActor extends Actor {
 			isBroken: this.isBroken,
 			sceneId: this.token?.parent.id,
 			tokenId: this.token?.id,
-			willpower: this.willpower,
 		};
 	}
 

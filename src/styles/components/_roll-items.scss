@@ -126,3 +126,24 @@
 	width: 100px;
 	transform: translateX(-15%);
 }
+
+.spell-roll {
+	font-size: 2rem;
+	font-family: "IM Fell Great Primer";
+	align-self: flex-start;
+	line-height: 3rem;
+
+	&.power {
+		word-break: break-word;
+		text-align: right;
+		flex: 0 1 50%;
+	}
+
+	&.result {
+		font-size: 6rem;
+		line-height: 6rem;
+		text-align: left;
+		margin-left: 2rem;
+		flex: 1;
+	}
+}

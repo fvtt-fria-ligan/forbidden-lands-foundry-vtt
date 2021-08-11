@@ -13,6 +13,7 @@ export class FBLRollHandler extends FormApplication {
 			attribute = { label: "DICE.BASE", value: 0 },
 			skill = { label: "DICE.SKILL", value: 0 },
 			gear = { label: "DICE.GEAR", value: 0, artifactDie: "" },
+			spell = {},
 		},
 		options,
 	) {
@@ -21,9 +22,11 @@ export class FBLRollHandler extends FormApplication {
 		this.base = attribute;
 		this.skill = skill;
 		this.gear = gear;
+		this.damage = options.damage || gear.damage;
 		this.artifact = gear?.artifactDie;
 		this.modifier =
-			options.modifiers.reduce((sum, mod) => (mod.value < 0 ? (sum += Number(mod.value)) : sum), 0) || 0;
+			options.modifiers?.reduce((sum, mod) => (mod.value < 0 ? (sum += Number(mod.value)) : sum), 0) || 0;
+		this.spell = { safecast: 0, ...spell };
 	}
 
 	/**
@@ -72,14 +75,37 @@ export class FBLRollHandler extends FormApplication {
 		this.roll._n = this.generateTermFormula(val, "n", localizeString("DICE.NEGATIVE"));
 	}
 
+	get spellDice() {
+		let sum = this.base.value;
+		if (this.spell.psych) ++sum;
+		if (this.spell.safecast) sum -= this.spell.safecast;
+		if (sum < 0) sum = 0;
+		return sum;
+	}
+
+	get powerLevel() {
+		let sum;
+		sum = this.spellDice;
+		if (this.spell.ingredient) ++sum;
+		if (this.spell.safecast) sum += this.spell.safecast;
+		return sum;
+	}
+
+	get safecastMax() {
+		return this.spell.psych || this.base.value > 1 ? 2 : 1;
+	}
+
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			classes: ["forbidden-lands"],
-			template: "systems/forbidden-lands/templates/dice/dialog.hbs",
 			width: "450",
 			height: "auto",
 			resizable: false,
 		});
+	}
+
+	get template() {
+		return this.options.template || "systems/forbidden-lands/templates/dice/dialog.hbs";
 	}
 
 	activateListeners(html) {
@@ -113,6 +139,43 @@ export class FBLRollHandler extends FormApplication {
 			totalModifierInput.value = currentValue;
 		});
 
+		html.find(".spend-willpower").on("click contextmenu", (ev) => {
+			if (foundry.utils.isObjectEmpty(this.spell)) return;
+
+			const type = this.options.skulls ? "contextmenu" : "click";
+
+			let value = this.base.value;
+			if (ev.type === type && this.spell.willpower.value < this.spell.willpower.max) {
+				value = Math.max(--value, 1);
+				++this.spell.willpower.value;
+			} else if (ev.type !== type && this.spell.willpower.value > 0) {
+				--this.spell.willpower.value;
+				value++;
+			}
+
+			this.base.value = value;
+			this.render(true);
+		});
+
+		html.find(".spell-option").on("change", (ev) => {
+			const el = ev.currentTarget;
+			switch (el.name) {
+				case "chance":
+					this.spell.safecast = 0;
+				// eslint-disable-next-line no-fallthrough
+				case "psych":
+				case "ingredient":
+					this.spell[el.name] = !!el.checked;
+					break;
+				case "safecast": {
+					this.spell.safecast = Number(el.value);
+					break;
+				}
+			}
+			if (!this.spell.psych && this.spell.safecast === 2) this.spell.safecast = 1;
+			this.render(true);
+		});
+
 		html.find("#cancel").click(() => {
 			this.close();
 		});
@@ -128,48 +191,23 @@ export class FBLRollHandler extends FormApplication {
 			},
 			artifact: this.gear.artifactDie,
 			modifier: this.modifier,
+			safecastMax: this.safecastMax,
+			spellDice: this.spellDice,
+			powerLevel: this.powerLevel,
+			spell: this.spell,
 			options,
 		};
 	}
 
-	getRollData() {
-		const unlimitedPush = game.settings.get("forbidden-lands", "allowUnlimitedPush");
-		// eslint-disable-next-line no-nested-ternary
-		const maxPush = unlimitedPush ? Infinity : this.options.actorType === "monster" ? "0" : 1;
-		return {
-			name: this.title,
-			maxPush: this.options.maxPush || maxPush,
-		};
-	}
-
-	getRollOptions() {
-		return {
-			actorId: this.options.actorId,
-			actorType: this.options.actorType,
-			alias: this.options.alias,
-			attribute: this.base.name,
-			damage: this.gear.damage,
-			tokenId: this.options.tokenId,
-			sceneId: this.options.sceneId,
-			item: this.gear.name,
-			itemId: this.gear.itemId,
-			willpower: this.options.willpower,
-		};
-	}
-
 	static getSpeaker({ actor, scene, token }) {
-		if (scene && token) return game.scenes.get(scene)?.tokens.get(token);
+		if (scene && token) return game.scenes.get(scene)?.tokens.get(token)?.actor;
 		else return game.actors.get(actor);
 	}
 
 	async _updateObject(event, formData) {
 		this._validateForm(event, formData);
-		this.b = formData.base;
-		this.s = formData.skill;
-		this.g = formData.gear;
-		this.a = formData.artifact;
-		if (formData.modifier) this.modifyRoll(formData.skill, formData.modifier);
-		return this.executeRoll();
+		if (this.options.type === "spell") return this._handleRollSpell(formData);
+		else return this._handleYZRoll(formData);
 	}
 
 	_validateForm(event, formData) {
@@ -186,6 +224,28 @@ export class FBLRollHandler extends FormApplication {
 			throw new Error("Artifact Die input not recognized");
 		}
 		return;
+	}
+
+	async _handleRollSpell({ base, power }) {
+		this.b = base;
+		this.damage = power;
+		const actor = FBLRollHandler.getSpeaker({
+			actor: this.options.actorId,
+			scene: this.options.sceneId,
+			token: this.options.tokenId,
+		});
+		const subtractValue = this.spell.willpower.max + 1 - this.spell.willpower.value;
+		await FBLRollHandler.modifyWillpower(actor, subtractValue, "subtract");
+		return this.executeRoll();
+	}
+
+	_handleYZRoll({ base, skill, gear, artifact, modifier }) {
+		this.b = base;
+		this.s = skill;
+		this.g = gear;
+		this.a = artifact;
+		if (modifier) this.modifyRoll(skill, modifier);
+		return this.executeRoll();
 	}
 
 	generateTermFormula(number, term, flavor = "") {
@@ -218,19 +278,52 @@ export class FBLRollHandler extends FormApplication {
 		}
 	}
 
+	getRollData() {
+		const unlimitedPush = game.settings.get("forbidden-lands", "allowUnlimitedPush");
+		// eslint-disable-next-line no-nested-ternary
+		const maxPush = unlimitedPush ? Infinity : this.options.actorType === "monster" ? "0" : 1;
+		return {
+			name: this.title,
+			maxPush: this.options.maxPush || maxPush,
+			type: this.options.type,
+		};
+	}
+
+	getRollOptions() {
+		return {
+			actorId: this.options.actorId,
+			actorType: this.options.actorType,
+			alias: this.options.alias,
+			attribute: this.base.name,
+			chance: this.spell.chance,
+			damage: this.damage,
+			tokenId: this.options.tokenId,
+			sceneId: this.options.sceneId,
+			item: this.gear.name,
+			itemId: this.gear.itemId,
+			willpower: this.options.willpower,
+		};
+	}
+
 	async executeRoll() {
 		const formula = Object.values(this.roll)
 			.filter((term) => term)
 			.join("+");
 		const roll = FBLRoll.create(formula, this.getRollData(), this.getRollOptions());
+		// If Safe casting we might roll 0 dice.
+		if (!roll.dice.length && roll.type === "spell") {
+			roll._evaluated = true;
+			return roll.toMessage();
+		}
+		// Roll the dice!
 		await roll.roll({ async: true });
 		return roll.toMessage();
 	}
 
 	static isValidArtifact(input) {
 		const isEmpty = !input;
-		const containsArtifactDice = !!input.match(/[\d]*[d]8|10|12/i);
-		const isDiceFormula = !input.match(/[^\dd+, ]/i);
+		const containsArtifactDice = !!input?.match(/[\d]*[d]8|10|12/i);
+		const isDiceFormula = !input?.match(/[^\dd+, ]/i);
 		return isEmpty || (isDiceFormula && containsArtifactDice);
 	}
 
@@ -248,7 +341,6 @@ export class FBLRollHandler extends FormApplication {
 		};
 
 		let speaker = this.getSpeaker(msg.data.speaker);
-		if (speaker?.object instanceof Token) speaker = speaker.actor;
 
 		if (!speaker) return push();
 		else push();
@@ -265,7 +357,7 @@ export class FBLRollHandler extends FormApplication {
 	static async applyAttributDamage({ attributeTrauma, options: { attribute } = "" }, speaker) {
 		let value = speaker?.attributes[attribute]?.value;
 		if (!value) return;
-		await this.addWillpower(speaker, attributeTrauma);
+		await this.modifyWillpower(speaker, attributeTrauma);
 
 		value = Math.max(value - attributeTrauma, 0);
 
@@ -284,11 +376,12 @@ export class FBLRollHandler extends FormApplication {
 			return await speaker.updateEmbeddedDocuments("Item", [{ _id: itemId, "data.bonus.value": value }]);
 	}
 
-	static async addWillpower(speaker, add) {
+	static async modifyWillpower(speaker, value, operation = "add") {
 		let willpower = speaker.willpower;
 		if (!willpower) return;
 
-		willpower = Math.min(willpower.value + add, willpower.max);
+		willpower =
+			operation === "add" ? Math.min(willpower.value + value, willpower.max) : Math.max(willpower.value - value);
 		return await speaker.update({ "data.bio.willpower.value": willpower });
 	}
 
@@ -326,6 +419,10 @@ export class FBLRoll extends YearZeroRoll {
 		super(formula, data);
 		this.options = options;
 		this.type = data.type || "yz";
+	}
+
+	get damage() {
+		return (this.options.damage || 0) + this.successCount;
 	}
 
 	getRollInfos(template = null) {

@@ -2,6 +2,7 @@
 	"ACTION.BREAK_FREE": "Break free",
 	"ACTION.DISARM": "Disarm",
 	"ACTION.DODGE": "Dodge",
+	"ACTION.GENERIC": "Generic Roll",
 	"ACTION.GRAPPLE_ATTACK": "Grapple attack",
 	"ACTION.GRAPPLE": "Grapple",
 	"ACTION.PARRY": "Parry",
@@ -118,6 +119,7 @@
 	"DICE.GEAR": "Gear",
 	"DICE.MODIFIER": "Modifier",
 	"DICE.NEGATIVE": "Negative",
+	"DICE.POWER_LEVEL": "Power Level",
 	"DICE.ROLL": "Roll",
 	"DICE.SKILL": "Skill",
 
@@ -186,6 +188,12 @@
 	"LETHAL.NO": "No",
 	"LETHAL.YES": "Yes",
 
+	"MAGIC.INGREDIENT": "Ingredient",
+	"MAGIC.CHANCE": "Chance Casting",
+	"MAGIC.PSYCHIC_POWER": "Psychic Power",
+	"MAGIC.SAFE_CASTING": "Safe Casting",
+	"MAGIC.SPELLS": "Spells",
+
 	"MONSTER.ARMOR": "Armor Rating",
 	"MONSTER.DAMAGE_TYPE": "Damage Type",
 	"MONSTER.DAMAGE": "Damage",
@@ -221,6 +229,8 @@
 	"RAW_MATERIAL.SHELF_LIFE": "Shelf Life",
 
 	"ROLL.APPLIED_TRAUMA": "damage applied to",
+	"ROLL.CHANCE": "Chance Cast: Roll Mishap.",
+	"ROLL.MISHAP": "Roll Mishap!",
 	"ROLL_MODIFIER.SELECT": "Please select a modifier",
 
 	"SHEET.HEADER.CHAR_GEN": "Chargen",
@@ -274,6 +284,7 @@
 	"TAB.NOTE": "NOTE",
 	"TAB.TALENT": "TALENT",
 
+	"TALENT.ANY_ACTIVATED": "Any activated Talent",
 	"TALENT.DESCRIPTION": "Description",
 	"TALENT.GENERAL": "General",
 	"TALENT.KIN": "Kin",
@@ -284,11 +295,11 @@
 
 	"VALUE": "Value",
 
-	"WARNING.ACTOR_BROKEN": "You are broken and cannot act.",
-	"WARNING.ITEM_BROKEN": "The item is broken and cannot be used.",
-	"WARNING.NO_ARMOR": "You have no armor equipped.",
-	"WARNING.NO_CONSUMABLE": "You have no Consumable of this type left.",
-	"WARNING.NO_WILLPOWER": "You do not have enough willpower!",
+	"WARNING.ACTOR_BROKEN": "You are broken and cannot act!",
+	"WARNING.ITEM_BROKEN": "The item is broken and cannot be used!",
+	"WARNING.NO_ARMOR": "You have no armor equipped!",
+	"WARNING.NO_CONSUMABLE": "You have no Consumable of this type left!",
+	"WARNING.NO_WILLPOWER": "You do not have enough Willpower to cast a spell!",
 
 	"WEAPON.1H": "1H",
 	"WEAPON.2H": "2H",

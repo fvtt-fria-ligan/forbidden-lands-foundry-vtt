@@ -284,17 +284,30 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 
 	rollSpell(spellId) {
 		if (this.actor.isBroken) throw this.broken();
+		if (!this.actor.willpower.value) throw ui.notifications.warn(localizeString("WARNING.NO_WILLPOWER"));
 
 		const spell = this.actor.items.get(spellId);
+		let { value } = duplicate(this.actor.willpower);
+		const hasPsych = !!this.actor.items.getName("Psychic Power (Half-Elf)");
+
 		const data = {
 			title: spell.name,
 			attribute: {
 				name: spell.name,
 				value: 1,
 			},
+			spell: {
+				willpower: { max: --value, value: value },
+				psych: hasPsych,
+				item: spell,
+			},
 		};
+
 		const options = {
 			maxPush: "0",
+			template: "systems/forbidden-lands/templates/dice/spell-dialog.hbs",
+			type: "spell",
+			skulls: this.altInteraction,
 			...this.getRollOptions(),
 		};
 		return FBLRollHandler.createRoll(data, options);

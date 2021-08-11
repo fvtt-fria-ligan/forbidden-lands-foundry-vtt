@@ -28,6 +28,13 @@
 		grid-template-columns: 1fr 1fr;
 		gap: 2rem;
 		text-align: center;
+
+		&.spell {
+			label {
+				text-align: right;
+				text-transform: uppercase;
+			}
+		}
 	}
 
 	.dice {
@@ -111,5 +118,25 @@
 	input#artifact,
 	input#modifier {
 		width: 90%;
+	}
+
+	.display-numbers {
+		font-family: var(--font-subheader);
+		font-size: 8rem;
+		line-height: 8rem;
+	}
+
+	.spell-options {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		margin-right: 1.5rem;
+
+		.modifiers {
+			grid-template-columns: 3fr 1fr;
+
+			label {
+				text-align: right;
+			}
+		}
 	}
 }

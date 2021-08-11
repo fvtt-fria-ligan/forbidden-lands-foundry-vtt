@@ -90,6 +90,8 @@ FBL.i18n = {
 	run: "ACTION.RUN",
 	retreat: "ACTION.RETREAT",
 	"grapple-attack": "ACTION.GRAPPLE_ATTACK",
+	spells: "MAGIC.SPELLS",
+	activatedTalents: "TALENT.ANY_ACTIVATED",
 };
 
 FBL.itemTypes = [

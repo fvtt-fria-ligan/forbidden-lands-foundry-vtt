@@ -33,8 +33,21 @@
 			{{{tooltip}}}
 			<h4 class="dice-total">
 				<img class="consumable-icon" src="systems/forbidden-lands/assets/assorted/{{roll.name}}.webp" />
-				<span class="consumable-result {{#if roll.options.isFailure}} failure {{/if}}">
+				<span class="consumable-result">
 					{{total}}
+				</span>
+			</h4>
+		{{/if}}
+		{{#if (eq roll.type "spell")}}
+			{{{tooltip}}}
+			<h4 class="dice-total">
+				<span class="spell-roll power">
+					Power
+					<br />
+					Level:
+				</span>
+				<span class="spell-roll result">
+					{{roll.damage}}
 				</span>
 			</h4>
 		{{/if}}
