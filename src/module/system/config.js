@@ -24,6 +24,16 @@ FBL.actionSkillMap = {
 	run: "move",
 	retreat: "move",
 	"grapple-attack": "melee",
+	"travel-forced-march": "endurance",
+	"travel-hike-in-darkness": "scouting",
+	"travel-navigate": "survival",
+	"travel-keep-watch": "scouting",
+	"travel-find-good-place": "survival",
+	"travel-find-food": "survival",
+	"travel-find-prey": "survival",
+	"travel-kill-prey": "survival",
+	"travel-catch-fish": "survival",
+	"travel-make-camp": "survival",
 };
 
 FBL.attributes = ["agility", "empathy", "strength", "wits"];
@@ -74,7 +84,7 @@ FBL.i18n = {
 	survival: "SKILL.SURVIVAL",
 	slash: "ACTION.SLASH",
 	stab: "ACTION.STAB",
-	unarmed: "ACTION.UNARMED",
+	unarmed: "ACTION.UNARMED_STRIKE",
 	grapple: "ACTION.GRAPPLE",
 	"break-free": "ACTION.BREAK_FREE",
 	ranged: "WEAPON.RANGED",
@@ -92,6 +102,16 @@ FBL.i18n = {
 	"grapple-attack": "ACTION.GRAPPLE_ATTACK",
 	spells: "MAGIC.SPELLS",
 	activatedTalents: "TALENT.ANY_ACTIVATED",
+	"travel-forced-march": "FLPS.TRAVEL_ROLL.FORCED_MARCH",
+	"travel-navigate": "FLPS.TRAVEL_ROLL.NAVIGATE",
+	"travel-keep-watch": "FLPS.TRAVEL_ROLL.KEEP_WATCH",
+	"travel-find-good-place": "FLPS.TRAVEL_ROLL.FIND_GOOD_PLACE",
+	"travel-find-food": "FLPS.TRAVEL_ROLL.FIND_FOOD",
+	"travel-find-prey": "FLPS.TRAVEL_ROLL.FIND_PREY",
+	"travel-hike-in-darkness": "FLPS.TRAVEL_ROLL.HIKE_IN_DARKNESS",
+	"travel-kill-prey": "FLPS.TRAVEL_ROLL.KILL_PREY",
+	"travel-catch-fish": "FLPS.TRAVEL_ROLL.CATCH_FISH",
+	"travel-make-camp": "FLPS.TRAVEL_ROLL.MAKE_CAMP",
 };
 
 FBL.itemTypes = [

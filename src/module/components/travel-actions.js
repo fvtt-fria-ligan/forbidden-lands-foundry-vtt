@@ -1,44 +1,34 @@
 /* eslint-disable no-unused-vars */
 import { CharacterPickerDialog } from "./character-picker-dialog.js";
 import { Helpers } from "../utils/helpers.js";
+import localizeString from "../utils/localize-string.js";
 
 /**
  * Roll skill check to perform a travel action
- *
- * @param  {string}   rollName    Display name for the roll
- * @param  {string}   skillName   Unlocalized label
- * @param  {Function} onAfterRoll Callback that will be executed after roll is made
+ * @param {object<Actor>} Character Actor Document used to identify who rolls.
+ * @param  {string} rollName Display name for the roll
  */
-function doRollTravelAction(character, rollName, skillName, onAfterRoll) {
-	if (!character && game.user.character === null) return;
-
-	character = character || game.user.character;
-	const diceRoller = Helpers.getCharacterDiceRoller(character);
-	if (diceRoller === null) return;
-
-	const data = character.data.data;
-	const skill = data.skill[skillName];
+function rollTravelAction(character, rollName) {
+	if (!character && !character.owner) return;
+	character.sheet.rollAction(rollName);
 }
 
 /**
- * Roll skill check to perform a travel action
- *
- * @param  {Array}   assignedPartyMemberIds
- * @param  {string}   rollName             Display name for the roll
- * @param  {string}   skillName            Unlocalized label
- * @param  {Function} onAfterRoll          Callback that will be executed after roll is made
+ * Finds the correct character to roll travel action.
+ * @param {string} assignedPartyMemberIds Ids of one or all characters assigned to the task (if multiple).
+ * @param {string} rollName Used to identify roll.
  */
-function rollTravelAction(assignedPartyMemberIds, rollName, skillName, doRoll, onAfterRoll) {
+function handleTravelAction(assignedPartyMemberIds, rollName) {
 	let assignedPartyMembers = Helpers.getOwnedCharacters(assignedPartyMemberIds);
 
 	if (assignedPartyMembers.length === 1) {
-		doRoll(assignedPartyMembers[0], rollName, skillName, onAfterRoll);
+		rollTravelAction(assignedPartyMembers[0], rollName);
 	} else if (assignedPartyMembers.length > 1) {
 		CharacterPickerDialog.show(
-			game.i18n.localize("FLPS.UI.WHO_ROLLS") + " " + game.i18n.localize(rollName),
+			localizeString("FLPS.UI.WHO_ROLLS") + " " + localizeString(rollName),
 			assignedPartyMembers,
 			function (entityId) {
-				doRoll(game.actors.get(entityId), rollName, skillName, onAfterRoll);
+				rollTravelAction(game.actors.get(entityId), rollName);
 			},
 		);
 	}
@@ -54,24 +44,14 @@ export let TravelActionsConfig = {
 				name: "FLPS.TRAVEL_ROLL.FORCED_MARCH",
 				class: "travel-forced-march",
 				handler: function (party) {
-					rollTravelAction(
-						party.actor.data.data.travel.hike,
-						"FLPS.TRAVEL_ROLL.FORCED_MARCH",
-						"endurance",
-						doRollTravelAction,
-					);
+					handleTravelAction(party.actorProperties.travel.hike, "travel-forced-march");
 				},
 			},
 			{
 				name: "FLPS.TRAVEL_ROLL.HIKE_IN_DARKNESS",
 				class: "travel-hike-in-darkness",
 				handler: function (party) {
-					rollTravelAction(
-						party.actor.data.data.travel.hike,
-						"FLPS.TRAVEL_ROLL.HIKE_IN_DARKNESS",
-						"scouting",
-						doRollTravelAction,
-					);
+					handleTravelAction(party.actorProperties.travel.hike, "travel-hike-in-darkness");
 				},
 			},
 		],
@@ -85,12 +65,7 @@ export let TravelActionsConfig = {
 				name: "FLPS.TRAVEL_ROLL.NAVIGATE",
 				class: "travel-navigate",
 				handler: function (party) {
-					rollTravelAction(
-						party.actor.data.data.travel.lead,
-						"FLPS.TRAVEL_ROLL.NAVIGATE",
-						"survival",
-						doRollTravelAction,
-					);
+					handleTravelAction(party.actorProperties.travel.lead, "travel-navigate");
 				},
 			},
 		],
@@ -104,12 +79,7 @@ export let TravelActionsConfig = {
 				name: "FLPS.TRAVEL_ROLL.KEEP_WATCH",
 				class: "travel-keep-watch",
 				handler: function (party) {
-					rollTravelAction(
-						party.actor.data.data.travel.watch,
-						"FLPS.TRAVEL_ROLL.KEEP_WATCH",
-						"scouting",
-						doRollTravelAction,
-					);
+					handleTravelAction(party.actorProperties.travel.watch, "travel-keep-watch");
 				},
 			},
 		],
@@ -129,12 +99,7 @@ export let TravelActionsConfig = {
 				name: "FLPS.TRAVEL_ROLL.FIND_GOOD_PLACE",
 				class: "travel-find-good-place",
 				handler: function (party) {
-					rollTravelAction(
-						party.actor.data.data.travel.sleep,
-						"FLPS.TRAVEL_ROLL.FIND_GOOD_PLACE",
-						"survival",
-						doRollTravelAction,
-					);
+					handleTravelAction(party.actorProperties.travel.sleep, "travel-find-good-place");
 				},
 			},
 		],
@@ -148,12 +113,7 @@ export let TravelActionsConfig = {
 				name: "FLPS.TRAVEL_ROLL.FIND_FOOD",
 				class: "travel-find-food",
 				handler: function (party) {
-					rollTravelAction(
-						party.actor.data.data.travel.forage,
-						"FLPS.TRAVEL_ROLL.FIND_FOOD",
-						"survival",
-						doRollTravelAction,
-					);
+					handleTravelAction(party.actorProperties.travel.forage, "travel-find-food");
 				},
 			},
 		],
@@ -167,49 +127,14 @@ export let TravelActionsConfig = {
 				name: "FLPS.TRAVEL_ROLL.FIND_PREY",
 				class: "travel-find-prey",
 				handler: function (party) {
-					rollTravelAction(
-						party.actor.data.data.travel.hunt,
-						"FLPS.TRAVEL_ROLL.FIND_PREY",
-						"survival",
-						doRollTravelAction,
-						function (diceRoller) {
-							// onAfterRoll
-							const isSuccess = diceRoller.countSword() > 0;
-							if (isSuccess) {
-								let rolltable = game.tables.getName("Find a Prey");
-								if (rolltable) {
-									rolltable.draw();
-								} else {
-									let chatData = {
-										user: game.userId,
-										content:
-											"You've spotted a prey!<br><i>Create a roll table named 'Find a Prey' to automatically find out what creature have you spotted.<i>",
-									};
-									ChatMessage.create(chatData, {});
-								}
-							}
-						},
-					);
+					handleTravelAction(party.actorProperties.travel.hunt, "travel-find-prey");
 				},
 			},
 			{
 				name: "FLPS.TRAVEL_ROLL.KILL_PREY",
 				class: "travel-kill-prey",
 				handler: function (party) {
-					rollTravelAction(
-						party.actor.data.data.travel.hunt,
-						"FLPS.TRAVEL_ROLL.KILL_PREY",
-						"survival",
-						function (character, rollName, _skillName, onAfterRoll) {
-							if (!character && game.user.character === null) return;
-							character = character || game.user.character;
-							const diceRoller = Helpers.getCharacterDiceRoller(character);
-							if (diceRoller === null) return;
-
-							const data = character.data.data;
-							const skill = data.skill.marksmanship;
-						},
-					);
+					handleTravelAction(party.actorProperties.travel.hunt, "travel-kill-prey");
 				},
 			},
 		],
@@ -223,12 +148,7 @@ export let TravelActionsConfig = {
 				name: "FLPS.TRAVEL_ROLL.CATCH_FISH",
 				class: "travel-catch-fish",
 				handler: function (party) {
-					rollTravelAction(
-						party.actor.data.data.travel.fish,
-						"FLPS.TRAVEL_ROLL.CATCH_FISH",
-						"survival",
-						doRollTravelAction,
-					);
+					handleTravelAction(party.actorProperties.travel.fish, "travel-catch-fish");
 				},
 			},
 		],
@@ -242,12 +162,7 @@ export let TravelActionsConfig = {
 				name: "FLPS.TRAVEL_ROLL.MAKE_CAMP",
 				class: "travel-make-camp",
 				handler: function (party) {
-					rollTravelAction(
-						party.actor.data.data.travel.camp,
-						"FLPS.TRAVEL_ROLL.MAKE_CAMP",
-						"survival",
-						doRollTravelAction,
-					);
+					handleTravelAction(party.actorProperties.travel.camp, "travel-make-camp");
 				},
 			},
 		],
