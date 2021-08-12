@@ -36,6 +36,10 @@ FBL.actionSkillMap = {
 	"travel-make-camp": "survival",
 };
 
+FBL.actionModifiers = {
+	parry: -2,
+};
+
 FBL.attributes = ["agility", "empathy", "strength", "wits"];
 
 FBL.consumableDice = {

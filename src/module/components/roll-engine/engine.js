@@ -75,6 +75,10 @@ export class FBLRollHandler extends FormApplication {
 		this.roll._n = this.generateTermFormula(val, "n", localizeString("DICE.NEGATIVE"));
 	}
 
+	get isAttack() {
+		return !!this.damage;
+	}
+
 	get spellDice() {
 		let sum = this.base.value;
 		if (this.spell.psych) ++sum;
@@ -296,6 +300,7 @@ export class FBLRollHandler extends FormApplication {
 			alias: this.options.alias,
 			attribute: this.base.name,
 			chance: this.spell.chance,
+			isAttack: this.isAttack,
 			damage: this.damage,
 			tokenId: this.options.tokenId,
 			sceneId: this.options.sceneId,

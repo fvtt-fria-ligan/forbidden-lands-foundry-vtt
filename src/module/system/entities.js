@@ -1,3 +1,4 @@
+import localizeString from "../utils/localize-string";
 import { objectSearch } from "../utils/object-search";
 
 export class ForbiddenLandsActor extends Actor {
@@ -43,8 +44,8 @@ export class ForbiddenLandsActor extends Actor {
 
 	getRollModifierOptions(...rollIdentifiers) {
 		return this.items.reduce((array, item) => {
-			const modifier = item.getRollModifier(...rollIdentifiers);
-			if (modifier) array.push(modifier);
+			const modifiers = item.getRollModifier(...rollIdentifiers);
+			if (modifiers) array = [...array, ...modifiers];
 			return array;
 		}, []);
 	}
@@ -118,6 +119,12 @@ export class ForbiddenLandsItem extends Item {
 		return this.bonus <= 0;
 	}
 
+	get parryPenalty() {
+		if (this.category === "melee" && !this.itemProperties.features?.parrying)
+			return CONFIG.fbl.actionModifiers.parry;
+		else return 0;
+	}
+
 	get range() {
 		return this.itemProperties.range;
 	}
@@ -148,22 +155,29 @@ export class ForbiddenLandsItem extends Item {
 
 	getRollModifier(...rollIdentifiers) {
 		if (!this.rollModifiers || foundry.utils.isObjectEmpty(this.rollModifiers)) return null;
-
-		const modifier = Object.values(this.rollModifiers).reduce((value, mod) => {
+		const modifiers = Object.values(this.rollModifiers).reduce((array, mod) => {
 			const match = rollIdentifiers.includes(objectSearch(CONFIG.fbl.i18n, mod.name));
 			if (match) {
-				if (mod.value.match(/\d?d8|10|12/i)) return mod.value;
-				else return (value += Number(mod.value));
-			} else return value;
-		}, 0);
+				if (mod.value.match(/\d?d8|10|12/i)) mod = mod.value;
+				else mod = Number(mod.value);
+				return [
+					...array,
+					{
+						name: this.name,
+						value: typeof mod === "string" || mod > 0 ? `+${mod}` : mod.toFixed(),
+						active: mod < 0 ? true : false,
+					},
+				];
+			} else return array;
+		}, []);
 
-		if (!modifier) return null;
-
-		return {
-			name: this.name,
-			value: typeof modifier === "string" || modifier > 0 ? `+${modifier}` : modifier.toFixed(),
-			active: modifier < 0 ? true : false,
-		};
+		if (rollIdentifiers.find((i) => i === "parry") && this.parryPenalty)
+			modifiers.push({
+				name: localizeString("WEAPON.FEATURES.PARRYING"),
+				value: this.parryPenalty,
+				active: true,
+			});
+		return modifiers;
 	}
 
 	async sendToChat() {

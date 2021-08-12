@@ -113,7 +113,8 @@
 	"DAMAGE": "Damage",
 
 	"DICE.ARTIFACTS": "Artifacts",
-	"DICE.AUTOMATIC_SUCCESS": "Automatic Success",
+	"DICE.SUCCESSES": "Successes",
+	"DICE.BANES": "Banes",
 	"DICE.BASE": "Base",
 	"DICE.CANCEL": "Cancel",
 	"DICE.GEAR": "Gear",

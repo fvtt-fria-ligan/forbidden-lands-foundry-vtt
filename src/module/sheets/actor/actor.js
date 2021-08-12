@@ -196,6 +196,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		const options = {
 			...this.getRollOptions(actionName, data.skill?.name, data.attribute?.name),
 		};
+		if (actionName === "unarmed") options.damage = 1;
 		return FBLRollHandler.createRoll(data, options);
 	}
 
