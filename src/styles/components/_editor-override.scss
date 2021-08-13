@@ -110,8 +110,39 @@
 	}
 }
 
-.app.journal-sheet form {
-	& > button[type="submit"] {
-		display: none;
+.editor:focus .editor-edit,
+.editor:hover .editor-edit {
+	background: #cccc;
+	border: none;
+	box-shadow: 0 0 3px #1119;
+	transform: translateX(-6px);
+	line-height: 1;
+	padding: 0.3rem;
+
+	i {
+		font-size: 1.5rem;
+	}
+}
+
+.app.journal-sheet form > button[type="submit"] {
+	position: absolute;
+	bottom: 10px;
+	width: 20%;
+	background: #fff;
+	font-weight: 600;
+	left: 50%;
+	transform: translateX(-50%);
+	border: 1px solid transparent;
+	border-image: url(../assets/journal-art/box-border-large.webp) 28/7 repeat;
+	border-image-outset: 6;
+	background-color: #fff;
+	opacity: 0;
+	transition: opacity 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
+
+	&:focus-visible,
+	&:hover {
+		opacity: 1;
+		box-shadow: none;
+		filter: drop-shadow(0 0 2px #111);
 	}
 }

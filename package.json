@@ -70,5 +70,8 @@
 	"lint-staged": {
 		"*.(js)": "eslint --fix",
 		"*.(json|scss)": "prettier --write"
+	},
+	"dependencies": {
+		"rpg-awesome": "^0.2.0"
 	}
 }

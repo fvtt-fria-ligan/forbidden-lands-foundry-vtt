@@ -381,7 +381,7 @@ button,
 
 	b:hover {
 		cursor: pointer;
-		text-shadow: 0 0 8px red;
+		text-shadow: 0 0 8px #a00;
 	}
 	.tab-item {
 		position: relative;
@@ -404,10 +404,10 @@ button,
 	}
 }
 
-.fas.fa-circle,
-.far.fa-circle,
-.far.fa-times-circle,
-.far.fa-check-circle {
+.forbidden-lands .fas.fa-circle,
+.forbidden-lands .far.fa-circle,
+.forbidden-lands .far.fa-times-circle,
+.forbidden-lands .far.fa-check-circle {
 	font-size: var(--font-size--small);
 	color: #333;
 }
