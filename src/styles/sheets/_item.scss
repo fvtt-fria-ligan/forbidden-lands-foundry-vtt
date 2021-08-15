@@ -142,47 +142,6 @@
 	grid-template-columns: 1fr 1fr 1fr;
 }
 
-.forbidden-lands.item textarea {
-	resize: none;
-	min-height: 1em;
-	height: auto;
-	border: none;
-	box-shadow: inset 0 0 4px black;
-}
-
-.forbidden-lands.item textarea:read-only {
-	border: none;
-	box-shadow: none;
-}
-
-.forbidden-lands.item textarea:read-only:focus {
-	box-shadow: none;
-}
-
-.forbidden-lands.item textarea:read-only:hover {
-	box-shadow: 0 0 4px black;
-	color: #888;
-	transition: color 0.5s 2s ease;
-}
-
-.forbidden-lands textarea ~ .legend {
-	position: absolute;
-	height: auto;
-	opacity: 0;
-	top: calc(50% + 8px);
-	left: calc(50% - 8px);
-	transform: translate(-50%, -50%);
-	background-color: #333333cc;
-	padding: 4px 8px;
-	border-radius: 5px;
-	box-shadow: 0 0 15px #333;
-	font-family: var(--font-special);
-	font-size: var(--font-size--small);
-	color: #ddd;
-	pointer-events: none;
-	transition: opacity 0.1s 2.1s;
-}
-
 .forbidden-lands.item .column-header {
 	border-bottom: 2px solid var(--color-border);
 }

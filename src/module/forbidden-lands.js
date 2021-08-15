@@ -12,6 +12,7 @@ import FBL from "./system/config.js";
 import registerSettings from "./system/settings.js";
 import { BaseDie, GearDie } from "./components/dice.js";
 import displayMessages from "./hooks/message-system.js";
+import FoundryOverrides from "./hooks/foundry-overrides.js";
 
 /**
  * We use this label to remove the debug option in production builds.
@@ -22,6 +23,7 @@ hookDebug: CONFIG.debug.hooks = true;
 console.warn("HOOKS DEBUG ENABLED: ", CONFIG.debug.hooks);
 
 Hooks.once("init", () => {
+	FoundryOverrides(); // Initialize Foundry Overrides
 	game.fbl = {
 		config: FBL,
 	};
@@ -48,12 +50,6 @@ Hooks.once("diceSoNiceReady", (dice3d) => {
 });
 
 Hooks.on("renderItemSheet", function (app, html) {
-	html.find("textarea").each(function () {
-		if (this.value) {
-			this.setAttribute("style", "height:" + this.scrollHeight + "px;overflow-y:hidden;");
-			this.readOnly = true;
-		}
-	});
 	app._element[0].style.height = "auto";
 
 	/**

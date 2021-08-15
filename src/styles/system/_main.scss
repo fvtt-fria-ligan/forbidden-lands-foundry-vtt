@@ -34,10 +34,6 @@
 	margin-bottom: 4px;
 }
 
-.forbidden-lands .editor-content {
-	font-size: var(--font-size--large);
-}
-
 .forbidden-lands .rotated {
 	transform: rotate(90deg);
 	font-size: var(--font-size--default);
@@ -191,15 +187,6 @@
 .forbidden-lands .sheet-body {
 	overflow: hidden;
 	flex-grow: 1;
-}
-
-.forbidden-lands .editor,
-.forbidden-lands .editor-content {
-	font-family: var(--font-editor);
-	height: 100%;
-	min-height: 200px;
-	padding: 5px;
-	width: 100%;
 }
 
 .forbidden-lands .item-list {
