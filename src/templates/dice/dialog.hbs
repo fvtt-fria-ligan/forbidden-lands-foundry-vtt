@@ -1,20 +1,19 @@
-<form class="roll-dialog">
+<form class="roll-dialog attack-dialog">
 	<h2>☙ {{title}} ❧</h2>
 	<div class="container">
 		<div class="dice">
 			<h3>{{localize "MONSTER.DICE"}}</h3>
 			{{#each dice as |die key|}}
 			<label for="{{key}}">{{localize die.label}}:</label>
-			<a class="inc-dec-btns" data-operator="minus" data-type="{{key}}"><i class="fas fa-minus-square"></i></a>
-			<input type="number" id="{{key}}" name="{{key}}" min="0" value="{{die.value}}" /><a
-				class="inc-dec-btns"
-				data-operator="plus"
-				data-type="{{key}}"
-				><i class="fas fa-plus-square"></i
-			></a>
+			<div class="roll-group-btns">
+				<a class="inc-dec-btns" data-operator="minus" data-type="{{key}}"><i
+						class="fas fa-minus-square"></i></a>
+				<input type="number" id="{{key}}" name="{{key}}" min="0" value="{{die.value}}" /><a class="inc-dec-btns"
+					data-operator="plus" data-type="{{key}}"><i class="fas fa-plus-square"></i></a>
+			</div>
 			{{/each}}
-			<label for="Artifact">{{localize "DICE.ARTIFACTS"}}:</label
-			><input type="text" id="artifact" name="artifact" value="{{artifact}}" autocomplete="off" />
+			<label for="Artifact">{{localize "DICE.ARTIFACTS"}}:</label><input type="text" id="artifact" name="artifact"
+				value="{{artifact}}" autocomplete="off" />
 		</div>
 		<div class="options">
 			<h3>{{localize "MODIFIERS"}}</h3>
@@ -22,21 +21,19 @@
 				<span>{{localize "ACTIVE"}}</span><span>{{localize "Name"}}</span><span>{{localize "VALUE"}}</span>
 			</div>
 			{{#each options.modifiers as |option|}}
-			<div class="modifiers"
-				><input class="option" data-value="{{option.value}}" type="checkbox" name="{{option.name}}"
-				id="{{option.name}}" {{#if option.active}} checked="true" {{/if}} />
+			<div class="modifiers"><input class="option" data-value="{{option.value}}" type="checkbox"
+					name="{{option.name}}" id="{{option.name}}" {{#if option.active}} checked="true" {{/if}} />
 				<label for="{{option.name}}"> {{option.name}} </label>
-				<label for="{{option.name}}" class="option-value"> {{option.value}} </label></div
-			>
+				<label for="{{option.name}}" class="option-value"> {{option.value}} </label>
+			</div>
 			{{/each}}
 			<div class="final-modifier">
-				<label for="modifier">{{localize "DICE.MODIFIER"}}:</label
-				><input type="number" id="modifier" name="modifier" value="{{modifier}}" />
+				<label for="modifier">{{localize "DICE.MODIFIER"}}:</label><input type="number" id="modifier"
+					name="modifier" value="{{modifier}}" />
 			</div>
 		</div>
 	</div>
-	<div class="container form-actions"
-		><button type="submit" id="submit"><i class="fas fa-check"></i> {{localize "DICE.ROLL"}}</button
-		><button type="reset" id="cancel"><i class="fas fa-times"></i> {{localize "DICE.CANCEL"}}</button></div
-	>
+	<div class="container form-actions"><button type="submit" id="submit"><i class="fas fa-check"></i> {{localize
+			"DICE.ROLL"}}</button><button type="reset" id="cancel"><i class="fas fa-times"></i> {{localize
+			"DICE.CANCEL"}}</button></div>
 </form>

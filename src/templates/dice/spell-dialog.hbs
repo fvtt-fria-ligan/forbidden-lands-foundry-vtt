@@ -1,4 +1,4 @@
-<form class="roll-dialog">
+<form class="roll-dialog spell-dialog">
 	<h2>☙ {{title}} ❧</h2>
 	<div class="container spell">
 		{{#unless (eq spell.willpower.max 0)}}
@@ -6,8 +6,8 @@
 		<span class="skulls willpower {{#unless spell.willpower.value }}broken{{/unless}} flex row align-center">
 			<a class="spend-willpower">
 				{{#skulls spell.willpower.value spell.willpower.max}}
-					<i
-						class="skull {{#if @damaged}}far fa-circle{{else}}{{#if options.skulls}} fas fa-circle {{else}} far fa-times-circle{{/if}}{{/if}}"></i>
+				<i
+					class="skull {{#if @damaged}}far fa-circle{{else}}{{#if options.skulls}} fas fa-circle {{else}} far fa-times-circle{{/if}}{{/if}}"></i>
 				{{/skulls}}
 			</a>
 		</span>
@@ -28,25 +28,26 @@
 		<div class="spell-options">
 			<div class="modifiers">
 				<label for="ingredient"> {{localize "MAGIC.INGREDIENT"}}: </label>
-				<input class="spell-option" type="checkbox" name="ingredient"
-				id="ingredient" {{#if spell.ingredient}} checked {{/if}}/>
+				<input class="spell-option" type="checkbox" name="ingredient" id="ingredient" {{#if spell.ingredient}}
+					checked {{/if}} />
 			</div>
 			<div class="modifiers">
 				<label for="chance"> {{localize "MAGIC.CHANCE"}}: </label>
-				<input class="spell-option" type="checkbox" name="chance"
-				id="chance" {{#if spell.chance}} checked {{/if}}/>
+				<input class="spell-option" type="checkbox" name="chance" id="chance" {{#if spell.chance}} checked
+					{{/if}} />
 			</div>
 			<div class="modifiers">
 				<label for="psych"> {{localize "MAGIC.PSYCHIC_POWER"}}: </label>
-				<input class="spell-option" type="checkbox" name="psych"
-				id="psych"{{#if spell.psych }} checked {{/if}}>
+				<input class="spell-option" type="checkbox" name="psych" id="psych" {{#if spell.psych }} checked
+					{{/if}}>
 			</div>
 			<div class="modifiers">
 				<label for="safecast"> {{localize "MAGIC.SAFE_CASTING"}}: </label>
 				<select class="spell-option" name="safecast" id="safecast" {{#if spell.chance}} disabled {{/if}}>
 					<option value="0" {{#if spell.chance}} selected {{/if}}>0</option>
 					<option value="1" {{#if (eq spell.safecast 1)}} selected {{/if}}>1</option>
-					{{#unless (eq safecastMax 1)}}<option value="2" {{#if (eq spell.safecast 2)}} selected {{/if}}>2</option>{{/unless}}
+					{{#unless (eq safecastMax 1)}}<option value="2" {{#if (eq spell.safecast 2)}} selected {{/if}}>2
+					</option>{{/unless}}
 				</select>
 			</div>
 		</div>
