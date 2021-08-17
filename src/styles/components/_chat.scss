@@ -77,7 +77,9 @@
 		border: none;
 	}
 	.sheet-tabs {
-		background-color: #292929f0;
+		padding: 0 50px;
+		background: url(../assets/journal-art/background-menu.png) no-repeat center;
+		background-size: 100%;
 		flex-wrap: nowrap;
 		justify-content: space-around;
 	}

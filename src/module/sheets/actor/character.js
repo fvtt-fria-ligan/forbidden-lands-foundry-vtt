@@ -7,7 +7,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			classes: ["forbidden-lands", "sheet", "actor"],
-			width: 700,
+			width: "auto",
 			height: 780,
 			resizable: false,
 			scrollY: [
@@ -231,7 +231,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 									<p style="text-align: center;"><b>${game.i18n.localize("FLCG.WARNING_ARE_YOU_SURE")}</b></p>
 									<br/>`,
 								yes: async () => await this._charGen(),
-								no: () => {},
+								no: () => { },
 								defaultYes: false,
 							});
 						} else {
