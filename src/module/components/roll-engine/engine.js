@@ -332,10 +332,7 @@ export class FBLRollHandler extends FormApplication {
 		const isRangedGear = item.data.data.category === "ranged";
 		const hasArrows = item.data.data.rangeItem === "arrows";
 		if (hasAutoConsumableRoll && isRangedGear && hasArrows) {
-			// alert("agora é so rolar o dado!");
-			this.rollConsumable(game.actors.get(actorId), "arrows");
-			console.log({ actor: game.actors.get(actorId).consumables.arrows.value });
-			return true;
+			return this.rollConsumable(game.actors.get(actorId), "arrows");
 		}
 
 		return null;
