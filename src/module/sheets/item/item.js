@@ -158,6 +158,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 		data = {
 			...data,
 			alternativeSkulls: game.settings.get("forbidden-lands", "alternativeSkulls"),
+			showArrows: game.settings.get("forbidden-lands", "allowAutoArrowRoll"),
 			showCraftingFields: game.settings.get("forbidden-lands", "showCraftingFields"),
 			showCostField: game.settings.get("forbidden-lands", "showCostField"),
 			showSupplyField: game.settings.get("forbidden-lands", "showSupplyField"),

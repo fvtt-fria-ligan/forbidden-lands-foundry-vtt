@@ -7,10 +7,10 @@
 		<label>{{localize "GEAR.WEIGHT"}}</label>
 		<select name="data.weight">
 			{{#select data.weight}}
-				<option value="tiny">{{localize "WEIGHT.TINY"}}</option>
-				<option value="light">{{localize "WEIGHT.LIGHT"}}</option>
-				<option value="regular">{{localize "WEIGHT.REGULAR"}}</option>
-				<option value="heavy">{{localize "WEIGHT.HEAVY"}}</option>
+			<option value="tiny">{{localize "WEIGHT.TINY"}}</option>
+			<option value="light">{{localize "WEIGHT.LIGHT"}}</option>
+			<option value="regular">{{localize "WEIGHT.REGULAR"}}</option>
+			<option value="heavy">{{localize "WEIGHT.HEAVY"}}</option>
 			{{/select}}
 		</select>
 	</div>
@@ -18,8 +18,8 @@
 		<label>{{localize "WEAPON.CATEGORY"}}</label>
 		<select name="data.category">
 			{{#select data.category}}
-				<option value="melee">{{localize "WEAPON.MELEE"}}</option>
-				<option value="ranged">{{localize "WEAPON.RANGED"}}</option>
+			<option value="melee">{{localize "WEAPON.MELEE"}}</option>
+			<option value="ranged">{{localize "WEAPON.RANGED"}}</option>
 			{{/select}}
 		</select>
 	</div>
@@ -27,8 +27,8 @@
 		<label>{{localize "WEAPON.GRIP"}}</label>
 		<select name="data.grip">
 			{{#select data.grip}}
-				<option value="1h">{{localize "WEAPON.1H"}}</option>
-				<option value="2h">{{localize "WEAPON.2H"}}</option>
+			<option value="1h">{{localize "WEAPON.1H"}}</option>
+			<option value="2h">{{localize "WEAPON.2H"}}</option>
 			{{/select}}
 		</select>
 	</div>
@@ -36,14 +36,27 @@
 		<label>{{localize "WEAPON.RANGE"}}</label>
 		<select name="data.range">
 			{{#select data.range}}
-				<option value="arm">{{localize "RANGE.ARM"}}</option>
-				<option value="near">{{localize "RANGE.NEAR"}}</option>
-				<option value="short">{{localize "RANGE.SHORT"}}</option>
-				<option value="long">{{localize "RANGE.LONG"}}</option>
-				<option value="distant">{{localize "RANGE.DISTANT"}}</option>
+			<option value="arm">{{localize "RANGE.ARM"}}</option>
+			<option value="near">{{localize "RANGE.NEAR"}}</option>
+			<option value="short">{{localize "RANGE.SHORT"}}</option>
+			<option value="long">{{localize "RANGE.LONG"}}</option>
+			<option value="distant">{{localize "RANGE.DISTANT"}}</option>
 			{{/select}}
 		</select>
 	</div>
+	{{#if (eq data.category "ranged")}}
+	{{#if showArrows }}
+	<div>
+		<label>{{localize "WEAPON.RANGE_ITEM"}}</label>
+		<select name="data.rangeItem">
+			{{#select data.rangeItem}}
+			<option value="others">{{ localize "WEAPON.RANGE_ITEM_OTHERS" }}</option>
+			<option value="arrows">{{ localize "WEAPON.RANGE_ITEM_ARROWS"}}</option>
+			{{/select}}
+		</select>
+	</div>
+	{{/if}}
+	{{/if}}
 </div>
 
 <div class="border flex column">
@@ -52,42 +65,42 @@
 	</div>
 	<div class="features flex row">
 		{{#if (eq data.category "melee")}}
-			<a class="feature {{# if data.features.edged}}active{{/if}}" data-feature="edged"
-				title="{{localize "WEAPON.FEATURES.EDGED"}}">
-				<i class="far {{#if data.features.edged}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
-				{{localize "WEAPON.FEATURES.EDGED"}}
-			</a>
+		<a class="feature {{# if data.features.edged}}active{{/if}}" data-feature="edged" title="{{localize "
+			WEAPON.FEATURES.EDGED"}}">
+			<i class="far {{#if data.features.edged}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
+			{{localize "WEAPON.FEATURES.EDGED"}}
+		</a>
 
-			<a class="feature {{# if data.features.pointed}}active{{/if}}" data-feature="pointed"
-				title="{{localize "WEAPON.FEATURES.POINTED"}}">
-				<i class="far {{#if data.features.pointed}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
-				{{localize "WEAPON.FEATURES.POINTED"}}
-			</a>
+		<a class="feature {{# if data.features.pointed}}active{{/if}}" data-feature="pointed" title="{{localize "
+			WEAPON.FEATURES.POINTED"}}">
+			<i class="far {{#if data.features.pointed}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
+			{{localize "WEAPON.FEATURES.POINTED"}}
+		</a>
 
-			<a class="feature {{# if data.features.blunt}}active{{/if}}" data-feature="blunt"
-				title="{{localize "WEAPON.FEATURES.BLUNT"}}">
-				<i class="far {{#if data.features.blunt}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
-				{{localize "WEAPON.FEATURES.BLUNT"}}
-			</a>
+		<a class="feature {{# if data.features.blunt}}active{{/if}}" data-feature="blunt" title="{{localize "
+			WEAPON.FEATURES.BLUNT"}}">
+			<i class="far {{#if data.features.blunt}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
+			{{localize "WEAPON.FEATURES.BLUNT"}}
+		</a>
 
-			<a class="feature {{# if data.features.parrying}}active{{/if}}" data-feature="parrying"
-				title="{{localize "WEAPON.FEATURES.PARRYING"}}">
-				<i class="far {{#if data.features.parrying}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
-				{{localize "WEAPON.FEATURES.PARRYING"}}
-			</a>
+		<a class="feature {{# if data.features.parrying}}active{{/if}}" data-feature="parrying" title="{{localize "
+			WEAPON.FEATURES.PARRYING"}}">
+			<i class="far {{#if data.features.parrying}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
+			{{localize "WEAPON.FEATURES.PARRYING"}}
+		</a>
 
-			<a class="feature {{# if data.features.hook}}active{{/if}}" data-feature="hook"
-				title="{{localize "WEAPON.FEATURES.HOOK"}}">
-				<i class="far {{#if data.features.hook}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
-				{{localize "WEAPON.FEATURES.HOOK"}}
-			</a>
+		<a class="feature {{# if data.features.hook}}active{{/if}}" data-feature="hook" title="{{localize "
+			WEAPON.FEATURES.HOOK"}}">
+			<i class="far {{#if data.features.hook}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
+			{{localize "WEAPON.FEATURES.HOOK"}}
+		</a>
 		{{/if}}
 		{{#if (eq data.category "ranged")}}
-			<a class="feature {{# if data.features.slowReload}}active{{/if}}" data-feature="slowReload"
-				title="{{localize "WEAPON.FEATURES.SLOW_RELOAD"}}">
-				<i class="far {{#if data.features.slowReload}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
-				{{localize "WEAPON.FEATURES.SLOW_RELOAD"}}
-			</a>
+		<a class="feature {{# if data.features.slowReload}}active{{/if}}" data-feature="slowReload" title="{{localize "
+			WEAPON.FEATURES.SLOW_RELOAD"}}">
+			<i class="far {{#if data.features.slowReload}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
+			{{localize "WEAPON.FEATURES.SLOW_RELOAD"}}
+		</a>
 		{{/if}}
 	</div>
 	<div class="">
@@ -96,7 +109,7 @@
 	</div>
 </div>
 <div class="roll-modifiers border">
-				<!-- prettier-ignore -->
-				{{! prettier-ignore }}
-{{> systems/forbidden-lands/templates/partial/roll-modifiers.hbs }}
+	<!-- prettier-ignore -->
+	{{! prettier-ignore }}
+	{{> systems/forbidden-lands/templates/partial/roll-modifiers.hbs }}
 </div>

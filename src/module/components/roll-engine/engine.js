@@ -310,6 +310,37 @@ export class FBLRollHandler extends FormApplication {
 		};
 	}
 
+	async rollConsumable(actor, identifier) {
+		const consumable = actor.consumables[identifier];
+		if (!consumable.value) return ui.notifications.warn(localizeString("WARNING.NO_CONSUMABLE"));
+		const rollName = localizeString(consumable.label);
+		const dice = CONFIG.fbl.consumableDice[consumable.value];
+		const data = {
+			name: rollName.toLowerCase(),
+			maxPush: "0",
+			type: "consumable",
+		};
+		const roll = FBLRoll.create(dice + `[${rollName}]`, data, this.getRollOptions());
+		await roll.roll({ async: true });
+		return roll.toMessage();
+	}
+
+	rollConsumableArrowDice() {
+		const hasAutoConsumableRoll = game.settings.get("forbidden-lands", "allowAutoArrowRoll");
+		const { itemId, actorId, tokenId } = this.getRollOptions();
+		const item = game.actors.get(actorId).items.get(itemId) || game.actors.tokens[tokenId].items.get(itemId);
+		const isRangedGear = item.data.data.category === "ranged";
+		const hasArrows = item.data.data.rangeItem === "arrows";
+		if (hasAutoConsumableRoll && isRangedGear && hasArrows) {
+			// alert("agora é so rolar o dado!");
+			this.rollConsumable(game.actors.get(actorId), "arrows");
+			console.log({ actor: game.actors.get(actorId).consumables.arrows.value });
+			return true;
+		}
+
+		return null;
+	}
+
 	async executeRoll() {
 		const formula = Object.values(this.roll)
 			.filter((term) => term)
@@ -322,6 +353,7 @@ export class FBLRollHandler extends FormApplication {
 		}
 		// Roll the dice!
 		await roll.roll({ async: true });
+		this.rollConsumableArrowDice();
 		return roll.toMessage();
 	}
 
