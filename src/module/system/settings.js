@@ -49,14 +49,6 @@ export default function registerSettings() {
 		default: false,
 		type: Boolean,
 	});
-	game.settings.register("forbidden-lands", "allowAutoArrowRoll", {
-		name: game.i18n.localize("FLPS.SETTINGS.ALLOW_AUTO_ARROW_ROLL"),
-		hint: game.i18n.localize("FLPS.SETTINGS.ALLOW_AUTO_ARROW_ROLL_DESC"),
-		scope: "world",
-		config: true,
-		default: false,
-		type: Boolean,
-	});
 	game.settings.register("forbidden-lands", "alternativeSkulls", {
 		name: "CONFIG.ALTERNATIVESKULLS",
 		hint: "CONFIG.ALTERNATIVESKULLS_DESC",
