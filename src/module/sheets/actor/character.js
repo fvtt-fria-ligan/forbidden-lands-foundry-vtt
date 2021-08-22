@@ -2,7 +2,7 @@
 import { ForbiddenLandsActorSheet } from "./actor.js";
 import { ForbiddenLandsCharacterGenerator } from "../../components/character-generator/character-generator.js";
 import localizeString from "../../utils/localize-string";
-import { FBLRoll } from "../../components/roll-engine/engine.js";
+import { FBLRoll, FBLRollHandler } from "../../components/roll-engine/engine.js";
 export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
@@ -65,7 +65,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 
 		html.find(".roll-consumable").click((ev) => {
 			const consumable = $(ev.currentTarget).data("consumable");
-			return this.rollConsumable(consumable);
+			return FBLRollHandler.rollConsumable(this.actor, consumable, this.getRollOptions());
 		});
 
 		html.find("#pride-roll-btn").click(() => this.rollPride());
@@ -155,21 +155,6 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	/***        Character Specific Rolls          ***/
 	/************************************************/
 
-	async rollConsumable(identifier) {
-		const consumable = this.actor.consumables[identifier];
-		if (!consumable.value) return ui.notifications.warn(localizeString("WARNING.NO_CONSUMABLE"));
-		const rollName = localizeString(consumable.label);
-		const dice = CONFIG.fbl.consumableDice[consumable.value];
-		const data = {
-			name: rollName.toLowerCase(),
-			maxPush: "0",
-			type: "consumable",
-		};
-		const roll = FBLRoll.create(dice + `[${rollName}]`, data, this.getRollOptions());
-		await roll.roll({ async: true });
-		return roll.toMessage();
-	}
-
 	async rollPride() {
 		if (this.actor.isBroken) throw this.broken();
 		const pride = this.actor.actorProperties.bio.pride;
@@ -231,7 +216,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 									<p style="text-align: center;"><b>${game.i18n.localize("FLCG.WARNING_ARE_YOU_SURE")}</b></p>
 									<br/>`,
 								yes: async () => await this._charGen(),
-								no: () => {},
+								no: () => { },
 								defaultYes: false,
 							});
 						} else {
