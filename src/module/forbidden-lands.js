@@ -8,7 +8,7 @@ import { registerSheets } from "./hooks/sheets.js";
 import FBL from "./system/config.js";
 import registerSettings from "./system/settings.js";
 import displayMessages from "./hooks/message-system.js";
-import { YearZeroRollManager } from "foundry-year-zero-roller/lib/yzur";
+import { YearZeroRollManager } from "./components/roll-engine/yzur";
 import { ForbiddenLandsD6, registerYZURLabels } from "./components/roll-engine/dice-labels";
 import { FBLRollHandler } from "./components/roll-engine/engine.js";
 import localizeString from "./utils/localize-string.js";
@@ -51,6 +51,38 @@ Hooks.once("ready", () => {
 
 Hooks.once("diceSoNiceReady", (dice3d) => {
 	registerDiceSoNice(dice3d);
+});
+
+/**
+ * Registers a custom chat command that lets us listen for either "/fblroll" or "/fblr".
+ * The commands take arguments like "2db" or "4ds"
+ */
+Hooks.on("chatMessage", (_html, content, _msg) => {
+	const commandR = new RegExp("^\\/fblr(?:oll)?", "i");
+	if (content.match(commandR)) {
+		const diceR = new RegExp("(\\d+d(?:[bsng]|8|10|12))", "gi");
+		// eslint-disable-next-line no-unused-vars
+		const dice = content.match(diceR);
+		const data = {
+			attribute: { label: "DICE.BASE", value: 0 },
+			skill: { label: "DICE.SKILL", value: 0 },
+			gear: { label: "DICE.GEAR", value: 0, artifactDie: "" },
+		};
+		if (dice) {
+			for (const term of dice) {
+				const [num, deno] = term.split("d");
+				const map = {
+					b: "attribute",
+					s: "skill",
+					g: "gear",
+				};
+				if (map[deno]) data[map[deno]].value += Number(num);
+				else data.gear.artifactDie += term;
+			}
+		}
+		FBLRollHandler.createRoll(data);
+		return false;
+	} else return true;
 });
 
 Hooks.on("renderItemSheet", function (app, html) {

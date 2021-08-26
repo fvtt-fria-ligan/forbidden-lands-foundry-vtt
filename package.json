@@ -70,8 +70,5 @@
 	"lint-staged": {
 		"*.(js)": "eslint --fix",
 		"*.(json|scss)": "prettier --write"
-	},
-	"dependencies": {
-		"foundry-year-zero-roller": "github:Stefouch/foundry-year-zero-roller#2.0.0"
 	}
 }
