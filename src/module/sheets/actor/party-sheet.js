@@ -1,7 +1,4 @@
 import { TravelActionsConfig } from "../../components/travel-actions.js";
-import { Helpers } from "../../utils/helpers.js";
-import { CharacterPickerDialog } from "../../components/character-picker-dialog.js";
-
 export class ForbiddenLandsPartySheet extends ActorSheet {
 	static get defaultOptions() {
 		let dragDrop = [...super.defaultOptions.dragDrop];
@@ -14,6 +11,10 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 			tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "main" }],
 			dragDrop: dragDrop,
 		});
+	}
+
+	get actorProperties() {
+		return this.actor.data.data;
 	}
 
 	getData() {
@@ -59,42 +60,6 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 				html.find("." + button.class).click(button.handler.bind(this, this));
 			}
 		}
-	}
-
-	_getHeaderButtons() {
-		let buttons = super._getHeaderButtons();
-
-		if (this.actor.isOwner) {
-			buttons = [
-				{
-					label: "Push",
-					class: "push-roll",
-					icon: "fas fa-skull",
-					onclick: () => {
-						let ownedPartyMembers = Helpers.getOwnedCharacters(this.actor.data.data.members);
-						let diceRoller;
-
-						if (ownedPartyMembers.length === 1) {
-							diceRoller = Helpers.getCharacterDiceRoller(ownedPartyMembers[0]);
-							if (!diceRoller) return;
-							diceRoller.push();
-						} else if (ownedPartyMembers.length > 1) {
-							CharacterPickerDialog.show(
-								game.i18n.localize("FLPS.UI.WHO_PUSHES"),
-								ownedPartyMembers,
-								function (entityId) {
-									diceRoller = Helpers.getCharacterDiceRoller(game.actors.get(entityId));
-									if (!diceRoller) return;
-									diceRoller.push();
-								},
-							);
-						}
-					},
-				},
-			].concat(buttons);
-		}
-
-		return buttons;
 	}
 
 	getTravelActions() {

@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
 import { ForbiddenLandsActorSheet } from "./actor.js";
-import { RollDialog } from "../../components/roll-dialog.js";
 import { ForbiddenLandsCharacterGenerator } from "../../components/character-generator/character-generator.js";
+import localizeString from "../../utils/localize-string";
+import { FBLRoll } from "../../components/roll-engine/engine.js";
 export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
@@ -32,8 +34,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	}
 
 	getData() {
-		const superData = super.getData();
-		const actorData = superData.data;
+		const actorData = this.actorData.toObject();
 		this.computeSkills(actorData);
 		this.computeItems(actorData);
 		this.computeEncumbrance(actorData);
@@ -42,66 +43,33 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 
 	activateListeners(html) {
 		super.activateListeners(html);
+
 		html.find(".item-create").click((ev) => {
 			this.onItemCreate(ev);
 		});
+
 		html.find(".condition").click(async (ev) => {
 			const conditionName = $(ev.currentTarget).data("condition");
 			const conditionValue = this.actor.data.data.condition[conditionName].value;
-			if (game.fbl.config.conditions.includes(conditionName))
+			if (CONFIG.fbl.conditions.includes(conditionName))
 				this.actor.update({ [`data.condition.${conditionName}.value`]: !conditionValue });
 			this._render();
 		});
+
 		html.find(".roll-armor.specific").click((ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
-			const armor = this.actor.items.get(itemId);
-			let testName = armor.data.name;
-			let base;
-			let skill;
-			if (armor.data.data.part === "shield") {
-				base = {
-					name: this.actor.data.data.attribute.strength.label,
-					value: this.actor.data.data.attribute.strength.value,
-				};
-				skill = {
-					name: this.actor.data.data.skill.melee.label,
-					value: this.actor.data.data.skill.melee.value,
-				};
-			} else {
-				base = 0;
-				skill = 0;
-			}
-			RollDialog.prepareRollDialog(
-				testName,
-				base,
-				skill,
-				armor.data.data.bonus.value,
-				"",
-				0,
-				0,
-				this.diceRoller,
-				null,
-			);
+			this.rollSpecificArmor(itemId);
 		});
-		html.find(".roll-armor.total").click(() => {
-			let armorTotal = 0;
-			const items = this.actor.items;
-			items.forEach((item) => {
-				if (item.type === "armor" && item.data.data.part !== "shield") {
-					armorTotal += parseInt(item.data.data.bonus.value, 10);
-				}
-			});
-			RollDialog.prepareRollDialog("HEADER.ARMOR", 0, 0, armorTotal, "", 0, 0, this.diceRoller, null);
-		});
+
+		html.find(".roll-armor.total").click(() => this.rollArmor());
+
 		html.find(".roll-consumable").click((ev) => {
-			const consumable = this.actor.data.data.consumable[$(ev.currentTarget).data("consumable")];
-			const consumableName = game.i18n.localize(consumable.label);
-			if (consumable.value === 6) {
-				this.diceRoller.roll(consumableName, 0, 1, 0, [], 0);
-			} else if (consumable.value > 6) {
-				this.diceRoller.roll(consumableName, 0, 0, 0, [{ dice: 1, face: consumable.value }], 0);
-			}
+			const consumable = $(ev.currentTarget).data("consumable");
+			return this.rollConsumable(consumable);
 		});
+
+		html.find("#pride-roll-btn").click(() => this.rollPride());
+
 		html.find(".currency-button").on("click contextmenu", (ev) => {
 			const currency = $(ev.currentTarget).data("currency");
 			const operator = $(ev.currentTarget).data("operator");
@@ -136,21 +104,22 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	computeSkills(data) {
 		for (let skill of Object.values(data.data.skill)) {
 			skill[`has${skill?.attribute?.capitalize()}`] = false;
-			if (Object.keys(game.fbl.config.attributes).includes(skill.attribute))
-				skill[`has${skill.attribute.capitalize()}`] = true;
+			if (CONFIG.fbl.attributes.includes(skill.attribute)) skill[`has${skill.attribute.capitalize()}`] = true;
 		}
 	}
 
 	computeItems(data) {
-		for (let item of Object.values(data.items)) {
-			if (game.fbl.config.itemTypes.includes(item.type)) item[`is${item.type.capitalize()}`] = true;
+		for (const item of Object.values(data.items)) {
+			// Shields were long treated as armor. They are not. This is a workaround for that.
+			if (item.data.part === "shield") item.isWeapon = true;
+			else if (CONFIG.fbl.itemTypes.includes(item.type)) item[`is${item.type.capitalize()}`] = true;
 		}
 	}
 
 	computeEncumbrance(data) {
 		let weightCarried = 0;
 		for (let item of Object.values(data.items)) {
-			weightCarried += this.computerItemEncumbrance(item);
+			weightCarried += this.computeItemEncumbrance(item);
 		}
 		for (let consumable of Object.values(data.data.consumable)) {
 			if (consumable.value > 0) {
@@ -162,8 +131,9 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			parseInt(data.data.currency.silver.value) +
 			parseInt(data.data.currency.copper.value);
 		weightCarried += Math.floor(coinsCarried / 100) * 0.5;
-		let modifiers = this.getRollModifiers("CARRYING_CAPACITY", null);
-		const weightAllowed = data.data.attribute.strength.max * 2 + modifiers.modifier;
+		/* Needs Fix */
+		//let modifiers = this.getRollModifiers("CARRYING_CAPACITY", null);
+		const weightAllowed = data.data.attribute.strength.max * 2; /* + modifiers.modifier; */
 		data.data.encumbrance = {
 			value: weightCarried,
 			max: weightAllowed,
@@ -180,6 +150,42 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			renderSheet: true,
 		});
 	}
+
+	/************************************************/
+	/***        Character Specific Rolls          ***/
+	/************************************************/
+
+	async rollConsumable(identifier) {
+		const consumable = this.actor.consumables[identifier];
+		if (!consumable.value) return ui.notifications.warn(localizeString("WARNING.NO_CONSUMABLE"));
+		const rollName = localizeString(consumable.label);
+		const dice = CONFIG.fbl.consumableDice[consumable.value];
+		const data = {
+			name: rollName.toLowerCase(),
+			maxPush: "0",
+			type: "consumable",
+		};
+		const roll = FBLRoll.create(dice + `[${rollName}]`, data, this.getRollOptions());
+		await roll.roll({ async: true });
+		return roll.toMessage();
+	}
+
+	async rollPride() {
+		if (this.actor.isBroken) throw this.broken();
+		const pride = this.actor.actorProperties.bio.pride;
+		const rollName = localizeString(pride.label);
+		const data = {
+			name: rollName,
+			flavor: `<span class="chat-flavor">${pride.value}</span>`,
+			maxPush: "0",
+		};
+		const roll = FBLRoll.create(CONFIG.fbl.prideDice + `[${rollName}]`, data, this.getRollOptions());
+		await roll.roll({ async: true });
+		return roll.toMessage();
+	}
+
+	/************************************************/
+	/************************************************/
 
 	async _charGen() {
 		const chargen = await new ForbiddenLandsCharacterGenerator(
@@ -198,7 +204,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 					label: game.i18n.localize("SHEET.HEADER.ROLL"),
 					class: "custom-roll",
 					icon: "fas fa-dice",
-					onclick: () => RollDialog.prepareRollDialog("DICE.ROLL", 0, 0, 0, "", 0, 0, this.diceRoller, null),
+					onclick: () => "",
 				},
 				{
 					label: game.i18n.localize("SHEET.HEADER.PUSH"),

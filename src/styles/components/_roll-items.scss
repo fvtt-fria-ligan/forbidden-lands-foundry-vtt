@@ -1,0 +1,161 @@
+// Foundry Override. Need this to scale the dice images without messing up normal result widths (WHY YOU HARDCODE SO MANY VALUES FOUNDRY!!!)
+.dice-tooltip .dice-rolls .roll {
+	width: unset;
+	min-width: 24px;
+}
+
+.chat-message .message-content .dice-roll {
+	font-family: var(--font-table);
+	background: var(--color-secondary);
+	border-radius: 4px;
+	box-shadow: inset 0 0 2px #9996;
+	padding: 1rem;
+	margin-bottom: 0.8rem;
+
+	&:hover {
+		box-shadow: inset 0 0 2px #1119;
+	}
+
+	.dice-formula,
+	.dice-total {
+		background: none;
+		box-shadow: none;
+		border: none;
+		font-family: var(--font-subheader);
+		font-size: 1.6rem;
+		font-weight: 600;
+	}
+
+	.dice-formula {
+		padding-bottom: 1rem;
+		border-bottom: 2px solid #1112;
+		margin-bottom: -1px;
+		text-transform: uppercase;
+		word-break: break-word;
+	}
+
+	.dice-total {
+		border-top: 2px solid #1112;
+		margin-top: -1px;
+		padding-top: 1.3rem;
+		font-size: 2.1rem;
+		line-height: normal;
+		display: flex;
+		justify-content: center;
+		align-items: baseline;
+
+		.fa-tint {
+			font-size: 0.8em;
+			margin: 0 0.5rem;
+		}
+	}
+
+	.tooltip-part {
+		margin-top: 1rem;
+
+		&:first-child {
+			margin-top: 2rem;
+		}
+
+		&:last-child {
+			margin-bottom: 2rem;
+		}
+
+		.part-header {
+			border-bottom: 2px solid #9992;
+			font-weight: 600;
+		}
+
+		.part-total {
+			background: none;
+			border: none;
+			font-size: 1.4rem;
+		}
+
+		.sword,
+		.skullz {
+			flex: none;
+			font-size: 1.1em;
+			line-height: 1.89em;
+			margin-right: -0.2em;
+		}
+
+		.skullz {
+			font-size: 1.7em;
+			margin: 0 -0.2rem 0 0.3rem;
+			line-height: 0.95em;
+		}
+
+		.dice-rolls {
+			.roll {
+				max-width: 3.5rem;
+				margin: 0 0.3rem;
+				border-radius: 2px;
+				filter: drop-shadow(0 0 2px #1119);
+
+				&.discarded {
+					display: none;
+
+					&.pushed {
+						display: block;
+						opacity: 0.2;
+					}
+				}
+			}
+		}
+
+		.max {
+			filter: none;
+		}
+
+		.min {
+			filter: none;
+		}
+	}
+}
+
+.dice-infos {
+	.dice-info {
+		text-align: center;
+		font-family: var(--font-special);
+		font-size: 1.6rem;
+		font-weight: 600;
+		color: #444;
+	}
+	.result {
+		font-size: 2rem;
+	}
+}
+
+.consumable-result {
+	font-size: 9rem;
+	font-family: "IM Fell Great Primer";
+	align-self: flex-start;
+	line-height: 7rem;
+}
+
+.consumable-icon {
+	width: 100px;
+	transform: translateX(-15%);
+}
+
+.spell-roll {
+	font-size: 2rem;
+	font-family: "IM Fell Great Primer";
+	align-self: flex-start;
+	line-height: 3rem;
+
+	&.power {
+		word-break: break-word;
+		text-align: right;
+		flex: 0 1 50%;
+	}
+
+	&.result {
+		font-size: 6rem;
+		line-height: 6rem;
+		text-align: left;
+		margin-left: 2rem;
+		flex: 1;
+	}
+}

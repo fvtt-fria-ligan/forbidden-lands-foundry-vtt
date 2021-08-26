@@ -131,7 +131,7 @@ export class CharacterConverter {
 	}
 
 	generateSkills() {
-		const skills = Object.keys(game.fbl.config.skills).reduce((obj, skill) => {
+		const skills = Object.keys(CONFIG.fbl.skillAttributeMap).reduce((obj, skill) => {
 			const skillValue = { value: 0 };
 			return { ...obj, [skill]: skillValue };
 		}, {});

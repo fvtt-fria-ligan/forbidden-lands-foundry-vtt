@@ -1,9 +1,21 @@
-import { RollDialog } from "../../components/roll-dialog.js";
-import DiceRoller from "../../components/dice-roller.js";
+import { FBLRollHandler } from "../../components/roll-engine/engine";
+import localizeString from "../../utils/localize-string";
 
+/* eslint-disable no-unused-vars */
 export class ForbiddenLandsActorSheet extends ActorSheet {
 	altInteraction = game.settings.get("forbidden-lands", "alternativeSkulls");
-	diceRoller = new DiceRoller();
+
+	get actorData() {
+		return this.actor.data;
+	}
+
+	get actorProperties() {
+		return this.actorData.data;
+	}
+
+	get rollData() {
+		return this.actor.getRollData();
+	}
 
 	/**
 	 * @override
@@ -91,108 +103,28 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		// Rolls
 		html.find(".roll-attribute").click((ev) => {
 			const attributeName = $(ev.currentTarget).data("attribute");
-			const attribute = this.actor.data.data.attribute[attributeName];
-			let modifiers = this.getRollModifiers(attribute.label, null);
-			RollDialog.prepareRollDialog(
-				attribute.label,
-				{ name: attribute.label, value: attribute.value },
-				0,
-				0,
-				modifiers.artifacts.join(" "),
-				modifiers.modifier,
-				0,
-				this.diceRoller,
-				null,
-			);
+			return this.rollAttribute(attributeName);
 		});
 		html.find(".roll-skill").click((ev) => {
 			const skillName = $(ev.currentTarget).data("skill");
-			const skill = this.actor.data.data.skill[skillName];
-			const attribute = this.actor.data.data.attribute[skill.attribute];
-			let modifiers = this.getRollModifiers(attribute.label, null);
-			modifiers = this.getRollModifiers(skill.label, modifiers);
-			RollDialog.prepareRollDialog(
-				skill.label,
-				{ name: attribute.label, value: attribute.value },
-				{ name: skill.label, value: skill.value },
-				0,
-				modifiers.artifacts.join(" "),
-				modifiers.modifier,
-				0,
-				this.diceRoller,
-				null,
-			);
+			return this.rollSkill(skillName);
 		});
 		html.find(".roll-weapon").click((ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
-			const weapon = this.actor.items.get(itemId);
-			const action = $(ev.currentTarget).data("action");
-			let testName = action || weapon.name;
-			let attribute;
-			let skill;
-			if (weapon.data.data.category === "melee") {
-				attribute = this.actor.data.data.attribute.strength;
-				skill = this.actor.data.data.skill.melee;
-			} else {
-				attribute = this.actor.data.data.attribute.agility;
-				skill = this.actor.data.data.skill.marksmanship;
-			}
-			let bonus = this.parseBonus(weapon.data.data.bonus.value);
-			let modifiers = this.parseModifiers(weapon.data.data.skillBonus);
-			if (weapon.data.data.artifactBonus) {
-				modifiers.artifacts.splice(0, 0, weapon.data.data.artifactBonus);
-			}
-			modifiers = this.getRollModifiers(attribute.label, modifiers);
-			modifiers = this.getRollModifiers(skill.label, modifiers);
-			if (action) {
-				modifiers = this.getRollModifiers(action, modifiers);
-			}
-
-			if (weapon.data.data.category === "melee" && action === "ACTION.PARRY") {
-				// Adjust parry action modifiers based on weapon features
-				const parrying = weapon.data.data.features.parrying;
-				if (!parrying) {
-					modifiers.modifier -= 2;
-				}
-			}
-
-			RollDialog.prepareRollDialog(
-				testName,
-				{ name: attribute.label, value: attribute.value },
-				{ name: skill.label, value: skill.value },
-				bonus,
-				modifiers.artifacts.join(" "),
-				modifiers.modifier,
-				action ? 0 : weapon.data.data.damage,
-				this.diceRoller,
-				null,
-			);
+			return this.rollGear(itemId);
 		});
+
 		html.find(".roll-spell").click((ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
-			const spell = this.actor.items.get(itemId);
-			RollDialog.prepareSpellDialog(spell, null);
+			return this.rollSpell(itemId);
 		});
+
 		html.find(".roll-action").click((ev) => {
 			const rollName = $(ev.currentTarget).data("action");
-			const skillName = $(ev.currentTarget).data("skill");
-			const skill = this.actor.data.data.skill[skillName];
-			const attribute = this.actor.data.data.attribute[skill.attribute];
-			let modifiers = this.getRollModifiers(attribute.label, null);
-			modifiers = this.getRollModifiers(skill.label, modifiers);
-			modifiers = this.getRollModifiers(rollName, modifiers);
-			RollDialog.prepareRollDialog(
-				rollName,
-				{ name: attribute.label, value: attribute.value },
-				{ name: skill.label, value: skill.value },
-				0,
-				modifiers.artifacts.join(" "),
-				modifiers.modifier,
-				0,
-				this.diceRoller,
-				null,
-			);
+			const itemId = $(ev.currentTarget).data("itemId");
+			return this.rollAction(rollName, itemId ? itemId : null);
 		});
+
 		html.find(".quantity").on("blur", (ev) => {
 			const itemId = ev.currentTarget.parentElement.dataset.itemId;
 			this.actor.updateEmbeddedDocuments("Item", [
@@ -204,69 +136,194 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		});
 	}
 
-	parseModifiers(str) {
-		let sep = /[\s+]+/;
-		let artifacts = [];
-		let modifier = 0;
-		if (typeof str === "string") {
-			str.split(sep).forEach((item) => {
-				if (this.isArtifact(item)) {
-					artifacts.push(item);
-				} else {
-					item = parseInt(item, 10);
-					if (!isNaN(item)) {
-						modifier += item;
-					}
-				}
-			});
-		} else if (typeof str === "number") {
-			modifier = str;
-		}
+	broken(type) {
+		const msg = type === "item" ? "WARNING.ITEM_BROKEN" : "WARNING.ACTOR_BROKEN";
+		const locmsg = localizeString(msg);
+		ui.notifications.warn(locmsg);
+		return new Error(locmsg);
+	}
+
+	getRollOptions(...rollIdentifiers) {
 		return {
-			artifacts: artifacts,
-			modifier: modifier,
+			...this.rollData,
+			modifiers: this.actor.getRollModifierOptions(...rollIdentifiers),
 		};
 	}
 
-	isArtifact(artifact) {
-		let regex = /([0-9]*)d([0-9]*)/i;
-		return !!regex.exec(artifact);
+	getAttribute(identifier) {
+		const attributeName = CONFIG.fbl.skillAttributeMap[identifier] || identifier;
+		const attribute = this.actor.attributes[attributeName];
+		if (!attribute) return {};
+		return {
+			name: attributeName,
+			...attribute,
+		};
 	}
 
-	parseBonus(bonus) {
-		let regex = /([0-9]*[^d+-])/;
-		let regexMatch = regex.exec(bonus);
-		if (regexMatch != null) {
-			return regex.exec(bonus)[1];
-		} else {
-			return 0;
-		}
+	getSkill(identifier) {
+		const skillName = CONFIG.fbl.actionSkillMap[identifier] || identifier;
+		const skill = this.actor.skills[skillName];
+		if (!skill) return {};
+		const attribute = this.getAttribute(skillName);
+		return {
+			skill: { name: skillName, ...skill },
+			attribute: { ...attribute },
+		};
 	}
 
-	getRollModifiers(skillLabel, modifiers) {
-		if (!modifiers) {
-			modifiers = { modifier: 0, artifacts: [] };
-		}
-		this.actor.items.forEach((item) => {
-			let rollModifiers = item.data.data.rollModifiers;
-			if (rollModifiers) {
-				Object.values(rollModifiers).forEach((mod) => {
-					if (mod && mod.name === skillLabel) {
-						let parsed = this.parseModifiers(mod.value);
-						modifiers.modifier += parsed.modifier;
-						modifiers.artifacts = modifiers.artifacts.concat(parsed.artifacts);
-					}
-				});
-			}
-		});
-		return modifiers;
+	getGear(itemId) {
+		const gear = this.actor.items.get(itemId).getRollData();
+		if (gear.isBroken) throw this.broken("item");
+		const properties = this.getSkill(CONFIG.fbl.actionSkillMap[gear.category] || "melee");
+		return {
+			gear: gear,
+			...properties,
+		};
 	}
+
+	/************************************************/
+	/***               Actor Rolls                ***/
+	/************************************************/
+
+	rollAction(actionName, itemId = undefined) {
+		if (this.actor.isBroken) throw this.broken();
+
+		const properties = itemId ? this.getGear(itemId) : this.getSkill(actionName);
+		const data = {
+			title: actionName,
+			...properties,
+		};
+		const options = {
+			...this.getRollOptions(actionName, data.skill?.name, data.attribute?.name),
+		};
+		if (actionName === "unarmed") options.damage = 1;
+		return FBLRollHandler.createRoll(data, options);
+	}
+
+	rollArmor() {
+		const rollName = `${localizeString("ITEM.TypeArmor")}: ${localizeString("ARMOR.TOTAL")}`;
+		const totalArmor = this.actor.itemTypes.armor.reduce((sum, armor) => {
+			if (armor.itemProperties.part === "shield") return sum;
+			const value = armor.itemProperties.bonus.value;
+			return (sum += value);
+		}, 0);
+		if (!totalArmor) return ui.notifications.warn(localizeString("WARNING.NO_ARMOR"));
+
+		const mainArmorData = this.actor.items.find((item) => item.itemProperties.part === "body").getRollData();
+		if (mainArmorData.isBroken) throw this.broken("item");
+
+		mainArmorData.value = totalArmor;
+		mainArmorData.name = rollName;
+
+		const data = {
+			title: rollName,
+			gear: mainArmorData,
+		};
+		const options = {
+			maxPush: "0",
+			...this.getRollOptions(),
+		};
+
+		return FBLRollHandler.createRoll(data, options);
+	}
+
+	rollSpecificArmor(armorId) {
+		const rollData = this.actor.items.get(armorId).getRollData();
+		const rollName = `${localizeString("ITEM.TypeArmor")}: ${rollData.name}`;
+		if (rollData.isBroken) throw this.broken("item");
+
+		const data = {
+			title: rollName,
+			gear: rollData,
+		};
+		const options = {
+			maxPush: "0",
+			...this.getRollOptions(),
+		};
+		return FBLRollHandler.createRoll(data, options);
+	}
+
+	rollAttribute(attrName) {
+		if (this.actor.isBroken) throw this.broken();
+
+		const data = {
+			title: attrName,
+			attribute: this.getAttribute(attrName),
+		};
+		const options = {
+			...this.getRollOptions(attrName),
+		};
+		return FBLRollHandler.createRoll(data, options);
+	}
+
+	rollGear(itemId) {
+		if (this.actor.isBroken) throw this.broken();
+
+		const properties = this.getGear(itemId);
+		const data = {
+			title: properties.gear.name,
+			...properties,
+		};
+		const options = {
+			...this.getRollOptions(data.skill?.name, data.attribute?.name),
+		};
+		return FBLRollHandler.createRoll(data, options);
+	}
+
+	rollSkill(skillName) {
+		if (this.actor.isBroken) throw this.broken();
+
+		const data = {
+			title: skillName,
+			...this.getSkill(skillName),
+		};
+		const options = {
+			...this.getRollOptions(skillName, data.attribute?.name),
+		};
+		return FBLRollHandler.createRoll(data, options);
+	}
+
+	rollSpell(spellId) {
+		if (this.actor.isBroken) throw this.broken();
+		if (!this.actor.willpower.value) throw ui.notifications.warn(localizeString("WARNING.NO_WILLPOWER"));
+
+		const spell = this.actor.items.get(spellId);
+		let { value } = duplicate(this.actor.willpower);
+		const hasPsych = !!this.actor.items.getName("Psychic Power (Half-Elf)");
+
+		const data = {
+			title: spell.name,
+			attribute: {
+				name: spell.name,
+				value: 1,
+			},
+			spell: {
+				willpower: { max: --value, value: value },
+				psych: hasPsych,
+				item: spell,
+			},
+		};
+
+		const options = {
+			maxPush: "0",
+			template: "systems/forbidden-lands/templates/dice/spell-dialog.hbs",
+			type: "spell",
+			skulls: this.altInteraction,
+			...this.getRollOptions(),
+		};
+		return FBLRollHandler.createRoll(data, options);
+	}
+
+	/************************************************/
+	/************************************************/
+
 	async _renderInner(data, options) {
 		data.alternativeSkulls = this.altInteraction;
 		return super._renderInner(data, options);
 	}
-	computerItemEncumbrance(data) {
-		const config = game.fbl.config.encumbrance;
+
+	computeItemEncumbrance(data) {
+		const config = CONFIG.fbl.encumbrance;
 		const type = data.type;
 		const weight = data.data?.weight;
 		if (data.type === "rawMaterial") return 1 * Number(data.data.quantity);
