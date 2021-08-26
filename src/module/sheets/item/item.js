@@ -68,9 +68,10 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 			// To preserve order, make sure the new index is the highest
 			let modifierId = Math.max(-1, ...Object.getOwnPropertyNames(rollModifiers)) + 1;
 			let update = {};
+			// Using a default value of Strength and 1 in order NOT to create an empty modifier.
 			update[`data.rollModifiers.${modifierId}`] = {
-				name: "",
-				value: "",
+				name: "ATTRIBUTE.STRENGTH",
+				value: "+1",
 			};
 			await this.item.update(update);
 		});

@@ -317,45 +317,6 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	/************************************************/
 	/************************************************/
 
-	parseModifiers(str) {
-		let sep = /[\s+]+/;
-		let artifacts = [];
-		let modifier = 0;
-		if (typeof str === "string") {
-			str.split(sep).forEach((item) => {
-				if (this.isArtifact(item)) {
-					artifacts.push(item);
-				} else {
-					item = parseInt(item, 10);
-					if (!isNaN(item)) {
-						modifier += item;
-					}
-				}
-			});
-		} else if (typeof str === "number") {
-			modifier = str;
-		}
-		return {
-			artifacts: artifacts,
-			modifier: modifier,
-		};
-	}
-
-	isArtifact(artifact) {
-		let regex = /([0-9]*)d([0-9]*)/i;
-		return !!regex.exec(artifact);
-	}
-
-	parseBonus(bonus) {
-		let regex = /([0-9]*[^d+-])/;
-		let regexMatch = regex.exec(bonus);
-		if (regexMatch != null) {
-			return regex.exec(bonus)[1];
-		} else {
-			return 0;
-		}
-	}
-
 	async _renderInner(data, options) {
 		data.alternativeSkulls = this.altInteraction;
 		return super._renderInner(data, options);
