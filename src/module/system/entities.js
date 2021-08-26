@@ -1,4 +1,55 @@
+import localizeString from "../utils/localize-string";
+import { objectSearch } from "../utils/object-search";
+
 export class ForbiddenLandsActor extends Actor {
+	get actorProperties() {
+		return this.data.data;
+	}
+
+	get attributes() {
+		return this.actorProperties.attribute;
+	}
+
+	get conditions() {
+		return this.actorProperties.condition;
+	}
+
+	get consumables() {
+		return this.actorProperties.consumable;
+	}
+
+	get isBroken() {
+		return Object.values(this.attributes).some((attribute) => attribute.value <= 0 && attribute.max > 0);
+	}
+
+	get skills() {
+		return this.actorProperties.skill;
+	}
+
+	get willpower() {
+		return this.actorProperties.bio.willpower;
+	}
+
+	/* Override */
+	getRollData() {
+		return {
+			alias: this.token?.name || this.name,
+			actorId: this.id,
+			actorType: this.data.type,
+			isBroken: this.isBroken,
+			sceneId: this.token?.parent.id,
+			tokenId: this.token?.id,
+		};
+	}
+
+	getRollModifierOptions(...rollIdentifiers) {
+		return this.items.reduce((array, item) => {
+			const modifiers = item.getRollModifier(...rollIdentifiers);
+			if (modifiers) array = [...array, ...modifiers];
+			return array;
+		}, []);
+	}
+
 	async createEmbeddedDocuments(embeddedName, data, options) {
 		// Replace randomized Item.properties like "[[d6]] days" with a roll
 		let newData = deepClone(data);
@@ -44,12 +95,99 @@ export class ForbiddenLandsActor extends Actor {
 }
 
 export class ForbiddenLandsItem extends Item {
+	get artifactDie() {
+		return this.itemProperties.artifactBonus;
+	}
+
+	get bonus() {
+		return this.itemProperties.bonus.value;
+	}
+
+	get damage() {
+		return this.itemProperties.damage;
+	}
+
+	get category() {
+		return this.itemProperties.category;
+	}
+
+	get itemProperties() {
+		return this.data.data;
+	}
+
+	get isBroken() {
+		return this.bonus <= 0;
+	}
+
+	get parryPenalty() {
+		if (this.category === "melee" && !this.itemProperties.features?.parrying)
+			return CONFIG.fbl.actionModifiers.parry;
+		else return 0;
+	}
+
+	get range() {
+		return this.itemProperties.range;
+	}
+
+	get rollModifiers() {
+		return this.itemProperties.rollModifiers;
+	}
+
+	get type() {
+		return this.data.type;
+	}
+
+	/* Override */
+	getRollData() {
+		return {
+			artifactDie: this.artifactDie,
+			value: this.bonus || 0,
+			category: this.category,
+			damage: this.damage || 0,
+			isBroken: this.isBroken,
+			itemId: this.id,
+			label: this.name,
+			name: this.name,
+			range: this.range,
+			type: this.type,
+		};
+	}
+
+	getRollModifier(...rollIdentifiers) {
+		if (!this.rollModifiers || foundry.utils.isObjectEmpty(this.rollModifiers)) return null;
+		const modifiers = Object.values(this.rollModifiers).reduce((array, mod) => {
+			const match = rollIdentifiers.includes(objectSearch(CONFIG.fbl.i18n, mod.name));
+			if (match) {
+				if (mod.value.match(/\d?d8|10|12/i)) mod = mod.value;
+				else mod = Number(mod.value);
+				if (!mod) return array;
+				else
+					return [
+						...array,
+						{
+							name: this.name,
+							value: typeof mod === "string" || mod > 0 ? `+${mod}` : mod.toFixed(),
+							active: mod < 0 ? true : false,
+						},
+					];
+			} else return array;
+		}, []);
+
+		if (rollIdentifiers.find((i) => i === "parry") && this.parryPenalty)
+			modifiers.push({
+				name: localizeString("WEAPON.FEATURES.PARRYING"),
+				value: this.parryPenalty,
+				active: true,
+			});
+		return modifiers;
+	}
+
 	async sendToChat() {
 		const itemData = this.data.toObject();
 		if (itemData.img.includes("/mystery-man")) {
 			itemData.img = null;
 		}
-		if (game.fbl.config.itemTypes.includes(itemData.type)) itemData[`is${itemData.type.capitalize()}`] = true;
+		if (CONFIG.fbl.itemTypes.includes(itemData.type)) itemData[`is${itemData.type.capitalize()}`] = true;
 		itemData.hasRollModifiers =
 			itemData.data.rollModifiers && Object.values(itemData.data.rollModifiers).length > 0;
 		const html = await renderTemplate("systems/forbidden-lands/templates/chat/item.hbs", itemData);

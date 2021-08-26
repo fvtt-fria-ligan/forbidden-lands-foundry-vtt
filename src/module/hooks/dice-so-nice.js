@@ -122,6 +122,30 @@ export function registerDiceSoNice(dice3d) {
 	);
 	dice3d.addDicePreset(
 		{
+			type: "dn",
+			labels: [
+				"systems/forbidden-lands/assets/dsn/d6/d6-1-skill-white.png",
+				"systems/forbidden-lands/assets/dsn/d6/d6-2-white.png",
+				"systems/forbidden-lands/assets/dsn/d6/d6-3-white.png",
+				"systems/forbidden-lands/assets/dsn/d6/d6-4-white.png",
+				"systems/forbidden-lands/assets/dsn/d6/d6-5-white.png",
+				"systems/forbidden-lands/assets/dsn/d6/d6-6-white.png",
+			],
+			bumpMaps: [
+				"systems/forbidden-lands/assets/dsn/d6/d6-1-skill-bump.png",
+				"systems/forbidden-lands/assets/dsn/d6/d6-2-bump.png",
+				"systems/forbidden-lands/assets/dsn/d6/d6-3-bump.png",
+				"systems/forbidden-lands/assets/dsn/d6/d6-4-bump.png",
+				"systems/forbidden-lands/assets/dsn/d6/d6-5-bump.png",
+				"systems/forbidden-lands/assets/dsn/d6/d6-6-bump.png",
+			],
+			colorset: "fl-skill",
+			system: "forbidden-lands",
+		},
+		"d6",
+	);
+	dice3d.addDicePreset(
+		{
 			type: "d6",
 			labels: [
 				"systems/forbidden-lands/assets/dsn/d6/d6-1-skill-white.png",

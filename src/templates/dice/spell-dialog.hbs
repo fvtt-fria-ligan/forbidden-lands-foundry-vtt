@@ -1,0 +1,58 @@
+<form class="roll-dialog">
+	<h2>☙ {{title}} ❧</h2>
+	<div class="container spell">
+		{{#unless (eq spell.willpower.max 0)}}
+		<label>{{localize "BIO.WILLPOWER"}}:</label>
+		<span class="skulls willpower {{#unless spell.willpower.value }}broken{{/unless}} flex row align-center">
+			<a class="spend-willpower">
+				{{#skulls spell.willpower.value spell.willpower.max}}
+					<i
+						class="skull {{#if @damaged}}far fa-circle{{else}}{{#if options.skulls}} fas fa-circle {{else}} far fa-times-circle{{/if}}{{/if}}"></i>
+				{{/skulls}}
+			</a>
+		</span>
+		{{/unless}}
+		<div class="dice">
+			<h3>{{localize "MONSTER.DICE"}}</h3>
+			<input type="number" id="base" name="base" min="0" value="{{spellDice}}" readonly hidden>
+			<div class="display-numbers" id="base-display">{{spellDice}}</div>
+		</div>
+		<div class="power-level">
+			<h3>{{localize "DICE.POWER_LEVEL"}}</h3>
+			<input type="number" id="power" name="power" min="0" value="{{powerLevel}}" readonly hidden>
+			<div class="display-numbers" id="power-display">{{powerLevel}}</div>
+		</div>
+	</div>
+	<div class="options">
+		<h3>{{localize "MODIFIERS"}}</h3>
+		<div class="spell-options">
+			<div class="modifiers">
+				<label for="ingredient"> {{localize "MAGIC.INGREDIENT"}}: </label>
+				<input class="spell-option" type="checkbox" name="ingredient"
+				id="ingredient" {{#if spell.ingredient}} checked {{/if}}/>
+			</div>
+			<div class="modifiers">
+				<label for="chance"> {{localize "MAGIC.CHANCE"}}: </label>
+				<input class="spell-option" type="checkbox" name="chance"
+				id="chance" {{#if spell.chance}} checked {{/if}}/>
+			</div>
+			<div class="modifiers">
+				<label for="psych"> {{localize "MAGIC.PSYCHIC_POWER"}}: </label>
+				<input class="spell-option" type="checkbox" name="psych"
+				id="psych"{{#if spell.psych }} checked {{/if}}>
+			</div>
+			<div class="modifiers">
+				<label for="safecast"> {{localize "MAGIC.SAFE_CASTING"}}: </label>
+				<select class="spell-option" name="safecast" id="safecast" {{#if spell.chance}} disabled {{/if}}>
+					<option value="0" {{#if spell.chance}} selected {{/if}}>0</option>
+					<option value="1" {{#if (eq spell.safecast 1)}} selected {{/if}}>1</option>
+					{{#unless (eq safecastMax 1)}}<option value="2" {{#if (eq spell.safecast 2)}} selected {{/if}}>2</option>{{/unless}}
+				</select>
+			</div>
+		</div>
+	</div>
+	<div class="container form-actions">
+		<button type="submit" id="submit"><i class="fas fa-check"></i>{{localize "DICE.ROLL"}}</button>
+		<button type="reset" id="cancel"><i class="fas fa-times"></i>{{localize "DICE.CANCEL"}}</button>
+	</div>
+</form>

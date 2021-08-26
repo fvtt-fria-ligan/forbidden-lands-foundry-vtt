@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 import { ForbiddenLandsActorSheet } from "./actor.js";
-import { RollDialog } from "../../components/roll-dialog.js";
+import { FBLRoll } from "../../components/roll-engine/engine.js";
+import localizeString from "../../utils/localize-string.js";
 export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
@@ -38,25 +40,11 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 		html.find(".item-create").click((ev) => {
 			this.onItemCreate(ev);
 		});
-		html.find(".roll-armor").click(() => {
-			let armorValue = this.actor.data.data.armor.value;
-			RollDialog.prepareRollDialog("HEADER.ARMOR", 0, 0, armorValue, "", 0, 0, this.diceRoller, null);
-		});
+		html.find(".roll-armor").click(() => this.rollArmor());
+		html.find("#monster-attack-btn").click(() => this.rollAttack());
 		html.find(".roll-attack").click((ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
-			const weapon = this.actor.items.get(itemId);
-			let testName = weapon.name;
-			RollDialog.prepareRollDialog(
-				testName,
-				weapon.data.data.dice,
-				0,
-				0,
-				"",
-				0,
-				weapon.data.data.damage,
-				this.diceRoller,
-				null,
-			);
+			return this.rollSpecificAttack(itemId);
 		});
 		html.find(".change-mounted").click(() => {
 			const boolean = this.actor.data.data.isMounted;
@@ -64,10 +52,50 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 		});
 	}
 
+	/************************************************/
+	/***         Monster Specific Rolls           ***/
+	/************************************************/
+
+	async rollAttack() {
+		const attacks = this.actor.itemTypes.monsterAttack;
+		const roll = await new Roll(`1d${attacks.length}`).roll({ async: true });
+		const attack = attacks[parseInt(roll.result) - 1];
+		attack.sendToChat();
+		this.rollSpecificAttack(attack.id);
+	}
+
+	async rollSpecificAttack(attackId) {
+		if (this.actor.isBroken) throw this.broken();
+		const attack = this.actor.items.get(attackId);
+		const data = {
+			name: attack.name,
+			maxPush: "0",
+		};
+		const roll = FBLRoll.create(`${attack.data.data.dice}ds[${attack.name}]`, data, this.getRollOptions());
+		await roll.roll({ async: true });
+		return roll.toMessage();
+	}
+
+	/* Override Actor Roll */
+	async rollArmor() {
+		const armor = this.actorProperties.armor;
+		const rollName = `${localizeString("ITEM.TypeArmor")}: ${this.actor.name}`;
+		const data = {
+			name: rollName,
+			maxPush: "0",
+		};
+		const roll = FBLRoll.create(`${armor.value}dg[${rollName}]`, data, this.getRollOptions());
+		await roll.roll({ async: true });
+		return roll.toMessage();
+	}
+
+	/************************************************/
+	/************************************************/
+
 	computeEncumbrance(data) {
 		let weightCarried = 0;
 		for (let item of Object.values(data.items)) {
-			weightCarried += this.computerItemEncumbrance(item);
+			weightCarried += this.computeItemEncumbrance(item);
 		}
 		const weightAllowed = data.data.attribute.strength.max * 2 * (data.data.isMounted ? 1 : 2);
 		data.data.encumbrance = {
@@ -114,7 +142,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 					label: game.i18n.localize("SHEET.HEADER.ROLL"),
 					class: "custom-roll",
 					icon: "fas fa-dice",
-					onclick: () => RollDialog.prepareRollDialog("DICE.ROLL", 0, 0, 0, "", 0, 0, this.diceRoller, null),
+					onclick: () => "",
 				},
 			].concat(buttons);
 		}

@@ -1,0 +1,75 @@
+<div class="dice-roll">
+	<h4 class="dice-formula">
+		{{#if flavor}}
+			{{flavor}}
+		{{else}}
+			{{formula}}
+		{{/if}}{{#if roll.pushed}}
+			&nbsp;–&nbsp; {{localize "PUSHED"}}
+		{{/if}}
+	</h4>
+	<div class="dice-result">
+		{{#if (eq roll.type "yz")}}
+			{{{tooltip}}}
+			<h4 class="dice-total">
+				<span class="sword" title="{{localize "DICE.SUCCESSES"}}">
+					x
+				</span>
+				<span class="special-number" title="{{localize "DICE.SUCCESSES"}}">
+					{{success}}
+				</span>
+				{{#if roll.options.isAttack}}
+					&nbsp;|&nbsp;
+					<i class="fas fa-tint" title="{{localize "DAMAGE"}}"></i>
+					<span class="special-number" title="{{localize "DAMAGE"}}">
+						{{roll.damage}}
+					</span>
+				{{/if}}
+				{{#if (gt roll.baneCount 0)}}
+					&nbsp;|&nbsp;
+					<span class="skullz" title={{localize "DICE.BANES"}}>
+						l
+					</span>
+					<span class="special-number" title={{localize "DICE.BANES"}}>
+						{{roll.baneCount}}
+					</span>
+				{{/if}}
+			</h4>
+		{{/if}}
+		{{#if (eq roll.type "consumable")}}
+			{{{tooltip}}}
+			<h4 class="dice-total">
+				<img class="consumable-icon" src="systems/forbidden-lands/assets/assorted/{{roll.name}}.webp" />
+				<span class="consumable-result">
+					{{total}}
+				</span>
+			</h4>
+		{{/if}}
+		{{#if (eq roll.type "spell")}}
+			{{{tooltip}}}
+			<h4 class="dice-total">
+				<span class="spell-roll power">
+					Power
+					<br />
+					Level:
+				</span>
+				<span class="spell-roll result">
+					{{roll.damage}}
+				</span>
+			</h4>
+		{{/if}}
+	</div>
+</div>
+
+{{! Extra info added for Year Zero rolls }}
+{{#if showInfos}}
+	{{{infos}}}
+{{/if}}
+{{! Push button }}
+{{#if pushable}}
+	<div class="dice-buttons">
+		<button class="fbl-button push" data-action="push">
+			{{localize "PUSH"}}
+		</button>
+	</div>
+{{/if}}

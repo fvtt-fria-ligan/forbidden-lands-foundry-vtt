@@ -163,7 +163,13 @@
 .forbidden-lands .character .combat-tab .actions {
 	grid-column: 1/-1;
 	align-items: center;
-	padding: 4px;
+	padding: 0.5rem 4px;
+
+	i {
+		margin-left: 5px;
+		margin-bottom: 2px;
+		font-size: 1.6rem;
+	}
 }
 
 .forbidden-lands .character .combat-tab .actions h1 {

@@ -43,8 +43,7 @@ export class ForbiddenLandsStrongholdSheet extends ForbiddenLandsActorSheet {
 			item.isHireling = item.type === "hireling";
 			if (item.type !== "building" || item.type !== "hireling") {
 				item.totalWeight =
-					(game.fbl.config.encumbrance[item.data.weight] ?? item.data.weight ?? 1) *
-					(item.data.quantity ?? 1);
+					(CONFIG.fbl.encumbrance[item.data.weight] ?? item.data.weight ?? 1) * (item.data.quantity ?? 1);
 			}
 		}
 	}

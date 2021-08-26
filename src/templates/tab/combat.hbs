@@ -3,11 +3,11 @@
 		<h1>{{localize "HEADER.WEAPON"}}</h1>
 		<div class="item-list">
 			<div class="header weapon">
-				<b class="name">{{localize "WEAPON.NAME"}}</b>
+				<b class="name"><i class="fas fa-dice"></i>&nbsp;{{localize "WEAPON.NAME"}}</b>
 				<b class="damage">{{localize "WEAPON.DAMAGE"}}</b>
 				<b class="range">{{localize "WEAPON.RANGE"}}</b>
 				<b class="bonus">{{localize "WEAPON.BONUS"}}</b>
-				<b class="weapon-actions">{{localize "HEADER.ACTIONS"}}</b>
+				<b class="weapon-actions"><i class="fas fa-dice"></i>&nbsp;{{localize "HEADER.ACTIONS"}}</b>
 			</div>
 			<div class="items">
 				{{#each items as |item|}} {{#if item.isWeapon}}
@@ -22,8 +22,8 @@
 									>{{item.name}}</button
 								>
 								<span>
-									{{weaponGrip item.data.grip}} {{#if (hasWeaponFeatures item.data.category
-									item.data.features)}} , {{formatWeaponFeatures item.data.category
+									{{weaponGrip item.data.grip}}{{#if (hasWeaponFeatures item.data.category
+									item.data.features)}}, {{formatWeaponFeatures item.data.category
 									item.data.features}} {{/if}}
 								</span>
 							</div>
@@ -34,33 +34,22 @@
 							{{item.data.bonus.value}} {{#if item.data.artifactBonus}}+
 							{{item.data.artifactBonus}}{{/if}}
 						</div>
+						<!--There's a non-trivial amount of wrangling going on here to get shields to be treated as weapons despite being of the armor type-->
 						<div class="weapon-actions">
-							{{#if (eq item.data.category "melee") }}
-							<button
-								type="button"
-								class="roll-weapon"
-								data-item-id="{{item._id}}"
-								data-action="ACTION.PARRY"
-							>
-								{{ localize "ACTION.PARRY" }} {{#unless item.data.features.parrying }}(-2){{/unless}}
+							{{#if (or (eq item.data.part "shield") (eq item.data.category "melee")) }}
+							<button type="button" class="roll-action" data-item-id="{{item._id}}" data-action="parry">
+								{{ localize "ACTION.PARRY" }} {{#unless (or (eq item.data.part "shield")
+								item.data.features.parrying) }}(-2){{/unless}}
 							</button>
-							{{#if item.data.features.hook }}
-							<button
-								type="button"
-								class="roll-weapon"
-								data-item-id="{{item._id}}"
-								data-action="ACTION.SHOVE"
+							{{#if (or (eq item.data.part "shield") item.data.features.hook) }}
+							<button type="button" class="roll-action" data-item-id="{{item._id}}" data-action="shove"
 								>{{ localize "ACTION.SHOVE" }}</button
 							>
-							{{/if}}
-							<button
-								type="button"
-								class="roll-weapon"
-								data-item-id="{{item._id}}"
-								data-action="ACTION.DISARM"
+							{{/if}} {{#unless (eq item.data.part "shield")}}
+							<button type="button" class="roll-action" data-item-id="{{item._id}}" data-action="disarm"
 								>{{ localize "ACTION.DISARM" }}</button
 							>
-							{{/if}}
+							{{/unless}} {{/if}}
 						</div>
 					</div>
 				</div>
@@ -77,7 +66,7 @@
 
 		<div class="item-list">
 			<div class="header armor">
-				<b class="name">{{localize "GEAR.NAME"}}</b>
+				<b class="name"><i class="fas fa-dice"></i>&nbsp;{{localize "GEAR.NAME"}}</b>
 				<b class="bonus">{{localize "GEAR.BONUS"}}</b>
 			</div>
 			<div class="items">
@@ -136,32 +125,22 @@
 		</div>
 	</div>
 	<div class="actions border flex row">
-		<h1 class="grow">{{localize "HEADER.ACTIONS"}}</h1>
+		<i class="fas fa-dice grow"></i>
 		<div class="flex row wrap">
-			<button type="button" class="roll-action" data-action="ACTION.UNARMED_STRIKE" data-skill="melee"
+			<button type="button" class="roll-action" data-action="unarmed"
 				>{{ localize "ACTION.UNARMED_STRIKE" }}</button
 			>
-			<button type="button" class="roll-action" data-action="ACTION.SHOVE" data-skill="melee"
-				>{{ localize "ACTION.SHOVE" }}</button
-			>
-			<button type="button" class="roll-action" data-action="ACTION.DISARM" data-skill="melee"
-				>{{ localize "ACTION.DISARM" }}</button
-			>
-			<button type="button" class="roll-action" data-action="ACTION.GRAPPLE" data-skill="melee"
-				>{{ localize "ACTION.GRAPPLE" }}</button
-			>
-			<button type="button" class="roll-action" data-action="ACTION.BREAK_FREE" data-skill="melee"
+			<button type="button" class="roll-action" data-action="shove">{{ localize "ACTION.SHOVE" }}</button>
+			<button type="button" class="roll-action" data-action="disarm">{{ localize "ACTION.DISARM" }}</button>
+			<button type="button" class="roll-action" data-action="grapple">{{ localize "ACTION.GRAPPLE" }}</button>
+			<button type="button" class="roll-action" data-action="break-free"
 				>{{ localize "ACTION.BREAK_FREE" }}</button
 			>
-			<button type="button" class="roll-action" data-action="ACTION.GRAPPLE_ATTACK" data-skill="melee"
+			<button type="button" class="roll-action" data-action="melee"
 				>{{ localize "ACTION.GRAPPLE_ATTACK" }}</button
 			>
-			<button type="button" class="roll-action" data-action="ACTION.DODGE" data-skill="move"
-				>{{ localize "ACTION.DODGE" }}</button
-			>
-			<button type="button" class="roll-action" data-action="ACTION.RETREAT" data-skill="move"
-				>{{ localize "ACTION.RETREAT" }}</button
-			>
+			<button type="button" class="roll-action" data-action="dodge">{{ localize "ACTION.DODGE" }}</button>
+			<button type="button" class="roll-action" data-action="retreat">{{ localize "ACTION.RETREAT" }}</button>
 		</div>
 	</div>
 </div>
