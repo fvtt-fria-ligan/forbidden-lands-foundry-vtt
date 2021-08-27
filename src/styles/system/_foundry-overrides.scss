@@ -35,11 +35,45 @@
 	}
 }
 
+/* -------------- */
+/*  Font Awesome  */
+/*   Overrides    */
+/* -------------- */
+
+.fa-suitcase {
+	font-family: RPGAwesome;
+	font-size: 1.6rem;
+	transform: translateY(1px);
+	&:before {
+		content: "\ea72";
+	}
+}
+
+.fa-comments {
+	font-family: RPGAwesome;
+	font-size: 1.5rem;
+	transform: translateY(1px);
+	&:before {
+		content: "\ea8f";
+	}
+}
+
+.fa-fist-raised {
+	font-family: Swordlings;
+	transform: translate(1.3px, -0.6px);
+	font-size: 1.5rem;
+	&:before {
+		content: "x";
+	}
+}
+
+/* ------------- */
+
 h3 {
 	&.entity-name {
 		& > a {
-			color: black;
-			text-shadow: 0px 0px 5px white;
+			color: #111;
+			text-shadow: 0px 0px 5px #fff;
 			font-weight: bold;
 			text-transform: uppercase;
 			margin: 2%;
@@ -49,11 +83,23 @@ h3 {
 
 .window-app {
 	.window-resizable-handle {
-		background: white;
+		background: none;
+		border: none;
+		width: 19px;
+		height: 19px;
+		transform: translate(12px, 12px);
+
+		&:hover {
+			text-shadow: 0 0 5px #a00;
+		}
+
+		i.fas {
+			transform: translateY(-1.5px) rotate(45deg);
+		}
 	}
 	&.image-popout {
 		form.flexcol {
-			background: white;
+			background: #fff;
 		}
 		.form-group {
 			&.title {
@@ -114,11 +160,6 @@ img {
 #navigation #nav-toggle,
 #navigation #scene-list .scene {
 	background: #292929f0;
-}
-.fa-suitcase {
-	&:before {
-		content: "\f187";
-	}
 }
 
 a.entity-link,
@@ -261,11 +302,56 @@ li {
 	}
 }
 
+#sidebar-tabs {
+	border-bottom: 1px solid #fff;
+	box-shadow: 0 0 6px #fff;
+
+	& > .item.active {
+		border: 1px solid #fff;
+		box-shadow: 0 0 6px inset #fffc;
+	}
+}
+
+#navigation #scene-list .scene.view,
+#navigation #scene-list .scene.context {
+	border: 1px solid #fff;
+	border-bottom: 1px solid #fffc;
+	box-shadow: 0 0 10px #fffc;
+}
+
+#controls .scene-control.active,
+#controls .control-tool.active,
+#controls .scene-control:hover,
+#controls .control-tool:hover {
+	border: 1px solid #fff;
+	border-bottom: 1px solid #fffc;
+	box-shadow: 0 0 10px #fffc;
+}
+
+#controls .control-tool.toggle {
+	background: #666;
+	border: 1px solid #fff;
+
+	&:hover,
+	&.active {
+		background: #700;
+	}
+}
+
+// Fixing scrollbars!
 ::-webkit-scrollbar-thumb {
-	background: #999;
-	border-color: #005d67;
+	outline: none;
+	border-radius: 3px;
+	background: #999 !important;
+	border: 1px solid #333 !important;
+	border-color: #333 !important;
 }
 ::-webkit-scrollbar-track {
-	box-shadow: 0 0 3px #999 inset;
+	box-shadow: 0 0 3px #005d67 inset !important;
 	border-radius: 3px;
+}
+
+:root {
+	scrollbar-width: thin !important;
+	scrollbar-color: #005d67 #333 !important;
 }

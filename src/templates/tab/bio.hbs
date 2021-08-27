@@ -1,24 +1,41 @@
 <div class="bio-tab border">
 	<div class="section">
-		<h1
-			><button id="pride-roll-btn"><i class="fas fa-dice"></i>{{localize "HEADER.PRIDE"}}</button></h1
-		>
-		<textarea name="data.bio.pride.value">{{data.bio.pride.value}}</textarea>
+		<h1>
+			<button id="pride-roll-btn">
+				<i class="fas fa-dice"></i>{{localize "HEADER.PRIDE"}}
+			</button>
+		</h1>
+		{{editor target="data.bio.pride.value" content=data.bio.pride.value owner=owner button=true editable=true}}
 	</div>
 	<div class="section">
-		<h1>{{localize "HEADER.DARK_SECRET"}}</h1>
-		<textarea name="data.bio.darkSecret.value">{{data.bio.darkSecret.value}}</textarea>
+		<h1>
+			{{localize "HEADER.DARK_SECRET"}}
+		</h1>
+		{{editor
+			target="data.bio.darkSecret.value"
+			content=data.bio.darkSecret.value
+			owner=owner
+			button=true
+			editable=true
+		}}
 	</div>
 	<div class="section">
-		<h1>{{localize "HEADER.FACE"}}</h1>
-		<textarea name="data.bio.face.value">{{data.bio.face.value}}</textarea>
+		<h1>
+			{{localize "HEADER.FACE"}}
+		</h1>
+		{{editor target="data.bio.face.value" content=data.bio.face.value owner=owner button=true editable=true}}
 	</div>
 	<div class="section">
-		<h1>{{localize "HEADER.BODY"}}</h1>
-		<textarea name="data.bio.body.value">{{data.bio.body.value}}</textarea>
+		<h1>
+			{{localize "HEADER.BODY"}}
+		</h1>
+		{{editor target="data.bio.body.value" content=data.bio.body.value owner=owner button=true editable=true}}
 	</div>
 	<div class="section">
-		<h1>{{localize "HEADER.CLOTHING"}}</h1>
-		<textarea name="data.bio.clothing.value">{{data.bio.clothing.value}}</textarea>
+		<h1>
+			{{localize "HEADER.CLOTHING"}}
+		</h1>
+		{{editor target="data.bio.clothing.value" content=data.bio.clothing.value owner=owner button=true editable=true
+		}}
 	</div>
 </div>

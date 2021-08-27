@@ -41,6 +41,9 @@
 	src: url("../fonts/Poppins-Bold.ttf");
 }
 
+@import "node_modules/rpg-awesome/scss/rpg-awesome"; //External Import
+$ra-font-path: "../assets/fonts";
+
 @font-face {
 	font-family: "Poppins";
 	font-style: italic;

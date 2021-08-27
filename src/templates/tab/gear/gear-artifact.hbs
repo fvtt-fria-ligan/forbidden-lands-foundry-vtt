@@ -2,22 +2,22 @@
 	{{#unless (eq type "gear")}} {{#if showEffectField}}
 	<div class="effect">
 		<label>{{localize "GEAR.EFFECT"}}</label>
-		<textarea name="data.effect">{{data.effect}}</textarea>
+		{{editor target="data.effect" content=data.effect owner=owner button=true editable=true}}
 	</div>
 	{{/if}} {{/unless}} {{#if showDescriptionField}}
 	<div class="description">
 		<label>{{localize "ARTIFACT.DESCRIPTION"}}</label>
-		<textarea name="data.description">{{data.description}}</textarea>
+		{{editor target="data.description" content=data.description owner=owner button=true editable=true}}
 	</div>
 	{{/if}} {{#if showDrawbackField}}
 	<div class="drawback">
 		<label>{{localize "ARTIFACT.DRAWBACK"}}</label>
-		<textarea name="data.drawback">{{data.drawback}}</textarea>
+		{{editor target="data.drawback" content=data.drawback owner=owner button=true editable=true}}
 	</div>
 	{{/if}} {{#if showAppearanceField}}
 	<div class="appearance">
 		<label>{{localize "ARTIFACT.APPEARANCE"}}</label>
-		<textarea name="data.appearance">{{data.appearance}}</textarea>
+		{{editor target="data.appearance" content=data.appearance owner=owner button=true editable=true}}
 	</div>
 	{{/if}}
 </div>

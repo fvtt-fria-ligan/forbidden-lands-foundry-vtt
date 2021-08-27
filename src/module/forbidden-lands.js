@@ -8,6 +8,7 @@ import { registerSheets } from "./hooks/sheets.js";
 import FBL from "./system/config.js";
 import registerSettings from "./system/settings.js";
 import displayMessages from "./hooks/message-system.js";
+import FoundryOverrides from "./hooks/foundry-overrides.js";
 import { YearZeroRollManager } from "./components/roll-engine/yzur";
 import { ForbiddenLandsD6, registerYZURLabels } from "./components/roll-engine/dice-labels";
 import { FBLRollHandler } from "./components/roll-engine/engine.js";
@@ -22,6 +23,7 @@ hookDebug: CONFIG.debug.hooks = true;
 console.warn("HOOKS DEBUG ENABLED: ", CONFIG.debug.hooks);
 
 Hooks.once("init", () => {
+	FoundryOverrides(); // Initialize Foundry Overrides
 	game.fbl = {
 		config: FBL,
 		roll: FBLRollHandler.createRoll,
@@ -86,12 +88,6 @@ Hooks.on("chatMessage", (_html, content, _msg) => {
 });
 
 Hooks.on("renderItemSheet", function (app, html) {
-	html.find("textarea").each(function () {
-		if (this.value) {
-			this.setAttribute("style", "height:" + this.scrollHeight + "px;overflow-y:hidden;");
-			this.readOnly = true;
-		}
-	});
 	app._element[0].style.height = "auto";
 
 	/**
