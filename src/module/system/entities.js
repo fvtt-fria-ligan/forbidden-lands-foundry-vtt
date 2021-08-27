@@ -160,14 +160,16 @@ export class ForbiddenLandsItem extends Item {
 			if (match) {
 				if (mod.value.match(/\d?d8|10|12/i)) mod = mod.value;
 				else mod = Number(mod.value);
-				return [
-					...array,
-					{
-						name: this.name,
-						value: typeof mod === "string" || mod > 0 ? `+${mod}` : mod.toFixed(),
-						active: mod < 0 ? true : false,
-					},
-				];
+				if (!mod) return array;
+				else
+					return [
+						...array,
+						{
+							name: this.name,
+							value: typeof mod === "string" || mod > 0 ? `+${mod}` : mod.toFixed(),
+							active: mod < 0 ? true : false,
+						},
+					];
 			} else return array;
 		}, []);
 

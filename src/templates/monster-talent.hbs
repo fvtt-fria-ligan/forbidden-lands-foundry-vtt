@@ -11,8 +11,8 @@
 		</div>
 		<div class="item">
 			<div class="monster-description">
-				<label>{{localize "MONSTER.DESCRIPTION"}}</label>
-				<textarea name="data.description">{{data.description}}</textarea>
+				<label>{{localize "MONSTER.DESCRIPTION"}}</label>{{editor target="data.description"
+				content=data.description owner=owner button=true editable=true}}
 			</div>
 		</div>
 	</div>

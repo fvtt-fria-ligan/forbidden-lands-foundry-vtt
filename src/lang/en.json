@@ -95,6 +95,8 @@
 	"CURRENCY.GOLD": "Gold",
 	"CURRENCY.SILVER": "Silver",
 	"DAMAGE": "Damage",
+
+	"DICE.ARTIFACT": "Artifact",
 	"DICE.ARTIFACTS": "Artifacts",
 	"DICE.SUCCESSES": "Successes",
 	"DICE.BANES": "Banes",
@@ -257,6 +259,9 @@
 	"WARNING.NO_ARMOR": "You have no armor equipped!",
 	"WARNING.NO_CONSUMABLE": "You have no Consumable of this type left!",
 	"WARNING.NO_WILLPOWER": "You do not have enough Willpower to cast a spell!",
+	"WARNING.NO_DICE_INPUT": "No inputs detected. Please specify what dice to roll.",
+	"WARNING.INVALID_ARTIFACT": "Invalid Artifact dice. Please input artifact dice like so \"1d8+1d12\".",
+
 	"WEAPON.1H": "1H",
 	"WEAPON.2H": "2H",
 	"WEAPON.BONUS": "Bonus",
