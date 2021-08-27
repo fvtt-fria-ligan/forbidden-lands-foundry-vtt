@@ -15,7 +15,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 		return mergeObject(super.defaultOptions, {
 			...super.defaultOptions,
 			classes: ["forbidden-lands", "sheet", "item"],
-			width: window.innerWidth * 0.12 + 250,
+			width: window.innerWidth * 0.08 + 350,
 			resizable: false,
 		});
 	}

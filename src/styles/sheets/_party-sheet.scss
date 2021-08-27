@@ -43,9 +43,8 @@
 }
 
 .party-member .entity-link {
-	margin-right: 4px;
+	padding: 0 6px;
 	line-height: 44px;
-
 	white-space: nowrap;
 	overflow-x: hidden;
 	text-overflow: ellipsis;
@@ -55,8 +54,7 @@
 }
 
 .party-member .plain-name {
-	margin-right: 4px;
-	margin-right: 4px;
+	margin-right: 6px;
 	line-height: 44px;
 
 	white-space: nowrap;

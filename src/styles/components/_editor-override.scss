@@ -1,87 +1,88 @@
 @use "utils";
 
+.app.sheet .editor {
+	min-height: 55px;
+	height: 100%;
+}
+
 .app.journal-sheet,
 .app.sheet.actor {
 	form {
 		display: flex;
 		flex-direction: column;
-		.editor {
-			min-height: 55px;
-			height: 100%;
-			.editor-content {
+		.editor-content {
+			width: 100%;
+			font-family: "IM Fell Great Primer";
+			font-size: var(--font-size--large);
+			line-height: 1.6;
+			text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+			color: #333;
+			padding: 0 3em;
+			display: flex;
+			flex-flow: column;
+			* {
+				max-width: 70ch;
+			}
+			#{utils.fromTo(h,1,6)} {
+				font-family: "IM Fell Three Line Pica";
+				text-transform: uppercase;
+				text-indent: 0px;
+				text-align: center;
+				border: unset;
+			}
+			h5 {
+				margin: 0px auto;
+				font-family: "IM Fell Three Line Pica";
+				text-transform: uppercase;
+				border-top: 1px solid black;
+				width: 18%;
+				padding-top: 4px;
+			}
+			p {
 				width: 100%;
-				font-family: "IM Fell Great Primer";
-				font-size: var(--font-size--large);
-				line-height: 1.6;
-				text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
-				color: #333;
-				padding: 0 3em;
-				display: flex;
-				flex-flow: column;
-				* {
-					max-width: 70ch;
-				}
-				#{utils.fromTo(h,1,6)} {
-					font-family: "IM Fell Three Line Pica";
-					text-transform: uppercase;
+			}
+			p + p {
+				text-indent: 14px;
+				margin-top: -0.5em;
+				a.entity-link {
 					text-indent: 0px;
-					text-align: center;
-					border: unset;
 				}
-				h5 {
-					margin: 0px auto;
-					font-family: "IM Fell Three Line Pica";
-					text-transform: uppercase;
-					border-top: 1px solid black;
-					width: 18%;
-					padding-top: 4px;
-				}
-				p {
-					width: 100%;
-				}
-				p + p {
-					text-indent: 14px;
-					margin-top: -0.5em;
-					a.entity-link {
-						text-indent: 0px;
-					}
-				}
-				blockquote {
-					margin: 20px auto;
-					max-width: 55ch;
-					padding: 0 50px;
-					font-size: 2.4rem;
-					font-style: italic;
-					border: unset;
-				}
-				table {
+			}
+			blockquote {
+				margin: 20px auto;
+				max-width: 55ch;
+				padding: 0 50px;
+				font-size: 2.4rem;
+				font-style: italic;
+				border: unset;
+			}
+			table {
+				font-family: "Poppins";
+				font-size: var(--font-size--small);
+				line-height: 1;
+				padding: 25px 0;
+				max-width: 100%;
+				border: none;
+				border-collapse: collapse;
+				margin: auto;
+				margin-bottom: 15px;
+				h4 {
 					font-family: "Poppins";
-					font-size: var(--font-size--small);
-					line-height: 1;
-					padding: 25px 0;
-					max-width: 100%;
-					border: none;
-					border-collapse: collapse;
-					margin: auto;
-					margin-bottom: 15px;
-					h4 {
-						font-family: "Poppins";
-						font-weight: bold;
-						margin: 0;
-						text-align: left;
-						text-transform: uppercase;
-					}
-					tr:nth-child(2) {
-						border-top: 1px solid #7a7971;
-					}
-					tr:nth-child(even) {
-						background-color: rgb(170, 170, 170);
-					}
-					td {
-						padding-right: 10px;
-						p {
-							text-indent: 0;
-						}
+					font-weight: bold;
+					margin: 0;
+					text-align: left;
+					text-transform: uppercase;
+				}
+				tr:nth-child(2) {
+					border-top: 1px solid #7a7971;
+				}
+				tr:nth-child(even) {
+					background-color: rgb(170, 170, 170);
+				}
+				td {
+					padding-right: 10px;
+					p {
+						text-indent: 0;
 					}
 				}
 			}
@@ -112,12 +113,14 @@
 
 .editor:focus .editor-edit,
 .editor:hover .editor-edit {
-	background: #cccc;
+	background: #cccd;
 	border: none;
 	box-shadow: 0 0 3px #1119;
-	transform: translate(-6px, 4px);
-	line-height: 1;
-	padding: 0.3rem;
+	right: 10px;
+	width: 24px;
+	height: 24px;
+	display: grid;
+	place-content: center;
 
 	i {
 		font-size: 1.5rem;

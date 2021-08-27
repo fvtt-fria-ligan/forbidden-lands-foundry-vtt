@@ -60,7 +60,7 @@
 
 .fa-fist-raised {
 	font-family: Swordlings;
-	transform: translateX(1.3px);
+	transform: translate(1.3px, -0.6px);
 	font-size: 1.5rem;
 	&:before {
 		content: "x";
@@ -83,12 +83,18 @@ h3 {
 
 .window-app {
 	.window-resizable-handle {
-		background: #ccc;
+		background: none;
 		border: none;
-		transform: translate(10px, 10px);
+		width: 19px;
+		height: 19px;
+		transform: translate(12px, 12px);
+
+		&:hover {
+			text-shadow: 0 0 5px #a00;
+		}
 
 		i.fas {
-			transform: translate(1px, -1.5px) rotate(45deg);
+			transform: translateY(-1.5px) rotate(45deg);
 		}
 	}
 	&.image-popout {
