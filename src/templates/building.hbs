@@ -31,11 +31,11 @@
 			</div>
 			<div class="effect">
 				<label>{{localize "BUILDING.EFFECT"}}</label>
-				<textarea name="data.effect" type="text">{{data.effect}}</textarea>
+				{{editor target="data.effect" content=data.effect owner=owner button=true editable=true}}
 			</div>
 			<div class="building-description">
 				<label>{{localize "BUILDING.DESCRIPTION"}}</label>
-				<textarea name="data.description">{{data.description}}</textarea>
+				{{editor target="data.description" content=data.description owner=owner button=true editable=true}}
 			</div>
 		</div>
 	</div>

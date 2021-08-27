@@ -1,3 +1,9 @@
+// Foundry Override. Need this to scale the dice images without messing up normal result widths (WHY YOU HARDCODE SO MANY VALUES FOUNDRY!!!)
+.dice-tooltip .dice-rolls .roll {
+	width: unset;
+	min-width: 24px;
+}
+
 .chat-message .message-content .dice-roll {
 	font-family: var(--font-table);
 	background: var(--color-secondary);
@@ -82,7 +88,7 @@
 
 		.dice-rolls {
 			.roll {
-				width: 3.5rem;
+				max-width: 3.5rem;
 				margin: 0 0.3rem;
 				border-radius: 2px;
 				filter: drop-shadow(0 0 2px #1119);

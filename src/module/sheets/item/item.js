@@ -15,7 +15,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 		return mergeObject(super.defaultOptions, {
 			...super.defaultOptions,
 			classes: ["forbidden-lands", "sheet", "item"],
-			width: window.innerWidth * 0.12 + 250,
+			width: window.innerWidth * 0.08 + 350,
 			resizable: false,
 		});
 	}
@@ -68,9 +68,10 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 			// To preserve order, make sure the new index is the highest
 			let modifierId = Math.max(-1, ...Object.getOwnPropertyNames(rollModifiers)) + 1;
 			let update = {};
+			// Using a default value of Strength and 1 in order NOT to create an empty modifier.
 			update[`data.rollModifiers.${modifierId}`] = {
-				name: "",
-				value: "",
+				name: "ATTRIBUTE.STRENGTH",
+				value: "+1",
 			};
 			await this.item.update(update);
 		});
@@ -112,36 +113,6 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 			if (CONFIG.fbl.weaponFeatures.includes(featureName))
 				this.object.update({ [`data.features.${featureName}`]: !features[featureName] });
 			this._render();
-		});
-		html.find("textarea").on("input blur contextmenu dblclick mouseover mouseout", (ev) => {
-			if (game.user.isGM || this.object.isOwned) {
-				const element = ev.currentTarget;
-				const legend = document.createElement("legend");
-				legend.classList.add("legend");
-				legend.innerText = game.i18n.localize("SHEET.TEXTAREA_EDIT");
-				switch (ev.type) {
-					case "mouseover":
-						if (element.readOnly) {
-							element.after(legend);
-							setTimeout(() => (legend.style.opacity = "1"), 100);
-						}
-						break;
-					case "mouseout":
-						$("textarea ~ legend").remove();
-						break;
-					case "input":
-						element.style.height = element.scrollHeight + "px";
-						break;
-					case "blur":
-						element.readOnly = true;
-						break;
-					case "contextmenu":
-					case "dblclick":
-						element.readOnly = false;
-						$("textarea ~ legend").remove();
-						break;
-				}
-			}
 		});
 	}
 
