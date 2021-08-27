@@ -597,7 +597,7 @@ YearZeroRollManager.registerRoll = function (cls = FBLRoll, i = 1) {
 export class FBLRoll extends YearZeroRoll {
 	constructor(formula, data = {}, options = {}) {
 		super(formula, data, options);
-		this.type = data.type || "yz";
+		this.type = options.type || "yz";
 	}
 
 	get damage() {

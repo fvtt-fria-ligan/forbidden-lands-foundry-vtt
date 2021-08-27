@@ -155,16 +155,33 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	/***        Character Specific Rolls          ***/
 	/************************************************/
 
+	async rollConsumable(identifier) {
+		const consumable = this.actor.consumables[identifier];
+		if (!consumable.value) return ui.notifications.warn(localizeString("WARNING.NO_CONSUMABLE"));
+		const rollName = localizeString(consumable.label);
+		const dice = CONFIG.fbl.consumableDice[consumable.value];
+		const options = {
+			name: rollName.toLowerCase(),
+			maxPush: "0",
+			type: "consumable",
+			...this.getRollOptions(),
+		};
+		const roll = FBLRoll.create(dice + `[${rollName}]`, {}, options);
+		await roll.roll({ async: true });
+		return roll.toMessage();
+	}
+
 	async rollPride() {
 		if (this.actor.isBroken) throw this.broken();
 		const pride = this.actor.actorProperties.bio.pride;
 		const rollName = localizeString(pride.label);
-		const data = {
+		const options = {
 			name: rollName,
 			flavor: `<span class="chat-flavor">${pride.value}</span>`,
 			maxPush: "0",
+			...this.getRollOptions(),
 		};
-		const roll = FBLRoll.create(CONFIG.fbl.prideDice + `[${rollName}]`, data, this.getRollOptions());
+		const roll = FBLRoll.create(CONFIG.fbl.prideDice + `[${rollName}]`, {}, options);
 		await roll.roll({ async: true });
 		return roll.toMessage();
 	}
@@ -189,13 +206,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 					label: game.i18n.localize("SHEET.HEADER.ROLL"),
 					class: "custom-roll",
 					icon: "fas fa-dice",
-					onclick: () => "",
-				},
-				{
-					label: game.i18n.localize("SHEET.HEADER.PUSH"),
-					class: "push-roll",
-					icon: "fas fa-skull",
-					onclick: () => this.diceRoller.push(this.diceRoller),
+					onclick: () => this.rollAction("ACTION.GENERIC"),
 				},
 				{
 					label: game.i18n.localize("SHEET.HEADER.CHAR_GEN"),
