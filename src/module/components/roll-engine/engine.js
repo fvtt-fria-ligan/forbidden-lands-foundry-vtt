@@ -314,6 +314,8 @@ export class FBLRollHandler extends FormApplication {
 		this.g = gear;
 		this.a = artifact;
 		this.modifier = modifier;
+		// Handle automatically rolling arrow dice on ranged attacks.
+		this.handleRollArrows();
 		return this.executeRoll();
 	}
 
@@ -381,45 +383,22 @@ export class FBLRollHandler extends FormApplication {
 		};
 	}
 
-	static async rollConsumable(actor, identifier, options) {
-		const consumable = actor.consumables[identifier];
-		if (!consumable.value) return ui.notifications.warn(localizeString("WARNING.NO_CONSUMABLE"));
-		const rollName = localizeString(consumable.label);
-		const dice = CONFIG.fbl.consumableDice[consumable.value];
-		const data = {
-			name: rollName.toLowerCase(),
-			maxPush: "0",
-			type: "consumable",
-		};
-		const roll = FBLRoll.create(dice + `[${rollName}]`, data, options);
-		await roll.roll({ async: true });
-		return roll.toMessage();
-	}
-
-	async rollConsumableArrowDice() {
-		const { itemId, actorId, tokenId } = this.getRollOptions();
-		const item = game.actors.get(actorId).items.get(itemId) || game.actors.tokens[tokenId].items.get(itemId);
-		const isRangedGear = item.data.data.category === "ranged";
-		const hasArrows = item.data.data.rangeItem === "arrows";
-
-		if (isRangedGear && hasArrows) {
-			const options = this.getRollOptions();
-			const message = await FBLRollHandler.rollConsumable(game.actors.get(actorId), "arrows", options);
-			const {
-				data: { roll },
-			} = message;
-			const { terms } = JSON.parse(roll);
-			const { result } = terms.shift().results.shift();
-			return result <= 2 ? FBLRollHandler.decreaseConsumable(message.id) : message;
-		}
-
-		return null;
+	async handleRollArrows() {
+		const isCharacter = this.options.actorType === "character";
+		const isRanged = this.gear.category === "ranged";
+		const hasArrows = this.gear.ammo === "arrows";
+		if (!(isCharacter && isRanged && hasArrows)) return;
+		const actor = this.constructor.getSpeaker({
+			actor: this.options.actorId,
+			scene: this.options.sceneId,
+			token: this.options.tokenId,
+		});
+		return setTimeout(() => actor.sheet.rollConsumable("arrows"), 500);
 	}
 
 	/**
 	 * Takes rollData and rollOptions objects and produces a YZUR roll that is evaluated and sent to chat.
 	 * @returns ChatMessage
-	 * @see getRollData
 	 * @see getRollOptions
 	 * @see ChatMessage
 	 */
@@ -441,7 +420,6 @@ export class FBLRollHandler extends FormApplication {
 		if (this.modifier) await roll.modify(this.modifier);
 		// Roll the dice!
 		await roll.roll({ async: true });
-		this.rollConsumableArrowDice();
 		return roll.toMessage();
 	}
 
@@ -568,13 +546,11 @@ export class FBLRollHandler extends FormApplication {
 		} = game.messages.get(messageId);
 
 		speaker = this.getSpeaker(speaker);
-		if (speaker?.object instanceof Token) speaker = speaker.actor;
+		if (!speaker) return console.error("Could not decrease consumable: No actor found.");
 
-		let value = speaker.consumables[consumable]?.value;
-		if (value <= 6) value = 0;
-		else value -= 2;
-
-		return await speaker.update({ [`data.consumable.${consumable}.value`]: value });
+		const currentValue = speaker?.consumables[consumable]?.value;
+		const newValue = Math.max(currentValue - 1, 0);
+		return await speaker.update({ [`data.consumable.${consumable}.value`]: newValue });
 	}
 }
 

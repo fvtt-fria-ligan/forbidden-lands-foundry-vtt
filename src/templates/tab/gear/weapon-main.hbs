@@ -46,11 +46,11 @@
 	</div>
 	{{#if (eq data.category "ranged")}}
 	<div>
-		<label>{{localize "WEAPON.RANGE_ITEM"}}</label>
-		<select name="data.rangeItem">
-			{{#select data.rangeItem}}
-			<option value="others">{{ localize "WEAPON.RANGE_ITEM_OTHERS" }}</option>
-			<option value="arrows">{{ localize "WEAPON.RANGE_ITEM_ARROWS"}}</option>
+		<label>{{localize "WEAPON.AMMO"}}</label>
+		<select name="data.ammo">
+			{{#select data.ammo}}
+			<option value="other">{{ localize "WEAPON.AMMO_OTHER" }}</option>
+			<option value="arrows">{{ localize "WEAPON.AMMO_ARROWS"}}</option>
 			{{/select}}
 		</select>
 	</div>
@@ -109,5 +109,5 @@
 <div class="roll-modifiers border">
 	<!-- prettier-ignore -->
 	{{! prettier-ignore }}
-	{{> systems/forbidden-lands/templates/partial/roll-modifiers.hbs }}
+{{> systems/forbidden-lands/templates/partial/roll-modifiers.hbs }}
 </div>
