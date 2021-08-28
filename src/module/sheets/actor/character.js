@@ -2,7 +2,7 @@
 import { ForbiddenLandsActorSheet } from "./actor.js";
 import { ForbiddenLandsCharacterGenerator } from "../../components/character-generator/character-generator.js";
 import localizeString from "../../utils/localize-string";
-import { FBLRoll } from "../../components/roll-engine/engine.js";
+import { FBLRoll, FBLRollHandler } from "../../components/roll-engine/engine.js";
 export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
@@ -168,7 +168,10 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 		};
 		const roll = FBLRoll.create(dice + `[${rollName}]`, {}, options);
 		await roll.roll({ async: true });
-		return roll.toMessage();
+		const message = await roll.toMessage();
+		if (Number(message.roll.result) <= (game.settings.get("forbidden-lands", "autoDecreaseConsumable") || 0)) {
+			FBLRollHandler.decreaseConsumable(message.id);
+		}
 	}
 
 	async rollPride() {
