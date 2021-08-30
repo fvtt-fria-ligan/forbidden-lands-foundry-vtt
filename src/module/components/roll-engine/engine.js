@@ -360,8 +360,11 @@ export class FBLRollHandler extends FormApplication {
 	 */
 	getRollOptions() {
 		const unlimitedPush = game.settings.get("forbidden-lands", "allowUnlimitedPush");
+		// Strictly speaking, unlimited push means 'Infinity' pushes,
+		// however Infinity is finicky to serialize.
+		// So we use a sufficiently large number instead.
 		// eslint-disable-next-line no-nested-ternary
-		const maxPush = unlimitedPush ? Infinity : this.options.actorType === "monster" ? "0" : 1;
+		const maxPush = unlimitedPush ? 10000 : this.options.actorType === "monster" ? "0" : 1;
 		return {
 			name: this.title,
 			maxPush: this.options.maxPush || maxPush,
@@ -446,18 +449,13 @@ export class FBLRollHandler extends FormApplication {
 	 * @returns pushes then updates actor or simply pushes the roll if no actor is presented.
 	 */
 	static async pushRoll(msg) {
-		const push = async () => {
-			await msg.roll.push({ async: true });
-			return msg.roll.toMessage();
-		};
+		const roll = msg.roll;
+		await roll.push({ async: true });
 
 		let speaker = this.getSpeaker(msg.data.speaker);
+		if (speaker) await this.updateActor(roll, speaker);
 
-		if (!speaker) return push();
-		else push();
-
-		if (msg.roll.pushed) return await this.updateActor(msg.roll, speaker);
-		else throw ui.notifications.error(localizeString("ERROR.NOT_PUSHED"));
+		return roll.toMessage();
 	}
 
 	/**
@@ -466,8 +464,11 @@ export class FBLRollHandler extends FormApplication {
 	 * @param {ActorData} speaker
 	 */
 	static async updateActor(roll, speaker) {
+		// We need to keep track of how much damage has been done to the actor in case it's a Dwarf and allowed unlimited pushes.
+		if (!roll.options.characterDamage) roll.options.characterDamage = { gear: 0, attribute: 0 };
 		if (roll.gearDamage) await this.applyGearDamage(roll, speaker);
 		if (roll.attributeTrauma) await this.applyAttributDamage(roll, speaker);
+		roll.options.characterDamage = { gear: roll.gearDamage || 0, attribute: roll.attributeTrauma || 0 };
 	}
 
 	/**
@@ -476,15 +477,19 @@ export class FBLRollHandler extends FormApplication {
 	 * @param {ActorData} speaker
 	 * @returns updates actor with attribute trauma.
 	 */
-	static async applyAttributDamage({ attributeTrauma, options: { attribute } = "" }, speaker) {
+	static async applyAttributDamage({ attributeTrauma, options: { attribute, characterDamage } }, speaker) {
+		let { attribute: appliedDamage } = characterDamage;
+		const currentDamage = attributeTrauma - appliedDamage;
+
 		let value = speaker?.attributes[attribute]?.value;
 		if (!value) return;
-		await this.modifyWillpower(speaker, attributeTrauma);
 
-		value = Math.max(value - attributeTrauma, 0);
+		await this.modifyWillpower(speaker, currentDamage);
+
+		value = Math.max(value - currentDamage, 0);
 
 		if (value === 0) ui.notifications.notify(localizeString("NOTIFY.YOU_ARE_BROKEN"));
-		if (value >= 0) return await speaker.update({ [`data.attribute.${attribute}.value`]: value });
+		await speaker.update({ [`data.attribute.${attribute}.value`]: value });
 	}
 
 	/**
@@ -493,15 +498,17 @@ export class FBLRollHandler extends FormApplication {
 	 * @param {ActorData} speaker
 	 * @returns updates actor with gear damage.
 	 */
-	static async applyGearDamage({ gearDamage, options: { itemId } = "" }, speaker) {
+	static async applyGearDamage({ gearDamage, options: { itemId, characterDamage } }, speaker) {
+		let { gear: appliedDamage } = characterDamage;
+		const currentDamage = gearDamage - appliedDamage;
+
 		const item = speaker.items.get(itemId);
 		if (!item) return;
 
-		const value = Math.max(item?.bonus - gearDamage, 0);
+		const value = Math.max(item?.bonus - currentDamage, 0);
 
 		if (value === 0) ui.notifications.notify(localizeString("NOTIFY.YOUR_ITEM_BROKE"));
-		if (value >= 0)
-			return await speaker.updateEmbeddedDocuments("Item", [{ _id: itemId, "data.bonus.value": value }]);
+		await speaker.updateEmbeddedDocuments("Item", [{ _id: itemId, "data.bonus.value": value }]);
 	}
 
 	/**
