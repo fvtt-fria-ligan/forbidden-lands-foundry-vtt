@@ -13,7 +13,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			scrollY: [
 				".armors .item-list .items",
 				".critical-injuries .item-list .items",
-				".gears.item-list .items",
+				".gears .item-list .items",
 				".spells .item-list .items",
 				".talents .item-list .items",
 				".weapons .item-list .items",
@@ -34,7 +34,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	}
 
 	getData() {
-		const actorData = this.actorData.toObject();
+		const actorData = super.getData();
 		this.computeSkills(actorData);
 		this.computeItems(actorData);
 		this.computeEncumbrance(actorData);

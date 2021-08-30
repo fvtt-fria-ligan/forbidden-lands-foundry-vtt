@@ -27,8 +27,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 	}
 
 	getData() {
-		const superData = super.getData();
-		const actorData = superData.data;
+		const actorData = super.getData();
 		this.computeSkills(actorData);
 		this.computeItems(actorData);
 		this.computeEncumbrance(actorData);

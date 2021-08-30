@@ -5,6 +5,12 @@ import localizeString from "../../utils/localize-string";
 export class ForbiddenLandsActorSheet extends ActorSheet {
 	altInteraction = game.settings.get("forbidden-lands", "alternativeSkulls");
 
+	getData() {
+		const data = this.actorData.toObject();
+		data.items?.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+		return data;
+	}
+
 	get actorData() {
 		return this.actor.data;
 	}

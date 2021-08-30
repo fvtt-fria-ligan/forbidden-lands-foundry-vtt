@@ -8,7 +8,7 @@ export class ForbiddenLandsStrongholdSheet extends ForbiddenLandsActorSheet {
 			width: 650,
 			height: 700,
 			resizable: false,
-			scrollY: [".buildings.item-list .items", ".hirelings.item-list .items", ".gears.item-list .items"],
+			scrollY: [".buildings.item-list .items", ".hirelings.item-list .items", ".gears.item-listing .items"],
 			tabs: [
 				{
 					navSelector: ".sheet-tabs",
@@ -20,8 +20,7 @@ export class ForbiddenLandsStrongholdSheet extends ForbiddenLandsActorSheet {
 	}
 
 	getData() {
-		const superData = super.getData();
-		const actorData = superData.data;
+		const actorData = super.getData();
 		this._computeItems(actorData);
 		return actorData;
 	}
