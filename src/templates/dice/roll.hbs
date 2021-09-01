@@ -18,7 +18,7 @@
 				<span class="special-number" title="{{localize "DICE.SUCCESSES"}}">
 					{{success}}
 				</span>
-				{{#if roll.options.isAttack}}
+				{{#if (and roll.options.isAttack (gt success 0))}}
 					&nbsp;|&nbsp;
 					<i class="fas fa-tint" title="{{localize "DAMAGE"}}"></i>
 					<span class="special-number" title="{{localize "DAMAGE"}}">

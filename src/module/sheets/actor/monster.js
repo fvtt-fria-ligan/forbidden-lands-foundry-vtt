@@ -67,11 +67,12 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 	async rollSpecificAttack(attackId) {
 		if (this.actor.isBroken) throw this.broken();
 		const attack = this.actor.items.get(attackId);
-		const data = {
+		const options = {
 			name: attack.name,
 			maxPush: "0",
+			...this.getRollOptions(),
 		};
-		const roll = FBLRoll.create(`${attack.data.data.dice}ds[${attack.name}]`, data, this.getRollOptions());
+		const roll = FBLRoll.create(`${attack.data.data.dice}ds[${attack.name}]`, {}, options);
 		await roll.roll({ async: true });
 		return roll.toMessage();
 	}
@@ -80,11 +81,12 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 	async rollArmor() {
 		const armor = this.actorProperties.armor;
 		const rollName = `${localizeString("ITEM.TypeArmor")}: ${this.actor.name}`;
-		const data = {
+		const options = {
 			name: rollName,
 			maxPush: "0",
+			...this.getRollOptions(),
 		};
-		const roll = FBLRoll.create(`${armor.value}dg[${rollName}]`, data, this.getRollOptions());
+		const roll = FBLRoll.create(`${armor.value}dg[${rollName}]`, {}, options);
 		await roll.roll({ async: true });
 		return roll.toMessage();
 	}
@@ -142,7 +144,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 					label: game.i18n.localize("SHEET.HEADER.ROLL"),
 					class: "custom-roll",
 					icon: "fas fa-dice",
-					onclick: () => "",
+					onclick: () => this.rollAction("ACTION.GENERIC"),
 				},
 			].concat(buttons);
 		}
