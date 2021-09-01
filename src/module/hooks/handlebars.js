@@ -226,19 +226,28 @@ function registerHandlebarsHelpers() {
 		// strip tags, add <br/> tags
 		return new Handlebars.SafeString(value.replace(/(<([^>]+)>)/gi, "").replace(/(?:\r\n|\r|\n)/g, "<br/>"));
 	});
+
 	Handlebars.registerHelper("toUpperCase", function (str) {
 		return str.toUpperCase();
 	});
+
 	Handlebars.registerHelper("eq", function () {
 		const args = Array.prototype.slice.call(arguments, 0, -1);
 		return args.every(function (expression) {
 			return args[0] === expression;
 		});
 	});
+
 	Handlebars.registerHelper("or", function () {
 		const args = Array.prototype.slice.call(arguments, 0, -1);
 		return args.reduce((x, y) => x || y);
 	});
+
+	Handlebars.registerHelper("and", function () {
+		const args = Array.prototype.slice.call(arguments, 0, -1);
+		return args.reduce((x, y) => x && y);
+	});
+
 	Handlebars.registerHelper("isMonsterTypeMount", function (type) {
 		return type === "mount";
 	});

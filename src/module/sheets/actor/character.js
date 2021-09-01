@@ -168,7 +168,10 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 		};
 		const roll = FBLRoll.create(dice + `[${rollName}]`, {}, options);
 		await roll.roll({ async: true });
-		return roll.toMessage();
+		const message = await roll.toMessage();
+		if (Number(message.roll.result) <= (game.settings.get("forbidden-lands", "autoDecreaseConsumable") || 0)) {
+			FBLRollHandler.decreaseConsumable(message.id);
+		}
 	}
 
 	async rollPride() {
