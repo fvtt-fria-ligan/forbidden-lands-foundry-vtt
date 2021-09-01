@@ -7,7 +7,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			classes: ["forbidden-lands", "sheet", "actor"],
-			width: 700,
+			width: "auto",
 			height: 780,
 			resizable: false,
 			scrollY: [
@@ -65,7 +65,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 
 		html.find(".roll-consumable").click((ev) => {
 			const consumable = $(ev.currentTarget).data("consumable");
-			return this.rollConsumable(consumable);
+			return FBLRollHandler.rollConsumable(this.actor, consumable, this.getRollOptions());
 		});
 
 		html.find("#pride-roll-btn").click(() => this.rollPride());
@@ -99,21 +99,6 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 				});
 			}
 		});
-	}
-
-	computeSkills(data) {
-		for (let skill of Object.values(data.data.skill)) {
-			skill[`has${skill?.attribute?.capitalize()}`] = false;
-			if (CONFIG.fbl.attributes.includes(skill.attribute)) skill[`has${skill.attribute.capitalize()}`] = true;
-		}
-	}
-
-	computeItems(data) {
-		for (const item of Object.values(data.items)) {
-			// Shields were long treated as armor. They are not. This is a workaround for that.
-			if (item.data.part === "shield") item.isWeapon = true;
-			else if (CONFIG.fbl.itemTypes.includes(item.type)) item[`is${item.type.capitalize()}`] = true;
-		}
 	}
 
 	computeEncumbrance(data) {

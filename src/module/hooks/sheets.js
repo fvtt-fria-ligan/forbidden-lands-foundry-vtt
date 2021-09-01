@@ -9,7 +9,6 @@ import { ForbiddenLandsRawMaterialSheet } from "../sheets/item/raw-material.js";
 import { ForbiddenLandsSpellSheet } from "../sheets/item/spell.js";
 import { ForbiddenLandsTalentSheet } from "../sheets/item/talent.js";
 import { ForbiddenLandsCriticalInjurySheet } from "../sheets/item/critical-injury.js";
-import { ForbiddenLandsMonsterTalentSheet } from "../sheets/item/monster-talent.js";
 import { ForbiddenLandsMonsterAttackSheet } from "../sheets/item/monster-attack.js";
 import { ForbiddenLandsBuildingSheet } from "../sheets/item/building.js";
 import { ForbiddenLandsHirelingSheet } from "../sheets/item/hireling.js";
@@ -35,10 +34,6 @@ export function registerSheets() {
 	Items.registerSheet("forbidden-lands", ForbiddenLandsTalentSheet, { types: ["talent"], makeDefault: true });
 	Items.registerSheet("forbidden-lands", ForbiddenLandsCriticalInjurySheet, {
 		types: ["criticalInjury"],
-		makeDefault: true,
-	});
-	Items.registerSheet("forbidden-lands", ForbiddenLandsMonsterTalentSheet, {
-		types: ["monsterTalent"],
 		makeDefault: true,
 	});
 	Items.registerSheet("forbidden-lands", ForbiddenLandsMonsterAttackSheet, {

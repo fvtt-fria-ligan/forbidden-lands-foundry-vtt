@@ -42,12 +42,19 @@ export default function registerSettings() {
 		type: Array,
 	});
 	game.settings.register("forbidden-lands", "allowUnlimitedPush", {
-		name: game.i18n.localize("FLPS.SETTINGS.ALLOW_PUSH"),
-		hint: game.i18n.localize("FLPS.SETTINGS.ALLOW_PUSH_HINT"),
+		name: "FLPS.SETTINGS.ALLOW_PUSH",
+		hint: "FLPS.SETTINGS.ALLOW_PUSH_HINT",
 		scope: "client",
 		config: true,
 		default: false,
 		type: Boolean,
+	});
+	game.settings.register("forbidden-lands", "autoDecreaseConsumable", {
+		name: "CONFIG.AUTO_DECREASE_CONSUMABLE",
+		hint: "CONFIG.AUTO_DECREASE_CONSUMABLE_DESC",
+		config: true,
+		default: 2,
+		type: Number,
 	});
 	game.settings.register("forbidden-lands", "alternativeSkulls", {
 		name: "CONFIG.ALTERNATIVESKULLS",
@@ -59,8 +66,8 @@ export default function registerSettings() {
 		type: Boolean,
 	});
 	game.settings.register("forbidden-lands", "datasetDir", {
-		name: game.i18n.localize("FLCG.SETTINGS.DATASET_DIR"),
-		hint: game.i18n.localize("FLCG.SETTINGS.DATASET_DIR_HINT"),
+		name: "FLCG.SETTINGS.DATASET_DIR",
+		hint: "FLCG.SETTINGS.DATASET_DIR_HINT",
 		scope: "world",
 		config: true,
 		default: "",

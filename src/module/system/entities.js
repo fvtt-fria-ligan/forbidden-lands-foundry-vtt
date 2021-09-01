@@ -43,6 +43,7 @@ export class ForbiddenLandsActor extends Actor {
 	}
 
 	getRollModifierOptions(...rollIdentifiers) {
+		if (!rollIdentifiers.length) return [];
 		return this.items.reduce((array, item) => {
 			const modifiers = item.getRollModifier(...rollIdentifiers);
 			if (modifiers) array = [...array, ...modifiers];
@@ -95,6 +96,9 @@ export class ForbiddenLandsActor extends Actor {
 }
 
 export class ForbiddenLandsItem extends Item {
+	get ammo() {
+		return this.itemProperties.ammo;
+	}
 	get artifactDie() {
 		return this.itemProperties.artifactBonus;
 	}
@@ -140,6 +144,7 @@ export class ForbiddenLandsItem extends Item {
 	/* Override */
 	getRollData() {
 		return {
+			ammo: this.ammo,
 			artifactDie: this.artifactDie,
 			value: this.bonus || 0,
 			category: this.category,

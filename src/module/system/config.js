@@ -43,10 +43,10 @@ FBL.actionModifiers = {
 FBL.attributes = ["agility", "empathy", "strength", "wits"];
 
 FBL.consumableDice = {
-	6: "1db",
-	8: "1d8",
-	10: "1d10",
-	12: "1d12",
+	1: "1db",
+	2: "1d8",
+	3: "1d10",
+	4: "1d12",
 };
 
 FBL.conditions = ["cold", "hungry", "sleepy", "thirsty"];
@@ -125,7 +125,6 @@ FBL.itemTypes = [
 	"gear",
 	"hireling",
 	"monsterAttack",
-	"monsterTalent",
 	"rawMaterial",
 	"spell",
 	"talent",

@@ -273,14 +273,13 @@
 	},
 	"Item": {
 		"types": [
-			"weapon",
 			"armor",
 			"gear",
+			"weapon",
 			"rawMaterial",
-			"talent",
 			"criticalInjury",
+			"talent",
 			"spell",
-			"monsterTalent",
 			"monsterAttack",
 			"building",
 			"hireling"
@@ -315,6 +314,7 @@
 		"weapon": {
 			"templates": ["bonus", "craftable", "rollModifiers", "artifact", "trade"],
 			"category": "melee",
+			"ammo": "other",
 			"skillBonus": "",
 			"damage": 1,
 			"features": {
@@ -371,9 +371,6 @@
 			"templates": ["bonus", "craftable", "trade"],
 			"cost": "",
 			"shelfLife": ""
-		},
-		"monsterTalent": {
-			"description": ""
 		},
 		"monsterAttack": {
 			"description": "",

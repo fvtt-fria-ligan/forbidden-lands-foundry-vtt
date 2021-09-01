@@ -1,7 +1,7 @@
 <form class="{{cssClass}}" autocomplete="off">
 	<div class="character">
 		<div class="bio border">
-			<div class="flex row align-center space-between">
+			<div class="flex row align-center space-around">
 				<div class="avatar">
 					<img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" />
 				</div>
@@ -25,34 +25,22 @@
 							<label>{{localize data.bio.age.label}}:</label>
 						</td>
 						<td>
-							<input
-								name="data.bio.age.value"
-								type="number"
-								value="{{data.bio.age.value}}"
-								data-dtype="Number"
-							/>
+							<input name="data.bio.age.value" type="number" value="{{data.bio.age.value}}"
+								data-dtype="Number" />
 						</td>
 						<td>
 							<label>{{localize data.bio.reputation.label}}:</label>
 						</td>
 						<td>
-							<input
-								name="data.bio.reputation.value"
-								type="number"
-								value="{{data.bio.reputation.value}}"
-								data-dtype="Number"
-							/>
+							<input name="data.bio.reputation.value" type="number" value="{{data.bio.reputation.value}}"
+								data-dtype="Number" />
 						</td>
 						<td>
 							<label>{{localize data.bio.profession.label}}:</label>
 						</td>
 						<td>
-							<input
-								class="profession"
-								name="data.bio.profession.value"
-								type="text"
-								value="{{data.bio.profession.value}}"
-							/>
+							<input class="profession" name="data.bio.profession.value" type="text"
+								value="{{data.bio.profession.value}}" />
 						</td>
 					</tr>
 					<tr>
@@ -60,35 +48,23 @@
 							<label>{{localize data.bio.experience.label}}:</label>
 						</td>
 						<td>
-							<input
-								name="data.bio.experience.value"
-								type="number"
-								value="{{data.bio.experience.value}}"
-								data-dtype="Number"
-							/>
+							<input name="data.bio.experience.value" type="number" value="{{data.bio.experience.value}}"
+								data-dtype="Number" />
 						</td>
 						<td>
 							<label>{{localize data.bio.willpower.label}}:</label>
 						</td>
 						<td>
-							<input
-								name="data.bio.willpower.value"
-								type="number"
-								value="{{data.bio.willpower.value}}"
-								min="{{data.bio.willpower.min}}"
-								max="{{data.bio.willpower.max}}"
-								data-dtype="Number"
-							/>
+							<input name="data.bio.willpower.value" type="number" value="{{data.bio.willpower.value}}"
+								min="{{data.bio.willpower.min}}" max="{{data.bio.willpower.max}}" data-dtype="Number" />
 						</td>
 						<td colspan="2">
 							<div
-								class="skulls willpower {{#unless data.bio.willpower.value }}broken{{/unless}} flex row align-center"
-							>
+								class="skulls willpower {{#unless data.bio.willpower.value }}broken{{/unless}} flex row align-center">
 								<a class="change-willpower">
 									{{#skulls data.bio.willpower.value data.bio.willpower.max}}
 									<i
-										class="skull {{#if @damaged}}far fa-circle{{else}}{{#if alternativeSkulls}} fas fa-circle {{else}} far fa-times-circle{{/if}}{{/if}}"
-									></i>
+										class="skull {{#if @damaged}}far fa-circle{{else}}{{#if alternativeSkulls}} fas fa-circle {{else}} far fa-times-circle{{/if}}{{/if}}"></i>
 									{{/skulls}}
 								</a>
 							</div>
@@ -111,32 +87,33 @@
 			<div class="tab" data-group="primary" data-tab="main">
 				<!-- prettier-ignore -->
 				{{! prettier-ignore }}
-{{> systems/forbidden-lands/templates/tab/main.hbs}}
+				{{> systems/forbidden-lands/templates/tab/main.hbs}}
 			</div>
 			<div class="tab" data-group="primary" data-tab="combat">
 				<!-- prettier-ignore -->
 				{{! prettier-ignore }}
-{{> systems/forbidden-lands/templates/tab/combat.hbs}}
+				{{> systems/forbidden-lands/templates/tab/combat.hbs}}
 			</div>
 			<div class="tab" data-group="primary" data-tab="talent">
 				<!-- prettier-ignore -->
 				{{! prettier-ignore }}
-{{> systems/forbidden-lands/templates/tab/talent.hbs}}
+				{{> systems/forbidden-lands/templates/tab/talent.hbs}}
 			</div>
 			<div class="tab" data-group="primary" data-tab="gear">
 				<!-- prettier-ignore -->
 				{{! prettier-ignore }}
-{{> systems/forbidden-lands/templates/tab/gear-character.hbs}}
+				{{> systems/forbidden-lands/templates/tab/gear-character.hbs}}
 			</div>
 			<div class="tab" data-group="primary" data-tab="bio">
 				<!-- prettier-ignore -->
 				{{! prettier-ignore }}
-{{> systems/forbidden-lands/templates/tab/bio.hbs}}
+				{{> systems/forbidden-lands/templates/tab/bio.hbs}}
 			</div>
 			<div class="tab note" data-group="primary" data-tab="note">
 				<!-- prettier-ignore -->
 				{{! prettier-ignore }}
-{{editor content=data.bio.note.value target="data.bio.note.value" button=true owner=owner editable=true}}
+				{{editor content=data.bio.note.value target="data.bio.note.value" button=true owner=owner
+				editable=true}}
 			</div>
 		</div>
 	</div>
