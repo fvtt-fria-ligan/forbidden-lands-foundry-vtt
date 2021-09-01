@@ -12,6 +12,7 @@
 	"ACTOR.TypeCharacter": "Personnage",
 	"ACTOR.TypeMonster": "Monstre",
 	"ACTOR.TypeStronghold": "Forteresse",
+	"ACTOR.TypeParty": "Groupe",
 
 	"ARMOR.BODY": "Corps",
 	"ARMOR.HELMET": "Heaume",
@@ -102,6 +103,7 @@
 
 	"GEAR.BONUS": "Bonus",
 	"GEAR.COST": "Coût",
+	"GEAR.EFFECT": "Effet",
 	"GEAR.NAME": "Nom",
 	"GEAR.RAW_MATERIAL": "Matière première",
 	"GEAR.SUPPLY": "Quantité",
@@ -144,6 +146,7 @@
 	"ITEM.DELETE_MODIFIER": "Supprimer ce modificateur",
 	"ITEM.NO_MODIFIERS": "Aucun modificateur",
 	"ITEM.ROLL_MODIFIERS": "Modificateur de jet",
+	"ITEM.QUANTITY": "Quantité",
 	"ITEM.TypeArmor": "Armure",
 	"ITEM.TypeBuilding": "Bâtiment",
 	"ITEM.TypeCriticalinjury": "Blessure Critique",
@@ -175,9 +178,8 @@
 
 	"POWER_LEVEL": "Puissance",
 
-	"PUSH": "DOUBLER !",
-
-	"PUSHED": "Doublé",
+	"PUSH": "FORCER !",
+	"PUSHED": "Forcé",
 
 	"RANGE.ARM": "Contact",
 	"RANGE.DISTANT": "Lointaine",
@@ -188,8 +190,11 @@
 	"RAW_MATERIAL.SHELF_LIFE": "Durée de vie",
 
 	"SHEET.HEADER.POST_ITEM": "Poster dans le chat",
-	"SHEET.HEADER.PUSH": "Doubler",
 	"SHEET.HEADER.ROLL": "Jet",
+	"ROLL_MODIFIER.SELECT": "Sélectionner un modificateur",
+	"SHEET.HEADER.CHAR_GEN": "Chargen",
+	"SHEET.CLOSE": "Fermer",
+	"SHEET.CONFIGURE": "Configurer",
 
 	"SKILL.ANIMAL_HANDLING": "Dressage",
 	"SKILL.CRAFTING": "Artisanat",
@@ -268,5 +273,12 @@
 	"WEIGHT.REGULAR": "Moyen",
 	"WEIGHT.TINY": "Minuscule",
 	"WEIGHT.TYPE_REGULAR": "Classique",
-	"WEIGHT.TYPE_SPECIAL": "Spécial"
+	"WEIGHT.TYPE_SPECIAL": "Spécial",
+
+	"FLPS.SETTINGS.ALLOW_PUSH": "Nombre de jets forcés illimité",
+	"FLPS.SETTINGS.ALLOW_PUSH_HINT": "Si votre personnage est un nain, ou si votre MJ autorise un nombre illimité de jets forcés, OU si vous êtes un MJ qui veut pouvoir forcer les jets des PNJ, cochez ce paramètre pour afficher un bouton forcer sur les jets forcés.",
+	"FLPS.TAB.MAIN": "PRINCIPAL",
+	"FLPS.TAB.TRAVEL": "VOYAGE",
+	"FLPS.PARTY.NAME": "Nom de groupe",
+	"FLPS.PARTY.MEMBERS": "Membres du groupe"
 }
