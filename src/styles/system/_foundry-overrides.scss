@@ -82,6 +82,9 @@ h3 {
 }
 
 .window-app {
+	.window-content {
+		padding: 2px 4px;
+	}
 	.window-resizable-handle {
 		background: none;
 		border: none;
