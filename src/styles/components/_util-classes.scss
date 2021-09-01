@@ -23,28 +23,26 @@
 }
 
 .fbl-button {
-	background: var(--color-secondary);
+	background: #eee;
 	padding: 0.2em 2em;
 	font-weight: bold;
 	font-size: max(1rem, 100%);
-	border: none;
-	box-shadow: 0 0 2px #1116;
+	box-shadow: none;
+	border: 2px groove #eeec;
 	width: max(2em, 60%);
 	display: block;
 	margin: 0 auto;
 
-	&:focus {
-		box-shadow: 0 0 2px #1116;
-	}
-
 	&:hover,
-	&:focus-visible {
-		box-shadow: 0 0 2px #1113;
+	&:focus {
+		box-shadow: none;
+		border: 2px groove var(--color-highlight);
 		background: var(--color-highlight);
 	}
 
 	&:active {
-		box-shadow: inset 0 0 3px #1116;
+		box-shadow: none;
+		border: 2px ridge var(--color-highlight);
 	}
 }
 

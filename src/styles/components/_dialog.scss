@@ -88,7 +88,7 @@
 		padding: 1rem;
 		justify-items: center;
 
-		button[type=reset] {
+		button[type="reset"] {
 			background: transparent;
 		}
 
@@ -97,17 +97,28 @@
 			padding: 0.3em 2em;
 			font-weight: normal;
 			font-size: max(1rem, 100%);
-			border: 2px groove #f0f0e0;
+			border: 2px groove #e0e0e0;
 			width: 100%;
 			display: flex;
 			justify-content: center;
 			align-items: center;
+
+			&:hover,
+			&:focus {
+				box-shadow: none;
+				border: 2px groove var(--color-highlight);
+				background: var(--color-highlight);
+			}
+
+			&:active {
+				box-shadow: none;
+				border: 2px ridge var(--color-highlight);
+			}
 		}
 	}
 
-	input#artifact,
-	input#modifier {
-		width: 90%;
+	input#artifact {
+		width: 100%;
 	}
 
 	.display-numbers {
@@ -133,32 +144,33 @@
 
 .spell-dialog {
 	h2::before {
-    background: url(../assets/journal-art/pentagram-border.webp) no-repeat top center;
+		background: url(../assets/journal-art/pentagram-border.webp) no-repeat top center;
 	}
 }
 
-.attack-dialog{
+.attack-dialog {
 	h2::before {
-    background: url(../assets/journal-art/attack-border.webp) no-repeat top center;
+		background: url(../assets/journal-art/attack-border.webp) no-repeat top center;
 	}
 }
 
-.spell-dialog, .attack-dialog{
+.spell-dialog,
+.attack-dialog {
 	h2::before {
 		display: block;
-    content: "";
-    height: 56px;
-    background-size: 100%;
-    width: 77%;
+		content: "";
+		height: 56px;
+		background-size: 100%;
+		width: 77%;
 		margin: 0 auto;
 	}
 	h2::after {
-    background: url(../assets/journal-art/endstop.webp) center no-repeat;
-    content: "";
-    width: 147px;
-    height: 40px;
-    display: block;
-    background-size: 100%;
+		background: url(../assets/journal-art/endstop.webp) center no-repeat;
+		content: "";
+		width: 147px;
+		height: 40px;
+		display: block;
+		background-size: 100%;
 		margin: 0 auto;
 	}
 }
