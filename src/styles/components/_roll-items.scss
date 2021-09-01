@@ -121,9 +121,13 @@
 		font-size: 1.6rem;
 		font-weight: 600;
 		color: #444;
+
+		&:last-child {
+			padding-bottom: 8px;
+		}
 	}
 	.result {
-		font-size: 2rem;
+		font-size: 1.8rem;
 	}
 }
 

@@ -1,6 +1,5 @@
 <div class="dice-infos">
 	{{#if (eq roll.type "spell")}}
-		{{log roll}}
 		{{#if (or roll.baneCount roll.options.chance)}}
 			<div class="dice-info">
 				<span class="result">
@@ -14,7 +13,7 @@
 		{{/if}}
 	{{/if}}
 	{{#if roll.pushed}}
-		{{#if roll.attributeTrauma}}
+		{{#if (and roll.attributeTrauma attributeLabel)}}
 			<div class="dice-info">
 				<span class="result">
 					{{roll.attributeTrauma}}
@@ -25,7 +24,7 @@
 			</div>
 		{{/if}}
 
-		{{#if roll.gearDamage}}
+		{{#if (and roll.gearDamage gearLabel)}}
 			<div class="dice-info">
 				<span class="result">
 					{{roll.gearDamage}}
