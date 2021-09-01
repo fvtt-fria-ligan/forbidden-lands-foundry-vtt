@@ -125,7 +125,6 @@ FBL.itemTypes = [
 	"gear",
 	"hireling",
 	"monsterAttack",
-	"monsterTalent",
 	"rawMaterial",
 	"spell",
 	"talent",

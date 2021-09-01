@@ -181,7 +181,6 @@
 	"ITEM.TypeGear": "Gear",
 	"ITEM.TypeHireling": "Stronghold Hireling",
 	"ITEM.TypeMonsterattack": "Monster Attack",
-	"ITEM.TypeMonstertalent": "Monster Talent",
 	"ITEM.TypeRawmaterial": "Raw Material",
 	"ITEM.TypeSpell": "Spell",
 	"ITEM.TypeTalent": "Talent",
@@ -290,10 +289,12 @@
 	"TALENT.DESCRIPTION": "Description",
 	"TALENT.GENERAL": "General",
 	"TALENT.KIN": "Kin",
+	"TALENT.MONSTER": "Monster",
 	"TALENT.NAME": "Name",
 	"TALENT.PROFESSION": "Profession",
 	"TALENT.RANK": "Rank",
 	"TALENT.TYPE": "Type",
+	"TALENT.WEAKNESS": "Weakness",
 
 	"VALUE": "Value",
 
@@ -335,15 +336,15 @@
 	"WEIGHT.TYPE_SPECIAL": "Special",
 
 	"YZUR.DIETYPES.BaseDie": "Base Dice",
-	"YZUR.DIETYPES.SkillDie": "SKill Dice",
+	"YZUR.DIETYPES.SkillDie": "Skill Dice",
 	"YZUR.DIETYPES.GearDie": "Gear Dice",
 	"YZUR.DIETYPES.D8ArtifactDie": "D8 Aritfact",
 	"YZUR.DIETYPES.D10ArtifactDie": "D10 Aritfact",
 	"YZUR.DIETYPES.D12ArtifactDie": "D12 Aritfact",
 	"YZUR.DIETYPES.NegativeDie": "Negative Dice",
 
-	"FLPS.SETTINGS.ALLOW_PUSH": "Allow Unlimited Pushing",
-	"FLPS.SETTINGS.ALLOW_PUSH_HINT": "If your character is a dwarf, or maybe your GM allows an unlimited number of pushed rolls, OR you are a GM who wants to be able to push NPC rolls, check this setting to display a push button on pushed rolls.",
+	"FLPS.SETTINGS.ALLOW_PUSH": "Allow Unlimited Pushed Rolls",
+	"FLPS.SETTINGS.ALLOW_PUSH_HINT": "If your character is a Dwarf, or maybe your GM allows an unlimited number of pushed rolls. Or perhaps you are a GM who wants to be able to push Monster rolls; check this setting to display a push button on almost any roll.",
 
 	"FLPS.TAB.MAIN": "MAIN",
 	"FLPS.TAB.TRAVEL": "TRAVEL",

@@ -273,14 +273,13 @@
 	},
 	"Item": {
 		"types": [
-			"weapon",
 			"armor",
 			"gear",
+			"weapon",
 			"rawMaterial",
-			"talent",
 			"criticalInjury",
+			"talent",
 			"spell",
-			"monsterTalent",
 			"monsterAttack",
 			"building",
 			"hireling"
@@ -371,9 +370,6 @@
 			"templates": ["bonus", "craftable", "trade"],
 			"cost": "",
 			"shelfLife": ""
-		},
-		"monsterTalent": {
-			"description": ""
 		},
 		"monsterAttack": {
 			"description": "",

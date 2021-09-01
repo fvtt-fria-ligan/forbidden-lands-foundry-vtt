@@ -39,7 +39,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 	_computeQuality(data) {
 		data.artifact = !!data.data.artifactBonus;
 		data.lethal = data.data.lethal === "yes";
-		data.ranks = !data.data.type || data.data.type !== "kin";
+		data.ranks = data.data.type === "general" || data.data.type === "profession";
 	}
 
 	getData() {
