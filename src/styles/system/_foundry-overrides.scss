@@ -137,6 +137,11 @@ h3 {
 			}
 		}
 	}
+	// Override weirdly big settings input box for numbers
+	&#client-settings .settings-list input[data-dtype="Number"] {
+		max-width: 3rem;
+		text-align: center;
+	}
 }
 
 body,

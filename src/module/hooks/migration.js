@@ -1,103 +1,116 @@
 export const migrateWorld = async () => {
-	const schemaVersion = 5;
-	const systemVersion = Number(
-		game.system.data.version.split(".")[0], //Get the first whole integer in system version.
-	);
-	const trueWorldSchemaVersion = Number(game.settings.get("forbidden-lands", "worldSchemaVersion") || 0); //Moved to a separate variable due to this being an exposed setting that can be set to integer, float or string. This also sets 0 if it evaluates to NaN.
-	const worldSchemaVersion = trueWorldSchemaVersion <= systemVersion ? trueWorldSchemaVersion : systemVersion; //Intention here is to prevent worldSchema from being larger than systemversion preventing a migration and potentially "corrupting" the World.
-	if (worldSchemaVersion !== schemaVersion && game.user.isGM) {
+	let systemVersion;
+	let worldSchemaVersion;
+	try {
+		systemVersion = Number(
+			game.system.data.version.split(".")[0], //Get Major release version
+		);
+		// In older instances of the system the worldSchemaVersion was user-changeable. We therefore need to make sure we get a number.
+		worldSchemaVersion = Number(game.settings.get("forbidden-lands", "worldSchemaVersion") || 0);
+	} catch (error) {
+		ui.notifications.error("Failed getting version numbers. Backup your files and contact support.");
+		throw new Error(`Failed getting version numbers: ${error}`);
+	}
+	if (worldSchemaVersion < systemVersion && game.user.isGM) {
 		ui.notifications.info("Upgrading the world, please wait...");
-		for (let actor of game.actors.entities) {
+		for (const actor of game.actors) {
 			try {
 				const update = migrateActorData(actor.data, worldSchemaVersion);
-				if (!isObjectEmpty(update)) {
-					await actor.update(update, { enforceTypes: false });
-				}
+				if (!foundry.utils.isObjectEmpty(update)) await actor.update(update, { enforceTypes: false });
 			} catch (e) {
 				ui.notifications.error("Migration of actors failed.");
+				console.error(e);
 			}
 		}
-		for (let item of game.items.entities) {
+		for (const item of game.items) {
 			try {
 				const update = migrateItemData(item.data, worldSchemaVersion);
-				if (!isObjectEmpty(update)) {
-					await item.update(update, { enforceTypes: false });
-				}
+				if (!foundry.utils.isObjectEmpty(update)) await item.update(update, { enforceTypes: false });
 			} catch (e) {
 				ui.notifications.error("Migration of items failed.");
 			}
 		}
-		for (let scene of game.scenes.entities) {
+		for (const scene of game.scenes) {
 			try {
-				const update = migrateSceneData(scene.data, worldSchemaVersion);
-				if (!isObjectEmpty(update)) {
-					await scene.update(update, { enforceTypes: false });
+				const updateData = migrateSceneData(scene.data);
+				if (!foundry.utils.isObjectEmpty(updateData)) {
+					console.log(`Migrating Scene entity ${scene.name}`);
+					await scene.update(updateData, { enforceTypes: false });
+					// If we do not do this, then synthetic token actors remain in cache
+					// with the un-updated actorData.
+					scene.tokens.forEach((t) => (t._actor = null));
 				}
-			} catch (e) {
-				ui.notifications.error("Migration of scenes failed.");
+			} catch (err) {
+				err.message = `Failed migration for Scene ${scene.name}: ${err.message}`;
+				console.error(err);
 			}
 		}
-		for (let pack of game.packs.filter(
+		for (const pack of game.packs.filter(
 			(p) => p.metadata.package === "world" && ["Actor", "Item", "Scene"].includes(p.metadata.entity),
 		)) {
 			await migrateCompendium(pack, worldSchemaVersion);
 		}
 		migrateSettings(worldSchemaVersion);
-		game.settings.set("forbidden-lands", "worldSchemaVersion", schemaVersion);
 		ui.notifications.info("Upgrade complete!");
 	}
+	game.settings.set("forbidden-lands", "worldSchemaVersion", systemVersion);
 };
 
 const migrateActorData = (actor, worldSchemaVersion) => {
 	const update = {};
-	if (worldSchemaVersion <= 2) {
+
+	// Sleepyless -> Sleepy
+	if (worldSchemaVersion < 3)
+		if (actor.type === "character")
+			if (!actor.data.condition.sleepy) update["data.condition.sleepy"] = actor.data.condition.sleepless;
+
+	// Improve consumable values
+	if (worldSchemaVersion < 7)
 		if (actor.type === "character") {
-			if (!actor.data.condition.sleepy) {
-				update["data.condition.sleepy"] = actor.data.condition.sleepless;
+			for (const [key, data] of Object.entries(actor.data.consumable)) {
+				const map = {
+					0: 0,
+					6: 1,
+					8: 2,
+					10: 3,
+					12: 4,
+				};
+				update[`data.consumable.${key}.value`] = map[data.value];
 			}
 		}
-	}
+
+	// Items
 	let itemsChanged = false;
 	const items = actor.items.map((item) => {
 		const itemUpdate = migrateItemData(item, worldSchemaVersion);
-		if (!isObjectEmpty(itemUpdate)) {
+		if (!foundry.utils.isObjectEmpty(itemUpdate)) {
 			itemsChanged = true;
-			return mergeObject(item, itemUpdate, {
+			return foundry.utils.mergeObject(item, itemUpdate, {
 				enforceTypes: false,
 				inplace: false,
 			});
 		}
 		return item;
 	});
-	if (itemsChanged) {
-		update.items = items;
-	}
+	if (itemsChanged) update.items = items;
 	return update;
 };
 
 const migrateItemData = (item, worldSchemaVersion) => {
 	const update = {};
-	if (worldSchemaVersion <= 2) {
-		if (item.type === "artifact") {
-			update.type = "weapon";
-		}
-		if (item.type === "armor") {
-			update["data.bonus"] = item.data.rating;
-		} else {
+	if (worldSchemaVersion < 3) {
+		if (item.type === "artifact") update.type = "weapon";
+
+		if (item.type === "armor") update["data.bonus"] = item.data.rating;
+		else {
 			let baseBonus = 0;
 			let artifactBonus = "";
 			if (item.data.bonus) {
 				const parts = item.data.bonus.split("+").map((p) => p.trim());
 				parts.forEach((p) => {
-					if (Number.isNumeric(p)) {
-						baseBonus += +p;
-					} else {
-						if (artifactBonus.length) {
-							artifactBonus = `${artifactBonus} + ${p}`;
-						} else {
-							artifactBonus = p;
-						}
-					}
+					if (Number.isNumeric(p)) baseBonus += +p;
+					else if (artifactBonus.length) artifactBonus = `${artifactBonus} + ${p}`;
+					else artifactBonus = p;
 				});
 			}
 			update["data.bonus"] = {
@@ -107,12 +120,10 @@ const migrateItemData = (item, worldSchemaVersion) => {
 			update["data.artifactBonus"] = artifactBonus;
 		}
 	}
-	if (worldSchemaVersion <= 3) {
-		if (item.type === "spell" && !item.data.spellType) {
-			update["data.spellType"] = "SPELL.SPELL";
-		}
+	if (worldSchemaVersion < 4) {
+		if (item.type === "spell" && !item.data.spellType) update["data.spellType"] = "SPELL.SPELL";
 	}
-	if (worldSchemaVersion <= 4) {
+	if (worldSchemaVersion < 5) {
 		if (item.type === "weapon" && typeof item.data.features === "string") {
 			// Change features from string to object
 			const features = item.data.features
@@ -132,68 +143,96 @@ const migrateItemData = (item, worldSchemaVersion) => {
 			let otherFeatures = "";
 			for (const feature of features) {
 				const lcFeature = feature === "slowReload" ? feature : feature.toLowerCase();
-				if (lcFeature in update["data.features"]) {
-					update["data.features"][lcFeature] = true;
-				} else {
-					otherFeatures += feature + ", ";
-				}
+				if (lcFeature in update["data.features"]) update["data.features"][lcFeature] = true;
+				else otherFeatures += feature + ", ";
 			}
 			update["data.features"].others = otherFeatures.substr(0, otherFeatures.length - 2);
 		}
 	}
-	if (!isObjectEmpty(update)) {
-		update.id = item.id;
-	}
+
+	if (worldSchemaVersion < 7 && item.type === "weapon") update["data.ammo"] = "other";
+
 	return update;
 };
 
-const migrateSceneData = (scene, worldSchemaVersion) => {
-	const tokens = duplicate(scene.tokens);
-	return {
-		tokens: tokens.map((tokenData) => {
-			if (!tokenData.actorId || tokenData.actorLink || !tokenData.actorData.data) {
-				tokenData.actorData = {};
-				return tokenData;
-			}
-			const token = new Token(tokenData);
-			if (!token.actor) {
-				tokenData.actorId = null;
-				tokenData.actorData = {};
-			} else if (!tokenData.actorLink && token.data.actorData.items) {
-				const update = migrateActorData(token.data.actorData, worldSchemaVersion);
-				console.log("ACTOR CHANGED", token.data.actorData, update);
-				tokenData.actorData = mergeObject(token.data.actorData, update);
-			}
-			return tokenData;
-		}),
-	};
+const migrateSceneData = function (scene) {
+	const tokens = scene.tokens.map((token) => {
+		const t = token.toJSON();
+		if (!t.actorId || t.actorLink) {
+			t.actorData = {};
+		} else if (!game.actors.has(t.actorId)) {
+			t.actorId = null;
+			t.actorData = {};
+		} else if (!t.actorLink) {
+			const actorData = duplicate(t.actorData);
+			actorData.type = token.actor?.type;
+			const update = migrateActorData(actorData);
+			["items", "effects"].forEach((embeddedName) => {
+				if (!update[embeddedName]?.length) return;
+				const updates = new Map(update[embeddedName].map((u) => [u._id, u]));
+				t.actorData[embeddedName].forEach((original) => {
+					const toUpdate = updates.get(original._id);
+					if (toUpdate) mergeObject(original, toUpdate);
+				});
+				delete update[embeddedName];
+			});
+
+			mergeObject(t.actorData, update);
+		}
+		return t;
+	});
+	return { tokens };
 };
 
-export const migrateCompendium = async function (pack, worldSchemaVersion) {
+/**
+ * Borrowed from 5e system. I don't have time to look at the intricacies of this.
+ */
+const migrateCompendium = async function (pack, worldSchemaVersion) {
 	const entity = pack.metadata.entity;
+	if (!["Actor", "Item", "Scene"].includes(entity)) return;
 
+	// Unlock the pack for editing
+	const wasLocked = pack.locked;
+	await pack.configure({ locked: false });
+
+	// Begin by requesting server-side data model migration and get the migrated content
 	await pack.migrate();
-	const content = await pack.getContent();
+	const documents = await pack.getDocuments();
 
-	for (let ent of content) {
+	// Iterate over compendium entries - applying fine-tuned migration functions
+	for (let doc of documents) {
 		let updateData = {};
-		if (entity === "Item") {
-			updateData = migrateItemData(ent.data, worldSchemaVersion);
-		} else if (entity === "Actor") {
-			updateData = migrateActorData(ent.data, worldSchemaVersion);
-		} else if (entity === "Scene") {
-			updateData = migrateSceneData(ent.data, worldSchemaVersion);
-		}
-		if (!isObjectEmpty(updateData)) {
-			expandObject(updateData);
-			updateData.id = ent.id;
-			await pack.updateEntity(updateData);
+		try {
+			switch (entity) {
+				case "Actor":
+					updateData = migrateActorData(doc.toObject(), worldSchemaVersion);
+					break;
+				case "Item":
+					updateData = migrateItemData(doc.toObject(), worldSchemaVersion);
+					break;
+				case "Scene":
+					updateData = migrateSceneData(doc.data, worldSchemaVersion);
+					break;
+			}
+
+			// Save the entry, if data was changed
+			if (foundry.utils.isObjectEmpty(updateData)) continue;
+			await doc.update(updateData);
+			console.log(`Migrated ${entity} entity ${doc.name} in Compendium ${pack.collection}`);
+		} catch (err) {
+			// Handle migration failures
+			err.message = `Failed migration for entity ${doc.name} in pack ${pack.collection}: ${err.message}`;
+			console.error(err);
 		}
 	}
+
+	// Apply the original locked status for the pack
+	await pack.configure({ locked: wasLocked });
+	console.log(`Migrated all ${entity} entities from Compendium ${pack.collection}`);
 };
 
 const migrateSettings = async function (worldSchemaVersion) {
-	if (worldSchemaVersion <= 3) {
+	if (worldSchemaVersion < 4) {
 		game.settings.set("forbidden-lands", "showCraftingFields", true);
 		game.settings.set("forbidden-lands", "showCostField", true);
 		game.settings.set("forbidden-lands", "showSupplyField", true);
@@ -202,7 +241,5 @@ const migrateSettings = async function (worldSchemaVersion) {
 		game.settings.set("forbidden-lands", "showDrawbackField", true);
 		game.settings.set("forbidden-lands", "showAppearanceField", true);
 	}
-	if (worldSchemaVersion <= 4) {
-		game.settings.set("forbidden-lands", "alternativeSkulls", false);
-	}
+	if (worldSchemaVersion < 5) game.settings.set("forbidden-lands", "alternativeSkulls", false);
 };

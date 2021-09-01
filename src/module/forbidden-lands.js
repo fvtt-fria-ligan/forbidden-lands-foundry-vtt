@@ -135,15 +135,17 @@ Hooks.on("renderChatMessage", async (app, html) => {
 	}
 });
 
-Hooks.on("getChatLogEntryContext", function (_html, options) {
-	const isConsumableRoll = (li) => li.find(".consumable-result").length;
-	options.push({
-		name: localizeString("CONTEXT.REDUCE_CONSUMABLE"),
-		icon: "<i class='fas fa-arrow-down'></i>",
-		condition: isConsumableRoll,
-		callback: (li) => FBLRollHandler.decreaseConsumable(li.attr("data-message-id")),
+// Only add the context menu to decrease consumables if consumables aren't automatically handled.
+if (game.settings.get("forbidden-lands", "autoDecreaseConsumable") === 0)
+	Hooks.on("getChatLogEntryContext", function (_html, options) {
+		const isConsumableRoll = (li) => li.find(".consumable-result").length;
+		options.push({
+			name: localizeString("CONTEXT.REDUCE_CONSUMABLE"),
+			icon: "<i class='fas fa-arrow-down'></i>",
+			condition: isConsumableRoll,
+			callback: (li) => FBLRollHandler.decreaseConsumable(li.attr("data-message-id")),
+		});
 	});
-});
 
 /**
  * GM screen module causes buttons in Actor sheets to disable.
