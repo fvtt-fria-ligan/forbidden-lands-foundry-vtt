@@ -314,6 +314,7 @@
 		"weapon": {
 			"templates": ["bonus", "craftable", "rollModifiers", "artifact", "trade"],
 			"category": "melee",
+			"ammo": "other",
 			"skillBonus": "",
 			"damage": 1,
 			"features": {

@@ -1,7 +1,7 @@
 <form class="{{cssClass}}" autocomplete="off">
 	<div class="monster">
 		<div class="bio border">
-			<div class="flex row align-center space-between">
+			<div class="flex row align-center space-around">
 				<div class="avatar">
 					<img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" />
 				</div>
@@ -13,25 +13,14 @@
 					<div class="bio-row">
 						<div class="movement">
 							<label>{{localize data.movement.label}}:</label>
-							<input
-								name="data.movement.value"
-								type="number"
-								value="{{data.movement.value}}"
-								data-dtype="Number"
-							/>
+							<input name="data.movement.value" type="number" value="{{data.movement.value}}"
+								data-dtype="Number" />
 						</div>
 						<div class="armor">
-							<label
-								><button type="button" class="roll-armor"
-									><i class="fas fa-dice"></i>{{localize data.armor.label}}</button
-								>:</label
-							>
-							<input
-								name="data.armor.value"
-								type="number"
-								value="{{data.armor.value}}"
-								data-dtype="Number"
-							/>
+							<label><button type="button" class="roll-armor"><i class="fas fa-dice"></i>{{localize
+									data.armor.label}}</button>:</label>
+							<input name="data.armor.value" type="number" value="{{data.armor.value}}"
+								data-dtype="Number" />
 						</div>
 						<div class="npc-type">
 							<label>{{localize "MONSTER.TYPE.LABEL"}}</label>
@@ -73,7 +62,8 @@
 			<div class="tab note" data-group="primary" data-tab="note">
 				<!-- prettier-ignore -->
 				{{! prettier-ignore }}
-				{{editor content=data.bio.note.value target="data.bio.note.value" button=true owner=owner editable=true}}
+				{{editor content=data.bio.note.value target="data.bio.note.value" button=true owner=owner
+				editable=true}}
 			</div>
 		</div>
 	</div>

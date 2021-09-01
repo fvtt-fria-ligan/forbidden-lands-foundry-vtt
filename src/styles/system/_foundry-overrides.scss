@@ -82,6 +82,9 @@ h3 {
 }
 
 .window-app {
+	.window-content {
+		padding: 2px 4px;
+	}
 	.window-resizable-handle {
 		background: none;
 		border: none;
@@ -136,6 +139,11 @@ h3 {
 				white-space: pre;
 			}
 		}
+	}
+	// Override weirdly big settings input box for numbers
+	&#client-settings .settings-list input[data-dtype="Number"] {
+		max-width: 3rem;
+		text-align: center;
 	}
 }
 

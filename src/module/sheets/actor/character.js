@@ -7,7 +7,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			classes: ["forbidden-lands", "sheet", "actor"],
-			width: 700,
+			width: "auto",
 			height: 780,
 			resizable: false,
 			scrollY: [
@@ -65,7 +65,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 
 		html.find(".roll-consumable").click((ev) => {
 			const consumable = $(ev.currentTarget).data("consumable");
-			return this.rollConsumable(consumable);
+			return FBLRollHandler.rollConsumable(this.actor, consumable, this.getRollOptions());
 		});
 
 		html.find("#pride-roll-btn").click(() => this.rollPride());

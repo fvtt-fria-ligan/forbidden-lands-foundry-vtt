@@ -314,6 +314,8 @@ export class FBLRollHandler extends FormApplication {
 		this.g = gear;
 		this.a = artifact;
 		this.modifier = modifier;
+		// Handle automatically rolling arrow dice on ranged attacks.
+		this.handleRollArrows();
 		return this.executeRoll();
 	}
 
@@ -384,10 +386,22 @@ export class FBLRollHandler extends FormApplication {
 		};
 	}
 
+	async handleRollArrows() {
+		const isCharacter = this.options.actorType === "character";
+		const isRanged = this.gear.category === "ranged";
+		const hasArrows = this.gear.ammo === "arrows";
+		if (!(isCharacter && isRanged && hasArrows)) return;
+		const actor = this.constructor.getSpeaker({
+			actor: this.options.actorId,
+			scene: this.options.sceneId,
+			token: this.options.tokenId,
+		});
+		return setTimeout(() => actor.sheet.rollConsumable("arrows"), 500);
+	}
+
 	/**
 	 * Takes rollData and rollOptions objects and produces a YZUR roll that is evaluated and sent to chat.
 	 * @returns ChatMessage
-	 * @see getRollData
 	 * @see getRollOptions
 	 * @see ChatMessage
 	 */
@@ -539,13 +553,11 @@ export class FBLRollHandler extends FormApplication {
 		} = game.messages.get(messageId);
 
 		speaker = this.getSpeaker(speaker);
-		if (speaker?.object instanceof Token) speaker = speaker.actor;
+		if (!speaker) return console.error("Could not decrease consumable: No actor found.");
 
-		let value = speaker.consumables[consumable]?.value;
-		if (value <= 6) value = 0;
-		else value -= 2;
-
-		return await speaker.update({ [`data.consumable.${consumable}.value`]: value });
+		const currentValue = speaker?.consumables[consumable]?.value;
+		const newValue = Math.max(currentValue - 1, 0);
+		return await speaker.update({ [`data.consumable.${consumable}.value`]: newValue });
 	}
 }
 

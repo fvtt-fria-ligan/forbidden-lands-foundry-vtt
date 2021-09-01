@@ -9,21 +9,17 @@
 	"ACTION.RETREAT": "Retreat",
 	"ACTION.SHOVE": "Shove",
 	"ACTION.UNARMED_STRIKE": "Unarmed strike",
-
 	"ACTIVE": "Active",
-
 	"ACTOR.TypeCharacter": "Character",
 	"ACTOR.TypeMonster": "Monster",
 	"ACTOR.TypeParty": "Party",
 	"ACTOR.TypeStronghold": "Stronghold",
-
 	"ARMOR.BODY": "Body",
 	"ARMOR.HELMET": "Helmet",
 	"ARMOR.PART": "Body Part",
 	"ARMOR.RATING": "Rating",
 	"ARMOR.SHIELD": "Shield",
 	"ARMOR.TOTAL": "Total",
-
 	"ARTIFACT.APPEARANCE": "Appearance",
 	"ARTIFACT.ARTIFACT_BONUS": "Artifact Bonus",
 	"ARTIFACT.DESCRIPTION": "Description",
@@ -33,18 +29,15 @@
 	"ARTIFACT.LEGENDARY": "Legendary",
 	"ARTIFACT.MIGHTY": "Mighty",
 	"ARTIFACT.REGULAR": "Normal Item",
-
 	"ATTACK.BLUNT": "Blunt",
 	"ATTACK.FEAR": "Fear",
 	"ATTACK.OTHER": "Other",
 	"ATTACK.SLASH": "Slash",
 	"ATTACK.STAB": "Stab",
-
 	"ATTRIBUTE.AGILITY": "Agility",
 	"ATTRIBUTE.EMPATHY": "Empathy",
 	"ATTRIBUTE.STRENGTH": "Strength",
 	"ATTRIBUTE.WITS": "Wits",
-
 	"BIO.AGE": "Age",
 	"BIO.BODY": "Body",
 	"BIO.CLOTHING": "Clothing",
@@ -58,7 +51,6 @@
 	"BIO.PROFESSION": "Profession",
 	"BIO.REPUTATION": "Reputation",
 	"BIO.WILLPOWER": "Willpower",
-
 	"BUILDING.DESCRIPTION": "Description",
 	"BUILDING.EFFECT": "Effect",
 	"BUILDING.NAME": "Name",
@@ -68,14 +60,13 @@
 	"BUILDING.REQUIREMENT": "Requirement",
 	"BUILDING.TIME": "Time",
 	"BUILDING.TOOLS": "Tools",
-
 	"CARRYING_CAPACITY": "Carrying capacity",
-
 	"CONDITION.COLD": "Cold",
 	"CONDITION.HUNGRY": "Hungry",
 	"CONDITION.SLEEPY": "Sleepy",
 	"CONDITION.THIRSTY": "Thirsty",
-
+	"CONFIG.AUTO_DECREASE_CONSUMABLE": "Consumable Threshold",
+	"CONFIG.AUTO_DECREASE_CONSUMABLE_DESC": "Automatically decreases consumables when rolled equal to or below this number. Set to 0 to disable.",
 	"CONFIG.ALTERNATIVESKULLS": "Alternative Sheet Interaction",
 	"CONFIG.ALTERNATIVESKULLS_DESC": "Changes the looks and interaction of Attribute/Bonus/Willpower clickable circles in the Character, Monster and Item sheets.",
 	"CONFIG.CRAFTINGFIELD": "Show crafting field",
@@ -92,24 +83,19 @@
 	"CONFIG.DRAWBACKFIELD_DESC": "Used to show or hide the drawback field on item sheets.",
 	"CONFIG.APPEARANCEFIELD": "Show appearance field",
 	"CONFIG.APPEARANCEFIELD_DESC": "Used to show or hide the appearance field on item sheets.",
-
-	"CONSUMABLE.ARROWS": "ARROWS",
-	"CONSUMABLE.FOOD": "FOOD",
-	"CONSUMABLE.TORCHES": "TORCHES",
-	"CONSUMABLE.WATER": "WATER",
-
+	"CONSUMABLE.ARROWS": "Arrows",
+	"CONSUMABLE.FOOD": "Food",
+	"CONSUMABLE.TORCHES": "Torches",
+	"CONSUMABLE.WATER": "Water",
 	"CONTEXT.REDUCE_CONSUMABLE": "Reduce Consumable",
-
 	"CRITICAL_INJURY.EFFECT": "Effects",
 	"CRITICAL_INJURY.HEALING_TIME": "Healing Time",
 	"CRITICAL_INJURY.LETHAL": "Lethal",
 	"CRITICAL_INJURY.LIMIT": "Time Left",
 	"CRITICAL_INJURY.NAME": "Name",
-
 	"CURRENCY.COPPER": "Copper",
 	"CURRENCY.GOLD": "Gold",
 	"CURRENCY.SILVER": "Silver",
-
 	"DAMAGE": "Damage",
 
 	"DICE.ARTIFACT": "Artifact",
@@ -124,11 +110,8 @@
 	"DICE.POWER_LEVEL": "Power Level",
 	"DICE.ROLL": "Roll",
 	"DICE.SKILL": "Skill",
-
 	"ENCUMBRANCE": "Encumbrance",
-
 	"ERROR.NOT_PUSHED": "Cannot confirm that the roll was pushed. Failed to apply damage and reduce Willpower!",
-
 	"GEAR.BONUS": "Bonus",
 	"GEAR.COST": "Price",
 	"GEAR.EFFECT": "Effects",
@@ -140,7 +123,6 @@
 	"GEAR.TOOLS": "Tools",
 	"GEAR.WEIGHT": "Weight",
 	"GEAR.MOUNTED": "Mounted",
-
 	"HEADER.ACTIONS": "ACTIONS",
 	"HEADER.ARMOR": "ARMOR",
 	"HEADER.ATTACK": "ATTACKS",
@@ -162,13 +144,11 @@
 	"HEADER.SPELL": "SPELLS",
 	"HEADER.TALENT": "TALENTS",
 	"HEADER.WEAPON": "WEAPONS",
-
 	"HIRELING.DESCRIPTION": "Description",
 	"HIRELING.NAME": "Name",
 	"HIRELING.NUMBER": "Number",
 	"HIRELING.SALARY": "Salary",
 	"HIRELING.SUPPLY": "Supply",
-
 	"ITEM.ADD_MODIFIER": "Add modifier",
 	"ITEM.CUSTOM_ROLL_MODIFIERS": "Custom Roll Modifiers",
 	"ITEM.DELETE_MODIFIER": "Delete modifier",
@@ -185,16 +165,13 @@
 	"ITEM.TypeSpell": "Spell",
 	"ITEM.TypeTalent": "Talent",
 	"ITEM.TypeWeapon": "Weapon",
-
 	"LETHAL.NO": "No",
 	"LETHAL.YES": "Yes",
-
 	"MAGIC.INGREDIENT": "Ingredient",
 	"MAGIC.CHANCE": "Chance Casting",
 	"MAGIC.PSYCHIC_POWER": "Psychic Power",
 	"MAGIC.SAFE_CASTING": "Safe Casting",
 	"MAGIC.SPELLS": "Spells",
-
 	"MONSTER.ARMOR": "Armor Rating",
 	"MONSTER.DAMAGE_TYPE": "Damage Type",
 	"MONSTER.DAMAGE": "Damage",
@@ -205,35 +182,24 @@
 	"MONSTER.TYPE.LABEL": "Type:",
 	"MONSTER.TYPE.MONSTER": "Monster",
 	"MONSTER.TYPE.MOUNT": "Mount",
-
 	"MOVEMENT": "Movement",
-
 	"MODIFIERS": "Modifiers",
-
 	"NOTIFY.YOU_ARE_BROKEN": "You are broken!",
 	"NOTIFY.YOUR_ITEM_BROKE": "Your item broke!",
-
 	"OTHER": "OTHER",
-
 	"POWER_LEVEL": "Power Level",
-
 	"PUSH": "PUSH!",
-
 	"PUSHED": "Pushed",
-
 	"RANGE.ARM": "Arm's Length",
 	"RANGE.DISTANT": "Distant",
 	"RANGE.LONG": "Long",
 	"RANGE.NEAR": "Near",
 	"RANGE.SHORT": "Short",
-
 	"RAW_MATERIAL.SHELF_LIFE": "Shelf Life",
-
 	"ROLL.APPLIED_TRAUMA": "damage applied to",
 	"ROLL.CHANCE": "Chance Cast: Roll Mishap.",
 	"ROLL.MISHAP": "Roll Mishap!",
 	"ROLL_MODIFIER.SELECT": "Please select a modifier",
-
 	"SHEET.HEADER.CHAR_GEN": "Chargen",
 	"SHEET.CLOSE": "Close",
 	"SHEET.CONFIGURE": "Configure",
@@ -242,7 +208,6 @@
 	"SHEET.HEADER.ROLL": "Roll",
 	"SHEET.TOKEN": "Token",
 	"SHEET.TEXTAREA_EDIT": "Right-click to edit.",
-
 	"SKILL.ANIMAL_HANDLING": "Animal Handling",
 	"SKILL.CRAFTING": "Crafting",
 	"SKILL.ENDURANCE": "Endurance",
@@ -259,7 +224,6 @@
 	"SKILL.SLEIGHT_OF_HAND": "Sleight of Hand",
 	"SKILL.STEALTH": "Stealth",
 	"SKILL.SURVIVAL": "Survival",
-
 	"SPELL.DESCRIPTION": "Description",
 	"SPELL.DURATION": "Duration",
 	"SPELL.INGREDIENT": "Ingredient",
@@ -270,10 +234,8 @@
 	"SPELL.RITUAL": "Ritual",
 	"SPELL.SPELL_TYPE": "Type",
 	"SPELL.SPELL": "Spell",
-
 	"STRONGHOLD.DEFENSE_RATING": "Defense Rating",
 	"STRONGHOLD.LOCATION": "Location",
-
 	"TAB.ARTIFACT": "ARTIFACT",
 	"TAB.BIO": "BIO",
 	"TAB.BUILDING": "BUILDING",
@@ -284,7 +246,6 @@
 	"TAB.MAIN": "MAIN",
 	"TAB.NOTE": "NOTE",
 	"TAB.TALENT": "TALENT",
-
 	"TALENT.ANY_ACTIVATED": "Any activated Talent",
 	"TALENT.DESCRIPTION": "Description",
 	"TALENT.GENERAL": "General",
@@ -297,7 +258,6 @@
 	"TALENT.WEAKNESS": "Weakness",
 
 	"VALUE": "Value",
-
 	"WARNING.ACTOR_BROKEN": "You are broken and cannot act!",
 	"WARNING.ITEM_BROKEN": "The item is broken and cannot be used!",
 	"WARNING.NO_ARMOR": "You have no armor equipped!",
@@ -325,8 +285,10 @@
 	"WEAPON.NAME": "Name",
 	"WEAPON.RANGE": "Range",
 	"WEAPON.RANGED": "Ranged",
+	"WEAPON.AMMO": "Ammo type",
+	"WEAPON.AMMO_OTHER": "Other",
+	"WEAPON.AMMO_ARROWS": "Arrows",
 	"WEAPON.SKILL_BONUS": "Skill Bonus",
-
 	"WEIGHT.HEAVY": "Heavy",
 	"WEIGHT.LIGHT": "Light",
 	"WEIGHT.NONE": "None",
@@ -334,7 +296,6 @@
 	"WEIGHT.TINY": "Tiny",
 	"WEIGHT.TYPE_REGULAR": "Regular",
 	"WEIGHT.TYPE_SPECIAL": "Special",
-
 	"YZUR.DIETYPES.BaseDie": "Base Dice",
 	"YZUR.DIETYPES.SkillDie": "Skill Dice",
 	"YZUR.DIETYPES.GearDie": "Gear Dice",
@@ -348,12 +309,10 @@
 
 	"FLPS.TAB.MAIN": "MAIN",
 	"FLPS.TAB.TRAVEL": "TRAVEL",
-
 	"FLPS.PARTY.NAME": "Party Name",
 	"FLPS.PARTY.MEMBERS": "Party Members",
 	"FLPS.PARTY.HINT_ADD": "Drag & drop characters here to add them to the party.",
 	"FLPS.PARTY.HINT_ASSIGN": "Drag & drop characters to assign them to the desired travel activities.",
-
 	"FLPS.TRAVEL.HIKE": "Hike",
 	"FLPS.TRAVEL.LEAD": "Lead the Way",
 	"FLPS.TRAVEL.WATCH": "Keep Watch",
@@ -365,12 +324,10 @@
 	"FLPS.TRAVEL.CAMP": "Make Camp",
 	"FLPS.TRAVEL.OTHER": "Other",
 	"FLPS.TRAVEL.RESET": "RESET",
-
 	"FLPS.UI.WHO_ROLLS": "Who rolls?",
 	"FLPS.UI.WHO_PUSHES": "Who pushes?",
 	"FLPS.UI.ATTENTION": "Attention",
 	"FLPS.UI.ERROR.OPEN_SHEET": "Please open your character sheet at least once before making travel rolls.",
-
 	"FLPS.TRAVEL_ROLL.FORCED_MARCH": "Forced March",
 	"FLPS.TRAVEL_ROLL.HIKE_IN_DARKNESS": "Hike in Darkness",
 	"FLPS.TRAVEL_ROLL.NAVIGATE": "Lead the Way",
@@ -395,7 +352,6 @@
 	"FLCG.SKILLS": "Skills",
 	"FLCG.ATTRIBUTES": "Attributes",
 	"FLCG.TALENT": "Talent",
-
 	"FLCG.SETTINGS.DATASET_DIR": "Dataset Directory",
 	"FLCG.SETTINGS.DATASET_DIR_HINT": "Path to a directory with dataset.json file. You can make your own dataset to customize the generator's output.",
 	"FLCG.SETTINGS.RESET_DIR": "Reset chargen dataset directory.",

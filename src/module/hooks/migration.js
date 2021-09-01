@@ -70,6 +70,21 @@ const migrateActorData = (actor, worldSchemaVersion) => {
 		if (actor.type === "character")
 			if (!actor.data.condition.sleepy) update["data.condition.sleepy"] = actor.data.condition.sleepless;
 
+	// Improve consumable values
+	if (worldSchemaVersion < 7)
+		if (actor.type === "character") {
+			for (const [key, data] of Object.entries(actor.data.consumable)) {
+				const map = {
+					0: 0,
+					6: 1,
+					8: 2,
+					10: 3,
+					12: 4,
+				};
+				update[`data.consumable.${key}.value`] = map[data.value];
+			}
+		}
+
 	// Items
 	let itemsChanged = false;
 	const items = actor.items.map((item) => {
@@ -148,6 +163,7 @@ const migrateItemData = (item, worldSchemaVersion) => {
 			update.type = "talent";
 			update["data.type"] = "monster";
 		}
+		if (item.type === "weapon") update["data.ammo"] = "other";
 	}
 
 	return update;
