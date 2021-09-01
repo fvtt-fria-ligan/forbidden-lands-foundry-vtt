@@ -15,8 +15,11 @@ export const migrateWorld = async () => {
 		ui.notifications.info("Upgrading the world, please wait...");
 		for (const actor of game.actors) {
 			try {
-				const update = migrateActorData(actor.data, worldSchemaVersion);
-				if (!foundry.utils.isObjectEmpty(update)) await actor.update(update, { enforceTypes: false });
+				const update = migrateActorData(actor.data.toObject(), worldSchemaVersion);
+				if (!foundry.utils.isObjectEmpty(update)) {
+					const updated = await actor.update(update, { enforceTypes: false });
+					console.log(`Migrated Actor entity ${actor.name}`, updated);
+				}
 			} catch (e) {
 				ui.notifications.error("Migration of actors failed.");
 				console.error(e);
@@ -24,8 +27,11 @@ export const migrateWorld = async () => {
 		}
 		for (const item of game.items) {
 			try {
-				const update = migrateItemData(item.data, worldSchemaVersion);
-				if (!foundry.utils.isObjectEmpty(update)) await item.update(update, { enforceTypes: false });
+				const update = migrateItemData(item.data.toObject(), worldSchemaVersion);
+				if (!foundry.utils.isObjectEmpty(update)) {
+					const updated = await item.update(update, { enforceTypes: false });
+					console.log(`Migrated Item entity ${item.name}`, updated);
+				}
 			} catch (e) {
 				ui.notifications.error("Migration of items failed.");
 			}
@@ -59,7 +65,7 @@ export const migrateWorld = async () => {
 const migrateActorData = (actor, worldSchemaVersion) => {
 	const update = {};
 
-	// Sleepyless -> Sleepy
+	// Sleepless -> Sleepy
 	if (worldSchemaVersion < 3)
 		if (actor.type === "character")
 			if (!actor.data.condition.sleepy) update["data.condition.sleepy"] = actor.data.condition.sleepless;
@@ -120,9 +126,11 @@ const migrateItemData = (item, worldSchemaVersion) => {
 			update["data.artifactBonus"] = artifactBonus;
 		}
 	}
+
 	if (worldSchemaVersion < 4) {
 		if (item.type === "spell" && !item.data.spellType) update["data.spellType"] = "SPELL.SPELL";
 	}
+
 	if (worldSchemaVersion < 5) {
 		if (item.type === "weapon" && typeof item.data.features === "string") {
 			// Change features from string to object
@@ -150,7 +158,13 @@ const migrateItemData = (item, worldSchemaVersion) => {
 		}
 	}
 
-	if (worldSchemaVersion < 7 && item.type === "weapon") update["data.ammo"] = "other";
+	if (worldSchemaVersion < 7) {
+		if (item.type === "monsterTalent") {
+			update.type = "talent";
+			update["data.type"] = "monster";
+		}
+		if (item.type === "weapon") update["data.ammo"] = "other";
+	}
 
 	return update;
 };

@@ -1,7 +1,6 @@
 function preloadHandlebarsTemplates() {
 	const templatePaths = [
 		"systems/forbidden-lands/templates/chat/item.hbs",
-		"systems/forbidden-lands/templates/chat/consumable.hbs",
 		"systems/forbidden-lands/templates/dice/dialog.hbs",
 		"systems/forbidden-lands/templates/dice/roll.hbs",
 		"systems/forbidden-lands/templates/dice/tooltip.hbs",
@@ -10,7 +9,6 @@ function preloadHandlebarsTemplates() {
 		"systems/forbidden-lands/templates/monster.hbs",
 		"systems/forbidden-lands/templates/weapon.hbs",
 		"systems/forbidden-lands/templates/armor.hbs",
-		"systems/forbidden-lands/templates/monster-talent.hbs",
 		"systems/forbidden-lands/templates/monster-attack.hbs",
 		"systems/forbidden-lands/templates/gear.hbs",
 		"systems/forbidden-lands/templates/raw-material.hbs",

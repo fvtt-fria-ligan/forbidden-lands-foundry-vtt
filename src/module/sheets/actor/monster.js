@@ -69,7 +69,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 		const attack = this.actor.items.get(attackId);
 		const options = {
 			name: attack.name,
-			maxPush: "0",
+			maxPush: game.settings.get("forbidden-lands", "allowUnlimitedPush") ? 10000 : "0",
 			...this.getRollOptions(),
 		};
 		const roll = FBLRoll.create(`${attack.data.data.dice}ds[${attack.name}]`, {}, options);
@@ -105,26 +105,6 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 			max: weightAllowed,
 			over: weightCarried > weightAllowed,
 		};
-	}
-
-	computeSkills(data) {
-		for (let skill of Object.values(data.data.skill)) {
-			skill.hasStrength = skill.attribute === "strength";
-			skill.hasAgility = skill.attribute === "agility";
-			skill.hasWits = skill.attribute === "wits";
-			skill.hasEmpathy = skill.attribute === "empathy";
-		}
-	}
-
-	computeItems(data) {
-		for (let item of Object.values(data.items)) {
-			item.isMonsterAttack = item.type === "monsterAttack";
-			item.isMonsterTalent = item.type === "monsterTalent";
-			item.isWeapon = item.type === "weapon";
-			item.isArmor = item.type === "armor";
-			item.isGear = item.type === "gear";
-			item.isRawMaterial = item.type === "rawMaterial";
-		}
 	}
 
 	onItemCreate(event) {

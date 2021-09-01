@@ -57,7 +57,6 @@
 .forbidden-lands .monster .monster-attacks {
 	margin-top: 8px;
 	overflow: hidden;
-	padding-bottom: 8px;
 }
 
 .forbidden-lands .monster .monster-attacks .monster-attack {
@@ -86,4 +85,11 @@
 	flex-basis: 10%;
 	font-size: 11px;
 	text-align: right;
+}
+
+.forbidden-lands .monster .talent-description {
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }

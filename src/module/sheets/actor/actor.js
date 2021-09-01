@@ -322,6 +322,21 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		return super._renderInner(data, options);
 	}
 
+	computeSkills(data) {
+		for (let skill of Object.values(data.data.skill)) {
+			skill[`has${skill?.attribute?.capitalize()}`] = false;
+			if (CONFIG.fbl.attributes.includes(skill.attribute)) skill[`has${skill.attribute.capitalize()}`] = true;
+		}
+	}
+
+	computeItems(data) {
+		for (const item of Object.values(data.items)) {
+			// Shields were long treated as armor. They are not. This is a workaround for that.
+			if (item.data.part === "shield") item.isWeapon = true;
+			else if (CONFIG.fbl.itemTypes.includes(item.type)) item[`is${item.type.capitalize()}`] = true;
+		}
+	}
+
 	computeItemEncumbrance(data) {
 		const config = CONFIG.fbl.encumbrance;
 		const type = data.type;
