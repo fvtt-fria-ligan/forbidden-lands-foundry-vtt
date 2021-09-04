@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v6.0.4...v7.0.0) (2021-09-04)
+
+
+### Features
+
+*  automate consumable dice roll after ranged weapons use ([#151](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/151)) ([3eacc9c](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/3eacc9ca7d6b5aa4faac3d23984c14d9d1474d3e))
+* ✨ Add consumable chat card and artifact modifiers ([79caa82](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/79caa82124903e5e0f987afa11e8561c9cab03dc))
+* ✨ Add damage to gear, attributes and willpower ([20476fd](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/20476fd3286c3eb787192a092b1e14554d90c85c))
+* ✨ Add Optional Roll Modifiers to Dialog ([c85a867](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/c85a867c87fa6941bd8769d0e3f313869b2e69ad))
+* ✨ Add RPGAwesome & Minor styling improvements ([fac6e36](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/fac6e3608e31cbe2af03b22362fa6be3c7278574))
+* ✨ Add spell roll dialog and roll result ([2bb2f54](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/2bb2f544873b90de4cb66083a8e4d5a541f6275f))
+* ✨ Added all Roll APIs to sheets. ([60abbd5](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/60abbd52ca58d92fba974649422133e1d659f3fb))
+* ✨ Added String localization helper ([5d591fe](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/5d591fe2e8405e1c863263fdfc32aa06e3ac3c96))
+* ✨ New roll handling engine ([ee7c35b](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/ee7c35b9580cab50cf786a3e0badd278cd5ab259))
+* ✨ Upgrade to YZUR 3.0.0 ([d3aadd6](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/d3aadd6e0bc144ef75b452dc29be4b880357de6b))
+* ✨ YZUR roll engine added. ([b6a62ae](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/b6a62ae5f5142946b00b7e02258db0954a601547))
+* Improving styling of visual components ([#150](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/150)) ([b2f98eb](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/b2f98ebc46530e396a99a690bd49585a30722045))
+
+
+### Bug Fixes
+
+* 🐛 Add back in missing damage from roll cards ([1d3d29f](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/1d3d29fa8195daaa1a4eca01308bac9bab26d5fc))
+* 🐛 Chat cards not displaying correct roll type, update header buttons ([5c3adef](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/5c3adef0a2541fca332aabd156f5dbb19bf30ef7))
+* 🐛 Conditionally display damage ([c40c6d4](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/c40c6d4cb7215d621175b2df4e67bdd43d97ad66))
+* 🐛 Fix scrollbars always visible in lists ([f5cecd7](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/f5cecd7ecd48e6782b474a87a615ac8b897d6ec4))
+* 🐛 Fix various issues with implementation ([ef61333](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/ef61333e4e971ca0818dc9c77ab30d1f503974aa))
+* 🐛 Fixed download badge ([4d05a4c](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/4d05a4c0755cb1e2d1a769517b3c842f26fa3318))
+* 🐛 Fixed License badge ([010ef4f](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/010ef4f801cf5c5f855569313cd2bba9e45248be))
+* 🐛 hide infos if no attribute/gear is passed ([f38beba](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/f38beba03f19849c78f00c7a786fa5fb94b6557c))
+* 🐛 Issue with html encoding of editor text ([4b4cf0e](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/4b4cf0ebbb9589a38d34b652463c1e3f6c6eb558))
+* 🐛 Make Roll Buttons more visible using icons ([bf401fa](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/bf401fa8ddfafc809ecbb23aa0c188cb80fd3647))
+* 🐛 Several visual nitpicks ([472780d](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/472780d75f35e1619cdd28f8ffd8becea7460755))
+* 🐛 Sort sorting ([3dede99](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/3dede99d5589d3542a21da9727afe153d5614bfc))
+* 🐛 Unlimited pushes ([68edec7](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/68edec7a543bc87e8e8c1a027ec00d7c8ae9c097))
+
 ### [6.0.4](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v6.0.3...v6.0.4) (2021-07-14)
 
 
