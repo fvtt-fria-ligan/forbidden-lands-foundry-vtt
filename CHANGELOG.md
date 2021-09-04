@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.0.1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v7.0.0...v7.0.1) (2021-09-04)
+
+
+### Bug Fixes
+
+* 🐛 Consumable rolls not functioning correctly. ([02c1c5b](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/02c1c5b82457729a9b1e56be97b707be71a5c1c9))
+
 ## [7.0.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v6.0.4...v7.0.0) (2021-09-04)
 
 
