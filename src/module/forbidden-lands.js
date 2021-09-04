@@ -1,5 +1,4 @@
 import { ForbiddenLandsActor, ForbiddenLandsItem } from "./system/entities.js";
-import { initializeCalendar } from "./hooks/calendar-weather.js";
 import { registerDiceSoNice } from "./hooks/dice-so-nice.js";
 import { registerFonts } from "./hooks/fonts.js";
 import { initializeHandlebars } from "./hooks/handlebars.js";
@@ -46,9 +45,23 @@ Hooks.once("init", () => {
 });
 
 Hooks.once("ready", () => {
-	initializeCalendar();
 	migrateWorld();
 	displayMessages();
+
+	// Hack to remove monsterTalents from System
+	game.system.entityTypes.Item = game.system.entityTypes.Item.filter((type) => type !== "monsterTalent");
+
+	// Only add the context menu to decrease consumables if consumables aren't automatically handled.
+	if (game.settings.get("forbidden-lands", "autoDecreaseConsumable") === 0)
+		Hooks.on("getChatLogEntryContext", function (_html, options) {
+			const isConsumableRoll = (li) => li.find(".consumable-result").length;
+			options.push({
+				name: localizeString("CONTEXT.REDUCE_CONSUMABLE"),
+				icon: "<i class='fas fa-arrow-down'></i>",
+				condition: isConsumableRoll,
+				callback: (li) => FBLRollHandler.decreaseConsumable(li.attr("data-message-id")),
+			});
+		});
 });
 
 Hooks.once("diceSoNiceReady", (dice3d) => {
@@ -104,6 +117,13 @@ Hooks.on("renderActorSheet", (app, html) => {
 	html.find(".close").html(`<i class="fas fa-times"></i>` + game.i18n.localize("SHEET.CLOSE"));
 	html.find(".configure-sheet").html(`<i class="fas fa-cog"></i>` + game.i18n.localize("SHEET.CONFIGURE"));
 	html.find(".configure-token").html(`<i class="fas fa-user-circle"></i>` + game.i18n.localize("SHEET.TOKEN"));
+
+	if (app.cellId?.match(/#gm-screen.+/)) {
+		const buttons = html.find("button");
+		buttons.each((_i, button) => {
+			button.disabled = false;
+		});
+	}
 });
 
 Hooks.on("renderChatMessage", async (app, html) => {
@@ -135,18 +155,6 @@ Hooks.on("renderChatMessage", async (app, html) => {
 	}
 });
 
-// Only add the context menu to decrease consumables if consumables aren't automatically handled.
-if (game.settings.get("forbidden-lands", "autoDecreaseConsumable") === 0)
-	Hooks.on("getChatLogEntryContext", function (_html, options) {
-		const isConsumableRoll = (li) => li.find(".consumable-result").length;
-		options.push({
-			name: localizeString("CONTEXT.REDUCE_CONSUMABLE"),
-			icon: "<i class='fas fa-arrow-down'></i>",
-			condition: isConsumableRoll,
-			callback: (li) => FBLRollHandler.decreaseConsumable(li.attr("data-message-id")),
-		});
-	});
-
 /**
  * GM screen module causes buttons in Actor sheets to disable.
  * Undo this, so its possible to roll Attributes, Skills, etc. from GM Screen.
@@ -157,13 +165,4 @@ Hooks.on("gmScreenOpenClose", (app, _config) => {
 	buttons.each((_i, button) => {
 		button.disabled = false;
 	});
-});
-
-Hooks.on("renderActorSheet", (app, form, _css) => {
-	if (app.cellId?.match(/#gm-screen.+/)) {
-		const buttons = form.find("button");
-		buttons.each((_i, button) => {
-			button.disabled = false;
-		});
-	}
 });

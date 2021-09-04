@@ -15,7 +15,7 @@ export const migrateWorld = async () => {
 		ui.notifications.info("Upgrading the world, please wait...");
 		for (const actor of game.actors) {
 			try {
-				const update = migrateActorData(actor.data.toObject(), worldSchemaVersion);
+				const update = migrateActorData(actor.toObject(), worldSchemaVersion);
 				if (!foundry.utils.isObjectEmpty(update)) {
 					const updated = await actor.update(update, { enforceTypes: false });
 					console.log(`Migrated Actor entity ${actor.name}`, updated);
@@ -27,7 +27,7 @@ export const migrateWorld = async () => {
 		}
 		for (const item of game.items) {
 			try {
-				const update = migrateItemData(item.data.toObject(), worldSchemaVersion);
+				const update = migrateItemData(item.toObject(), worldSchemaVersion);
 				if (!foundry.utils.isObjectEmpty(update)) {
 					const updated = await item.update(update, { enforceTypes: false });
 					console.log(`Migrated Item entity ${item.name}`, updated);
@@ -85,25 +85,29 @@ const migrateActorData = (actor, worldSchemaVersion) => {
 			}
 		}
 
-	// Items
-	let itemsChanged = false;
-	const items = actor.items.map((item) => {
-		const itemUpdate = migrateItemData(item, worldSchemaVersion);
-		if (!foundry.utils.isObjectEmpty(itemUpdate)) {
-			itemsChanged = true;
-			return foundry.utils.mergeObject(item, itemUpdate, {
-				enforceTypes: false,
-				inplace: false,
-			});
+	// Migrate Owned Items
+	if (!actor.items) return update;
+	const items = actor.items.reduce((arr, i) => {
+		// Migrate the Owned Item
+		const itemData = i instanceof CONFIG.Item.documentClass ? i.toObject() : i;
+		let itemUpdate = migrateItemData(itemData, worldSchemaVersion);
+
+		// Update the Owned Item
+		if (!isObjectEmpty(itemUpdate)) {
+			itemUpdate._id = itemData._id;
+			arr.push(expandObject(itemUpdate));
 		}
-		return item;
-	});
-	if (itemsChanged) update.items = items;
+
+		return arr;
+	}, []);
+	if (items.length > 0) update.items = items;
+
 	return update;
 };
 
 const migrateItemData = (item, worldSchemaVersion) => {
 	const update = {};
+
 	if (worldSchemaVersion < 3) {
 		if (item.type === "artifact") update.type = "weapon";
 
