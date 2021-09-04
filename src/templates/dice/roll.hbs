@@ -37,9 +37,13 @@
 			</h4>
 		{{/if}}
 		{{#if (eq roll.type "consumable")}}
+			{{log this roll}}
 			{{{tooltip}}}
 			<h4 class="dice-total">
-				<img class="consumable-icon" src="systems/forbidden-lands/assets/assorted/{{roll.name}}.webp" />
+				<img
+					class="consumable-icon"
+					src="systems/forbidden-lands/assets/assorted/{{roll.options.consumable}}.webp"
+				/>
 				<span class="consumable-result">
 					{{total}}
 				</span>

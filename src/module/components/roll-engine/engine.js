@@ -377,6 +377,7 @@ export class FBLRollHandler extends FormApplication {
 			attribute: this.base.name,
 			chance: this.spell.chance,
 			isAttack: this.isAttack,
+			consumable: this.options.consumable,
 			damage: this.damage,
 			tokenId: this.options.tokenId,
 			sceneId: this.options.sceneId,
@@ -549,7 +550,9 @@ export class FBLRollHandler extends FormApplication {
 	static async decreaseConsumable(messageId) {
 		let {
 			data: { speaker },
-			roll: { name: consumable },
+			roll: {
+				options: { consumable },
+			},
 		} = game.messages.get(messageId);
 
 		speaker = this.getSpeaker(speaker);

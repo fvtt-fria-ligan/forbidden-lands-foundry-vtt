@@ -65,7 +65,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 
 		html.find(".roll-consumable").click((ev) => {
 			const consumable = $(ev.currentTarget).data("consumable");
-			return FBLRollHandler.rollConsumable(this.actor, consumable, this.getRollOptions());
+			return this.rollConsumable(consumable);
 		});
 
 		html.find("#pride-roll-btn").click(() => this.rollPride());
@@ -148,6 +148,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 		const options = {
 			name: rollName.toLowerCase(),
 			maxPush: "0",
+			consumable: identifier,
 			type: "consumable",
 			...this.getRollOptions(),
 		};
