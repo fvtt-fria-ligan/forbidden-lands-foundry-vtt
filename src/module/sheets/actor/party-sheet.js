@@ -18,7 +18,7 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 	}
 
 	getData() {
-		const data = super.getData();
+		const data = super.getData().data;
 		data.partyMembers = {};
 		data.travel = {};
 		data.travelActions = this.getTravelActions();
