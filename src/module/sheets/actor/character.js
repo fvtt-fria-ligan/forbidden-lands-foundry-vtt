@@ -117,9 +117,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			parseInt(data.data.currency.copper.value);
 		weightCarried += Math.floor(coinsCarried / 100) * 0.5;
 		const modifiers = this.actor.getRollModifierOptions("carryingCapacity");
-		const weightAllowed = modifiers
-			? data.data.attribute.strength.max * 2 + parseInt(modifiers[0]?.value) || 0
-			: data.data.attribute.strength.max * 2;
+		const weightAllowed = data.data.attribute.strength.max * 2 + (parseInt(modifiers[0]?.value) || 0);
 		data.data.encumbrance = {
 			value: weightCarried,
 			max: weightAllowed,
