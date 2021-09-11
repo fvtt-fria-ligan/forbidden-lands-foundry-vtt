@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.0.3](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v7.0.2...v7.0.3) (2021-09-11)
+
+
+### Bug Fixes
+
+* 🐛 Damage, Critical Injuries, Encumrance and Artifacts ([6cde605](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/6cde6058d393177b682d979f80a8368f5c9f4950))
+
 ### [7.0.2](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v7.0.1...v7.0.2) (2021-09-04)
 
 
