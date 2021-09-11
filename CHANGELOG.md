@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.0.4](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v7.0.3...v7.0.4) (2021-09-11)
+
+
+### Bug Fixes
+
+* 🐛 Error when opening a charactersheet without Pack Rat ([21b94de](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/21b94de2d36a8eb8676645479500bea07ba955f0))
+
 ### [7.0.3](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v7.0.2...v7.0.3) (2021-09-11)
 
 
