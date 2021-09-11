@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.0.5](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v7.0.4...v7.0.5) (2021-09-11)
+
+
+### Bug Fixes
+
+* 🐛 Fix Encumbrance not calculating without a modifier ([1397225](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/139722580bd03f45108bbe9a6123c6546d3a8f03))
+
 ### [7.0.4](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v7.0.3...v7.0.4) (2021-09-11)
 
 
