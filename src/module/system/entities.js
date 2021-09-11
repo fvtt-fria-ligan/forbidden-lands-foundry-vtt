@@ -163,15 +163,15 @@ export class ForbiddenLandsItem extends Item {
 		const modifiers = Object.values(this.rollModifiers).reduce((array, mod) => {
 			const match = rollIdentifiers.includes(objectSearch(CONFIG.fbl.i18n, mod.name));
 			if (match) {
-				if (mod.value.match(/\d?d8|10|12/i)) mod = mod.value;
-				else mod = Number(mod.value);
+				if (mod.value.match(/\d*d(?:8|10|12)/i)) mod = mod.value.replace(/^\+/, "");
+				else mod = Number(mod.value).toFixed();
 				if (!mod) return array;
 				else
 					return [
 						...array,
 						{
 							name: this.name,
-							value: typeof mod === "string" || mod > 0 ? `+${mod}` : mod.toFixed(),
+							value: mod,
 							active: mod < 0 ? true : false,
 						},
 					];
@@ -207,8 +207,13 @@ export class ForbiddenLandsItem extends Item {
 			chatData.whisper = [game.user];
 		}
 		const message = await ChatMessage.create(chatData);
-		const healingTime = message.data.content.match(/data-type="healtime.+?<\/i> (\d+?)<\/a>/);
-		if (healingTime) itemData.data.healingTime = healingTime[1] + " days";
+		if (itemData.isCriticalInjury) {
+			const content = $(message.data.content);
+			const limit = content.find("[data-type='limit']").text().trim();
+			const healingTime = content.find("[data-type='healtime']").text().trim();
+			itemData.data.limit = limit;
+			itemData.data.healingTime = healingTime;
+		}
 		await message.setFlag("forbidden-lands", "itemData", itemData); // Adds posted item data to chat message flags for item drag/drop
 	}
 }

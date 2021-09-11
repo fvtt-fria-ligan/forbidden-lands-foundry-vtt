@@ -156,17 +156,23 @@ export class FBLRollHandler extends FormApplication {
 
 		//This lets us modify the Total Modifier input or Artifact input when a user checks or unchecks the optional modifiers.
 		html.find("input.option").on("change", function () {
+			const artifactRegex = /(\d*d(?:8|10|12))/gi;
+			const artifact = this.dataset.value.match(artifactRegex);
+			const modifier = this.dataset.value.match(/([+-]?\d+(?<!d\d+?))(?!d\d+?)/gi);
 			//Handle artifact modifiers
-			if (FBLRollHandler.isValidArtifact(this.dataset.value.slice(1))) {
-				if (this.checked) artifactInput.value += this.dataset.value;
-				else artifactInput.value = artifactInput.value.replace(this.dataset.value, "");
-				return;
+			if (artifact) {
+				const artifacts = artifactInput.value.match(artifactRegex) || [];
+				if (this.checked) artifacts.push(artifact[0]);
+				else artifacts.splice(artifacts.indexOf(artifact[0]), 1);
+				artifactInput.value = artifacts.join("+");
 			}
 			// Handle normal modifiers
-			let currentValue = Number(totalModifierInput.value);
-			if (this.checked) currentValue += Number(this.dataset.value);
-			else currentValue -= Number(this.dataset.value);
-			totalModifierInput.value = currentValue;
+			if (modifier) {
+				let currentValue = Number(totalModifierInput.value);
+				if (this.checked) currentValue += Number(modifier[0]);
+				else currentValue -= Number(modifier[0]);
+				totalModifierInput.value = currentValue;
+			}
 		});
 
 		//**Spell Rolls** Similar to the listener in the actor sheet, it lets us increment the dice rolled based on willpower spent.
@@ -227,7 +233,7 @@ export class FBLRollHandler extends FormApplication {
 				skill: this.skill,
 				gear: this.gear,
 			},
-			artifact: this.gear.artifactDie,
+			artifact: this.artifact,
 			modifier: this.modifier,
 			safecastMax: this.safecastMax,
 			spellDice: this.spellDice,
@@ -345,7 +351,7 @@ export class FBLRollHandler extends FormApplication {
 		const artifacts = string.split(/[+, ]/).filter((term) => !!term);
 		const terms = artifacts
 			.reduce((array, artifact) => {
-				let [num, term] = artifact.split(/d/);
+				let [num, term] = artifact.split(/d/i);
 				num = Number(num) || 1;
 				const existTermIndex = array.findIndex((termVal) => termVal[0] === term);
 				if (existTermIndex > -1) array[existTermIndex][1] += num;
@@ -439,7 +445,7 @@ export class FBLRollHandler extends FormApplication {
 	 */
 	static isValidArtifact(input) {
 		const isEmpty = !input;
-		const containsArtifactDice = !!input?.match(/[\d]*[d]8|10|12/i);
+		const containsArtifactDice = !!input?.match(/(\d*d(?:8|10|12))/i);
 		const isDiceFormula = !input?.match(/[^\dd+, ]/i);
 		return isEmpty || (isDiceFormula && containsArtifactDice);
 	}
@@ -587,7 +593,7 @@ export class FBLRoll extends YearZeroRoll {
 	}
 
 	get damage() {
-		return (this.options.damage || 0) + this.successCount;
+		return (this.options.damage || 0) + Math.max(this.successCount - 1, 0);
 	}
 
 	// Override the create method to use FBLRoll class

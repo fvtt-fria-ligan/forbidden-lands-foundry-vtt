@@ -116,6 +116,7 @@ FBL.i18n = {
 	"travel-kill-prey": "FLPS.TRAVEL_ROLL.KILL_PREY",
 	"travel-catch-fish": "FLPS.TRAVEL_ROLL.CATCH_FISH",
 	"travel-make-camp": "FLPS.TRAVEL_ROLL.MAKE_CAMP",
+	carryingCapacity: "CARRYING_CAPACITY",
 };
 
 FBL.itemTypes = [
