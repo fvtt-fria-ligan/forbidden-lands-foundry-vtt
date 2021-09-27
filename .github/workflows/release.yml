@@ -40,4 +40,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           artifacts: "./dist/system.json, fbl-fvtt_${{ steps.version.outputs.tag }}.zip"
-          body: ${{ steps.generate_changelog.outputs.changelog }}
+          body: ${{ steps.changelog.outputs.changelog }}
