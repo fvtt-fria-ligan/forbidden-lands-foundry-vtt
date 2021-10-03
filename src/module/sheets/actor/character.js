@@ -3,6 +3,7 @@ import { ForbiddenLandsActorSheet } from "./actor.js";
 import { ForbiddenLandsCharacterGenerator } from "../../components/character-generator/character-generator.js";
 import localizeString from "../../utils/localize-string";
 import { FBLRoll, FBLRollHandler } from "../../components/roll-engine/engine.js";
+import { ActorSheetConfig } from "../../utils/sheet-config.js";
 export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
@@ -30,6 +31,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 
 	get template() {
 		if (!game.user.isGM && this.actor.limited) return "systems/forbidden-lands/templates/limited-character.hbs";
+		if (this.actorProperties.subtype.type === "npc") return "systems/forbidden-lands/templates/npc.hbs";
 		return "systems/forbidden-lands/templates/character.hbs";
 	}
 
@@ -183,6 +185,15 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			this.actor,
 		);
 		return chargen.render(true);
+	}
+
+	/* Override */
+	_onConfigureSheet(event) {
+		event.preventDefault();
+		new ActorSheetConfig(this.actor, {
+			top: this.position.top + 40,
+			left: this.position.left + (this.position.width - 400) / 2,
+		}).render(true);
 	}
 
 	_getHeaderButtons() {

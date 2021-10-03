@@ -1,0 +1,31 @@
+<form autocomplete="off">
+	<div class="form-group">
+		<label>
+			{{localize "CONFIG.SHEET.CHARACTER_SUBTYPE"}}
+		</label>
+		<select name="data.subtype.type">
+			{{selectOptions types selected=object.data.subtype.type localize=true }}
+		</select>
+		<p class="notes">{{localize "CONFIG.SHEET.CHARACTER_SUBTYPE_DESC"}}</p>
+	</div>
+	<div class="form-group">
+        <label>{{localize "SHEETS.ThisSheet"}}</label>
+        <select name="sheetClass">
+            {{selectOptions sheetClasses selected=sheetClass blank=blankLabel}}
+        </select>
+        <p class="notes">{{localize "SHEETS.EntitySheetHint"}}</p>
+    </div>
+
+    <div class="form-group">
+        <label>{{localize "Default"}} <strong>{{type}}</strong> {{localize "Sheet"}}</label>
+        <select name="defaultClass" {{#unless isGM}}disabled{{/unless}}>
+            {{selectOptions sheetClasses selected=defaultClass}}
+        </select>
+        <p class="notes">{{localize "SHEETS.TypeSheetHint"}}</p>
+    </div>
+
+	<button type="submit" name="submit">
+		<i class="fas fa-save"></i>
+		{{localize "SHEETS.Save"}}
+	</button>
+</form>
