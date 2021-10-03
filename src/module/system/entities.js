@@ -159,7 +159,7 @@ export class ForbiddenLandsItem extends Item {
 	}
 
 	getRollModifier(...rollIdentifiers) {
-		if (!this.rollModifiers || foundry.utils.isObjectEmpty(this.rollModifiers)) return null;
+		if (!this.rollModifiers) return [];
 		const modifiers = Object.values(this.rollModifiers).reduce((array, mod) => {
 			const match = rollIdentifiers.includes(objectSearch(CONFIG.fbl.i18n, mod.name));
 			if (match) {
