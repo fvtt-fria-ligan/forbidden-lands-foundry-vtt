@@ -593,7 +593,8 @@ export class FBLRoll extends YearZeroRoll {
 	}
 
 	get damage() {
-		return (this.options.damage || 0) + Math.max(this.successCount - 1, 0);
+		const modifier = this.type === "spell" ? 0 : -1;
+		return (this.options.damage || 0) + Math.max(this.successCount + modifier, 0);
 	}
 
 	// Override the create method to use FBLRoll class

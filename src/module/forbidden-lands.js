@@ -44,6 +44,10 @@ Hooks.once("init", () => {
 	registerSettings();
 });
 
+Hooks.on("renderPause", (_app, html) => {
+	html.find("img").attr("src", "systems/forbidden-lands/assets/fbl-sun.webp");
+});
+
 Hooks.once("ready", () => {
 	migrateWorld();
 	displayMessages();
