@@ -63,6 +63,12 @@ FBL.encumbrance = {
 	light: 0.5,
 	regular: 1,
 	heavy: 2,
+	3: 3,
+	4: 4,
+	5: 5,
+	6: 6,
+	7: 7,
+	8: 8,
 };
 
 FBL.i18n = {
