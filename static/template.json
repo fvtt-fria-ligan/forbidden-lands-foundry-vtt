@@ -129,10 +129,13 @@
 						"attribute": "empathy"
 					}
 				}
+			},
+			"subtype": {
+				"type": ""
 			}
 		},
 		"character": {
-			"templates": ["attributes", "skills"],
+			"templates": ["attributes", "skills", "subtype"],
 			"bio": {
 				"kin": {
 					"label": "BIO.KIN",

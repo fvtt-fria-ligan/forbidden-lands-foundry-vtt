@@ -142,6 +142,7 @@
             </div>
         </div>
     </div>
+	{{#unless (eq data.subtype.type "npc")}}
     <div class="consumables border">
         <div class="consumable">
             <i class="fas fa-dice"></i>
@@ -161,4 +162,5 @@
         </div>
         {{/each}}
     </div>
+	{{/unless}}
 </div>

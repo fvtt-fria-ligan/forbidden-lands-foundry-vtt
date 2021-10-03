@@ -42,6 +42,8 @@ FBL.actionModifiers = {
 
 FBL.attributes = ["agility", "empathy", "strength", "wits"];
 
+FBL.characterSubtype = { pc: "ACTOR.SUBTYPE.PC", npc: "ACTOR.SUBTYPE.NPC" };
+
 FBL.consumableDice = {
 	1: "1db",
 	2: "1d8",

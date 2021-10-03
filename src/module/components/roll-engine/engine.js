@@ -544,7 +544,9 @@ export class FBLRollHandler extends FormApplication {
 		if (!willpower) return;
 
 		willpower =
-			operation === "add" ? Math.min(willpower.value + value, willpower.max) : Math.max(willpower.value - value);
+			operation === "add"
+				? Math.min(willpower.value + value, willpower.max)
+				: Math.max(willpower.value - value, 0);
 		return await speaker.update({ "data.bio.willpower.value": willpower });
 	}
 
