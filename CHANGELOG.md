@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.1.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v7.0.5...v7.1.0) (2021-10-04)
+
+
+### Features
+
+* ✨ Add NPC subtype ([a7a04a7](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/a7a04a7a026b722467049cc8c8d1fb124f477b27))
+* ✨ Change what information the limited char sheet displays ([e707a73](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/e707a7322f56091e00183d3fe8ac114d4b7b535c))
+
+
+### Bug Fixes
+
+* 🐛 Character sheet not opening if not configured with subtype ([7ae7ebc](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/7ae7ebc794f959899ce42b19594b5013f315de8b))
+* 🐛 Character sheet scaling issues & illegal hbs whitespace ([6da3558](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/6da3558f6f51bc51979dbe3587f55d5cf64dd183))
+* 🐛 Parry modifier not correctly applying ([9115cfc](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/9115cfceb3af01029eed34b23b14c915acff79cd))
+* 🐛 Pause spinner should display on FireFox ([c2f43ba](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/c2f43ba76e60ccddcf63ed863263a501a682ba5c))
+* 🐛 Power Level correctly calculating on chat cards ([d75f92c](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/d75f92cadbe0a36a80d7129db273484046d08030))
+* 🐛 Special Encumbrance not correctly applying ([51a1b0a](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/51a1b0a981fe60daf8436ed875983de2895e03a4))
+* 🐛 Typo causing changelogs not to be generated ([4c0060e](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/4c0060e3da90a89d45d9c8131d958f8e72fd8e0a))
+
 ### [7.0.5](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v7.0.4...v7.0.5) (2021-09-11)
 
 
