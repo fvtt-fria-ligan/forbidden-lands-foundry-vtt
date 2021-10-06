@@ -291,7 +291,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 
 	rollSpell(spellId) {
 		if (this.actor.isBroken) throw this.broken();
-		if (!this.actor.willpower.value && !this.actorProperties.subtype.type === "npc")
+		if (!this.actor.willpower.value && !this.actorProperties.subtype?.type === "npc")
 			throw ui.notifications.warn(localizeString("WARNING.NO_WILLPOWER"));
 
 		const spell = this.actor.items.get(spellId);
@@ -312,7 +312,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		};
 
 		// NPCs shouldn't have a restraint on willpower.
-		if (this.actorProperties.subtype.type === "npc")
+		if (this.actorProperties.subtype?.type === "npc")
 			data.spell.willpower = {
 				max: 9,
 				value: 9,

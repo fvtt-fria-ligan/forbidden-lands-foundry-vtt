@@ -348,7 +348,7 @@ export class FBLRollHandler extends FormApplication {
 	 * @see Roll
 	 */
 	parseArtifacts(string = "", artifactName = "") {
-		const artifacts = string.split(/[+, ]/).filter((term) => !!term);
+		const artifacts = string.split(/[+, ]/).filter((term) => !!term && term !== "0");
 		const terms = artifacts
 			.reduce((array, artifact) => {
 				let [num, term] = artifact.split(/d/i);
@@ -444,7 +444,7 @@ export class FBLRollHandler extends FormApplication {
 	 * @see _validateForm
 	 */
 	static isValidArtifact(input) {
-		const isEmpty = !input;
+		const isEmpty = !input || "0";
 		const containsArtifactDice = !!input?.match(/(\d*d(?:8|10|12))/i);
 		const isDiceFormula = !input?.match(/[^\dd+, ]/i);
 		return isEmpty || (isDiceFormula && containsArtifactDice);
