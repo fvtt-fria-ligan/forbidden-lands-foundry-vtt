@@ -2,7 +2,7 @@
 	"name": "forbidden-lands",
 	"title": "Forbidden Lands",
 	"description": "'Round the beggar from Varassa all sat in a ring, and by the campfire they sat and heard his song. About walkers and wolfkin and every terrible thing, and of his fear he sang to them all night long: <em>\"There is something beyond the mountains, beyond the howls beyond the mist, there is something behind the veils, behind hearts cold as stone. Hearken, something walks and whispers, walks and lures you in and whimpers: Come to us, for this earth shall ever be ours and ours alone!\"</em>",
-	"version": "7.1.3",
+	"version": "7.1.4",
 	"minimumCoreVersion": "0.8.9",
 	"compatibleCoreVersion": "0.8.9",
 	"author": "aMediocreDad, narukaioh",
@@ -75,6 +75,6 @@
 	"url": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt",
 	"socket": true,
 	"manifest": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/latest/download/system.json",
-	"download": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v7.1.3/fbl-fvtt_v7.1.3.zip",
+	"download": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v7.1.4/fbl-fvtt_v7.1.4.zip",
 	"license": "LICENSE.txt"
 }
