@@ -159,7 +159,7 @@ export class ForbiddenLandsItem extends Item {
 	}
 
 	getRollModifier(...rollIdentifiers) {
-		if (!this.rollModifiers) return [];
+		if (typeof this.rollModifiers !== "object") return;
 		const modifiers = Object.values(this.rollModifiers).reduce((array, mod) => {
 			const match = rollIdentifiers.includes(objectSearch(CONFIG.fbl.i18n, mod.name));
 			if (match) {
@@ -178,12 +178,13 @@ export class ForbiddenLandsItem extends Item {
 			} else return array;
 		}, []);
 
-		if (rollIdentifiers.find((i) => i === "parry") && this.parryPenalty)
+		if (this.parryPenalty && rollIdentifiers.includes("parry") && rollIdentifiers.includes(this.name))
 			modifiers.push({
 				name: localizeString("WEAPON.FEATURES.PARRYING"),
 				value: this.parryPenalty,
 				active: true,
 			});
+
 		return modifiers;
 	}
 
