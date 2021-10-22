@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.1.5](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v7.1.4...v7.1.5) (2021-10-22)
+
+
+### Bug Fixes
+
+* 🐛 Guard against null value in rollModifiers ([fe12380](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/fe123803c16fe8b8d50eb59b2838cdcba78d1d57))
+
 ### [7.1.4](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v7.1.3...v7.1.4) (2021-10-22)
 
 
