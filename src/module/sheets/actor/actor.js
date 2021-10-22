@@ -201,7 +201,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			...properties,
 		};
 		const options = {
-			...this.getRollOptions(actionName, data.skill?.name, data.attribute?.name, data.gear?.name),
+			...this.getRollOptions(actionName, data.skill?.name, data.attribute?.name, data.gear?.itemId),
 		};
 		if (actionName === "unarmed") options.damage = 1;
 		return FBLRollHandler.createRoll(data, options);
@@ -272,7 +272,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			...properties,
 		};
 		const options = {
-			...this.getRollOptions(data.skill?.name, data.attribute?.name, data.gear.name),
+			...this.getRollOptions(data.skill?.name, data.attribute?.name, data.gear.itemId),
 		};
 		return FBLRollHandler.createRoll(data, options);
 	}
