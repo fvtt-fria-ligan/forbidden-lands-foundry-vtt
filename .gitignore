@@ -14,6 +14,7 @@ npm-debug.log
 
 # Local configuration
 foundryconfig.json
+pnpm-lock.yaml
 
 # Distribution files
 /dist
@@ -26,3 +27,4 @@ junit.xml
 
 # filetypes
 .DS_Store
+

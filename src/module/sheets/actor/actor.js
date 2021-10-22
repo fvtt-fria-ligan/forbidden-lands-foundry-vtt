@@ -181,6 +181,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		const gear = this.actor.items.get(itemId).getRollData();
 		if (gear.isBroken) throw this.broken("item");
 		const properties = this.getSkill(CONFIG.fbl.actionSkillMap[gear.category] || "melee");
+
 		return {
 			gear: gear,
 			...properties,
@@ -200,7 +201,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			...properties,
 		};
 		const options = {
-			...this.getRollOptions(actionName, data.skill?.name, data.attribute?.name),
+			...this.getRollOptions(actionName, data.skill?.name, data.attribute?.name, data.gear?.name),
 		};
 		if (actionName === "unarmed") options.damage = 1;
 		return FBLRollHandler.createRoll(data, options);
@@ -271,7 +272,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			...properties,
 		};
 		const options = {
-			...this.getRollOptions(data.skill?.name, data.attribute?.name),
+			...this.getRollOptions(data.skill?.name, data.attribute?.name, data.gear.name),
 		};
 		return FBLRollHandler.createRoll(data, options);
 	}
