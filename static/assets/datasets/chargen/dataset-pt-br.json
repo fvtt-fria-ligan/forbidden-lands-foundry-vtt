@@ -602,11 +602,7 @@
 			"key": "elf",
 			"name": "Elfo",
 			"weight": 2,
-			"age": [
-				[20, 40],
-				[41, 200],
-				[201, 400]
-			],
+			"age": [[0, 0]],
 			"talent": "Paz Interior",
 			"childhood": {
 				"loner": {
