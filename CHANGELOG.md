@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.2.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v7.1.1...v7.2.0) (2021-12-05)
+
+
+### Features
+
+* ✨ Update fr.json ([6c66df0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/6c66df02f239989d18e272b3303bc3d9ee5eece7))
+
+
+### Bug Fixes
+
+* 🐛 Guard against null value in rollModifiers ([fe12380](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/fe123803c16fe8b8d50eb59b2838cdcba78d1d57))
+* 🐛 Identify gear by ID on parry modifier ([d4c04ce](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/d4c04ce79eaf83ad8bf881572b91705c29738156))
+* 🐛 Parry modifier accumulating when carrying multiple weapons ([7728a09](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/7728a09aac1b21c3ec2cf16a2a2323b00089e5ec))
+
 ### [7.1.5](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v7.1.4...v7.1.5) (2021-10-22)
 
 
