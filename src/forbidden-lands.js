@@ -20,7 +20,7 @@ import localizeString from "./utils/localize-string.js";
 hookDebug: {
 	CONFIG.debug.hooks = true;
 	const tests = await import("./tests/foundry-scripts");
-	CONFIG.debug.tests = tests.default
+	CONFIG.debug.tests = tests.default;
 }
 console.warn("HOOKS DEBUG ENABLED: ", CONFIG.debug.hooks);
 

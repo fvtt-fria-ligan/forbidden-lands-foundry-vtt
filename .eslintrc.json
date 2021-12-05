@@ -22,6 +22,7 @@
 	"plugins": [],
 
 	"rules": {
-		"no-shadow": ["error", { "builtinGlobals": true, "hoist": "all", "allow": ["event"] }]
+		"no-shadow": ["error", { "builtinGlobals": true, "hoist": "all", "allow": ["event"] }],
+		"no-unused-labels": 0
 	}
 }
