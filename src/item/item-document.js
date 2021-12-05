@@ -1,5 +1,5 @@
-import localizeString from "../system/utils/localize-string";
-import { objectSearch } from "../system/utils/object-search";
+import localizeString from "../utils/localize-string.js";
+import { objectSearch } from "../utils/object-search.js";
 
 export class ForbiddenLandsItem extends Item {
 	get ammo() {

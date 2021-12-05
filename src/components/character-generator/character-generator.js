@@ -12,7 +12,7 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			classes: ["forbidden-lands", "sheet", "actor"],
-			template: "systems/forbidden-lands/templates/character-generator.hbs",
+			template: "systems/forbidden-lands/templates/components/character-generator/generator-sheet.hbs",
 			title: game.i18n.localize("FLCG.TITLE"),
 			width: 700,
 			height: 840,

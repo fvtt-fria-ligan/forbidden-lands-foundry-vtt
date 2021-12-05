@@ -1,17 +1,17 @@
-import { ForbiddenLandsCharacterSheet } from "../sheets/actor/character.js";
-import { ForbiddenLandsMonsterSheet } from "../sheets/actor/monster.js";
-import { ForbiddenLandsStrongholdSheet } from "../sheets/actor/stronghold.js";
-import { ForbiddenLandsPartySheet } from "../sheets/actor/party-sheet.js";
-import { ForbiddenLandsWeaponSheet } from "../sheets/item/weapon.js";
-import { ForbiddenLandsArmorSheet } from "../../item/armor.js/index.js";
-import { ForbiddenLandsGearSheet } from "../sheets/item/gear.js";
-import { ForbiddenLandsRawMaterialSheet } from "../sheets/item/raw-material.js";
-import { ForbiddenLandsSpellSheet } from "../sheets/item/spell.js";
-import { ForbiddenLandsTalentSheet } from "../sheets/item/talent.js";
-import { ForbiddenLandsCriticalInjurySheet } from "../sheets/item/critical-injury.js";
-import { ForbiddenLandsMonsterAttackSheet } from "../sheets/item/monster-attack.js";
-import { ForbiddenLandsBuildingSheet } from "../sheets/item/building.js";
-import { ForbiddenLandsHirelingSheet } from "../sheets/item/hireling.js";
+import { ForbiddenLandsCharacterSheet } from "@actor/character/character-sheet.js";
+import { ForbiddenLandsMonsterSheet } from "@actor/monster/monster-sheet.js";
+import { ForbiddenLandsStrongholdSheet } from "@actor/stronghold/stronghold-sheet.js";
+import { ForbiddenLandsPartySheet } from "@actor/party/party-sheet.js";
+import { ForbiddenLandsWeaponSheet } from "@item/weapon/weapon-sheet.js";
+import { ForbiddenLandsArmorSheet } from "@item/armor/armor-sheet.js";
+import { ForbiddenLandsGearSheet } from "@item/gear/gear-sheet.js";
+import { ForbiddenLandsRawMaterialSheet } from "@item/raw-material/raw-material-sheet.js";
+import { ForbiddenLandsSpellSheet } from "@item/spell/spell-sheet.js";
+import { ForbiddenLandsTalentSheet } from "@item/talent/talent-sheet.js";
+import { ForbiddenLandsCriticalInjurySheet } from "@item/critical-injury/critical-injury-sheet.js";
+import { ForbiddenLandsMonsterAttackSheet } from "@item/monster-attack/monster-attack-sheet.js";
+import { ForbiddenLandsBuildingSheet } from "@item/building/building-sheet.js";
+import { ForbiddenLandsHirelingSheet } from "@item/hireling/hireling-sheet.js";
 
 export function registerSheets() {
 	Actors.unregisterSheet("core", ActorSheet);

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { CharacterPickerDialog } from "./character-picker-dialog.js";
-import { Helpers } from "../../system/utils/helpers.js.js";
-import localizeString from "../../system/utils/localize-string.js.js";
+import { Helpers } from "../../utils/helpers.js";
+import localizeString from "../../utils/localize-string.js";
 
 /**
  * Roll skill check to perform a travel action

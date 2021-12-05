@@ -1,9 +1,9 @@
-import { ForbiddenLandsItemSheet } from "./item.js";
+import { ForbiddenLandsItemSheet } from "@item/item-sheet";
 export class ForbiddenLandsGearSheet extends ForbiddenLandsItemSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			...super.defaultOptions,
-			template: "systems/forbidden-lands/templates/gear.hbs",
+			template: "systems/forbidden-lands/templates/item/gear/gear-sheet.hbs",
 			tabs: [
 				{
 					navSelector: ".sheet-tabs",

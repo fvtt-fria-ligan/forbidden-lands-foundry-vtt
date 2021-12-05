@@ -30,9 +30,11 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	}
 
 	get template() {
-		if (!game.user.isGM && this.actor.limited) return "systems/forbidden-lands/templates/limited-character.hbs";
-		if (this.actorProperties.subtype?.type === "npc") return "systems/forbidden-lands/templates/npc.hbs";
-		return "systems/forbidden-lands/templates/character.hbs";
+		if (!game.user.isGM && this.actor.limited)
+			return "systems/forbidden-lands/templates/actor/character/character-limited-sheet.hbs";
+		if (this.actorProperties.subtype?.type === "npc")
+			return "systems/forbidden-lands/templates/actor/character/npc-sheet.hbs";
+		return "systems/forbidden-lands/templates/actor/character/character-sheet.hbs";
 	}
 
 	getData() {

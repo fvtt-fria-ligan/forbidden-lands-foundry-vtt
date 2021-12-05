@@ -77,13 +77,12 @@
 			<div class="chargen-build">
 				<!--prettier-ignore-->
 				{{! prettier-ignore }}
-{{> systems/forbidden-lands/templates/partial/list.hbs title="FLCG.ATTRIBUTES" list=character.childhood.attributes }}
+{{> systems/forbidden-lands/templates/components/character-generator/list-component.hbs title="FLCG.ATTRIBUTES" list=character.childhood.attributes }}
 				<!--prettier-ignore-->
 				{{! prettier-ignore }}
-{{> systems/forbidden-lands/templates/partial/list.hbs title="FLCG.SKILLS" list=character.childhood.skills }}
+{{> systems/forbidden-lands/templates/components/character-generator/list-component.hbs title="FLCG.SKILLS" list=character.childhood.skills }}
 			</div>
 		</div>
-
 		<h2 class="chargen-title">{{localize "FLCG.EVENT"}}</h2>
 		<div class="chargen-background-table">
 			{{#each character.formativeEvents as |formativeEvent key|}}
@@ -98,12 +97,10 @@
 					<div class="chargen-description chargen-event">{{formativeEvent.description}}</div>
 					<div class="chargen-items chargen-event">{{formativeEvent.items}}</div>
 				</div>
+				<div class="chargen-build">
 				<!--prettier-ignore-->
 				{{! prettier-ignore }}
-				<div class="chargen-build">
-					{{> systems/forbidden-lands/templates/partial/list.hbs title="FLCG.SKILLS"
-					list=formativeEvent.skills }}
-
+{{> systems/forbidden-lands/templates/components/character-generator/list-component.hbs title="FLCG.SKILLS" list=formativeEvent.skills }}
 					<div class="chargen-list">
 						<div class="chargen-list-caption">{{localize "FLCG.TALENT"}}</div>
 						<ul>

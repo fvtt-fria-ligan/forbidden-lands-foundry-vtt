@@ -47,10 +47,13 @@ export class CharacterPickerDialog extends Dialog {
 		let actor;
 		for (let i = 0; i < characters.length; i++) {
 			actor = characters[i] instanceof Actor ? characters[i].data : game.actors.get(characters[i]).data;
-			html += await renderTemplate("systems/forbidden-lands/templates/partial/party-member.hbs", {
-				partyMember: actor,
-				noCharSheetLink: true,
-			});
+			html += await renderTemplate(
+				"systems/forbidden-lands/templates/components/party-sheet/member-component.hbs",
+				{
+					partyMember: actor,
+					noCharSheetLink: true,
+				},
+			);
 		}
 		return `<ol>${html}</ol>`;
 	}

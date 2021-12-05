@@ -1,4 +1,4 @@
-import { InfoDialog } from "../../module/components/info-dialog.js";
+import { InfoDialog } from "@components/party-sheet/info-dialog";
 
 export class Helpers {
 	static getCharacterDiceRoller(character) {

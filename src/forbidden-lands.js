@@ -1,13 +1,13 @@
-import { ForbiddenLandsActor, ForbiddenLandsItem } from "./system/entities.js";
-import { registerDiceSoNice } from "./hooks/dice-so-nice.js";
-import { registerFonts } from "./hooks/fonts.js";
-import { initializeHandlebars } from "./hooks/handlebars.js";
-import { migrateWorld } from "./hooks/migration.js";
-import { registerSheets } from "./hooks/sheets.js";
-import FBL from "./system/config.js";
-import registerSettings from "./system/settings.js";
-import displayMessages from "./hooks/message-system.js";
-import FoundryOverrides from "./hooks/foundry-overrides.js";
+import { ForbiddenLandsActor } from "./actor/actor-document.js";
+import { ForbiddenLandsItem } from "./item/item-document.js";
+import { registerDiceSoNice } from "./external-api/dice-so-nice.js";
+import { initializeHandlebars } from "./system/core/handlebars.js";
+import { migrateWorld } from "./system/core/migration.js";
+import { registerSheets } from "./system/core/sheets.js";
+import FBL from "./system/core/config.js";
+import registerSettings from "./system/core/settings.js";
+import displayMessages from "./components/message-system.js";
+import FoundryOverrides from "./system/core/foundry-overrides.js";
 import { YearZeroRollManager } from "./components/roll-engine/yzur";
 import { ForbiddenLandsD6, registerYZURLabels } from "./components/roll-engine/dice-labels";
 import { FBLRollHandler } from "./components/roll-engine/engine.js";
@@ -17,8 +17,11 @@ import localizeString from "./utils/localize-string.js";
  * We use this label to remove the debug option in production builds.
  * @See rollup.config.js
  */
-// eslint-disable-next-line no-unused-labels
-hookDebug: CONFIG.debug.hooks = true;
+hookDebug: {
+	CONFIG.debug.hooks = true;
+	const tests = await import("./tests/foundry-scripts");
+	CONFIG.debug.tests = tests.default
+}
 console.warn("HOOKS DEBUG ENABLED: ", CONFIG.debug.hooks);
 
 Hooks.once("init", () => {
@@ -32,13 +35,12 @@ Hooks.once("init", () => {
 	CONFIG.fbl = FBL;
 	CONFIG.Item.documentClass = ForbiddenLandsItem;
 	YearZeroRollManager.register("fbl", {
-		"ROLL.chatTemplate": "systems/forbidden-lands/templates/dice/roll.hbs",
-		"ROLL.tooltipTemplate": "systems/forbidden-lands/templates/dice/tooltip.hbs",
-		"ROLL.infosTemplate": "systems/forbidden-lands/templates/dice/infos.hbs",
+		"ROLL.chatTemplate": "systems/forbidden-lands/templates/components/roll-engine/roll.hbs",
+		"ROLL.tooltipTemplate": "systems/forbidden-lands/templates/components/roll-engine/tooltip.hbs",
+		"ROLL.infosTemplate": "systems/forbidden-lands/templates/components/roll-engine/infos.hbs",
 	});
 	CONFIG.Dice.terms["6"] = ForbiddenLandsD6;
 	registerYZURLabels();
-	registerFonts();
 	registerSheets();
 	initializeHandlebars();
 	registerSettings();
@@ -53,7 +55,7 @@ Hooks.once("ready", () => {
 	displayMessages();
 
 	// Hack to remove monsterTalents from System
-	game.system.entityTypes.Item = game.system.entityTypes.Item.filter((type) => type !== "monsterTalent");
+	game.system.documentTypes.Item = game.system.documentTypes.Item.filter((type) => type !== "monsterTalent");
 
 	// Only add the context menu to decrease consumables if consumables aren't automatically handled.
 	if (game.settings.get("forbidden-lands", "autoDecreaseConsumable") === 0)

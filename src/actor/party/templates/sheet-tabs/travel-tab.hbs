@@ -1,0 +1,66 @@
+<div class="flex column full" style="overflow-y: scroll">
+	<div class="tab-hint">{{localize "FLPS.PARTY.HINT_ASSIGN"}}</div>
+	<form>
+		<button class="reset">{{localize "FLPS.TRAVEL.RESET"}}</button>
+	</form>
+	<table class="travel-actions">
+		<tr>
+			<td class="border">
+				<!-- prettier-ignore -->
+				{{! prettier-ignore }}
+{{> systems/forbidden-lands/templates/components/party-sheet/action-component.hbs assignedCharacters=travel.hike action=travelActions.hike }}
+			</td>
+			<td class="border" rowspan="2">
+				<!-- prettier-ignore -->
+				{{! prettier-ignore }}
+{{> systems/forbidden-lands/templates/components/party-sheet/action-component.hbs assignedCharacters=travel.rest action=travelActions.rest }}
+			</td>
+			<td class="border" rowspan="2">
+				<!-- prettier-ignore -->
+				{{! prettier-ignore }}
+{{> systems/forbidden-lands/templates/components/party-sheet/action-component.hbs assignedCharacters=travel.sleep action=travelActions.sleep }}
+			</td>
+		</tr>
+		<tr>
+			<td class="border">
+				<!-- prettier-ignore -->
+				{{! prettier-ignore }}
+{{> systems/forbidden-lands/templates/components/party-sheet/action-component.hbs assignedCharacters=travel.lead action=travelActions.lead }}
+			</td>
+		</tr>
+		<tr>
+			<td class="border">
+				<!-- prettier-ignore -->
+				{{! prettier-ignore }}
+{{> systems/forbidden-lands/templates/components/party-sheet/action-component.hbs assignedCharacters=travel.watch action=travelActions.watch }}
+			</td>
+			<td class="border">
+				<!-- prettier-ignore -->
+				{{! prettier-ignore }}
+{{> systems/forbidden-lands/templates/components/party-sheet/action-component.hbs assignedCharacters=travel.camp action=travelActions.camp }}
+			</td>
+			<td class="border">
+				<!-- prettier-ignore -->
+				{{! prettier-ignore }}
+{{> systems/forbidden-lands/templates/components/party-sheet/action-component.hbs assignedCharacters=travel.other action=travelActions.other }}
+			</td>
+		</tr>
+		<tr>
+			<td class="border">
+				<!-- prettier-ignore -->
+				{{! prettier-ignore }}
+{{> systems/forbidden-lands/templates/components/party-sheet/action-component.hbs assignedCharacters=travel.forage action=travelActions.forage }}
+			</td>
+			<td class="border">
+				<!-- prettier-ignore -->
+				{{! prettier-ignore }}
+{{> systems/forbidden-lands/templates/components/party-sheet/action-component.hbs assignedCharacters=travel.hunt action=travelActions.hunt }}
+			</td>
+			<td class="border">
+				<!-- prettier-ignore -->
+				{{! prettier-ignore }}
+{{> systems/forbidden-lands/templates/components/party-sheet/action-component.hbs assignedCharacters=travel.fish action=travelActions.fish }}
+			</td>
+		</tr>
+	</table>
+</div>

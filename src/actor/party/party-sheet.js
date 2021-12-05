@@ -1,11 +1,11 @@
-import { TravelActionsConfig } from "../../components/travel-actions.js";
+import { TravelActionsConfig } from "@components/party-sheet/travel-actions";
 export class ForbiddenLandsPartySheet extends ActorSheet {
 	static get defaultOptions() {
 		let dragDrop = [...super.defaultOptions.dragDrop];
 		dragDrop.push({ dragSelector: ".party-member", dropSelector: ".party-member-list" });
 		return mergeObject(super.defaultOptions, {
 			classes: ["forbidden-lands", "sheet", "actor", "party"],
-			template: "systems/forbidden-lands/templates/party.hbs",
+			template: "systems/forbidden-lands/templates/actor/party/party-sheet.hbs",
 			width: window.innerWidth * 0.05 + 650,
 			resizable: false,
 			tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "main" }],

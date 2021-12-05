@@ -2,7 +2,7 @@ export class ActorSheetConfig extends EntitySheetConfig {
 	static get defaultOptions() {
 		return foundry.utils.mergeObject(super.defaultOptions, {
 			title: "Configure Actor",
-			template: "systems/forbidden-lands/templates/sheet-config.hbs",
+			template: "systems/forbidden-lands/templates/components/sheet-config-modal.hbs",
 		});
 	}
 

@@ -1,5 +1,5 @@
-import { FBLRollHandler } from "../../components/roll-engine/engine";
-import localizeString from "../../utils/localize-string";
+import { FBLRollHandler } from "@components/roll-engine/engine";
+import localizeString from "@utils/localize-string";
 
 /* eslint-disable no-unused-vars */
 export class ForbiddenLandsActorSheet extends ActorSheet {
@@ -321,7 +321,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 
 		const options = {
 			maxPush: "0",
-			template: "systems/forbidden-lands/templates/dice/spell-dialog.hbs",
+			template: "systems/forbidden-lands/templates/components/roll-engine/spell-dialog.hbs",
 			type: "spell",
 			skulls: this.altInteraction,
 			...this.getRollOptions(),

@@ -1,6 +1,6 @@
 const { test } = require("uvu");
 const assert = require("uvu/assert");
-const semverComp = require("../../src/module/utils/semver-compare.js");
+const semverComp = require("@utils/semver-compare");
 
 test("Invalid SemVer", () => {
 	console.log("Should throw error when passed invalid semver.");

@@ -1,5 +1,5 @@
-import { YearZeroRoll, YearZeroRollManager } from "./yzur";
-import localizeString from "../../../system/utils/localize-string";
+import { YearZeroRoll, YearZeroRollManager } from "./yzur.js";
+import localizeString from "@utils/localize-string.js";
 /**
  * @extends FormApplication
  * @description A Form Application that mimics Dialog, but provides more functionality in terms of data binds and handling of a roll object. Supports Forbidden Lands standard rolls and spell rolls.
