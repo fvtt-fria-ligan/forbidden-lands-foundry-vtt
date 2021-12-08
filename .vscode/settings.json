@@ -1,5 +1,8 @@
 {
-	"i18n-ally.localesPaths": ["static/lang"],
+	"i18n-ally.localesPaths": [
+		"static/lang",
+		"static/assets/messages"
+	],
 	"i18n-ally.keystyle": "flat",
 	"i18n-ally.extract.autoDetect": true
 }

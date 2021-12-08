@@ -62,11 +62,46 @@ $ra-font-path: "./fonts";
 }
 
 @font-face {
-	font-family: "skullz";
-	src: url("./fonts/skullz.ttf");
+	font-family: "Skullz";
+	src: url("fonts/skullz.ttf");
 }
 
 @font-face {
 	font-family: "Swordlings";
 	src: url("./fonts/swordlings.ttf");
+}
+
+$ra-font-path: "./fonts";
+@import "node_modules/rpg-awesome/scss/rpg-awesome"; //External Import
+
+/* -------------- */
+/*  Font Awesome  */
+/*   Overrides    */
+/* -------------- */
+
+.fa-suitcase {
+	font-family: RPGAwesome;
+	font-size: 1.6rem;
+	transform: translateY(1px);
+	&:before {
+		content: "\ea72";
+	}
+}
+
+.fa-comments {
+	font-family: RPGAwesome;
+	font-size: 1.5rem;
+	transform: translateY(1px);
+	&:before {
+		content: "\ea8f";
+	}
+}
+
+.fa-fist-raised {
+	font-family: Swordlings;
+	transform: translate(1.3px, -0.6px);
+	font-size: 1.5rem;
+	&:before {
+		content: "x";
+	}
 }
