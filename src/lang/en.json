@@ -303,9 +303,9 @@
 	"YZUR.DIETYPES.BaseDie": "Base Dice",
 	"YZUR.DIETYPES.SkillDie": "Skill Dice",
 	"YZUR.DIETYPES.GearDie": "Gear Dice",
-	"YZUR.DIETYPES.D8ArtifactDie": "D8 Aritfact",
-	"YZUR.DIETYPES.D10ArtifactDie": "D10 Aritfact",
-	"YZUR.DIETYPES.D12ArtifactDie": "D12 Aritfact",
+	"YZUR.DIETYPES.D8ArtifactDie": "D8 Artifact",
+	"YZUR.DIETYPES.D10ArtifactDie": "D10 Artifact",
+	"YZUR.DIETYPES.D12ArtifactDie": "D12 Artifact",
 	"YZUR.DIETYPES.NegativeDie": "Negative Dice",
 
 	"FLPS.SETTINGS.ALLOW_PUSH": "Allow Unlimited Pushed Rolls",
