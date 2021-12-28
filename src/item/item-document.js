@@ -102,7 +102,7 @@ export class ForbiddenLandsItem extends Item {
 		if (CONFIG.fbl.itemTypes.includes(itemData.type)) itemData[`is${itemData.type.capitalize()}`] = true;
 		itemData.hasRollModifiers =
 			itemData.data.rollModifiers && Object.values(itemData.data.rollModifiers).length > 0;
-		const html = await renderTemplate("systems/forbidden-lands/templates/chat/item.hbs", itemData);
+		const html = await renderTemplate("systems/forbidden-lands/templates/components/item-chatcard.hbs", itemData);
 		const chatData = {
 			user: game.userId,
 			rollMode: game.settings.get("core", "rollMode"),

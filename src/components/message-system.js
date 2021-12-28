@@ -23,12 +23,9 @@ const handleDisplay = (msg) => {
 
 const isCurrent = (msg) => {
 	const isDisplayable = !msg.display === "once" || !hasDisplayed(msg.title);
-	const correctCoreVersion = semverComp(
-		msg["min-core-version"] ?? "0.0.0",
-		game.data.version,
-		msg["max-core-version"] ?? "100.0.0",
-		{ gEqMin: true },
-	);
+	const correctCoreVersion =
+		foundry.utils.isNewerVersion(msg["max-core-version"] ?? "100.0.0", game.version) &&
+		foundry.utils.isNewerVersion(game.version, msg["min-core-version"] ?? "0.0.0");
 	const correctSysVersion = semverComp(
 		msg["min-sys-version"] ?? "0.0.0",
 		game.system.data.version,

@@ -125,7 +125,7 @@ export class FBLRollHandler extends FormApplication {
 	 * Foundry override allowing custom Roll Dialog template (used for spell rolls only atm. but intended to be extensible).
 	 */
 	get template() {
-		return this.options.template || "systems/forbidden-lands/templates/dice/dialog.hbs";
+		return this.options.template || "systems/forbidden-lands/templates/components/roll-engine/dialog.hbs";
 	}
 
 	/**
