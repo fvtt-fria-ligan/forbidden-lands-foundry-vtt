@@ -1,4 +1,4 @@
-@use "utils";
+@use "../utils";
 
 .forbidden-lands .main-tab div.border,
 .forbidden-lands div.bio.border,
@@ -7,7 +7,7 @@
 .chargen-build,
 .character div.actions.border {
 	border: 6px solid transparent;
-	border-image: url(../assets/journal-art/small-border.webp) 100/10px repeat;
+	border-image: url(./assets/journal-art/small-border.webp) 100/10px repeat;
 }
 
 .forbidden-lands.sheet label {
@@ -256,7 +256,7 @@
 	&.window-app {
 		color: black;
 		border: 9px solid transparent;
-		border-image: url(../assets/journal-art/box-border-large.webp) 108/3 repeat;
+		border-image: url(./assets/journal-art/box-border-large.webp) 108/3 repeat;
 		border-image-outset: 1;
 		background-color: white;
 		.journal-sheet {

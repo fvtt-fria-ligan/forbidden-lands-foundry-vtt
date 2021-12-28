@@ -7,6 +7,11 @@
 	line-height: 16px;
 	padding: 8px;
 }
+
+.chat-message .message-header .message-metadata {
+	font-size: var(--font-size--extra-small);
+}
+
 .forbidden-lands.chat-item .border {
 	padding: 8px;
 }
@@ -62,7 +67,7 @@
 	&.item {
 		.header {
 			border: 10px solid transparent;
-			border-image: url(../assets/journal-art/small-border.webp) 100/10px repeat;
+			border-image: url(./assets/journal-art/small-border.webp) 100/10px repeat;
 			.header-stats {
 				.bonus {
 					grid-gap: 5px;

@@ -1,15 +1,15 @@
-@use "utils";
+@use "../utils";
 
 .chargen .chargen-roll {
 	width: 30px;
 	height: 30px;
-	background-image: url("../assets/rolling-dices.png");
+	background-image: url("./assets/rolling-dices.png");
 	background-size: 30px 30px;
 	background-position: center;
 	background-repeat: no-repeat;
 }
 .chargen .chargen-roll:hover {
-	background-image: url("../assets/rolling-dices.png");
+	background-image: url("./assets/rolling-dices.png");
 	background-size: 35px 35px;
 	background-position: center;
 	background-repeat: no-repeat;

@@ -1,68 +1,68 @@
 @font-face {
 	font-family: "IM Fell DW Pica";
-	src: url("../fonts/IMFeDPrm29C.otf");
+	src: url("./fonts/IMFeDPrm29C.otf");
 }
 
 @font-face {
 	font-family: "IM Fell DW Pica";
-	src: url("../fonts/IMFeDPit29C.otf");
+	src: url("./fonts/IMFeDPit29C.otf");
 	font-style: italic;
 }
 
 @font-face {
 	font-family: "IM Fell DW Pica SC";
-	src: url("../fonts/IMFellDWPicaSC-Regular.ttf");
+	src: url("./fonts/IMFellDWPicaSC-Regular.ttf");
 }
 
 @font-face {
 	font-family: "IM Fell Three Line Pica";
-	src: url("../fonts/IMFeTLrm29C.otf");
+	src: url("./fonts/IMFeTLrm29C.otf");
 }
 
 @font-face {
 	font-family: "IM Fell Great Primer";
-	src: url("../fonts/IMFeGPrm29C.otf");
+	src: url("./fonts/IMFeGPrm29C.otf");
 }
 
 @font-face {
 	font-family: "IM Fell Great Primer";
-	src: url("../fonts/IMFeGPit29C.otf");
+	src: url("./fonts/IMFeGPit29C.otf");
 	font-style: italic;
 }
 
 @font-face {
 	font-family: "Poppins";
-	src: url("../fonts/Poppins-Regular.ttf");
+	src: url("./fonts/Poppins-Regular.ttf");
 }
 
 @font-face {
 	font-family: "Poppins";
 	font-weight: bold;
-	src: url("../fonts/Poppins-Bold.ttf");
+	src: url("./fonts/Poppins-Bold.ttf");
 }
 
+$ra-font-path: "./fonts";
 @import "node_modules/rpg-awesome/scss/rpg-awesome"; //External Import
-$ra-font-path: "../assets/fonts";
 
 @font-face {
 	font-family: "Poppins";
 	font-style: italic;
-	src: url("../fonts/Poppins-Italic.ttf");
+	src: url("./fonts/Poppins-Italic.ttf");
 }
 
 @font-face {
 	font-family: "Poppins";
 	font-style: italic;
 	font-weight: bold;
-	src: url("../fonts/Poppins-BoldItalic.ttf");
+	src: url("./fonts/Poppins-BoldItalic.ttf");
 }
 
 @font-face {
 	font-family: "skullz";
-	src: url("../fonts/skullz.ttf");
+	src: url("./fonts/skullz.ttf");
 }
 
 @font-face {
 	font-family: "Swordlings";
-	src: url("../fonts/Swordlings.ttf");
+	src: url("./fonts/Swordlings.ttf");
 }

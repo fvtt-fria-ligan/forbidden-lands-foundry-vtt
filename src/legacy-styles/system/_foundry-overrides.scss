@@ -141,7 +141,7 @@ h3 {
 		}
 	}
 	// Override weirdly big settings input box for numbers
-	&#client-settings .settings-list input[data-dtype="Number"] {
+	&#client-settings .settings-list input[type="number"] {
 		max-width: 3rem;
 		text-align: center;
 	}
@@ -225,7 +225,7 @@ a {
 		&:after {
 			content: "";
 			border: 10px solid transparent;
-			border-image: url(../assets/journal-art/small-border.webp) 100/10px repeat;
+			border-image: url(./assets/journal-art/small-border.webp) 100/10px repeat;
 			position: absolute;
 			height: calc(100% - 24px);
 			width: calc(100% - 24px);
@@ -290,7 +290,7 @@ li {
 #player-config {
 	.avatar {
 		border: 2px dotted #444;
-		border-image: url(../assets/journal-art/small-border.webp) 100/10px repeat;
+		border-image: url(./assets/journal-art/small-border.webp) 100/10px repeat;
 	}
 	.directory-item.context {
 		border-top: 1px solid black;
@@ -361,4 +361,14 @@ li {
 * {
 	scrollbar-width: thin !important;
 	scrollbar-color: #005d67 #ccc !important;
+}
+
+a.card-control > i.fa-caret-down,
+a.card-control > i.fa-caret-up {
+	font-size: var(--font-size-16);
+}
+
+form .notes,
+form .hint {
+	font-size: var(--font-size-14);
 }

@@ -144,13 +144,13 @@
 
 .spell-dialog {
 	h2::before {
-		background: url(../assets/journal-art/pentagram-border.webp) no-repeat top center;
+		background: url(./assets/journal-art/pentagram-border.webp) no-repeat top center;
 	}
 }
 
 .attack-dialog {
 	h2::before {
-		background: url(../assets/journal-art/attack-border.webp) no-repeat top center;
+		background: url(./assets/journal-art/attack-border.webp) no-repeat top center;
 	}
 }
 
@@ -165,7 +165,7 @@
 		margin: 0 auto;
 	}
 	h2::after {
-		background: url(../assets/journal-art/endstop.webp) center no-repeat;
+		background: url(./assets/journal-art/endstop.webp) center no-repeat;
 		content: "";
 		width: 147px;
 		height: 40px;

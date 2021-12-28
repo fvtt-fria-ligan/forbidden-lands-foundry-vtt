@@ -1,4 +1,4 @@
-@use "utils";
+@use "../utils";
 
 .app.sheet .editor {
 	min-height: 55px;
@@ -99,7 +99,7 @@
 			line-height: 2;
 			background-color: #fff;
 			border: 1px solid transparent;
-			border-image: url("../assets/journal-art/title-border.webp");
+			border-image: url("./assets/journal-art/title-border.webp");
 			border-image-slice: 50%;
 			border-image-width: 100%;
 			padding: max(10px, 1%) min(14%, 130px) 0;
@@ -140,7 +140,7 @@
 	left: 50%;
 	transform: translateX(-50%);
 	border: 1px solid transparent;
-	border-image: url(../assets/journal-art/box-border-large.webp) 28/7 repeat;
+	border-image: url(./assets/journal-art/box-border-large.webp) 28/7 repeat;
 	border-image-outset: 6;
 	background-color: #fff;
 	opacity: 0;
