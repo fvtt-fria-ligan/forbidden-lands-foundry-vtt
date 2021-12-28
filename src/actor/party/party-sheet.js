@@ -1,4 +1,4 @@
-import { TravelActionsConfig } from "@components/party-sheet/travel-actions";
+import { TravelActionsConfig } from "@actor/party/components/travel-actions";
 export class ForbiddenLandsPartySheet extends ActorSheet {
 	static get defaultOptions() {
 		let dragDrop = [...super.defaultOptions.dragDrop];

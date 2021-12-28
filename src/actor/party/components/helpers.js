@@ -1,4 +1,4 @@
-import { InfoDialog } from "@components/party-sheet/info-dialog";
+import { InfoDialog } from "./info-dialog.js";
 
 export class Helpers {
 	static getCharacterDiceRoller(character) {
@@ -31,9 +31,9 @@ export class Helpers {
 		characterIds = typeof characterIds !== "object" && characterIds !== "" ? [characterIds] : characterIds;
 		let characters = [];
 		for (let i = 0; i < characterIds.length; i++) {
-			characters.push(game.actors.get(characterIds[i]));
+			const actor = game.actors.get(characterIds[i]);
+			if (actor && actor.isOwner) characters.push(game.actors.get(characterIds[i]));
 		}
-		characters = characters.filter((character) => character.owner);
 
 		return characters;
 	}
