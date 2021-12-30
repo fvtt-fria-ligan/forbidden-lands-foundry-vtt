@@ -52,7 +52,7 @@ export const migrateWorld = async () => {
 			}
 		}
 		for (const pack of game.packs.filter(
-			(p) => p.metadata.package === "world" && ["Actor", "Item", "Scene"].includes(p.metadata.entity),
+			(p) => p.metadata.package === "world" && ["Actor", "Item", "Scene"].includes(p.metadata.type),
 		)) {
 			await migrateCompendium(pack, worldSchemaVersion);
 		}
