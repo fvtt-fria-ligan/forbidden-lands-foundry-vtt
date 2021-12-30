@@ -356,8 +356,8 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		const config = CONFIG.fbl.encumbrance;
 		const type = data.type;
 		const weight = data.data?.weight;
-		if (data.type === "rawMaterial") return 1 * Number(data.data.quantity);
-		if (type !== "gear" && type !== "armor" && type !== "weapon") return null;
-		return Number(config[weight] ?? 1) ?? Number(weight) ?? 1;
+		if (type === "rawMaterial") return 1 * Number(data.data.quantity);
+		if (["gear", "armor", "weapon"].includes(type)) return !isNaN(Number(weight)) ? Number(weight) ?? 1 : 1;
+		return 0;
 	}
 }

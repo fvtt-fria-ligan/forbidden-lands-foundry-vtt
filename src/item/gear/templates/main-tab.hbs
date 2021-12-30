@@ -4,19 +4,18 @@
         <select name="data.weight">
             {{#select data.weight}}
                 <optgroup label={{localize "WEIGHT.TYPE_REGULAR" }}>
-                    <option value="none">{{localize "WEIGHT.NONE"}}</option>
-                    <option value="tiny">{{localize "WEIGHT.TINY"}}</option>
-                    <option value="light">{{localize "WEIGHT.LIGHT"}}</option>
-                    <option value="regular">{{localize "WEIGHT.REGULAR"}}</option>
-                    <option value="heavy">{{localize "WEIGHT.HEAVY"}}</option>
+					{{#each encumbranceValues as |weight|}}
+					{{#if (eq (getType @key) "string")}}
+						<option value="{{weight}}">{{itemWeight @key}}</option>
+					{{/if}}
+					{{/each}}
                 </optgroup>
                 <optgroup label={{localize "WEIGHT.TYPE_SPECIAL" }}>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
+					{{#each encumbranceValues as |weight|}}
+					{{#if (eq (getType @key) "number")}}
+						<option value="{{weight}}">{{itemWeight @key}}</option>
+					{{/if}}
+					{{/each}}
                 </optgroup>
             {{/select}}
         </select>

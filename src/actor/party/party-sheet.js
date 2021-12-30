@@ -64,8 +64,7 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 	getTravelActions() {
 		let travelActions = TravelActionsConfig;
 		for (const action of Object.values(travelActions)) {
-			action.displayJournalEntry =
-				action.journalEntryName && game.journal.getName(action.journalEntryName) !== null;
+			action.displayJournalEntry = !!action.journalEntryName && !!game.journal.getName(action.journalEntryName);
 		}
 		return travelActions;
 	}

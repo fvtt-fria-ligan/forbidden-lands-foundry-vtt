@@ -100,8 +100,8 @@ function registerHandlebarsHelpers() {
 		}
 	});
 	Handlebars.registerHelper("itemWeight", function (weight) {
-		weight = normalize(weight, "regular");
-		switch (weight) {
+		const weightLowerCase = normalize(weight, "regular");
+		switch (weightLowerCase) {
 			case "none":
 				return game.i18n.localize("WEIGHT.NONE");
 			case "tiny":
@@ -266,6 +266,10 @@ function registerHandlebarsHelpers() {
 			localizedString = `SKILL.${SKILL_NAME}`;
 		}
 		return localizedString;
+	});
+
+	Handlebars.registerHelper("getType", function (item) {
+		return typeof (Number(item) || item);
 	});
 }
 

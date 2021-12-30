@@ -45,6 +45,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 	getData() {
 		const superData = super.getData();
 		const data = superData.data;
+		data.encumbranceValues = this.config.encumbrance;
 		this._computeQuality(data);
 		return data;
 	}

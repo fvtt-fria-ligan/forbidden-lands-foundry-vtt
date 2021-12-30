@@ -153,9 +153,13 @@ Hooks.on("renderChatMessage", async (app, html) => {
 		pushButton.addEventListener("click", async () => {
 			if (app.roll.pushable) {
 				await FBLRollHandler.pushRoll(app);
-				Hooks.once("diceSoNiceRollComplete", () => {
-					app.delete();
-				});
+
+				// If the roll is pushed, we want to remove the button.
+				if (game.modules.get("dice-so-nice").active)
+					Hooks.once("diceSoNiceRollComplete", () => {
+						app.delete();
+					});
+				else app.delete();
 			}
 		});
 	}
