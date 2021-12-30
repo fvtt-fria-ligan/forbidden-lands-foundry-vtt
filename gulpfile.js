@@ -2,7 +2,7 @@ const gulp = require("gulp");
 const { rollup } = require("rollup");
 const argv = require("yargs").argv;
 const chalk = require("chalk");
-const fs = require("fs-extra");
+const fs = require("fs-extra-plus");
 const dotenv = require("dotenv");
 const gulpif = require("gulp-if");
 const path = require("path");
@@ -12,19 +12,16 @@ const semver = require("semver");
 const sass = require("gulp-sass")(require("sass"));
 const sourcemaps = require("gulp-sourcemaps");
 sass.compiler = require("sass");
-
 /********************/
 /*  CONFIGURATION   */
 /********************/
-
 const repoName = path.basename(path.resolve("."));
 const sourceDirectory = "./src";
 const distDirectory = "./dist";
-const stylesDirectory = `${sourceDirectory}/styles`;
 const stylesExtension = "scss";
 const sourceFileExtension = "js";
-const srcFiles = ["lang", "templates"];
-const staticFiles = ["assets", "fonts", "scripts", "system.json", "template.json", "LICENSE"];
+const templateExt = "hbs";
+const staticFiles = ["lang", "assets", "fonts", "scripts", "system.json", "template.json", "LICENSE"];
 const getDownloadURL = (version) =>
 	`https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v${version}/fbl-fvtt_v${version}.zip`;
 const repoPathing = (relativeSourcePath = ".", sourcemapPath = ".") => {
@@ -59,20 +56,24 @@ async function buildCode() {
  */
 function buildStyles() {
 	return gulp
-		.src(`${stylesDirectory}/forbidden-lands.${stylesExtension}`)
+		.src(`${sourceDirectory}/forbidden-lands.${stylesExtension}`)
 		.pipe(gulpif(env === "development", sourcemaps.init()))
 		.pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
 		.pipe(gulpif(env === "development", sourcemaps.write()))
-		.pipe(gulp.dest(`${distDirectory}/styles`));
+		.pipe(gulp.dest(`${distDirectory}`));
 }
 
 /**
  * Copy other source files
  */
-async function copyFiles() {
-	for (const file of srcFiles) {
-		if (fs.existsSync(`${sourceDirectory}/${file}`)) {
-			await fs.copy(`${sourceDirectory}/${file}`, `${distDirectory}/${file}`);
+async function pipeTemplates() {
+	const templateFiles = await fs.glob([`${sourceDirectory}/**/*.${templateExt}`]);
+	if (templateFiles && templateFiles.length > 0) {
+		for (const file of templateFiles) {
+			await fs.copy(
+				file,
+				`${distDirectory}/templates/${file.replace(`${sourceDirectory}/`, "").replace("templates/", "")}`,
+			);
 		}
 	}
 }
@@ -93,12 +94,8 @@ async function pipeStatics() {
  */
 function buildWatch() {
 	gulp.watch(`${sourceDirectory}/**/*.${sourceFileExtension}`, { ignoreInitial: false }, buildCode);
-	gulp.watch(`${stylesDirectory}/**/*.${stylesExtension}`, { ignoreInitial: false }, buildStyles);
-	gulp.watch(
-		srcFiles.map((file) => `${sourceDirectory}/${file}`),
-		{ ignoreInitial: false },
-		copyFiles,
-	);
+	gulp.watch(`${sourceDirectory}/**/*.${stylesExtension}`, { ignoreInitial: false }, buildStyles);
+	gulp.watch(`${sourceDirectory}/**/*.${templateExt}`, { ignoreInitial: false }, pipeTemplates);
 	gulp.watch(
 		staticFiles.map((file) => `static/${file}`),
 		{ ignoreInitial: false },
@@ -114,18 +111,7 @@ function buildWatch() {
  * Remove built files from `dist` folder while ignoring source files
  */
 async function clean() {
-	const files = [...staticFiles, ...srcFiles, "module"];
-
-	if (fs.existsSync(`${stylesDirectory}/forbidden-lands.${stylesExtension}`)) {
-		files.push("styles");
-	}
-
-	console.log(" ", chalk.yellow("Files to clean:"));
-	console.log("   ", chalk.blueBright(files.join("\n    ")));
-
-	for (const filePath of files) {
-		await fs.remove(`${distDirectory}/${filePath}`);
-	}
+	if (await fs.existsSync(`./dist`)) await fs.remove(`./dist`);
 }
 
 /********************/
@@ -269,7 +255,7 @@ async function bumpVersion(cb) {
 	}
 }
 
-const execBuild = gulp.parallel(buildCode, buildStyles, copyFiles, pipeStatics);
+const execBuild = gulp.parallel(buildCode, buildStyles, pipeTemplates, pipeStatics);
 
 exports.build = gulp.series(clean, execBuild);
 exports.watch = gulp.series(buildWatch);

@@ -1,0 +1,28 @@
+<div class="flex column full">
+	<div class="flex row align-center border">
+		<div class="avatar">
+			<img src="{{img}}" data-edit="img" title="{{name}}" height="100" width="100" />
+		</div>
+		<div class="flex row margin align-end space-around grow">
+			<div class="flex column">
+				<div class="name">
+					<b>{{localize "FLPS.PARTY.NAME"}}</b>
+					<input name="name" type="text" value="{{name}}" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="party-member-list">
+		<h1>{{localize "FLPS.PARTY.MEMBERS" }}</h1>
+		<div class="tab-hint">{{localize "FLPS.PARTY.HINT_ADD"}}</div>
+		<div>
+			<ol>
+				{{#each partyMembers as | partyMember |}}
+				<!-- prettier-ignore -->
+				{{! prettier-ignore }}
+{{> systems/forbidden-lands/templates/actor/party/components/member-component.hbs partyMember=partyMember deleteButton=true}}
+				{{/each}}
+			</ol>
+		</div>
+	</div>
+</div>
