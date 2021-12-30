@@ -1,0 +1,134 @@
+.forbidden-lands.party {
+	min-height: 540px;
+	height: 100%;
+	max-height: calc(100vh - 10%);
+	.border {
+		border: 6px solid transparent;
+		border-image: url(./assets/journal-art/small-border.webp) 100/10px repeat;
+	}
+}
+
+.forbidden-lands.party .party {
+	height: 100%;
+	min-height: 540px;
+	width: 100%;
+}
+
+.party .tab-hint {
+	font-style: italic;
+	text-align: center;
+}
+
+.party-member:hover {
+	background-color: lightgray;
+}
+
+.party-member .party-member-avatar {
+	flex: 0 0 48px;
+	width: 48px;
+	height: 48px;
+	border: 0px;
+	cursor: pointer;
+}
+
+.party-member .party-member-name {
+	line-height: 48px;
+}
+
+.party-member .button {
+	flex: 0 0 24px;
+	width: 24px;
+	height: 48px;
+	line-height: 48px;
+}
+
+.party-member .entity-link {
+	padding: 0 6px;
+	line-height: 44px;
+	white-space: nowrap;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+
+	border: 0px;
+	background-color: inherit;
+}
+
+.party-member .plain-name {
+	margin-right: 6px;
+	line-height: 44px;
+
+	white-space: nowrap;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+
+	border: 0px;
+	background-color: inherit;
+}
+
+.party-member-list {
+	height: 100%;
+	min-height: 360px;
+}
+
+table.travel-actions {
+	border: 0px solid;
+	border-spacing: 6px;
+	border-collapse: separate;
+	background: rgb(255, 255, 255);
+	margin-top: 0px;
+}
+
+table.travel-actions td {
+	vertical-align: top;
+	min-height: 1px;
+}
+
+.travel-action {
+	min-width: 196px;
+	min-height: 90px;
+	height: 100%;
+	margin-bottom: 10px;
+
+	flex-grow: 1;
+}
+
+.travel-action ol {
+	padding-left: 4px;
+}
+
+.travel-action .travel-action-header {
+	text-align: center;
+	font-weight: bold;
+	max-height: 20px;
+	border-bottom: 1px solid;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.travel-action-header .entity-link {
+	background-color: white;
+	border: 0px solid;
+}
+
+.travel-action .travel-action-help {
+	border: 1px solid;
+	border-radius: 6px;
+	background-color: cadetblue;
+	display: flex;
+	width: 20px;
+	margin-left: 4px;
+	justify-content: center;
+}
+.travel-action .travel-action-help:hover {
+	background-color: cyan;
+}
+
+.travel-action button.travel-roll {
+	font-size: var(--font-size--very-small);
+	display: block;
+	width: 99%;
+
+	border-bottom: 1px gray dashed;
+}
