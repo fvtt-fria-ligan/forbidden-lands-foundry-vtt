@@ -1,0 +1,32 @@
+<div class="main border">
+    <div class="weight">
+        <label>{{localize "GEAR.WEIGHT"}}</label>
+        <select name="data.weight">
+            {{#select data.weight}}
+                <optgroup label={{localize "WEIGHT.TYPE_REGULAR" }}>
+					{{#each encumbranceValues as |weight|}}
+					{{#if (eq (getType @key) "string")}}
+						<option value="{{weight}}">{{itemWeight @key}}</option>
+					{{/if}}
+					{{/each}}
+                </optgroup>
+                <optgroup label={{localize "WEIGHT.TYPE_SPECIAL" }}>
+					{{#each encumbranceValues as |weight|}}
+					{{#if (eq (getType @key) "number")}}
+						<option value="{{weight}}">{{itemWeight @key}}</option>
+					{{/if}}
+					{{/each}}
+                </optgroup>
+            {{/select}}
+        </select>
+    </div>
+    <div class="grid-full-line">
+        <label>{{localize "GEAR.EFFECT"}}</label>
+		{{editor target="data.effect" content=data.effect owner=owner button=true editable=true}}
+    </div>
+</div>
+<div class="roll-modifiers border">
+					<!-- prettier-ignore -->
+				{{! prettier-ignore }}
+{{> systems/forbidden-lands/templates/components/modifiers-component.hbs }}
+</div>

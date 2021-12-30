@@ -1,0 +1,87 @@
+<form class="{{cssClass}}" autocomplete="off">
+	<div class="character">
+		<div class="bio border">
+			<div class="flex row align-center space-around">
+				<div class="avatar">
+					<img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" />
+				</div>
+				<table>
+					<tr>
+						<td>
+							<label>{{localize "BIO.NAME"}}:</label>
+						</td>
+						<td colspan="3">
+							<input class="name" name="name" type="text" value="{{name}}" />
+						</td>
+						<td>
+							<label>{{localize data.bio.kin.label}}:</label>
+						</td>
+						<td>
+							<input class="kin" name="data.bio.kin.value" type="text" value="{{data.bio.kin.value}}" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>{{localize data.bio.age.label}}:</label>
+						</td>
+						<td>
+							<input name="data.bio.age.value" type="number" value="{{data.bio.age.value}}"
+								data-dtype="Number" />
+						</td>
+						<td>
+							<label>{{localize data.bio.reputation.label}}:</label>
+						</td>
+						<td>
+							<input name="data.bio.reputation.value" type="number" value="{{data.bio.reputation.value}}"
+								data-dtype="Number" />
+						</td>
+						<td>
+							<label>{{localize data.bio.profession.label}}:</label>
+						</td>
+						<td>
+							<input class="profession" name="data.bio.profession.value" type="text"
+								value="{{data.bio.profession.value}}" />
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<div class="sheet-tabs tabs flex row" data-group="primary">
+			<b class="tab-item" data-tab="main">{{localize "TAB.MAIN"}}</b>
+			<b class="tab-item" data-tab="combat">{{localize "TAB.COMBAT"}}</b>
+			<b class="tab-item" data-tab="talent">{{localize "TAB.TALENT"}}</b>
+			<b class="tab-item" data-tab="gear">{{localize "TAB.GEAR"}}</b>
+			<b class="tab-item" data-tab="note">{{localize "TAB.NOTE"}}</b>
+		</div>
+
+		<div class="sheet-body">
+			<div class="tab" data-group="primary" data-tab="main">
+<!-- prettier-ignore -->
+{{! prettier-ignore }}
+{{> systems/forbidden-lands/templates/actor/character/sheet-tabs/main-tab.hbs}}
+			</div>
+			<div class="tab" data-group="primary" data-tab="combat">
+<!-- prettier-ignore -->
+{{! prettier-ignore }}
+{{> systems/forbidden-lands/templates/actor/character/sheet-tabs/combat-tab.hbs}}
+			</div>
+			<div class="tab" data-group="primary" data-tab="talent">
+<!-- prettier-ignore -->
+{{! prettier-ignore }}
+{{> systems/forbidden-lands/templates/actor/character/sheet-tabs/talent-tab.hbs}}
+			</div>
+			<div class="tab" data-group="primary" data-tab="gear">
+<!-- prettier-ignore -->
+{{! prettier-ignore }}
+{{> systems/forbidden-lands/templates/actor/character/sheet-tabs/gear-tab.hbs}}
+			</div>
+			<div class="tab note" data-group="primary" data-tab="note">
+<!-- prettier-ignore -->
+{{! prettier-ignore }}
+{{editor content=data.bio.note.value target="data.bio.note.value" button=true owner=owner
+editable=true}}
+			</div>
+		</div>
+	</div>
+</form>

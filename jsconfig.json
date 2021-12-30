@@ -3,9 +3,18 @@
 	"compilerOptions": {
 		"module": "es6",
 		"target": "es2020",
-		"moduleResolution": "node"
+		"moduleResolution": "node",
+		"baseUrl": ".",
+		"paths": {
+			"*": ["./src"],
+			"@utils/*": ["./src/utils/*"],
+			"@actor/*": ["./src/utils/*"],
+			"@item/*": ["./src/item/*"],
+			"@components/*": ["./src/components/*"],
+			"@system/*": ["./src/system/*"]
+		}
 	},
-	"include": ["src/module/**/*", "src/scripts"],
+	"include": ["src/**/*.js"],
 	"exclude": ["node_modules/*", "**/node_modules/*", "dist/*"],
 	"typeAcquisition": {
 		"exclude": ["ismobilejs", "source-map", "ts-interface-checker"]
