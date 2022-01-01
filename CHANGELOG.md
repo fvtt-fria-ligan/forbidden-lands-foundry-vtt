@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.1.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v8.0.0...v8.1.0) (2022-01-01)
+
+
+### Features
+
+* ✨ Update 'de' files. Thanks to [@fpiekert](https://github.com/fpiekert). Resolves [#181](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/181) ([42756b9](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/42756b9107ee95a9001b5ffa712f4bcf50fa4bd4))
+
+
+### Bug Fixes
+
+* 🐛 Encumbrance for weapons and armor not computing correctly ([34c83a8](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/34c83a8d3e8e21f1c1d2f6b4ad88978a6080105c))
+
 ## [8.0.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v7.2.0...v8.0.0) (2021-12-30)
 
 ### ⚠ BREAKING CHANGES
