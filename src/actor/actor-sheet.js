@@ -23,6 +23,10 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		return this.actor.getRollData();
 	}
 
+	get config() {
+		return CONFIG.fbl;
+	}
+
 	/**
 	 * @override
 	 * Extends the sheet drop handler for system specific usages
@@ -353,11 +357,14 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	}
 
 	computeItemEncumbrance(data) {
-		const config = CONFIG.fbl.encumbrance;
 		const type = data.type;
-		const weight = data.data?.weight;
+		const weight = isNaN(Number(data?.data.weight))
+			? this.config.encumbrance[data?.data.weight] ?? 1
+			: Number(data?.data.weight) ?? 1;
+		// Only return weight for these types.
 		if (type === "rawMaterial") return 1 * Number(data.data.quantity);
-		if (["gear", "armor", "weapon"].includes(type)) return !isNaN(Number(weight)) ? Number(weight) ?? 1 : 1;
+		if (["gear", "armor", "weapon"].includes(type)) return weight;
+		// Talents, Spells, and the like dont have weight.
 		return 0;
 	}
 }

@@ -6,14 +6,14 @@
                 <optgroup label={{localize "WEIGHT.TYPE_REGULAR" }}>
 					{{#each encumbranceValues as |weight|}}
 					{{#if (eq (getType @key) "string")}}
-						<option value="{{weight}}">{{itemWeight @key}}</option>
+						<option value="{{@key}}">{{itemWeight @key}}</option>
 					{{/if}}
 					{{/each}}
                 </optgroup>
                 <optgroup label={{localize "WEIGHT.TYPE_SPECIAL" }}>
 					{{#each encumbranceValues as |weight|}}
 					{{#if (eq (getType @key) "number")}}
-						<option value="{{weight}}">{{itemWeight @key}}</option>
+						<option value="{{@key}}">{{itemWeight @key}}</option>
 					{{/if}}
 					{{/each}}
                 </optgroup>
