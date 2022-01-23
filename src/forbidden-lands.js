@@ -12,6 +12,8 @@ import { YearZeroRollManager } from "./components/roll-engine/yzur";
 import { ForbiddenLandsD6, registerYZURLabels } from "./components/roll-engine/dice-labels";
 import { FBLRollHandler } from "./components/roll-engine/engine.js";
 import localizeString from "./utils/localize-string.js";
+import { ForbiddenLandsJournalEntry } from "./journal/journal-document.js";
+import { init, utilities } from "./journal/adventure-sites/adventure-site-generator.js";
 
 /**
  * We use this label to remove the debug option in production builds.
@@ -31,9 +33,12 @@ Hooks.once("init", () => {
 		roll: FBLRollHandler.createRoll,
 	};
 	CONFIG.Actor.documentClass = ForbiddenLandsActor;
+	CONFIG.Item.documentClass = ForbiddenLandsItem;
+	CONFIG.JournalEntry.documentClass = ForbiddenLandsJournalEntry;
 	CONFIG.Combat.initiative = { formula: "1d10", decimals: 0 };
 	CONFIG.fbl = FBL;
-	CONFIG.Item.documentClass = ForbiddenLandsItem;
+	CONFIG.fbl.adventureSites.utilities = utilities;
+	CONFIG.fbl.adventureSites.generate = (path, adventureSite) => init(path, adventureSite);
 	YearZeroRollManager.register("fbl", {
 		"ROLL.chatTemplate": "systems/forbidden-lands/templates/components/roll-engine/roll.hbs",
 		"ROLL.tooltipTemplate": "systems/forbidden-lands/templates/components/roll-engine/tooltip.hbs",

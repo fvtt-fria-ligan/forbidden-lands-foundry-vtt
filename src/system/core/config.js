@@ -40,6 +40,13 @@ FBL.actionModifiers = {
 	parry: -2,
 };
 
+FBL.adventureSites = {
+	tables: {},
+	transformers: {},
+	types: {},
+	utilities: {},
+};
+
 FBL.attributes = ["agility", "empathy", "strength", "wits"];
 
 FBL.characterSubtype = { pc: "ACTOR.SUBTYPE.PC", npc: "ACTOR.SUBTYPE.NPC" };

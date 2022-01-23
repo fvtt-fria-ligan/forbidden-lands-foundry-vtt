@@ -45,6 +45,7 @@ function preloadHandlebarsTemplates() {
 		"systems/forbidden-lands/templates/item/talent/talent-sheet.hbs",
 		"systems/forbidden-lands/templates/item/weapon/main-tab.hbs",
 		"systems/forbidden-lands/templates/item/weapon/weapon-sheet.hbs",
+		"systems/forbidden-lands/templates/journal/adventure-sites/adventure-site-sheet.hbs",
 	];
 	return loadTemplates(templatePaths);
 }
@@ -270,6 +271,10 @@ function registerHandlebarsHelpers() {
 
 	Handlebars.registerHelper("getType", function (item) {
 		return typeof (Number(item) || item);
+	});
+
+	Handlebars.registerHelper("randomize", (items) => {
+		return items[Math.floor(Math.random() * items.length)];
 	});
 }
 
