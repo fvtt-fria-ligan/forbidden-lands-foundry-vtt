@@ -138,12 +138,12 @@ const getRolledData = (adventureSite) => {
 };
 
 // Rolls on a table and returns the results
-const rollOnTable = (table, fn, count = 1) => {
+const rollOnTable = (table, fn, count = 1, modifier = 0) => {
 	const results = [];
 	// Loop over the number of times we want to roll
 	for (let i = 0; i < count; i++) {
 		let resultCount = 0;
-		const dieRoll = Math.floor(Math.random() * table.reduce((acc, cur) => acc + cur.weight, 0) + 1);
+		const dieRoll = Math.floor(Math.random() * table.reduce((acc, cur) => acc + cur.weight, 0) + modifier + 1);
 		console.log("rolled: ", dieRoll);
 		// Loop over the table until we find the rolled result, accounting for the weight of each result
 		for (const result of table) {

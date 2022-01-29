@@ -14,6 +14,14 @@ export class ForbiddenLandsJournalEntry extends JournalEntry {
 	}
 
 	get type() {
-		return this.getFlag("forbidden-lands", "type");
+		return this.getFlag("forbidden-lands", "type") || "base";
+	}
+
+	// If the modules aren't activated, an adventureSite won't have a sheet.
+	// Circumvent this by temporarily setting the sheet to the 'base' journal's sheet.
+	get sheet() {
+		if (super._getSheetClass()) return super.sheet;
+		else this.data.type = "base";
+		return super.sheet;
 	}
 }
