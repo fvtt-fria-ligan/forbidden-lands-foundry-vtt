@@ -75,7 +75,7 @@ const parseStrings = (result) => {
 					}, []);
 				return array[Math.floor(Math.random() * array.length)];
 			};
-			return { ...obj, [key]: value.replace(/\{(.*?)\}/g, (_, p1) => randomizedString(p1)) };
+			return { ...obj, [key]: value.replace(/\{\{(.*?)\}\}/g, (_, p1) => randomizedString(p1)) };
 		} else {
 			return { ...obj, [key]: value };
 		}
