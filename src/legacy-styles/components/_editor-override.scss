@@ -26,8 +26,9 @@
 			display: flex;
 			flex-flow: column;
 			overflow-y: auto;
-			* {
+			> .fbl-core:not(.gear-table) {
 				max-width: 70ch;
+				margin-inline: auto;
 			}
 			&.editor-content > :last-child {
 				margin-bottom: 45px;
