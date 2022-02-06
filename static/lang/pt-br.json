@@ -31,11 +31,11 @@
 	"ARTIFACT.LEGENDARY": "Lendário",
 	"ARTIFACT.MIGHTY": "Poderoso",
 	"ARTIFACT.REGULAR": "Item Normal",
-	"ATTACK.BLUNT": "Esmagamento",
+	"ATTACK.BLUNT": "Contundente",
 	"ATTACK.FEAR": "Medo",
 	"ATTACK.OTHER": "Outros",
-	"ATTACK.SLASH": "Golpear",
-	"ATTACK.STAB": "Estocar",
+	"ATTACK.SLASH": "Cortante",
+	"ATTACK.STAB": "Perfurante",
 	"ATTRIBUTE.AGILITY": "Agilidade",
 	"ATTRIBUTE.EMPATHY": "Empatia",
 	"ATTRIBUTE.STRENGTH": "Força",
@@ -101,7 +101,6 @@
 	"CURRENCY.GOLD": "Ouro",
 	"CURRENCY.SILVER": "Prata",
 	"DAMAGE": "Dano",
-
 	"DICE.ARTIFACT": "Artefato",
 	"DICE.ARTIFACTS": "Artefatos",
 	"DICE.SUCCESSES": "Sucessos",
@@ -260,7 +259,6 @@
 	"TALENT.RANK": "Categoria",
 	"TALENT.TYPE": "Tipo",
 	"TALENT.WEAKNESS": "Fraqueza",
-
 	"VALUE": "Valor",
 	"WARNING.ACTOR_BROKEN": "Você está acabado e não pode agir!",
 	"WARNING.ITEM_BROKEN": "O item está quebrado e não pode ser usado!",
@@ -269,7 +267,6 @@
 	"WARNING.NO_WILLPOWER": "Você não tem Força de Vontade suficiente para lançar uma magia!",
 	"WARNING.NO_DICE_INPUT": "Nenhuma entrada detectada. Por favor, especifique quais dados a serem rolados.",
 	"WARNING.INVALID_ARTIFACT": "Dado de Artefato inválido. Por favor, insira o dado de artefato como \"1d8+1d12\".",
-
 	"WEAPON.1H": "1M",
 	"WEAPON.2H": "2M",
 	"WEAPON.BONUS": "Bônus",
@@ -307,10 +304,8 @@
 	"YZUR.DIETYPES.D10ArtifactDie": "Artefato D10",
 	"YZUR.DIETYPES.D12ArtifactDie": "Artefato D12",
 	"YZUR.DIETYPES.NegativeDie": "Dados Negativos",
-
 	"FLPS.SETTINGS.ALLOW_PUSH": "Permitir Rolagens Forçadas Ilimitadas",
 	"FLPS.SETTINGS.ALLOW_PUSH_HINT": "Se seu personagem é um Anão, ou talvez seu MdJ permita um número ilimitado de rolagens forçadas. Ou você é um MdJ que quer ser capaz de fazer rolagens forçadas de Monstros; marque esta configuração para exibir um botão de forçar em quase todas as rolagens.",
-
 	"FLPS.TAB.MAIN": "PRINCIPAL",
 	"FLPS.TAB.TRAVEL": "JORNADA",
 	"FLPS.PARTY.NAME": "Nome do Grupo",
