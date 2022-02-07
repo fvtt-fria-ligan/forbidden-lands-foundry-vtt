@@ -22,6 +22,7 @@ export class FBLRollHandler extends FormApplication {
 		this.gear = gear;
 		this.damage = options.damage || gear.damage;
 		this.artifact = gear?.artifactDie;
+		this.gears = options.gears || [];
 		this.modifier =
 			options.modifiers?.reduce((sum, mod) => (mod.value < 0 ? (sum += Number(mod.value)) : sum), 0) || 0;
 		this.spell = { safecast: 0, ...spell };
@@ -137,6 +138,7 @@ export class FBLRollHandler extends FormApplication {
 
 		//These are used only in standard or Year Zero roll instances to add or remove modifiers to either input.
 		const totalModifierInput = html[0].querySelector("input#modifier");
+		const totalGearInput = html[0].querySelector("input#gear");
 		const artifactInput = html[0].querySelector("input#artifact");
 
 		//Focuses the Attribute input on load.
@@ -158,7 +160,15 @@ export class FBLRollHandler extends FormApplication {
 		html.find("input.option").on("change", function () {
 			const artifactRegex = /(\d*d(?:8|10|12))/gi;
 			const artifact = this.dataset.value.match(artifactRegex);
-			const modifier = this.dataset.value.match(/([+-]?\d+(?<!d\d+?))(?!d\d+?)/gi);
+			const modifier = {
+				value: this.dataset.value.match(/([+-]?\d+(?<!d\d+?))(?!d\d+?)/gi),
+				item: {
+					type: this.dataset.type,
+					id: this.dataset.id,
+					name: this.dataset.name,
+					teste: [],
+				},
+			};
 			//Handle artifact modifiers
 			if (artifact) {
 				const artifacts = artifactInput.value.match(artifactRegex) || [];
@@ -167,11 +177,18 @@ export class FBLRollHandler extends FormApplication {
 				artifactInput.value = artifacts.join("+");
 			}
 			// Handle normal modifiers
-			if (modifier) {
-				let currentValue = Number(totalModifierInput.value);
-				if (this.checked) currentValue += Number(modifier[0]);
-				else currentValue -= Number(modifier[0]);
-				totalModifierInput.value = currentValue;
+			if (modifier.value) {
+				if (modifier.item.type !== "gear") {
+					let currentValue = Number(totalModifierInput.value);
+					if (this.checked) currentValue += Number(modifier.value[0]);
+					else currentValue -= Number(modifier.value[0]);
+					totalModifierInput.value = currentValue;
+				} else {
+					let currentValue = Number(totalGearInput.value);
+					if (this.checked) currentValue += Number(modifier.value[0]);
+					else currentValue -= Number(modifier.value[0]);
+					totalGearInput.value = currentValue;
+				}
 			}
 		});
 
@@ -387,8 +404,8 @@ export class FBLRollHandler extends FormApplication {
 			damage: this.damage,
 			tokenId: this.options.tokenId,
 			sceneId: this.options.sceneId,
-			item: this.gear.name,
-			itemId: this.gear.itemId || this.spell?.item?.id,
+			item: this.gear.name || this.gears.map((gear) => gear.name),
+			itemId: this.gear.itemId || this.spell?.item?.id || this.gears.map((gear) => gear.id),
 			willpower: this.options.willpower,
 		};
 	}

@@ -78,6 +78,8 @@ export class ForbiddenLandsItem extends Item {
 						{
 							name: this.name,
 							value: mod,
+							id: this.id,
+							type: this.type,
 							active: mod < 0 ? true : false,
 						},
 					];

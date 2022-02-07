@@ -21,8 +21,10 @@
 				<span>{{localize "ACTIVE"}}</span><span>{{localize "Name"}}</span><span>{{localize "VALUE"}}</span>
 			</div>
 			{{#each options.modifiers as |option|}}
-			<div class="modifiers"><input class="option" data-value="{{option.value}}" type="checkbox"
-					name="{{option.name}}" id="{{option.name}}" {{#if option.active}} checked="true" {{/if}} />
+			<div class="modifiers">
+				<input class="option" data-id="{{option.id}}" data-value="{{option.value}}" data-type="{{option.type}}"
+					type="checkbox" data-name="{{option.name}}" name="{{option.name}}" id="{{option.name}}" {{#if
+					option.active}} checked="true" {{/if}} />
 				<label for="{{option.name}}"> {{option.name}} </label>
 				<label for="{{option.name}}" class="option-value"> {{option.value}} </label>
 			</div>
@@ -33,7 +35,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="container form-actions"><button class='fbl-button' type="submit" id="submit"><i class="fas fa-check"></i> {{localize
-			"DICE.ROLL"}}</button><button class='fbl-button' type="reset" id="cancel"><i class="fas fa-times"></i> {{localize
-			"DICE.CANCEL"}}</button></div>
+	<div class="container form-actions">
+		<button class='fbl-button' type="submit" id="submit"><i class="fas fa-check"></i> {{localize
+			"DICE.ROLL"}}</button><button class='fbl-button' type="reset" id="cancel"><i class="fas fa-times"></i>
+			{{localize
+			"DICE.CANCEL"}}</button>
+	</div>
 </form>

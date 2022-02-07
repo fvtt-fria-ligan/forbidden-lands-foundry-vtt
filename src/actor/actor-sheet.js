@@ -181,6 +181,11 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		};
 	}
 
+	// retorna todos os equipamentos do tipo "gear", para adicionar ao rolo
+	getGears() {
+		return this.actor.items.filter((item) => item.type === "gear" && !item.isBroken);
+	}
+
 	getGear(itemId) {
 		const gear = this.actor.items.get(itemId).getRollData();
 		if (gear.isBroken) throw this.broken("item");
@@ -208,7 +213,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			...this.getRollOptions(actionName, data.skill?.name, data.attribute?.name, data.gear?.itemId),
 		};
 		if (actionName === "unarmed") options.damage = 1;
-		return FBLRollHandler.createRoll(data, options);
+		return FBLRollHandler.createRoll(data, { ...options, gears: this.getGears() });
 	}
 
 	rollArmor() {
@@ -235,7 +240,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			...this.getRollOptions(),
 		};
 
-		return FBLRollHandler.createRoll(data, options);
+		return FBLRollHandler.createRoll(data, { ...options, gears: this.getGears() });
 	}
 
 	rollSpecificArmor(armorId) {
@@ -251,7 +256,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			maxPush: "0",
 			...this.getRollOptions(),
 		};
-		return FBLRollHandler.createRoll(data, options);
+		return FBLRollHandler.createRoll(data, { ...options, gears: this.getGears() });
 	}
 
 	rollAttribute(attrName) {
@@ -264,7 +269,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		const options = {
 			...this.getRollOptions(attrName),
 		};
-		return FBLRollHandler.createRoll(data, options);
+		return FBLRollHandler.createRoll(data, { ...options, gears: this.getGears() });
 	}
 
 	rollGear(itemId) {
@@ -278,7 +283,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		const options = {
 			...this.getRollOptions(data.skill?.name, data.attribute?.name, data.gear.itemId),
 		};
-		return FBLRollHandler.createRoll(data, options);
+		return FBLRollHandler.createRoll(data, { ...options, gears: this.getGears() });
 	}
 
 	rollSkill(skillName) {
@@ -291,7 +296,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		const options = {
 			...this.getRollOptions(skillName, data.attribute?.name),
 		};
-		return FBLRollHandler.createRoll(data, options);
+		return FBLRollHandler.createRoll(data, { ...options, gears: this.getGears() });
 	}
 
 	rollSpell(spellId) {
@@ -330,7 +335,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			skulls: this.altInteraction,
 			...this.getRollOptions(),
 		};
-		return FBLRollHandler.createRoll(data, options);
+		return FBLRollHandler.createRoll(data, { ...options, gears: this.getGears() });
 	}
 
 	/************************************************/
