@@ -23,10 +23,10 @@
 			{{#each options.modifiers as |option|}}
 			<div class="modifiers">
 				<input class="option" data-id="{{option.id}}" data-value="{{option.value}}" data-type="{{option.type}}"
-					type="checkbox" data-name="{{option.name}}" name="{{option.name}}" id="{{option.name}}" {{#if
+					type="checkbox" data-name="{{option.name}}" name="{{option.type}}_{{option.id}}_{{option.name}}_{{option.value}}" id="{{option.type}}_{{option.id}}_{{option.name}}_{{option.value}}" {{#if
 					option.active}} checked="true" {{/if}} />
-				<label for="{{option.name}}"> {{option.name}} </label>
-				<label for="{{option.name}}" class="option-value"> {{option.value}} </label>
+				<label for="{{option.type}}_{{option.id}}_{{option.name}}_{{option.value}}"> {{option.name}} </label>
+				<label for="{{option.type}}_{{option.id}}_{{option.name}}_{{option.value}}" class="option-value"> {{option.value}} </label>
 			</div>
 			{{/each}}
 			<div class="final-modifier">

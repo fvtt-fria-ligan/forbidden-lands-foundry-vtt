@@ -53,7 +53,10 @@ export class FBLRollHandler extends FormApplication {
 		return this.roll._g;
 	}
 	set g(val) {
-		this.roll._g = this.generateTermFormula(val, "g", this.gear?.name);
+		if (Array.isArray(val)) {
+			const value = val.map((item) => this.generateTermFormula(item[2], "g", item[1])).join("+");
+			this.roll._g = value;
+		} else this.roll._g = this.generateTermFormula(val, "g", this.gear?.name);
 	}
 	/**
 	 * Artifact Dice formula
@@ -178,17 +181,11 @@ export class FBLRollHandler extends FormApplication {
 			}
 			// Handle normal modifiers
 			if (modifier.value) {
-				if (modifier.item.type !== "gear") {
-					let currentValue = Number(totalModifierInput.value);
-					if (this.checked) currentValue += Number(modifier.value[0]);
-					else currentValue -= Number(modifier.value[0]);
-					totalModifierInput.value = currentValue;
-				} else {
-					let currentValue = Number(totalGearInput.value);
-					if (this.checked) currentValue += Number(modifier.value[0]);
-					else currentValue -= Number(modifier.value[0]);
-					totalGearInput.value = currentValue;
-				}
+				let currentValue = Number(totalGearInput.value);
+				if (this.checked) currentValue += Number(modifier.value[0]);
+				else currentValue -= Number(modifier.value[0]);
+				if (modifier.item.type === "gear") totalGearInput.value = currentValue;
+				else totalModifierInput.value = currentValue;
 			}
 		});
 
@@ -331,7 +328,10 @@ export class FBLRollHandler extends FormApplication {
 	 * @param {Object<number} data passed from formData.
 	 * @returns method initiating roll.
 	 */
-	_handleYZRoll({ base, skill, gear, artifact, modifier }) {
+	_handleYZRoll({ base, skill, gear, artifact, modifier, ...modifierItems }) {
+		// Handle optional gear
+		if (Object.values(modifierItems).length && Object.values(modifierItems).some((item) => item))
+			gear = this._getModifierGear(Object.keys(modifierItems, gear));
 		this.b = base;
 		this.s = skill;
 		this.g = gear;
@@ -342,6 +342,15 @@ export class FBLRollHandler extends FormApplication {
 		return this.executeRoll();
 	}
 
+	_getModifierGear(modifierItemsArray, gear) {
+		const modifierGearArray = modifierItemsArray
+			.filter((string) => string.startsWith("gear"))
+			.map((string) => string.split("_").splice(1));
+		if (this.gear.value) modifierGearArray.unshift([this.gear.id, this.gear.label, this.gear.value]);
+		const modTotal = modifierGearArray.reduce((acc, [_, __, value]) => acc + Number(value), 0);
+		if (Number(gear) - modTotal > 0) modifierGearArray.push(["", "Unspecified", Number(gear) - modTotal]);
+		return modifierGearArray;
+	}
 	/**
 	 * Generates a roll formula based on number of dice.
 	 * @param {number} number number of dice rolled.
@@ -536,7 +545,9 @@ export class FBLRollHandler extends FormApplication {
 	 * @param {ActorData} speaker
 	 * @returns updates actor with gear damage.
 	 */
-	static async applyGearDamage({ gearDamage, options: { itemId, characterDamage } }, speaker) {
+	static async applyGearDamage({ gearDamage, gearDamageByName, options: { itemId, characterDamage } }, speaker) {
+		// This only gets the gear damage by name which is not resilient.
+		console.log(gearDamageByName);
 		let { gear: appliedDamage } = characterDamage;
 		const currentDamage = gearDamage - appliedDamage;
 
@@ -614,6 +625,13 @@ export class FBLRoll extends YearZeroRoll {
 	get damage() {
 		const modifier = this.type === "spell" ? 0 : -1;
 		return (this.options.damage || 0) + Math.max(this.successCount + modifier, 0);
+	}
+
+	get gearDamageByName() {
+		return this.getTerms("gear").reduce((obj, term) => {
+			obj[term.flavor] = term.failure;
+			return obj;
+		}, {});
 	}
 
 	// Override the create method to use FBLRoll class
