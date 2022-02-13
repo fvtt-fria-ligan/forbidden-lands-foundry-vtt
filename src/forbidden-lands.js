@@ -12,6 +12,7 @@ import { YearZeroRollManager } from "./components/roll-engine/yzur";
 import { ForbiddenLandsD6, registerYZURLabels } from "./components/roll-engine/dice-labels";
 import { FBLRollHandler } from "./components/roll-engine/engine.js";
 import localizeString from "./utils/localize-string.js";
+import { FBLCombat } from "@system/core/combat.js";
 
 /**
  * We use this label to remove the debug option in production builds.
@@ -34,6 +35,7 @@ Hooks.once("init", () => {
 	CONFIG.Combat.initiative = { formula: "1d10", decimals: 0 };
 	CONFIG.fbl = FBL;
 	CONFIG.Item.documentClass = ForbiddenLandsItem;
+	CONFIG.Combat.documentClass = FBLCombat;
 	YearZeroRollManager.register("fbl", {
 		"ROLL.chatTemplate": "systems/forbidden-lands/templates/components/roll-engine/roll.hbs",
 		"ROLL.tooltipTemplate": "systems/forbidden-lands/templates/components/roll-engine/tooltip.hbs",
@@ -163,6 +165,17 @@ Hooks.on("renderChatMessage", async (app, html) => {
 			}
 		});
 	}
+});
+
+Hooks.on("getCombatTrackerEntryContext", (_, options) => {
+	options.splice(1, -1, {
+		name: localizeString("COMBAT.DUPLICATE"),
+		icon: "<i class='fas fa-copy'></i>",
+		callback: (li) => {
+			const combatant = game.combats.viewed.combatants.get(li.data("combatant-id"));
+			if (combatant) return game.combats.viewed.createEmbeddedDocuments("Combatant", [combatant.clone().data]);
+		},
+	});
 });
 
 /**
