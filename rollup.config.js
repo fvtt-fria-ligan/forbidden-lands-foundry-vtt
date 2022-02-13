@@ -39,6 +39,10 @@ module.exports = {
 					replacement: path.resolve(__dirname, "src/item"),
 				},
 				{
+					find: "@journal",
+					replacement: path.resolve(__dirname, "src/journal"),
+				},
+				{
 					find: "@components",
 					replacement: path.resolve(__dirname, "src/components"),
 				},
