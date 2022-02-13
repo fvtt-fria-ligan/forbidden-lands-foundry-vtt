@@ -63,6 +63,7 @@
 	"BUILDING.TIME": "Time",
 	"BUILDING.TOOLS": "Tools",
 	"CARRYING_CAPACITY": "Carrying capacity",
+	"COMBAT.DUPLICATE": "Duplicate Combatant",
 	"CONDITION.COLD": "Cold",
 	"CONDITION.HUNGRY": "Hungry",
 	"CONDITION.SLEEPY": "Sleepy",
@@ -116,6 +117,7 @@
 	"DICE.SKILL": "Skill",
 	"ENCUMBRANCE": "Encumbrance",
 	"ERROR.NOT_PUSHED": "Cannot confirm that the roll was pushed. Failed to apply damage and reduce Willpower!",
+	"ERROR.NOT_OWNER": "You are not allowed to modify this entity.",
 	"GEAR.BONUS": "Bonus",
 	"GEAR.COST": "Price",
 	"GEAR.EFFECT": "Effects",
@@ -268,6 +270,7 @@
 	"WARNING.NO_CONSUMABLE": "You have no Consumable of this type left!",
 	"WARNING.NO_WILLPOWER": "You do not have enough Willpower to cast a spell!",
 	"WARNING.NO_DICE_INPUT": "No inputs detected. Please specify what dice to roll.",
+	"WARNING.NO_AVAILABLE_VALUES": "There are no more values left in the initiative deck.",
 	"WARNING.INVALID_ARTIFACT": "Invalid Artifact dice. Please input artifact dice like so \"1d8+1d12\".",
 
 	"WEAPON.1H": "1H",

@@ -14,6 +14,7 @@ import { FBLRollHandler } from "./components/roll-engine/engine.js";
 import localizeString from "./utils/localize-string.js";
 import { ForbiddenLandsJournalEntry } from "./journal/journal-document.js";
 import { init, utilities } from "./journal/adventure-sites/adventure-site-generator.js";
+import { FBLCombat } from "@system/core/combat.js";
 
 /**
  * We use this label to remove the debug option in production builds.
@@ -39,6 +40,8 @@ Hooks.once("init", () => {
 	CONFIG.fbl = FBL;
 	CONFIG.fbl.adventureSites.utilities = utilities;
 	CONFIG.fbl.adventureSites.generate = (path, adventureSite) => init(path, adventureSite);
+	CONFIG.Item.documentClass = ForbiddenLandsItem;
+	CONFIG.Combat.documentClass = FBLCombat;
 	YearZeroRollManager.register("fbl", {
 		"ROLL.chatTemplate": "systems/forbidden-lands/templates/components/roll-engine/roll.hbs",
 		"ROLL.tooltipTemplate": "systems/forbidden-lands/templates/components/roll-engine/tooltip.hbs",
@@ -168,6 +171,17 @@ Hooks.on("renderChatMessage", async (app, html) => {
 			}
 		});
 	}
+});
+
+Hooks.on("getCombatTrackerEntryContext", (_, options) => {
+	options.splice(1, -1, {
+		name: localizeString("COMBAT.DUPLICATE"),
+		icon: "<i class='fas fa-copy'></i>",
+		callback: (li) => {
+			const combatant = game.combats.viewed.combatants.get(li.data("combatant-id"));
+			if (combatant) return game.combats.viewed.createEmbeddedDocuments("Combatant", [combatant.clone().data]);
+		},
+	});
 });
 
 /**
