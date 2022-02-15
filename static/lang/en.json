@@ -64,6 +64,8 @@
 	"BUILDING.TOOLS": "Tools",
 	"CARRYING_CAPACITY": "Carrying capacity",
 	"COMBAT.DUPLICATE": "Duplicate Combatant",
+	"COMBAT.TOGGLE_FAST": "Fast Action",
+	"COMBAT.TOGGLE_SLOW": "Slow Action",
 	"CONDITION.COLD": "Cold",
 	"CONDITION.HUNGRY": "Hungry",
 	"CONDITION.SLEEPY": "Sleepy",

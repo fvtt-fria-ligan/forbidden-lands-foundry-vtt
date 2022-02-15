@@ -360,6 +360,7 @@ li {
 #combat-popout li.combatant .roll.roll {
 	background: url(./assets/rolling-dices.png) no-repeat 50% 50%;
 	background-size: contain;
+	filter: none;
 
 	&:hover {
 		background-image: url(./assets/rolling-dices.png) no-repeat 50% 50%;

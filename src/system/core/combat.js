@@ -1,5 +1,52 @@
 import localizeString from "@utils/localize-string.js";
 
+export class FBLCombatant extends Combatant {
+	constructor(data, options) {
+		super(data, options);
+	}
+
+	get fast() {
+		return this.getFlag("forbidden-lands", "fast");
+	}
+
+	get slow() {
+		return this.getFlag("forbidden-lands", "slow");
+	}
+}
+
+export class FBLCombatTracker extends CombatTracker {
+	get template() {
+		return "systems/forbidden-lands/templates/system/core/combat.hbs";
+	}
+
+	async _onCombatantControl(event) {
+		super._onCombatantControl(event);
+		const btn = event.currentTarget;
+		const li = btn.closest(".combatant");
+		const combat = this.viewed;
+		const c = combat.combatants.get(li.dataset.combatantId);
+		switch (btn.dataset.control) {
+			case "toggleFast":
+				return c.setFlag("forbidden-lands", "fast", !c.fast);
+			case "toggleSlow":
+				return c.setFlag("forbidden-lands", "slow", !c.slow);
+		}
+	}
+
+	async getData(options) {
+		const data = await super.getData(options);
+		return {
+			...data,
+			turns: data.turns.map((turn) => {
+				const c = this.viewed.combatants.get(turn.id);
+				turn.fast = c.fast;
+				turn.slow = c.slow;
+				return turn;
+			}),
+		};
+	}
+}
+
 export class FBLCombat extends Combat {
 	constructor(data) {
 		super(data);
@@ -93,5 +140,11 @@ export class FBLCombat extends Combat {
 		// Create multiple chat messages
 		await ChatMessage.implementation.create(messages);
 		return this;
+	}
+
+	async nextRound() {
+		this.turns.forEach((c) => c.setFlag("forbidden-lands", "fast", false));
+		this.turns.forEach((c) => c.setFlag("forbidden-lands", "slow", false));
+		return super.nextRound();
 	}
 }

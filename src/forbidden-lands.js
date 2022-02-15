@@ -14,7 +14,7 @@ import { FBLRollHandler } from "./components/roll-engine/engine.js";
 import localizeString from "./utils/localize-string.js";
 import { ForbiddenLandsJournalEntry } from "./journal/journal-document.js";
 import { init, utilities } from "./journal/adventure-sites/adventure-site-generator.js";
-import { FBLCombat } from "@system/core/combat.js";
+import { FBLCombat, FBLCombatant, FBLCombatTracker } from "@system/core/combat.js";
 
 /**
  * We use this label to remove the debug option in production builds.
@@ -42,6 +42,8 @@ Hooks.once("init", () => {
 	CONFIG.fbl.adventureSites.generate = (path, adventureSite) => init(path, adventureSite);
 	CONFIG.Item.documentClass = ForbiddenLandsItem;
 	CONFIG.Combat.documentClass = FBLCombat;
+	CONFIG.Combatant.documentClass = FBLCombatant;
+	CONFIG.ui.combat = FBLCombatTracker;
 	YearZeroRollManager.register("fbl", {
 		"ROLL.chatTemplate": "systems/forbidden-lands/templates/components/roll-engine/roll.hbs",
 		"ROLL.tooltipTemplate": "systems/forbidden-lands/templates/components/roll-engine/tooltip.hbs",
