@@ -71,7 +71,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 			maxPush: game.settings.get("forbidden-lands", "allowUnlimitedPush") ? 10000 : "0",
 			...this.getRollOptions(),
 		};
-		const roll = FBLRoll.create(`${attack.data.data.dice}ds[${attack.name}]`, {}, options);
+		const roll = FBLRoll.create(`${attack.data.data.dice}db[${attack.name}]`, {}, options);
 		await roll.roll({ async: true });
 		return roll.toMessage();
 	}

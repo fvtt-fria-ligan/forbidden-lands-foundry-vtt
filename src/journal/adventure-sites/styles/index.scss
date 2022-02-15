@@ -1,0 +1,113 @@
+/*
+
+		Journal Sheet Styles
+
+*/
+
+.app.journal-sheet.adventure-sites {
+	// Form content
+	.editor-content {
+		& > * {
+			margin-inline: auto;
+		}
+
+		h3 {
+			margin-top: 1rem;
+		}
+
+		ul,
+		ol {
+			margin-inline: 0;
+		}
+
+		hr {
+			width: 100%;
+		}
+
+		em {
+			font-family: "Branding", "Poppins", sans-serif;
+			font-size: var(--font-size--default);
+			color: #111c;
+		}
+
+		p + p {
+			text-indent: 0;
+		}
+
+		.description {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+
+			strong {
+				margin-right: 0.5ch;
+			}
+		}
+
+		.room {
+			margin-block: 1rem;
+			width: 100%;
+			border: 1px dotted #1116;
+			padding: 1rem;
+			border-radius: 0.5rem;
+			position: relative;
+
+			&:hover {
+				background-color: #f0f0f0;
+			}
+
+			& > .index-tip {
+				font-family: "Branding", "Poppins", sans-serif;
+				position: absolute;
+				top: 0;
+				right: 0;
+				block-size: 2.2rem;
+				aspect-ratio: 1/1;
+				border-radius: 0 0.4rem 0 0.5rem;
+				background-color: #1119;
+				color: #f0f0f0;
+				display: grid;
+				place-content: center;
+				pointer-events: none;
+			}
+		}
+	}
+	.editable-tools {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 10px;
+		width: 90%;
+		display: grid;
+		grid-template-columns: repeat(2, auto);
+		place-content: center;
+		gap: 4rem;
+
+		// Buttons
+		& > * {
+			display: block;
+			margin: 0;
+			min-width: 14rem;
+			width: auto;
+			background: #fff;
+			font-weight: 600;
+			border: 1px solid transparent;
+			border-image: url(/systems/forbidden-lands/assets/journal-art/box-border-large.webp) 28/7 repeat;
+			border-image-outset: 6;
+			background-color: #fff;
+			opacity: 0.5;
+			transition: opacity 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
+		}
+
+		&:hover {
+			& > * {
+				opacity: 1;
+
+				&:hover {
+					box-shadow: none;
+					filter: drop-shadow(0 0 2px #111);
+				}
+			}
+		}
+	}
+}

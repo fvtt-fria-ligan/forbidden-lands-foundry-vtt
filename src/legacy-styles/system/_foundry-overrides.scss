@@ -345,6 +345,29 @@ li {
 	}
 }
 
+//Combat Tracker Popout
+#combat li.combatant .roll.roll {
+	background: url(./assets/rolling-dices.png) no-repeat 50% 50%;
+	background-size: contain;
+	filter: invert(1);
+
+	&:hover {
+		background-image: url(./assets/rolling-dices.png) no-repeat 50% 50%;
+		filter: drop-shadow(0 0 5px #fff);
+	}
+}
+
+#combat-popout li.combatant .roll.roll {
+	background: url(./assets/rolling-dices.png) no-repeat 50% 50%;
+	background-size: contain;
+	filter: none;
+
+	&:hover {
+		background-image: url(./assets/rolling-dices.png) no-repeat 50% 50%;
+		filter: drop-shadow(0 0 5px #111);
+	}
+}
+
 // Fixing scrollbars!
 ::-webkit-scrollbar-thumb {
 	outline: none;

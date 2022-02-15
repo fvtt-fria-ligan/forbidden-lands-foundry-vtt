@@ -10,6 +10,7 @@
 			"@utils/*": ["./src/utils/*"],
 			"@actor/*": ["./src/utils/*"],
 			"@item/*": ["./src/item/*"],
+			"@journal/*": ["./src/journal/*"],
 			"@components/*": ["./src/components/*"],
 			"@system/*": ["./src/system/*"]
 		}

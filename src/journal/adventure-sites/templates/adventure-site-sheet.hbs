@@ -1,0 +1,15 @@
+<form class="{{cssClass}}" autocomplete="off">
+	<input name="name" type="text" value="{{data.name}}" placeholder="Entry Title" />
+
+	{{editor content=data.content target="content" button=true editable=editable owner=owner}}
+
+	{{#if editable}}
+		<div class="editable-tools">
+			{{#if (or (eq type "ice_cave") (eq type "dungeon") (eq type "elven_ruin"))}}
+				<button type="button" class="add-room"><i class="fas fa-plus-circle"></i>Add Room</button>
+			{{/if}}
+			<button type="submit" name="submit"><i class="fas fa-feather-alt"></i>
+				{{localize "JOURNAL.Submit"}}</button>
+		</div>
+	{{/if}}
+</form>
