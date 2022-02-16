@@ -1,0 +1,18 @@
+#controls ol .scene-control.active,
+#controls ol .scene-control:hover {
+	color: var(--color-theme-alt-600);
+}
+
+#controls ol .control-tool.active,
+#controls ol .control-tool.toggle.active,
+#controls ol .control-tool:hover,
+#controls ol .control-tool.toggle:hover {
+	color: var(--color-theme-alt-800);
+}
+
+#controls ol .scene-control.active:hover,
+#controls ol .control-tool.active:hover,
+#controls ol .control-tool.toggle.active:hover {
+	color: var(--color-theme-accent);
+	--color-shadow-highlight: var(--color-theme-accent);
+}

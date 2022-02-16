@@ -1,0 +1,26 @@
+#navigation {
+	gap: var(--spacing-3);
+}
+
+#navigation #nav-toggle {
+	display: grid;
+	place-content: center;
+	font-size: var(--font-size-18);
+	height: unset;
+}
+
+#navigation #scene-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--spacing-3);
+}
+
+#navigation .nav-item {
+	line-height: var(--line-height-20);
+	margin: 0;
+}
+
+.scene.nav-item .scene-name {
+	stroke-width: 1px;
+	-webkit-text-stroke-width: thin;
+}
