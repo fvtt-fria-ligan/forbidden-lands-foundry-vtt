@@ -31,6 +31,7 @@
 	"ARTIFACT.LEGENDARY": "Legendary",
 	"ARTIFACT.MIGHTY": "Mighty",
 	"ARTIFACT.REGULAR": "Normal Item",
+	"ARTIFACT.TOGGLE_VISIBILITY": "Toggle Visibility",
 	"ATTACK.BLUNT": "Blunt",
 	"ATTACK.FEAR": "Fear",
 	"ATTACK.OTHER": "Other",
