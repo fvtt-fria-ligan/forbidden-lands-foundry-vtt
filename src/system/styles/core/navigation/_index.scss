@@ -7,6 +7,10 @@
 	place-content: center;
 	font-size: var(--font-size-18);
 	height: unset;
+
+	&:hover {
+		color: var(--color-theme-alt-600);
+	}
 }
 
 #navigation #scene-list {

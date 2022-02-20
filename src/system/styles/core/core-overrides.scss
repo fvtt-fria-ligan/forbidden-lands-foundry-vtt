@@ -1,4 +1,26 @@
 a:hover {
-	color: var(--color-theme-alt-800);
-	text-shadow: 0 0 var(--radius-1) var(--color-theme-alt-600);
+	color: var(--color-theme-alt-600);
+	text-shadow: var(--radius-1) var(--radius-1) var(--radius-2) var(--color-theme-alt-800);
+}
+
+button {
+	background: unset;
+}
+
+// Fixing scrollbars!
+::-webkit-scrollbar-thumb {
+	outline: none;
+	border-radius: 3px;
+	background: var(--color-theme-alt-800) !important;
+	border: 1px solid var(--color-theme-alt-600) !important;
+	border-color: var(--color-theme-alt-600) !important;
+}
+::-webkit-scrollbar-track {
+	box-shadow: 0 0 3px var(--color-theme-alt-800) inset !important;
+	border-radius: 3px;
+}
+
+* {
+	scrollbar-width: thin !important;
+	scrollbar-color: var(--color-theme-alt-800) var(--color-theme-gray-200) !important;
 }
