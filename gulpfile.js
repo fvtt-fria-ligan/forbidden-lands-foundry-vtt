@@ -28,8 +28,9 @@ const stdio = "inherit";
 /**
  * Build the distributable JavaScript code
  */
-async function buildSource() {
-	await esBuild({ production });
+// eslint-disable-next-line no-shadow
+async function buildSource({ watch } = {}) {
+	await esBuild({ production, watch });
 }
 
 /**
