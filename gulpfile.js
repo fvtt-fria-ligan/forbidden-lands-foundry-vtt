@@ -1,39 +1,24 @@
-const gulp = require("gulp");
-const { rollup } = require("rollup");
-const argv = require("yargs").argv;
-const chalk = require("chalk");
-const fs = require("fs-extra-plus");
-const dotenv = require("dotenv");
-const gulpif = require("gulp-if");
-const path = require("path");
-const execa = require("execa");
-const rollupConfig = require("./rollup.config");
-const semver = require("semver");
-const sass = require("gulp-sass")(require("sass"));
-const sourcemaps = require("gulp-sourcemaps");
-sass.compiler = require("sass");
+import gulp from "gulp";
+import argv from "yargs";
+import chalk from "chalk";
+import fs from "fs-extra-plus";
+import path from "path";
+import execa from "execa";
+import semver from "semver";
+import esBuild from "./esbuild.config.js";
+
 /********************/
 /*  CONFIGURATION   */
 /********************/
+const production = process.env.NODE_ENV === "production";
 const repoName = path.basename(path.resolve("."));
 const sourceDirectory = "./src";
 const distDirectory = "./dist";
-const stylesExtension = "scss";
-const sourceFileExtension = "js";
 const templateExt = "hbs";
 const staticFiles = ["lang", "assets", "fonts", "scripts", "system.json", "template.json", "LICENSE"];
 const getDownloadURL = (version) =>
 	`https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v${version}/fbl-fvtt_v${version}.zip`;
-const repoPathing = (relativeSourcePath = ".", sourcemapPath = ".") => {
-	return path.resolve(path.dirname(sourcemapPath), relativeSourcePath);
-};
 
-// load environment variables
-const result = dotenv.config();
-if (result.error) {
-	throw result.error;
-}
-const env = process.env.NODE_ENV || "development";
 const stdio = "inherit";
 
 /********************/
@@ -43,24 +28,8 @@ const stdio = "inherit";
 /**
  * Build the distributable JavaScript code
  */
-async function buildCode() {
-	const build = await rollup({ input: rollupConfig.input, plugins: rollupConfig.plugins });
-	return build.write({
-		...rollupConfig.output,
-		sourcemapPathTransform: env === "development" ? repoPathing : null,
-	});
-}
-
-/**
- * Build style sheets
- */
-function buildStyles() {
-	return gulp
-		.src(`${sourceDirectory}/forbidden-lands.${stylesExtension}`)
-		.pipe(gulpif(env === "development", sourcemaps.init()))
-		.pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
-		.pipe(gulpif(env === "development", sourcemaps.write()))
-		.pipe(gulp.dest(`${distDirectory}`));
+async function buildSource() {
+	await esBuild({ production });
 }
 
 /**
@@ -93,8 +62,7 @@ async function pipeStatics() {
  * Watch for changes for each build step
  */
 function buildWatch() {
-	gulp.watch(`${sourceDirectory}/**/*.${sourceFileExtension}`, { ignoreInitial: false }, buildCode);
-	gulp.watch(`${sourceDirectory}/**/*.${stylesExtension}`, { ignoreInitial: false }, buildStyles);
+	buildSource({ watch: true });
 	gulp.watch(`${sourceDirectory}/**/*.${templateExt}`, { ignoreInitial: false }, pipeTemplates);
 	gulp.watch(
 		staticFiles.map((file) => `static/${file}`),
@@ -110,7 +78,7 @@ function buildWatch() {
 /**
  * Remove built files from `dist` folder while ignoring source files
  */
-async function clean() {
+async function cleanDist() {
 	if (await fs.existsSync(`./dist`)) await fs.remove(`./dist`);
 }
 
@@ -180,6 +148,7 @@ function getManifest() {
 /**
  * Get the target version based on on the current version and the argument passed as release.
  */
+// eslint-disable-next-line no-shadow
 function getTargetVersion(currentVersion, release) {
 	if (["major", "premajor", "minor", "preminor", "patch", "prepatch", "prerelease"].includes(release)) {
 		return semver.inc(currentVersion, release);
@@ -217,6 +186,7 @@ async function bumpVersion(cb) {
 	if (!manifest) cb(Error(chalk.red("Manifest JSON not found")));
 
 	try {
+		// eslint-disable-next-line no-shadow
 		const release = argv.release || argv.r;
 
 		const currentVersion = packageJson.version;
@@ -255,11 +225,12 @@ async function bumpVersion(cb) {
 	}
 }
 
-const execBuild = gulp.parallel(buildCode, buildStyles, pipeTemplates, pipeStatics);
+const execBuild = gulp.parallel(buildSource, pipeTemplates, pipeStatics);
 
-exports.build = gulp.series(clean, execBuild);
-exports.watch = gulp.series(buildWatch);
-exports.clean = clean;
-exports.link = linkUserData;
-exports.bump = gulp.series(bumpVersion, changelog, clean, execBuild);
-exports.release = commitTagPush;
+export const clean = cleanDist;
+export const build = gulp.series(clean, execBuild);
+
+export const watch = gulp.series(buildWatch);
+export const link = linkUserData;
+export const bump = gulp.series(bumpVersion, changelog, clean, execBuild);
+export const release = commitTagPush;

@@ -2,13 +2,13 @@
 {
 	"compilerOptions": {
 		"module": "es6",
-		"target": "es2020",
+		"target": "ESNext",
 		"moduleResolution": "node",
 		"baseUrl": ".",
 		"paths": {
 			"*": ["./src"],
 			"@utils/*": ["./src/utils/*"],
-			"@actor/*": ["./src/utils/*"],
+			"@actor/*": ["./src/actor/*"],
 			"@item/*": ["./src/item/*"],
 			"@journal/*": ["./src/journal/*"],
 			"@components/*": ["./src/components/*"],
@@ -16,8 +16,5 @@
 		}
 	},
 	"include": ["src/**/*.js"],
-	"exclude": ["node_modules/*", "**/node_modules/*", "dist/*"],
-	"typeAcquisition": {
-		"exclude": ["ismobilejs", "source-map", "ts-interface-checker"]
-	}
+	"exclude": ["node_modules/*", "**/node_modules/*", "dist/*"]
 }
