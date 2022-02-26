@@ -212,6 +212,7 @@
 	"SHEET.HEADER.CHAR_GEN": "Chargen",
 	"SHEET.CLOSE": "Close",
 	"SHEET.CONFIGURE": "Configure",
+	"SHEET.HEADER.REST": "Rest",
 	"SHEET.HEADER.POST_ITEM": "Post Item",
 	"SHEET.HEADER.PUSH": "Push",
 	"SHEET.HEADER.ROLL": "Roll",
