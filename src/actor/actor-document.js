@@ -90,4 +90,24 @@ export class ForbiddenLandsActor extends Actor {
 		}
 		super.create(data, options);
 	}
+
+	rest() {
+		const data = {
+			attribute: {
+				agility: {
+					value: this.attributes.agility.max,
+				},
+				strength: {
+					value: this.attributes.strength.max,
+				},
+				wits: {
+					value: this.attributes.wits.max,
+				},
+				empathy: {
+					value: this.attributes.empathy.max,
+				},
+			},
+		};
+		this.update({ data });
+	}
 }

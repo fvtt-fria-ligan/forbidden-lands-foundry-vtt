@@ -18,6 +18,7 @@
 	color: transparent;
 	transition: max-width 1s ease;
 	@include hoverWidth("char-gen");
+	@include hoverWidth("rest-up");
 	@include hoverWidth("custom-roll");
 	@include hoverWidth("push-roll");
 	@include hoverWidth("configure-sheet");
