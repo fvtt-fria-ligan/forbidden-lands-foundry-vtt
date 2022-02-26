@@ -20,12 +20,12 @@ import { FBLCombat, FBLCombatant, FBLCombatTracker } from "@system/core/combat.j
  * We use this label to remove the debug option in production builds.
  * @See rollup.config.js
  */
-hookDebug: {
+/* @__PURE__ */ (async () => {
 	CONFIG.debug.hooks = true;
 	const tests = await import("./tests/foundry-scripts");
 	CONFIG.debug.tests = tests.default;
-}
-console.warn("HOOKS DEBUG ENABLED: ", CONFIG.debug.hooks);
+	console.warn("HOOKS DEBUG ENABLED: ", CONFIG.debug.hooks);
+})();
 
 Hooks.once("init", () => {
 	FoundryOverrides(); // Initialize Foundry Overrides
