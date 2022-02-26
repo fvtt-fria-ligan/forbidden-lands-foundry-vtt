@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.2.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v8.1.0...v8.2.0) (2022-02-26)
+
+
+### Features
+
+* ✨ Add fast/slow actions to combat tracker ([d7d507d](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/d7d507d8b56009409f71fb444fcc57792fdea89c))
+* ✨ Add hide show buttons on artifact fields ([7ad359e](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/7ad359edd4543d2fe19a5e1cdaa0d63920805a88))
+* ✨ Add rest button. ([a371128](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/a37112862d4dd4e8455272c3548e6d91a9e7d73e))
+* ✨ Adventure Sites Sheet Added ([0131969](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/0131969f269467a283c8c1768bb8fe10f9f0091f))
+* ✨ Resolves [#99](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/99) and resolves [#16](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/16) ([8d2939b](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/8d2939b2ca6a46ded1b4a9f2296d5363f4357180))
+
+
+### Bug Fixes
+
+* 🐛 CSS fixes to journal and combat tracker ([8cdd774](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/8cdd774983f1e8f7eb1d63915fd35afdef148a0b))
+* 🐛 Fixes to generator and document ([2a8a9a9](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/2a8a9a9a9cb91386ed9b018ed26bd60ea660416f))
+* 🐛 Fixes to generator and sheet ([9c8ccaa](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/9c8ccaa286c144bb4e7875306e21399e9a6620bc))
+* change the color of monster attack die ([838731e](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/838731ebaa282b29ab1bda0d60b1ca5ebf92e9c8))
+* change the translation of damage type in monster attacks ([daf41e2](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/daf41e2f7d835de15180fb131f511b6fe5271006))
+
 ## [8.1.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v8.0.0...v8.1.0) (2022-01-01)
 
 
