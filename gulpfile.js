@@ -1,10 +1,10 @@
 import gulp from "gulp";
-import argv from "yargs";
 import chalk from "chalk";
 import fs from "fs-extra-plus";
 import path from "path";
 import execa from "execa";
 import semver from "semver";
+import argv from "./tools/args-parser.js";
 import esBuild from "./esbuild.config.js";
 
 /********************/
