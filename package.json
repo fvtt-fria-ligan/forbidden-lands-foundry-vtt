@@ -47,7 +47,6 @@
 		"devmoji": "^2.2.0",
 		"dotenv": "^8.2.0",
 		"esbuild": "^0.14.23",
-		"esbuild-plugin-copy": "^0.4.0",
 		"esbuild-sass-plugin": "^2.2.3",
 		"eslint": "^8.4.0",
 		"eslint-config-jquery": "^3.0.0",

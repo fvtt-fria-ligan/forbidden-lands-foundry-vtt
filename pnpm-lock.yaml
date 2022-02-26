@@ -17,7 +17,6 @@ specifiers:
   devmoji: ^2.2.0
   dotenv: ^8.2.0
   esbuild: ^0.14.23
-  esbuild-plugin-copy: ^0.4.0
   esbuild-sass-plugin: ^2.2.3
   eslint: ^8.4.0
   eslint-config-jquery: ^3.0.0
@@ -58,7 +57,6 @@ devDependencies:
   devmoji: 2.3.0
   dotenv: 8.6.0
   esbuild: 0.14.23
-  esbuild-plugin-copy: 0.4.0_esbuild@0.14.23
   esbuild-sass-plugin: 2.2.3
   eslint: 8.4.0
   eslint-config-jquery: 3.0.0
@@ -819,11 +817,6 @@ packages:
       default-compare: 1.0.0
       get-value: 2.0.6
       kind-of: 5.1.0
-    dev: true
-
-  /array-union/2.1.0:
-    resolution: {integrity: sha512-HGyxoOTYUyCM6stUe6EJgnd4EoewAI7zMdfqO+kGjnlZmBDz/cR5pf8r/cR4Wq60sL/p0IkcjUEEPwS3GFrIyw==}
-    engines: {node: '>=8'}
     dev: true
 
   /array-unique/0.3.2:
@@ -1629,13 +1622,6 @@ packages:
     engines: {node: '>=0.3.1'}
     dev: true
 
-  /dir-glob/3.0.1:
-    resolution: {integrity: sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==}
-    engines: {node: '>=8'}
-    dependencies:
-      path-type: 4.0.0
-    dev: true
-
   /doctrine/3.0.0:
     resolution: {integrity: sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==}
     engines: {node: '>=6.0.0'}
@@ -1910,17 +1896,6 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
-
-  /esbuild-plugin-copy/0.4.0_esbuild@0.14.23:
-    resolution: {integrity: sha512-CwYa05IABoupWmUFKl+IzVLK+lkiQFw9x42NMfTxzF/g11YeLTriyDGD9vvuUUTz/3S9dnV1dZjvg2n2tJBCYw==}
-    peerDependencies:
-      esbuild: ^0.13.2
-    dependencies:
-      chalk: 4.1.2
-      esbuild: 0.14.23
-      fs-extra: 10.0.0
-      globby: 11.1.0
-    dev: true
 
   /esbuild-sass-plugin/2.2.3:
     resolution: {integrity: sha512-9Ih8ZDFu7bUoxtFzZNviWFGm6VnrwZytVw+jybfZgjRLt4NEWmr3NapVKVZhh3qgIPsoTm9B+i8wJ0QsGMbc7Q==}
@@ -2261,17 +2236,6 @@ packages:
 
   /fast-diff/1.2.0:
     resolution: {integrity: sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w==}
-    dev: true
-
-  /fast-glob/3.2.11:
-    resolution: {integrity: sha512-xrO3+1bxSo3ZVHAnqzyuewYT6aMFHRAd4Kcs92MAonjwQZLsK9d0SF1IyQ3k5PoirxTW0Oe/RqFgMQ6TcNE5Ew==}
-    engines: {node: '>=8.6.0'}
-    dependencies:
-      '@nodelib/fs.stat': 2.0.5
-      '@nodelib/fs.walk': 1.2.8
-      glob-parent: 5.1.2
-      merge2: 1.4.1
-      micromatch: 4.0.4
     dev: true
 
   /fast-glob/3.2.7:
@@ -2686,18 +2650,6 @@ packages:
       type-fest: 0.20.2
     dev: true
 
-  /globby/11.1.0:
-    resolution: {integrity: sha512-jhIXaOzy1sb8IyocaruWSn1TjmnBVs8Ayhcy83rmxNJ8q2uWKCAj3CnJY+KpGSXCueAPc0i05kVvVKtP1t9S3g==}
-    engines: {node: '>=10'}
-    dependencies:
-      array-union: 2.1.0
-      dir-glob: 3.0.1
-      fast-glob: 3.2.11
-      ignore: 5.2.0
-      merge2: 1.4.1
-      slash: 3.0.0
-    dev: true
-
   /glogg/1.0.2:
     resolution: {integrity: sha512-5mwUoSuBk44Y4EshyiqcH95ZntbDdTQqA3QYSrxmzj28Ai0vXBGMH1ApSANH14j2sIRtqCEyg6PfsuP7ElOEDA==}
     engines: {node: '>= 0.10'}
@@ -2912,11 +2864,6 @@ packages:
 
   /ignore/4.0.6:
     resolution: {integrity: sha512-cyFDKrqc/YdcWFniJhzI42+AzS+gNwmUzOSFcRCQYwySuBBBy/KjuxWLZ/FHEH6Moq1NizMOBWyTcv8O4OZIMg==}
-    engines: {node: '>= 4'}
-    dev: true
-
-  /ignore/5.2.0:
-    resolution: {integrity: sha512-CmxgYGiEPCLhfLnpPp1MoRmifwEIOgjcHXxOBjv7mY96c+eWScsOP9c112ZyLdWHi0FxHjI+4uVhKYp/gcdRmQ==}
     engines: {node: '>= 4'}
     dev: true
 
