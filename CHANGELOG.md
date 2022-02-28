@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [8.2.1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v8.2.0...v8.2.1) (2022-02-28)
+
+
+### Bug Fixes
+
+* 🐛 Journal fail to initialize when not passed a type ([1b9b5d4](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/1b9b5d4d2c1d49f23fb280862a32558fc05615cf))
+
 ## [8.2.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v8.1.0...v8.2.0) (2022-02-26)
 
 
