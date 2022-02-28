@@ -11,6 +11,7 @@ export default ({ watch = false, production = false } = {}) =>
 		sourcemap: !production ? "inline" : false,
 		ignoreAnnotations: !production,
 		minify: true,
+		drop: production ? ["console", "debugger"] : [],
 		watch,
 		plugins: [
 			sassPlugin({

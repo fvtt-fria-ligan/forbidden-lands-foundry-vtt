@@ -1,4 +1,4 @@
-const fs = require("fs-extra-plus");
+import fs from "fs-extra-plus";
 
 (async function () {
 	const templatePaths = await fs.glob("./dist/templates/**/*.hbs");
