@@ -5,6 +5,7 @@ export class ForbiddenLandsJournalEntry extends JournalEntry {
 	}
 
 	static async create(data, options) {
+		if (!data.type || data.type === "base") return super.create(data, options);
 		data.flags = {
 			"forbidden-lands": { type: data.type },
 		};
