@@ -334,7 +334,7 @@ export class FBLRollHandler extends FormApplication {
 			const checkedItems = Object.entries(modifierItems)
 				.filter((item) => item[1])
 				.map((item) => item.shift());
-			gear = this._getModifierGear(checkedItems);
+			gear = this._getModifierGear(checkedItems, gear);
 		}
 		this.b = base;
 		this.s = skill;
@@ -648,7 +648,10 @@ export class FBLRoll extends YearZeroRoll {
 		const context = {
 			roll: this,
 			attributeLabel: localizeString(this.options.attribute),
-			gearLabel: localizeString(this.options.item),
+			gears: Object.entries(this.gearDamageByName).map((gear) => ({
+				name: localizeString(gear[0]),
+				value: gear[1],
+			})),
 		};
 		return renderTemplate(template, context);
 	}
