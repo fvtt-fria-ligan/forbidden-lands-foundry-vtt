@@ -181,7 +181,6 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		};
 	}
 
-	// retorna todos os equipamentos do tipo "gear", para adicionar ao rolo
 	getGears() {
 		return this.actor.items.filter((item) => item.type === "gear" && !item.isBroken);
 	}

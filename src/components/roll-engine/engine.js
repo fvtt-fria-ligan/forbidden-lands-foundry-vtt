@@ -179,13 +179,13 @@ export class FBLRollHandler extends FormApplication {
 				else artifacts.splice(artifacts.indexOf(artifact[0]), 1);
 				artifactInput.value = artifacts.join("+");
 			}
-			// Handle normal modifiers
+
 			if (modifier.value) {
-				let currentValue = Number(totalGearInput.value);
+				const totalBonusInput = modifier.item.type === "gear" ? totalGearInput : totalModifierInput;
+				let currentValue = Number(totalBonusInput.value);
 				if (this.checked) currentValue += Number(modifier.value[0]);
 				else currentValue -= Number(modifier.value[0]);
-				if (modifier.item.type === "gear") totalGearInput.value = currentValue;
-				else totalModifierInput.value = currentValue;
+				totalBonusInput.value = currentValue;
 			}
 		});
 
@@ -330,8 +330,12 @@ export class FBLRollHandler extends FormApplication {
 	 */
 	_handleYZRoll({ base, skill, gear, artifact, modifier, ...modifierItems }) {
 		// Handle optional gear
-		if (Object.values(modifierItems).length && Object.values(modifierItems).some((item) => item))
-			gear = this._getModifierGear(Object.keys(modifierItems, gear));
+		if (Object.values(modifierItems).length && Object.values(modifierItems).some((item) => item)) {
+			const checkedItems = Object.entries(modifierItems)
+				.filter((item) => item[1])
+				.map((item) => item.shift());
+			gear = this._getModifierGear(checkedItems);
+		}
 		this.b = base;
 		this.s = skill;
 		this.g = gear;
