@@ -120,6 +120,12 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 		if (this.actor.isOwner) {
 			buttons = [
 				{
+					label: game.i18n.localize("SHEET.HEADER.REST"),
+					class: "rest-up",
+					icon: "fas fa-bed",
+					onclick: () => this.actor.rest(),
+				},
+				{
 					label: game.i18n.localize("SHEET.HEADER.ROLL"),
 					class: "custom-roll",
 					icon: "fas fa-dice",

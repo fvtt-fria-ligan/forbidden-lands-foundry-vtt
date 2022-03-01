@@ -180,3 +180,12 @@
 .forbidden-lands .features .feature > i {
 	vertical-align: middle;
 }
+
+.forbidden-lands.item .hide-field {
+	margin-left: 0.5rem;
+	i {
+		font-family: "Font Awesome 5 Free";
+		font-style: normal;
+		cursor: pointer;
+	}
+}

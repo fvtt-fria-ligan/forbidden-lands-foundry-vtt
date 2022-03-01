@@ -46,6 +46,7 @@ function preloadHandlebarsTemplates() {
 		"systems/forbidden-lands/templates/item/weapon/main-tab.hbs",
 		"systems/forbidden-lands/templates/item/weapon/weapon-sheet.hbs",
 		"systems/forbidden-lands/templates/journal/adventure-sites/adventure-site-sheet.hbs",
+		"systems/forbidden-lands/templates/system/core/combat.hbs",
 	];
 	return loadTemplates(templatePaths);
 }

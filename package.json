@@ -1,7 +1,8 @@
 {
 	"private": true,
 	"name": "forbidden-lands",
-	"version": "8.1.0",
+	"version": "8.2.1",
+	"type": "module",
 	"description": "<p align=\"center\">\r   <a href=\"https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/latest\" target=\"_blank\"><img alt=\"system version\" src=\"https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffvtt-fria-ligan%2Fforbidden-lands-foundry-vtt%2Fmain%2Fsystem.json&label=Version&query=$.version&colorB=blue\"/></a>\r   <a href=\"https://foundryvtt.com\" target=\"_blank\">\r     <img src=\"https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffvtt-fria-ligan%2Fforbidden-lands-foundry-vtt%2Fmain%2Fsystem.json&label=Foundry&query=$.compatibleCoreVersion&colorB=blue\" alt=\"foundry-compatibility-version\" style=\"max-width:100%;\"/>\r   </a>\r   <a href=\"https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/graphs/commit-activity\" target=\"_blank\">\r     <img alt=\"Maintenance\" src=\"https://img.shields.io/badge/Maintained%3F-yes-green.svg\"/>\r   </a>\r   <a href=\"https://gitlocalize.com/repo/5750/whole_project?utm_source=badge\" target=\"_blank\"><img alt=\"Localization\" src=\"https://gitlocalize.com/repo/5750/whole_project/badge.svg\" /></a>\r   <a href=\"https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/blob/main/LICENSE\" target=\"_blank\">\r     <img alt=\"License: GPL\" src=\"https://img.shields.io/github/license/fvtt-fria-ligan/forbidden-lands-foundry-vtt\"/>\r   </a>\r   <br/>\r   <br/>\r   <img src=\"https://user-images.githubusercontent.com/9851733/108728684-1a954b00-752a-11eb-9138-6fab6f83b2a8.jpg\" alt=\"Logo\" style=\"max-width:100%;\" />\r </p>",
 	"license": "GPL-3.0-or-later",
 	"homepage": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt#readme",
@@ -25,7 +26,7 @@
 		"link-project": "gulp link",
 		"clean": "gulp clean",
 		"clean:link": "gulp link --clean",
-		"bump": "cross-env NODE_ENV=production npm run lint:fix && gulp bump --release",
+		"bump": "cross-env NODE_ENV=production npm run lint:fix && gulp bump --r",
 		"release": "npm run format && gulp release",
 		"lint": "eslint --ext .js .",
 		"lint:fix": "eslint --ext .js --fix .",
@@ -45,6 +46,8 @@
 		"cross-env": "^7.0.3",
 		"devmoji": "^2.2.0",
 		"dotenv": "^8.2.0",
+		"esbuild": "^0.14.23",
+		"esbuild-sass-plugin": "^2.2.3",
 		"eslint": "^8.4.0",
 		"eslint-config-jquery": "^3.0.0",
 		"eslint-config-prettier": "^8.1.0",
@@ -65,8 +68,7 @@
 		"semver": "^7.3.5",
 		"set-value": "^4.1.0",
 		"standard-version": "^9.3.0",
-		"uvu": "^0.5.1",
-		"yargs": "^16.2.0"
+		"uvu": "^0.5.1"
 	},
 	"lint-staged": {
 		"*.(js)": "eslint --fix",

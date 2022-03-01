@@ -1,23 +1,48 @@
 <div class="artifact border">
-	{{#unless (eq type "gear")}} {{#if showEffectField}}
-	<div class="effect">
-		<label>{{localize "GEAR.EFFECT"}}</label>
-		{{editor target="data.effect" content=data.effect owner=owner button=true editable=true}}
-	</div>
-	{{/if}} {{/unless}} {{#if showDescriptionField}}
-	<div class="description">
-		<label>{{localize "ARTIFACT.DESCRIPTION"}}</label>
-		{{editor target="data.description" content=data.description owner=owner button=true editable=true}}
-	</div>
-	{{/if}} {{#if showDrawbackField}}
-	<div class="drawback">
-		<label>{{localize "ARTIFACT.DRAWBACK"}}</label>
-		{{editor target="data.drawback" content=data.drawback owner=owner button=true editable=true}}
-	</div>
-	{{/if}} {{#if showAppearanceField}}
-	<div class="appearance">
-		<label>{{localize "ARTIFACT.APPEARANCE"}}</label>
-		{{editor target="data.appearance" content=data.appearance owner=owner button=true editable=true}}
-	</div>
+	{{#unless (eq type "gear")}}
+		{{#if showEffectField}}
+			<div class="effect">
+				<label>{{localize "GEAR.EFFECT"}}</label>
+				{{#if isGM}}
+					<span class="hide-field" data-fieldname="Effect" title="{{localize "ARTIFACT.TOGGLE_VISIBILITY"}}">
+						<i class="fa-solid fa-eye{{#if flags.Effect}}-slash{{/if}}"></i>
+					</span>
+				{{/if}}
+				{{editor target="data.effect" content=data.effect owner=owner button=true editable=true}}
+			</div>
+		{{/if}}
+	{{/unless}}
+	{{#if showDescriptionField}}
+		<div class="description">
+			<label>{{localize "ARTIFACT.DESCRIPTION"}}</label>
+			{{#if isGM}}
+				<span class="hide-field" data-fieldname="Description" title="{{localize "ARTIFACT.TOGGLE_VISIBILITY"}}">
+					<i class="fa-solid fa-eye{{#if flags.Description}}-slash{{/if}}"></i>
+				</span>
+			{{/if}}
+			{{editor target="data.description" content=data.description owner=owner button=true editable=true}}
+		</div>
+	{{/if}}
+	{{#if showDrawbackField}}
+		<div class="drawback">
+			<label>{{localize "ARTIFACT.DRAWBACK"}}</label>
+			{{#if isGM}}
+				<span class="hide-field" data-fieldname="Drawback" title="{{localize "ARTIFACT.TOGGLE_VISIBILITY"}}">
+					<i class="fa-solid fa-eye{{#if flags.Drawback}}-slash{{/if}}"></i>
+				</span>
+			{{/if}}
+			{{editor target="data.drawback" content=data.drawback owner=owner button=true editable=true}}
+		</div>
+	{{/if}}
+	{{#if showAppearanceField}}
+		<div class="appearance">
+			<label>{{localize "ARTIFACT.APPEARANCE"}}</label>
+			{{#if isGM}}
+				<span class="hide-field" data-fieldname="Appearance" title="{{localize "ARTIFACT.TOGGLE_VISIBILITY"}}">
+					<i class="fa-solid fa-eye{{#if flags.Appearance}}-slash{{/if}}"></i>
+				</span>
+			{{/if}}
+			{{editor target="data.appearance" content=data.appearance owner=owner button=true editable=true}}
+		</div>
 	{{/if}}
 </div>

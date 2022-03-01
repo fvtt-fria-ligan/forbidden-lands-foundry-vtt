@@ -45,7 +45,9 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 	getData() {
 		const superData = super.getData();
 		const data = superData.data;
+		data.flags = this.object.data.flags["forbidden-lands"];
 		data.encumbranceValues = this.config.encumbrance;
+		data.isGM = game.user.isGM;
 		this._computeQuality(data);
 		return data;
 	}
@@ -115,6 +117,11 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 				this.object.update({ [`data.features.${featureName}`]: !features[featureName] });
 			this._render();
 		});
+		html.find(".hide-field").click((ev) => {
+			const fieldName = $(ev.currentTarget).data("fieldname");
+			const currentValue = this.object.getFlag("forbidden-lands", fieldName);
+			this.object.setFlag("forbidden-lands", fieldName, !currentValue);
+		});
 	}
 
 	async getCustomRollModifiers() {
@@ -127,16 +134,21 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 	}
 
 	async _renderInner(data, options) {
+		const showField = (field) => {
+			const enabledInSettings = game.settings.get("forbidden-lands", `show${field}Field`);
+			const isVisibleToPlayer = game.user.isGM || !this.object.getFlag("forbidden-lands", field);
+			return enabledInSettings && isVisibleToPlayer;
+		};
 		data = {
 			...data,
 			alternativeSkulls: game.settings.get("forbidden-lands", "alternativeSkulls"),
 			showCraftingFields: game.settings.get("forbidden-lands", "showCraftingFields"),
 			showCostField: game.settings.get("forbidden-lands", "showCostField"),
 			showSupplyField: game.settings.get("forbidden-lands", "showSupplyField"),
-			showEffectField: game.settings.get("forbidden-lands", "showEffectField"),
-			showDescriptionField: game.settings.get("forbidden-lands", "showDescriptionField"),
-			showDrawbackField: game.settings.get("forbidden-lands", "showDrawbackField"),
-			showAppearanceField: game.settings.get("forbidden-lands", "showAppearanceField"),
+			showEffectField: showField("Effect"),
+			showDescriptionField: showField("Description"),
+			showDrawbackField: showField("Drawback"),
+			showAppearanceField: showField("Appearance"),
 		};
 		data.data.customRollModifiers = await this.getCustomRollModifiers();
 		return super._renderInner(data, options);
