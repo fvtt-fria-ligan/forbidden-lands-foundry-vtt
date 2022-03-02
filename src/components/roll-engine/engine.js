@@ -169,7 +169,6 @@ export class FBLRollHandler extends FormApplication {
 					type: this.dataset.type,
 					id: this.dataset.id,
 					name: this.dataset.name,
-					teste: [],
 				},
 			};
 			//Handle artifact modifiers
