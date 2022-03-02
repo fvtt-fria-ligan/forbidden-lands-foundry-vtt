@@ -549,19 +549,30 @@ export class FBLRollHandler extends FormApplication {
 	 * @param {ActorData} speaker
 	 * @returns updates actor with gear damage.
 	 */
-	static async applyGearDamage({ gearDamage, gearDamageByName, options: { itemId, characterDamage } }, speaker) {
+	static async applyGearDamage({ name, gearDamageByName, options: { itemId } }, speaker) {
 		// This only gets the gear damage by name which is not resilient.
-		console.log(gearDamageByName);
-		let { gear: appliedDamage } = characterDamage;
-		const currentDamage = gearDamage - appliedDamage;
-
-		const item = speaker.items.get(itemId);
-		if (!item) return;
-
-		const value = Math.max(item?.bonus - currentDamage, 0);
-
-		if (value === 0) ui.notifications.notify(localizeString("NOTIFY.YOUR_ITEM_BROKE"));
-		await speaker.updateEmbeddedDocuments("Item", [{ _id: itemId, "data.bonus.value": value }]);
+		const items = Array.isArray(itemId) ? itemId.map((id) => speaker.items.get(id)) : [speaker.items.get(itemId)];
+		if (!items) return;
+		const updatedItems = items.map((item) => {
+			const rollModifiers = item.rollModifiers;
+			let value = item?.bonus;
+			if (gearDamageByName[item.name]) {
+				value = Math.max(item?.bonus - gearDamageByName[item.name], 0);
+				if (value === 0) ui.notifications.notify(localizeString("NOTIFY.YOUR_ITEM_BROKE"));
+				Object.keys(rollModifiers).map((key) => {
+					const rollName = rollModifiers[key].name;
+					if (localizeString(rollName) === name) {
+						rollModifiers[key].value = `+${value}`;
+					}
+				});
+			}
+			return {
+				_id: item.id,
+				"data.bonus.value": value,
+				"data.rollModifiers": rollModifiers,
+			};
+		});
+		await speaker.updateEmbeddedDocuments("Item", updatedItems);
 	}
 
 	/**
