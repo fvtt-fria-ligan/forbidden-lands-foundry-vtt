@@ -10,7 +10,8 @@ export default ({ watch = false, production = false } = {}) =>
 		logLevel: "info",
 		sourcemap: !production ? "inline" : false,
 		ignoreAnnotations: !production,
-		minify: true,
+		minifyWhitespace: true,
+		minifySyntax: true,
 		drop: production ? ["console", "debugger"] : [],
 		watch,
 		plugins: [
