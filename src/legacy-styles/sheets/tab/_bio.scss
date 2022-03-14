@@ -1,12 +1,8 @@
 .forbidden-lands .character .bio-tab {
-	display: grid;
 	height: 100%;
-	gap: 8px;
-	grid-template-rows: auto auto auto auto auto;
-	padding: 0 8px 8px;
+	overflow-y: auto;
 }
 
 .forbidden-lands .character .bio-tab .section {
-	display: flex;
-	flex-direction: column;
+	margin-bottom: 1rem;
 }
