@@ -548,7 +548,7 @@ export class FBLRollHandler extends FormApplication {
 	 * @param {ActorData} speaker
 	 * @returns updates actor with gear damage.
 	 */
-	static async applyGearDamage({ name, gearDamageByName, options: { itemId } }, speaker) {
+	static async applyGearDamage({ name: gearName, gearDamageByName, options: { itemId } }, speaker) {
 		// This only gets the gear damage by name which is not resilient.
 		const items = Array.isArray(itemId) ? itemId.map((id) => speaker.items.get(id)) : [speaker.items.get(itemId)];
 		if (!items) return;
@@ -560,7 +560,7 @@ export class FBLRollHandler extends FormApplication {
 				if (value === 0) ui.notifications.notify(localizeString("NOTIFY.YOUR_ITEM_BROKE"));
 				Object.keys(rollModifiers).map((key) => {
 					const rollName = rollModifiers[key].name;
-					if (localizeString(rollName) === name) {
+					if (localizeString(rollName) === gearName) {
 						rollModifiers[key].value = `+${value}`;
 					}
 				});
