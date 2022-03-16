@@ -70,6 +70,7 @@ export class ForbiddenLandsItem extends Item {
 			const match = rollIdentifiers.includes(objectSearch(CONFIG.fbl.i18n, mod.name));
 			if (match) {
 				if (mod.value.match(/\d*d(?:8|10|12)/i)) mod = mod.value.replace(/^\+/, "");
+				else if (mod.gearBonus) mod = Number(this.bonus).toFixed();
 				else mod = Number(mod.value).toFixed();
 				if (!mod) return array;
 				else

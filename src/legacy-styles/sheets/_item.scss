@@ -14,6 +14,7 @@
 	align-items: center;
 	display: grid;
 	margin: 0 8px;
+	margin-right: 0;
 	font-family: var(--font-special);
 	gap: 2px;
 	grid-template-columns: 1fr auto 1fr;
@@ -27,11 +28,17 @@
 	height: fit-content;
 }
 
+.forbidden-lands.item .weight {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
 .forbidden-lands.item .header .header-stats {
 	display: grid;
 	grid-template-columns: auto 1fr;
 	align-items: center;
-	gap: 2px;
+	gap: 4px;
 	margin-left: 8px;
 }
 
@@ -49,6 +56,10 @@
 
 .forbidden-lands.item .header .header-stats .bonus input {
 	width: 2em;
+}
+
+.forbidden-lands.item .header .header-stats .bonus .skulls {
+	font-size: var(--font-size--small);
 }
 
 .forbidden-lands.item .header .header-stats .bonus i {
@@ -148,14 +159,6 @@
 
 .forbidden-lands.item .roll-modifiers a {
 	font-size: var(--font-size--small);
-}
-
-.forbidden-lands.item .roll-modifiers .row {
-	margin-bottom: 5px;
-}
-
-.forbidden-lands.item .roll-modifiers .row > * {
-	margin-right: 8px;
 }
 
 .forbidden-lands .features {
