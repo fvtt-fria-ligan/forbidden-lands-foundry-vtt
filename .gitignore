@@ -27,3 +27,5 @@ junit.xml
 # filetypes
 .DS_Store
 
+# NPM files
+package-lock.json
