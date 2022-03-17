@@ -171,10 +171,12 @@ function registerHandlebarsHelpers() {
 	});
 	Handlebars.registerHelper("formatRollModifiers", function (rollModifiers) {
 		let output = [];
-		Object.values(rollModifiers).forEach((mod) => {
-			let modName = game.i18n.localize(mod.name);
-			output.push(`${modName} ${mod.value}`);
-		});
+		Object.values(rollModifiers)
+			.filter((mod) => !mod.gearBonus)
+			.forEach((mod) => {
+				let modName = game.i18n.localize(mod.name);
+				output.push(`${modName} ${mod.value}`);
+			});
 		return output.join(", ");
 	});
 

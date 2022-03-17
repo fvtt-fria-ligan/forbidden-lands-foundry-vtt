@@ -10,7 +10,7 @@ export class ForbiddenLandsItem extends Item {
 	}
 
 	get bonus() {
-		return this.itemProperties.bonus.value;
+		return this.itemProperties.bonus?.value;
 	}
 
 	get damage() {
@@ -69,19 +69,22 @@ export class ForbiddenLandsItem extends Item {
 		const modifiers = Object.values(this.rollModifiers).reduce((array, mod) => {
 			const match = rollIdentifiers.includes(objectSearch(CONFIG.fbl.i18n, mod.name));
 			if (match) {
-				if (mod.value.match(/\d*d(?:8|10|12)/i)) mod = mod.value.replace(/^\+/, "");
-				else if (mod.gearBonus) mod = Number(this.bonus).toFixed();
-				else mod = Number(mod.value).toFixed();
-				if (!mod) return array;
+				let value;
+				if (mod.value.match(/\d*d(?:8|10|12)/i)) value = mod.value.replace(/^\+/, "");
+				else if (mod.gearBonus) value = Number(this.bonus);
+				else value = Number(mod.value);
+
+				if (!value) return array;
 				else
 					return [
 						...array,
 						{
 							name: this.name,
-							value: mod,
+							value: typeof value === "number" ? value.toFixed() : value,
 							id: this.id,
 							type: this.type,
-							active: mod < 0 ? true : false,
+							gearBonus: mod.gearBonus,
+							active: value < 0 ? true : false,
 						},
 					];
 			} else return array;
@@ -104,7 +107,8 @@ export class ForbiddenLandsItem extends Item {
 		}
 		if (CONFIG.fbl.itemTypes.includes(itemData.type)) itemData[`is${itemData.type.capitalize()}`] = true;
 		itemData.hasRollModifiers =
-			itemData.data.rollModifiers && Object.values(itemData.data.rollModifiers).length > 0;
+			itemData.data.rollModifiers &&
+			Object.values(itemData.data.rollModifiers).filter((mod) => !mod.gearBonus).length > 0;
 		const html = await renderTemplate("systems/forbidden-lands/templates/components/item-chatcard.hbs", itemData);
 		const chatData = {
 			user: game.userId,

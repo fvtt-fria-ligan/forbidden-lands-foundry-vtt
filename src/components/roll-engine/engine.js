@@ -1,5 +1,6 @@
 import { YearZeroRoll, YearZeroRollManager } from "./yzur.js";
 import localizeString from "@utils/localize-string.js";
+import safeParse from "@utils/safe-parse.js";
 /**
  * @extends FormApplication
  * @description A Form Application that mimics Dialog, but provides more functionality in terms of data binds and handling of a roll object. Supports Forbidden Lands standard rolls and spell rolls.
@@ -133,6 +134,39 @@ export class FBLRollHandler extends FormApplication {
 	}
 
 	/**
+	 * Foundry override providing handlerbars template with data it needs to render.
+	 * @param {Object<any>} options a native Foundry parameter.
+	 * @returns {Object<any>} data object used in rendering handlebars template.
+	 */
+	getData(options = {}) {
+		return {
+			title: this.title,
+			dice: {
+				base: this.base,
+				skill: this.skill,
+				gear: this.gear,
+			},
+			artifact: this.artifact,
+			modifier: this.modifier,
+			safecastMax: this.safecastMax,
+			spellDice: this.spellDice,
+			powerLevel: this.powerLevel,
+			spell: this.spell,
+			options,
+		};
+	}
+
+	/**
+	 * Guesses the correct ActorData of the character making a roll.
+	 * @param {Object<Actor.id<string>, Scene.id<string>, Token.id<string>>} data object containing id references to the character making a roll.
+	 * @returns {ActorData}
+	 */
+	static getSpeaker({ actor, scene, token }) {
+		if (scene && token) return game.scenes.get(scene)?.tokens.get(token)?.actor;
+		else return game.actors.get(actor);
+	}
+
+	/**
 	 * Foundry override of window eventlisteners.
 	 * @param {JQuerySerializeArrayElement} html
 	 */
@@ -166,9 +200,9 @@ export class FBLRollHandler extends FormApplication {
 			const modifier = {
 				value: this.dataset.value.match(/([+-]?\d+(?<!d\d+?))(?!d\d+?)/gi),
 				item: {
-					type: this.dataset.type,
 					id: this.dataset.id,
 					name: this.dataset.name,
+					gearBonus: safeParse(this.dataset.gearBonus),
 				},
 			};
 			//Handle artifact modifiers
@@ -180,7 +214,7 @@ export class FBLRollHandler extends FormApplication {
 			}
 
 			if (modifier.value) {
-				const totalBonusInput = modifier.item.type === "gear" ? totalGearInput : totalModifierInput;
+				const totalBonusInput = modifier.item.gearBonus ? totalGearInput : totalModifierInput;
 				let currentValue = Number(totalBonusInput.value);
 				if (this.checked) currentValue += Number(modifier.value[0]);
 				else currentValue -= Number(modifier.value[0]);
@@ -231,39 +265,6 @@ export class FBLRollHandler extends FormApplication {
 		html.find("#cancel").click(() => {
 			this.close();
 		});
-	}
-
-	/**
-	 * Foundry override providing handlerbars template with data it needs to render.
-	 * @param {Object<any>} options a native Foundry parameter.
-	 * @returns {Object<any>} data object used in rendering handlebars template.
-	 */
-	getData(options = {}) {
-		return {
-			title: this.title,
-			dice: {
-				base: this.base,
-				skill: this.skill,
-				gear: this.gear,
-			},
-			artifact: this.artifact,
-			modifier: this.modifier,
-			safecastMax: this.safecastMax,
-			spellDice: this.spellDice,
-			powerLevel: this.powerLevel,
-			spell: this.spell,
-			options,
-		};
-	}
-
-	/**
-	 * Guesses the correct ActorData of the character making a roll.
-	 * @param {Object<Actor.id<string>, Scene.id<string>, Token.id<string>>} data object containing id references to the character making a roll.
-	 * @returns {ActorData}
-	 */
-	static getSpeaker({ actor, scene, token }) {
-		if (scene && token) return game.scenes.get(scene)?.tokens.get(token)?.actor;
-		else return game.actors.get(actor);
 	}
 
 	/**
@@ -329,7 +330,7 @@ export class FBLRollHandler extends FormApplication {
 	 */
 	_handleYZRoll({ base, skill, gear, artifact, modifier, ...modifierItems }) {
 		// Handle optional gear
-		if (Object.values(modifierItems).length && Object.values(modifierItems).some((item) => item)) {
+		if (Object.values(modifierItems).some((item) => item)) {
 			const checkedItems = Object.entries(modifierItems)
 				.filter((item) => item[1])
 				.map((item) => item.shift());
@@ -347,11 +348,11 @@ export class FBLRollHandler extends FormApplication {
 
 	_getModifierGear(modifierItemsArray, gear) {
 		const modifierGearArray = modifierItemsArray
-			.filter((string) => string.startsWith("gear"))
-			.map((string) => string.split("_").splice(1));
-		if (this.gear.value) modifierGearArray.unshift([this.gear.id, this.gear.label, this.gear.value]);
+			.filter((string) => string.startsWith("true"))
+			.map((string) => string.split("_"));
+		if (this.gear.value) modifierGearArray.unshift([this.gear.itemId, this.gear.label, this.gear.value]);
 		const modTotal = modifierGearArray.reduce((acc, [_, __, value]) => acc + Number(value), 0);
-		if (Number(gear) - modTotal > 0) modifierGearArray.push(["", "Unspecified", Number(gear) - modTotal]);
+		if (Number(gear) - modTotal > 0) modifierGearArray.push(["", "YZUR.DIETYPES.GearDie", Number(gear) - modTotal]);
 		return modifierGearArray;
 	}
 	/**
@@ -548,29 +549,22 @@ export class FBLRollHandler extends FormApplication {
 	 * @param {ActorData} speaker
 	 * @returns updates actor with gear damage.
 	 */
-	static async applyGearDamage({ name: gearName, gearDamageByName, options: { itemId } }, speaker) {
+	static async applyGearDamage({ gearDamageByName }, speaker) {
 		// This only gets the gear damage by name which is not resilient.
-		const items = Array.isArray(itemId) ? itemId.map((id) => speaker.items.get(id)) : [speaker.items.get(itemId)];
-		if (!items) return;
-		const updatedItems = items.map((item) => {
-			const rollModifiers = item.rollModifiers;
-			let value = item?.bonus;
-			if (gearDamageByName[item.name]) {
-				value = Math.max(item?.bonus - gearDamageByName[item.name], 0);
+		const items = Object.keys(gearDamageByName).map((itemName) =>
+			itemName ? speaker.items.getName(itemName) : null,
+		);
+		if (!items.length) return;
+		const updatedItems = items
+			.filter((item) => item)
+			.map((item) => {
+				const value = Math.max(item.bonus - gearDamageByName[item.name], 0);
 				if (value === 0) ui.notifications.notify(localizeString("NOTIFY.YOUR_ITEM_BROKE"));
-				Object.keys(rollModifiers).map((key) => {
-					const rollName = rollModifiers[key].name;
-					if (localizeString(rollName) === gearName) {
-						rollModifiers[key].value = `+${value}`;
-					}
-				});
-			}
-			return {
-				_id: item.id,
-				"data.bonus.value": value,
-				"data.rollModifiers": rollModifiers,
-			};
-		});
+				return {
+					_id: item.id,
+					"data.bonus.value": value,
+				};
+			});
 		await speaker.updateEmbeddedDocuments("Item", updatedItems);
 	}
 
