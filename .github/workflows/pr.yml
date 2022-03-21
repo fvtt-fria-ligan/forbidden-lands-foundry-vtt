@@ -13,9 +13,9 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
-          ref: ${{ github.head_ref }}
+          ref: ${{ github.event.pull_request.head.sha }}
       - uses: pnpm/action-setup@v2.2.1
       - name: Setup NodeJS 17
         uses: actions/setup-node@v3
@@ -31,6 +31,6 @@ jobs:
       - name: "Format Code"
         run: pnpm run format
       - name: "Commit Changes"
-        uses: stefanzweifel/git-auto-commit-action@v4.14.0
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "style: :art: Lint and Format"
