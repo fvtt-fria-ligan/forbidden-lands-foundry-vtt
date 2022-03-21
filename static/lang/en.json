@@ -163,6 +163,8 @@
 	"ITEM.DELETE_MODIFIER": "Delete modifier",
 	"ITEM.NO_MODIFIERS": "No modifiers",
 	"ITEM.ROLL_MODIFIERS": "Roll Modifiers",
+	"ITEM.ROLL_MODIFIERS_USEGEAR": "Use Gear Bonus",
+	"ITEM.ROLL_MODIFIERS_VALUE": "Modifier Value",
 	"ITEM.QUANTITY": "Quantity",
 	"ITEM.TypeArmor": "Armor",
 	"ITEM.TypeBuilding": "Stronghold Building",

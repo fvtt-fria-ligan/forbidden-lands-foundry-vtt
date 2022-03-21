@@ -1,5 +1,9 @@
 @use "../utils";
 
+.forbidden-lands option {
+	background: var(--color-background);
+}
+
 .forbidden-lands .main-tab div.border,
 .forbidden-lands div.bio.border,
 .character div.currencies.border,
@@ -80,6 +84,18 @@
 	flex-grow: 1;
 }
 
+.forbidden-lands .flex-1 {
+	flex: 1;
+}
+
+.forbidden-lands .gap {
+	gap: 0.5rem;
+}
+
+.forbidden-lands .gap-l {
+	gap: 1rem;
+}
+
 .forbidden-lands .align-center {
 	align-items: center;
 }
@@ -154,9 +170,6 @@
 	font-family: var(--font-input);
 	font-size: var(--font-size--small);
 	height: auto;
-	line-height: 16px;
-	padding: 2px 4px;
-	margin: 2px -4px;
 	width: 100%;
 }
 .forbidden-lands input:disabled,
