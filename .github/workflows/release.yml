@@ -13,13 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: pnpm/action-setup@v2.0.1
+      - uses: pnpm/action-setup@v2.2.1
+      - name: Setup NodeJS 17
+        uses: actions/setup-node@v3
         with:
-          version: rc
-      - name: Setup NodeJS 14
-        uses: actions/setup-node@v2
-        with:
-          node-version: "14"
+          node-version: "17"
           cache: "pnpm"
       - name: "Install Dependencies"
         run: pnpm -recursive install
@@ -38,7 +36,7 @@ jobs:
           cd dist/
           zip -r ../fbl-fvtt_${{ steps.version.outputs.tag }}.zip *
       - name: Create Release
-        uses: ncipollo/release-action@v1.8.6
+        uses: ncipollo/release-action@v1.9.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           artifacts: "./dist/system.json, fbl-fvtt_${{ steps.version.outputs.tag }}.zip"

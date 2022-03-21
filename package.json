@@ -32,8 +32,7 @@
 		"lint:fix": "eslint --ext .js --fix .",
 		"format": "prettier --write \"./**/*.(js|json|scss)\"",
 		"format:hbs": "prettier **/*.hbs --write --parser=glimmer",
-		"postinstall": "husky install",
-		"test": "uvu tests"
+		"postinstall": "husky install"
 	},
 	"devDependencies": {
 		"@rollup/plugin-alias": "^3.1.8",
@@ -67,8 +66,7 @@
 		"sass": "^1.32.8",
 		"semver": "^7.3.5",
 		"set-value": "^4.1.0",
-		"standard-version": "^9.3.0",
-		"uvu": "^0.5.1"
+		"standard-version": "^9.3.0"
 	},
 	"lint-staged": {
 		"*.(js)": "eslint --fix",
@@ -83,6 +81,7 @@
 		"last 2 Safari versions",
 		"last 2 Edge versions"
 	],
+	"packageManager": "pnpm@6.32.3",
 	"pnpm": {
 		"overrides": {
 			"tinymce@<5.9.0": ">=5.9.0",
