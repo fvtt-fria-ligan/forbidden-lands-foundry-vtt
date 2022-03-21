@@ -1,3 +1,5 @@
+name: PR Check
+
 on:
   pull_request:
     branches:
@@ -8,8 +10,12 @@ jobs:
   test:
     name: "Pull Request Linting"
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
       - uses: pnpm/action-setup@v2.2.1
       - name: Setup NodeJS 17
         uses: actions/setup-node@v3
@@ -24,3 +30,7 @@ jobs:
         run: pnpm run lint:fix
       - name: "Format Code"
         run: pnpm run format
+      - name: "Commit Changes"
+        uses: stefanzweifel/git-auto-commit-action@v4.14.0
+        with:
+          commit_message: "style: :art: Lint and Format"
