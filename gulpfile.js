@@ -1,8 +1,8 @@
 import gulp from "gulp";
 import chalk from "chalk";
-import fs from "fs-extra-plus";
+import * as fs from "fs-extra-plus";
 import path from "path";
-import execa from "execa";
+import { execa } from "execa";
 import semver from "semver";
 import argv from "./tools/args-parser.js";
 import esBuild from "./esbuild.config.js";
@@ -80,7 +80,7 @@ function buildWatch() {
  * Remove built files from `dist` folder while ignoring source files
  */
 async function cleanDist() {
-	if (await fs.existsSync(`./dist`)) await fs.remove(`./dist`);
+	if (fs.existsSync(`./dist`)) await fs.remove(`./dist`);
 }
 
 /********************/
@@ -173,7 +173,6 @@ async function commitTagPush() {
 	await execa("git", ["tag", `v${version}`], { stdio });
 	await execa("git", ["push", "upstream"], { stdio });
 	await execa("git", ["push", "upstream", "--tag"], { stdio });
-	return;
 }
 
 /**
