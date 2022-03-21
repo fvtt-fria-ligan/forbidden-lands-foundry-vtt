@@ -16,7 +16,7 @@
 	"contributors": [
 		{
 			"name": "aMediocreDad",
-			"email": "amediocredad@outlook.com"
+			"email": "hello@amediocre.dev"
 		}
 	],
 	"scripts": {
@@ -32,62 +32,38 @@
 		"lint:fix": "eslint --ext .js --fix .",
 		"format": "prettier --write \"./**/*.(js|json|scss)\"",
 		"format:hbs": "prettier **/*.hbs --write --parser=glimmer",
-		"postinstall": "husky install",
-		"test": "uvu tests"
+		"postinstall": "npx patch-package & npx husky install"
 	},
 	"devDependencies": {
-		"@rollup/plugin-alias": "^3.1.8",
-		"@rollup/plugin-node-resolve": "^11.2.1",
-		"@rollup/plugin-strip": "^2.0.0",
-		"@types/foundry-vtt-types": "npm:@league-of-foundry-developers/foundry-vtt-types@^0.8.9-2",
-		"@types/jquery": "^3.5.5",
-		"@typhonjs-fvtt/eslint-config-foundry.js": "^0.8.0",
-		"chalk": "^4.1.0",
-		"cross-env": "^7.0.3",
-		"devmoji": "^2.2.0",
-		"dotenv": "^8.2.0",
-		"esbuild": "^0.14.23",
-		"esbuild-sass-plugin": "^2.2.3",
-		"eslint": "^8.4.0",
-		"eslint-config-jquery": "^3.0.0",
-		"eslint-config-prettier": "^8.1.0",
-		"eslint-plugin-prettier": "^3.3.1",
-		"execa": "^4.1.0",
-		"fs-extra-plus": "0.5.23",
-		"gulp": "^4.0.2",
-		"gulp-if": "^3.0.0",
-		"gulp-sass": "^5.0.0",
-		"gulp-sourcemaps": "^2.6.5",
-		"gulp-zip": "^4.2.0",
-		"husky": "^6.0.0",
-		"lint-staged": "^10.5.4",
-		"prettier": "^2.2.1",
-		"rollup": "^2.44.0",
-		"rollup-plugin-terser": "^7.0.2",
-		"sass": "^1.32.8",
-		"semver": "^7.3.5",
-		"set-value": "^4.1.0",
-		"standard-version": "^9.3.0",
-		"uvu": "^0.5.1"
-	},
-	"lint-staged": {
-		"*.(js)": "eslint --fix",
-		"*.(json|scss)": "prettier --write"
+		"@milahu/patch-package-with-pnpm-support": "6.4.8",
+		"@types/foundry-vtt-types": "npm:@league-of-foundry-developers/foundry-vtt-types@9.255.2",
+		"@types/jquery": "3.5.14",
+		"@typhonjs-fvtt/eslint-config-foundry.js": "0.8.0",
+		"chalk": "5.0.1",
+		"cross-env": "7.0.3",
+		"devmoji": "2.3.0",
+		"esbuild": "0.14.27",
+		"esbuild-sass-plugin": "2.2.5",
+		"eslint": "8.11.0",
+		"eslint-config-jquery": "3.0.0",
+		"eslint-config-prettier": "8.5.0",
+		"eslint-plugin-prettier": "4.0.0",
+		"execa": "6.1.0",
+		"fs-extra-plus": "0.6.0",
+		"gulp": "4.0.2",
+		"husky": "7.0.4",
+		"prettier": "2.6.0",
+		"semver": "7.3.5",
+		"standard-version": "9.3.2"
 	},
 	"dependencies": {
-		"rpg-awesome": "^0.2.0"
+		"rpg-awesome": "0.2.0"
 	},
-	"browserslist": [
-		"last 2 Chrome versions",
-		"last 2 Firefox versions",
-		"last 2 Safari versions",
-		"last 2 Edge versions"
-	],
+	"packageManager": "pnpm@6.32.3",
 	"pnpm": {
 		"overrides": {
-			"tinymce@<5.9.0": ">=5.9.0",
 			"glob-parent@<5.1.2": ">=5.1.2",
-			"tinymce@<5.10.0": ">=5.10.0"
+			"minimist@<=1.2.5": "<0.0.0"
 		}
 	}
 }

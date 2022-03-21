@@ -3,7 +3,7 @@
 	"compilerOptions": {
 		"module": "es6",
 		"target": "ESNext",
-		"moduleResolution": "node",
+		"moduleResolution": "Node",
 		"baseUrl": ".",
 		"paths": {
 			"*": ["./src"],
