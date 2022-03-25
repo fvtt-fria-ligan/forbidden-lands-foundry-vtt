@@ -1,3 +1,5 @@
+import localize from "@utils/localize-string.js";
+
 export class ForbiddenLandsActor extends Actor {
 	get actorProperties() {
 		return this.data.data;
@@ -92,22 +94,38 @@ export class ForbiddenLandsActor extends Actor {
 	}
 
 	rest() {
+		const activeConditions = Object.entries(this.conditions).filter(([_, value]) => value.value);
+		const isBlocked = (...conditions) =>
+			conditions.some((condition) => activeConditions.map(([key, _]) => key).includes(condition));
 		const data = {
 			attribute: {
 				agility: {
-					value: this.attributes.agility.max,
+					value: isBlocked("thirsty") ? this.attributes.strength.value : this.attributes.agility.max,
 				},
 				strength: {
-					value: this.attributes.strength.max,
+					value: isBlocked("thirsty", "cold", "hungry")
+						? this.attributes.strength.value
+						: this.attributes.strength.max,
 				},
 				wits: {
-					value: this.attributes.wits.max,
+					value: isBlocked("thirsty", "cold", "sleepy")
+						? this.attributes.strength.value
+						: this.attributes.wits.max,
 				},
 				empathy: {
-					value: this.attributes.empathy.max,
+					value: isBlocked("thirsty") ? this.attributes.empathy.value : this.attributes.empathy.max,
 				},
 			},
 		};
 		this.update({ data });
+		const formatter = new Intl.ListFormat(game.i18n.lang, { style: "long" });
+		ChatMessage.create({
+			content: `<div class="forbidden-lands chat-item"><h3>${this.name}</h3><h4>${localize(
+				"ACTION.REST",
+			)}</h4><p>${this.name} ${localize("CONDITION.SUFFERING_FROM")} ${formatter.format(
+				activeConditions.map(([_, value]) => `<b>${localize(value.label)}</b>`),
+			)}</p>.</div>`,
+			speaker: { actor: this },
+		});
 	}
 }
