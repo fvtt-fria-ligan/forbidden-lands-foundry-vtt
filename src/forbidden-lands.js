@@ -54,6 +54,11 @@ Hooks.once("init", () => {
 	initializeHandlebars();
 	registerSettings();
 	modifyConfig();
+
+	// Register sockets
+	game.socket.on("system.forbidden-lands", (data) => {
+		if (data.operation === "pushRoll" && data.isOwner) game.messages.get(data.id)?.delete();
+	});
 });
 
 Hooks.on("renderPause", (_app, html) => {
@@ -164,12 +169,21 @@ Hooks.on("renderChatMessage", async (app, html) => {
 			if (app.roll.pushable) {
 				await FBLRollHandler.pushRoll(app);
 
-				// If the roll is pushed, we want to remove the button.
+				const fireEvent = () => {
+					if (app.permission === 3) app.delete();
+					else
+						game.socket.emit("system.forbidden-lands", {
+							operation: "pushRoll",
+							isOwner: app.roll?.isOwner,
+							id: app.id,
+						});
+				};
+				// Delete the old roll from the chat
 				if (game.modules.get("dice-so-nice").active)
 					Hooks.once("diceSoNiceRollComplete", () => {
-						app.delete();
+						fireEvent();
 					});
-				else app.delete();
+				else fireEvent();
 			}
 		});
 	}

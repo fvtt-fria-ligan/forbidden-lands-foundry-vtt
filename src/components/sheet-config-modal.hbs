@@ -1,4 +1,6 @@
 <form autocomplete="off">
+	{{log this}}
+	{{#if (eq object.type "character")}}
 	<div class="form-group">
 		<label>
 			{{localize "CONFIG.SHEET.CHARACTER_SUBTYPE"}}
@@ -7,6 +9,14 @@
 			{{selectOptions types selected=object.data.subtype.type localize=true }}
 		</select>
 		<p class="notes">{{localize "CONFIG.SHEET.CHARACTER_SUBTYPE_DESC"}}</p>
+	</div>
+	{{/if}}
+	<div class="form-group">
+		<label>
+			{{localize "FLPS.SETTINGS.ALLOW_PUSH"}}
+		</label>
+		<input type="checkbox" name="flags.forbidden-lands.unlimitedPush" {{checked object.flags.forbidden-lands.unlimitedPush}} />
+		<p class="notes">{{localize "FLPS.SETTINGS.ALLOW_PUSH_HINT"}}</p>
 	</div>
 	<div class="form-group">
         <label>{{localize "SHEETS.ThisSheet"}}</label>

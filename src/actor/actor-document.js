@@ -26,7 +26,11 @@ export class ForbiddenLandsActor extends Actor {
 	}
 
 	get willpower() {
-		return this.actorProperties.bio.willpower;
+		return this.actorProperties.bio?.willpower;
+	}
+
+	get unlimitedPush() {
+		return this.getFlag("forbidden-lands", "unlimitedPush") ?? false;
 	}
 
 	/* Override */
@@ -38,6 +42,7 @@ export class ForbiddenLandsActor extends Actor {
 			isBroken: this.isBroken,
 			sceneId: this.token?.parent.id,
 			tokenId: this.token?.id,
+			unlimitedPush: this.unlimitedPush,
 		};
 	}
 

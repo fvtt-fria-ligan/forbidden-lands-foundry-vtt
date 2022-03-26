@@ -397,7 +397,7 @@ export class FBLRollHandler extends FormApplication {
 	 * @returns {Object<any>} catch-all options object. Contains all non-dice related options.
 	 */
 	getRollOptions() {
-		const unlimitedPush = game.settings.get("forbidden-lands", "allowUnlimitedPush");
+		const unlimitedPush = this.options.unlimitedPush;
 		// Strictly speaking, unlimited push means 'Infinity' pushes,
 		// however Infinity is finicky to serialize.
 		// So we use a sufficiently large number instead.
@@ -628,6 +628,10 @@ export class FBLRoll extends YearZeroRoll {
 	constructor(formula, data = {}, options = {}) {
 		super(formula, data, options);
 		this.type = options.type || "yz";
+	}
+
+	get isOwner() {
+		return game.actors.get(this.options.actorId)?.isOwner ?? null;
 	}
 
 	get damage() {
