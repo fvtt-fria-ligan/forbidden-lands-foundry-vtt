@@ -66,7 +66,7 @@ export class FBLCombat extends Combat {
 		const rollMode = messageOptions.rollMode || game.settings.get("core", "rollMode");
 
 		// Initialize finite initiative deck based on existing initiative values in Combat.
-		this.initiativeDeck = Array.fromRange(CONFIG.fbl.initMax ?? 10)
+		this.initiativeDeck = Array.fromRange(CONFIG.fbl.maxInit ?? 10)
 			.map((num) => ++num)
 			.filter((num) => !this.turns.some((c) => c?.initiative === num));
 
@@ -101,7 +101,7 @@ export class FBLCombat extends Combat {
 
 			// Foundry doesn't support custom dies like 1d{3,6,7}
 			// so we alter the roll data to display the correct formula/results
-			roll._formula = `1d${CONFIG.fbl.initMax ?? 10}`;
+			roll._formula = `1d${CONFIG.fbl.maxInit ?? 10}`;
 			roll._total = result[0];
 			roll.terms = [];
 

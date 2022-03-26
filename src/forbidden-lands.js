@@ -4,7 +4,7 @@ import { registerDiceSoNice } from "./external-api/dice-so-nice.js";
 import { initializeHandlebars } from "./system/core/handlebars.js";
 import { migrateWorld } from "./system/core/migration.js";
 import { registerSheets } from "./system/core/sheets.js";
-import FBL from "./system/core/config.js";
+import FBL, { modifyConfig } from "./system/core/config.js";
 import registerSettings from "./system/core/settings.js";
 import displayMessages from "./components/message-system.js";
 import FoundryOverrides from "./system/core/foundry-overrides.js";
@@ -36,7 +36,6 @@ Hooks.once("init", () => {
 	CONFIG.Actor.documentClass = ForbiddenLandsActor;
 	CONFIG.Item.documentClass = ForbiddenLandsItem;
 	CONFIG.JournalEntry.documentClass = ForbiddenLandsJournalEntry;
-	CONFIG.Combat.initiative = { formula: "1d10", decimals: 0 };
 	CONFIG.fbl = FBL;
 	CONFIG.fbl.adventureSites.utilities = utilities;
 	CONFIG.fbl.adventureSites.generate = (path, adventureSite) => init(path, adventureSite);
@@ -54,6 +53,7 @@ Hooks.once("init", () => {
 	registerSheets();
 	initializeHandlebars();
 	registerSettings();
+	modifyConfig();
 });
 
 Hooks.on("renderPause", (_app, html) => {

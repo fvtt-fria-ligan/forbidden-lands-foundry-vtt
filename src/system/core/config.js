@@ -190,4 +190,13 @@ FBL.skillAttributeMap = {
 
 FBL.weaponFeatures = ["blunt", "edged", "hook", "parrying", "pointed", "slowReload"];
 
+export const modifyConfig = () => {
+	const settings = ["maxInit"];
+	for (const setting of settings) {
+		const value = game.settings.get("forbidden-lands", setting);
+		if (value) {
+			FBL[setting] = value;
+		}
+	}
+};
 export default FBL;
