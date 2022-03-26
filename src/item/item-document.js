@@ -106,6 +106,11 @@ export class ForbiddenLandsItem extends Item {
 			itemData.img = null;
 		}
 		if (CONFIG.fbl.itemTypes.includes(itemData.type)) itemData[`is${itemData.type.capitalize()}`] = true;
+		itemData.showField = {};
+		for (const field of ["Appearance", "Description", "Drawback", "Effect"]) {
+			if (itemData.data[field.toLowerCase()] && !this.getFlag("forbidden-lands", field))
+				itemData.showField[field.toLowerCase()] = true;
+		}
 		itemData.hasRollModifiers =
 			itemData.data.rollModifiers &&
 			Object.values(itemData.data.rollModifiers).filter((mod) => !mod.gearBonus).length > 0;
