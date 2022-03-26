@@ -54,20 +54,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 
 		html.find(".condition").click(async (ev) => {
 			const conditionName = $(ev.currentTarget).data("condition");
-			const conditionValue = this.actor.data.data.condition[conditionName].value;
-			const conditionLabel = this.actor.data.data.condition[conditionName].label;
-			const effect = this.actor.effects.find(
-				(condition) => condition.getFlag("core", "statusId") === conditionName,
-			);
-			if (CONFIG.fbl.conditions.includes(conditionName)) {
-				this.actor.update({ [`data.condition.${conditionName}.value`]: !conditionValue });
-				if (conditionValue && effect) this.actor.deleteEmbeddedDocuments("ActiveEffect", [effect.id]);
-				else if (!conditionValue && !effect)
-					this.actor.createEmbeddedDocuments("ActiveEffect", {
-						...CONFIG.fbl.activeEffects[conditionName],
-						label: localizeString(conditionLabel),
-					});
-			}
+			this.actor.toggleCondition(conditionName);
 			this._render();
 		});
 

@@ -73,6 +73,7 @@
 	"CONDITION.SLEEPY": "Sleepy",
 	"CONDITION.THIRSTY": "Thirsty",
 	"CONDITION.SUFFERING_FROM": "is suffering from",
+	"CONDITION.IS_NO_LONGER_SLEEPY": "is no longer <b>Sleepy</b>",
 	"CONFIG.AUTO_DECREASE_CONSUMABLE": "Consumable Threshold",
 	"CONFIG.AUTO_DECREASE_CONSUMABLE_DESC": "Automatically decreases consumables when rolled equal to or below this number. Set to 0 to disable.",
 	"CONFIG.ALTERNATIVESKULLS": "Alternative Sheet Interaction",
