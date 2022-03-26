@@ -5,23 +5,24 @@
 		{{else}}
 			{{formula}}
 		{{/if}}{{#if roll.pushed}}
-			&nbsp;–&nbsp; {{localize "PUSHED"}}
+			&nbsp;–&nbsp;
+			{{localize "PUSHED"}}
 		{{/if}}
 	</h4>
 	<div class="dice-result">
 		{{#if (eq roll.type "yz")}}
 			{{{tooltip}}}
 			<h4 class="dice-total">
-				<span class="sword" title="{{localize "DICE.SUCCESSES"}}">
+				<span class="sword" title="{{localize 'DICE.SUCCESSES'}}">
 					x
 				</span>
-				<span class="special-number" title="{{localize "DICE.SUCCESSES"}}">
+				<span class="special-number" title="{{localize 'DICE.SUCCESSES'}}">
 					{{success}}
 				</span>
 				{{#if (and roll.options.isAttack (gt success 0))}}
 					&nbsp;|&nbsp;
-					<i class="fas fa-tint" title="{{localize "DAMAGE"}}"></i>
-					<span class="special-number" title="{{localize "DAMAGE"}}">
+					<i class="fas fa-tint" title="{{localize 'DAMAGE'}}"></i>
+					<span class="special-number" title="{{localize 'DAMAGE'}}">
 						{{roll.damage}}
 					</span>
 				{{/if}}
@@ -70,7 +71,7 @@
 	{{{infos}}}
 {{/if}}
 {{! Push button }}
-{{#if pushable}}
+{{#if (and pushable (or roll.isOwner (eq user game.user.id)))}}
 	<div class="dice-buttons">
 		<button class="fbl-button push" data-action="push">
 			{{localize "PUSH"}}

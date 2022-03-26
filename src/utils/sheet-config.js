@@ -16,8 +16,8 @@ export class ActorSheetConfig extends EntitySheetConfig {
 	async _updateObject(event, formData) {
 		event.preventDefault();
 		const original = this.getData({});
+		this.object.update(formData);
 		if (formData.sheetClass !== original.sheetClass || formData.defaultClass !== original.defaultClass)
 			return super._updateObject(event, formData);
-		this.object.update(formData);
 	}
 }

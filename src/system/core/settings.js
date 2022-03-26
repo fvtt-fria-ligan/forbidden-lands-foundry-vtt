@@ -41,14 +41,6 @@ export default function registerSettings() {
 		default: [],
 		type: Array,
 	});
-	game.settings.register("forbidden-lands", "allowUnlimitedPush", {
-		name: "FLPS.SETTINGS.ALLOW_PUSH",
-		hint: "FLPS.SETTINGS.ALLOW_PUSH_HINT",
-		scope: "client",
-		config: true,
-		default: false,
-		type: Boolean,
-	});
 	game.settings.register("forbidden-lands", "maxInit", {
 		name: "CONFIG.MAX_INIT",
 		hint: "CONFIG.MAX_INIT_DESC",

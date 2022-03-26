@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
 import { ForbiddenLandsActorSheet } from "../actor-sheet.js";
-import { ForbiddenLandsCharacterGenerator } from "../../components/character-generator/character-generator.js";
-import localizeString from "../../utils/localize-string";
-import { FBLRoll, FBLRollHandler } from "../../components/roll-engine/engine.js";
-import { ActorSheetConfig } from "../../utils/sheet-config.js";
+import { ForbiddenLandsCharacterGenerator } from "@components/character-generator/character-generator.js";
+import { FBLRoll, FBLRollHandler } from "@components/roll-engine/engine.js";
+import localizeString from "@utils/localize-string";
+import { ActorSheetConfig } from "@utils/sheet-config.js";
+
 export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {

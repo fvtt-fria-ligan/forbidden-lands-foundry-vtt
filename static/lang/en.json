@@ -323,7 +323,7 @@
 	"YZUR.DIETYPES.NegativeDie": "Negative Dice",
 
 	"FLPS.SETTINGS.ALLOW_PUSH": "Allow Unlimited Pushed Rolls",
-	"FLPS.SETTINGS.ALLOW_PUSH_HINT": "If your character is a Dwarf, or maybe your GM allows an unlimited number of pushed rolls. Or perhaps you are a GM who wants to be able to push Monster rolls; check this setting to display a push button on almost any roll.",
+	"FLPS.SETTINGS.ALLOW_PUSH_HINT": "If your character is a Dwarf, or maybe your GM allows an unlimited number of pushed rolls. Or perhaps you are a GM who wants to be able to push this monster's rolls; check this setting to display a push button on almost any roll.",
 
 	"FLPS.TAB.MAIN": "MAIN",
 	"FLPS.TAB.TRAVEL": "TRAVEL",

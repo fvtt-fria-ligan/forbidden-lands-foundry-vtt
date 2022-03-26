@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { ForbiddenLandsActorSheet } from "../actor-sheet.js";
-import { FBLRoll } from "../../components/roll-engine/engine.js";
-import localizeString from "../../utils/localize-string.js";
+import { FBLRoll } from "@components/roll-engine/engine.js";
+import localizeString from "@utils/localize-string.js";
+import { ActorSheetConfig } from "@utils/sheet-config.js";
 export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
@@ -112,6 +113,15 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 		let data = duplicate(header.dataset);
 		data.name = `New ${data.type.capitalize()}`;
 		this.actor.createEmbeddedDocuments("Item", data, { renderSheet: true });
+	}
+
+	/* Override */
+	_onConfigureSheet(event) {
+		event.preventDefault();
+		new ActorSheetConfig(this.actor, {
+			top: this.position.top + 40,
+			left: this.position.left + (this.position.width - 400) / 2,
+		}).render(true);
 	}
 
 	_getHeaderButtons() {
