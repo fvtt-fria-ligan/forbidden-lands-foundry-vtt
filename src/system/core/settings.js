@@ -49,6 +49,17 @@ export default function registerSettings() {
 		default: false,
 		type: Boolean,
 	});
+	game.settings.register("forbidden-lands", "maxInit", {
+		name: "CONFIG.MAX_INIT",
+		hint: "CONFIG.MAX_INIT_DESC",
+		scope: "world",
+		config: true,
+		default: 10,
+		onChange: (value) => {
+			CONFIG.fbl.maxInit = value;
+		},
+		type: Number,
+	});
 	game.settings.register("forbidden-lands", "autoDecreaseConsumable", {
 		name: "CONFIG.AUTO_DECREASE_CONSUMABLE",
 		hint: "CONFIG.AUTO_DECREASE_CONSUMABLE_DESC",

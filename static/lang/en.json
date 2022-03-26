@@ -81,6 +81,8 @@
 	"CONFIG.CRAFTINGFIELD_DESC": "Used to show or hide crafting related fields on item sheets.",
 	"CONFIG.COSTFIELD": "Show cost field",
 	"CONFIG.COSTFIELD_DESC": "Used to show or hide the cost field on item sheets.",
+	"CONFIG.MAX_INIT": "Max Initiative",
+	"CONFIG.MAX_INIT_DESC": "Used to set the maximum initiative value for the initiative roll.",
 	"CONFIG.SUPPLYFIELD": "Show supply field",
 	"CONFIG.SUPPLYFIELD_DESC": "Used to show or hide the supply field on item sheets.",
 	"CONFIG.EFFECTFIELD": "Show effect field",
