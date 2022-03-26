@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.0.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v8.2.1...v9.0.0) (2022-03-26)
+
+
+### Features
+
+* ✨ Add conditions active effect and let it affect rest ([e4a485b](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/e4a485bc439843f6afeede7c973ba0baa6e6f746))
+* ✨ Add Gear Bonus toggle ([829bd71](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/829bd7138fa51f9214ae43a4f6a74f927a9ddec0))
+* ✨ Add setting for max initiative ([636f886](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/636f886866fca9b150cc6538d063f7034a5f808e))
+* ✨ Distinguish between gear rolled ([0c37c84](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/0c37c843d09888d8919e6a46bc263d1a22eb0b5f))
+* ✨ Move Unlimited Push-setting to actor sheet config ([05ef19f](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/05ef19fcc8f6c6083ff2192775c77884e54b9e5f))
+* ✨ Remove sleepy and be more accurate in chat message ([d214df2](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/d214df27b4fe0334b7d44b45582ff9f7f9934cfc))
+* add damage in all gears selected ([31edc4c](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/31edc4ca9963e640cf65af5604f439039e9d21e9))
+* wip ([38dd7f8](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/38dd7f8c2c9391cabfbc1822cbba6e7b73f2a59e))
+
+
+### Bug Fixes
+
+* 🐛 Fixes [#200](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/200) ([9a814f5](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/9a814f5cc0587de090cf1faeac608656b0a9a568))
+* 🐛 Hidden fields displayed in chat message ([cb433c4](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/cb433c419ebf88b2f115e8983bee50ea6bae5de2))
+* 🐛 Separate gear and modifier rolls. Fix edgecases. ([63aa4b2](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/63aa4b283fbe3227ccad109644f67f38d363c034))
+* modifier accumulator and selected gears ([65d38f1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/65d38f19ab27a5fe9bf815a2a0613a95e5bf3761))
+* push message with damage of selected gears ([6c7a295](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/6c7a2955926a71be8c15d99d8eb16956b0e8b86a))
+* remove non-useful test property ([3a02dba](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/3a02dbad7f2f902ecb5988c7fe961e5d21a82f88))
+
 ### [8.2.1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v8.2.0...v8.2.1) (2022-02-28)
 
 

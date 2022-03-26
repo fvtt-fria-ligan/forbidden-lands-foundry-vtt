@@ -18,6 +18,7 @@ const templateExt = "hbs";
 const staticFiles = ["lang", "assets", "fonts", "scripts", "system.json", "template.json", "LICENSE"];
 const getDownloadURL = (version) =>
 	`https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v${version}/fbl-fvtt_v${version}.zip`;
+const packageJson = JSON.parse(fs.readFileSync("package.json"));
 
 const stdio = "inherit";
 
@@ -91,7 +92,7 @@ async function cleanDist() {
  * Get the data path of Foundry VTT based on what is configured in `foundryconfig.json`
  */
 function getDataPath() {
-	const config = fs.readJSONSync("foundryconfig.json");
+	const config = JSON.parse(fs.readFileSync("foundryconfig.json"));
 
 	if (config?.dataPath) {
 		if (!fs.existsSync(path.resolve(config.dataPath))) {
@@ -140,7 +141,7 @@ function getManifest() {
 
 	if (fs.existsSync(manifestPath)) {
 		return {
-			file: fs.readJSONSync(manifestPath),
+			file: JSON.parse(fs.readFileSync(manifestPath)),
 			name: "system.json",
 		};
 	}
@@ -166,7 +167,7 @@ async function changelog() {
  * Commit and push release to Github Upstream
  */
 async function commitTagPush() {
-	const { version } = fs.readJSONSync("package.json");
+	const { version } = packageJson;
 	const commitMsg = `chore(release): Release ${version}`;
 	await execa("git", ["add", "-A"], { stdio });
 	await execa("git", ["commit", "--message", commitMsg], { stdio });
@@ -179,8 +180,6 @@ async function commitTagPush() {
  * Update version and download URL.
  */
 async function bumpVersion(cb) {
-	const packageJson = fs.readJSONSync("package.json");
-	const packageLockJson = fs.existsSync("package-lock.json") ? fs.readJSONSync("package-lock.json") : undefined;
 	const manifest = getManifest();
 
 	if (!manifest) cb(Error(chalk.red("Manifest JSON not found")));
@@ -208,16 +207,11 @@ async function bumpVersion(cb) {
 		console.log(`Updating version number to '${targetVersion}'`);
 
 		packageJson.version = targetVersion;
-		fs.writeJSONSync("package.json", packageJson, { spaces: "\t" });
-
-		if (packageLockJson) {
-			packageLockJson.version = targetVersion;
-			fs.writeJSONSync("package-lock.json", packageLockJson, { spaces: "\t" });
-		}
+		fs.writeFileSync("package.json", JSON.stringify(packageJson, null, "\t"));
 
 		manifest.file.version = targetVersion;
 		manifest.file.download = getDownloadURL(targetVersion);
-		fs.writeJSONSync(`static/${manifest.name}`, manifest.file, { spaces: "\t" });
+		fs.writeFileSync(`static/${manifest.name}`, JSON.stringify(manifest.file, null, "\t"));
 
 		return cb();
 	} catch (err) {
