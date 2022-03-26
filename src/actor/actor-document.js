@@ -93,6 +93,21 @@ export class ForbiddenLandsActor extends Actor {
 		super.create(data, options);
 	}
 
+	toggleCondition(conditionName) {
+		const conditionValue = this.conditions[conditionName].value;
+		const conditionLabel = this.conditions[conditionName].label;
+		const effect = this.effects.find((condition) => condition.getFlag("core", "statusId") === conditionName);
+		if (CONFIG.fbl.conditions.includes(conditionName)) {
+			this.update({ [`data.condition.${conditionName}.value`]: !conditionValue });
+			if (conditionValue && effect) this.deleteEmbeddedDocuments("ActiveEffect", [effect.id]);
+			else if (!conditionValue && !effect)
+				this.createEmbeddedDocuments("ActiveEffect", {
+					...CONFIG.fbl.activeEffects[conditionName],
+					label: localize(conditionLabel),
+				});
+		}
+	}
+
 	rest() {
 		const activeConditions = Object.entries(this.conditions).filter(([_, value]) => value.value);
 		const isBlocked = (...conditions) =>
@@ -117,14 +132,22 @@ export class ForbiddenLandsActor extends Actor {
 				},
 			},
 		};
+		if (this.conditions.sleepy.value) this.toggleCondition("sleepy");
 		this.update({ data });
+		const wasSleepy = this.conditions.sleepy.value && localize("CONDITION.IS_NO_LONGER_SLEEPY");
 		const formatter = new Intl.ListFormat(game.i18n.lang, { style: "long" });
 		ChatMessage.create({
-			content: `<div class="forbidden-lands chat-item"><h3>${this.name}</h3><h4>${localize(
-				"ACTION.REST",
-			)}</h4><p>${this.name} ${localize("CONDITION.SUFFERING_FROM")} ${formatter.format(
-				activeConditions.map(([_, value]) => `<b>${localize(value.label)}</b>`),
-			)}</p>.</div>`,
+			content: `<div class="forbidden-lands chat-item"><h3>${this.name}</h3><h4>${localize("ACTION.REST")}</h4>${
+				wasSleepy ? `<p>${this.name} ${wasSleepy}.</p>` : ""
+			}${
+				activeConditions.length
+					? `<p>${this.name} ${localize("CONDITION.SUFFERING_FROM")} ${formatter.format(
+							activeConditions
+								.filter(([key, _]) => key !== "sleepy")
+								.map(([_, value]) => `<b>${localize(value.label)}</b>`),
+					  )}.</p>`
+					: ""
+			}</div>`,
 			speaker: { actor: this },
 		});
 	}
