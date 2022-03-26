@@ -52,7 +52,8 @@
 		{{/if}}
 		{{#if isWeapon}}
 			<h4>
-				{{weaponCategory data.category}}, {{weaponGrip data.grip}}
+				{{weaponCategory data.category}},
+				{{weaponGrip data.grip}}
 			</h4>
 		{{/if}}
 
@@ -161,7 +162,7 @@
 		{{/if}}
 
 		{{#if isGear}}
-			{{#if data.effect}}
+			{{#if showField.effect}}
 				<p>
 					<strong>
 						{{localize "GEAR.EFFECT"}}:
@@ -293,7 +294,7 @@
 					{{formatWeaponFeatures data.category data.features}}
 				</p>
 			{{/if}}
-			{{#if data.effect}}
+			{{#if showField.effect}}
 				<p>
 					<strong>
 						{{localize "GEAR.EFFECT"}}:
@@ -303,7 +304,7 @@
 			{{/if}}
 		{{/if}}
 		{{#if data.artifactBonus}}
-			{{#if data.appearance}}
+			{{#if showField.appearance}}
 				<p>
 					<strong>
 						{{localize "ARTIFACT.APPEARANCE"}}:
@@ -311,7 +312,7 @@
 					{{{data.appearance}}}
 				</p>
 			{{/if}}
-			{{#if data.description}}
+			{{#if showField.description}}
 				<p>
 					<strong>
 						{{localize "ARTIFACT.DESCRIPTION"}}:
@@ -319,7 +320,7 @@
 					{{{data.description}}}
 				</p>
 			{{/if}}
-			{{#if data.drawback}}
+			{{#if showField.drawback}}
 				<p>
 					<strong>
 						{{localize "ARTIFACT.DRAWBACK"}}:
