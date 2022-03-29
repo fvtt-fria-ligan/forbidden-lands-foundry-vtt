@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [9.0.1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v9.0.0...v9.0.1) (2022-03-29)
+
+
+### Bug Fixes
+
+* 🐛 Rolling monster attacks, and resting ([93c306b](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/93c306b4c48a6796a39629c31c327e0fb0aa3166))
+
 ## [9.0.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v8.2.1...v9.0.0) (2022-03-26)
 
 
