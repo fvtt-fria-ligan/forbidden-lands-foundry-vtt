@@ -114,7 +114,7 @@ export class ForbiddenLandsActor extends Actor {
 	}
 
 	rest() {
-		const activeConditions = Object.entries(this.conditions).filter(([_, value]) => value.value);
+		const activeConditions = Object.entries(this.conditions ?? {}).filter(([_, value]) => value?.value);
 		const isBlocked = (...conditions) =>
 			conditions.some((condition) => activeConditions.map(([key, _]) => key).includes(condition));
 		const data = {
@@ -137,13 +137,15 @@ export class ForbiddenLandsActor extends Actor {
 				},
 			},
 		};
-		if (this.conditions.sleepy.value) this.toggleCondition("sleepy");
+		if (this.conditions?.sleepy.value) this.toggleCondition("sleepy");
 		this.update({ data });
-		const wasSleepy = this.conditions.sleepy.value && localize("CONDITION.IS_NO_LONGER_SLEEPY");
+		const sleepyIndex = activeConditions.map(([key, _]) => key).indexOf("sleepy");
+		const wasSleepy = sleepyIndex > -1;
+		if (wasSleepy) activeConditions.splice(sleepyIndex, 1);
 		const formatter = new Intl.ListFormat(game.i18n.lang, { style: "long" });
 		ChatMessage.create({
 			content: `<div class="forbidden-lands chat-item"><h3>${this.name}</h3><h4>${localize("ACTION.REST")}</h4>${
-				wasSleepy ? `<p>${this.name} ${wasSleepy}.</p>` : ""
+				wasSleepy ? `<p>${this.name} ${localize("CONDITION.IS_NO_LONGER_SLEEPY")}.</p>` : ""
 			}${
 				activeConditions.length
 					? `<p>${this.name} ${localize("CONDITION.SUFFERING_FROM")} ${formatter.format(
@@ -154,6 +156,7 @@ export class ForbiddenLandsActor extends Actor {
 					: ""
 			}</div>`,
 			speaker: { actor: this },
+			whisper: game.user.isGM && [game.user.id],
 		});
 	}
 }
