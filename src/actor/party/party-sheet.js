@@ -34,7 +34,9 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 			if (typeof travelAction === "object") {
 				for (let i = 0; i < travelAction.length; i++) {
 					assignedActorId = travelAction[i];
-					data.travel[travelActionKey][assignedActorId] = game.actors.get(assignedActorId).data;
+					if (assignedActorId != null) {
+						data.travel[travelActionKey][assignedActorId] = game.actors.get(assignedActorId).data;
+					}
 				}
 			} else if (travelAction !== "") {
 				data.travel[travelActionKey][travelAction] = game.actors.get(travelAction).data;
