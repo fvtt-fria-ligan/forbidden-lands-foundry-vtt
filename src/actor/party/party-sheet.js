@@ -49,7 +49,8 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 		super.activateListeners(html);
 
 		html.find(".item-delete").click(this.handleRemoveMember.bind(this));
-		html.find(".reset").click(() => {
+		html.find(".reset").click((event) => {
+			event.preventDefault();
 			this.assignPartyMembersToAction(this.actor.data.data.members, "other");
 			this.render(true);
 		});
@@ -72,6 +73,7 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 	}
 
 	async handleRemoveMember(event) {
+		event.preventDefault();
 		const div = $(event.currentTarget).parents(".party-member");
 		const entityId = div.data("entity-id");
 
