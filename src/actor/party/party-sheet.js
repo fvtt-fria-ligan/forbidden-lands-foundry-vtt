@@ -34,7 +34,9 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 			if (typeof travelAction === "object") {
 				for (let i = 0; i < travelAction.length; i++) {
 					assignedActorId = travelAction[i];
-					data.travel[travelActionKey][assignedActorId] = game.actors.get(assignedActorId).data;
+					if (assignedActorId != null) {
+						data.travel[travelActionKey][assignedActorId] = game.actors.get(assignedActorId).data;
+					}
 				}
 			} else if (travelAction !== "") {
 				data.travel[travelActionKey][travelAction] = game.actors.get(travelAction).data;
@@ -47,7 +49,8 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 		super.activateListeners(html);
 
 		html.find(".item-delete").click(this.handleRemoveMember.bind(this));
-		html.find(".reset").click(() => {
+		html.find(".reset").click((event) => {
+			event.preventDefault();
 			this.assignPartyMembersToAction(this.actor.data.data.members, "other");
 			this.render(true);
 		});
@@ -70,6 +73,7 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 	}
 
 	async handleRemoveMember(event) {
+		event.preventDefault();
 		const div = $(event.currentTarget).parents(".party-member");
 		const entityId = div.data("entity-id");
 
