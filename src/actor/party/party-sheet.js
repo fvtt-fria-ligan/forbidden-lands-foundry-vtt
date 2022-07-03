@@ -14,7 +14,7 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 	}
 
 	get actorProperties() {
-		return this.actor.data.data;
+		return this.actor.system;
 	}
 
 	getData() {
@@ -23,12 +23,12 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 		data.travel = {};
 		data.travelActions = this.getTravelActions();
 		let ownedActorId, assignedActorId, travelAction;
-		for (let i = 0; i < (data.data.members || []).length; i++) {
-			ownedActorId = data.data.members[i];
+		for (let i = 0; i < (data.system.members || []).length; i++) {
+			ownedActorId = data.system.members[i];
 			data.partyMembers[ownedActorId] = game.actors.get(ownedActorId).data;
 		}
-		for (let travelActionKey in data.data.travel) {
-			travelAction = data.data.travel[travelActionKey];
+		for (let travelActionKey in data.system.travel) {
+			travelAction = data.system.travel[travelActionKey];
 			data.travel[travelActionKey] = {};
 
 			if (typeof travelAction === "object") {
@@ -77,7 +77,7 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 		const div = $(event.currentTarget).parents(".party-member");
 		const entityId = div.data("entity-id");
 
-		let partyMembers = this.actor.data.data.members;
+		let partyMembers = this.actorProperties.members;
 		partyMembers.splice(partyMembers.indexOf(entityId), 1);
 
 		let updateData = {
@@ -85,8 +85,8 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 		};
 
 		let travelAction, actionParticipants;
-		for (let travelActionKey in this.actor.data.data.travel) {
-			travelAction = this.actor.data.data.travel[travelActionKey];
+		for (let travelActionKey in this.actorProperties.travel) {
+			travelAction = this.actorProperties.travel[travelActionKey];
 			if (travelAction.indexOf(entityId) < 0) continue;
 
 			if (typeof travelAction === "object") {

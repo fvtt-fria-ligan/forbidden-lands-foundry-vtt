@@ -2,7 +2,7 @@
 import { ForbiddenLandsActorSheet } from "../actor-sheet.js";
 import { FBLRoll } from "@components/roll-engine/engine.js";
 import localizeString from "@utils/localize-string.js";
-import { ActorSheetConfig } from "@utils/sheet-config.js";
+//import { ActorSheetConfig } from "@utils/sheet-config.js";
 export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
@@ -45,7 +45,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 			return this.rollSpecificAttack(itemId);
 		});
 		html.find(".change-mounted").click(() => {
-			const boolean = this.actor.data.data.isMounted;
+			const boolean = this.actor.actorProperties.isMounted;
 			this.actor.update({ "data.isMounted": !boolean });
 		});
 	}
@@ -76,7 +76,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 			gear,
 			...rollOptions,
 		};
-		const roll = FBLRoll.create(`${attack.data.data.dice}db[${attack.name}]`, {}, options);
+		const roll = FBLRoll.create(`${attack.itemProperties.dice}db[${attack.name}]`, {}, options);
 		await roll.roll({ async: true });
 		return roll.toMessage();
 	}
@@ -103,8 +103,8 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 		for (let item of Object.values(data.items)) {
 			weightCarried += this.computeItemEncumbrance(item);
 		}
-		const weightAllowed = data.data.attribute.strength.max * 2 * (data.data.isMounted ? 1 : 2);
-		data.data.encumbrance = {
+		const weightAllowed = data.system.attribute.strength.max * 2 * (data.system.isMounted ? 1 : 2);
+		data.system.encumbrance = {
 			value: weightCarried,
 			max: weightAllowed,
 			over: weightCarried > weightAllowed,
@@ -112,13 +112,13 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 	}
 
 	/* Override */
-	_onConfigureSheet(event) {
-		event.preventDefault();
-		new ActorSheetConfig(this.actor, {
-			top: this.position.top + 40,
-			left: this.position.left + (this.position.width - 400) / 2,
-		}).render(true);
-	}
+	// _onConfigureSheet(event) {
+	// 	event.preventDefault();
+	// 	new ActorSheetConfig(this.actor, {
+	// 		top: this.position.top + 40,
+	// 		left: this.position.left + (this.position.width - 400) / 2,
+	// 	}).render(true);
+	// }
 
 	_getHeaderButtons() {
 		let buttons = super._getHeaderButtons();

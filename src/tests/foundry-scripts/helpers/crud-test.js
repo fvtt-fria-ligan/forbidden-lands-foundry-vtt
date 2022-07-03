@@ -6,6 +6,7 @@ export default async function (documentClassName, documentType, documentName, su
 		const created = await cls.__proto__.create({
 			type: documentType,
 			documentName,
+			name: documentName,
 			["data.subtype.type"]: subtype,
 		});
 		await created.sheet.render(true);

@@ -28,7 +28,7 @@ const isCurrent = (msg) => {
 		foundry.utils.isNewerVersion(game.version, msg["min-core-version"] ?? "0.0.0");
 	const correctSysVersion = semverComp(
 		msg["min-sys-version"] ?? "0.0.0",
-		game.system.data.version,
+		game.system.version,
 		msg["max-sys-version"] ?? "100.0.0",
 		{ gEqMin: true },
 	);

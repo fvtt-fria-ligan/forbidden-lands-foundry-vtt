@@ -3,11 +3,11 @@
         <label class="grow">{{localize "ITEM.ROLL_MODIFIERS"}}</label>
         <a class="button add-modifier" title="{{localize 'ITEM.ADD_MODIFIER'}}"><i class="fas fa-plus"></i></a>
     </header>
-    {{#each data.rollModifiers as |modifier|}}
+    {{#each system.rollModifiers as |modifier|}}
     {{#if modifier}}
     <div class="flex row align-center gap">
         <div class="grow">
-            <select name="data.rollModifiers.{{@key}}.name">
+            <select name="system.rollModifiers.{{@key}}.name">
                 {{#select modifier.name}}
                 <option value="" disabled selected>{{localize "ROLL_MODIFIER.SELECT"}}:</option>
                 <optgroup label="{{localize "HEADER.ATTRIBUTES"}}">
@@ -45,7 +45,7 @@
                 <optgroup label="{{ toUpperCase (localize "OTHER") }}">
                 <option value="CARRYING_CAPACITY">{{localize "CARRYING_CAPACITY"}}</option>
                 <optgroup label="{{ toUpperCase (localize "ITEM.CUSTOM_ROLL_MODIFIERS") }}">
-                {{#each ../data.customRollModifiers as |customRollModifier|}}
+                {{#each ../system.customRollModifiers as |customRollModifier|}}
                 <option value="{{ customRollModifier }}">{{ customRollModifier }}</option>
                 {{/each}}
                 </optgroup>
@@ -54,13 +54,13 @@
         </div>
         {{#if (or (eq ../type "gear") (eq ../type "weapon") (eq ../type "armor"))}}
             <div class="flex row align-center" title="{{localize "ITEM.ROLL_MODIFIERS_USEGEAR"}}">
-                <input type="checkbox" name="data.rollModifiers.{{@key}}.gearBonus" id="{{../_id}}.{{@key}}.gearBonusToggle" {{checked modifier.gearBonus}} />
+                <input type="checkbox" name="system.rollModifiers.{{@key}}.gearBonus" id="{{../_id}}.{{@key}}.gearBonusToggle" {{checked modifier.gearBonus}} />
                 <label for="{{../_id}}.{{@key}}.gearBonusToggle" style="white-space: nowrap; font-size: var(--font-size--small);">{{localize "ITEM.ROLL_MODIFIERS_USEGEAR"}}</label>
             </div>
         {{/if}}
         {{#unless modifier.gearBonus}}
             <div style="flex: 1 1 10%;" title="{{localize "ITEM.ROLL_MODIFIERS_VALUE"}}">
-                <input name="data.rollModifiers.{{@key}}.value" type="text" value="{{ modifier.value }}" style="text-align: center;"/>
+                <input name="system.rollModifiers.{{@key}}.value" type="text" value="{{ modifier.value }}" style="text-align: center;"/>
             </div>
         {{/unless}}
         <a class="button delete-modifier" title="{{localize 'ITEM.DELETE_MODIFIER'}}" data-modifier-id="{{@key}}">

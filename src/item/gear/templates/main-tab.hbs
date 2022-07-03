@@ -1,8 +1,8 @@
 <div class="main border">
 	<div class="weight">
 		<label>{{localize "GEAR.WEIGHT"}}</label>
-		<select name="data.weight">
-			{{#select data.weight}}
+		<select name="system.weight">
+			{{#select system.weight}}
 				<optgroup label={{localize "WEIGHT.TYPE_REGULAR" }}>
 					{{#each encumbranceValues as |weight|}}
 					{{#if (eq (getType @key) "string")}}
@@ -28,12 +28,10 @@
 					<i class="fas fa-eye{{#if flags.Effect}}-slash{{/if}}"></i>
 				</span>
 			{{/if}}
-			{{editor target="data.effect" content=data.effect owner=owner button=true editable=true}}
+			{{editor system.effect target="system.effect" owner=owner button=true editable=true}}
 		</div>
 	{{/if}}
 </div>
 <div class="roll-modifiers border">
-					<!-- prettier-ignore -->
-				{{! prettier-ignore }}
 {{> systems/forbidden-lands/templates/components/modifiers-component.hbs }}
 </div>

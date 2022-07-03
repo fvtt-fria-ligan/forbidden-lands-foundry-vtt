@@ -23,22 +23,24 @@
 											data-item-id="{{item._id}}"
 										>{{item.name}}</button>
 										<span>
-											{{weaponGrip item.data.grip}}{{#if
-												(hasWeaponFeatures item.data.category item.data.features)
-											}}, {{formatWeaponFeatures item.data.category item.data.features}} {{/if}}
+											{{weaponGrip item.system.grip}}{{#if
+												(hasWeaponFeatures item.system.category item.system.features)
+											}},
+												{{formatWeaponFeatures item.system.category item.system.features}}
+											{{/if}}
 										</span>
 									</div>
 								</div>
-								<div class="damage">{{item.data.damage}}</div>
-								<div class="range">{{weaponRange item.data.range}}</div>
+								<div class="damage">{{item.system.damage}}</div>
+								<div class="range">{{weaponRange item.system.range}}</div>
 								<div class="bonus {{isBroken item}}">
-									{{item.data.bonus.value}}
-									{{#if item.data.artifactBonus}}+
-										{{item.data.artifactBonus}}{{/if}}
+									{{item.system.bonus.value}}
+									{{#if item.system.artifactBonus}}+
+										{{item.system.artifactBonus}}{{/if}}
 								</div>
 								<!--There's a non-trivial amount of wrangling going on here to get shields to be treated as weapons despite being of the armor type-->
 								<div class="weapon-actions">
-									{{#if (or (eq item.data.part "shield") (eq item.data.category "melee"))}}
+									{{#if (or (eq item.system.part "shield") (eq item.system.category "melee"))}}
 										<button
 											type="button"
 											class="roll-action"
@@ -47,10 +49,10 @@
 										>
 											{{localize "ACTION.PARRY"}}
 											{{#unless
-												(or (eq item.data.part "shield") item.data.features.parrying)
+												(or (eq item.system.part "shield") item.system.features.parrying)
 											}}(-2){{/unless}}
 										</button>
-										{{#if (or (eq item.data.part "shield") item.data.features.hook)}}
+										{{#if (or (eq item.system.part "shield") item.system.features.hook)}}
 											<button
 												type="button"
 												class="roll-action"
@@ -58,7 +60,7 @@
 												data-action="shove"
 											>{{localize "ACTION.SHOVE"}}</button>
 										{{/if}}
-										{{#unless (eq item.data.part "shield")}}
+										{{#unless (eq item.system.part "shield")}}
 											<button
 												type="button"
 												class="roll-action"
@@ -98,7 +100,7 @@
 									>{{item.name}}</button>
 								</div>
 							</div>
-							<div class="bonus {{isBroken item}}"> {{item.data.bonus.value}} </div>
+							<div class="bonus {{isBroken item}}"> {{item.system.bonus.value}} </div>
 						</div>
 					{{/if}}
 				{{/each}}
@@ -126,7 +128,7 @@
 								</div>
 							</div>
 							<div class="healtime">
-								<span>{{item.data.healingTime}}</span>
+								<span>{{item.system.healingTime}}</span>
 							</div>
 							<div class="button">
 								<a class="item-control item-edit" title="Edit Critical Injury"><i

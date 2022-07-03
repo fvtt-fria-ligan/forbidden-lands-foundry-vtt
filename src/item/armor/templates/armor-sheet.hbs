@@ -8,9 +8,9 @@
 			<input name="name" type="text" value="{{name}}" />
 			<label>{{localize "ARMOR.RATING"}}</label>
 			<div class="bonus">
-				<div class="skulls {{#unless data.bonus.value }}broken{{/unless}}">
-					<a class="change-bonus" data-attribute="{{data.bonus}}">
-						{{#skulls data.bonus.value data.bonus.max}}
+				<div class="skulls {{#unless system.bonus.value }}broken{{/unless}}">
+					<a class="change-bonus" data-attribute="{{system.bonus}}">
+						{{#skulls system.bonus.value system.bonus.max}}
 						<i
 							class="skull {{#if @damaged}}far fa-times-circle{{else}}{{#if alternativeSkulls}} fas {{else}} far {{/if}} fa-circle{{/if}}"
 						></i>
@@ -18,15 +18,15 @@
 					</a>
 				</div>
 				<div class="multivalue">
-					<input name="data.bonus.value" type="number" value="{{data.bonus.value}}" data-dtype="Number" />
+					<input name="system.bonus.value" type="number" value="{{system.bonus.value}}" data-dtype="Number" />
 					<i class="fas fa-slash rotated"></i>
-					<input name="data.bonus.max" type="number" value="{{data.bonus.max}}" data-dtype="Number" />
+					<input name="system.bonus.max" type="number" value="{{system.bonus.max}}" data-dtype="Number" />
 				</div>
 			</div>
 			<label>{{localize "ARTIFACT.ARTIFACT_BONUS"}}</label>
 			<div class="artifactBonus">
-				<select name="data.artifactBonus">
-					{{#select data.artifactBonus}}
+				<select name="system.artifactBonus">
+					{{#select system.artifactBonus}}
 					<option value="">{{localize "ARTIFACT.REGULAR"}}</option>
 					<option value="0">{{localize "ARTIFACT.DICELESS"}} (-)</option>
 					<option value="d8">{{localize "ARTIFACT.MIGHTY"}} (d8)</option>

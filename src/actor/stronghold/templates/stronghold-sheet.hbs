@@ -13,14 +13,14 @@
 					<div class="bio-row">
 						<div class="location">
 							<label>{{localize "STRONGHOLD.LOCATION"}}:</label>
-							<input name="data.location" type="text" value="{{data.location}}" />
+							<input name="system.location" type="text" value="{{system.location}}" />
 						</div>
 						<div class="defense-rating">
 							<label>{{localize "STRONGHOLD.DEFENSE_RATING"}}:</label>
 							<input
-								name="data.defenseRating"
+								name="system.defenseRating"
 								type="number"
-								value="{{data.defenseRating}}"
+								value="{{system.defenseRating}}"
 								data-dtype="Number"
 							/>
 						</div>
@@ -38,24 +38,16 @@
 
 		<div class="sheet-body">
 			<div class="tab" data-group="primary" data-tab="building">
-				<!-- prettier-ignore -->
-				{{! prettier-ignore }}
 {{> systems/forbidden-lands/templates/actor/stronghold/sheet-tabs/building-tab.hbs}}
 			</div>
 			<div class="tab" data-group="primary" data-tab="hireling">
-				<!-- prettier-ignore -->
-				{{! prettier-ignore }}
 {{> systems/forbidden-lands/templates/actor/stronghold/sheet-tabs/hireling-tab.hbs}}
 			</div>
 			<div class="tab" data-group="primary" data-tab="gear">
-				<!-- prettier-ignore -->
-				{{! prettier-ignore }}
 {{> systems/forbidden-lands/templates/actor/stronghold/sheet-tabs/gear-tab.hbs}}
 			</div>
 			<div class="tab note" data-group="primary" data-tab="note">
-				<!-- prettier-ignore -->
-				{{! prettier-ignore }}
-{{editor content=data.description target="data.description" button=true owner=owner editable=true}}
+{{editor system.description target="system.description" button=true owner=owner editable=true}}
 			</div>
 		</div>
 	</div>

@@ -14,55 +14,55 @@
 							<input class="name" name="name" type="text" value="{{name}}" />
 						</td>
 						<td>
-							<label>{{localize data.bio.kin.label}}:</label>
+							<label>{{localize system.bio.kin.label}}:</label>
 						</td>
 						<td>
-							<input class="kin" name="data.bio.kin.value" type="text" value="{{data.bio.kin.value}}" />
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<label>{{localize data.bio.age.label}}:</label>
-						</td>
-						<td>
-							<input name="data.bio.age.value" type="number" value="{{data.bio.age.value}}"
-								data-dtype="Number" />
-						</td>
-						<td>
-							<label>{{localize data.bio.reputation.label}}:</label>
-						</td>
-						<td>
-							<input name="data.bio.reputation.value" type="number" value="{{data.bio.reputation.value}}"
-								data-dtype="Number" />
-						</td>
-						<td>
-							<label>{{localize data.bio.profession.label}}:</label>
-						</td>
-						<td>
-							<input class="profession" name="data.bio.profession.value" type="text"
-								value="{{data.bio.profession.value}}" />
+							<input class="kin" name="system.bio.kin.value" type="text" value="{{system.bio.kin.value}}" />
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<label>{{localize data.bio.experience.label}}:</label>
+							<label>{{localize system.bio.age.label}}:</label>
 						</td>
 						<td>
-							<input name="data.bio.experience.value" type="number" value="{{data.bio.experience.value}}"
+							<input name="system.bio.age.value" type="number" value="{{system.bio.age.value}}"
 								data-dtype="Number" />
 						</td>
 						<td>
-							<label>{{localize data.bio.willpower.label}}:</label>
+							<label>{{localize system.bio.reputation.label}}:</label>
 						</td>
 						<td>
-							<input name="data.bio.willpower.value" type="number" value="{{data.bio.willpower.value}}"
-								min="{{data.bio.willpower.min}}" max="{{data.bio.willpower.max}}" data-dtype="Number" />
+							<input name="system.bio.reputation.value" type="number" value="{{system.bio.reputation.value}}"
+								data-dtype="Number" />
+						</td>
+						<td>
+							<label>{{localize system.bio.profession.label}}:</label>
+						</td>
+						<td>
+							<input class="profession" name="system.bio.profession.value" type="text"
+								value="{{system.bio.profession.value}}" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>{{localize system.bio.experience.label}}:</label>
+						</td>
+						<td>
+							<input name="system.bio.experience.value" type="number" value="{{system.bio.experience.value}}"
+								data-dtype="Number" />
+						</td>
+						<td>
+							<label>{{localize system.bio.willpower.label}}:</label>
+						</td>
+						<td>
+							<input name="system.bio.willpower.value" type="number" value="{{system.bio.willpower.value}}"
+								min="{{system.bio.willpower.min}}" max="{{system.bio.willpower.max}}" data-dtype="Number" />
 						</td>
 						<td colspan="2">
 							<div
-								class="skulls willpower {{#unless data.bio.willpower.value }}broken{{/unless}} flex row align-center">
+								class="skulls willpower {{#unless system.bio.willpower.value }}broken{{/unless}} flex row align-center">
 								<a class="change-willpower">
-									{{#skulls data.bio.willpower.value data.bio.willpower.max}}
+									{{#skulls system.bio.willpower.value system.bio.willpower.max}}
 									<i
 										class="skull {{#if @damaged}}far fa-circle{{else}}{{#if alternativeSkulls}} fas fa-circle {{else}} far fa-times-circle{{/if}}{{/if}}"></i>
 									{{/skulls}}
@@ -112,7 +112,7 @@
 			<div class="tab note" data-group="primary" data-tab="note">
 <!-- prettier-ignore -->
 {{! prettier-ignore }}
-{{editor content=data.bio.note.value target="data.bio.note.value" button=true owner=owner
+{{editor system.bio.note.value target="system.bio.note.value" button=true owner=owner
 editable=true}}
 			</div>
 		</div>

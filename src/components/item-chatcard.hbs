@@ -7,7 +7,7 @@
 		</div>
 		{{#if isArmor}}
 			<h4>
-				{{armorPart data.part}}
+				{{armorPart system.part}}
 			</h4>
 		{{/if}}
 		{{#if isBuilding}}
@@ -42,7 +42,7 @@
 		{{/if}}
 		{{#if isSpell}}
 			<h4>
-				{{localize data.spellType}}
+				{{localize system.spellType}}
 			</h4>
 		{{/if}}
 		{{#if isTalent}}
@@ -52,8 +52,8 @@
 		{{/if}}
 		{{#if isWeapon}}
 			<h4>
-				{{weaponCategory data.category}},
-				{{weaponGrip data.grip}}
+				{{weaponCategory system.category}},
+				{{weaponGrip system.grip}}
 			</h4>
 		{{/if}}
 
@@ -61,12 +61,12 @@
 			<img src="{{img}}" title="{{name}}" />
 		{{/if}}
 
-		{{#if data.artifactBonus}}
+		{{#if system.artifactBonus}}
 			<p>
 				<strong>
 					{{localize "ARTIFACT.ARTIFACT_BONUS"}}:
 				</strong>
-				{{data.artifactBonus}}
+				{{system.artifactBonus}}
 			</p>
 		{{/if}}
 
@@ -75,22 +75,22 @@
 				<strong>
 					{{localize "ARMOR.RATING"}}:
 				</strong>
-				{{data.bonus.value}}
+				{{system.bonus.value}}
 			</p>
-			{{#if data.features}}
+			{{#if system.features}}
 				<p>
 					<strong>
 						{{localize "WEAPON.FEATURE"}}:
 					</strong>
-					{{data.features}}
+					{{system.features}}
 				</p>
 			{{/if}}
-			{{#if data.effect}}
+			{{#if system.effect}}
 				<p>
 					<strong>
 						{{localize "GEAR.EFFECT"}}:
 					</strong>
-					{{{data.effect}}}
+					{{{system.effect}}}
 				</p>
 			{{/if}}
 		{{/if}}
@@ -100,25 +100,25 @@
 				<strong>
 					{{localize "BUILDING.REPUTATION"}}:
 				</strong>
-				{{data.reputation}}
+				{{system.reputation}}
 			</p>
 			<p>
 				<strong>
 					{{localize "BUILDING.NUMBER"}}:
 				</strong>
-				{{data.number}}
+				{{system.number}}
 			</p>
-			{{#if data.description}}
+			{{#if system.description}}
 				<p>
-					{{{data.description}}}
+					{{{system.description}}}
 				</p>
 			{{/if}}
-			{{#if data.effect}}
+			{{#if system.effect}}
 				<p>
 					<strong>
 						{{localize "GEAR.EFFECT"}}:
 					</strong>
-					{{{data.effect}}}
+					{{{system.effect}}}
 				</p>
 			{{/if}}
 		{{/if}}
@@ -128,35 +128,35 @@
 				<strong>
 					{{localize "CRITICAL_INJURY.LETHAL"}}:
 				</strong>
-				{{data.lethal}}
+				{{system.lethal}}
 			</p>
-			{{#if data.limit}}
+			{{#if system.limit}}
 				<p>
 					<strong>
 						{{localize "CRITICAL_INJURY.LIMIT"}}:
 					</strong>
 					<span data-type="limit">
-						{{data.limit}}
+						{{system.limit}}
 					</span>
 				</p>
 			{{/if}}
-			{{#if data.healingTime}}
+			{{#if system.healingTime}}
 				<p>
 					<strong>
 						{{localize "CRITICAL_INJURY.HEALING_TIME"}}:
 					</strong>
 
 					<span data-type="healtime">
-						{{data.healingTime}}
+						{{system.healingTime}}
 					</span>
 				</p>
 			{{/if}}
-			{{#if data.effect}}
+			{{#if system.effect}}
 				<p>
 					<strong>
 						{{localize "GEAR.EFFECT"}}:
 					</strong>
-					{{{data.effect}}}
+					{{{system.effect}}}
 				</p>
 			{{/if}}
 		{{/if}}
@@ -167,7 +167,7 @@
 					<strong>
 						{{localize "GEAR.EFFECT"}}:
 					</strong>
-					{{{data.effect}}}
+					{{{system.effect}}}
 				</p>
 			{{/if}}
 		{{/if}}
@@ -177,25 +177,25 @@
 				<strong>
 					{{localize "HIRELING.SALARY"}}:
 				</strong>
-				{{data.salary}}
+				{{system.salary}}
 			</p>
 			<p>
 				<strong>
 					{{localize "HIRELING.NUMBER"}}:
 				</strong>
-				{{data.number}}
+				{{system.number}}
 			</p>
-			{{#if data.description}}
+			{{#if system.description}}
 				<p>
-					{{{data.description}}}
+					{{{system.description}}}
 				</p>
 			{{/if}}
 		{{/if}}
 
 		{{#if isMonsterAttack}}
-			{{#if data.description}}
+			{{#if system.description}}
 				<p>
-					{{{data.description}}}
+					{{{system.description}}}
 				</p>
 			{{/if}}
 			<strong>{{localize "MONSTER.DICE"}}</strong>:
@@ -216,7 +216,7 @@
 				<strong>
 					{{localize "RAW_MATERIAL.SHELF_LIFE"}}:
 				</strong>
-				{{data.shelfLife}}
+				{{system.shelfLife}}
 			</p>
 		{{/if}}
 
@@ -225,55 +225,55 @@
 				<strong>
 					{{localize "SPELL.RANK"}}:
 				</strong>
-				{{data.rank}}
+				{{system.rank}}
 			</p>
 			<p>
 				<strong>
 					{{localize "SPELL.RANGE"}}:
 				</strong>
-				{{data.range}}
+				{{system.range}}
 			</p>
 			<p>
 				<strong>
 					{{localize "SPELL.DURATION"}}:
 				</strong>
-				{{data.duration}}
+				{{system.duration}}
 			</p>
-			{{#if data.ingredient}}
+			{{#if system.ingredient}}
 				<p>
 					<strong>
 						{{localize "SPELL.INGREDIENT"}}:
 					</strong>
-					{{data.ingredient}}
+					{{system.ingredient}}
 				</p>
 			{{/if}}
-			{{#if data.description}}
+			{{#if system.description}}
 				<p>
-					{{{data.description}}}
+					{{{system.description}}}
 				</p>
 			{{/if}}
 		{{/if}}
 
 		{{#if isTalent}}
-			{{#if data.type}}
+			{{#if system.type}}
 				<p>
 					<strong>
 						{{localize "TALENT.TYPE"}}:
 					</strong>
-					{{talentType data.type}}
+					{{talentType system.type}}
 				</p>
 			{{/if}}
-			{{#unless (eq data.type "kin")}}
+			{{#unless (eq system.type "kin")}}
 				<p>
 					<strong>
 						{{localize "TALENT.RANK"}}:
 					</strong>
-					{{data.rank}}
+					{{system.rank}}
 				</p>
 			{{/unless}}
-			{{#if data.description}}
+			{{#if system.description}}
 				<p>
-					{{{data.description}}}
+					{{{system.description}}}
 				</p>
 			{{/if}}
 		{{/if}}
@@ -283,26 +283,26 @@
 				<strong>
 					{{localize "WEAPON.BONUS"}}:
 				</strong>
-				{{data.bonus.value}}
+				{{system.bonus.value}}
 			</p>
 			<p>
 				<strong>
 					{{localize "WEAPON.DAMAGE"}}:
 				</strong>
-				{{data.damage}}
+				{{system.damage}}
 			</p>
 			<p>
 				<strong>
 					{{localize "WEAPON.RANGE"}}:
 				</strong>
-				{{weaponRange data.range}}
+				{{weaponRange system.range}}
 			</p>
-			{{#if (hasWeaponFeatures data.category data.features)}}
+			{{#if (hasWeaponFeatures system.category system.features)}}
 				<p>
 					<strong>
 						{{localize "WEAPON.FEATURES.TITLE"}}:
 					</strong>
-					{{formatWeaponFeatures data.category data.features}}
+					{{formatWeaponFeatures system.category system.features}}
 				</p>
 			{{/if}}
 			{{#if showField.effect}}
@@ -310,17 +310,17 @@
 					<strong>
 						{{localize "GEAR.EFFECT"}}:
 					</strong>
-					{{{data.effect}}}
+					{{{system.effect}}}
 				</p>
 			{{/if}}
 		{{/if}}
-		{{#if data.artifactBonus}}
+		{{#if system.artifactBonus}}
 			{{#if showField.appearance}}
 				<p>
 					<strong>
 						{{localize "ARTIFACT.APPEARANCE"}}:
 					</strong>
-					{{{data.appearance}}}
+					{{{system.appearance}}}
 				</p>
 			{{/if}}
 			{{#if showField.description}}
@@ -328,7 +328,7 @@
 					<strong>
 						{{localize "ARTIFACT.DESCRIPTION"}}:
 					</strong>
-					{{{data.description}}}
+					{{{system.description}}}
 				</p>
 			{{/if}}
 			{{#if showField.drawback}}
@@ -336,16 +336,16 @@
 					<strong>
 						{{localize "ARTIFACT.DRAWBACK"}}:
 					</strong>
-					{{{data.drawback}}}
+					{{{system.drawback}}}
 				</p>
 			{{/if}}
 		{{/if}}
-		{{#if data.weight}}
+		{{#if system.weight}}
 			<p>
 				<strong>
 					{{localize "GEAR.WEIGHT"}}:
 				</strong>
-				{{itemWeight data.weight}}
+				{{itemWeight system.weight}}
 			</p>
 		{{/if}}
 
@@ -354,7 +354,7 @@
 				<strong>
 					{{localize "ITEM.ROLL_MODIFIERS"}}:
 				</strong>
-				{{formatRollModifiers data.rollModifiers}}
+				{{formatRollModifiers system.rollModifiers}}
 			</p>
 		{{/if}}
 	</div>

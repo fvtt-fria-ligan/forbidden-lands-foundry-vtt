@@ -3,7 +3,7 @@ export const migrateWorld = async () => {
 	let worldSchemaVersion;
 	try {
 		systemVersion = Number(
-			game.system.data.version.split(".")[0], //Get Major release version
+			game.system.version.split(".")[0], //Get Major release version
 		);
 		// In older instances of the system the worldSchemaVersion was user-changeable. We therefore need to make sure we get a number.
 		worldSchemaVersion = Number(game.settings.get("forbidden-lands", "worldSchemaVersion") || 0);
@@ -68,7 +68,7 @@ const migrateActorData = (actor, worldSchemaVersion) => {
 	// Sleepless -> Sleepy
 	if (worldSchemaVersion < 3)
 		if (actor.type === "character")
-			if (!actor.data.condition.sleepy) update["data.condition.sleepy"] = actor.data.condition.sleepless;
+			if (!actor.system.condition.sleepy) update["system.condition.sleepy"] = actor.system.condition.sleepless;
 
 	// Improve consumable values
 	if (worldSchemaVersion < 7)
@@ -111,7 +111,7 @@ const migrateItemData = (item, worldSchemaVersion) => {
 	if (worldSchemaVersion < 3) {
 		if (item.type === "artifact") update.type = "weapon";
 
-		if (item.type === "armor") update["data.bonus"] = item.data.rating;
+		if (item.type === "armor") update["system.bonus"] = item.system.rating;
 		else {
 			let baseBonus = 0;
 			let artifactBonus = "";
@@ -123,27 +123,27 @@ const migrateItemData = (item, worldSchemaVersion) => {
 					else artifactBonus = p;
 				});
 			}
-			update["data.bonus"] = {
+			update["system.bonus"] = {
 				value: baseBonus,
 				max: baseBonus,
 			};
-			update["data.artifactBonus"] = artifactBonus;
+			update["system.artifactBonus"] = artifactBonus;
 		}
 	}
 
 	if (worldSchemaVersion < 4) {
-		if (item.type === "spell" && !item.data.spellType) update["data.spellType"] = "SPELL.SPELL";
+		if (item.type === "spell" && !item.data.spellType) update["system.spellType"] = "SPELL.SPELL";
 	}
 
 	if (worldSchemaVersion < 5) {
-		if (item.type === "weapon" && typeof item.data.features === "string") {
+		if (item.type === "weapon" && typeof item.system.features === "string") {
 			// Change features from string to object
-			const features = item.data.features
+			const features = item.system.features
 				.replace(".", "")
 				.replace(/loading is a slow action/i, "slowReload")
 				.replace(/slow reload/i, "slowReload")
 				.split(", ");
-			update["data.features"] = {
+			update["system.features"] = {
 				edged: false,
 				pointed: false,
 				blunt: false,
@@ -155,19 +155,19 @@ const migrateItemData = (item, worldSchemaVersion) => {
 			let otherFeatures = "";
 			for (const feature of features) {
 				const lcFeature = feature === "slowReload" ? feature : feature.toLowerCase();
-				if (lcFeature in update["data.features"]) update["data.features"][lcFeature] = true;
+				if (lcFeature in update["system.features"]) update["system.features"][lcFeature] = true;
 				else otherFeatures += feature + ", ";
 			}
-			update["data.features"].others = otherFeatures.substr(0, otherFeatures.length - 2);
+			update["system.features"].others = otherFeatures.substr(0, otherFeatures.length - 2);
 		}
 	}
 
 	if (worldSchemaVersion < 7) {
 		if (item.type === "monsterTalent") {
 			update.type = "talent";
-			update["data.type"] = "monster";
+			update["system.type"] = "monster";
 		}
-		if (item.type === "weapon") update["data.ammo"] = "other";
+		if (item.type === "weapon") update["system.ammo"] = "other";
 	}
 
 	return update;
