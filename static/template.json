@@ -240,7 +240,7 @@
 			}
 		},
 		"monster": {
-			"templates": ["attributes", "skills"],
+			"templates": ["attributes", "skills", "subtype"],
 			"movement": {
 				"label": "MOVEMENT",
 				"value": 1
@@ -249,8 +249,7 @@
 				"label": "MONSTER.ARMOR",
 				"value": 0
 			},
-			"isMounted": false,
-			"type": "monster"
+			"isMounted": false
 		},
 		"party": {
 			"description": "",
@@ -354,7 +353,7 @@
 		},
 		"talent": {
 			"templates": ["rollModifiers"],
-			"type": "general",
+			"category": "general",
 			"rank": 1,
 			"description": ""
 		},

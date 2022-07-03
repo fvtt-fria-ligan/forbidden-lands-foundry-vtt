@@ -1,25 +1,27 @@
 {{#if (or showCostField showSupplyField)}}
-<div class="supply border">
-	{{#if showCostField}}
-	<label>{{localize "GEAR.COST"}}</label>
-	<input name="data.cost" type="text" value="{{data.cost}}" />
-	{{/if}} {{#if showSupplyField}}
-	<label>{{localize "GEAR.SUPPLY"}}</label>
-	<input name="data.supply" type="text" value="{{data.supply}}" />
-	{{/if}}
-</div>
-{{/if}} {{#if showCraftingFields}}
-<div class="crafting border">
-	<label>{{localize "GEAR.RAW_MATERIAL"}}</label>
-	<input name="data.rawMaterials" type="text" value="{{data.rawMaterials}}" />
+	<div class="supply border">
+		{{#if showCostField}}
+			<label>{{localize "GEAR.COST"}}</label>
+			<input name="system.cost" type="text" value="{{system.cost}}" />
+		{{/if}}
+		{{#if showSupplyField}}
+			<label>{{localize "GEAR.SUPPLY"}}</label>
+			<input name="system.supply" type="text" value="{{system.supply}}" />
+		{{/if}}
+	</div>
+{{/if}}
+{{#if showCraftingFields}}
+	<div class="crafting border">
+		<label>{{localize "GEAR.RAW_MATERIAL"}}</label>
+		<input name="system.rawMaterials" type="text" value="{{system.rawMaterials}}" />
 
-	<label>{{localize "GEAR.TIME"}}</label>
-	<input name="data.time" type="text" value="{{data.time}}" />
+		<label>{{localize "GEAR.TIME"}}</label>
+		<input name="system.time" type="text" value="{{system.time}}" />
 
-	<label>{{localize "GEAR.TALENT"}}</label>
-	<input name="data.talent" type="text" value="{{data.talent}}" />
+		<label>{{localize "GEAR.TALENT"}}</label>
+		<input name="system.talent" type="text" value="{{system.talent}}" />
 
-	<label>{{localize "GEAR.TOOLS"}}</label>
-	<input name="data.tools" type="text" value="{{data.tools}}" />
-</div>
+		<label>{{localize "GEAR.TOOLS"}}</label>
+		<input name="system.tools" type="text" value="{{system.tools}}" />
+	</div>
 {{/if}}

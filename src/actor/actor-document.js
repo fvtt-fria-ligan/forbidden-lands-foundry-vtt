@@ -2,7 +2,7 @@ import localize from "@utils/localize-string.js";
 
 export class ForbiddenLandsActor extends Actor {
 	get actorProperties() {
-		return this.data.data;
+		return this.system;
 	}
 
 	get attributes() {
@@ -38,7 +38,7 @@ export class ForbiddenLandsActor extends Actor {
 		return {
 			alias: this.token?.name || this.name,
 			actorId: this.id,
-			actorType: this.data.type,
+			actorType: this.system.type,
 			isBroken: this.isBroken,
 			sceneId: this.token?.parent.id,
 			tokenId: this.token?.id,

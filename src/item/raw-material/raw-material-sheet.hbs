@@ -7,29 +7,29 @@
 			<label>{{localize "GEAR.NAME"}}</label>
 			<input name="name" type="text" value="{{name}}" />
 			<label>{{localize "ITEM.QUANTITY"}}</label>
-			<input name="data.quantity" type="text" value="{{data.quantity}}" />
+			<input name="system.quantity" type="text" value="{{system.quantity}}" />
 		</div>
 	</div>
 	<div class="item">
 		<div class="cost">
 			<label>{{localize "GEAR.COST"}}</label>
-			<input name="data.cost" type="text" value="{{data.cost}}" />
+			<input name="system.cost" type="text" value="{{system.cost}}" />
 		</div>
 		<div class="shelf-life">
 			<label>{{localize "RAW_MATERIAL.SHELF_LIFE"}}</label>
-			<input name="data.shelfLife" type="text" value="{{data.shelfLife}}" />
+			<input name="system.shelfLife" type="text" value="{{system.shelfLife}}" />
 		</div>
 		<div class="raw-materials">
 			<label>{{localize "BUILDING.RAW_MATERIALS"}}</label>
-			<input name="data.rawMaterials" type="text" value="{{data.rawMaterials}}" />
+			<input name="system.rawMaterials" type="text" value="{{system.rawMaterials}}" />
 		</div>
 		<div class="talent">
 			<label>{{localize "GEAR.TALENT"}}</label>
-			<input name="data.talent" type="text" value="{{data.talent}}" />
+			<input name="system.talent" type="text" value="{{system.talent}}" />
 		</div>
 		<div class="tools">
 			<label>{{localize "GEAR.TOOLS"}}</label>
-			{{editor target="data.tools" content=data.tools owner=owner button=true editable=true}}
+			{{editor system.tools target="system.tools" owner=owner button=true editable=true}}
 		</div>
 	</div>
 </form>

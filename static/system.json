@@ -1,13 +1,23 @@
 {
-	"name": "forbidden-lands",
+	"id": "forbidden-lands",
 	"title": "Forbidden Lands",
 	"description": "'Round the beggar from Varassa all sat in a ring, and by the campfire they sat and heard his song. About walkers and wolfkin and every terrible thing, and of his fear he sang to them all night long: <em>\"There is something beyond the mountains, beyond the howls beyond the mist, there is something behind the veils, behind hearts cold as stone. Hearken, something walks and whispers, walks and lures you in and whimpers: Come to us, for this earth shall ever be ours and ours alone!\"</em>",
 	"version": "9.2.2",
-	"minimumCoreVersion": 9,
-	"compatibleCoreVersion": 9,
-	"author": "aMediocreDad, narukaioh",
-	"creators": "perfectro, patrys, Maxter",
-	"contributors": "jimorie, giant-teapot, romelwell, roonel, moo-man, lasseborly",
+	"authors": [
+		{
+			"name": "aMediocreDad",
+			"email": "hello@amediocre.dev"
+		},
+		{
+			"name": "narukaioh"
+		}
+	],
+	"compatibility": {
+		"minimum": 10,
+		"verified": 10,
+		"maximum": 10
+	},
+	"contributors": "perfectro, patrys, Maxter, jimorie, giant-teapot, romelwell, roonel, moo-man, lasseborly",
 	"localization": "Rosataker, ptosekigloo, DavidCMeier, ismail-ahmed, franklinbenini",
 	"allowBugReporter": true,
 	"bugs": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues",
@@ -21,7 +31,6 @@
 			"url": "https://user-images.githubusercontent.com/9851733/115126329-9cf03780-9fce-11eb-953f-96cc54a097c4.png"
 		}
 	],
-	"scripts": [],
 	"esmodules": ["forbidden-lands.js"],
 	"styles": ["forbidden-lands.css"],
 	"packs": [],
