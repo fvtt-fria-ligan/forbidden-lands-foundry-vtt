@@ -18,9 +18,8 @@
 								<div class="image" style="background-image: url('{{item.img}}')"></div>
 							</div>
 							<div class="name">
-								<button type="button" class="roll-weapon" data-item-id="{{item._id}}"
-									>{{item.name}}</button
-								>
+								<button type="button" class="roll-weapon"
+									data-item-id="{{item._id}}">{{item.name}}</button>
 								<span>
 									{{weaponGrip item.data.grip}}{{#if (hasWeaponFeatures item.data.category
 									item.data.features)}}, {{formatWeaponFeatures item.data.category
@@ -42,13 +41,11 @@
 								item.data.features.parrying) }}(-2){{/unless}}
 							</button>
 							{{#if (or (eq item.data.part "shield") item.data.features.hook) }}
-							<button type="button" class="roll-action" data-item-id="{{item._id}}" data-action="shove"
-								>{{ localize "ACTION.SHOVE" }}</button
-							>
+							<button type="button" class="roll-action" data-item-id="{{item._id}}" data-action="shove">{{
+								localize "ACTION.SHOVE" }}</button>
 							{{/if}} {{#unless (eq item.data.part "shield")}}
-							<button type="button" class="roll-action" data-item-id="{{item._id}}" data-action="disarm"
-								>{{ localize "ACTION.DISARM" }}</button
-							>
+							<button type="button" class="roll-action" data-item-id="{{item._id}}"
+								data-action="disarm">{{ localize "ACTION.DISARM" }}</button>
 							{{/unless}} {{/if}}
 						</div>
 					</div>
@@ -58,11 +55,8 @@
 		</div>
 	</div>
 	<div class="armors border">
-		<h1
-			><button type="button" class="roll-armor total"
-				><i class="fas fa-dice"></i> {{localize "HEADER.ARMOR"}}</button
-			></h1
-		>
+		<h1><button type="button" class="roll-armor total"><i class="fas fa-dice"></i> {{localize
+				"HEADER.ARMOR"}}</button></h1>
 
 		<div class="item-list">
 			<div class="header armor">
@@ -77,9 +71,8 @@
 							<div class="image" style="background-image: url('{{item.img}}')"></div>
 						</div>
 						<div class="name">
-							<button type="button" class="roll-armor specific" data-item-id="{{item._id}}"
-								>{{item.name}}</button
-							>
+							<button type="button" class="roll-armor specific"
+								data-item-id="{{item._id}}">{{item.name}}</button>
 						</div>
 					</div>
 					<div class="bonus {{isBroken item}}"> {{item.data.bonus.value}} </div>
@@ -94,9 +87,8 @@
 			<div class="header critical-injury flex row">
 				<b class="name">{{localize "CRITICAL_INJURY.NAME"}}</b>
 				<b class="healtime">{{localize "CRITICAL_INJURY.HEALING_TIME"}}</b>
-				<a class="button item-create" title="Add Critical Injury" data-type="criticalInjury"
-					><i class="fas fa-plus"></i
-				></a>
+				<a class="button item-create" title="Add Critical Injury" data-type="criticalInjury"><i
+						class="fas fa-plus"></i></a>
 			</div>
 			<div class="items">
 				{{#each items as |item|}} {{#if item.isCriticalInjury}}
@@ -115,9 +107,8 @@
 					<div class="button">
 						<a class="item-control item-edit" title="Edit Critical Injury"><i class="fas fa-edit"></i></a>
 						<a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
-						<a class="item-control item-delete" title="Delete Critical Injury"
-							><i class="fas fa-trash"></i
-						></a>
+						<a class="item-control item-delete" title="Delete Critical Injury"><i
+								class="fas fa-trash"></i></a>
 					</div>
 				</div>
 				{{/if}} {{/each}}
@@ -127,18 +118,16 @@
 	<div class="actions border flex row">
 		<i class="fas fa-dice grow"></i>
 		<div class="flex row wrap">
-			<button type="button" class="roll-action" data-action="unarmed"
-				>{{ localize "ACTION.UNARMED_STRIKE" }}</button
-			>
+			<button type="button" class="roll-action" data-action="unarmed">{{ localize "ACTION.UNARMED_STRIKE"
+				}}</button>
 			<button type="button" class="roll-action" data-action="shove">{{ localize "ACTION.SHOVE" }}</button>
 			<button type="button" class="roll-action" data-action="disarm">{{ localize "ACTION.DISARM" }}</button>
 			<button type="button" class="roll-action" data-action="grapple">{{ localize "ACTION.GRAPPLE" }}</button>
-			<button type="button" class="roll-action" data-action="break-free"
-				>{{ localize "ACTION.BREAK_FREE" }}</button
-			>
-			<button type="button" class="roll-action" data-action="melee"
-				>{{ localize "ACTION.GRAPPLE_ATTACK" }}</button
-			>
+			<button type="button" class="roll-action" data-action="break-free">{{ localize "ACTION.BREAK_FREE"
+				}}</button>
+			<button type="button" class="roll-action" data-action="melee">{{ localize "ACTION.GRAPPLE_ATTACK"
+				}}</button>
+			<button type="button" class="roll-action" data-action="flee">{{ localize "ACTION.FLEE" }}</button>
 			<button type="button" class="roll-action" data-action="dodge">{{ localize "ACTION.DODGE" }}</button>
 			<button type="button" class="roll-action" data-action="retreat">{{ localize "ACTION.RETREAT" }}</button>
 		</div>

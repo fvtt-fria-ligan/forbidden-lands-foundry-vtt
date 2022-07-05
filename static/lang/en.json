@@ -8,6 +8,7 @@
 	"ACTION.PARRY": "Parry",
 	"ACTION.RETREAT": "Retreat",
 	"ACTION.SHOVE": "Shove",
+	"ACTION.FLEE": "Flee",
 	"ACTION.UNARMED_STRIKE": "Unarmed strike",
 	"ACTION.REST": "takes a rest",
 	"ACTIVE": "Active",
@@ -110,7 +111,6 @@
 	"CURRENCY.GOLD": "Gold",
 	"CURRENCY.SILVER": "Silver",
 	"DAMAGE": "Damage",
-
 	"DICE.ARTIFACT": "Artifact",
 	"DICE.ARTIFACTS": "Artifacts",
 	"DICE.SUCCESSES": "Successes",
@@ -158,6 +158,7 @@
 	"HEADER.SPELL": "SPELLS",
 	"HEADER.TALENT": "TALENTS",
 	"HEADER.WEAPON": "WEAPONS",
+	"HEADER.TRAVEL": "TRAVEL",
 	"HIRELING.DESCRIPTION": "Description",
 	"HIRELING.NAME": "Name",
 	"HIRELING.NUMBER": "Number",
@@ -273,7 +274,6 @@
 	"TALENT.RANK": "Rank",
 	"TALENT.TYPE": "Type",
 	"TALENT.WEAKNESS": "Weakness",
-
 	"VALUE": "Value",
 	"WARNING.ACTOR_BROKEN": "You are broken and cannot act!",
 	"WARNING.ITEM_BROKEN": "The item is broken and cannot be used!",
@@ -283,7 +283,6 @@
 	"WARNING.NO_DICE_INPUT": "No inputs detected. Please specify what dice to roll.",
 	"WARNING.NO_AVAILABLE_VALUES": "There are no more values left in the initiative deck.",
 	"WARNING.INVALID_ARTIFACT": "Invalid Artifact dice. Please input artifact dice like so \"1d8+1d12\".",
-
 	"WEAPON.1H": "1H",
 	"WEAPON.2H": "2H",
 	"WEAPON.BONUS": "Bonus",
@@ -321,10 +320,8 @@
 	"YZUR.DIETYPES.D10ArtifactDie": "D10 Artifact",
 	"YZUR.DIETYPES.D12ArtifactDie": "D12 Artifact",
 	"YZUR.DIETYPES.NegativeDie": "Negative Dice",
-
 	"FLPS.SETTINGS.ALLOW_PUSH": "Allow Unlimited Pushed Rolls",
 	"FLPS.SETTINGS.ALLOW_PUSH_HINT": "If your character is a Dwarf, or maybe your GM allows an unlimited number of pushed rolls. Or perhaps you are a GM who wants to be able to push this monster's rolls; check this setting to display a push button on almost any roll.",
-
 	"FLPS.TAB.MAIN": "MAIN",
 	"FLPS.TAB.TRAVEL": "TRAVEL",
 	"FLPS.PARTY.NAME": "Party Name",
