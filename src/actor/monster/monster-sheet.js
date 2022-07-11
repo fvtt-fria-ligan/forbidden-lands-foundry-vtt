@@ -71,6 +71,12 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 		const options = {
 			name: attack.name,
 			maxPush: rollOptions.unlimitedPush ? 10000 : "0",
+			gear: {
+				name: attack.name,
+				label: attack.name,
+				type: "monsterAttack",
+				itemId: attack.id,
+			},
 			...rollOptions,
 		};
 		const roll = FBLRoll.create(`${attack.data.data.dice}db[${attack.name}]`, {}, options);
