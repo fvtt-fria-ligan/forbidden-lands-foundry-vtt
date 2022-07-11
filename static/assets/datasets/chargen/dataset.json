@@ -908,7 +908,7 @@
 					"name": "Enlisted",
 					"weight": 1,
 					"description": "Life took an unexpected turn and you were enlisted in a company of soldiers. Life in the field was rough, but you made faithful friends and learned to live off the land.",
-					"items": "✥ Receive leather armor and an open helmet.",
+					"items": "✥ Receive leather armor, an open helmet and a short bow (D8 Resource Die for arrows).",
 					"skills": { "melee": "1", "survival": "1" },
 					"talent": "Defender"
 				},
