@@ -26,7 +26,7 @@ export class ForbiddenLandsItem extends Item {
 	}
 
 	get isBroken() {
-		return this.bonus <= 0;
+		return this.bonus <= 0 && this.itemProperties.bonus.max > 0;
 	}
 
 	get parryPenalty() {
