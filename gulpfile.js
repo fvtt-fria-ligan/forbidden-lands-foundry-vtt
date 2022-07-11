@@ -125,7 +125,7 @@ async function linkUserData() {
 	} else if (!fs.existsSync(linkDirectory)) {
 		console.log(chalk.green(`Linking dist to ${chalk.blueBright(linkDirectory)}.`));
 		await fs.ensureDir(path.resolve(linkDirectory, ".."));
-		await fs.symlink(path.resolve(distDirectory), linkDirectory);
+		fs.symlinkSync(path.resolve(distDirectory), linkDirectory);
 	}
 }
 
