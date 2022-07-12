@@ -2,7 +2,7 @@ blank_issues_enabled: false
 contact_links:
   - name: Discord Chat
     url: https://discord.gg/foundryvtt
-    about: Look for the \#free-league channel to find a community dedicated to the Free League games.
+    about: "Look for the #free-league channel to find a community dedicated to the Free League games."
   - name: Questions & Discussions
     url: https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/discussions
     about: Use the discussions board if you have ideas, or more complex usage questions.

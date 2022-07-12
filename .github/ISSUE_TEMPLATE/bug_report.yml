@@ -51,9 +51,9 @@ body:
           required: true
         - label: Disabled all modules.
           required: true
-        - label: Checked if the issue is present in a new world instance.
-          required: true
-        - label: 'Not a "How To"-question (You can ask questions here: [Discussions](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/discussions)).'
+        - label: Checked if the issue is present in a new world instance (create a new world in foundry using the Forbidden Lands system).
           required: true
         - label: "Not a bug report about the content modules. Reports regarding the content modules go [here instead](https://github.com/aMediocreDad/fbl-content-modules/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)."
+          required: true
+        - label: 'Not a "How To"-question (You can ask questions here: [Discussions](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/discussions)).'
           required: true

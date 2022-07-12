@@ -39,5 +39,7 @@ body:
       options:
         - label: "Not a feature request for the official content modules. Issues regarding the content modules go [here instead](https://github.com/aMediocreDad/fbl-content-modules/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)."
           required: true
+        - label: 'Not a "How To"-question (You can ask questions here: [Discussions](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/discussions)).'
+          required: true
         - label: Check that there isn't already an issue that request the same feature to avoid creating a duplicate.
           required: true
