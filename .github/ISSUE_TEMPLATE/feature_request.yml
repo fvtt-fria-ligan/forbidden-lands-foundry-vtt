@@ -6,6 +6,7 @@ body:
     attributes:
       value: |
         Thanks for your interest in the project and taking the time to fill out this feature request!
+        > **Warning** Features related to the official content modules should be [submitted here instead](https://github.com/aMediocreDad/fbl-content-modules/issues)
   - type: textarea
     id: feature-description
     attributes:

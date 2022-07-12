@@ -1,11 +1,12 @@
 name: "\U0001F41B New bug report"
-description: Create a report to help us improve. Official module bugs should be submitted [here instead](https://github.com/aMediocreDad/fbl-content-modules/issues).
+description: Create a report to help us improve.
 labels: ["bug"]
 body:
   - type: markdown
     attributes:
       value: |
         Thanks for your interest in the project and taking the time to fill out this bug report!
+        > **Warning** Bugs related to the official content modules should be [submitted here instead](https://github.com/aMediocreDad/fbl-content-modules/issues)
   - type: textarea
     id: bug-description
     attributes:
