@@ -1,5 +1,5 @@
 name: "\U0001F41B New bug report"
-description: Create a report to help us improve. Bug reports for the official modules should be submitted [here instead](https://github.com/aMediocreDad/fbl-content-modules/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc).
+description: Create a report to help us improve. Official module bugs should be submitted [here instead](https://github.com/aMediocreDad/fbl-content-modules/issues).
 labels: ["bug"]
 body:
   - type: markdown
