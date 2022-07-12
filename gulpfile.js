@@ -58,6 +58,12 @@ async function pipeStatics() {
 			await fs.copy(`static/${file}`, `${distDirectory}/${file}`);
 		}
 	}
+	await fs.copy(`./README.md`, `${distDirectory}/README.md`).catch((err) => {
+		console.log(err);
+	});
+	await fs.copy(`./LICENSE`, `${distDirectory}/LICENSE`).catch((err) => {
+		console.log(err);
+	});
 }
 
 /**

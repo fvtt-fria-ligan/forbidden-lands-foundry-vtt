@@ -1,15 +1,14 @@
                             COPYRIGHT
-		Copyright (C) Free League Developer Community 2021
+		Copyright (C) Free League Developer Community 2022
 
-	The Forbidden Lands logo and content is Copyright (C) and
-Trademarked (TM) by Free League Publishing. The parts of this project
-protected owned by Free League Publishing may not be distributed
-commercially, or freely. This includes art, logo, and copyright text
-(like the character-generator.json) sourced from the Forbidden Lands
-tabletop RPG.
+	The Forbidden Lands logo and content is Trademarked (TM) and Copyright (C)
+Free League Publishing. The parts of this project owned by
+Free League Publishing may not be distributed commercially, or freely.
+This includes art, logo, and copyright text (like the character-generator.json)
+that belongs to the Forbidden Lands tabletop RPG.
 
 	All source code (javascript, hbs, scss, as well as system templates
-and the like), are Copyright © 2021 Free League Developer Community,
+and the like), are Copyright © 2022 Free League Developer Community,
 and licenced under the GNU General Public License v3.0.
 
 	The project is created following the Foundry VTT Limited License
