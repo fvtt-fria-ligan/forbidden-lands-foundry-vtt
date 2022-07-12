@@ -36,25 +36,25 @@
 	},
 	"devDependencies": {
 		"@milahu/patch-package-with-pnpm-support": "6.4.8",
-		"@types/foundry-vtt-types": "npm:@league-of-foundry-developers/foundry-vtt-types@9.255.3",
+		"@types/foundry-vtt-types": "npm:@league-of-foundry-developers/foundry-vtt-types@9.269.0",
 		"@types/jquery": "3.5.14",
 		"@typhonjs-fvtt/eslint-config-foundry.js": "0.8.0",
 		"chalk": "5.0.1",
 		"cross-env": "7.0.3",
 		"devmoji": "2.3.0",
-		"esbuild": "0.14.28",
-		"esbuild-sass-plugin": "2.2.5",
-		"eslint": "8.12.0",
+		"esbuild": "0.14.49",
+		"esbuild-sass-plugin": "2.2.6",
+		"eslint": "8.19.0",
 		"eslint-config-jquery": "3.0.0",
 		"eslint-config-prettier": "8.5.0",
-		"eslint-plugin-prettier": "4.0.0",
+		"eslint-plugin-prettier": "4.2.1",
 		"execa": "6.1.0",
 		"fs-extra-plus": "0.6.0",
 		"gulp": "4.0.2",
-		"husky": "7.0.4",
-		"prettier": "2.6.1",
-		"semver": "7.3.5",
-		"standard-version": "9.3.2"
+		"husky": "8.0.1",
+		"prettier": "2.7.1",
+		"semver": "7.3.7",
+		"standard-version": "9.5.0"
 	},
 	"dependencies": {
 		"rpg-awesome": "0.2.0"
@@ -65,5 +65,8 @@
 			"glob-parent@<5.1.2": ">=5.1.2",
 			"minimist@<=1.2.5": "<0.0.0"
 		}
+	},
+	"volta": {
+		"node": "16.14.2"
 	}
 }
