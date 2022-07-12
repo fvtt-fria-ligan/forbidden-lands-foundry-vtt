@@ -1,5 +1,5 @@
 name: "\U0001F41B New bug report"
-description: Create a report to help us improve
+description: Create a report to help us improve. Bug reports for the official modules should be submitted [here instead](https://github.com/aMediocreDad/fbl-content-modules/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc).
 labels: ["bug"]
 body:
   - type: markdown
@@ -30,7 +30,7 @@ body:
         Please provide a bullet list of your system information.
          - OS: [e.g. macOS]
          - Client [e.g. Foundry Desktop app, Chrome, Firefox]
-         - Foundry Version [e.g. 0.7.9]
+         - Foundry Version [e.g. 9.269, 10]
       render: shell
       placeholder: System, OS, version, etc.
     validations:
@@ -54,4 +54,6 @@ body:
         - label: Checked if the issue is present in a new world instance.
           required: true
         - label: 'Not a "How To"-question (You can ask questions here: [Discussions](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/discussions)).'
+          required: true
+        - label: "Not a bug report about the content modules. Reports regarding the content modules go [here instead](https://github.com/aMediocreDad/fbl-content-modules/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)."
           required: true

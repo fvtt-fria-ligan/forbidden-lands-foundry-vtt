@@ -1,0 +1,43 @@
+name: "✨ New feature request"
+description: Suggest an idea for this project
+labels: ["feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your interest in the project and taking the time to fill out this feature request!
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Description
+      description: "Clear and concise description of the request. Please make the reason and usecases as detailed as possible. If you intend to submit a PR for this issue, tell us in the description. Thanks!"
+      placeholder: When using the Forbidden Lands system I would like to see [whish].
+    validations:
+      required: true
+  - type: textarea
+    id: suggested-solution
+    attributes:
+      label: Suggested solution
+      description: "The solution could look something like this..."
+    validations:
+      required: true
+  - type: textarea
+    id: alternative
+    attributes:
+      label: Alternative
+      description: Clear and concise description of any alternative solutions or features you've considered.
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Any other context or screenshots about the feature request here.
+  - type: checkboxes
+    id: checkboxes
+    attributes:
+      label: Validations
+      description: Before submitting the issue, please make sure you do the following
+      options:
+        - label: "Not a feature request for the official content modules. Issues regarding the content modules go [here instead](https://github.com/aMediocreDad/fbl-content-modules/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)."
+          required: true
+        - label: Check that there isn't already an issue that request the same feature to avoid creating a duplicate.
+          required: true
