@@ -192,12 +192,24 @@
 			{{/if}}
 		{{/if}}
 
+		{{log this}}
 		{{#if isMonsterAttack}}
 			{{#if data.description}}
 				<p>
 					{{{data.description}}}
 				</p>
 			{{/if}}
+			<strong>{{localize "MONSTER.DICE"}}</strong>:
+			{{data.dice}}
+			<br />
+			<strong>{{localize "MONSTER.DAMAGE"}}</strong>:
+			{{data.damage}}
+			<br />
+			<strong>{{localize "MONSTER.RANGE"}}</strong>:
+			{{data.range}}
+			<br />
+			<strong>{{localize "MONSTER.DAMAGE_TYPE"}}</strong>:
+			{{data.damageType}}
 		{{/if}}
 
 		{{#if isRawMaterial}}
