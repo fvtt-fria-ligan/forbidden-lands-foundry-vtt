@@ -1,0 +1,57 @@
+name: "\U0001F41B: Issue title goes here"
+description: Create a report to help us improve
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your interest in the project and taking the time to fill out this bug report!
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is. If you intend to submit a PR for this issue, tell us in the description. Thanks!
+      placeholder: I am doing ... What I expect is ... What actually happening is ...
+    validations:
+      required: true
+  - type: input
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Please provide a step by step guide to reproducing the issue.
+      placeholder: Reproduction steps
+    validations:
+      required: true
+  - type: textarea
+    id: system-info
+    attributes:
+      label: System Info
+      description: |
+        Please provide a bullet list of your system information.
+         - OS: [e.g. macOS]
+         - Client [e.g. Foundry Desktop app, Chrome, Firefox]
+         - Foundry Version [e.g. 0.7.9]
+      render: shell
+      placeholder: System, OS, version, etc.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: |
+        You can find logs by pressing "f12" or "cmd+shift+i" in the browser-window/Foundry. Please try not to insert an image but copy paste the log text.
+  - type: checkboxes
+    id: checkboxes
+    attributes:
+      label: Validations
+      description: Before submitting the issue, please make sure you have done the following when troubleshooting the issue
+      options:
+        - label: Done a clean install of the system.
+          required: true
+        - label: Disabled all modules.
+          required: true
+        - label: Checked if the issue is present in a new world instance.
+          required: true
+        - label: 'Not a "How To"-question (You can ask questions here: [Discussions](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/discussions)).'
+          required: true
