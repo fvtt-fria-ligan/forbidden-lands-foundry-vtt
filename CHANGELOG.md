@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [9.1.1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v9.1.0...v9.1.1) (2022-07-12)
+
+
+### Bug Fixes
+
+* 🐛 Monster attack not scaling correctly ([6d31f70](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/6d31f70d035619df8f54a7611fe5c57423801586))
+
 ## [9.1.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v8.2.1...v9.1.0) (2022-07-12)
 
 
