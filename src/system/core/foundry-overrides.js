@@ -6,8 +6,8 @@ export default function FoundryOverrides() {
 		options = foundry.utils.mergeObject(editor.options, options);
 		options.height = options.target.offsetHeight > 200 ? options.target.offsetHeight : 200;
 		if (this instanceof ActorSheet || this instanceof ItemSheet) {
-			options.toolbar = "bold italic bullist numlist hr removeformat save";
-			options.plugins = "lists quickbars hr save";
+			options.toolbar = "bold italic bullist numlist hr removeformat code save";
+			options.plugins = "lists quickbars hr code save";
 			options.save_enablewhendirty = false;
 		}
 		TextEditor.create(options, initialContent || editor.initial).then((mce) => {
