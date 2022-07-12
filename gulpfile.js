@@ -11,7 +11,7 @@ import esBuild from "./esbuild.config.js";
 /*  CONFIGURATION   */
 /********************/
 const production = process.env.NODE_ENV === "production";
-const repoName = path.basename(path.resolve("."));
+const repoName = "forbidden-lands";
 const sourceDirectory = "./src";
 const distDirectory = "./dist";
 const templateExt = "hbs";
