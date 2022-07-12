@@ -74,7 +74,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 			maxPush: rollOptions.unlimitedPush ? 10000 : "0",
 			isAttack: true,
 			isMonsterAttack: true,
-			damage: attack.damage,
+			damage: Number(attack.damage || 0),
 			gear,
 			...rollOptions,
 		};

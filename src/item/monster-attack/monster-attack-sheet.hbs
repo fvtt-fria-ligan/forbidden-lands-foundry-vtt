@@ -8,11 +8,11 @@
 			<input name="name" type="text" value="{{name}}" />
 			<label>{{localize "MONSTER.DICE"}}</label>
 			<div class="bonus">
-				<input name="data.dice" type="text" value="{{data.dice}}" />
+				<input name="data.dice" type="number" data-dtype="Number" value="{{data.dice}}" />
 			</div>
 			<label>{{localize "MONSTER.DAMAGE"}}</label>
 			<div class="damage">
-				<input name="data.damage" type="text" value="{{data.damage}}" />
+				<input name="data.damage" type="number" data-dtype="Number" value="{{data.damage}}" />
 			</div>
 		</div>
 	</div>
@@ -21,11 +21,11 @@
 			<label>{{localize "MONSTER.DAMAGE_TYPE"}}</label>
 			<select name="data.damageType">
 				{{#select data.damageType}}
-				<option value="stab">{{localize "ATTACK.STAB"}}</option>
-				<option value="slash">{{localize "ATTACK.SLASH"}}</option>
-				<option value="blunt">{{localize "ATTACK.BLUNT"}}</option>
-				<option value="fear">{{localize "ATTACK.FEAR"}}</option>
-				<option value="other">{{localize "ATTACK.OTHER"}}</option>
+					<option value="stab">{{localize "ATTACK.STAB"}}</option>
+					<option value="slash">{{localize "ATTACK.SLASH"}}</option>
+					<option value="blunt">{{localize "ATTACK.BLUNT"}}</option>
+					<option value="fear">{{localize "ATTACK.FEAR"}}</option>
+					<option value="other">{{localize "ATTACK.OTHER"}}</option>
 				{{/select}}
 			</select>
 		</div>
@@ -33,11 +33,11 @@
 			<label>{{localize "MONSTER.RANGE"}}</label>
 			<select name="data.range">
 				{{#select data.range}}
-				<option value="arm">{{localize "RANGE.ARM"}}</option>
-				<option value="near">{{localize "RANGE.NEAR"}}</option>
-				<option value="short">{{localize "RANGE.SHORT"}}</option>
-				<option value="long">{{localize "RANGE.LONG"}}</option>
-				<option value="distant">{{localize "RANGE.DISTANT"}}</option>
+					<option value="arm">{{localize "RANGE.ARM"}}</option>
+					<option value="near">{{localize "RANGE.NEAR"}}</option>
+					<option value="short">{{localize "RANGE.SHORT"}}</option>
+					<option value="long">{{localize "RANGE.LONG"}}</option>
+					<option value="distant">{{localize "RANGE.DISTANT"}}</option>
 				{{/select}}
 			</select>
 		</div>
