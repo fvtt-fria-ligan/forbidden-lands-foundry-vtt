@@ -1,4 +1,4 @@
-name: "\U0001F41B: Issue title goes here"
+name: "\U0001F41B New bug report"
 description: Create a report to help us improve
 labels: ["bug"]
 body:
@@ -14,7 +14,7 @@ body:
       placeholder: I am doing ... What I expect is ... What actually happening is ...
     validations:
       required: true
-  - type: input
+  - type: textarea
     id: reproduction
     attributes:
       label: Reproduction
