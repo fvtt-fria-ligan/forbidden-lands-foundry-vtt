@@ -6,7 +6,6 @@
     <img src="https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffvtt-fria-ligan%2Fforbidden-lands-foundry-vtt%2Fmain%2Fstatic%2Fsystem.json&label=Foundry&query=$.compatibleCoreVersion&colorB=blue&style=flat-square" alt="foundry-compatibility-version"/></a>
   <a href="https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/graphs/commit-activity" target="_blank"><img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/fvtt-fria-ligan/forbidden-lands-foundry-vtt?style=flat-square&color=purple&label=Last%20commit"></a>
  <a href="https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/latest/" target="_blank"><img alt="GitHub release (latest by SemVer including pre-releases)" src="https://img.shields.io/badge/dynamic/json?color=red&label=Downloads&query=$.assets.0.download_count&url=https%3A%2F%2Fapi.github.com%2Frepos%2Ffvtt-fria-ligan%2Fforbidden-lands-foundry-vtt%2Freleases%2Flatest&style=flat-square"></a>
-  <a href="https://gitlocalize.com/repo/6008/whole_project?utm_source=badge" target="_blank"> <img src="https://gitlocalize.com/repo/6008/whole_project/badge.svg?style=flat-square&label=Gitlocalized" /></a>
   <br/>
   <img src="https://user-images.githubusercontent.com/9851733/108728684-1a954b00-752a-11eb-9138-6fab6f83b2a8.jpg" alt="Logo" style="max-width:100%;" />
 </p>
@@ -55,10 +54,10 @@ Content for the system is available as addon modules. You can purchase them at F
 -   [Dice So Nice](https://foundryvtt.com/packages/dice-so-nice/) version 3.0 or later will give you beautiful 3D dice for each roll
 -   [Year Zero Actions](https://foundryvtt.com/packages/alien-actions) for a better overview of what actions have been taken in combat.
 -   [Forbidden Lands Card Combat](https://foundryvtt.com/packages/forbidden-card-combat) for your advanced combat needs.
--   [Reverse Initiative Order](https://foundryvtt.com/packages/reverse-initiative-order) lets you reverse the initiative order in the combat tracker and add non-actor combat tokens (good for multiple initiatives).
 -   [Token Action HUD](https://foundryvtt.com/packages/token-action-hud/) will support Forbidden Lands System very soon!
 -   [Simple Calendar](https://foundryvtt.com/packages/foundryvtt-simple-calendar) now has the Forbidden Lands calendar implemented as a preset option.
 -   [Virtual Tabletop Assets - Tokenizer](https://foundryvtt.com/packages/vtta-tokenizer/) is supported on all character sheets.
+-   [Drag'n'Transfer](https://foundryvtt.com/packages/DragTransfer) can be set up using this array: `"character":"monster","monster":"stronghold","stronghold":"character"` (Thanks @moinen).
 
 ## :world_map: Preview
 
