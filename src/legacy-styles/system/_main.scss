@@ -212,7 +212,7 @@
 	padding: 4px;
 }
 .forbidden-lands .item-list .header {
-	align-items: flex-end;
+	justify-content: space-between;
 	border-bottom: 2px solid var(--color-border);
 	margin-bottom: 4px;
 	font-size: var(--font-size--very-small);
@@ -220,15 +220,14 @@
 	padding: 4px;
 	text-transform: uppercase;
 }
-.forbidden-lands .item-list .header .name:before {
-	content: "";
-	width: 36px;
-}
+
 .forbidden-lands .item-list .items {
 	overflow-y: auto;
 	scrollbar-width: none;
 }
+
 .forbidden-lands .item-list .items .item {
+	justify-content: space-between;
 	overflow-y: hidden;
 	border-bottom: 1px solid var(--color-border);
 	font-size: var(--font-size--very-small);
@@ -243,18 +242,6 @@
 .forbidden-lands .item-list .items .item:nth-child(odd) button:focus,
 .forbidden-lands .item-list .items .item:nth-child(odd) button:hover {
 	background: var(--color-background);
-}
-
-.forbidden-lands .item-list .items .item .image-container {
-	background: radial-gradient(closest-side, var(--color-highlight) 0%, transparent 100%);
-	margin-right: 4px;
-}
-
-.forbidden-lands .item-list .items .item .image {
-	background-size: 32px;
-	background-repeat: no-repeat;
-	height: 32px;
-	width: 32px;
 }
 
 .forbidden-lands.sheet .window-content {

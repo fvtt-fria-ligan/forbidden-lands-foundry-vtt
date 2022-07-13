@@ -74,9 +74,13 @@ export class ForbiddenLandsActor extends Actor {
 					const resolved = await obj;
 					return { ...resolved, [key]: value };
 				}, {});
+				entity.flags["forbidden-lands"] = {
+					state: "carried",
+					...entity.flags["forbidden-lands"],
+				};
 			}
 		}
-		newData.flags["forbidden-lands"].state = "carried";
+
 		return super.createEmbeddedDocuments(embeddedName, newData, options);
 	}
 

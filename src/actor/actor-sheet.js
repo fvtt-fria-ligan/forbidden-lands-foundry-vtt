@@ -8,6 +8,10 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	getData() {
 		const data = this.actorData.toObject();
 		data.items?.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+		data.carriedStates = CONFIG.fbl.carriedStates;
+		data.gear = data.items
+			?.filter(({ type }) => ["gear", "rawMaterial", "weapon", "armor"].includes(type))
+			.map((item) => ({ ...item, state: item.flags["forbidden-lands"]?.state || "" }));
 		return data;
 	}
 
@@ -33,7 +37,6 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	 */
 	async _onDrop(event, data) {
 		let dragData = JSON.parse(event.dataTransfer.getData("text/plain"));
-
 		if (dragData.type === "itemDrop") {
 			this.actor.createEmbeddedDocuments("Item", [dragData.item]);
 		} else {
@@ -41,9 +44,28 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		}
 	}
 
+	async _onSortItem(event, itemData) {
+		// Sorts items in the various containers by drag and drop
+		let state = $(event.target).closest("[data-state]")?.data("state");
+		if (state || state === "") {
+			await this.actor.updateEmbeddedDocuments("Item", [
+				{
+					_id: itemData._id,
+					flags: { "forbidden-lands": { state } },
+				},
+			]);
+		}
+		return super._onSortItem(event, itemData);
+	}
+
 	activateListeners(html) {
 		super.activateListeners(html);
 		if (!game.user.isGM && this.actor.limited) return;
+
+		html.find(".item-create").click((ev) => {
+			this.onItemCreate(ev);
+		});
+
 		// Attribute markers
 		html.find(".change-attribute").on("click contextmenu", (ev) => {
 			const attributeName = $(ev.currentTarget).data("attribute");
@@ -370,5 +392,28 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		if (["gear", "armor", "weapon"].includes(type)) return weight;
 		// Talents, Spells, and the like dont have weight.
 		return 0;
+	}
+
+	async onItemCreate(event) {
+		event.preventDefault();
+		const state = $(event.target).closest("[data-state]")?.data("state");
+		Hooks.once("renderDialog", (_, html) =>
+			html
+				.find("option")
+				.filter((i, el) =>
+					[
+						"criticalInjury",
+						"building",
+						"hireling",
+						"monsterAttack",
+						"monsterTalent",
+						"spell",
+						"talent",
+					].includes(el.value),
+				)
+				.remove(),
+		);
+		const item = await Item.createDialog({}, { parent: this.actor });
+		if (item) item.setFlag("forbidden-lands", "state", state);
 	}
 }

@@ -1,3 +1,5 @@
+import localizeString from "@utils/localize-string.js";
+
 function preloadHandlebarsTemplates() {
 	const templatePaths = [
 		"systems/forbidden-lands/templates/actor/character/character-limited-sheet.hbs",
@@ -278,6 +280,11 @@ function registerHandlebarsHelpers() {
 
 	Handlebars.registerHelper("randomize", (items) => {
 		return items[Math.floor(Math.random() * items.length)];
+	});
+
+	Handlebars.registerHelper("fblLocalize", function (...args) {
+		args.pop();
+		return localizeString(args.join("."));
 	});
 }
 
