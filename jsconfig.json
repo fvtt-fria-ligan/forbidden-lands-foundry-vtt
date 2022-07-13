@@ -1,9 +1,10 @@
 // @ts-nocheck
 {
 	"compilerOptions": {
-		"module": "es6",
+		"module": "Node16",
 		"target": "ESNext",
-		"moduleResolution": "Node",
+		"moduleResolution": "Node16",
+		"types": ["@league-of-foundry-developers/foundry-vtt-types", "@types/jquery"],
 		"baseUrl": ".",
 		"paths": {
 			"*": ["./src"],

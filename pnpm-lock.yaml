@@ -5,8 +5,8 @@ overrides:
   minimist@<=1.2.5: <0.0.0
 
 specifiers:
+  '@league-of-foundry-developers/foundry-vtt-types': 9.269.0
   '@milahu/patch-package-with-pnpm-support': 6.4.8
-  '@types/foundry-vtt-types': npm:@league-of-foundry-developers/foundry-vtt-types@9.269.0
   '@types/jquery': 3.5.14
   '@typhonjs-fvtt/eslint-config-foundry.js': 0.8.0
   chalk: 5.0.1
@@ -31,8 +31,8 @@ dependencies:
   rpg-awesome: 0.2.0
 
 devDependencies:
+  '@league-of-foundry-developers/foundry-vtt-types': 9.269.0
   '@milahu/patch-package-with-pnpm-support': 6.4.8
-  '@types/foundry-vtt-types': /@league-of-foundry-developers/foundry-vtt-types/9.269.0
   '@types/jquery': 3.5.14
   '@typhonjs-fvtt/eslint-config-foundry.js': 0.8.0
   chalk: 5.0.1

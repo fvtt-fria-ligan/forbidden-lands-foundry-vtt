@@ -36,7 +36,7 @@
 	},
 	"devDependencies": {
 		"@milahu/patch-package-with-pnpm-support": "6.4.8",
-		"@types/foundry-vtt-types": "npm:@league-of-foundry-developers/foundry-vtt-types@9.269.0",
+		"@league-of-foundry-developers/foundry-vtt-types": "9.269.0",
 		"@types/jquery": "3.5.14",
 		"@typhonjs-fvtt/eslint-config-foundry.js": "0.8.0",
 		"chalk": "5.0.1",
