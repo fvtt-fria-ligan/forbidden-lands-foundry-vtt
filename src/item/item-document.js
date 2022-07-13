@@ -43,6 +43,10 @@ export class ForbiddenLandsItem extends Item {
 		return this.itemProperties.rollModifiers;
 	}
 
+	get state() {
+		return this.getFlag("forbidden-lands", "state") || "";
+	}
+
 	get type() {
 		return this.data.type;
 	}

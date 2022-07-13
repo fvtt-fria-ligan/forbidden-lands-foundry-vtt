@@ -76,6 +76,7 @@ export class ForbiddenLandsActor extends Actor {
 				}, {});
 			}
 		}
+		newData.flags["forbidden-lands"].state = "carried";
 		return super.createEmbeddedDocuments(embeddedName, newData, options);
 	}
 
