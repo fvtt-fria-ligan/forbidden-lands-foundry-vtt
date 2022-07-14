@@ -97,6 +97,24 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			this.actor.update({ "data.bio.willpower.value": value });
 		});
 
+		html.find(".control-gear").click((ev) => {
+			const direction = $(ev.currentTarget).data("direction");
+			const oppositeDirection = direction === "carried" ? "" : "carried";
+			const updates = this.actor.items
+				.filter(
+					(item) =>
+						["armor", "gear", "rawMaterial", "weapon"].includes(item.type) &&
+						item.state === oppositeDirection,
+				)
+				.map((item) => {
+					return {
+						_id: item.id,
+						flags: { "forbidden-lands": { state: direction } },
+					};
+				});
+			this.actor.updateEmbeddedDocuments("Item", updates);
+		});
+
 		html.find(".collapse-table").click((ev) => {
 			const state = $(ev.currentTarget).closest("[data-state]").data("state");
 			this.actor.setFlag(

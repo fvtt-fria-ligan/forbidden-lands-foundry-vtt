@@ -73,14 +73,27 @@
 			display: flex;
 			flex-direction: column;
 
+			.controls {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+				gap: 1rem;
+				padding: 8px;
+				background-color: var(--color--background-dark);
+				border-radius: 4px;
+				box-shadow: 0 2px 3px #0002;
+				margin: 0 auto 8px;
+			}
+
+			button i {
+				margin: 0;
+			}
+
 			.encumbrance {
-				border-bottom: 1px solid var(--color-border);
-				font-family: var(--font-special);
+				font-family: var(--font-editor);
 				font-size: var(--font-size--default);
 				padding: 4px 8px;
-				position: relative;
-				top: 0;
-				margin: 0 0 4px auto;
 
 				&.overencumbered {
 					color: #a00;

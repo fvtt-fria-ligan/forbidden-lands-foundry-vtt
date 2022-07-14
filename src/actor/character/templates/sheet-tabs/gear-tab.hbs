@@ -1,18 +1,20 @@
+<!-- Inline Partials -->
 {{#*inline "table" gear state collapsed}}
 	<table data-state="{{state}}">
 		<thead>
-			<th class="profile"><button class="collapse-table" title="{{localize 'HEADER.COLLAPSE'}}" {{ternary (eq state 'none') 'disabled' ''}}><i
+			<th class="profile"><button type="button" class="collapse-table" title="{{localize 'HEADER.COLLAPSE'}}"
+					{{ternary (eq state 'none') 'disabled' ''}}><i
 						class="fas fa-caret-{{ternary collapsed "right" "down"}}"></i></button>
-				{{fblLocalize 'GEAR' state }}<button class="header-sort" data-sort="name"><i
+				{{fblLocalize 'GEAR' state }}<button type="button" class="header-sort" data-sort="name" title="{{localize "GEAR.SORT"}}"><i
 						class="fas fa-sort"></i></button>
 			</th>
-			<th><span>{{localize "GEAR.TYPE"}}</span><button class="header-sort" data-sort="type"><i
+			<th><span>{{localize "GEAR.TYPE"}}</span><button type="button" class="header-sort" data-sort="type" title="{{localize "GEAR.SORT"}}"><i
 						class="fas fa-sort"></i></button></th>
-			<th><span>{{localize "GEAR.ATTRIBUTE"}}</span><button class="header-sort" data-sort="attribute"><i
+			<th><span>{{localize "GEAR.ATTRIBUTE"}}</span><button type="button" class="header-sort"
+					data-sort="attribute" title="{{localize "GEAR.SORT"}}"><i class="fas fa-sort"></i></button></th>
+			<th><span>{{localize "GEAR.WEIGHT"}}</span><button type="button" class="header-sort" data-sort="weight" title="{{localize "GEAR.SORT"}}"><i
 						class="fas fa-sort"></i></button></th>
-			<th><span>{{localize "GEAR.WEIGHT"}}</span><button class="header-sort" data-sort="weight"><i
-						class="fas fa-sort"></i></button></th>
-			<th><button class="item-create"><i class="fas fa-plus"></i></button></th>
+			<th><button type="button" class="item-create"><i class="fas fa-plus"></i></button></th>
 		</thead>
 		{{#unless collapsed}}
 			<tbody>
@@ -34,12 +36,12 @@
 						{{/if}}
 						<td>{{itemWeight item.data.weight}}</td>
 						<td>
-							<a class="item-control item-edit" title="{{localize "GEAR.EDIT"}}"><i
-									class="fas fa-edit"></i></a>
-							<a class="item-control item-post" title="{{localize "GEAR.POST"}}"><i
-									class="fas fa-comment"></i></a>
-							<a class="item-control item-delete" title="{{localize "GEAR.DELETE"}}"><i
-									class="fas fa-trash"></i></a>
+							<button type="button" class="item-control item-edit" title="{{localize "GEAR.EDIT"}}"><i
+									class="fas fa-edit"></i></button>
+							<button type="button" class="item-control item-post" title="{{localize "GEAR.POST"}}"><i
+									class="fas fa-comment"></i></button>
+							<button type="button" class="item-control item-delete" title="{{localize "GEAR.DELETE"}}"><i
+									class="fas fa-trash"></i></button>
 						</td>
 					</tr>
 				{{/each}}
@@ -56,7 +58,7 @@
 	<a class='currency-button' data-operator='plus' data-currency='{{currency}}'><i class='fas fa-plus-square'></i></a>
 {{/inline}}
 
-
+<!-- Tab markup -->
 <div class="gear-tab">
 	<div class="currencies border">
 		<div class="header flex grow row">
@@ -68,12 +70,17 @@
 			</div>
 		</div>
 	</div>
-	<div class="gears border">
-		<div class="item-list">
+	<section class="gears">
+		<nav class="controls">
+			<button type="button" class="control-gear" data-direction="" title="{{localize "GEAR.DROP"}}"><i class="fas fa-caret-square-down"></i></button>
+			<button type="button" class="control-gear" data-direction="carried" title="{{localize "GEAR.PICK_UP"}}"><i class="fas fa-caret-square-up"></i></button>
 			<div class="encumbrance{{#if data.encumbrance.over}} overencumbered{{/if}}"
-				title="{{localize "ENCUMBRANCE" }}"><i class="fas fa-weight-hanging"></i> {{data.encumbrance.value}} /
+				title="{{localize "ENCUMBRANCE" }}">
+				<i class="fas fa-weight-hanging"></i> {{data.encumbrance.value}} /
 				{{data.encumbrance.max}}
 			</div>
+		</nav>
+		<div class="item-list">
 			<div class="items">
 				{{#each carriedStates as |state|}}
 					{{> table gear=../gear state=state.name collapsed=state.collapsed}}
@@ -81,7 +88,7 @@
 				{{> table gear=gear state="none"}}
 			</div>
 		</div>
-	</div>
+	</section>
 	{{#unless (eq data.subtype.type "npc")}}
 		<div class="consumables border">
 			<div class="consumable">
