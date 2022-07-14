@@ -4,13 +4,11 @@
 		gap: 8px;
 		grid-template-rows: auto 1fr auto;
 		height: 100%;
-	}
 
-	a.currency-button {
-		margin: 0 1px;
-	}
+		a.currency-button {
+			margin: 0 1px;
+		}
 
-	.character {
 		.currencies {
 			.header {
 				font-variant: small-caps;
@@ -79,11 +77,10 @@
 				justify-content: center;
 				align-items: center;
 				gap: 1rem;
-				padding: 8px;
 				background-color: var(--color--background-dark);
 				border-radius: 4px;
 				box-shadow: 0 2px 3px #0002;
-				margin: 0 auto 8px;
+				margin: 0 auto 4px;
 			}
 
 			button i {

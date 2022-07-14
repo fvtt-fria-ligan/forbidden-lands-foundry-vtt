@@ -68,7 +68,7 @@ FBL.adventureSites = {
 
 FBL.attributes = ["agility", "empathy", "strength", "wits"];
 
-FBL.carriedStates = ["carried", "equipped"];
+FBL.carriedStates = ["equipped", "carried"];
 
 FBL.characterSubtype = { pc: "ACTOR.SUBTYPE.PC", npc: "ACTOR.SUBTYPE.NPC" };
 

@@ -5,7 +5,7 @@
 			<th class="profile"><button type="button" class="collapse-table" title="{{localize 'HEADER.COLLAPSE'}}"
 					{{ternary (eq state 'none') 'disabled' ''}}><i
 						class="fas fa-caret-{{ternary collapsed "right" "down"}}"></i></button>
-				{{fblLocalize 'GEAR' state }}<button type="button" class="header-sort" data-sort="name" title="{{localize "GEAR.SORT"}}"><i
+				{{fblLocalize 'GEAR' @root.type state }}<button type="button" class="header-sort" data-sort="name" title="{{localize "GEAR.SORT"}}"><i
 						class="fas fa-sort"></i></button>
 			</th>
 			<th><span>{{localize "GEAR.TYPE"}}</span><button type="button" class="header-sort" data-sort="type" title="{{localize "GEAR.SORT"}}"><i
@@ -60,6 +60,7 @@
 
 <!-- Tab markup -->
 <div class="gear-tab">
+	{{#unless (eq type 'monster')}}
 	<div class="currencies border">
 		<div class="header flex grow row">
 			<b>{{localize "HEADER.CURRENCY"}}</b>
@@ -70,10 +71,17 @@
 			</div>
 		</div>
 	</div>
+	{{/unless}}
 	<section class="gears">
 		<nav class="controls">
 			<button type="button" class="control-gear" data-direction="" title="{{localize "GEAR.DROP"}}"><i class="fas fa-caret-square-down"></i></button>
 			<button type="button" class="control-gear" data-direction="carried" title="{{localize "GEAR.PICK_UP"}}"><i class="fas fa-caret-square-up"></i></button>
+			{{#if (eq data.type 'mount')}}
+			<a class="change-mounted" data-attribute="{{data.isMounted}}" title="{{localize 'GEAR.MOUNTED'}}">
+				<i class="fas fa-horse"></i>
+				<i class="far {{#if data.isMounted}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
+			</a>
+			{{/if}}
 			<div class="encumbrance{{#if data.encumbrance.over}} overencumbered{{/if}}"
 				title="{{localize "ENCUMBRANCE" }}">
 				<i class="fas fa-weight-hanging"></i> {{data.encumbrance.value}} /
@@ -89,7 +97,7 @@
 			</div>
 		</div>
 	</section>
-	{{#unless (eq data.subtype.type "npc")}}
+	{{#unless (or (eq data.subtype.type "npc") (eq type 'monster'))}}
 		<div class="consumables border">
 			<div class="consumable">
 				<i class="fas fa-dice"></i>
