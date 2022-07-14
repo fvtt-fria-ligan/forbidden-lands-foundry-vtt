@@ -1,256 +1,268 @@
 @use "../utils";
 
-.forbidden-lands option {
-	background: var(--color-background);
-}
+.forbidden-lands {
+	&.window-app .window-content > * {
+		height: 100%;
+	}
 
-.forbidden-lands .main-tab div.border,
-.forbidden-lands div.bio.border,
-.character div.currencies.border,
-.character div.consumables.border,
-.chargen-build,
-.character div.actions.border {
-	border: 6px solid transparent;
-	border-image: url(./assets/journal-art/small-border.webp) 100/10px repeat;
-}
+	&.sheet label {
+		font-family: var(--font-special);
+		font-size: var(--font-size--default);
+		font-weight: bold;
+	}
 
-.forbidden-lands.sheet label {
-	font-family: var(--font-special);
-	font-size: var(--font-size--default);
-	font-weight: bold;
-}
+	h1,
+	h3 {
+		border: 0 none;
+		font-family: var(--font-subheader);
+		font-size: var(--font-size--default);
+		font-weight: bold;
+		line-height: initial;
+		margin: 0;
+		padding: 4px 4px;
+		text-align: center;
+		text-transform: uppercase;
+	}
 
-.forbidden-lands h1,
-.forbidden-lands h3 {
-	border: 0 none;
-	font-family: var(--font-subheader);
-	font-size: var(--font-size--default);
-	font-weight: bold;
-	line-height: initial;
-	margin: 0;
-	padding: 4px 4px;
-	text-align: center;
-	text-transform: uppercase;
-}
+	h3 {
+		padding: 0;
+		margin-bottom: 4px;
+	}
 
-.forbidden-lands h3 {
-	padding: 0;
-	margin-bottom: 4px;
-}
+	option {
+		background: var(--color-background);
+	}
 
-.forbidden-lands .rotated {
-	transform: rotate(90deg);
-	font-size: var(--font-size--default);
-}
+	.rotated {
+		transform: rotate(90deg);
+		font-size: var(--font-size--default);
+	}
 
-.forbidden-lands .pre-wrap {
-	white-space: pre-wrap;
-}
+	.pre-wrap {
+		white-space: pre-wrap;
+	}
 
-.forbidden-lands .flex {
-	display: flex;
-}
+	.flex {
+		display: flex;
+	}
 
-.forbidden-lands .row {
-	flex-direction: row;
-}
+	.row {
+		flex-direction: row;
+	}
 
-.forbidden-lands .column {
-	flex-direction: column;
-}
+	.column {
+		flex-direction: column;
+	}
 
-.forbidden-lands .full {
-	width: 100%;
-	height: 100%;
-}
+	.full {
+		width: 100%;
+		height: 100%;
+	}
 
-.forbidden-lands .wrap {
-	flex-wrap: wrap;
-}
+	.wrap {
+		flex-wrap: wrap;
+	}
 
-.forbidden-lands .half {
-	flex: 0 0 50%;
-}
+	.half {
+		flex: 0 0 50%;
+	}
 
-.forbidden-lands .center {
-	text-align: center;
-}
+	.center {
+		text-align: center;
+	}
 
-.forbidden-lands .margin {
-	margin: 5px;
-}
+	.margin {
+		margin: 5px;
+	}
 
-.forbidden-lands .grow {
-	flex-grow: 1;
-}
+	.grow {
+		flex-grow: 1;
+	}
 
-.forbidden-lands .flex-1 {
-	flex: 1;
-}
+	.flex-1 {
+		flex: 1;
+	}
 
-.forbidden-lands .gap {
-	gap: 0.5rem;
-}
+	.gap {
+		gap: 0.5rem;
+	}
 
-.forbidden-lands .gap-l {
-	gap: 1rem;
-}
+	.gap-l {
+		gap: 1rem;
+	}
 
-.forbidden-lands .align-center {
-	align-items: center;
-}
+	.align-center {
+		align-items: center;
+	}
 
-.forbidden-lands .align-end {
-	align-items: flex-end;
-}
+	.align-end {
+		align-items: flex-end;
+	}
 
-.forbidden-lands .space-around {
-	justify-content: space-around;
-}
+	.space-around {
+		justify-content: space-around;
+	}
 
-.forbidden-lands .space-between {
-	justify-content: space-between;
-}
+	.space-between {
+		justify-content: space-between;
+	}
 
-.forbidden-lands .justify-end {
-	justify-content: flex-end;
-}
+	.justify-end {
+		justify-content: flex-end;
+	}
 
-.forbidden-lands .padding {
-	padding: 5px;
-}
+	.padding {
+		padding: 5px;
+	}
 
-.forbidden-lands.window-app .window-content > * {
-	height: 100%;
-}
+	.tabs .item.active {
+		color: #fff;
+		text-shadow: 0 0 10px #fff;
+	}
 
-.forbidden-lands .tabs .item.active {
-	color: #fff;
-	text-shadow: 0 0 10px #fff;
-}
+	.tab {
+		height: 100%;
+		width: 100%;
+	}
 
-.forbidden-lands .tab {
-	height: 100%;
-	width: 100%;
-}
+	.item-control {
+		margin-left: 4px;
+	}
 
-.forbidden-lands .item-control {
-	margin-left: 4px;
-}
+	button {
+		background: transparent;
+		border: 0 none;
+		border-radius: 3px;
+		box-shadow: none;
+		color: var(--color-foreground);
+		cursor: pointer;
+		font-family: inherit;
+		font-size: inherit;
+		font-weight: bold;
+		height: auto;
+		line-height: inherit;
+		padding: 2px 4px;
+		width: auto;
 
-.forbidden-lands button {
-	background: transparent;
-	border: 0 none;
-	border-radius: 3px;
-	box-shadow: none;
-	color: var(--color-foreground);
-	cursor: pointer;
-	font-family: inherit;
-	font-size: inherit;
-	font-weight: bold;
-	height: auto;
-	line-height: inherit;
-	padding: 2px 4px;
-	width: auto;
+		&:disabled {
+			cursor: default;
+			opacity: 0.5;
 
-	&:disabled {
-		cursor: default;
-		opacity: 0.5;
-
-		&:hover {
-			background: transparent;
+			&:hover {
+				background: transparent;
+			}
 		}
 	}
-}
-.forbidden-lands button:focus,
-.forbidden-lands button:hover {
-	background: var(--color-highlight);
-}
+	button:focus,
+	button:hover {
+		background: var(--color-highlight);
+	}
 
-.forbidden-lands input[type="number"],
-.forbidden-lands input[type="text"],
-.forbidden-lands select,
-.forbidden-lands textarea {
-	background: var(--color-background);
-	border: 1px solid var(--color-border);
-	border-radius: 3px;
-	box-shadow: inset 0 0 6px var(--color-secondary);
-	color: var(--color-foreground);
-	font-family: var(--font-input);
-	font-size: var(--font-size--small);
-	height: auto;
-	width: 100%;
-}
-.forbidden-lands input:disabled,
-.forbidden-lands select:disabled,
-.forbidden-lands textarea:disabled {
-	border: 0 none;
-	box-shadow: none;
-}
+	input[type="number"],
+	input[type="text"],
+	select,
+	textarea {
+		background: var(--color-background);
+		border: 1px solid var(--color-border);
+		border-radius: 3px;
+		box-shadow: inset 0 0 6px var(--color-secondary);
+		color: var(--color-foreground);
+		font-family: var(--font-input);
+		font-size: var(--font-size--small);
+		height: auto;
+		width: 100%;
+	}
+	input:disabled,
+	select:disabled,
+	textarea:disabled {
+		border: 0 none;
+		box-shadow: none;
+	}
 
-.forbidden-lands input[type="number"] {
-	-moz-appearance: textfield;
-	text-align: center;
-}
-.forbidden-lands input[type="number"]::-webkit-outer-spin-button,
-.forbidden-lands input[type="number"]::-webkit-inner-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
-}
-.forbidden-lands input[type="number"]:focus,
-.forbidden-lands input[type="text"]:focus,
-.forbidden-lands select:focus,
-.forbidden-lands textarea:focus {
-	border: 1px solid var(--color-border);
-	box-shadow: 0 0 10px #a00;
-	outline: none;
-}
+	input[type="number"] {
+		-moz-appearance: textfield;
+		text-align: center;
+	}
+	input[type="number"]::-webkit-outer-spin-button,
+	input[type="number"]::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+	input[type="number"]:focus,
+	input[type="text"]:focus,
+	select:focus,
+	textarea:focus {
+		border: 1px solid var(--color-border);
+		box-shadow: 0 0 10px #a00;
+		outline: none;
+	}
 
-.forbidden-lands .sheet-body {
-	overflow: hidden;
-	flex-grow: 1;
-}
+	.sheet-body {
+		overflow: hidden;
+		flex-grow: 1;
+	}
 
-.forbidden-lands .item-list {
-	display: flex;
-	flex-direction: column;
-	font-family: var(--font-table);
-	font-size: var(--font-size--small);
-	line-height: 16px;
-	min-height: 0;
-	padding: 4px;
-}
-.forbidden-lands .item-list .header {
-	justify-content: space-between;
-	border-bottom: 2px solid var(--color-border);
-	margin-bottom: 4px;
-	font-size: var(--font-size--very-small);
-	font-weight: bold;
-	padding: 4px;
-	text-transform: uppercase;
-}
+	div.bio.border,
+	.main-tab div.border,
+	.character div.currencies.border,
+	.character div.consumables.border,
+	.chargen-build,
+	.character div.actions.border {
+		border: 6px solid transparent;
+		border-image: url(./assets/journal-art/small-border.webp) 100/10px repeat;
+	}
 
-.forbidden-lands .item-list .items {
-	overflow-y: auto;
-	scrollbar-width: none;
-}
+	.item-list {
+		display: flex;
+		flex-direction: column;
+		font-family: var(--font-table);
+		font-size: var(--font-size--small);
+		line-height: 16px;
+		min-height: 0;
+		padding: 4px;
 
-.forbidden-lands .item-list .items .item {
-	justify-content: space-between;
-	overflow-y: hidden;
-	border-bottom: 1px solid var(--color-border);
-	font-size: var(--font-size--very-small);
-	padding-right: 4px;
-}
-.forbidden-lands .item-list .items .item:last-child {
-	border-bottom: 0 none;
-}
-.forbidden-lands .item-list .items .item:nth-child(odd) {
-	background: var(--color-secondary);
-}
-.forbidden-lands .item-list .items .item:nth-child(odd) button:focus,
-.forbidden-lands .item-list .items .item:nth-child(odd) button:hover {
-	background: var(--color-background);
+		.header {
+			justify-content: space-between;
+			border-bottom: 2px solid var(--color-border);
+			margin-bottom: 4px;
+			font-size: var(--font-size--very-small);
+			font-weight: bold;
+			padding: 4px;
+			text-transform: uppercase;
+		}
+
+		.items {
+			overflow-y: auto;
+			scrollbar-width: none;
+
+			.item {
+				justify-content: space-between;
+				overflow-y: hidden;
+				border-bottom: 1px solid var(--color-border);
+				font-size: var(--font-size--very-small);
+				padding: 2px 4px;
+
+				&:last-child {
+					border-bottom: 0 none;
+				}
+
+				&:nth-child(odd) {
+					background: var(--color-secondary);
+				}
+
+				&:nth-child(odd) button:focus,
+				&:nth-child(odd) button:hover {
+					background: var(--color-background);
+				}
+
+				img {
+					object-fit: contain;
+					vertical-align: middle;
+					filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.6));
+				}
+			}
+		}
+	}
 }
 
 .forbidden-lands.sheet .window-content {

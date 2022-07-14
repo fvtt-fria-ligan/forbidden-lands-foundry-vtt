@@ -12,9 +12,7 @@
 				{{#each items as |item|}} {{#if item.isArmor}}
 				<div class="gear item flex row" data-item-id="{{item._id}}">
 					<div class="name">
-						<div class="image-container">
-							<div class="image" style="background-image: url('{{item.img}}')"></div>
-						</div>
+						<img src="{{item.img}}" width="32px" />
 						<div class="name">{{item.name}}</div>
 					</div>
 					<div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
@@ -41,9 +39,7 @@
 				{{#each items as |item|}} {{#if item.isWeapon}}
 				<div class="gear item flex row" data-item-id="{{item._id}}">
 					<div class="name">
-						<div class="image-container">
-							<div class="image" style="background-image: url('{{item.img}}')"></div>
-						</div>
+						<img src="{{item.img}}" width="32px" />
 						<div class="name">{{item.name}}</div>
 					</div>
 					<div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
@@ -70,9 +66,7 @@
 				{{#each items as |item|}} {{#if item.isGear}}
 				<div class="gear item flex row" data-item-id="{{item._id}}">
 					<div class="name">
-						<div class="image-container">
-							<div class="image" style="background-image: url('{{item.img}}')"></div>
-						</div>
+						<img src="{{item.img}}" width="32px" />
 						<div class="name">{{item.name}}</div>
 					</div>
 					<div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
@@ -101,9 +95,7 @@
 				{{#each items as |item|}} {{#if item.isRawMaterial}}
 				<div class="gear item flex row" data-item-id="{{item._id}}">
 					<div class="name">
-						<div class="image-container">
-							<div class="image" style="background-image: url('{{item.img}}')"></div>
-						</div>
+						<img src="{{item.img}}" width="32px" />
 						<div class="name">{{item.name}}</div>
 					</div>
 					<div class="bonus">&nbsp;</div>
