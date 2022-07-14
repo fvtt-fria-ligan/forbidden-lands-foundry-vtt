@@ -9,9 +9,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		const data = this.actorData.toObject();
 		data.items?.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 		data.carriedStates = CONFIG.fbl.carriedStates;
-		data.gear = data.items
-			?.filter(({ type }) => ["gear", "rawMaterial", "weapon", "armor"].includes(type))
-			.map((item) => ({ ...item, state: item.flags["forbidden-lands"]?.state || "" }));
+		data.gear = this.#filterGear(data.items);
 		return data;
 	}
 
@@ -97,6 +95,12 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 				value = Math.min(value + 1, attribute.max);
 			}
 			this.actor.update({ "data.bio.willpower.value": value });
+		});
+
+		html.find(".header-sort").click((ev) => {
+			const state = $(ev.currentTarget).closest("[data-state]").data("state");
+			const sort = $(ev.currentTarget).data("sort");
+			this.actor.setFlag("forbidden-lands", `${state}-sort`, sort);
 		});
 
 		// Items
@@ -380,6 +384,49 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			if (item.data.part === "shield") item.isWeapon = true;
 			else if (CONFIG.fbl.itemTypes.includes(item.type)) item[`is${item.type.capitalize()}`] = true;
 		}
+	}
+
+	#getSortKey(state) {
+		return this.actor.getFlag("forbidden-lands", `${state}-sort`) || "name";
+	}
+
+	#sortGear(a, b, key) {
+		/* eslint-disable no-case-declarations, no-nested-ternary */
+		switch (key) {
+			case "name":
+			case "type":
+				return a[key]?.toLocaleLowerCase().localeCompare(b[key]?.toLocaleLowerCase()) ?? 0;
+			case "attribute":
+				const aComp = a.type === "rawMaterial" ? a.data.quantity : a.data.bonus.value;
+				const bComp = b.type === "rawMaterial" ? b.data.quantity : b.data.bonus.value;
+				return Number(bComp) - Number(aComp);
+			case "weight":
+				const weightMap = CONFIG.fbl.encumbrance;
+				const aWeight =
+					a.type === "rawMaterial" ? Number(a.data.quantity) : Math.floor(weightMap[a.data.weight] || 0);
+				const bWeight =
+					b.type === "rawMaterial" ? Number(b.data.quantity) : Math.floor(weightMap[b.data.weight] || 0);
+				return bWeight - aWeight;
+		}
+		/* eslint-enable no-case-declarations, no-nested-ternary */
+	}
+
+	#filterGear(items) {
+		const filteredItems = items
+			?.filter(({ type }) => ["gear", "rawMaterial", "weapon", "armor"].includes(type))
+			.map((item) => ({ ...item, state: item.flags["forbidden-lands"]?.state || "" }));
+		const reduced = filteredItems.reduce((acc, item) => {
+			const { state } = item;
+			if (!acc[state]) acc[state] = [];
+			acc[state].push(item);
+			return acc;
+		}, {});
+		return Object.fromEntries(
+			Object.entries(reduced).map(([key, arr]) => [
+				key,
+				arr.sort((a, b) => this.#sortGear(a, b, this.#getSortKey(key))),
+			]),
+		);
 	}
 
 	computeItemEncumbrance(data) {

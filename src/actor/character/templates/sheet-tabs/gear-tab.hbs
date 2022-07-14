@@ -2,53 +2,55 @@
 	<table data-state="{{state}}">
 		<thead>
 			<tr>
-				<th class="profile">{{fblLocalize 'GEAR' (or state "none") }}</th>
-				<th >{{localize "GEAR.TYPE"}}</th>
-				<th>{{localize "GEAR.ATTRIBUTE"}}</th>
-				<th>{{localize "GEAR.WEIGHT"}}</th>
+				<th class="profile">{{fblLocalize 'GEAR' (or state "none") }}<button class="header-sort"
+						data-sort="name"><i class="fas fa-sort"></i></button></th>
+				<th>{{localize "GEAR.TYPE"}}<button class="header-sort" data-sort="type"><i
+							class="fas fa-sort"></i></button></th>
+				<th>{{localize "GEAR.ATTRIBUTE"}}<button class="header-sort" data-sort="attribute"><i
+							class="fas fa-sort"></i></button></th>
+				<th>{{localize "GEAR.WEIGHT"}}<button class="header-sort" data-sort="weight"><i
+							class="fas fa-sort"></i></button></th>
 				<th><button class="item-create"><i class="fas fa-plus"></i></button></th>
 			</tr>
 		</thead>
 		<tbody>
-			{{#each gear as |item|}}
-				{{#if (eq item.state ../state)}}
-					<tr class="item"  data-item-id="{{item._id}}">
-						<td class="profile">
-							<img src="{{item.img}}" width="32px"/>
-							<span class="name">{{item.name}}</span>
-						</td>
-						<td >{{fblLocalize item.type}}</td>
-						{{#if (eq item.type 'rawMaterial')}}
-						<td><input class="quantity" type="number" data-dtype="Number" value="{{item.data.quantity}}" title="{{localize "ITEM.QUANTITY"}}" /></td>
-						{{else}}
-						<td class="{{isBroken item}}" title="{{localize (ternary (eq item.type 'armor') "ARMOR.RATING"  "GEAR.BONUS")}}">
+			{{#each (lookup gear state) as |item|}}
+				<tr class="item" data-item-id="{{item._id}}">
+					<td class="profile">
+						<img src="{{item.img}}" width="32px" />
+						<span class="name">{{item.name}}</span>
+					</td>
+					<td>{{fblLocalize item.type}}</td>
+					{{#if (eq item.type 'rawMaterial')}}
+						<td><input class="quantity" type="number" data-dtype="Number" value="{{item.data.quantity}}"
+								title="{{localize "ITEM.QUANTITY"}}" /></td>
+					{{else}}
+						<td class="{{isBroken item}}"
+							title="{{localize (ternary (eq item.type 'armor') "ARMOR.RATING"  "GEAR.BONUS")}}">
 							{{item.data.bonus.value}}
 						</td>
-						{{/if}}
-						<td>{{itemWeight item.data.weight}}</td>
-						<td>
-							<a class="item-control item-edit" title="{{localize "GEAR.EDIT"}}"><i
-									class="fas fa-edit"></i></a>
-							<a class="item-control item-post" title="{{localize "GEAR.POST"}}"><i
-									class="fas fa-comment"></i></a>
-							<a class="item-control item-delete" title="{{localize "GEAR.DELETE"}}"><i
-									class="fas fa-trash"></i></a>
-						</td>
-					</tr>
-				{{/if}}
+					{{/if}}
+					<td>{{itemWeight item.data.weight}}</td>
+					<td>
+						<a class="item-control item-edit" title="{{localize "GEAR.EDIT"}}"><i
+								class="fas fa-edit"></i></a>
+						<a class="item-control item-post" title="{{localize "GEAR.POST"}}"><i
+								class="fas fa-comment"></i></a>
+						<a class="item-control item-delete" title="{{localize "GEAR.DELETE"}}"><i
+								class="fas fa-trash"></i></a>
+					</td>
+				</tr>
 			{{/each}}
 		</tbody>
 	</table>
 {{/inline}}
 
 {{#*inline "currency" object currency}}
-	{{log currency}}
 	<label>{{localize object.label}}:</label>
 	<a class='currency-button' data-operator='minus' data-currency='{{currency}}'><i
-		class='fas fa-minus-square'></i></a>
-	<input name="data.currency.{{currency}}.value" min="0"  type="number" data-dtype="Number"  value="{{object.value}}" />
-	<a class='currency-button' data-operator='plus' data-currency='{{currency}}'><i
-		class='fas fa-plus-square'></i></a>
+			class='fas fa-minus-square'></i></a>
+	<input name="data.currency.{{currency}}.value" min="0" type="number" data-dtype="Number" value="{{object.value}}" />
+	<a class='currency-button' data-operator='plus' data-currency='{{currency}}'><i class='fas fa-plus-square'></i></a>
 {{/inline}}
 
 
@@ -67,10 +69,11 @@
 		<div class="item-list">
 			<div class="encumbrance{{#if data.encumbrance.over}} overencumbered{{/if}}"
 				title="{{localize "ENCUMBRANCE" }}"><i class="fas fa-weight-hanging"></i> {{data.encumbrance.value}} /
-				{{data.encumbrance.max}}</div>
+				{{data.encumbrance.max}}
+			</div>
 			<div class="items">
 				{{#each carriedStates as |state|}}
-				{{> table gear=../gear state=state}}
+					{{> table gear=../gear state=state}}
 				{{/each}}
 				{{> table gear=gear state=""}}
 			</div>
