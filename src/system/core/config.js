@@ -106,7 +106,7 @@ FBL.i18n = {
 	armor: "ITEM.TypeArmor",
 	gear: "ITEM.TypeGear",
 	weapon: "ITEM.TypeWeapon",
-	rawMaterial: "ITEM.TypeRawMaterial",
+	rawMaterial: "ITEM.TypeRawmaterial",
 	agility: "ATTRIBUTE.AGILITY",
 	empathy: "ATTRIBUTE.EMPATHY",
 	strength: "ATTRIBUTE.STRENGTH",

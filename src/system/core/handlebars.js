@@ -286,6 +286,10 @@ function registerHandlebarsHelpers() {
 		args.pop();
 		return localizeString(args.join("."));
 	});
+
+	Handlebars.registerHelper("ternary", function (conditional, string1, string2) {
+		return conditional ? string1 : string2;
+	});
 }
 
 function normalize(data, defaultValue) {

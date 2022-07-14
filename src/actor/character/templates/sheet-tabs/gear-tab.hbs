@@ -18,9 +18,13 @@
 							<span class="name">{{item.name}}</span>
 						</td>
 						<td >{{fblLocalize item.type}}</td>
-						<td class="{{isBroken item}}">
+						{{#if (eq item.type 'rawMaterial')}}
+						<td><input class="quantity" type="number" data-dtype="Number" value="{{item.data.quantity}}" title="{{localize "ITEM.QUANTITY"}}" /></td>
+						{{else}}
+						<td class="{{isBroken item}}" title="{{localize (ternary (eq item.type 'armor') "ARMOR.RATING"  "GEAR.BONUS")}}">
 							{{item.data.bonus.value}}
 						</td>
+						{{/if}}
 						<td>{{itemWeight item.data.weight}}</td>
 						<td>
 							<a class="item-control item-edit" title="{{localize "GEAR.EDIT"}}"><i
@@ -37,29 +41,25 @@
 	</table>
 {{/inline}}
 
+{{#*inline "currency" object currency}}
+	{{log currency}}
+	<label>{{localize object.label}}:</label>
+	<a class='currency-button' data-operator='minus' data-currency='{{currency}}'><i
+		class='fas fa-minus-square'></i></a>
+	<input name="data.currency.{{currency}}.value" min="0"  type="number" data-dtype="Number"  value="{{object.value}}" />
+	<a class='currency-button' data-operator='plus' data-currency='{{currency}}'><i
+		class='fas fa-plus-square'></i></a>
+{{/inline}}
+
+
 <div class="gear-tab">
 	<div class="currencies border">
 		<div class="header flex grow row">
 			<b>{{localize "HEADER.CURRENCY"}}</b>
 			<div class="values">
-				<label>{{localize data.currency.gold.label}}:</label>
-				<a class='currency-button' data-operator='minus' data-currency='gold'><i
-						class='fas fa-minus-square'></i></a>
-				<input name="data.currency.gold.value" type="number" value="{{data.currency.gold.value}}" />
-				<a class='currency-button' data-operator='plus' data-currency='gold'><i
-						class='fas fa-plus-square'></i></a>
-				<label>{{localize data.currency.silver.label}}:</label>
-				<a class='currency-button' data-operator='minus' data-currency='silver'><i
-						class='fas fa-minus-square'></i></a>
-				<input name="data.currency.silver.value" type="number" value="{{data.currency.silver.value}}" />
-				<a class='currency-button' data-operator='plus' data-currency='silver'><i
-						class='fas fa-plus-square'></i></a>
-				<label>{{localize data.currency.copper.label}}:</label>
-				<a class='currency-button' data-operator='minus' data-currency='copper'><i
-						class='fas fa-minus-square'></i></a>
-				<input name="data.currency.copper.value" type="number" value="{{data.currency.copper.value}}" />
-				<a class='currency-button' data-operator='plus' data-currency='copper'><i
-						class='fas fa-plus-square'></i></a>
+				{{#each data.currency as |object currency|}}
+					{{> currency object=object currency=currency}}
+				{{/each}}
 			</div>
 		</div>
 	</div>
@@ -73,89 +73,6 @@
 				{{> table gear=../gear state=state}}
 				{{/each}}
 				{{> table gear=gear state=""}}
-				{{!-- <div class="header flex row">
-                    <b class="name">{{localize "HEADER.OTHER_CARRIED"}}</b>
-                    <a class="button item-create" title="Add Weapon" data-type="weapon"><i class="fas fa-plus"></i></a>
-                </div>
-                <div>
-                    {{#each items as |item|}}
-                    {{#if item.isWeapon}}
-                    <div class="gear item flex row" data-item-id="{{item._id}}">
-                        <div class="name">
-                            <div class="image-container">
-                                <div class="image" style="background-image: url('{{item.img}}')"></div>
-                            </div>
-                            <div class="name">{{item.name}}</div>
-                        </div>
-                        <div class="bonus {{isBroken item}}">
-                            {{item.data.bonus.value}}
-                            {{#if item.data.artifactBonus}}+ {{item.data.artifactBonus}}{{/if}}
-                        </div>
-                        <div class="weight">{{itemWeight item.data.weight}}</div>
-                        <div class="button">
-                            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                            <a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
-                            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </div>
-                    {{/if}}
-                    {{/each}}
-                </div>
-                <div class="header flex row">
-                    <b class="name">{{localize "HEADER.DROPPED"}}</b>
-                    <a class="button item-create" title="Add Gear" data-type="gear"><i class="fas fa-plus"></i></a>
-                </div>
-                <div>
-                    {{#each items as |item|}}
-                    {{#if item.isGear}}
-                    <div class="gear item flex row" data-item-id="{{item._id}}">
-                        <div class="name">
-                            <div class="image-container">
-                                <div class="image" style="background-image: url('{{item.img}}')"></div>
-                            </div>
-                            <div class="name">{{item.name}}</div>
-                        </div>
-                        <div class="bonus {{isBroken item}}">
-                            {{item.data.bonus.value}}
-                        </div>
-                        <div class="weight">{{itemWeight item.data.weight}}</div>
-                        <div class="button">
-                            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                            <a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
-                            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </div>
-                    {{/if}}
-                    {{/each}}
-                </div>
-                <div class="header flex row">
-                    <b class="name">{{localize "HEADER.RAW_MATERIAL"}}</b>
-                    <b class="bonus">{{localize "ITEM.QUANTITY"}}</b>
-                    <b class="weight">{{localize "GEAR.WEIGHT"}}</b>
-                    <a class="button item-create" title="Add Raw Material" data-type="rawMaterial"><i
-                            class="fas fa-plus"></i></a>
-                </div>
-                <div>
-                    {{#each items as |item|}}
-                    {{#if item.isRawMaterial}}
-                    <div class="gear item flex row" data-item-id="{{item._id}}">
-                        <div class="name">
-                            <div class="image-container">
-                                <div class="image" style="background-image: url('{{item.img}}')"></div>
-                            </div>
-                            <div class="name">{{item.name}}</div>
-                        </div>
-						<input class="quantity" type="number" data-dtype="Number" value="{{item.data.quantity}}" />
-                        <div class="weight">{{itemWeight item.data.weight}}</div>
-                        <div class="button">
-                            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                            <a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
-                            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </div>
-                    {{/if}}
-                    {{/each}}
-                </div> --}}
 			</div>
 		</div>
 	</div>
