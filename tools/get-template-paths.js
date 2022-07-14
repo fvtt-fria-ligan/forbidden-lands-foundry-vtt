@@ -1,9 +1,10 @@
-import fs from "fs-extra-plus";
+import { sep, posix } from "node:path";
+import { glob } from "fs-extra-plus";
 
-(async function () {
-	const templatePaths = await fs.glob("./dist/templates/**/*.hbs");
-	if (templatePaths && templatePaths.length > 0)
-		console.log(
-			templatePaths.map((templatePath) => `systems/forbidden-lands/${templatePath.replace("./dist/", "")}`),
-		);
+export default (async () => {
+	const paths = await glob("**/*.hbs", { cwd: "src" });
+	return paths.map((templatePath) => {
+		templatePath = templatePath.split(sep).slice(1).join(posix.sep);
+		return `systems/forbidden-lands/templates/${templatePath.replace("templates/", "")}`;
+	});
 })();
