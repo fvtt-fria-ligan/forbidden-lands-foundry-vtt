@@ -152,6 +152,15 @@
 	line-height: inherit;
 	padding: 2px 4px;
 	width: auto;
+
+	&:disabled {
+		cursor: default;
+		opacity: 0.5;
+
+		&:hover {
+			background: transparent;
+		}
+	}
 }
 .forbidden-lands button:focus,
 .forbidden-lands button:hover {

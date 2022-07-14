@@ -1,47 +1,50 @@
-{{#*inline "table" gear state}}
+{{#*inline "table" gear state collapsed}}
 	<table data-state="{{state}}">
 		<thead>
-			<tr>
-				<th class="profile">{{fblLocalize 'GEAR' (or state "none") }}<button class="header-sort"
-						data-sort="name"><i class="fas fa-sort"></i></button></th>
-				<th>{{localize "GEAR.TYPE"}}<button class="header-sort" data-sort="type"><i
-							class="fas fa-sort"></i></button></th>
-				<th>{{localize "GEAR.ATTRIBUTE"}}<button class="header-sort" data-sort="attribute"><i
-							class="fas fa-sort"></i></button></th>
-				<th>{{localize "GEAR.WEIGHT"}}<button class="header-sort" data-sort="weight"><i
-							class="fas fa-sort"></i></button></th>
-				<th><button class="item-create"><i class="fas fa-plus"></i></button></th>
-			</tr>
+			<th class="profile"><button class="collapse-table" title="{{localize 'HEADER.COLLAPSE'}}" {{ternary (eq state 'none') 'disabled' ''}}><i
+						class="fas fa-caret-{{ternary collapsed "right" "down"}}"></i></button>
+				{{fblLocalize 'GEAR' state }}<button class="header-sort" data-sort="name"><i
+						class="fas fa-sort"></i></button>
+			</th>
+			<th><span>{{localize "GEAR.TYPE"}}</span><button class="header-sort" data-sort="type"><i
+						class="fas fa-sort"></i></button></th>
+			<th><span>{{localize "GEAR.ATTRIBUTE"}}</span><button class="header-sort" data-sort="attribute"><i
+						class="fas fa-sort"></i></button></th>
+			<th><span>{{localize "GEAR.WEIGHT"}}</span><button class="header-sort" data-sort="weight"><i
+						class="fas fa-sort"></i></button></th>
+			<th><button class="item-create"><i class="fas fa-plus"></i></button></th>
 		</thead>
-		<tbody>
-			{{#each (lookup gear state) as |item|}}
-				<tr class="item" data-item-id="{{item._id}}">
-					<td class="profile">
-						<img src="{{item.img}}" width="32px" />
-						<span class="name">{{item.name}}</span>
-					</td>
-					<td>{{fblLocalize item.type}}</td>
-					{{#if (eq item.type 'rawMaterial')}}
-						<td><input class="quantity" type="number" data-dtype="Number" value="{{item.data.quantity}}"
-								title="{{localize "ITEM.QUANTITY"}}" /></td>
-					{{else}}
-						<td class="{{isBroken item}}"
-							title="{{localize (ternary (eq item.type 'armor') "ARMOR.RATING"  "GEAR.BONUS")}}">
-							{{item.data.bonus.value}}
+		{{#unless collapsed}}
+			<tbody>
+				{{#each (lookup gear state) as |item|}}
+					<tr class="item" data-item-id="{{item._id}}">
+						<td class="profile">
+							<img src="{{item.img}}" width="32px" />
+							<span class="name">{{item.name}}</span>
 						</td>
-					{{/if}}
-					<td>{{itemWeight item.data.weight}}</td>
-					<td>
-						<a class="item-control item-edit" title="{{localize "GEAR.EDIT"}}"><i
-								class="fas fa-edit"></i></a>
-						<a class="item-control item-post" title="{{localize "GEAR.POST"}}"><i
-								class="fas fa-comment"></i></a>
-						<a class="item-control item-delete" title="{{localize "GEAR.DELETE"}}"><i
-								class="fas fa-trash"></i></a>
-					</td>
-				</tr>
-			{{/each}}
-		</tbody>
+						<td>{{fblLocalize item.type}}</td>
+						{{#if (eq item.type 'rawMaterial')}}
+							<td><input class="quantity" type="number" data-dtype="Number" value="{{item.data.quantity}}"
+									title="{{localize "ITEM.QUANTITY"}}" /></td>
+						{{else}}
+							<td class="{{isBroken item}}"
+								title="{{localize (ternary (eq item.type 'armor') "ARMOR.RATING"  "GEAR.BONUS")}}">
+								{{item.data.bonus.value}}
+							</td>
+						{{/if}}
+						<td>{{itemWeight item.data.weight}}</td>
+						<td>
+							<a class="item-control item-edit" title="{{localize "GEAR.EDIT"}}"><i
+									class="fas fa-edit"></i></a>
+							<a class="item-control item-post" title="{{localize "GEAR.POST"}}"><i
+									class="fas fa-comment"></i></a>
+							<a class="item-control item-delete" title="{{localize "GEAR.DELETE"}}"><i
+									class="fas fa-trash"></i></a>
+						</td>
+					</tr>
+				{{/each}}
+			</tbody>
+		{{/unless}}
 	</table>
 {{/inline}}
 
@@ -73,9 +76,9 @@
 			</div>
 			<div class="items">
 				{{#each carriedStates as |state|}}
-					{{> table gear=../gear state=state}}
+					{{> table gear=../gear state=state.name collapsed=state.collapsed}}
 				{{/each}}
-				{{> table gear=gear state=""}}
+				{{> table gear=gear state="none"}}
 			</div>
 		</div>
 	</div>

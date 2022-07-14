@@ -8,7 +8,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	getData() {
 		const data = this.actorData.toObject();
 		data.items?.sort((a, b) => (a.sort || 0) - (b.sort || 0));
-		data.carriedStates = CONFIG.fbl.carriedStates;
+		data.carriedStates = this.#getCarriedStates();
 		data.gear = this.#filterGear(data.items);
 		return data;
 	}
@@ -49,7 +49,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			await this.actor.updateEmbeddedDocuments("Item", [
 				{
 					_id: itemData._id,
-					flags: { "forbidden-lands": { state } },
+					flags: { "forbidden-lands": { state: state === "none" ? "" : state } },
 				},
 			]);
 		}
@@ -97,10 +97,19 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			this.actor.update({ "data.bio.willpower.value": value });
 		});
 
+		html.find(".collapse-table").click((ev) => {
+			const state = $(ev.currentTarget).closest("[data-state]").data("state");
+			this.actor.setFlag(
+				"forbidden-lands",
+				`${state}-collapsed`,
+				!this.actor.getFlag("forbidden-lands", `${state ?? "none"}-collapsed`),
+			);
+		});
+
 		html.find(".header-sort").click((ev) => {
 			const state = $(ev.currentTarget).closest("[data-state]").data("state");
 			const sort = $(ev.currentTarget).data("sort");
-			this.actor.setFlag("forbidden-lands", `${state}-sort`, sort);
+			this.actor.setFlag("forbidden-lands", `${state ?? "none"}-sort`, sort);
 		});
 
 		// Items
@@ -386,8 +395,18 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		}
 	}
 
+	#getCarriedStates() {
+		const carrriedStates = CONFIG.fbl.carriedStates;
+		return carrriedStates.map((state) => {
+			return {
+				name: state,
+				collapsed: this.actor.getFlag("forbidden-lands", `${state}-collapsed`),
+			};
+		});
+	}
+
 	#getSortKey(state) {
-		return this.actor.getFlag("forbidden-lands", `${state}-sort`) || "name";
+		return this.actor.getFlag("forbidden-lands", `${state ?? "none"}-sort`) || "name";
 	}
 
 	#sortGear(a, b, key) {
@@ -414,7 +433,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	#filterGear(items) {
 		const filteredItems = items
 			?.filter(({ type }) => ["gear", "rawMaterial", "weapon", "armor"].includes(type))
-			.map((item) => ({ ...item, state: item.flags["forbidden-lands"]?.state || "" }));
+			.map((item) => ({ ...item, state: item.flags["forbidden-lands"]?.state || "none" }));
 		const reduced = filteredItems.reduce((acc, item) => {
 			const { state } = item;
 			if (!acc[state]) acc[state] = [];
@@ -434,6 +453,8 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		const weight = isNaN(Number(data?.data.weight))
 			? this.config.encumbrance[data?.data.weight] ?? 1
 			: Number(data?.data.weight) ?? 1;
+		// If the item isn't carried or equipped, don't count it.
+		if (!data.flags["forbidden-lands"]?.state) return 0;
 		// Only return weight for these types.
 		if (type === "rawMaterial") return 1 * Number(data.data.quantity);
 		if (["gear", "armor", "weapon"].includes(type)) return weight;
@@ -461,6 +482,6 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 				.remove(),
 		);
 		const item = await Item.createDialog({}, { parent: this.actor });
-		if (item) item.setFlag("forbidden-lands", "state", state);
+		if (item) item.setFlag("forbidden-lands", "state", state === "none" ? "" : state);
 	}
 }

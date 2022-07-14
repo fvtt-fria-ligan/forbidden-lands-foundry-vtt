@@ -141,8 +141,20 @@
 					}
 				}
 
-				.item-create i {
+				button {
 					margin: 0;
+					margin-left: 2px;
+					padding: 0;
+					width: 16px;
+					height: 16px;
+
+					&:first-child {
+						margin-left: 0;
+					}
+
+					i {
+						margin: 0;
+					}
 				}
 
 				input.quantity {
