@@ -60,8 +60,9 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		super.activateListeners(html);
 		if (!game.user.isGM && this.actor.limited) return;
 
-		html.find(".item-create").click((ev) => {
-			this.onItemCreate(ev);
+		html.find(".item-create").click((ev) => this.#onItemCreate(ev));
+		html.find(".create-dialog").click((ev) => {
+			this.#onCreateDialog(ev);
 		});
 
 		// Attribute markers
@@ -413,6 +414,20 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		}
 	}
 
+	computeItemEncumbrance(data) {
+		const type = data.type;
+		const weight = isNaN(Number(data?.data.weight))
+			? this.config.encumbrance[data?.data.weight] ?? 1
+			: Number(data?.data.weight) ?? 1;
+		// If the item isn't carried or equipped, don't count it.
+		if (!data.flags["forbidden-lands"]?.state) return 0;
+		// Only return weight for these types.
+		if (type === "rawMaterial") return 1 * Number(data.data.quantity);
+		if (["gear", "armor", "weapon"].includes(type)) return weight;
+		// Talents, Spells, and the like dont have weight.
+		return 0;
+	}
+
 	#getCarriedStates() {
 		const carrriedStates = CONFIG.fbl.carriedStates;
 		return carrriedStates.map((state) => {
@@ -466,21 +481,20 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		);
 	}
 
-	computeItemEncumbrance(data) {
-		const type = data.type;
-		const weight = isNaN(Number(data?.data.weight))
-			? this.config.encumbrance[data?.data.weight] ?? 1
-			: Number(data?.data.weight) ?? 1;
-		// If the item isn't carried or equipped, don't count it.
-		if (!data.flags["forbidden-lands"]?.state) return 0;
-		// Only return weight for these types.
-		if (type === "rawMaterial") return 1 * Number(data.data.quantity);
-		if (["gear", "armor", "weapon"].includes(type)) return weight;
-		// Talents, Spells, and the like dont have weight.
-		return 0;
+	#onItemCreate(event) {
+		const itemType = $(event.currentTarget).data("type");
+		const label = CONFIG.fbl.i18n[itemType];
+		this.actor.createEmbeddedDocuments(
+			"Item",
+			{
+				name: `${game.i18n.localize(label)}`,
+				type: itemType,
+			},
+			{ renderSheet: true },
+		);
 	}
 
-	async onItemCreate(event) {
+	async #onCreateDialog(event) {
 		event.preventDefault();
 		const state = $(event.target).closest("[data-state]")?.data("state");
 		Hooks.once("renderDialog", (_, html) =>
