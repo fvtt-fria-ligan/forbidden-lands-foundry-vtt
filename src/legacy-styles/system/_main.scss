@@ -434,3 +434,21 @@ button,
 .broken .change-willpower .far.fa-circle {
 	color: #333;
 }
+
+.macro-select {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.5rem;
+	margin-bottom: 1rem;
+
+	h3 {
+		margin-bottom: 1rem;
+	}
+
+	label {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 1rem;
+	}
+}

@@ -394,5 +394,7 @@
 	"SHEET.CREATE_ARMOR": "Create Armor",
 	"SHEET.CREATE_WEAPON": "Create Weapon",
 	"SHEET.CREATE_GEAR": "Create Gear",
-	"SHEET.CREATE_R_MATERIAL": "Create Raw Material"
+	"SHEET.CREATE_R_MATERIAL": "Create Raw Material",
+	"MACRO.CHOOSE_TYPE": "Choose Type",
+	"MACRO.TYPE.ATTACK": "Attack"
 }
