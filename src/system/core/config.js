@@ -70,6 +70,8 @@ FBL.attributes = ["agility", "empathy", "strength", "wits"];
 
 FBL.carriedStates = ["equipped", "carried"];
 
+FBL.carriedItemTypes = ["armor", "gear", "rawMaterial", "weapon"];
+
 FBL.characterSubtype = { pc: "ACTOR.SUBTYPE.PC", npc: "ACTOR.SUBTYPE.NPC" };
 
 FBL.consumableDice = {
