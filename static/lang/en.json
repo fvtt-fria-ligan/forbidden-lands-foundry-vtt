@@ -110,7 +110,6 @@
 	"CURRENCY.GOLD": "Gold",
 	"CURRENCY.SILVER": "Silver",
 	"DAMAGE": "Damage",
-
 	"DICE.ARTIFACT": "Artifact",
 	"DICE.ARTIFACTS": "Artifacts",
 	"DICE.SUCCESSES": "Successes",
@@ -230,6 +229,7 @@
 	"ROLL.CHANCE": "Chance Cast: Roll Mishap.",
 	"ROLL.MISHAP": "Roll Mishap!",
 	"ROLL_MODIFIER.SELECT": "Please select a modifier",
+	"SHEET.CREATE_CR": "Add Critical Injury",
 	"SHEET.HEADER.CHAR_GEN": "Chargen",
 	"SHEET.CLOSE": "Close",
 	"SHEET.CONFIGURE": "Configure",
@@ -287,7 +287,6 @@
 	"TALENT.RANK": "Rank",
 	"TALENT.TYPE": "Type",
 	"TALENT.WEAKNESS": "Weakness",
-
 	"VALUE": "Value",
 	"WARNING.ACTOR_BROKEN": "You are broken and cannot act!",
 	"WARNING.ITEM_BROKEN": "The item is broken and cannot be used!",
@@ -297,7 +296,6 @@
 	"WARNING.NO_DICE_INPUT": "No inputs detected. Please specify what dice to roll.",
 	"WARNING.NO_AVAILABLE_VALUES": "There are no more values left in the initiative deck.",
 	"WARNING.INVALID_ARTIFACT": "Invalid Artifact dice. Please input artifact dice like so \"1d8+1d12\".",
-
 	"WEAPON.1H": "1H",
 	"WEAPON.2H": "2H",
 	"WEAPON.BONUS": "Bonus",
@@ -335,10 +333,8 @@
 	"YZUR.DIETYPES.D10ArtifactDie": "D10 Artifact",
 	"YZUR.DIETYPES.D12ArtifactDie": "D12 Artifact",
 	"YZUR.DIETYPES.NegativeDie": "Negative Dice",
-
 	"FLPS.SETTINGS.ALLOW_PUSH": "Allow Unlimited Pushed Rolls",
 	"FLPS.SETTINGS.ALLOW_PUSH_HINT": "If your character is a Dwarf, or maybe your GM allows an unlimited number of pushed rolls. Or perhaps you are a GM who wants to be able to push this monster's rolls; check this setting to display a push button on almost any roll.",
-
 	"FLPS.TAB.MAIN": "MAIN",
 	"FLPS.TAB.TRAVEL": "TRAVEL",
 	"FLPS.PARTY.NAME": "Party Name",
@@ -390,5 +386,13 @@
 	"FLCG.WARNING": "WARNING!",
 	"FLCG.WARNING_DESTRUCTIVE_EDIT": "You are about to destructively edit your character.",
 	"FLCG.WARNING_HINT": "Clicking the \"Apply!\"-button in the character generator will permanently change your character with no way to revert these changes.",
-	"FLCG.WARNING_ARE_YOU_SURE": "Are you sure you want to do this?"
+	"FLCG.WARNING_ARE_YOU_SURE": "Are you sure you want to do this?",
+	"HEADER.COLLAPSE": "Collapse Table",
+	"SHEET.CREATE_TALENT": "Create Talent",
+	"SHEET.CREATE_M_ATTACK": "Create Monster Attack",
+	"SHEET.CREATE_BUILDING": "Create Building",
+	"SHEET.CREATE_ARMOR": "Create Armor",
+	"SHEET.CREATE_WEAPON": "Create Weapon",
+	"SHEET.CREATE_GEAR": "Create Gear",
+	"SHEET.CREATE_R_MATERIAL": "Create Raw Material"
 }

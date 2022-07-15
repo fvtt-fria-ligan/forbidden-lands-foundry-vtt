@@ -6,7 +6,7 @@
 				<b class="bonus">{{localize "ARMOR.RATING"}}</b>
 				<b class="quantity">{{localize "ITEM.QUANTITY"}}</b>
 				<b class="weight">{{localize "GEAR.WEIGHT"}} / {{localize "ARMOR.TOTAL"}}</b>
-				<a class="button item-create" title="Add Armor" data-type="armor"><i class="fas fa-plus"></i></a>
+				<a class="button item-create" title="{{localize "SHEET.CREATE_ARMOR"}}" data-type="armor"><i class="fas fa-plus"></i></a>
 			</div>
 			<div>
 				{{#each items as |item|}} {{#if item.isArmor}}
@@ -21,9 +21,9 @@
 					<input class="quantity" type="number" data-dtype="Number" value="{{item.data.quantity}}" />
 					<div class="weight">{{itemWeight item.data.weight}} / {{item.totalWeight}}</div>
 					<div class="button">
-						<a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-						<a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
-						<a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+						<a class="item-control item-edit" title="{{localize "GEAR.EDIT"}}"><i class="fas fa-edit"></i></a>
+						<a class="item-control item-post" title="{{localize "GEAR.POST"}}"><i class="fas fa-comment"></i></a>
+						<a class="item-control item-delete" title="{{localize "GEAR.DELETE"}}"><i class="fas fa-trash"></i></a>
 					</div>
 				</div>
 				{{/if}} {{/each}}
@@ -33,7 +33,7 @@
 				<b class="bonus">{{localize "WEAPON.BONUS"}}</b>
 				<b class="quantity">{{localize "ITEM.QUANTITY"}}</b>
 				<b class="weight">{{localize "GEAR.WEIGHT"}} / {{localize "ARMOR.TOTAL"}}</b>
-				<a class="button item-create" title="Add Weapon" data-type="weapon"><i class="fas fa-plus"></i></a>
+				<a class="button item-create" title="{{localize "SHEET.CREATE_WEAPON"}}" data-type="weapon"><i class="fas fa-plus"></i></a>
 			</div>
 			<div>
 				{{#each items as |item|}} {{#if item.isWeapon}}
@@ -48,9 +48,9 @@
 					<input class="quantity" type="number" data-dtype="Number" value="{{item.data.quantity}}" />
 					<div class="weight">{{itemWeight item.data.weight}} / {{item.totalWeight}}</div>
 					<div class="button">
-						<a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-						<a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
-						<a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+						<a class="item-control item-edit" title="{{localize "GEAR.EDIT"}}"><i class="fas fa-edit"></i></a>
+						<a class="item-control item-post" title="{{localize "GEAR.POST"}}"><i class="fas fa-comment"></i></a>
+						<a class="item-control item-delete" title="{{localize "GEAR.DELETE"}}"><i class="fas fa-trash"></i></a>
 					</div>
 				</div>
 				{{/if}} {{/each}}
@@ -60,7 +60,7 @@
 				<b class="bonus">{{localize "GEAR.BONUS"}}</b>
 				<b class="quantity">{{localize "ITEM.QUANTITY"}}</b>
 				<b class="weight">{{localize "GEAR.WEIGHT"}} / {{localize "ARMOR.TOTAL"}}</b>
-				<a class="button item-create" title="Add Gear" data-type="gear"><i class="fas fa-plus"></i></a>
+				<a class="button item-create" title="{{localize "SHEET.CREATE_GEAR"}}" data-type="gear"><i class="fas fa-plus"></i></a>
 			</div>
 			<div>
 				{{#each items as |item|}} {{#if item.isGear}}
@@ -75,10 +75,10 @@
 					<input class="quantity" type="number" data-dtype="Number" value="{{item.data.quantity}}" />
 					<div class="weight">{{itemWeight item.data.weight}} / {{item.totalWeight}}</div>
 					<div class="button">
-						<a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-						<a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
-						<a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-					</div>
+						<a class="item-control item-edit" title="{{localize "GEAR.EDIT"}}"><i class="fas fa-edit"></i></a>
+						<a class="item-control item-post" title="{{localize "GEAR.POST"}}"><i class="fas fa-comment"></i></a>
+						<a class="item-control item-delete" title="{{localize "GEAR.DELETE"}}"><i class="fas fa-trash"></i></a>
+				</div>
 				</div>
 				{{/if}} {{/each}}
 			</div>
@@ -87,7 +87,7 @@
 				<b class="bonus">&nbsp;</b>
 				<b class="quantity">{{localize "ITEM.QUANTITY"}}</b>
 				<b class="weight">{{localize "GEAR.WEIGHT"}} / {{localize "ARMOR.TOTAL"}}</b>
-				<a class="button item-create" title="Add Raw Material" data-type="rawMaterial"
+				<a class="button item-create" title="{{localize "SHEET.CREATE_R_MATERIAL"}}" data-type="rawMaterial"
 					><i class="fas fa-plus"></i
 				></a>
 			</div>
@@ -102,9 +102,9 @@
 					<input class="quantity" type="number" data-dtype="Number" value="{{item.data.quantity}}" />
 					<div class="weight">{{itemWeight item.data.weight}} / {{item.totalWeight}}</div>
 					<div class="button">
-						<a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-						<a class="item-control item-post" title="Post Item"><i class="fas fa-comment"></i></a>
-						<a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+						<a class="item-control item-edit" title="{{localize "GEAR.EDIT"}}"><i class="fas fa-edit"></i></a>
+						<a class="item-control item-post" title="{{localize "GEAR.POST"}}"><i class="fas fa-comment"></i></a>
+						<a class="item-control item-delete" title="{{localize "GEAR.DELETE"}}"><i class="fas fa-trash"></i></a>
 					</div>
 				</div>
 				{{/if}} {{/each}}
