@@ -8,6 +8,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	getData() {
 		const data = this.actorData.toObject();
 		data.items?.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+		this.computeItems(data);
 		data.carriedStates = this.#getCarriedStates();
 		data.gear = this.#filterGear(data.items);
 		return data;
@@ -272,21 +273,21 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	rollArmor() {
 		const rollName = `${localizeString("ITEM.TypeArmor")}: ${localizeString("ARMOR.TOTAL")}`;
 		const totalArmor = this.actor.itemTypes.armor.reduce((sum, armor) => {
-			if (armor.itemProperties.part === "shield") return sum;
+			if (armor.itemProperties.part === "shield" || armor.state !== "equipped") return sum;
+			const rollData = armor.getRollData();
+			if (rollData.isBroken) throw this.broken("item");
 			const value = armor.itemProperties.bonus.value;
 			return (sum += value);
 		}, 0);
 		if (!totalArmor) return ui.notifications.warn(localizeString("WARNING.NO_ARMOR"));
 
-		const mainArmorData = this.actor.items.find((item) => item.itemProperties.part === "body").getRollData();
-		if (mainArmorData.isBroken) throw this.broken("item");
-
-		mainArmorData.value = totalArmor;
-		mainArmorData.name = rollName;
-
 		const data = {
 			title: rollName,
-			gear: mainArmorData,
+			gear: {
+				label: localizeString("ITEM.TypeArmor"),
+				name: localizeString("ITEM.TypeArmor"),
+				value: totalArmor,
+			},
 		};
 		const options = {
 			maxPush: "0",
