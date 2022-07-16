@@ -15,6 +15,7 @@ import localizeString from "@utils/localize-string.js";
 import { ForbiddenLandsJournalEntry } from "@journal/journal-document.js";
 import { init, utilities } from "@journal/adventure-sites/adventure-site-generator.js";
 import { FBLCombat, FBLCombatant, FBLCombatTracker } from "@system/combat/combat.js";
+import { importMacros } from "@components/macros/macros.js";
 
 /**
  * We use this label to remove the debug option in production builds.
@@ -60,6 +61,7 @@ Hooks.once("init", () => {
 Hooks.once("ready", () => {
 	migrateWorld();
 	displayMessages();
+	importMacros();
 
 	// Hack to remove monsterTalents from System
 	game.system.documentTypes.Item = game.system.documentTypes.Item.filter((type) => type !== "monsterTalent");

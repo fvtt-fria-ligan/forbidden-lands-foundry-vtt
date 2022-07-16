@@ -22,6 +22,7 @@ function handleSpellMacro(actor, item) {
 
 async function handleWeaponMacro(actor, item) {
 	const type =
+		/* eslint-disable no-nested-ternary */
 		item.data.part === "shield" || item.data.category === "melee"
 			? await Dialog.prompt({
 					title: game.i18n.localize("MACRO.CHOOSE_TYPE"),
@@ -57,11 +58,16 @@ async function handleWeaponMacro(actor, item) {
 					},
 					rejectClose: true,
 			  })
+			: item.type === "armor"
+			? "armor"
 			: "gear";
 	const command =
 		type === "gear"
 			? `game.actors.get("${actor.id}").sheet.rollGear("${item._id}")`
+			: type === "armor"
+			? `game.actors.get("${actor.id}").sheet.rollSpecificArmor("${item._id}")`
 			: `game.actors.get("${actor.id}").sheet.rollAction("${type}","${item._id}")`;
+	/* eslint-enable no-nested-ternary */
 	// eslint-disable-next-line no-shadow
 	const name = type === "gear" ? item.name : `${item.name}: ${localizeString(type)}`;
 	return {
@@ -91,7 +97,7 @@ async function handleItemMacro(data) {
 	return handler(actor, item);
 }
 
-export default async function handleHotbarDrop(data, slot) {
+export async function handleHotbarDrop(data, slot) {
 	const handler = handlers[data.type];
 	if (!handler) return;
 	// eslint-disable-next-line no-shadow
@@ -107,4 +113,22 @@ export default async function handleHotbarDrop(data, slot) {
 		});
 	}
 	game.user.assignHotbarMacro(macro, slot);
+}
+
+export async function importMacros() {
+	if (game.packs.get("world.forbidden-lands-macros")) return;
+	const pack = await CompendiumCollection.createCompendium({
+		name: "forbidden-lands-macros",
+		label: game.i18n.localize("MACRO.COMPENDIUM_NAME"),
+		type: "Macro",
+		system: "forbidden-lands",
+	});
+	const macros = await foundry.utils.fetchJsonWithTimeout(
+		"/systems/forbidden-lands/assets/datasets/macros/macros.json",
+	);
+	const localizedMacros = macros.map((m) => ({
+		...m,
+		name: game.i18n.localize(m.name),
+	}));
+	Macro.create(localizedMacros, { pack: pack.collection });
 }

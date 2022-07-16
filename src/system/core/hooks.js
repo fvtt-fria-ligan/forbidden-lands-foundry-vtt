@@ -1,7 +1,7 @@
 import { registerDiceSoNice } from "../../external-api/dice-so-nice.js";
 import { FBLRollHandler } from "@components/roll-engine/engine.js";
 import localizeString from "@utils/localize-string.js";
-import handleHotbarDrop from "@components/macros/macros.js";
+import { handleHotbarDrop } from "@components/macros/macros.js";
 
 /**
  * Registers all hooks that are not 'init' or 'ready'
