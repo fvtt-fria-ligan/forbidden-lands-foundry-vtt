@@ -1,0 +1,56 @@
+[
+	{
+		"name": "ACTION.UNARMED_STRIKE",
+		"command": "const character = game.user.character;if (!character) return ui.notifications.warn(\"MACRO.NO_ACTOR\", { localize: true });character.sheet.rollAction(\"unarmed\")",
+		"img": "icons/svg/combat.svg",
+		"type": "script"
+	},
+	{
+		"name": "ACTION.DODGE",
+		"command": "const character = game.user.character;if (!character) return ui.notifications.warn(\"MACRO.NO_ACTOR\", { localize: true });character.sheet.rollAction(\"dodge\")",
+		"img": "icons/svg/combat.svg",
+		"type": "script"
+	},
+	{
+		"name": "ACTION.PARRY",
+		"command": "const character = game.user.character;if (!character) return ui.notifications.warn(\"MACRO.NO_ACTOR\", { localize: true });character.sheet.rollAction(\"parry\")",
+		"img": "icons/svg/combat.svg",
+		"type": "script"
+	},
+	{
+		"name": "ACTION.RETREAT",
+		"command": "const character = game.user.character;if (!character) return ui.notifications.warn(\"MACRO.NO_ACTOR\", { localize: true });character.sheet.rollAction(\"retreat\")",
+		"img": "icons/svg/combat.svg",
+		"type": "script"
+	},
+	{
+		"name": "ACTION.BREAK_FREE",
+		"command": "const character = game.user.character;if (!character) return ui.notifications.warn(\"MACRO.NO_ACTOR\", { localize: true });character.sheet.rollAction(\"breakFree\")",
+		"img": "icons/svg/combat.svg",
+		"type": "script"
+	},
+	{
+		"name": "ACTION.DISARM",
+		"command": "const character = game.user.character;if (!character) return ui.notifications.warn(\"MACRO.NO_ACTOR\", { localize: true });character.sheet.rollAction(\"disarm\")",
+		"img": "icons/svg/combat.svg",
+		"type": "script"
+	},
+	{
+		"name": "ACTION.GRAPPLE",
+		"command": "const character = game.user.character;if (!character) return ui.notifications.warn(\"MACRO.NO_ACTOR\", { localize: true });character.sheet.rollAction(\"grapple\")",
+		"img": "icons/svg/combat.svg",
+		"type": "script"
+	},
+	{
+		"name": "ACTION.GRAPPLE_ATTACK",
+		"command": "const character = game.user.character;if (!character) return ui.notifications.warn(\"MACRO.NO_ACTOR\", { localize: true });character.sheet.rollAction(\"grappleAttack\")",
+		"img": "icons/svg/combat.svg",
+		"type": "script"
+	},
+	{
+		"name": "ACTION.SHOVE",
+		"command": "const character = game.user.character;if (!character) return ui.notifications.warn(\"MACRO.NO_ACTOR\", { localize: true });character.sheet.rollAction(\"shove\")",
+		"img": "icons/svg/combat.svg",
+		"type": "script"
+	}
+]

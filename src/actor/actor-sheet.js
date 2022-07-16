@@ -103,11 +103,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			const direction = $(ev.currentTarget).data("direction");
 			const oppositeDirection = direction === "carried" ? "" : "carried";
 			const updates = this.actor.items
-				.filter(
-					(item) =>
-						["armor", "gear", "rawMaterial", "weapon"].includes(item.type) &&
-						item.state === oppositeDirection,
-				)
+				.filter((item) => CONFIG.fbl.carriedItemTypes.includes(item.type) && item.state === oppositeDirection)
 				.map((item) => {
 					return {
 						_id: item.id,
@@ -466,7 +462,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 
 	#filterGear(items) {
 		const filteredItems = items
-			?.filter(({ type }) => ["gear", "rawMaterial", "weapon", "armor"].includes(type))
+			?.filter(({ type }) => CONFIG.fbl.carriedItemTypes.includes(type))
 			.map((item) => ({ ...item, state: item.flags["forbidden-lands"]?.state || "none" }));
 		const reduced = filteredItems.reduce((acc, item) => {
 			const { state } = item;
