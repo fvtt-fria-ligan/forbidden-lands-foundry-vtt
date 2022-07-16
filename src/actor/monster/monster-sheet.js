@@ -37,9 +37,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 
 	activateListeners(html) {
 		super.activateListeners(html);
-		html.find(".item-create").click((ev) => {
-			this.onItemCreate(ev);
-		});
+
 		html.find(".roll-armor").click(() => this.rollArmor());
 		html.find("#monster-attack-btn").click(() => this.rollAttack());
 		html.find(".roll-attack").click((ev) => {
@@ -111,14 +109,6 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 			max: weightAllowed,
 			over: weightCarried > weightAllowed,
 		};
-	}
-
-	onItemCreate(event) {
-		event.preventDefault();
-		let header = event.currentTarget;
-		let data = duplicate(header.dataset);
-		data.name = `New ${data.type.capitalize()}`;
-		this.actor.createEmbeddedDocuments("Item", data, { renderSheet: true });
 	}
 
 	/* Override */

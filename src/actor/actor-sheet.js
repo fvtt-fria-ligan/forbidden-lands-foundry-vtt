@@ -8,6 +8,9 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	getData() {
 		const data = this.actorData.toObject();
 		data.items?.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+		this.computeItems(data);
+		data.carriedStates = this.#getCarriedStates();
+		data.gear = this.#filterGear(data.items);
 		return data;
 	}
 
@@ -33,7 +36,6 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	 */
 	async _onDrop(event, data) {
 		let dragData = JSON.parse(event.dataTransfer.getData("text/plain"));
-
 		if (dragData.type === "itemDrop") {
 			this.actor.createEmbeddedDocuments("Item", [dragData.item]);
 		} else {
@@ -41,9 +43,29 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		}
 	}
 
+	async _onSortItem(event, itemData) {
+		// Sorts items in the various containers by drag and drop
+		let state = $(event.target).closest("[data-state]")?.data("state");
+		if (state || state === "") {
+			await this.actor.updateEmbeddedDocuments("Item", [
+				{
+					_id: itemData._id,
+					flags: { "forbidden-lands": { state: state === "none" ? "" : state } },
+				},
+			]);
+		}
+		return super._onSortItem(event, itemData);
+	}
+
 	activateListeners(html) {
 		super.activateListeners(html);
 		if (!game.user.isGM && this.actor.limited) return;
+
+		html.find(".item-create").click((ev) => this.#onItemCreate(ev));
+		html.find(".create-dialog").click((ev) => {
+			this.#onCreateDialog(ev);
+		});
+
 		// Attribute markers
 		html.find(".change-attribute").on("click contextmenu", (ev) => {
 			const attributeName = $(ev.currentTarget).data("attribute");
@@ -75,6 +97,39 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 				value = Math.min(value + 1, attribute.max);
 			}
 			this.actor.update({ "data.bio.willpower.value": value });
+		});
+
+		html.find(".control-gear").click((ev) => {
+			const direction = $(ev.currentTarget).data("direction");
+			const oppositeDirection = direction === "carried" ? "" : "carried";
+			const updates = this.actor.items
+				.filter(
+					(item) =>
+						["armor", "gear", "rawMaterial", "weapon"].includes(item.type) &&
+						item.state === oppositeDirection,
+				)
+				.map((item) => {
+					return {
+						_id: item.id,
+						flags: { "forbidden-lands": { state: direction } },
+					};
+				});
+			this.actor.updateEmbeddedDocuments("Item", updates);
+		});
+
+		html.find(".collapse-table").click((ev) => {
+			const state = $(ev.currentTarget).closest("[data-state]").data("state");
+			this.actor.setFlag(
+				"forbidden-lands",
+				`${state}-collapsed`,
+				!this.actor.getFlag("forbidden-lands", `${state ?? "none"}-collapsed`),
+			);
+		});
+
+		html.find(".header-sort").click((ev) => {
+			const state = $(ev.currentTarget).closest("[data-state]").data("state");
+			const sort = $(ev.currentTarget).data("sort");
+			this.actor.setFlag("forbidden-lands", `${state ?? "none"}-sort`, sort);
 		});
 
 		// Items
@@ -218,21 +273,21 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	rollArmor() {
 		const rollName = `${localizeString("ITEM.TypeArmor")}: ${localizeString("ARMOR.TOTAL")}`;
 		const totalArmor = this.actor.itemTypes.armor.reduce((sum, armor) => {
-			if (armor.itemProperties.part === "shield") return sum;
+			if (armor.itemProperties.part === "shield" || armor.state !== "equipped") return sum;
+			const rollData = armor.getRollData();
+			if (rollData.isBroken) throw this.broken("item");
 			const value = armor.itemProperties.bonus.value;
 			return (sum += value);
 		}, 0);
 		if (!totalArmor) return ui.notifications.warn(localizeString("WARNING.NO_ARMOR"));
 
-		const mainArmorData = this.actor.items.find((item) => item.itemProperties.part === "body").getRollData();
-		if (mainArmorData.isBroken) throw this.broken("item");
-
-		mainArmorData.value = totalArmor;
-		mainArmorData.name = rollName;
-
 		const data = {
 			title: rollName,
-			gear: mainArmorData,
+			gear: {
+				label: localizeString("ITEM.TypeArmor"),
+				name: localizeString("ITEM.TypeArmor"),
+				value: totalArmor,
+			},
 		};
 		const options = {
 			maxPush: "0",
@@ -365,10 +420,101 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		const weight = isNaN(Number(data?.data.weight))
 			? this.config.encumbrance[data?.data.weight] ?? 1
 			: Number(data?.data.weight) ?? 1;
+		// If the item isn't carried or equipped, don't count it.
+		if (!data.flags["forbidden-lands"]?.state) return 0;
 		// Only return weight for these types.
 		if (type === "rawMaterial") return 1 * Number(data.data.quantity);
 		if (["gear", "armor", "weapon"].includes(type)) return weight;
 		// Talents, Spells, and the like dont have weight.
 		return 0;
+	}
+
+	#getCarriedStates() {
+		const carrriedStates = CONFIG.fbl.carriedStates;
+		return carrriedStates.map((state) => {
+			return {
+				name: state,
+				collapsed: this.actor.getFlag("forbidden-lands", `${state}-collapsed`),
+			};
+		});
+	}
+
+	#getSortKey(state) {
+		return this.actor.getFlag("forbidden-lands", `${state ?? "none"}-sort`) || "name";
+	}
+
+	#sortGear(a, b, key) {
+		/* eslint-disable no-case-declarations, no-nested-ternary */
+		switch (key) {
+			case "name":
+			case "type":
+				return a[key]?.toLocaleLowerCase().localeCompare(b[key]?.toLocaleLowerCase()) ?? 0;
+			case "attribute":
+				const aComp = a.type === "rawMaterial" ? a.data.quantity : a.data.bonus.value;
+				const bComp = b.type === "rawMaterial" ? b.data.quantity : b.data.bonus.value;
+				return Number(bComp) - Number(aComp);
+			case "weight":
+				const weightMap = CONFIG.fbl.encumbrance;
+				const aWeight =
+					a.type === "rawMaterial" ? Number(a.data.quantity) : Math.floor(weightMap[a.data.weight] || 0);
+				const bWeight =
+					b.type === "rawMaterial" ? Number(b.data.quantity) : Math.floor(weightMap[b.data.weight] || 0);
+				return bWeight - aWeight;
+		}
+		/* eslint-enable no-case-declarations, no-nested-ternary */
+	}
+
+	#filterGear(items) {
+		const filteredItems = items
+			?.filter(({ type }) => ["gear", "rawMaterial", "weapon", "armor"].includes(type))
+			.map((item) => ({ ...item, state: item.flags["forbidden-lands"]?.state || "none" }));
+		const reduced = filteredItems.reduce((acc, item) => {
+			const { state } = item;
+			if (!acc[state]) acc[state] = [];
+			acc[state].push(item);
+			return acc;
+		}, {});
+		return Object.fromEntries(
+			Object.entries(reduced).map(([key, arr]) => [
+				key,
+				arr.sort((a, b) => this.#sortGear(a, b, this.#getSortKey(key))),
+			]),
+		);
+	}
+
+	#onItemCreate(event) {
+		const itemType = $(event.currentTarget).data("type");
+		const label = CONFIG.fbl.i18n[itemType];
+		this.actor.createEmbeddedDocuments(
+			"Item",
+			{
+				name: `${game.i18n.localize(label)}`,
+				type: itemType,
+			},
+			{ renderSheet: true },
+		);
+	}
+
+	async #onCreateDialog(event) {
+		event.preventDefault();
+		const state = $(event.target).closest("[data-state]")?.data("state");
+		Hooks.once("renderDialog", (_, html) =>
+			html
+				.find("option")
+				.filter((i, el) =>
+					[
+						"criticalInjury",
+						"building",
+						"hireling",
+						"monsterAttack",
+						"monsterTalent",
+						"spell",
+						"talent",
+					].includes(el.value),
+				)
+				.remove(),
+		);
+		const item = await Item.createDialog({}, { parent: this.actor });
+		if (item) item.setFlag("forbidden-lands", "state", state === "none" ? "" : state);
 	}
 }

@@ -68,6 +68,8 @@ FBL.adventureSites = {
 
 FBL.attributes = ["agility", "empathy", "strength", "wits"];
 
+FBL.carriedStates = ["equipped", "carried"];
+
 FBL.characterSubtype = { pc: "ACTOR.SUBTYPE.PC", npc: "ACTOR.SUBTYPE.NPC" };
 
 FBL.consumableDice = {
@@ -101,6 +103,16 @@ FBL.encumbrance = {
 };
 
 FBL.i18n = {
+	armor: "ITEM.TypeArmor",
+	gear: "ITEM.TypeGear",
+	weapon: "ITEM.TypeWeapon",
+	rawMaterial: "ITEM.TypeRawmaterial",
+	talent: "ITEM.TypeTalent",
+	spell: "ITEM.TypeSpell",
+	monsterAttack: "ITEM.TypeMonsterattack",
+	criticalInjury: "ITEM.TypeCriticalinjury",
+	building: "ITEM.TypeBuilding",
+	hireling: "ITEM.TypeHireling",
 	agility: "ATTRIBUTE.AGILITY",
 	empathy: "ATTRIBUTE.EMPATHY",
 	strength: "ATTRIBUTE.STRENGTH",

@@ -41,17 +41,12 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	getData() {
 		const actorData = super.getData();
 		this.computeSkills(actorData);
-		this.computeItems(actorData);
 		this.computeEncumbrance(actorData);
 		return actorData;
 	}
 
 	activateListeners(html) {
 		super.activateListeners(html);
-
-		html.find(".item-create").click((ev) => {
-			this.onItemCreate(ev);
-		});
 
 		html.find(".condition").click(async (ev) => {
 			const conditionName = $(ev.currentTarget).data("condition");
@@ -126,16 +121,6 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			max: weightAllowed,
 			over: weightCarried > weightAllowed,
 		};
-	}
-
-	onItemCreate(event) {
-		event.preventDefault();
-		let header = event.currentTarget;
-		let data = duplicate(header.dataset);
-		data.name = `New ${data.type.capitalize()}`;
-		this.actor.createEmbeddedDocuments("Item", data, {
-			renderSheet: true,
-		});
 	}
 
 	/************************************************/

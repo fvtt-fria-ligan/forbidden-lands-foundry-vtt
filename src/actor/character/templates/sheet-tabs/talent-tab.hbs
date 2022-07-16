@@ -8,22 +8,24 @@
 				<a class="button item-create" title="Add Talent" data-type="talent"><i class="fas fa-plus"></i></a>
 			</div>
 			<div class="items">
-				{{#each items as |item|}} {{#if item.isTalent}}
-				<div class="talent item flex row" data-item-id="{{item._id}}">
-					<div class="name">
-						<div class="image-container">
-							<div class="image" style="background-image: url('{{item.img}}')"></div>
+				{{#each items as |item|}}
+					{{#if item.isTalent}}
+						<div class="talent item flex row" data-item-id="{{item._id}}">
+							<div class="name">
+								<img src="{{item.img}}" width="32px" />
+								<div class="name">{{item.name}}</div>
+							</div>
+							<div class="rank">{{item.data.rank}}</div>
+							<div class="button">
+								<a class="item-control item-edit" title="Edit Talent"><i class="fas fa-edit"></i></a>
+								<a class="item-control item-post" title="Post Talent"><i class="fas fa-comment"></i></a>
+								<a class="item-control item-delete" title="Delete Talent"><i
+										class="fas fa-trash"
+									></i></a>
+							</div>
 						</div>
-						<div class="name">{{item.name}}</div>
-					</div>
-					<div class="rank">{{item.data.rank}}</div>
-					<div class="button">
-						<a class="item-control item-edit" title="Edit Talent"><i class="fas fa-edit"></i></a>
-						<a class="item-control item-post" title="Post Talent"><i class="fas fa-comment"></i></a>
-						<a class="item-control item-delete" title="Delete Talent"><i class="fas fa-trash"></i></a>
-					</div>
-				</div>
-				{{/if}} {{/each}}
+					{{/if}}
+				{{/each}}
 			</div>
 		</div>
 	</div>
@@ -36,22 +38,28 @@
 				<a class="button item-create" title="Add Spell" data-type="spell"><i class="fas fa-plus"></i></a>
 			</div>
 			<div class="items">
-				{{#each items as |item|}} {{#if item.isSpell}}
-				<div class="spell item flex row" data-item-id="{{item._id}}">
-					<div class="name">
-						<div class="image-container">
-							<div class="image" style="background-image: url('{{item.img}}')"></div>
+				{{#each items as |item|}}
+					{{#if item.isSpell}}
+						<div class="spell item flex row" data-item-id="{{item._id}}">
+							<div class="name">
+								<img src="{{item.img}}" width="32px" />
+								<button
+									type="button"
+									class="roll-spell"
+									data-item-id="{{item._id}}"
+								>{{item.name}}</button>
+							</div>
+							<div class="rank">{{item.data.rank}}</div>
+							<div class="button">
+								<a class="item-control item-edit" title="Edit Spell"><i class="fas fa-edit"></i></a>
+								<a class="item-control item-post" title="Post Spell"><i class="fas fa-comment"></i></a>
+								<a class="item-control item-delete" title="Delete Spell"><i
+										class="fas fa-trash"
+									></i></a>
+							</div>
 						</div>
-						<button type="button" class="roll-spell" data-item-id="{{item._id}}">{{item.name}}</button>
-					</div>
-					<div class="rank">{{item.data.rank}}</div>
-					<div class="button">
-						<a class="item-control item-edit" title="Edit Spell"><i class="fas fa-edit"></i></a>
-						<a class="item-control item-post" title="Post Spell"><i class="fas fa-comment"></i></a>
-						<a class="item-control item-delete" title="Delete Spell"><i class="fas fa-trash"></i></a>
-					</div>
-				</div>
-				{{/if}} {{/each}}
+					{{/if}}
+				{{/each}}
 			</div>
 		</div>
 	</div>

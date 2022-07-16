@@ -4,6 +4,7 @@
 
 .forbidden-lands .stronghold .hirelings .hireling {
 	align-items: center;
+	height: 32px;
 }
 
 .forbidden-lands .character .hirelings .header .name,
@@ -33,6 +34,6 @@
 
 .forbidden-lands .stronghold .hirelings .hireling .button {
 	flex-basis: 10%;
-	font-size: 11px;
+	font-size: 1.2rem;
 	text-align: right;
 }

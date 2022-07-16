@@ -1,138 +1,175 @@
-.forbidden-lands .gear-tab {
-	display: grid;
-	gap: 8px;
-	grid-template-rows: auto 1fr auto;
-	height: 100%;
-}
+.forbidden-lands {
+	.gear-tab {
+		display: grid;
+		gap: 8px;
+		grid-template-rows: auto 1fr auto;
+		height: 100%;
 
-.forbidden-lands .character .currencies .header {
-	font-variant: small-caps;
-	justify-content: space-between;
-	align-items: center;
-	padding: 8px;
-}
+		a.currency-button {
+			margin: 0 1px;
+		}
 
-a.currency-button {
-	margin: 0 1px;
-}
+		.currencies {
+			.header {
+				font-variant: small-caps;
+				justify-content: space-between;
+				align-items: center;
+				padding: 8px;
 
-.forbidden-lands .character .currencies .header b {
-	font-family: var(--font-special);
-	font-size: var(--font-size--default);
-}
+				b {
+					font-family: var(--font-special);
+					font-size: var(--font-size--default);
+				}
+			}
 
-.forbidden-lands .character .currencies .values label {
-	font-family: var(--font-special);
-	font-variant: normal;
-	margin: 0 8px 0 16px;
-}
+			.values {
+				label {
+					font-family: var(--font-special);
+					font-variant: normal;
+					margin: 0 8px 0 16px;
+				}
 
-.forbidden-lands .character .currencies .values input {
-	width: 3em;
-}
+				input {
+					width: 3em;
+				}
+			}
+		}
 
-.forbidden-lands .character .consumables {
-	display: grid;
-	grid-template-columns: auto auto auto auto auto;
-}
+		.consumables {
+			display: grid;
+			grid-template-columns: auto auto auto auto auto;
 
-.forbidden-lands .character .consumables .consumable {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	font-family: var(--font-special);
-	padding: 8px 0;
-	justify-content: center;
-	font-size: var(--font-size--default);
-	i {
-		margin-left: 5px;
-		margin-bottom: 2px;
-		font-size: 2.3rem;
+			.consumable {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				font-family: var(--font-special);
+				padding: 8px 0;
+				justify-content: center;
+				font-size: var(--font-size--default);
+
+				i {
+					margin-left: 5px;
+					margin-bottom: 2px;
+					font-size: 2.3rem;
+				}
+
+				button {
+					margin-right: 6px;
+				}
+
+				select {
+					width: auto;
+				}
+			}
+		}
+
+		.gears {
+			padding-bottom: 8px;
+			position: relative;
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
+
+			.controls {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+				gap: 0.5rem;
+				background-color: var(--color--background-dark);
+				border-radius: 4px;
+				box-shadow: 0 2px 3px #0002;
+				margin: 0 auto 4px;
+				padding: 0 0.5rem;
+			}
+
+			button i {
+				margin: 0;
+			}
+
+			.encumbrance {
+				font-family: var(--font-editor);
+				font-size: var(--font-size--default);
+				padding: 2px 4px;
+
+				&.overencumbered {
+					color: #a00;
+				}
+
+				i {
+					font-size: var(--font-size--small);
+				}
+			}
+
+			.items {
+				& > table {
+					table-layout: fixed;
+					width: 100%;
+					border: unset;
+					background-color: unset;
+
+					thead {
+						background-color: transparent;
+						color: var(--color-text-dark-1);
+						text-shadow: none;
+						border: none;
+						border-bottom: 2px solid var(--color-border);
+						margin-bottom: 4px;
+						font-size: var(--font-size--very-small);
+						font-weight: bold;
+						padding: 4px;
+						text-transform: uppercase;
+					}
+
+					th,
+					td {
+						padding: 2px 4px;
+						white-space: nowrap;
+						text-align: center;
+					}
+
+					th:first-child,
+					td:first-child {
+						width: 40%;
+						text-align: left;
+					}
+
+					th:last-child,
+					td:last-child {
+						text-align: end;
+					}
+				}
+
+				.profile {
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+
+				button {
+					margin: 0;
+					margin-left: 2px;
+					padding: 0;
+					width: 16px;
+					height: 16px;
+
+					&:first-child {
+						margin-left: 0;
+					}
+
+					i {
+						margin: 0;
+					}
+				}
+
+				input.quantity {
+					width: 50%;
+				}
+
+				.broken {
+					color: #a00;
+				}
+			}
+		}
 	}
-	button {
-		margin-right: 6px;
-	}
-}
-
-.forbidden-lands .character .consumables .consumable select {
-	width: auto;
-}
-
-.forbidden-lands .character .gears {
-	padding-bottom: 8px;
-	position: relative;
-	overflow: hidden;
-	display: flex;
-	flex-direction: column;
-}
-
-.forbidden-lands .character .gears .items .header {
-	margin: 0;
-	width: 100%;
-}
-
-.forbidden-lands .character .gears .items div + .header {
-	margin-top: 8px;
-}
-
-.forbidden-lands .character .gears .encumbrance {
-	border-bottom: 1px solid var(--color-border);
-	font-family: var(--font-special);
-	font-size: var(--font-size--default);
-	padding: 4px 8px;
-	position: absolute;
-	right: 8px;
-	top: 0;
-}
-
-.forbidden-lands .character .gears .encumbrance.overencumbered {
-	color: #a00;
-}
-
-.forbidden-lands .character .gears .encumbrance i {
-	font-size: var(--font-size--small);
-}
-
-.forbidden-lands .character .gears .gear {
-	align-items: center;
-}
-
-.forbidden-lands .character .gears .name {
-	align-items: center;
-	flex-basis: 60%;
-	display: flex;
-}
-
-.forbidden-lands .character .gears .name .name,
-.forbidden-lands .character .gears .bonus,
-.forbidden-lands .character .gears .weight,
-.forbidden-lands .character .gears .button {
-	margin-left: 4px;
-}
-
-.forbidden-lands .character .gears .bonus,
-.forbidden-lands .character .gears .quantity {
-	flex-basis: 15%;
-	text-align: center;
-}
-
-.forbidden-lands .character .gears input.quantity {
-	flex-basis: 8%;
-	margin-right: 3%;
-	margin-left: 5%;
-}
-
-.forbidden-lands .character .gears .bonus.broken {
-	color: #a00;
-}
-
-.forbidden-lands .character .gears .weight {
-	flex-basis: 15%;
-	text-align: center;
-}
-
-.forbidden-lands .character .gears .button {
-	flex-basis: 10%;
-	font-size: 11px;
-	text-align: right;
 }

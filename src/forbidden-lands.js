@@ -179,7 +179,7 @@ Hooks.on("renderChatMessage", async (app, html) => {
 						});
 				};
 				// Delete the old roll from the chat
-				if (game.modules.get("dice-so-nice").active)
+				if (game.modules.get("dice-so-nice")?.active)
 					Hooks.once("diceSoNiceRollComplete", () => {
 						fireEvent();
 					});

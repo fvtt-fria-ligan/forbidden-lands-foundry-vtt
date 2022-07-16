@@ -5,23 +5,31 @@
 			<div class="header building flex row">
 				<b class="name">{{localize "BUILDING.NAME"}}</b>
 				<b class="number">{{localize "BUILDING.NUMBER"}}</b>
-				<a class="button item-create" title="Add Building" data-type="building"><i class="fas fa-plus"></i></a>
+				<a class="button item-create" title="{{localize 'SHEET.CREATE_BUILDING'}}" data-type="building"><i
+						class="fas fa-plus"
+					></i></a>
 			</div>
 			<div class="items">
-				{{#each items as |item|}} {{#if item.isBuilding}}
-				<div class="building item flex row" data-item-id="{{item._id}}">
-					<div class="name">
-						<a class="name">{{item.name}}:</a>
-						{{item.data.effect}}
-					</div>
-					<div class="number">{{item.data.number}}</div>
-					<div class="button">
-						<a class="item-control item-edit" title="Edit Building"><i class="fas fa-edit"></i></a>
-						<a class="item-control item-post" title="Post Building"><i class="fas fa-comment"></i></a>
-						<a class="item-control item-delete" title="Delete Building"><i class="fas fa-trash"></i></a>
-					</div>
-				</div>
-				{{/if}} {{/each}}
+				{{#each items as |item|}}
+					{{#if item.isBuilding}}
+						<div class="building item flex row" data-item-id="{{item._id}}">
+							<div class="name">
+								<a class="name">{{item.name}}:</a>
+								{{item.data.effect}}
+							</div>
+							<div class="number">{{item.data.number}}</div>
+							<div class="button">
+								<a class="item-control item-edit" title="Edit Building"><i class="fas fa-edit"></i></a>
+								<a class="item-control item-post" title="Post Building"><i
+										class="fas fa-comment"
+									></i></a>
+								<a class="item-control item-delete" title="Delete Building"><i
+										class="fas fa-trash"
+									></i></a>
+							</div>
+						</div>
+					{{/if}}
+				{{/each}}
 			</div>
 		</div>
 	</div>

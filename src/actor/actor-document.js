@@ -74,8 +74,16 @@ export class ForbiddenLandsActor extends Actor {
 					const resolved = await obj;
 					return { ...resolved, [key]: value };
 				}, {});
+
+				// We only want to touch flags of items that are considered "gear"
+				if (!["gear", "armor", "rawMaterial", "weapon"].includes(data.type)) continue;
+				entity.flags["forbidden-lands"] = {
+					state: "carried",
+					...entity.flags["forbidden-lands"],
+				};
 			}
 		}
+
 		return super.createEmbeddedDocuments(embeddedName, newData, options);
 	}
 

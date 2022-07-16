@@ -1,53 +1,8 @@
+import localizeString from "@utils/localize-string.js";
+
 function preloadHandlebarsTemplates() {
-	const templatePaths = [
-		"systems/forbidden-lands/templates/actor/character/character-limited-sheet.hbs",
-		"systems/forbidden-lands/templates/actor/character/character-sheet.hbs",
-		"systems/forbidden-lands/templates/actor/character/npc-sheet.hbs",
-		"systems/forbidden-lands/templates/actor/character/sheet-tabs/bio-tab.hbs",
-		"systems/forbidden-lands/templates/actor/character/sheet-tabs/combat-tab.hbs",
-		"systems/forbidden-lands/templates/actor/character/sheet-tabs/gear-tab.hbs",
-		"systems/forbidden-lands/templates/actor/character/sheet-tabs/main-tab.hbs",
-		"systems/forbidden-lands/templates/actor/character/sheet-tabs/talent-tab.hbs",
-		"systems/forbidden-lands/templates/actor/monster/monster-sheet.hbs",
-		"systems/forbidden-lands/templates/actor/monster/sheet-tabs/combat-tab.hbs",
-		"systems/forbidden-lands/templates/actor/monster/sheet-tabs/gear-tab.hbs",
-		"systems/forbidden-lands/templates/actor/party/party-sheet.hbs",
-		"systems/forbidden-lands/templates/actor/party/components/action-component.hbs",
-		"systems/forbidden-lands/templates/actor/party/components/member-component.hbs",
-		"systems/forbidden-lands/templates/actor/party/sheet-tabs/main-tab.hbs",
-		"systems/forbidden-lands/templates/actor/party/sheet-tabs/travel-tab.hbs",
-		"systems/forbidden-lands/templates/actor/stronghold/stronghold-sheet.hbs",
-		"systems/forbidden-lands/templates/actor/stronghold/sheet-tabs/building-tab.hbs",
-		"systems/forbidden-lands/templates/actor/stronghold/sheet-tabs/gear-tab.hbs",
-		"systems/forbidden-lands/templates/actor/stronghold/sheet-tabs/hireling-tab.hbs",
-		"systems/forbidden-lands/templates/components/item-chatcard.hbs",
-		"systems/forbidden-lands/templates/components/modifiers-component.hbs",
-		"systems/forbidden-lands/templates/components/sheet-config-modal.hbs",
-		"systems/forbidden-lands/templates/components/character-generator/generator-sheet.hbs",
-		"systems/forbidden-lands/templates/components/character-generator/list-component.hbs",
-		"systems/forbidden-lands/templates/components/roll-engine/dialog.hbs",
-		"systems/forbidden-lands/templates/components/roll-engine/infos.hbs",
-		"systems/forbidden-lands/templates/components/roll-engine/roll.hbs",
-		"systems/forbidden-lands/templates/components/roll-engine/spell-dialog.hbs",
-		"systems/forbidden-lands/templates/components/roll-engine/tooltip.hbs",
-		"systems/forbidden-lands/templates/item/_shared-template-tabs/artifact-tab.hbs",
-		"systems/forbidden-lands/templates/item/_shared-template-tabs/supply-tab.hbs",
-		"systems/forbidden-lands/templates/item/armor/armor-sheet.hbs",
-		"systems/forbidden-lands/templates/item/armor/main-tab.hbs",
-		"systems/forbidden-lands/templates/item/building/building-sheet.hbs",
-		"systems/forbidden-lands/templates/item/critical-injury/critical-injury-sheet.hbs",
-		"systems/forbidden-lands/templates/item/gear/gear-sheet.hbs",
-		"systems/forbidden-lands/templates/item/gear/main-tab.hbs",
-		"systems/forbidden-lands/templates/item/hireling/hireling-sheet.hbs",
-		"systems/forbidden-lands/templates/item/monster-attack/monster-attack-sheet.hbs",
-		"systems/forbidden-lands/templates/item/raw-material/raw-material-sheet.hbs",
-		"systems/forbidden-lands/templates/item/spell/spell-sheet.hbs",
-		"systems/forbidden-lands/templates/item/talent/talent-sheet.hbs",
-		"systems/forbidden-lands/templates/item/weapon/main-tab.hbs",
-		"systems/forbidden-lands/templates/item/weapon/weapon-sheet.hbs",
-		"systems/forbidden-lands/templates/journal/adventure-sites/adventure-site-sheet.hbs",
-		"systems/forbidden-lands/templates/system/core/combat.hbs",
-	];
+	// eslint-disable-next-line no-undef
+	const templatePaths = GLOBALPATHS;
 	return loadTemplates(templatePaths);
 }
 
@@ -259,10 +214,6 @@ function registerHandlebarsHelpers() {
 		return args.reduce((x, y) => x && y);
 	});
 
-	Handlebars.registerHelper("isMonsterTypeMount", function (type) {
-		return type === "mount";
-	});
-
 	Handlebars.registerHelper("chargenLoc", function (item) {
 		let localizedString = CONFIG.fbl.i18n[item];
 		if (!localizedString) {
@@ -278,6 +229,15 @@ function registerHandlebarsHelpers() {
 
 	Handlebars.registerHelper("randomize", (items) => {
 		return items[Math.floor(Math.random() * items.length)];
+	});
+
+	Handlebars.registerHelper("fblLocalize", function (...args) {
+		args.pop();
+		return localizeString(args.join("."));
+	});
+
+	Handlebars.registerHelper("ternary", function (conditional, string1, string2) {
+		return conditional ? string1 : string2;
 	});
 }
 

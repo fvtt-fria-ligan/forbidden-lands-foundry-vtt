@@ -1,5 +1,8 @@
 import { build } from "esbuild";
 import { sassPlugin } from "esbuild-sass-plugin";
+import templatePathsPromise from "./tools/get-template-paths.js";
+
+const templatePaths = await templatePathsPromise;
 
 export default ({ watch = false, production = false } = {}) =>
 	build({
@@ -13,6 +16,9 @@ export default ({ watch = false, production = false } = {}) =>
 		minifyWhitespace: true,
 		minifySyntax: true,
 		drop: production ? ["console", "debugger"] : [],
+		define: {
+			GLOBALPATHS: JSON.stringify(templatePaths),
+		},
 		watch,
 		plugins: [
 			sassPlugin({

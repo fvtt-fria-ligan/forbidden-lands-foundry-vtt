@@ -1,7 +1,9 @@
 <div class="flex column full">
 	<div class="monster-talents flex column border grow" style="flex: 0 0 45%">
 		<h1>
-			{{localize "HEADER.TALENT"}} / {{localize "HEADER.SPELL"}}
+			{{localize "HEADER.TALENT"}}
+			/
+			{{localize "HEADER.SPELL"}}
 		</h1>
 		<div class="item-list">
 			<div class="header monster-talent flex row">
@@ -11,7 +13,7 @@
 				<b class="description">
 					{{localize "MONSTER.DESCRIPTION"}}
 				</b>
-				<a class="button item-create" title="Add Monster Talent" data-type="talent">
+				<a class="button item-create" title="{{localize 'SHEET.CREATE_TALENT'}}" data-type="talent">
 					<i class="fas fa-plus"></i>
 				</a>
 			</div>
@@ -20,9 +22,7 @@
 					{{#if (or item.isTalent item.isSpell)}}
 						<div class="monster-talent item flex row" data-item-id="{{item._id}}">
 							<div class="name">
-								<div class="image-container">
-									<div class="image" style="background-image: url('{{item.img}}')"></div>
-								</div>
+								<img src="{{item.img}}" width="32px" />
 								<div class="name">
 									<b>
 										{{item.name}}
@@ -61,7 +61,7 @@
 					<i class="fas fa-dice"></i>
 					&nbsp;{{localize "MONSTER.NAME"}}
 				</b>
-				<a class="button item-create" title="Add Monster Attack" data-type="monsterAttack">
+				<a class="button item-create" title="{{localize 'SHEET.CREATE_M_ATTACK'}}" data-type="monsterAttack">
 					<i class="fas fa-plus"></i>
 				</a>
 			</div>
@@ -70,9 +70,7 @@
 					{{#if item.isMonsterAttack}}
 						<div class="monster-attack item flex row" data-item-id="{{item._id}}">
 							<div class="name">
-								<div class="image-container">
-									<div class="image" style="background-image: url('{{item.img}}')"></div>
-								</div>
+								<img src="{{item.img}}" width="32px" />
 								<div class="name">
 									<button type="button" class="roll-attack" data-item-id="{{item._id}}">
 										{{item.name}}
