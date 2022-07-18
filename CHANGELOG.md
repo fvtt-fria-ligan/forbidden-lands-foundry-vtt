@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.2.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v9.1.1...v9.2.0) (2022-07-18)
+
+
+### Features
+
+* ✨ Add collapsible table sections ([b0997a4](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/b0997a4655e134e047cc668a75850275d1b98b40))
+* ✨ Add drop and pickup buttons ([996e7ba](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/996e7ba3a9313a2fdee087afce5c17d4ed683838))
+* ✨ Add hotbardrop macros ([b2ca3cd](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/b2ca3cd516d6bc47d776c7df1109933b897a9c30))
+* ✨ Add new 'carried' state to items through flags ([56a8b10](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/56a8b10b7a9a8d41cba5918f3f4f83e86584c833))
+* ✨ Add sorting buttons ([b7fa36e](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/b7fa36ed242b8cf1317ce4c15c692f7413324415))
+* ✨ Support armor macros, add generic macros to generated pack ([59dffa8](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/59dffa876b68479d87548fa8bb7e681efd14f44f))
+
+
+### Bug Fixes
+
+* 🐛 Create Dialog blocked previous create functionality ([f1e6d35](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/f1e6d356c579bb928feb5eb4553d8abe7a56cc7a))
+* 🐛 Fixes to list-items display ([5bc7ffc](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/5bc7ffc49110f1ec46272c32752e342ee3d23ffa))
+* 🐛 Only show equipped weapons & armor in combat tab ([8671b57](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/8671b577aa1ed614ef1f8d4e539d8b236005dca4))
+* 🐛 Positive modifiers not applying to rolls ([dab87f3](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/dab87f3329773666d90ebb10cc9e8c65b2d7aa1b))
+
 ### [9.1.1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v9.1.0...v9.1.1) (2022-07-12)
 
 
