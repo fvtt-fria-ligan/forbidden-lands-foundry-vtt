@@ -91,9 +91,9 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			}
 			if (coins[0] >= 0) {
 				this.actor.update({
-					"data.currency.gold.value": coins[0],
-					"data.currency.silver.value": coins[1],
-					"data.currency.copper.value": coins[2],
+					"system.currency.gold.value": coins[0],
+					"system.currency.silver.value": coins[1],
+					"system.currency.copper.value": coins[2],
 				});
 			}
 		});

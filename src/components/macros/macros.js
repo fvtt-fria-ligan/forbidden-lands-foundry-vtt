@@ -23,7 +23,7 @@ function handleSpellMacro(actor, item) {
 async function handleWeaponMacro(actor, item) {
 	const type =
 		/* eslint-disable no-nested-ternary */
-		item.data.part === "shield" || item.data.category === "melee"
+		item.system.part === "shield" || item.system.category === "melee"
 			? await Dialog.prompt({
 					title: game.i18n.localize("MACRO.CHOOSE_TYPE"),
 					content: `
@@ -36,14 +36,14 @@ async function handleWeaponMacro(actor, item) {
 							<input type="radio" name="type" value="parry" />
 							${game.i18n.localize("ACTION.PARRY")}</label>
 							${
-								item.data.part === "shield"
+								item.system.part === "shield"
 									? `<label>
 							<input type="radio" name="type" value="shove" />
 							${game.i18n.localize("ACTION.SHOVE")}</label>`
 									: ""
 							}
 							${
-								item.data.category === "melee"
+								item.system.category === "melee"
 									? `<label>
 							<input type="radio" name="type" value="disarm" />
 							${game.i18n.localize("ACTION.DISARM")}</label>`
@@ -90,7 +90,7 @@ async function handleActorMacro(data) {
 }
 
 async function handleItemMacro(data) {
-	const handler = itemHandlers[data.data.type];
+	const handler = itemHandlers[data.system.type];
 	if (!handler) return {};
 	const actor = game.actors.get(data.actorId);
 	const item = data.data;

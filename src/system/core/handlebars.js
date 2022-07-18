@@ -18,7 +18,7 @@ function registerHandlebarsHelpers() {
 	});
 	Handlebars.registerHelper("flps_enrich", function (content) {
 		// Enrich the content
-		content = TextEditor.enrichHTML(content, { documents: true });
+		content = TextEditor.enrichHTML(content, { documents: true, async: false });
 		return new Handlebars.SafeString(content);
 	});
 	Handlebars.registerHelper("flps_capitalize", function (value) {
@@ -118,7 +118,7 @@ function registerHandlebarsHelpers() {
 		}
 	});
 	Handlebars.registerHelper("isBroken", function (item) {
-		if (parseInt(item.data.bonus.max, 10) > 0 && parseInt(item.data.bonus.value, 10) === 0) {
+		if (parseInt(item.system.bonus.max, 10) > 0 && parseInt(item.system.bonus.value, 10) === 0) {
 			return "broken";
 		} else {
 			return "";

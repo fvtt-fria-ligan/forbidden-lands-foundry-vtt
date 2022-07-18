@@ -111,7 +111,7 @@ export class ForbiddenLandsActor extends Actor {
 		const conditionLabel = this.conditions[conditionName].label;
 		const effect = this.effects.find((condition) => condition.getFlag("core", "statusId") === conditionName);
 		if (CONFIG.fbl.conditions.includes(conditionName)) {
-			this.update({ [`data.condition.${conditionName}.value`]: !conditionValue });
+			this.update({ [`system.condition.${conditionName}.value`]: !conditionValue });
 			if (conditionValue && effect) this.deleteEmbeddedDocuments("ActiveEffect", [effect.id]);
 			else if (!conditionValue && !effect)
 				this.createEmbeddedDocuments("ActiveEffect", {

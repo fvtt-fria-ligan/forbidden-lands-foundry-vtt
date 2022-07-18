@@ -26,15 +26,15 @@
 						</td>
 						<td>{{fblLocalize item.type}}</td>
 						{{#if (eq item.type 'rawMaterial')}}
-							<td><input class="quantity" type="number" data-dtype="Number" value="{{item.data.quantity}}"
+							<td><input class="quantity" type="number" data-dtype="Number" value="{{item.system.quantity}}"
 									title="{{localize "ITEM.QUANTITY"}}" /></td>
 						{{else}}
 							<td class="{{isBroken item}}"
 								title="{{localize (ternary (eq item.type 'armor') "ARMOR.RATING"  "GEAR.BONUS")}}">
-								{{item.data.bonus.value}}
+								{{item.system.bonus.value}}
 							</td>
 						{{/if}}
-						<td>{{itemWeight item.data.weight}}</td>
+						<td>{{itemWeight item.system.weight}}</td>
 						<td>
 							<button type="button" class="item-control item-edit" title="{{localize "GEAR.EDIT"}}"><i
 									class="fas fa-edit"></i></button>
@@ -54,7 +54,7 @@
 	<label>{{localize object.label}}:</label>
 	<a class='currency-button' data-operator='minus' data-currency='{{currency}}'><i
 			class='fas fa-minus-square'></i></a>
-	<input name="data.currency.{{currency}}.value" min="0" type="number" data-dtype="Number" value="{{object.value}}" />
+	<input name="system.currency.{{currency}}.value" min="0" type="number" data-dtype="Number" value="{{object.value}}" />
 	<a class='currency-button' data-operator='plus' data-currency='{{currency}}'><i class='fas fa-plus-square'></i></a>
 {{/inline}}
 
@@ -65,7 +65,7 @@
 		<div class="header flex grow row">
 			<b>{{localize "HEADER.CURRENCY"}}</b>
 			<div class="values">
-				{{#each data.currency as |object currency|}}
+				{{#each system.currency as |object currency|}}
 					{{> currency object=object currency=currency}}
 				{{/each}}
 			</div>
@@ -76,16 +76,16 @@
 		<nav class="controls">
 			<button type="button" class="control-gear" data-direction="" title="{{localize "GEAR.DROP"}}"><i class="fas fa-caret-square-down"></i></button>
 			<button type="button" class="control-gear" data-direction="carried" title="{{localize "GEAR.PICK_UP"}}"><i class="fas fa-caret-square-up"></i></button>
-			{{#if (eq data.type 'mount')}}
-			<a class="change-mounted" data-attribute="{{data.isMounted}}" title="{{localize 'GEAR.MOUNTED'}}">
+			{{#if (eq system.type 'mount')}}
+			<a class="change-mounted" data-attribute="{{system.isMounted}}" title="{{localize 'GEAR.MOUNTED'}}">
 				<i class="fas fa-horse"></i>
-				<i class="far {{#if data.isMounted}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
+				<i class="far {{#if system.isMounted}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
 			</a>
 			{{/if}}
-			<div class="encumbrance{{#if data.encumbrance.over}} overencumbered{{/if}}"
+			<div class="encumbrance{{#if system.encumbrance.over}} overencumbered{{/if}}"
 				title="{{localize "ENCUMBRANCE" }}">
-				<i class="fas fa-weight-hanging"></i> {{data.encumbrance.value}} /
-				{{data.encumbrance.max}}
+				<i class="fas fa-weight-hanging"></i> {{system.encumbrance.value}} /
+				{{system.encumbrance.max}}
 			</div>
 		</nav>
 		<div class="item-list">
@@ -97,16 +97,16 @@
 			</div>
 		</div>
 	</section>
-	{{#unless (or (eq data.subtype.type "npc") (eq type 'monster'))}}
+	{{#unless (or (eq system.subtype.type "npc") (eq type 'monster'))}}
 		<div class="consumables border">
 			<div class="consumable">
 				<i class="fas fa-dice"></i>
 			</div>
-			{{#each data.consumable as |consumable key|}}
+			{{#each system.consumable as |consumable key|}}
 				<div class="consumable">
 					<button type="button" class="roll-consumable"
 						data-consumable="{{key}}">{{localize consumable.label}}</button>
-					<select name="data.consumable.{{key}}.value" data-dtype="Number">
+					<select name="system.consumable.{{key}}.value" data-dtype="Number">
 						{{#select consumable.value}}
 							<option value="0">—</option>
 							<option value="1">D6</option>

@@ -73,7 +73,7 @@ const migrateActorData = (actor, worldSchemaVersion) => {
 	// Improve consumable values
 	if (worldSchemaVersion < 7)
 		if (actor.type === "character") {
-			for (const [key, data] of Object.entries(actor.data.consumable)) {
+			for (const [key, data] of Object.entries(actor.system.consumable)) {
 				const map = {
 					0: 0,
 					6: 1,
@@ -81,7 +81,7 @@ const migrateActorData = (actor, worldSchemaVersion) => {
 					10: 3,
 					12: 4,
 				};
-				update[`data.consumable.${key}.value`] = map[data.value];
+				update[`system.consumable.${key}.value`] = map[data.value];
 			}
 		}
 
@@ -115,8 +115,8 @@ const migrateItemData = (item, worldSchemaVersion) => {
 		else {
 			let baseBonus = 0;
 			let artifactBonus = "";
-			if (item.data.bonus) {
-				const parts = item.data.bonus.split("+").map((p) => p.trim());
+			if (item.system.bonus) {
+				const parts = item.system.bonus.split("+").map((p) => p.trim());
 				parts.forEach((p) => {
 					if (Number.isNumeric(p)) baseBonus += +p;
 					else if (artifactBonus.length) artifactBonus = `${artifactBonus} + ${p}`;
@@ -132,7 +132,7 @@ const migrateItemData = (item, worldSchemaVersion) => {
 	}
 
 	if (worldSchemaVersion < 4) {
-		if (item.type === "spell" && !item.data.spellType) update["system.spellType"] = "SPELL.SPELL";
+		if (item.type === "spell" && !item.system.spellType) update["system.spellType"] = "SPELL.SPELL";
 	}
 
 	if (worldSchemaVersion < 5) {
