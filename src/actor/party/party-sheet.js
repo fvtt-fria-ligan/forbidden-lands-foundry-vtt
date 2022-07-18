@@ -51,7 +51,7 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 		html.find(".item-delete").click(this.handleRemoveMember.bind(this));
 		html.find(".reset").click((event) => {
 			event.preventDefault();
-			this.assignPartyMembersToAction(this.actor.data.data.members, "other");
+			this.resetTravelActions();
 			this.render(true);
 		});
 
@@ -115,7 +115,7 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 			JSON.stringify({
 				type: "Actor",
 				action: "assign",
-				id: entityId,
+				uuid: "Actor." + entityId,
 			}),
 		);
 	}
@@ -124,19 +124,16 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 		super._onDrop(event);
 
 		const draggedItem = JSON.parse(event.dataTransfer.getData("text/plain"));
-		if (!draggedItem) return;
+		if (!draggedItem || draggedItem.type !== "Actor") return;
 
-		if (draggedItem.type !== "Actor") return;
+		const actorId = draggedItem.uuid.split(".")[1];
+		const actor = game.actors.get(actorId);
+		if (actor?.type !== "character") return;
 
-		const actor = game.actors.get(draggedItem.id);
-		if (actor.data.type !== "character") return;
+		if (draggedItem.action === "assign") await this.handleTravelActionAssignment(event, actor);
+		else await this.handleAddToParty(actor);
 
-		if (draggedItem.action === "assign") {
-			this.handleTravelActionAssignment(event, actor);
-		} else {
-			this.handleAddToParty(actor);
-		}
-		this.render(true);
+		return this.render(true);
 	}
 
 	async handleTravelActionAssignment(event, actor) {
@@ -146,76 +143,40 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 			: targetElement.closest(".travel-action");
 		if (actionContainer === null) return; // character was dragged god knows where; just pretend it never happened
 
-		this.assignPartyMembersToAction(actor, actionContainer.dataset.travelAction);
+		return this.assignPartyMemberToAction(actor, actionContainer.dataset.travelAction);
 	}
 
-	async assignPartyMembersToAction(partyMembers, travelActionKey) {
-		if (!Array.isArray(partyMembers)) partyMembers = [partyMembers];
-
-		let updateData = {},
-			updDataKey,
-			partyMemberId;
-		for (let i = 0; i < partyMembers.length; i++) {
-			partyMemberId = typeof partyMembers[i] === "object" ? partyMembers[i].data._id : partyMembers[i];
-
-			// remove party member from the current assignment
-			let travelAction, actionParticipants;
-			for (let key in this.actor.data.data.travel) {
-				travelAction = this.actor.data.data.travel[key];
-				if (travelAction.indexOf(partyMemberId) < 0) continue;
-
-				updDataKey = "data.travel." + key;
-				if (typeof travelAction === "object") {
-					if (updateData[updDataKey] === undefined) {
-						actionParticipants = [...travelAction];
-						actionParticipants.splice(actionParticipants.indexOf(partyMemberId), 1);
-						updateData[updDataKey] = actionParticipants;
-					} else {
-						updateData[updDataKey].splice(updateData[updDataKey].indexOf(partyMemberId), 1);
-					}
-				} else {
-					updateData[updDataKey] = "";
-				}
-			}
-
-			// add party member to a new assignment
-			updDataKey = "data.travel." + travelActionKey;
-			if (typeof this.actor.data.data.travel[travelActionKey] === "object") {
-				if (updateData[updDataKey] === undefined) {
-					actionParticipants = [...this.actor.data.data.travel[travelActionKey]];
-					actionParticipants.push(partyMemberId);
-					updateData[updDataKey] = actionParticipants;
-				} else {
-					updateData[updDataKey].push(partyMemberId);
-				}
-			} else {
-				updateData[updDataKey] = partyMemberId;
-				// if someone was already assigned here we must move that character to the "Other" assignment
-				if (this.actor.data.data.travel[travelActionKey] !== "") {
-					if (updateData["data.travel.other"] === undefined) {
-						actionParticipants = [...this.actor.data.data.travel.other];
-						actionParticipants.push(this.actor.data.data.travel[travelActionKey]);
-						updateData["data.travel.other"] = actionParticipants;
-					} else {
-						updateData["data.travel.other"].push(this.actor.data.data.travel[travelActionKey]);
-					}
-				}
-			}
-		}
-
-		await this.actor.update(updateData);
+	async assignPartyMemberToAction(partyMember, travelActionKey) {
+		const travelAction = this.actorProperties.travel[travelActionKey];
+		const currentAction = Object.entries(this.actorProperties.travel).find(([_, array]) =>
+			array.includes(partyMember.id),
+		);
+		const updateData = {
+			// Add party member to new action, making sure not to remove existing ones
+			[`system.travel.${travelActionKey}`]: [...travelAction, partyMember.id],
+			// Remove party member from old action
+			[`system.travel.${currentAction[0]}`]: currentAction[1].filter((id) => id !== partyMember.id),
+		};
+		return this.actor.update(updateData);
 	}
 
 	async handleAddToParty(actor) {
-		let partyMembers = this.actor.data.data.members;
-		let initialCount = partyMembers.length;
-		partyMembers.push(actor.data._id);
-		// eslint-disable-next-line no-undef
-		partyMembers = [...new Set(partyMembers)]; // remove duplicate values
-		if (initialCount === partyMembers.length) return; // nothing changed
+		let partyMembers = this.actorProperties.members;
+		const initialCount = partyMembers.length;
+		partyMembers = [...new Set([...partyMembers, actor.id])];
+		// We do not want to run an update if there has been no changes
+		if (initialCount === partyMembers.length) return;
 
-		let travelOther = [...this.actor.data.data.travel.other];
-		travelOther.push(actor.data._id);
-		await this.actor.update({ "data.members": partyMembers, "data.travel.other": travelOther });
+		const travelOther = [...this.actorProperties.travel.other, actor.id];
+		return this.actor.update({ ["system.members"]: partyMembers, ["system.travel.other"]: travelOther });
+	}
+
+	async resetTravelActions() {
+		const updates = Object.keys(this.actorProperties.travel).reduce((acc, key) => {
+			if (key === "other") acc[`system.travel.${key}`] = this.actorProperties.members;
+			else acc[`system.travel.${key}`] = [];
+			return acc;
+		}, {});
+		return this.actor.update(updates);
 	}
 }

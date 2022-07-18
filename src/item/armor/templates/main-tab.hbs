@@ -23,11 +23,9 @@
 	</div>
 	<div class="grid-full-line">
 		<label>{{localize "WEAPON.FEATURES.TITLE"}}</label>
-		{{editor target="data.features" content=data.features  owner=owner button=true editable=true}}
+		{{editor system.features target="system.features" owner=owner button=true editable=true}}
 	</div>
 </div>
 <div class="roll-modifiers border">
-	<!-- prettier-ignore -->
-	{{! prettier-ignore }}
 {{> systems/forbidden-lands/templates/components/modifiers-component.hbs }}
 </div>

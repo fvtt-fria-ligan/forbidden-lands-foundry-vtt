@@ -47,10 +47,6 @@ export class ForbiddenLandsItem extends Item {
 		return this.getFlag("forbidden-lands", "state") || "";
 	}
 
-	get type() {
-		return this.data.type;
-	}
-
 	/* Override */
 	getRollData() {
 		return {

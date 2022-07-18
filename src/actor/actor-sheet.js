@@ -147,7 +147,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		html.find(".change-item-bonus").on("click contextmenu", (ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
 			const item = this.actor.items.get(itemId);
-			let value = item.data.data.bonus.value;
+			let value = item.system.bonus.value;
 			if ((ev.type === "click" && !this.altInteraction) || (ev.type === "contextmenu" && this.altInteraction)) {
 				value = Math.max(value - 1, 0);
 			} else if (
@@ -415,7 +415,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		const type = data.type;
 		const weight = isNaN(Number(data?.system.weight))
 			? this.config.encumbrance[data?.system.weight] ?? 1
-			: Number(data?.data.weight) ?? 1;
+			: Number(data?.system.weight) ?? 1;
 		// If the item isn't carried or equipped, don't count it.
 		if (!data.flags["forbidden-lands"]?.state) return 0;
 		// Only return weight for these types.
@@ -446,15 +446,15 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			case "type":
 				return a[key]?.toLocaleLowerCase().localeCompare(b[key]?.toLocaleLowerCase()) ?? 0;
 			case "attribute":
-				const aComp = a.type === "rawMaterial" ? a.data.quantity : a.data.bonus.value;
-				const bComp = b.type === "rawMaterial" ? b.data.quantity : b.data.bonus.value;
+				const aComp = a.type === "rawMaterial" ? a.system.quantity : a.system.bonus.value;
+				const bComp = b.type === "rawMaterial" ? b.system.quantity : b.system.bonus.value;
 				return Number(bComp) - Number(aComp);
 			case "weight":
 				const weightMap = CONFIG.fbl.encumbrance;
 				const aWeight =
-					a.type === "rawMaterial" ? Number(a.data.quantity) : Math.floor(weightMap[a.data.weight] || 0);
+					a.type === "rawMaterial" ? Number(a.system.quantity) : Math.floor(weightMap[a.system.weight] || 0);
 				const bWeight =
-					b.type === "rawMaterial" ? Number(b.data.quantity) : Math.floor(weightMap[b.data.weight] || 0);
+					b.type === "rawMaterial" ? Number(b.system.quantity) : Math.floor(weightMap[b.system.weight] || 0);
 				return bWeight - aWeight;
 		}
 		/* eslint-enable no-case-declarations, no-nested-ternary */
