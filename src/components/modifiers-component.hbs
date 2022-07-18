@@ -9,41 +9,41 @@
         <div class="grow">
             <select name="data.rollModifiers.{{@key}}.name">
                 {{#select modifier.name}}
-                <option value="" disabled selected>{{ localize "ROLL_MODIFIER.SELECT" }}:</option>
-                <optgroup label="{{ localize "HEADER.ATTRIBUTES" }}">
-                <option value="ATTRIBUTE.STRENGTH">{{ localize "ATTRIBUTE.STRENGTH" }}</option>
-                <option value="ATTRIBUTE.AGILITY">{{ localize "ATTRIBUTE.AGILITY" }}</option>
-                <option value="ATTRIBUTE.WITS">{{ localize "ATTRIBUTE.WITS" }}</option>
-                <option value="ATTRIBUTE.EMPATHY">{{ localize "ATTRIBUTE.EMPATHY" }}</option>
-                <optgroup label="{{ localize "HEADER.SKILLS" }}">
-                <option value="SKILL.MIGHT">{{ localize "SKILL.MIGHT" }}</option>
-                <option value="SKILL.ENDURANCE">{{ localize "SKILL.ENDURANCE" }}</option>
-                <option value="SKILL.MELEE">{{ localize "SKILL.MELEE" }}</option>
-                <option value="SKILL.CRAFTING">{{ localize "SKILL.CRAFTING" }}</option>
-                <option value="SKILL.STEALTH">{{ localize "SKILL.STEALTH" }}</option>
-                <option value="SKILL.SLEIGHT_OF_HAND">{{ localize "SKILL.SLEIGHT_OF_HAND" }}</option>
-                <option value="SKILL.MOVE">{{ localize "SKILL.MOVE" }}</option>
-                <option value="SKILL.MARKSMANSHIP">{{ localize "SKILL.MARKSMANSHIP" }}</option>
-                <option value="SKILL.SCOUTING">{{ localize "SKILL.SCOUTING" }}</option>
-                <option value="SKILL.LORE">{{ localize "SKILL.LORE" }}</option>
-                <option value="SKILL.SURVIVAL">{{ localize "SKILL.SURVIVAL" }}</option>
-                <option value="SKILL.INSIGHT">{{ localize "SKILL.INSIGHT" }}</option>
-                <option value="SKILL.MANIPULATION">{{ localize "SKILL.MANIPULATION" }}</option>
-                <option value="SKILL.PERFORMANCE">{{ localize "SKILL.PERFORMANCE" }}</option>
-                <option value="SKILL.HEALING">{{ localize "SKILL.HEALING" }}</option>
-                <option value="SKILL.ANIMAL_HANDLING">{{ localize "SKILL.ANIMAL_HANDLING" }}</option>
-                <optgroup label="{{ localize "HEADER.ACTIONS" }}">
-                <option value="ACTION.BREAK_FREE">{{ localize "ACTION.BREAK_FREE" }}</option>
-                <option value="ACTION.DISARM">{{ localize "ACTION.DISARM" }}</option>
-                <option value="ACTION.DODGE">{{ localize "ACTION.DODGE" }}</option>
-                <option value="ACTION.GRAPPLE">{{ localize "ACTION.GRAPPLE" }}</option>
-                <option value="ACTION.GRAPPLE_ATTACK">{{ localize "ACTION.GRAPPLE_ATTACK" }}</option>
-                <option value="ACTION.PARRY">{{ localize "ACTION.PARRY" }}</option>
-                <option value="ACTION.SHOVE">{{ localize "ACTION.SHOVE" }}</option>
-                <option value="ACTION.RETREAT">{{ localize "ACTION.RETREAT" }}</option>
-                <option value="ACTION.UNARMED_STRIKE">{{ localize "ACTION.UNARMED_STRIKE" }}</option>
+                <option value="" disabled selected>{{localize "ROLL_MODIFIER.SELECT"}}:</option>
+                <optgroup label="{{localize "HEADER.ATTRIBUTES"}}">
+                <option value="ATTRIBUTE.STRENGTH">{{localize "ATTRIBUTE.STRENGTH"}}</option>
+                <option value="ATTRIBUTE.AGILITY">{{localize "ATTRIBUTE.AGILITY"}}</option>
+                <option value="ATTRIBUTE.WITS">{{localize "ATTRIBUTE.WITS"}}</option>
+                <option value="ATTRIBUTE.EMPATHY">{{localize "ATTRIBUTE.EMPATHY"}}</option>
+                <optgroup label="{{localize "HEADER.SKILLS"}}">
+                <option value="SKILL.MIGHT">{{localize "SKILL.MIGHT"}}</option>
+                <option value="SKILL.ENDURANCE">{{localize "SKILL.ENDURANCE"}}</option>
+                <option value="SKILL.MELEE">{{localize "SKILL.MELEE"}}</option>
+                <option value="SKILL.CRAFTING">{{localize "SKILL.CRAFTING"}}</option>
+                <option value="SKILL.STEALTH">{{localize "SKILL.STEALTH"}}</option>
+                <option value="SKILL.SLEIGHT_OF_HAND">{{localize "SKILL.SLEIGHT_OF_HAND"}}</option>
+                <option value="SKILL.MOVE">{{localize "SKILL.MOVE"}}</option>
+                <option value="SKILL.MARKSMANSHIP">{{localize "SKILL.MARKSMANSHIP"}}</option>
+                <option value="SKILL.SCOUTING">{{localize "SKILL.SCOUTING"}}</option>
+                <option value="SKILL.LORE">{{localize "SKILL.LORE"}}</option>
+                <option value="SKILL.SURVIVAL">{{localize "SKILL.SURVIVAL"}}</option>
+                <option value="SKILL.INSIGHT">{{localize "SKILL.INSIGHT"}}</option>
+                <option value="SKILL.MANIPULATION">{{localize "SKILL.MANIPULATION"}}</option>
+                <option value="SKILL.PERFORMANCE">{{ localize "SKILL.PERFORMANCE"}}</option>
+                <option value="SKILL.HEALING">{{localize "SKILL.HEALING"}}</option>
+                <option value="SKILL.ANIMAL_HANDLING">{{localize "SKILL.ANIMAL_HANDLING"}}</option>
+                <optgroup label="{{localize "HEADER.ACTIONS"}}">
+                <option value="ACTION.BREAK_FREE">{{localize "ACTION.BREAK_FREE"}}</option>
+                <option value="ACTION.DISARM">{{localize "ACTION.DISARM"}}</option>
+                <option value="ACTION.DODGE">{{localize "ACTION.DODGE"}}</option>
+                <option value="ACTION.GRAPPLE">{{localize "ACTION.GRAPPLE"}}</option>
+                <option value="ACTION.GRAPPLE_ATTACK">{{localize "ACTION.GRAPPLE_ATTACK"}}</option>
+                <option value="ACTION.PARRY">{{localize "ACTION.PARRY"}}</option>
+                <option value="ACTION.SHOVE">{{localize "ACTION.SHOVE"}}</option>
+                <option value="ACTION.RETREAT">{{localize "ACTION.RETREAT"}}</option>
+                <option value="ACTION.UNARMED_STRIKE">{{localize "ACTION.UNARMED_STRIKE"}}</option>
                 <optgroup label="{{ toUpperCase (localize "OTHER") }}">
-                <option value="CARRYING_CAPACITY">{{ localize "CARRYING_CAPACITY" }}</option>
+                <option value="CARRYING_CAPACITY">{{localize "CARRYING_CAPACITY"}}</option>
                 <optgroup label="{{ toUpperCase (localize "ITEM.CUSTOM_ROLL_MODIFIERS") }}">
                 {{#each ../data.customRollModifiers as |customRollModifier|}}
                 <option value="{{ customRollModifier }}">{{ customRollModifier }}</option>
@@ -70,7 +70,7 @@
     {{/if}}
     {{else}}
     <div class="flex column center">
-        <i>{{ localize "ITEM.NO_MODIFIERS" }}</i>
+        <i>{{localize "ITEM.NO_MODIFIERS"}}</i>
     </div>
     {{/each}}
 </div>

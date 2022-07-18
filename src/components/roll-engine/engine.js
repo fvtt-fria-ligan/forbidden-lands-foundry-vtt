@@ -198,7 +198,7 @@ export class FBLRollHandler extends FormApplication {
 			const artifactRegex = /(\d*d(?:8|10|12))/gi;
 			const artifact = this.dataset.value.match(artifactRegex);
 			const modifier = {
-				value: this.dataset.value.match(/([+-]\d+(?!d))/gi),
+				value: this.dataset.value.match(/([+-]\d+(?!d)|^\d+$)/i),
 				item: {
 					id: this.dataset.id,
 					name: this.dataset.name,
