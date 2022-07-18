@@ -16,7 +16,7 @@ export class FBLCombatant extends Combatant {
 
 export class FBLCombatTracker extends CombatTracker {
 	get template() {
-		return "systems/forbidden-lands/templates/system/core/combat.hbs";
+		return "systems/forbidden-lands/templates/system/combat/combat.hbs";
 	}
 
 	async _onCombatantControl(event) {
