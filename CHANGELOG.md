@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [9.2.1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v9.2.0...v9.2.1) (2022-07-18)
+
+
+### Bug Fixes
+
+* 🐛 Correct reference to combat hbs ([1b69227](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/1b6922713d62f4b71690f4c4a6eac8907ff5ce5f))
+
 ## [9.2.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v9.1.1...v9.2.0) (2022-07-18)
 
 
