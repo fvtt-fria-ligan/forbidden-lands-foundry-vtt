@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [10.0.0-0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v9.2.2...v10.0.0-0) (2022-07-18)
+
 ### [9.2.2](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v9.2.1...v9.2.2) (2022-07-18)
 
 
