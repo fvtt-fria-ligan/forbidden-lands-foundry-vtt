@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [9.2.2](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v9.2.1...v9.2.2) (2022-07-18)
+
+
+### Bug Fixes
+
+* 🐛 Incorrect use of FA6 icon ([aeba586](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/aeba58609a14c0f8226bd4e4d01692b01379a89d))
+
 ### [9.2.1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v9.2.0...v9.2.1) (2022-07-18)
 
 
