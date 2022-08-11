@@ -249,7 +249,7 @@ a {
 #playlists {
 	li {
 		&.playlist {
-			.sound-control {
+			.sound-control.inactive {
 				color: #666;
 			}
 		}
