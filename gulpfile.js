@@ -14,13 +14,16 @@ const production = process.env.NODE_ENV === "production";
 const repoName = "forbidden-lands";
 const sourceDirectory = "./src";
 const distDirectory = "./dist";
-const templateExt = "hbs";
-const staticFiles = ["lang", "assets", "fonts", "scripts", "system.json", "template.json", "LICENSE"];
-const getDownloadURL = (version) =>
-	`https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v${version}/fbl-fvtt_v${version}.zip`;
-const packageJson = JSON.parse(fs.readFileSync("package.json"));
-
 const stdio = "inherit";
+const templateExt = "hbs";
+const getDownloadURL = (tag) =>
+	`https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v${tag}/fbl-fvtt_v${tag}.zip`;
+const packageJson = JSON.parse(fs.readFileSync("package.json"));
+const { version } = packageJson;
+const majorVersion = version.split(".")[0];
+const manifest = JSON.parse(fs.readFileSync(`manifests/v${majorVersion}/system.json`));
+const staticFiles = fs.readdirSync(`./static`).map((file) => `static/${file}`);
+staticFiles.push("README.md", "LICENSE", `manifests/v${majorVersion}/system.json`);
 
 /********************/
 /*      BUILD       */
@@ -54,16 +57,12 @@ async function pipeTemplates() {
  */
 async function pipeStatics() {
 	for (const file of staticFiles) {
-		if (fs.existsSync(`static/${file}`)) {
-			await fs.copy(`static/${file}`, `${distDirectory}/${file}`);
-		}
+		await fs
+			.copy(file, `${distDirectory}/${file.replace(/static\/|manifests\/v\d+\//, "")}`, { recursive: true })
+			.catch((err) => {
+				console.log(err);
+			});
 	}
-	await fs.copy(`./README.md`, `${distDirectory}/README.md`).catch((err) => {
-		console.log(err);
-	});
-	await fs.copy(`./LICENSE`, `${distDirectory}/LICENSE`).catch((err) => {
-		console.log(err);
-	});
 }
 
 /**
@@ -72,11 +71,7 @@ async function pipeStatics() {
 function buildWatch() {
 	buildSource({ watch: true });
 	gulp.watch(`${sourceDirectory}/**/*.${templateExt}`, { ignoreInitial: false }, pipeTemplates);
-	gulp.watch(
-		staticFiles.map((file) => `static/${file}`),
-		{ ignoreInitial: false },
-		pipeStatics,
-	);
+	gulp.watch(staticFiles, { ignoreInitial: false }, pipeStatics);
 }
 
 /********************/
@@ -116,7 +111,7 @@ function getDataPath() {
  */
 async function linkUserData() {
 	let destinationDirectory;
-	if (fs.existsSync(path.resolve("static/system.json"))) {
+	if (fs.existsSync(path.resolve("manif/system.json"))) {
 		destinationDirectory = "systems";
 	} else {
 		throw new Error(`Could not find ${chalk.blueBright("system.json")}`);
@@ -140,20 +135,6 @@ async function linkUserData() {
 /********************/
 
 /**
- * Get the contents of the manifest file as object.
- */
-function getManifest() {
-	const manifestPath = `static/system.json`;
-
-	if (fs.existsSync(manifestPath)) {
-		return {
-			file: JSON.parse(fs.readFileSync(manifestPath)),
-			name: "system.json",
-		};
-	}
-}
-
-/**
  * Get the target version based on on the current version and the argument passed as release.
  */
 // eslint-disable-next-line no-shadow
@@ -173,7 +154,6 @@ async function changelog() {
  * Commit and push release to Github Upstream
  */
 async function commitTagPush() {
-	const { version } = packageJson;
 	const commitMsg = `chore(release): Release ${version}`;
 	await execa("git", ["add", "-A"], { stdio });
 	await execa("git", ["commit", "--message", commitMsg], { stdio });
@@ -186,15 +166,13 @@ async function commitTagPush() {
  * Update version and download URL.
  */
 async function bumpVersion(cb) {
-	const manifest = getManifest();
-
 	if (!manifest) cb(Error(chalk.red("Manifest JSON not found")));
 
 	try {
 		// eslint-disable-next-line no-shadow
 		const release = argv.release || argv.r;
 
-		const currentVersion = packageJson.version;
+		const currentVersion = version;
 
 		if (!release) {
 			return cb(Error("Missing release type"));
@@ -215,9 +193,9 @@ async function bumpVersion(cb) {
 		packageJson.version = targetVersion;
 		fs.writeFileSync("package.json", JSON.stringify(packageJson, null, "\t"));
 
-		manifest.file.version = targetVersion;
-		manifest.file.download = getDownloadURL(targetVersion);
-		fs.writeFileSync(`static/${manifest.name}`, JSON.stringify(manifest.file, null, "\t"));
+		manifest.version = targetVersion;
+		manifest.download = getDownloadURL(targetVersion);
+		fs.writeFileSync(`manifests/v${majorVersion}/system.json`, JSON.stringify(manifest, null, "\t"));
 
 		return cb();
 	} catch (err) {
