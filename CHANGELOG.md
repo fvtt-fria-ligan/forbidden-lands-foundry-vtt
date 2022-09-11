@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [10.0.0-2](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v9.2.2...v10.0.0-2) (2022-09-11)
+
+
+### Bug Fixes
+
+* 🐛 Add alpha warning message, remove system.json from releases ([0492d4b](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/0492d4bd33b8c641dac82146489da000b39c9b89))
+* 🐛 V9 compatible manifest ([8caff11](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/8caff11d15788c4b5d56b9d392e0722bbf95f7fd)), closes [#252](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/252)
+
 ## [10.0.0-1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.0.0-0...v10.0.0-1) (2022-08-11)
 
 
