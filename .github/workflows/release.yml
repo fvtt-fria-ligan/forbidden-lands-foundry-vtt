@@ -14,10 +14,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2.2.1
-      - name: Setup NodeJS 17
+      - name: Setup NodeJS 18
         uses: actions/setup-node@v3
         with:
-          node-version: "17"
+          node-version: "18"
           cache: "pnpm"
       - name: "Install Dependencies"
         run: pnpm -recursive install
@@ -39,5 +39,5 @@ jobs:
         uses: ncipollo/release-action@v1.9.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          artifacts: "./dist/system.json, fbl-fvtt_${{ steps.version.outputs.tag }}.zip"
+          artifacts: "fbl-fvtt_${{ steps.version.outputs.tag }}.zip"
           body: ${{ steps.changelog.outputs.changelog }}
