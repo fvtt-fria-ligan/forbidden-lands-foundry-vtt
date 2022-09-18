@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [10.0.0-3](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.0.0-2...v10.0.0-3) (2022-09-18)
+
+
+### Bug Fixes
+
+* 🐛 Fix editor issues in item/actor sheets ([0e92817](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/0e9281787b34425efff350eac5191ff77c9d872c)), closes [#261](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/261)
+* 🐛 Revert to releases latest manifests ([0639b9a](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/0639b9a6cc3f35ec19d58b29db56b83d7ef191c8)), closes [#264](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/264)
+
 ## [10.0.0-2](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v9.2.2...v10.0.0-2) (2022-09-11)
 
 
