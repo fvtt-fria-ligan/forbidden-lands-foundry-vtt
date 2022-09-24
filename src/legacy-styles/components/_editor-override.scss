@@ -9,6 +9,21 @@
 	background: none;
 }
 
+.sheet.journal-entry {
+	.journal-sidebar {
+		color: var(--color-text-dark-primary);
+
+		.header-search input {
+			background-color: #eeed;
+		}
+	}
+	.journal-entry-content {
+		background-image: unset;
+		border: none;
+		border-radius: none;
+	}
+}
+
 .app.journal-sheet,
 .app.sheet.actor {
 	form {
