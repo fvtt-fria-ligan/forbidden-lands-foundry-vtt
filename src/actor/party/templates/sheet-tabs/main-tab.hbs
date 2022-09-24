@@ -15,14 +15,10 @@
 	<div class="party-member-list">
 		<h1>{{localize "FLPS.PARTY.MEMBERS" }}</h1>
 		<div class="tab-hint">{{localize "FLPS.PARTY.HINT_ADD"}}</div>
-		<div>
-			<ol>
-				{{#each partyMembers as | partyMember |}}
-				<!-- prettier-ignore -->
-				{{! prettier-ignore }}
+		<ol>
+			{{#each partyMembers as | partyMember |}}
 {{> systems/forbidden-lands/templates/actor/party/components/member-component.hbs partyMember=partyMember deleteButton=true}}
-				{{/each}}
-			</ol>
-		</div>
+			{{/each}}
+		</ol>
 	</div>
 </div>

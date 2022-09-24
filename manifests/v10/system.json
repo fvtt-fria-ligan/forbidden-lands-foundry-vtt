@@ -80,7 +80,7 @@
 	],
 	"gridDistance": 1,
 	"gridUnits": "m",
-	"background": "assets/splash-page.jpg",
+	"background": "systems/forbidden-lands/assets/splash-page.jpg",
 	"primaryTokenAttribute": null,
 	"secondaryTokenAttribute": null,
 	"url": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt",

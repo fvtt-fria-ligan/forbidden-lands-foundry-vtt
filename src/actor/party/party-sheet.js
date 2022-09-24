@@ -20,27 +20,11 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 	getData() {
 		const data = super.getData().data;
 		data.partyMembers = {};
-		data.travel = {};
 		data.travelActions = this.getTravelActions();
-		let ownedActorId, assignedActorId, travelAction;
+		let ownedActorId;
 		for (let i = 0; i < (data.system.members || []).length; i++) {
 			ownedActorId = data.system.members[i];
 			data.partyMembers[ownedActorId] = game.actors.get(ownedActorId).data;
-		}
-		for (let travelActionKey in data.system.travel) {
-			travelAction = data.system.travel[travelActionKey];
-			data.travel[travelActionKey] = {};
-
-			if (typeof travelAction === "object") {
-				for (let i = 0; i < travelAction.length; i++) {
-					assignedActorId = travelAction[i];
-					if (assignedActorId != null) {
-						data.travel[travelActionKey][assignedActorId] = game.actors.get(assignedActorId).data;
-					}
-				}
-			} else if (travelAction !== "") {
-				data.travel[travelActionKey][travelAction] = game.actors.get(travelAction).data;
-			}
 		}
 		return data;
 	}
@@ -68,6 +52,7 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 		let travelActions = TravelActionsConfig;
 		for (const action of Object.values(travelActions)) {
 			action.displayJournalEntry = !!action.journalEntryName && !!game.journal.getName(action.journalEntryName);
+			action.participants = this.document.system.travel[action.key].map((id) => game.actors.get(id));
 		}
 		return travelActions;
 	}
@@ -148,6 +133,10 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 
 	async assignPartyMemberToAction(partyMember, travelActionKey) {
 		const travelAction = this.actorProperties.travel[travelActionKey];
+
+		// If the action already includes the party member we don't need to do anything
+		if (travelAction.includes(partyMember.id)) return;
+
 		const currentAction = Object.entries(this.actorProperties.travel).find(([_, array]) =>
 			array.includes(partyMember.id),
 		);

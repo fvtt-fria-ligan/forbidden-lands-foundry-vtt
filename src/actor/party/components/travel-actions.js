@@ -84,11 +84,19 @@ export let TravelActionsConfig = {
 			},
 		],
 	},
-	rest: {
-		key: "rest",
-		journalEntryName: "Rest",
-		name: "FLPS.TRAVEL.REST",
-		buttons: [],
+	camp: {
+		key: "camp",
+		journalEntryName: "Make Camp",
+		name: "FLPS.TRAVEL.CAMP",
+		buttons: [
+			{
+				name: "FLPS.TRAVEL_ROLL.MAKE_CAMP",
+				class: "travel-make-camp",
+				handler: function (party) {
+					handleTravelAction(party.actorProperties.travel.camp, "travel-make-camp");
+				},
+			},
+		],
 	},
 	sleep: {
 		key: "sleep",
@@ -103,6 +111,18 @@ export let TravelActionsConfig = {
 				},
 			},
 		],
+	},
+	rest: {
+		key: "rest",
+		journalEntryName: "Rest",
+		name: "FLPS.TRAVEL.REST",
+		buttons: [],
+	},
+	other: {
+		key: "other",
+		journalEntryName: "",
+		name: "FLPS.TRAVEL.OTHER",
+		buttons: [],
 	},
 	forage: {
 		key: "forage",
@@ -152,25 +172,5 @@ export let TravelActionsConfig = {
 				},
 			},
 		],
-	},
-	camp: {
-		key: "camp",
-		journalEntryName: "Make Camp",
-		name: "FLPS.TRAVEL.CAMP",
-		buttons: [
-			{
-				name: "FLPS.TRAVEL_ROLL.MAKE_CAMP",
-				class: "travel-make-camp",
-				handler: function (party) {
-					handleTravelAction(party.actorProperties.travel.camp, "travel-make-camp");
-				},
-			},
-		],
-	},
-	other: {
-		key: "other",
-		journalEntryName: "",
-		name: "FLPS.TRAVEL.OTHER",
-		buttons: [],
 	},
 };
