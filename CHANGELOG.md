@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [10.0.0-4](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.0.0-3...v10.0.0-4) (2022-09-24)
+
+
+### Bug Fixes
+
+* 🐛 Fixes [#249](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/249) ([3b6df76](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/3b6df76414a10a11f284629689a276bd28e7a838))
+* 🐛 Fixes [#262](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/262) ([ef270cf](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/ef270cf4280b49aabba83f8e59f7c0e713fd4e84))
+* 🐛 Journal Sidebar CSS fix ([3b9a858](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/3b9a8584d60e1adf52b2287c4fe908bc3a16bfb6))
+
 ## [10.0.0-3](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.0.0-2...v10.0.0-3) (2022-09-18)
 
 
