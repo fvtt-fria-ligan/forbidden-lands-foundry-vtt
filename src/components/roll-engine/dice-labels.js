@@ -1,5 +1,5 @@
 export function registerYZURLabels() {
-	CONFIG.YZUR.DICE.ICONS.getLabel = function (type, result) {
+	CONFIG.YZUR.Icons.getLabel = function (type, result) {
 		return `<img src="systems/forbidden-lands/assets/dice/${type}-${result}.png" alt="${result}" title="${result}" />`;
 	};
 }

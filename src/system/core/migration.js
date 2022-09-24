@@ -16,7 +16,7 @@ export const migrateWorld = async () => {
 		for (const actor of game.actors) {
 			try {
 				const update = migrateActorData(actor.toObject(), worldSchemaVersion);
-				if (!foundry.utils.isObjectEmpty(update)) {
+				if (!foundry.utils.isEmpty(update)) {
 					const updated = await actor.update(update, { enforceTypes: false });
 					console.log(`Migrated Actor entity ${actor.name}`, updated);
 				}
@@ -28,7 +28,7 @@ export const migrateWorld = async () => {
 		for (const item of game.items) {
 			try {
 				const update = migrateItemData(item.toObject(), worldSchemaVersion);
-				if (!foundry.utils.isObjectEmpty(update)) {
+				if (!foundry.utils.isEmpty(update)) {
 					const updated = await item.update(update, { enforceTypes: false });
 					console.log(`Migrated Item entity ${item.name}`, updated);
 				}
@@ -39,7 +39,7 @@ export const migrateWorld = async () => {
 		for (const scene of game.scenes) {
 			try {
 				const updateData = migrateSceneData(scene.data);
-				if (!foundry.utils.isObjectEmpty(updateData)) {
+				if (!foundry.utils.isEmpty(updateData)) {
 					console.log(`Migrating Scene entity ${scene.name}`);
 					await scene.update(updateData, { enforceTypes: false });
 					// If we do not do this, then synthetic token actors remain in cache
@@ -93,7 +93,7 @@ const migrateActorData = (actor, worldSchemaVersion) => {
 		let itemUpdate = migrateItemData(itemData, worldSchemaVersion);
 
 		// Update the Owned Item
-		if (!isObjectEmpty(itemUpdate)) {
+		if (!foundry.utils.isEmpty(itemUpdate)) {
 			itemUpdate._id = itemData._id;
 			arr.push(expandObject(itemUpdate));
 		}
@@ -234,7 +234,7 @@ const migrateCompendium = async function (pack, worldSchemaVersion) {
 			}
 
 			// Save the entry, if data was changed
-			if (foundry.utils.isObjectEmpty(updateData)) continue;
+			if (foundry.utils.isEmpty(updateData)) continue;
 			await doc.update(updateData);
 			console.log(`Migrated ${entity} entity ${doc.name} in Compendium ${pack.collection}`);
 		} catch (err) {

@@ -224,7 +224,7 @@ export class FBLRollHandler extends FormApplication {
 
 		//**Spell Rolls** Similar to the listener in the actor sheet, it lets us increment the dice rolled based on willpower spent.
 		html.find(".spend-willpower").on("click contextmenu", (ev) => {
-			if (foundry.utils.isObjectEmpty(this.spell)) return;
+			if (foundry.utils.isEmpty(this.spell)) return;
 
 			const type = this.options.skulls ? "contextmenu" : "click";
 
