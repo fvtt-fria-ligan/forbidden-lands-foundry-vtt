@@ -26,10 +26,32 @@
 
 .app.journal-sheet,
 .app.sheet.actor {
-	form {
-		display: flex;
-		flex-direction: column;
-		.editor-content {
+	.editor,
+	.journal-entry-content {
+		.journal-header > input[name="name"] {
+			font-family: "IM Fell Three Line Pica";
+			font-size: 4rem;
+			text-transform: uppercase;
+			text-align: center;
+			line-height: 2;
+			background-color: #fff;
+			border: 1px solid transparent;
+			border-image: url("./assets/journal-art/title-border.webp");
+			border-image-slice: 50%;
+			border-image-width: 100%;
+			padding: max(10px, 1%) min(14%, 130px) 0;
+			text-overflow: ellipsis;
+			width: min(100%, 900px);
+			min-height: 200px;
+			height: min(45%, 300px);
+			margin: auto;
+			&:focus {
+				box-shadow: none;
+			}
+		}
+
+		.editor-content,
+		.journal-entry-page.text {
 			width: 100%;
 			height: 100%;
 			font-family: "IM Fell Great Primer";
@@ -41,13 +63,12 @@
 			display: flex;
 			flex-flow: column;
 			overflow-y: auto;
-			> .fbl-core:not(.gear-table) {
+
+			.fbl-core:not(.gear-table) {
 				max-width: 70ch;
 				margin-inline: auto;
 			}
-			&.editor-content > :last-child {
-				margin-bottom: 45px;
-			}
+
 			#{utils.fromTo(h,1,6)} {
 				font-family: "IM Fell Three Line Pica";
 				text-transform: uppercase;
@@ -121,43 +142,29 @@
 				}
 			}
 		}
-		& > input[name="name"] {
-			font-family: "IM Fell Three Line Pica";
-			font-size: 4rem;
-			text-transform: uppercase;
-			text-align: center;
-			line-height: 2;
-			background-color: #fff;
-			border: 1px solid transparent;
-			border-image: url("./assets/journal-art/title-border.webp");
-			border-image-slice: 50%;
-			border-image-width: 100%;
-			padding: max(10px, 1%) min(14%, 130px) 0;
-			text-overflow: ellipsis;
-			width: min(100%, 900px);
-			min-height: 200px;
-			height: min(45%, 300px);
-			margin: auto;
-			&:focus {
-				box-shadow: none;
-			}
-		}
 	}
 }
 
-.editor:focus .editor-edit,
-.editor:hover .editor-edit {
-	background: #cccd;
-	border: none;
-	box-shadow: 0 0 3px #1119;
-	right: 10px;
-	width: 24px;
-	height: 24px;
-	display: grid;
-	place-content: center;
+.editor:focus,
+.editor:hover,
+.journal-entry-page.text:focus .edit-container,
+.journal-entry-page.text:hover .edit-container {
+	height: unset;
 
-	i {
-		font-size: 1.5rem;
+	.editor-edit {
+		background: #cccd;
+		border: none;
+		box-shadow: 0 0 3px #1119;
+		right: 10px;
+		width: 24px;
+		height: 24px;
+		display: grid;
+		place-content: center;
+		z-index: 100;
+
+		i {
+			font-size: 1.5rem;
+		}
 	}
 }
 

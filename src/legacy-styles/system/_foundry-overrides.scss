@@ -194,13 +194,11 @@ a {
 		height: 200px;
 		top: -50px;
 		left: calc(50% - 100px);
-		opacity: 0.7;
-		-webkit-animation: rotation 10s infinite linear;
-		animation: rotation 10s infinite linear;
+		opacity: 0.75;
 	}
-	h3 {
+	& > figcaption {
 		font-family: "IM Fell DW Pica SC";
-		font-size: 32px;
+		font-size: 4rem;
 		text-shadow: 0px 3px 5px rgba(0, 0, 0, 1);
 	}
 }
