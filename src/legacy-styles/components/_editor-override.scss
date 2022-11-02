@@ -28,9 +28,12 @@
 .app.sheet.actor {
 	.editor,
 	.journal-entry-content {
+		font-family: var(--font-editor);
+		font-size: var(--font-size-18);
+
 		.journal-header > input[name="name"] {
 			font-family: "IM Fell Three Line Pica";
-			font-size: 4rem;
+			font-size: var(--font-size-32);
 			text-transform: uppercase;
 			text-align: center;
 			line-height: 2;
@@ -49,96 +52,49 @@
 				box-shadow: none;
 			}
 		}
+		#{utils.fromTo(h,1,6)} {
+			font-family: "IM Fell Three Line Pica";
+			text-transform: uppercase;
+			text-indent: 0px;
+			text-align: center;
+			border: unset;
+		}
+		h5 {
+			margin: 0px auto;
+			font-family: "IM Fell Three Line Pica";
+			text-transform: uppercase;
+			border-top: 1px solid black;
+			padding-top: 4px;
+		}
+		ul {
+			list-style-type: "\2725      ";
 
-		.editor-content,
-		.journal-entry-page.text {
-			width: 100%;
-			height: 100%;
-			font-family: "IM Fell Great Primer";
-			font-size: var(--font-size--large);
-			line-height: 1.6;
-			text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
-			color: #333;
-			padding: 0 3em;
-			display: flex;
-			flex-flow: column;
-			overflow-y: auto;
+			li::marker {
+				font-size: var(--font-size-14);
+			}
+		}
+		table {
+			background: transparent;
+			font-family: var(--font-table);
+			font-size: var(--font-size-14);
+			border: none;
 
-			.fbl-core:not(.gear-table) {
-				max-width: 70ch;
-				margin-inline: auto;
-			}
+			thead {
+				background: transparent;
+				color: var(--color-text-dark-primary);
+				text-shadow: none;
 
-			#{utils.fromTo(h,1,6)} {
-				font-family: "IM Fell Three Line Pica";
-				text-transform: uppercase;
-				text-indent: 0px;
-				text-align: center;
-				border: unset;
-			}
-			h5 {
-				margin: 0px auto;
-				font-family: "IM Fell Three Line Pica";
-				text-transform: uppercase;
-				border-top: 1px solid black;
-				width: 18%;
-				padding-top: 4px;
-			}
-			p {
-				width: 100%;
-			}
-			p + p {
-				text-indent: 14px;
-				margin-top: -0.5em;
-				a.entity-link {
-					text-indent: 0px;
-				}
-			}
-			blockquote {
-				margin: 20px auto;
-				max-width: 55ch;
-				padding: 0 50px;
-				font-size: 2.4rem;
-				font-style: italic;
-				border: unset;
-			}
-			ul {
-				list-style-type: "✥";
-				margin: 0.5em auto;
-				text-indent: 0px;
-
-				li {
-					padding-left: 1rem;
-				}
-			}
-			table {
-				font-family: "Poppins";
-				font-size: var(--font-size--small);
-				line-height: 1;
-				padding: 25px 0;
-				max-width: 100%;
 				border: none;
-				border-collapse: collapse;
-				margin: auto;
-				margin-bottom: 15px;
-				h4 {
-					font-family: "Poppins";
-					font-weight: bold;
-					margin: 0;
-					text-align: left;
-					text-transform: uppercase;
-				}
-				tr:nth-child(2) {
-					border-top: 1px solid #7a7971;
-				}
-				tr:nth-child(even) {
-					background-color: rgb(170, 170, 170);
-				}
-				td {
-					padding-right: 10px;
-					p {
-						text-indent: 0;
-					}
+				border-bottom: 2px solid var(--color-border);
+			}
+
+			tr {
+				border: none;
+				border-bottom: 1px solid var(--color-border);
+				padding: 0.5rem;
+
+				&:nth-child(odd):not(:has(th)) {
+					background-color: #cbcccb;
 				}
 			}
 		}
@@ -149,8 +105,6 @@
 .editor:hover,
 .journal-entry-page.text:focus .edit-container,
 .journal-entry-page.text:hover .edit-container {
-	height: unset;
-
 	.editor-edit {
 		background: #cccd;
 		border: none;
@@ -163,30 +117,7 @@
 		z-index: 100;
 
 		i {
-			font-size: 1.5rem;
+			font-size: var(--font-size-16);
 		}
-	}
-}
-
-.app.journal-sheet form > button[type="submit"] {
-	position: absolute;
-	bottom: 10px;
-	width: 20%;
-	background: #fff;
-	font-weight: 600;
-	left: 50%;
-	transform: translateX(-50%);
-	border: 1px solid transparent;
-	border-image: url(./assets/journal-art/box-border-large.webp) 28/7 repeat;
-	border-image-outset: 6;
-	background-color: #fff;
-	opacity: 0;
-	transition: opacity 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
-
-	&:focus-visible,
-	&:hover {
-		opacity: 1;
-		box-shadow: none;
-		filter: drop-shadow(0 0 2px #111);
 	}
 }

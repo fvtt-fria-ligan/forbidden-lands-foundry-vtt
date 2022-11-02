@@ -7,6 +7,9 @@
 
 		a.currency-button {
 			margin: 0 1px;
+			display: inline-block;
+			font-size: var(--font-size-16);
+			translate: 0 2px;
 		}
 
 		.currencies {
@@ -18,7 +21,7 @@
 
 				b {
 					font-family: var(--font-special);
-					font-size: var(--font-size--default);
+					font-size: var(--font-size-16);
 				}
 			}
 
@@ -46,12 +49,12 @@
 				font-family: var(--font-special);
 				padding: 8px 0;
 				justify-content: center;
-				font-size: var(--font-size--default);
+				font-size: var(--font-size-16);
 
 				i {
 					margin-left: 5px;
 					margin-bottom: 2px;
-					font-size: 2.3rem;
+					font-size: var(--font-size-24);
 				}
 
 				button {
@@ -90,7 +93,7 @@
 
 			.encumbrance {
 				font-family: var(--font-editor);
-				font-size: var(--font-size--default);
+				font-size: var(--font-size-16);
 				padding: 2px 4px;
 
 				&.overencumbered {
@@ -98,7 +101,7 @@
 				}
 
 				i {
-					font-size: var(--font-size--small);
+					font-size: var(--font-size-12);
 				}
 			}
 
@@ -116,7 +119,7 @@
 						border: none;
 						border-bottom: 2px solid var(--color-border);
 						margin-bottom: 4px;
-						font-size: var(--font-size--very-small);
+						font-size: var(--font-size-12);
 						font-weight: bold;
 						padding: 4px;
 						text-transform: uppercase;

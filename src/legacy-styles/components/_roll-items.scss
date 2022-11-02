@@ -22,7 +22,7 @@
 		box-shadow: none;
 		border: none;
 		font-family: var(--font-subheader);
-		font-size: 1.6rem;
+		font-size: var(--font-size-16);
 		font-weight: 600;
 	}
 
@@ -38,7 +38,7 @@
 		border-top: 2px solid #1112;
 		margin-top: -1px;
 		padding-top: 1.3rem;
-		font-size: 2.1rem;
+		font-size: var(--font-size-20);
 		line-height: normal;
 		display: flex;
 		justify-content: center;
@@ -69,7 +69,7 @@
 		.part-total {
 			background: none;
 			border: none;
-			font-size: 1.4rem;
+			font-size: var(--font-size-14);
 		}
 
 		.sword,
@@ -88,7 +88,7 @@
 
 		.dice-rolls {
 			.roll {
-				max-width: 3.5rem;
+				max-width: 2rem;
 				margin: 0 0.3rem;
 				border-radius: 2px;
 				filter: drop-shadow(0 0 2px #1119);
@@ -118,7 +118,7 @@
 	.dice-info {
 		text-align: center;
 		font-family: var(--font-special);
-		font-size: 1.6rem;
+		font-size: var(--font-size-16);
 		font-weight: 600;
 		color: #444;
 
@@ -127,12 +127,12 @@
 		}
 	}
 	.result {
-		font-size: 1.8rem;
+		font-size: var(--font-size-18);
 	}
 }
 
 .consumable-result {
-	font-size: 9rem;
+	font-size: var(--font-size-48);
 	font-family: "IM Fell Great Primer";
 	align-self: flex-start;
 	line-height: 7rem;
@@ -144,20 +144,18 @@
 }
 
 .spell-roll {
-	font-size: 2rem;
+	font-size: var(--font-size-20);
 	font-family: "IM Fell Great Primer";
 	align-self: flex-start;
-	line-height: 3rem;
 
 	&.power {
-		word-break: break-word;
 		text-align: right;
 		flex: 0 1 50%;
+		line-height: 1.6;
 	}
 
 	&.result {
-		font-size: 6rem;
-		line-height: 6rem;
+		font-size: var(--font-size-48);
 		text-align: left;
 		margin-left: 2rem;
 		flex: 1;

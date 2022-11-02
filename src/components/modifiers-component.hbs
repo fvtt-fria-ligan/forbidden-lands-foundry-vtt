@@ -55,7 +55,7 @@
         {{#if (or (eq ../type "gear") (eq ../type "weapon") (eq ../type "armor"))}}
             <div class="flex row align-center" title="{{localize "ITEM.ROLL_MODIFIERS_USEGEAR"}}">
                 <input type="checkbox" name="system.rollModifiers.{{@key}}.gearBonus" id="{{../_id}}.{{@key}}.gearBonusToggle" {{checked modifier.gearBonus}} />
-                <label for="{{../_id}}.{{@key}}.gearBonusToggle" style="white-space: nowrap; font-size: var(--font-size--small);">{{localize "ITEM.ROLL_MODIFIERS_USEGEAR"}}</label>
+                <label for="{{../_id}}.{{@key}}.gearBonusToggle" style="white-space: nowrap; font-size: var(--font-size-12);">{{localize "ITEM.ROLL_MODIFIERS_USEGEAR"}}</label>
             </div>
         {{/if}}
         {{#unless modifier.gearBonus}}

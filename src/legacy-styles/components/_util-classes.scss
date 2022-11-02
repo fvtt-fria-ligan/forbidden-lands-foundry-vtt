@@ -26,7 +26,6 @@
 	background: #eee;
 	padding: 0.2em 2em;
 	font-weight: bold;
-	font-size: max(1rem, 100%);
 	box-shadow: none;
 	border: 2px groove #eeec;
 	width: max(2em, 60%);
@@ -47,7 +46,7 @@
 }
 
 .chat-flavor {
-	font-size: 1.4rem;
+	font-size: var(--font-size-14);
 	display: block;
 	text-align: center;
 	font-style: italic;
