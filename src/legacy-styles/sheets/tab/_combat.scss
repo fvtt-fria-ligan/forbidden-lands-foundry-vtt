@@ -65,7 +65,7 @@
 		align-items: center;
 		.button {
 			flex-basis: 20%;
-			font-size: 1.2rem;
+			font-size: var(--font-size-12);
 			text-align: right;
 		}
 		.name {
@@ -157,7 +157,7 @@
 
 .forbidden-lands .character .weapons .item .features {
 	font-style: italic;
-	font-size: var(--font-size--small);
+	font-size: var(--font-size-12);
 }
 
 .forbidden-lands .character .combat-tab .actions {
@@ -168,7 +168,7 @@
 	i {
 		margin-left: 5px;
 		margin-bottom: 2px;
-		font-size: 1.6rem;
+		font-size: var(--font-size-16);
 	}
 }
 

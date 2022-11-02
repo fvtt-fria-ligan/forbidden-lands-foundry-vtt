@@ -36,7 +36,7 @@
 
 .chargen-title {
 	margin-top: 20px;
-	font-size: var(--font-size--large);
+	font-size: var(--font-size-18);
 	font-family: "IM Fell DW Pica";
 	font-weight: 600;
 	text-transform: uppercase;
@@ -45,7 +45,7 @@
 
 .chargen-description {
 	font-family: "IM Fell Great Primer";
-	font-size: var(--font-size--default);
+	font-size: var(--font-size-16);
 	text-align: justify;
 	margin: 20px 0;
 	line-height: 1.35;
@@ -77,7 +77,7 @@
 	margin-left: 30px;
 	font-family: "IM FELL DW Pica";
 	justify-content: space-around;
-	font-size: var(--font-size--default);
+	font-size: var(--font-size-16);
 	background: #fff;
 	border-image-outset: 3px;
 }

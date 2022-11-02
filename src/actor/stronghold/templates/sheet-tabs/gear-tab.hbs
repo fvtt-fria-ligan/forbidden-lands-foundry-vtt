@@ -15,11 +15,11 @@
 						<img src="{{item.img}}" width="32px" />
 						<div class="name">{{item.name}}</div>
 					</div>
-					<div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
-						{{item.data.bonus.value}}
+					<div class="bonus {{#unless item.system.bonus.value }}broken{{/unless}}">
+						{{item.system.bonus.value}}
 					</div>
-					<input class="quantity" type="number" data-dtype="Number" value="{{item.data.quantity}}" />
-					<div class="weight">{{itemWeight item.data.weight}} / {{item.totalWeight}}</div>
+					<input class="quantity" type="number" data-dtype="Number" value="{{item.system.quantity}}" />
+					<div class="weight">{{itemWeight item.system.weight}} / {{item.totalWeight}}</div>
 					<div class="button">
 						<a class="item-control item-edit" title="{{localize "GEAR.EDIT"}}"><i class="fas fa-edit"></i></a>
 						<a class="item-control item-post" title="{{localize "GEAR.POST"}}"><i class="fas fa-comment"></i></a>
@@ -42,11 +42,11 @@
 						<img src="{{item.img}}" width="32px" />
 						<div class="name">{{item.name}}</div>
 					</div>
-					<div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
-						{{item.data.bonus.value}} {{#if item.data.artifactBonus}}+ {{item.data.artifactBonus}}{{/if}}
+					<div class="bonus {{#unless item.system.bonus.value }}broken{{/unless}}">
+						{{item.system.bonus.value}} {{#if item.system.artifactBonus}}+ {{item.system.artifactBonus}}{{/if}}
 					</div>
-					<input class="quantity" type="number" data-dtype="Number" value="{{item.data.quantity}}" />
-					<div class="weight">{{itemWeight item.data.weight}} / {{item.totalWeight}}</div>
+					<input class="quantity" type="number" data-dtype="Number" value="{{item.system.quantity}}" />
+					<div class="weight">{{itemWeight item.system.weight}} / {{item.totalWeight}}</div>
 					<div class="button">
 						<a class="item-control item-edit" title="{{localize "GEAR.EDIT"}}"><i class="fas fa-edit"></i></a>
 						<a class="item-control item-post" title="{{localize "GEAR.POST"}}"><i class="fas fa-comment"></i></a>
@@ -69,11 +69,11 @@
 						<img src="{{item.img}}" width="32px" />
 						<div class="name">{{item.name}}</div>
 					</div>
-					<div class="bonus {{#unless item.data.bonus.value }}broken{{/unless}}">
-						{{item.data.bonus.value}}
+					<div class="bonus {{#unless item.system.bonus.value }}broken{{/unless}}">
+						{{item.system.bonus.value}}
 					</div>
-					<input class="quantity" type="number" data-dtype="Number" value="{{item.data.quantity}}" />
-					<div class="weight">{{itemWeight item.data.weight}} / {{item.totalWeight}}</div>
+					<input class="quantity" type="number" data-dtype="Number" value="{{item.system.quantity}}" />
+					<div class="weight">{{itemWeight item.system.weight}} / {{item.totalWeight}}</div>
 					<div class="button">
 						<a class="item-control item-edit" title="{{localize "GEAR.EDIT"}}"><i class="fas fa-edit"></i></a>
 						<a class="item-control item-post" title="{{localize "GEAR.POST"}}"><i class="fas fa-comment"></i></a>
@@ -99,8 +99,8 @@
 						<div class="name">{{item.name}}</div>
 					</div>
 					<div class="bonus">&nbsp;</div>
-					<input class="quantity" type="number" data-dtype="Number" value="{{item.data.quantity}}" />
-					<div class="weight">{{itemWeight item.data.weight}} / {{item.totalWeight}}</div>
+					<input class="quantity" type="number" data-dtype="Number" value="{{item.system.quantity}}" />
+					<div class="weight">{{itemWeight item.system.weight}} / {{item.totalWeight}}</div>
 					<div class="button">
 						<a class="item-control item-edit" title="{{localize "GEAR.EDIT"}}"><i class="fas fa-edit"></i></a>
 						<a class="item-control item-post" title="{{localize "GEAR.POST"}}"><i class="fas fa-comment"></i></a>

@@ -16,7 +16,7 @@
 	"minimumCoreVersion": 10,
 	"compatibility": {
 		"minimum": 10,
-		"verified": 10.285,
+		"verified": 10.288,
 		"maximum": 10
 	},
 	"contributors": "perfectro, patrys, Maxter, jimorie, giant-teapot, romelwell, roonel, moo-man, lasseborly",

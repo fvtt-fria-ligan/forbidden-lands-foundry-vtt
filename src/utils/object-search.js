@@ -5,7 +5,7 @@ export function objectSearch(object, string) {
 }
 
 function validateObject(object) {
-	return !!object && typeof object === "object" && !foundry.utils.isObjectEmpty(object);
+	return !!object && typeof object === "object" && !foundry.utils.isEmpty(object);
 }
 
 function validateString(string) {

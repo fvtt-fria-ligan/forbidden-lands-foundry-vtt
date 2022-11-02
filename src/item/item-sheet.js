@@ -4,7 +4,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 	}
 
 	get itemProperties() {
-		return this.itemData.data;
+		return this.item.system;
 	}
 
 	get config() {
@@ -37,15 +37,15 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 	}
 
 	_computeQuality(data) {
-		data.artifact = !!data.data.artifactBonus;
-		data.lethal = data.data.lethal === "yes";
-		data.ranks = data.data.type === "general" || data.data.type === "profession";
+		data.artifact = !!data.system.artifactBonus;
+		data.lethal = data.system.lethal === "yes";
+		data.ranks = data.system.type === "general" || data.system.type === "profession";
 	}
 
 	getData() {
 		const superData = super.getData();
 		const data = superData.data;
-		data.flags = this.object.data.flags["forbidden-lands"];
+		data.flags = this.item.flags["forbidden-lands"];
 		data.encumbranceValues = this.config.encumbrance;
 		data.isGM = game.user.isGM;
 		this._computeQuality(data);
@@ -67,7 +67,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 		html.find(".add-modifier").click(async (ev) => {
 			ev.preventDefault();
 			let data = this.getData();
-			let rollModifiers = data.data.rollModifiers || {};
+			let rollModifiers = data.system.rollModifiers || {};
 			// To preserve order, make sure the new index is the highest
 			let modifierId = Math.max(-1, ...Object.getOwnPropertyNames(rollModifiers)) + 1;
 			let update = {};
@@ -81,7 +81,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 		html.find(".delete-modifier").click(async (ev) => {
 			ev.preventDefault();
 			let data = this.getData();
-			let rollModifiers = duplicate(data.data.rollModifiers || {});
+			let rollModifiers = duplicate(data.system.rollModifiers || {});
 			let modifierId = $(ev.currentTarget).data("modifier-id");
 			delete rollModifiers[modifierId];
 			// Safety cleanup of null modifiers
@@ -98,7 +98,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 			}
 		});
 		html.find(".change-bonus").on("click contextmenu", (ev) => {
-			const bonus = this.object.data.data.bonus;
+			const bonus = this.itemProperties.bonus;
 			let value = bonus.value;
 			const altInteraction = game.settings.get("forbidden-lands", "alternativeSkulls");
 			if ((ev.type === "click" && !altInteraction) || (ev.type === "contextmenu" && altInteraction)) {
@@ -112,7 +112,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 		});
 		html.find(".feature").click(async (ev) => {
 			const featureName = $(ev.currentTarget).data("feature");
-			const features = this.object.data.data.features;
+			const features = this.object.itemProperties.features;
 			if (CONFIG.fbl.weaponFeatures.includes(featureName))
 				this.object.update({ [`data.features.${featureName}`]: !features[featureName] });
 			this._render();
@@ -150,7 +150,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 			showDrawbackField: showField("Drawback"),
 			showAppearanceField: showField("Appearance"),
 		};
-		data.data.customRollModifiers = await this.getCustomRollModifiers();
+		data.system.customRollModifiers = await this.getCustomRollModifiers();
 		return super._renderInner(data, options);
 	}
 }

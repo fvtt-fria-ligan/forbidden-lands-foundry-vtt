@@ -29,7 +29,7 @@
 	@include hoverWidth("entry-image");
 	@include hoverWidth("close");
 	> i {
-		font-size: var(--font-size--default);
+		font-size: var(--font-size-16);
 		margin-left: 10px;
 		margin-top: 2px;
 		color: #292929f0;
@@ -43,7 +43,7 @@
 
 .fa-suitcase {
 	font-family: RPGAwesome;
-	font-size: 1.6rem;
+	font-size: var(--font-size-16);
 	transform: translateY(1px);
 	&:before {
 		content: "\ea72";
@@ -52,7 +52,7 @@
 
 .fa-comments {
 	font-family: RPGAwesome;
-	font-size: 1.5rem;
+	font-size: var(--font-size-16);
 	transform: translateY(1px);
 	&:before {
 		content: "\ea8f";
@@ -62,7 +62,7 @@
 .fa-fist-raised {
 	font-family: Swordlings;
 	transform: translate(1.3px, -0.6px);
-	font-size: 1.5rem;
+	font-size: var(--font-size-16);
 	&:before {
 		content: "x";
 	}
@@ -109,7 +109,7 @@ h3 {
 			&.title {
 				input {
 					font-family: "IM FELL THREE LINE PICA";
-					font-size: var(--font-size--extra-large);
+					font-size: var(--font-size-20);
 					text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
 					text-transform: uppercase;
 					border: none;
@@ -151,8 +151,8 @@ h3 {
 body,
 button {
 	font-family: Poppins, sans-serif;
-	font-size: var(--font-size--small);
 }
+
 img {
 	border: none;
 	&.profile {
@@ -171,7 +171,7 @@ img {
 	background: #292929f0;
 }
 
-a.entity-link,
+a.content-link,
 a.inline-roll {
 	border: none;
 	background: transparent;
@@ -194,13 +194,11 @@ a {
 		height: 200px;
 		top: -50px;
 		left: calc(50% - 100px);
-		opacity: 0.7;
-		-webkit-animation: rotation 10s infinite linear;
-		animation: rotation 10s infinite linear;
+		opacity: 0.75;
 	}
-	h3 {
+	& > figcaption {
 		font-family: "IM Fell DW Pica SC";
-		font-size: 32px;
+		font-size: var(--font-size-24);
 		text-shadow: 0px 3px 5px rgba(0, 0, 0, 1);
 	}
 }
@@ -236,7 +234,7 @@ a {
 	}
 }
 .chat-message {
-	font-size: var(--font-size--very-small);
+	font-size: var(--font-size-12);
 	.message-header {
 		padding: 8px 13px;
 		border-bottom: rgba(0, 0, 0, 0.2);
@@ -303,7 +301,7 @@ li {
 	}
 	h3.entity-name > a {
 		font-weight: 400;
-		font-size: 1.2rem;
+		font-size: var(--font-size-18);
 		&:hover {
 			text-shadow: 0 0 6px #333;
 		}

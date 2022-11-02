@@ -10,7 +10,7 @@
 		text-transform: uppercase;
 		border-bottom: none;
 		font-weight: bold;
-		font-size: 1.8rem;
+		font-size: var(--font-size-18);
 	}
 
 	h3 {
@@ -96,7 +96,6 @@
 			background: #eee;
 			padding: 0.3em 2em;
 			font-weight: normal;
-			font-size: max(1rem, 100%);
 			border: 2px groove #e0e0e0;
 			width: 100%;
 			display: flex;
@@ -123,8 +122,8 @@
 
 	.display-numbers {
 		font-family: var(--font-subheader);
-		font-size: 8rem;
-		line-height: 8rem;
+		font-size: var(--font-size-48);
+		line-height: var(--font-size-48);
 	}
 
 	.spell-options {

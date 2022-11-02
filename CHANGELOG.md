@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [10.0.0-4](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.0.0-3...v10.0.0-4) (2022-09-24)
+
+
+### Bug Fixes
+
+* 🐛 Fixes [#249](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/249) ([3b6df76](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/3b6df76414a10a11f284629689a276bd28e7a838))
+* 🐛 Fixes [#262](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/262) ([ef270cf](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/ef270cf4280b49aabba83f8e59f7c0e713fd4e84))
+* 🐛 Journal Sidebar CSS fix ([3b9a858](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/3b9a8584d60e1adf52b2287c4fe908bc3a16bfb6))
+
+## [10.0.0-3](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.0.0-2...v10.0.0-3) (2022-09-18)
+
+
+### Bug Fixes
+
+* 🐛 Fix editor issues in item/actor sheets ([0e92817](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/0e9281787b34425efff350eac5191ff77c9d872c)), closes [#261](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/261)
+* 🐛 Revert to releases latest manifests ([0639b9a](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/0639b9a6cc3f35ec19d58b29db56b83d7ef191c8)), closes [#264](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/264)
+
+## [10.0.0-2](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v9.2.2...v10.0.0-2) (2022-09-11)
+
+
+### Bug Fixes
+
+* 🐛 Add alpha warning message, remove system.json from releases ([0492d4b](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/0492d4bd33b8c641dac82146489da000b39c9b89))
+* 🐛 V9 compatible manifest ([8caff11](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/8caff11d15788c4b5d56b9d392e0722bbf95f7fd)), closes [#252](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/252)
+
+## [10.0.0-1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.0.0-0...v10.0.0-1) (2022-08-11)
+
+
+### Bug Fixes
+
+* 🐛 V9 compatible manifest ([d227ab3](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/d227ab336ff1bca65ba8c237af66a6cdfbb90dd0)), closes [#252](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/252)
+
+## [10.0.0-0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v9.2.2...v10.0.0-0) (2022-07-18)
+
 ### [9.2.2](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v9.2.1...v9.2.2) (2022-07-18)
 
 

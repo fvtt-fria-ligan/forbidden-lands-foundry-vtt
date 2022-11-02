@@ -6,7 +6,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	altInteraction = game.settings.get("forbidden-lands", "alternativeSkulls");
 
 	getData() {
-		const data = this.actorData.toObject();
+		const data = this.actor.toObject();
 		data.items?.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 		this.computeItems(data);
 		data.carriedStates = this.#getCarriedStates();
@@ -19,7 +19,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	}
 
 	get actorProperties() {
-		return this.actorData.data;
+		return this.actor.system;
 	}
 
 	get rollData() {
@@ -69,7 +69,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		// Attribute markers
 		html.find(".change-attribute").on("click contextmenu", (ev) => {
 			const attributeName = $(ev.currentTarget).data("attribute");
-			const attribute = this.actor.data.data.attribute[attributeName];
+			const attribute = this.actorProperties.attribute[attributeName];
 			let value = attribute.value;
 			if ((ev.type === "click" && !this.altInteraction) || (ev.type === "contextmenu" && this.altInteraction)) {
 				value = Math.max(value - 1, 0);
@@ -80,13 +80,13 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 				value = Math.min(value + 1, attribute.max);
 			}
 			this.actor.update({
-				["data.attribute." + attributeName + ".value"]: value,
+				["system.attribute." + attributeName + ".value"]: value,
 			});
 		});
 
 		// Willpower markers
 		html.find(".change-willpower").on("click contextmenu", (ev) => {
-			const attribute = this.actor.data.data.bio.willpower;
+			const attribute = this.actorProperties.bio.willpower;
 			let value = attribute.value;
 			if ((ev.type === "click" && !this.altInteraction) || (ev.type === "contextmenu" && this.altInteraction)) {
 				value = Math.max(value - 1, 0);
@@ -96,7 +96,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			) {
 				value = Math.min(value + 1, attribute.max);
 			}
-			this.actor.update({ "data.bio.willpower.value": value });
+			this.actor.update({ "system.bio.willpower.value": value });
 		});
 
 		html.find(".control-gear").click((ev) => {
@@ -147,17 +147,17 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		html.find(".change-item-bonus").on("click contextmenu", (ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
 			const item = this.actor.items.get(itemId);
-			let value = item.data.data.bonus.value;
+			let value = item.system.bonus.value;
 			if ((ev.type === "click" && !this.altInteraction) || (ev.type === "contextmenu" && this.altInteraction)) {
 				value = Math.max(value - 1, 0);
 			} else if (
 				(ev.type === "contextmenu" && !this.altInteraction) ||
 				(ev.type === "click" && this.altInteraction)
 			) {
-				value = Math.min(value + 1, item.data.data.bonus.max);
+				value = Math.min(value + 1, item.itemProperties.bonus.max);
 			}
 			item.update({
-				"data.bonus.value": value,
+				"system.bonus.value": value,
 			});
 		});
 
@@ -191,7 +191,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			this.actor.updateEmbeddedDocuments("Item", [
 				{
 					_id: itemId,
-					"data.quantity": ev.currentTarget.value,
+					"system.quantity": ev.currentTarget.value,
 				},
 			]);
 		});
@@ -397,7 +397,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	}
 
 	computeSkills(data) {
-		for (let skill of Object.values(data.data.skill)) {
+		for (let skill of Object.values(data.system.skill)) {
 			skill[`has${skill?.attribute?.capitalize()}`] = false;
 			if (CONFIG.fbl.attributes.includes(skill.attribute)) skill[`has${skill.attribute.capitalize()}`] = true;
 		}
@@ -406,20 +406,20 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	computeItems(data) {
 		for (const item of Object.values(data.items)) {
 			// Shields were long treated as armor. They are not. This is a workaround for that.
-			if (item.data.part === "shield") item.isWeapon = true;
+			if (item.system.part === "shield") item.isWeapon = true;
 			else if (CONFIG.fbl.itemTypes.includes(item.type)) item[`is${item.type.capitalize()}`] = true;
 		}
 	}
 
 	computeItemEncumbrance(data) {
 		const type = data.type;
-		const weight = isNaN(Number(data?.data.weight))
-			? this.config.encumbrance[data?.data.weight] ?? 1
-			: Number(data?.data.weight) ?? 1;
+		const weight = isNaN(Number(data?.system.weight))
+			? this.config.encumbrance[data?.system.weight] ?? 1
+			: Number(data?.system.weight) ?? 1;
 		// If the item isn't carried or equipped, don't count it.
 		if (!data.flags["forbidden-lands"]?.state) return 0;
 		// Only return weight for these types.
-		if (type === "rawMaterial") return 1 * Number(data.data.quantity);
+		if (type === "rawMaterial") return 1 * Number(data.system.quantity);
 		if (["gear", "armor", "weapon"].includes(type)) return weight;
 		// Talents, Spells, and the like dont have weight.
 		return 0;
@@ -446,15 +446,15 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			case "type":
 				return a[key]?.toLocaleLowerCase().localeCompare(b[key]?.toLocaleLowerCase()) ?? 0;
 			case "attribute":
-				const aComp = a.type === "rawMaterial" ? a.data.quantity : a.data.bonus.value;
-				const bComp = b.type === "rawMaterial" ? b.data.quantity : b.data.bonus.value;
+				const aComp = a.type === "rawMaterial" ? a.system.quantity : a.system.bonus.value;
+				const bComp = b.type === "rawMaterial" ? b.system.quantity : b.system.bonus.value;
 				return Number(bComp) - Number(aComp);
 			case "weight":
 				const weightMap = CONFIG.fbl.encumbrance;
 				const aWeight =
-					a.type === "rawMaterial" ? Number(a.data.quantity) : Math.floor(weightMap[a.data.weight] || 0);
+					a.type === "rawMaterial" ? Number(a.system.quantity) : Math.floor(weightMap[a.system.weight] || 0);
 				const bWeight =
-					b.type === "rawMaterial" ? Number(b.data.quantity) : Math.floor(weightMap[b.data.weight] || 0);
+					b.type === "rawMaterial" ? Number(b.system.quantity) : Math.floor(weightMap[b.system.weight] || 0);
 				return bWeight - aWeight;
 		}
 		/* eslint-enable no-case-declarations, no-nested-ternary */

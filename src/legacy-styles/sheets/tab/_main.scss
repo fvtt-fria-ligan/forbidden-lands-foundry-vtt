@@ -4,7 +4,7 @@
 	grid-template-columns: 1fr 1fr;
 	height: 100%;
 	overflow-y: auto;
-	font-size: var(--font-size--default);
+	font-size: var(--font-size-16);
 }
 
 .forbidden-lands .attributes {
@@ -46,7 +46,7 @@
 }
 .forbidden-lands .conditions-grid a.condition {
 	font-family: var(--font-special);
-	font-size: var(--font-size--default);
+	font-size: var(--font-size-16);
 	font-weight: bold;
 	display: inline-grid;
 	grid: inherit;
@@ -55,7 +55,7 @@
 }
 
 .forbidden-lands .character .condition i {
-	font-size: var(--font-size--large);
+	font-size: var(--font-size-18);
 	justify-self: end;
 }
 

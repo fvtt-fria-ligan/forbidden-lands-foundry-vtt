@@ -3,7 +3,7 @@ export const migrateWorld = async () => {
 	let worldSchemaVersion;
 	try {
 		systemVersion = Number(
-			game.system.data.version.split(".")[0], //Get Major release version
+			game.system.version.split(".")[0], //Get Major release version
 		);
 		// In older instances of the system the worldSchemaVersion was user-changeable. We therefore need to make sure we get a number.
 		worldSchemaVersion = Number(game.settings.get("forbidden-lands", "worldSchemaVersion") || 0);
@@ -16,7 +16,7 @@ export const migrateWorld = async () => {
 		for (const actor of game.actors) {
 			try {
 				const update = migrateActorData(actor.toObject(), worldSchemaVersion);
-				if (!foundry.utils.isObjectEmpty(update)) {
+				if (!foundry.utils.isEmpty(update)) {
 					const updated = await actor.update(update, { enforceTypes: false });
 					console.log(`Migrated Actor entity ${actor.name}`, updated);
 				}
@@ -28,7 +28,7 @@ export const migrateWorld = async () => {
 		for (const item of game.items) {
 			try {
 				const update = migrateItemData(item.toObject(), worldSchemaVersion);
-				if (!foundry.utils.isObjectEmpty(update)) {
+				if (!foundry.utils.isEmpty(update)) {
 					const updated = await item.update(update, { enforceTypes: false });
 					console.log(`Migrated Item entity ${item.name}`, updated);
 				}
@@ -39,7 +39,7 @@ export const migrateWorld = async () => {
 		for (const scene of game.scenes) {
 			try {
 				const updateData = migrateSceneData(scene.data);
-				if (!foundry.utils.isObjectEmpty(updateData)) {
+				if (!foundry.utils.isEmpty(updateData)) {
 					console.log(`Migrating Scene entity ${scene.name}`);
 					await scene.update(updateData, { enforceTypes: false });
 					// If we do not do this, then synthetic token actors remain in cache
@@ -68,12 +68,12 @@ const migrateActorData = (actor, worldSchemaVersion) => {
 	// Sleepless -> Sleepy
 	if (worldSchemaVersion < 3)
 		if (actor.type === "character")
-			if (!actor.data.condition.sleepy) update["data.condition.sleepy"] = actor.data.condition.sleepless;
+			if (!actor.system.condition.sleepy) update["system.condition.sleepy"] = actor.system.condition.sleepless;
 
 	// Improve consumable values
 	if (worldSchemaVersion < 7)
 		if (actor.type === "character") {
-			for (const [key, data] of Object.entries(actor.data.consumable)) {
+			for (const [key, data] of Object.entries(actor.system.consumable)) {
 				const map = {
 					0: 0,
 					6: 1,
@@ -81,7 +81,7 @@ const migrateActorData = (actor, worldSchemaVersion) => {
 					10: 3,
 					12: 4,
 				};
-				update[`data.consumable.${key}.value`] = map[data.value];
+				update[`system.consumable.${key}.value`] = map[data.value];
 			}
 		}
 
@@ -93,7 +93,7 @@ const migrateActorData = (actor, worldSchemaVersion) => {
 		let itemUpdate = migrateItemData(itemData, worldSchemaVersion);
 
 		// Update the Owned Item
-		if (!isObjectEmpty(itemUpdate)) {
+		if (!foundry.utils.isEmpty(itemUpdate)) {
 			itemUpdate._id = itemData._id;
 			arr.push(expandObject(itemUpdate));
 		}
@@ -111,39 +111,39 @@ const migrateItemData = (item, worldSchemaVersion) => {
 	if (worldSchemaVersion < 3) {
 		if (item.type === "artifact") update.type = "weapon";
 
-		if (item.type === "armor") update["data.bonus"] = item.data.rating;
+		if (item.type === "armor") update["system.bonus"] = item.system.rating;
 		else {
 			let baseBonus = 0;
 			let artifactBonus = "";
-			if (item.data.bonus) {
-				const parts = item.data.bonus.split("+").map((p) => p.trim());
+			if (item.system.bonus) {
+				const parts = item.system.bonus.split("+").map((p) => p.trim());
 				parts.forEach((p) => {
 					if (Number.isNumeric(p)) baseBonus += +p;
 					else if (artifactBonus.length) artifactBonus = `${artifactBonus} + ${p}`;
 					else artifactBonus = p;
 				});
 			}
-			update["data.bonus"] = {
+			update["system.bonus"] = {
 				value: baseBonus,
 				max: baseBonus,
 			};
-			update["data.artifactBonus"] = artifactBonus;
+			update["system.artifactBonus"] = artifactBonus;
 		}
 	}
 
 	if (worldSchemaVersion < 4) {
-		if (item.type === "spell" && !item.data.spellType) update["data.spellType"] = "SPELL.SPELL";
+		if (item.type === "spell" && !item.system.spellType) update["system.spellType"] = "SPELL.SPELL";
 	}
 
 	if (worldSchemaVersion < 5) {
-		if (item.type === "weapon" && typeof item.data.features === "string") {
+		if (item.type === "weapon" && typeof item.system.features === "string") {
 			// Change features from string to object
-			const features = item.data.features
+			const features = item.system.features
 				.replace(".", "")
 				.replace(/loading is a slow action/i, "slowReload")
 				.replace(/slow reload/i, "slowReload")
 				.split(", ");
-			update["data.features"] = {
+			update["system.features"] = {
 				edged: false,
 				pointed: false,
 				blunt: false,
@@ -155,19 +155,19 @@ const migrateItemData = (item, worldSchemaVersion) => {
 			let otherFeatures = "";
 			for (const feature of features) {
 				const lcFeature = feature === "slowReload" ? feature : feature.toLowerCase();
-				if (lcFeature in update["data.features"]) update["data.features"][lcFeature] = true;
+				if (lcFeature in update["system.features"]) update["system.features"][lcFeature] = true;
 				else otherFeatures += feature + ", ";
 			}
-			update["data.features"].others = otherFeatures.substr(0, otherFeatures.length - 2);
+			update["system.features"].others = otherFeatures.substr(0, otherFeatures.length - 2);
 		}
 	}
 
 	if (worldSchemaVersion < 7) {
 		if (item.type === "monsterTalent") {
 			update.type = "talent";
-			update["data.type"] = "monster";
+			update["system.type"] = "monster";
 		}
-		if (item.type === "weapon") update["data.ammo"] = "other";
+		if (item.type === "weapon") update["system.ammo"] = "other";
 	}
 
 	return update;
@@ -234,7 +234,7 @@ const migrateCompendium = async function (pack, worldSchemaVersion) {
 			}
 
 			// Save the entry, if data was changed
-			if (foundry.utils.isObjectEmpty(updateData)) continue;
+			if (foundry.utils.isEmpty(updateData)) continue;
 			await doc.update(updateData);
 			console.log(`Migrated ${entity} entity ${doc.name} in Compendium ${pack.collection}`);
 		} catch (err) {

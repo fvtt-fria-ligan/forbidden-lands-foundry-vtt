@@ -22,7 +22,7 @@ export class ForbiddenLandsItem extends Item {
 	}
 
 	get itemProperties() {
-		return this.data.data;
+		return this.system;
 	}
 
 	get isBroken() {
@@ -45,10 +45,6 @@ export class ForbiddenLandsItem extends Item {
 
 	get state() {
 		return this.getFlag("forbidden-lands", "state") || "";
-	}
-
-	get type() {
-		return this.data.type;
 	}
 
 	/* Override */
@@ -112,12 +108,12 @@ export class ForbiddenLandsItem extends Item {
 		if (CONFIG.fbl.itemTypes.includes(itemData.type)) itemData[`is${itemData.type.capitalize()}`] = true;
 		itemData.showField = {};
 		for (const field of ["Appearance", "Description", "Drawback", "Effect"]) {
-			if (itemData.data[field.toLowerCase()] && !this.getFlag("forbidden-lands", field))
+			if (itemData.system[field.toLowerCase()] && !this.getFlag("forbidden-lands", field))
 				itemData.showField[field.toLowerCase()] = true;
 		}
 		itemData.hasRollModifiers =
-			itemData.data.rollModifiers &&
-			Object.values(itemData.data.rollModifiers).filter((mod) => !mod.gearBonus).length > 0;
+			itemData.system.rollModifiers &&
+			Object.values(itemData.system.rollModifiers).filter((mod) => !mod.gearBonus).length > 0;
 		const html = await renderTemplate("systems/forbidden-lands/templates/components/item-chatcard.hbs", itemData);
 		const chatData = {
 			user: game.userId,
@@ -134,8 +130,8 @@ export class ForbiddenLandsItem extends Item {
 			const content = $(message.data.content);
 			const limit = content.find("[data-type='limit']").text().trim();
 			const healingTime = content.find("[data-type='healtime']").text().trim();
-			itemData.data.limit = limit;
-			itemData.data.healingTime = healingTime;
+			itemData.system.limit = limit;
+			itemData.system.healingTime = healingTime;
 		}
 		await message.setFlag("forbidden-lands", "itemData", itemData); // Adds posted item data to chat message flags for item drag/drop
 	}

@@ -5,15 +5,15 @@
 				<i class="fas fa-dice"></i>{{localize "HEADER.PRIDE"}}
 			</button>
 		</h1>
-		{{editor target="data.bio.pride.value" content=data.bio.pride.value owner=owner button=true editable=true}}
+		{{editor system.bio.pride.value target="system.bio.pride.value" owner=owner button=true editable=true}}
 	</div>
 	<div class="section">
 		<h1>
 			{{localize "HEADER.DARK_SECRET"}}
 		</h1>
 		{{editor
-			target="data.bio.darkSecret.value"
-			content=data.bio.darkSecret.value
+			system.bio.darkSecret.value
+			target="system.bio.darkSecret.value"
 			owner=owner
 			button=true
 			editable=true
@@ -23,19 +23,18 @@
 		<h1>
 			{{localize "HEADER.FACE"}}
 		</h1>
-		{{editor target="data.bio.face.value" content=data.bio.face.value owner=owner button=true editable=true}}
+		{{editor system.bio.face.value target="system.bio.face.value" owner=owner button=true editable=true}}
 	</div>
 	<div class="section">
 		<h1>
 			{{localize "HEADER.BODY"}}
 		</h1>
-		{{editor target="data.bio.body.value" content=data.bio.body.value owner=owner button=true editable=true}}
+		{{editor system.bio.body.value target="system.bio.body.value" owner=owner button=true editable=true}}
 	</div>
 	<div class="section">
 		<h1>
 			{{localize "HEADER.CLOTHING"}}
 		</h1>
-		{{editor target="data.bio.clothing.value" content=data.bio.clothing.value owner=owner button=true editable=true
-		}}
+		{{editor system.bio.clothing.value target="system.bio.clothing.value" owner=owner button=true editable=true}}
 	</div>
 </div>

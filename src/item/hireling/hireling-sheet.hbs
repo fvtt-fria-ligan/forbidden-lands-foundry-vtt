@@ -7,19 +7,19 @@
 			</div>
 			<div class="supply">
 				<label>{{localize "HIRELING.SUPPLY"}}</label>
-				<input name="data.supply" type="text" value="{{data.supply}}" />
+				<input name="system.supply" type="text" value="{{system.supply}}" />
 			</div>
 			<div class="salary">
 				<label>{{localize "HIRELING.SALARY"}}</label>
-				<input name="data.salary" type="text" value="{{data.salary}}" />
+				<input name="system.salary" type="text" value="{{system.salary}}" />
 			</div>
 			<div class="number">
 				<label>{{localize "HIRELING.NUMBER"}}</label>
-				<input name="data.number" type="text" value="{{data.number}}" />
+				<input name="system.number" type="text" value="{{system.number}}" />
 			</div>
 			<div class="hireling-description">
 				<label>{{localize "HIRELING.DESCRIPTION"}}</label>
-				{{editor target="data.description" content=data.description owner=owner button=true editable=true}}
+				{{editor system.description target="system.description" owner=owner button=true editable=true}}
 			</div>
 		</div>
 	</div>

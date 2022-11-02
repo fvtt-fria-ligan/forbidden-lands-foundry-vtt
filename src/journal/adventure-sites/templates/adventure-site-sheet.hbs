@@ -1,7 +1,7 @@
 <form class="{{cssClass}}" autocomplete="off">
-	<input name="name" type="text" value="{{data.name}}" placeholder="Entry Title" />
+	<input name="name" type="text" value="{{system.name}}" placeholder="Entry Title" />
 
-	{{editor content=data.content target="content" button=true editable=editable owner=owner}}
+	{{editor system.content target="content" button=true editable=editable owner=owner}}
 
 	{{#if editable}}
 		<div class="editable-tools">

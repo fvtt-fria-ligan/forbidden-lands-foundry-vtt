@@ -9,8 +9,8 @@
 				<input name="name" type="text" value="{{name}}" />
 			</div>
 			<label>{{localize "TALENT.TYPE"}}</label>
-			<select name="data.type">
-				{{#select data.type}}
+			<select name="system.type">
+				{{#select system.type}}
 				<option value="general">{{localize "TALENT.GENERAL"}}</option>
 				<option value="kin">{{localize "TALENT.KIN"}}</option>
 				<option value="profession">{{localize "TALENT.PROFESSION"}}</option>
@@ -21,7 +21,7 @@
 			{{#if ranks}}
 			<label>{{localize "TALENT.RANK"}}</label>
 			<div class="rank">
-				<input name="data.rank" type="text" value="{{data.rank}}" />
+				<input name="system.rank" type="text" value="{{system.rank}}" />
 			</div>
 			{{/if}}
 		</div>
@@ -29,10 +29,8 @@
 	<div class="item">
 		<div class="talent-description">
 			<label>{{localize "TALENT.DESCRIPTION"}}</label>
-			{{editor target="data.description" content=data.description owner=owner button=true editable=true}}
+			{{editor system.description target="system.description"  owner=owner button=true editable=true}}
 		</div>
-		<!-- prettier-ignore -->
-		{{! prettier-ignore }}
 {{> systems/forbidden-lands/templates/components/modifiers-component.hbs }}
 	</div>
 </form>

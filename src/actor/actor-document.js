@@ -2,7 +2,7 @@ import localize from "@utils/localize-string.js";
 
 export class ForbiddenLandsActor extends Actor {
 	get actorProperties() {
-		return this.data.data;
+		return this.system;
 	}
 
 	get attributes() {
@@ -38,7 +38,7 @@ export class ForbiddenLandsActor extends Actor {
 		return {
 			alias: this.token?.name || this.name,
 			actorId: this.id,
-			actorType: this.data.type,
+			actorType: this.system.type,
 			isBroken: this.isBroken,
 			sceneId: this.token?.parent.id,
 			tokenId: this.token?.id,
@@ -111,7 +111,7 @@ export class ForbiddenLandsActor extends Actor {
 		const conditionLabel = this.conditions[conditionName].label;
 		const effect = this.effects.find((condition) => condition.getFlag("core", "statusId") === conditionName);
 		if (CONFIG.fbl.conditions.includes(conditionName)) {
-			this.update({ [`data.condition.${conditionName}.value`]: !conditionValue });
+			this.update({ [`system.condition.${conditionName}.value`]: !conditionValue });
 			if (conditionValue && effect) this.deleteEmbeddedDocuments("ActiveEffect", [effect.id]);
 			else if (!conditionValue && !effect)
 				this.createEmbeddedDocuments("ActiveEffect", {

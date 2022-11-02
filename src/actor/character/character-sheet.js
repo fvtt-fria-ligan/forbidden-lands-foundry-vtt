@@ -3,7 +3,7 @@ import { ForbiddenLandsActorSheet } from "../actor-sheet.js";
 import { ForbiddenLandsCharacterGenerator } from "@components/character-generator/character-generator.js";
 import { FBLRoll, FBLRollHandler } from "@components/roll-engine/engine.js";
 import localizeString from "@utils/localize-string";
-import { ActorSheetConfig } from "@utils/sheet-config.js";
+//import { ActorSheetConfig } from "@utils/sheet-config.js";
 
 export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
@@ -73,9 +73,9 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			const operator = $(ev.currentTarget).data("operator");
 			const modifier = ev.type === "contextmenu" ? 5 : 1;
 			let coins = [
-				this.actor.data.data.currency.gold.value,
-				this.actor.data.data.currency.silver.value,
-				this.actor.data.data.currency.copper.value,
+				this.actor.actorProperties.currency.gold.value,
+				this.actor.actorProperties.currency.silver.value,
+				this.actor.actorProperties.currency.copper.value,
 			];
 			let i = { gold: 0, silver: 1, copper: 2 }[currency];
 			if (operator === "plus") {
@@ -91,9 +91,9 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			}
 			if (coins[0] >= 0) {
 				this.actor.update({
-					"data.currency.gold.value": coins[0],
-					"data.currency.silver.value": coins[1],
-					"data.currency.copper.value": coins[2],
+					"system.currency.gold.value": coins[0],
+					"system.currency.silver.value": coins[1],
+					"system.currency.copper.value": coins[2],
 				});
 			}
 		});
@@ -104,19 +104,19 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 		for (let item of Object.values(data.items)) {
 			weightCarried += this.computeItemEncumbrance(item);
 		}
-		for (let consumable of Object.values(data.data.consumable)) {
+		for (let consumable of Object.values(data.system.consumable)) {
 			if (consumable.value > 0) {
 				weightCarried += 1;
 			}
 		}
 		const coinsCarried =
-			parseInt(data.data.currency.gold.value) +
-			parseInt(data.data.currency.silver.value) +
-			parseInt(data.data.currency.copper.value);
+			parseInt(data.system.currency.gold.value) +
+			parseInt(data.system.currency.silver.value) +
+			parseInt(data.system.currency.copper.value);
 		weightCarried += Math.floor(coinsCarried / 100) * 0.5;
 		const modifiers = this.actor.getRollModifierOptions("carryingCapacity");
-		const weightAllowed = data.data.attribute.strength.max * 2 + (parseInt(modifiers[0]?.value) || 0);
-		data.data.encumbrance = {
+		const weightAllowed = data.system.attribute.strength.max * 2 + (parseInt(modifiers[0]?.value) || 0);
+		data.system.encumbrance = {
 			value: weightCarried,
 			max: weightAllowed,
 			over: weightCarried > weightAllowed,
@@ -174,13 +174,13 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	}
 
 	/* Override */
-	_onConfigureSheet(event) {
-		event.preventDefault();
-		new ActorSheetConfig(this.actor, {
-			top: this.position.top + 40,
-			left: this.position.left + (this.position.width - 400) / 2,
-		}).render(true);
-	}
+	// _onConfigureSheet(event) {
+	// 	event.preventDefault();
+	// 	new ActorSheetConfig(this.actor, {
+	// 		top: this.position.top + 40,
+	// 		left: this.position.left + (this.position.width - 400) / 2,
+	// 	}).render(true);
+	// }
 
 	_getHeaderButtons() {
 		let buttons = super._getHeaderButtons();
@@ -204,7 +204,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 					class: "char-gen",
 					icon: "fas fa-leaf",
 					onclick: async () => {
-						const hasFilledAttributes = Object.values(this.actor.data.data.attribute)
+						const hasFilledAttributes = Object.values(this.actor.actorProperties.attribute)
 							.flatMap((a) => a.value + a.max)
 							.some((v) => v > 0);
 

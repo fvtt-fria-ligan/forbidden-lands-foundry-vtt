@@ -1,7 +1,7 @@
 :root {
 	--color-foreground: #292929f0;
 	--color-background: #fff;
-	--color-highlight: #aaa;
+	--color-highlight: #cbcccb;
 	--color-secondary: #ddd;
 	--color-border: #939598;
 	--font-editor: "IM Fell Great Primer", serif;
@@ -9,20 +9,4 @@
 	--font-special: "IM Fell DW Pica", serif;
 	--font-subheader: "IM Fell DW Pica SC", serif;
 	--font-table: "Poppins", sans-serif;
-	font-size: 62.5% !important;
-	--font-size--extra-small: 1rem;
-	--font-size--very-small: 1.3rem;
-	--font-size--small: 1.4rem;
-	--font-size--default: 1.6rem;
-	--font-size--large: 1.8rem;
-	--font-size--extra-large: 2rem;
-	--font-size-11: var(--font-size--extra-small);
-	--font-size-12: var(--font-size--extra-small);
-	--font-size-13: var(--font-size--very-small);
-	--font-size-14: var(--font-size--small);
-	--font-size-16: var(--font-size--default);
-	--font-size-18: var(--font-size--large);
-	--font-size-20: var(--font-size--extra-large);
-	--font-size-24: 2.4rem;
-	--font-size-28: 2.8rem;
 }

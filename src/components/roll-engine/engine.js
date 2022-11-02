@@ -224,7 +224,7 @@ export class FBLRollHandler extends FormApplication {
 
 		//**Spell Rolls** Similar to the listener in the actor sheet, it lets us increment the dice rolled based on willpower spent.
 		html.find(".spend-willpower").on("click contextmenu", (ev) => {
-			if (foundry.utils.isObjectEmpty(this.spell)) return;
+			if (foundry.utils.isEmpty(this.spell)) return;
 
 			const type = this.options.skulls ? "contextmenu" : "click";
 
@@ -503,7 +503,7 @@ export class FBLRollHandler extends FormApplication {
 		const roll = msg.roll;
 		await roll.push({ async: true });
 
-		let speaker = this.getSpeaker(msg.data.speaker);
+		let speaker = this.getSpeaker(msg.speaker);
 		if (speaker) await this.updateActor(roll, speaker);
 
 		return roll.toMessage();
@@ -540,7 +540,7 @@ export class FBLRollHandler extends FormApplication {
 		value = Math.max(value - currentDamage, 0);
 
 		if (value === 0) ui.notifications.notify(localizeString("NOTIFY.YOU_ARE_BROKEN"));
-		await speaker.update({ [`data.attribute.${attribute}.value`]: value });
+		await speaker.update({ [`system.attribute.${attribute}.value`]: value });
 	}
 
 	/**
@@ -562,7 +562,7 @@ export class FBLRollHandler extends FormApplication {
 				if (value === 0) ui.notifications.notify(localizeString("NOTIFY.YOUR_ITEM_BROKE"));
 				return {
 					_id: item.id,
-					"data.bonus.value": value,
+					"system.bonus.value": value,
 				};
 			});
 		await speaker.updateEmbeddedDocuments("Item", updatedItems);
@@ -675,7 +675,7 @@ export class FBLRoll extends YearZeroRoll {
 		messageData = foundry.utils.mergeObject(
 			{
 				user: game.user.id,
-				flavor: this.data.flavor,
+				flavor: this.flavor,
 				speaker: speaker,
 				content: this.total,
 				type: CONST.CHAT_MESSAGE_TYPES.ROLL,

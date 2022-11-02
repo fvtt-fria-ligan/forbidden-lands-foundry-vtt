@@ -2,85 +2,110 @@
 	min-height: 540px;
 	height: 100%;
 	max-height: calc(100vh - 10%);
+
+	.avatar {
+		padding: 0.5rem;
+		& > img {
+			vertical-align: middle;
+		}
+	}
 	.border {
 		border: 6px solid transparent;
 		border-image: url(./assets/journal-art/small-border.webp) 100/10px repeat;
 	}
-}
 
-.forbidden-lands.party .party {
-	height: 100%;
-	min-height: 540px;
-	width: 100%;
-}
+	.party {
+		height: 100%;
+		min-height: 540px;
+		width: 100%;
+	}
 
-.party .tab-hint {
-	font-style: italic;
-	text-align: center;
-}
-
-.party-member:hover {
-	background-color: lightgray;
-}
-
-.party-member .party-member-avatar {
-	flex: 0 0 48px;
-	width: 48px;
-	height: 48px;
-	border: 0px;
-	cursor: pointer;
-}
-
-.party-member .party-member-name {
-	line-height: 48px;
-}
-
-.party-member .button {
-	flex: 0 0 24px;
-	width: 24px;
-	height: 48px;
-	line-height: 48px;
-}
-
-.party-member .entity-link {
-	padding: 0 6px;
-	line-height: 44px;
-	white-space: nowrap;
-	overflow-x: hidden;
-	text-overflow: ellipsis;
-
-	border: 0px;
-	background-color: inherit;
-}
-
-.party-member .plain-name {
-	margin-right: 6px;
-	line-height: 44px;
-
-	white-space: nowrap;
-	overflow-x: hidden;
-	text-overflow: ellipsis;
-
-	border: 0px;
-	background-color: inherit;
+	.tab-hint {
+		font-style: italic;
+		text-align: center;
+	}
 }
 
 .party-member-list {
 	height: 100%;
 	min-height: 360px;
+
+	ol {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
 }
 
-table.travel-actions {
-	border: 0px solid;
-	border-spacing: 6px;
-	border-collapse: separate;
-	background: rgb(255, 255, 255);
-	margin-top: 0px;
+.party-member {
+	&:hover {
+		background-color: lightgray;
+	}
+
+	.party-member-avatar {
+		flex: 0 0 48px;
+		width: 48px;
+		height: 48px;
+		border: 0px;
+		cursor: pointer;
+	}
+
+	.party-member-name {
+		line-height: 48px;
+	}
+
+	.button {
+		flex: 0 0 24px;
+		width: 24px;
+		height: 48px;
+		line-height: 48px;
+	}
+
+	.content-link {
+		padding: 0 6px;
+		line-height: 44px;
+		white-space: nowrap;
+		overflow-x: hidden;
+		text-overflow: ellipsis;
+
+		border: 0px;
+		background-color: inherit;
+	}
+
+	.plain-name {
+		margin-right: 6px;
+		line-height: 44px;
+
+		white-space: nowrap;
+		overflow-x: hidden;
+		text-overflow: ellipsis;
+
+		border: 0px;
+		background-color: inherit;
+	}
 }
 
-table.travel-actions td {
-	vertical-align: top;
-	min-height: 1px;
+.travel-actions {
+	margin: 0;
+	padding: 0.5rem;
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
+	height: 100%;
+
+	li {
+		min-height: 1px;
+
+		&.action-other {
+			grid-row: 2/4;
+			grid-column: 3;
+		}
+		&.action-rest {
+			grid-row: 2/4;
+			grid-column: 2;
+		}
+	}
 }
 
 .travel-action {
@@ -90,45 +115,46 @@ table.travel-actions td {
 	margin-bottom: 10px;
 
 	flex-grow: 1;
-}
 
-.travel-action ol {
-	padding-left: 4px;
-}
+	ol {
+		padding-left: 4px;
+	}
 
-.travel-action .travel-action-header {
-	text-align: center;
-	font-weight: bold;
-	max-height: 20px;
-	border-bottom: 1px solid;
+	.travel-action-header {
+		text-align: center;
+		font-weight: bold;
+		padding: 4px;
+		border-bottom: 1px solid;
 
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-}
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
 
-.travel-action-header .entity-link {
-	background-color: white;
-	border: 0px solid;
-}
+		.content-link {
+			background-color: white;
+			border: none;
+		}
+	}
 
-.travel-action .travel-action-help {
-	border: 1px solid;
-	border-radius: 6px;
-	background-color: cadetblue;
-	display: flex;
-	width: 20px;
-	margin-left: 4px;
-	justify-content: center;
-}
-.travel-action .travel-action-help:hover {
-	background-color: cyan;
-}
+	.travel-action-help {
+		border: 1px solid;
+		border-radius: 6px;
+		background-color: cadetblue;
+		display: flex;
+		width: 20px;
+		margin-left: 4px;
+		justify-content: center;
 
-.travel-action button.travel-roll {
-	font-size: var(--font-size--very-small);
-	display: block;
-	width: 99%;
+		&:hover {
+			background-color: cyan;
+		}
+	}
 
-	border-bottom: 1px gray dashed;
+	button.travel-roll {
+		font-size: var(--font-size-12);
+		display: block;
+		width: 99%;
+
+		border-bottom: 1px gray dashed;
+	}
 }

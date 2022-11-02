@@ -35,6 +35,14 @@
 			"display": "once", // Time until it goes away: [once, infinite, mm.dd.yyyy]
 			"title": "Release 9.0.0",
 			"content": "<h3>About your chat log:</h3><p>Unfortunately this version broke your existing chat log.</p><p>Specifically you will notice that most rolls are missing. This is due to a previous unintended change that renamed the dice labels. Rectifying this meant that Foundry will error out when trying to render the old roll messages.</p><p>If the rolls were crucial you can download the previous system version and open this world again, then save the chat log.</p><p><b>Apologies for the inconvenience.</b></p>"
+		},
+		{
+			"min-sys-version": "10.0.0",
+			"max-sys-version": "11.0.0",
+			"type": "prompt",
+			"display": "once",
+			"title": "10.0.0 - Alpha",
+			"content": "<h3>10.0.0 - Alpha</h3><p>10.0.0 is a major update to the system, and at the moment it is far from stable.</p><p>It is currently in alpha and as such it is not recommended to use it in a new or ongoing game.</p><p>However, if you are interested in testing it out, please do so and report any bugs you encounter.</p><p>10.0.0 will be released as a stable version this fall, with the official modules being updated at a later date. Until then please use version 9.0.0, and Foundry V9.</p>"
 		}
 	]
 }

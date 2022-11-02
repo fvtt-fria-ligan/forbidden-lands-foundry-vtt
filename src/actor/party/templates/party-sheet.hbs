@@ -8,19 +8,13 @@
 
 		<div class="sheet-body">
 			<div class="tab" data-group="primary" data-tab="main">
-<!-- prettier-ignore -->
-{{! prettier-ignore }}
 {{> systems/forbidden-lands/templates/actor/party/sheet-tabs/main-tab.hbs}}
 			</div>
 			<div class="tab" data-group="primary" data-tab="travel">
-<!-- prettier-ignore -->
-{{! prettier-ignore }}
 {{> systems/forbidden-lands/templates/actor/party/sheet-tabs/travel-tab.hbs}}
 			</div>
 			<div class="tab note" data-group="primary" data-tab="note">
-<!-- prettier-ignore -->
-{{! prettier-ignore }}
-{{editor content=data.description target="data.description" button=true owner=owner editable=true}}
+{{editor system.description target="system.description" button=true owner=owner editable=true}}
 			</div>
 		</div>
 	</div>
