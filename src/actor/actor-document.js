@@ -164,7 +164,7 @@ export class ForbiddenLandsActor extends Actor {
 					: ""
 			}</div>`,
 			speaker: { actor: this },
-			whisper: game.user.isGM && [game.user.id],
+			whisper: game.user.isGM ? [game.user.id] : [],
 		});
 	}
 }
