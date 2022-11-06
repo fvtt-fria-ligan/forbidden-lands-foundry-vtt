@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [9.2.3](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v9.2.2...v9.2.3) (2022-11-06)
+
+
+### Bug Fixes
+
+* 🐛 Audio Playlists controls no active indication ([a0d8669](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/a0d8669899038b9ce9c6faf145637dfee29e3cfd)), closes [#254](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/254)
+* 🐛 Error when player clicks 'rest' Fixes [#253](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/253) ([ea2822c](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/ea2822c81d63dd630a9479a933990381f84460f5))
+
 ### [9.2.2](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v9.2.1...v9.2.2) (2022-07-18)
 
 

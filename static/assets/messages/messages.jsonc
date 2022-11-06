@@ -35,6 +35,13 @@
 			"display": "once", // Time until it goes away: [once, infinite, mm.dd.yyyy]
 			"title": "Release 9.0.0",
 			"content": "<h3>About your chat log:</h3><p>Unfortunately this version broke your existing chat log.</p><p>Specifically you will notice that most rolls are missing. This is due to a previous unintended change that renamed the dice labels. Rectifying this meant that Foundry will error out when trying to render the old roll messages.</p><p>If the rolls were crucial you can download the previous system version and open this world again, then save the chat log.</p><p><b>Apologies for the inconvenience.</b></p>"
+		},
+		{
+			"min-sys-version": "9.2.3", //optional, inclusive
+			"type": "prompt", // Type of message: [prompt, chat]
+			"display": "once", // Time until it goes away: [once, infinite, mm.dd.yyyy]
+			"title": "Release 9.0.0",
+			"content": "<h2>Forbidden Lands V10 is here!</h2><p>The next version of Forbidden Lands has finally landed. Before you go ahead and upgrade to v10 please make sure you have a backup. For those of you who own the official content modules, you can upgrade but be aware that certain functionality like macros, adventure site generation and other perks that come with the modules may be broken.</p><p>Updates to the content modules will hopefully follow before the end of the year.</p><p>As always, if there are any bugs you encounter or features you would like to see implemented in V10, do please let us know on the Foundry discord in the #free-league channel, or post an issue or discussion on the Github.</p><p><b>Enjoy your time in the Forbidden Lands!</b></p>"
 		}
 	]
 }
