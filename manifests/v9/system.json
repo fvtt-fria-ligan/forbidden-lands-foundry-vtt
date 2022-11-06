@@ -22,12 +22,8 @@
 		}
 	],
 	"scripts": [],
-	"esmodules": [
-		"forbidden-lands.js"
-	],
-	"styles": [
-		"forbidden-lands.css"
-	],
+	"esmodules": ["forbidden-lands.js"],
+	"styles": ["forbidden-lands.css"],
 	"packs": [],
 	"languages": [
 		{
@@ -78,7 +74,7 @@
 	"secondaryTokenAttribute": null,
 	"url": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt",
 	"socket": true,
-	"manifest": "https://raw.github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/main/manifests/v9/system.json",
+	"manifest": "https://raw.githubusercontent.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/main/manifests/v9/system.json",
 	"download": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v9.2.3/fbl-fvtt_v9.2.3.zip",
 	"license": "LICENSE.txt"
 }
