@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [10.0.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.0.0-4...v10.0.0) (2022-11-06)
+
+
+### Bug Fixes
+
+* 🐛 Audio Playlists controls no active indication ([95d0e15](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/95d0e15e84160a3ef386445382f8af5909dcfd19)), closes [#254](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/254)
+* 🐛 Error when player clicks 'rest' Fixes [#253](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/253) ([0ac28bf](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/0ac28bf05866731b8ba5ca37eb18126b885712c8))
+* 🐛 Fix charactersheet config ([818c4eb](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/818c4ebe9be37439bd528cd052384299493f120f))
+* 🐛 Further editor CSS fixes ([257fe00](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/257fe00d39f10bbd1976a3459cec07295ee7b14b))
+* 🐛 Minor alignment char sheet ([06fddd0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/06fddd018e1f2554291d64dd9ab9006da8251608))
+* 🐛 Reset font size scale, various style fixes ([18a23cd](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/18a23cd10ccab8a48b1362d5aa74396ba8ca7488)), closes [#268](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/268) [#266](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/266) [#267](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/267)
+* 🐛 Style fixes to sheets, editor ([efe0a7c](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/efe0a7c43b6df066f95d4d736d29c965feb2e3f5))
+* 🐛 Update manifest, add message ([853a871](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/853a871a2d696be42a840b3acf6d7e7b8028b050))
+
 ## [10.0.0-4](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.0.0-3...v10.0.0-4) (2022-09-24)
 
 
