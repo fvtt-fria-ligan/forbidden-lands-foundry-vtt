@@ -4,9 +4,9 @@
 
 */
 
-.app.journal-sheet.adventure-sites {
+.app .journal-sheet-container.adventure-site {
 	// Form content
-	.editor-content {
+	.journal-entry-page.text {
 		& > * {
 			margin-inline: auto;
 		}
@@ -28,6 +28,11 @@
 			font-family: "Branding", "Poppins", sans-serif;
 			font-size: var(--font-size-16);
 			color: #111c;
+		}
+
+		strong {
+			font-family: "Branding", "Poppins", sans-serif;
+			font-weight: 600;
 		}
 
 		p + p {
