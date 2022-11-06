@@ -47,7 +47,7 @@ const displayPrompt = (title, content) => {
 		title: title,
 		content: content,
 		label: "Understood!",
-		options: { width: 600, height: 700 },
+		options: { width: 450 },
 		callback: () => setDisplayed(title),
 	});
 };
