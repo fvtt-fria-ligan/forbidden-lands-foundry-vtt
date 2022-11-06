@@ -17,12 +17,12 @@
 		<input type="checkbox" name="flags.forbidden-lands.unlimitedPush" {{checked object.flags.forbidden-lands.unlimitedPush}} />
 		<p class="notes">{{localize "FLPS.SETTINGS.ALLOW_PUSH_HINT"}}</p>
 	</div>
-	<div class="form-group">
+    <div class="form-group">
         <label>{{localize "SHEETS.ThisSheet"}}</label>
         <select name="sheetClass">
             {{selectOptions sheetClasses selected=sheetClass blank=blankLabel}}
         </select>
-        <p class="notes">{{localize "SHEETS.EntitySheetHint"}}</p>
+        <p class="notes">{{localize "SHEETS.DocumentSheetHint"}}</p>
     </div>
 
     <div class="form-group">
@@ -33,8 +33,7 @@
         <p class="notes">{{localize "SHEETS.TypeSheetHint"}}</p>
     </div>
 
-	<button type="submit" name="submit">
-		<i class="fas fa-save"></i>
-		{{localize "SHEETS.Save"}}
-	</button>
+    <button type="submit">
+        <i class="fas fa-save"></i> {{localize "SHEETS.Save"}}
+    </button>
 </form>

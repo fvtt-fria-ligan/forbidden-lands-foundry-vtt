@@ -21,28 +21,6 @@
 	margin: 5px 0;
 }
 
-.forbidden-lands .stronghold .bio .avatar {
-	background: radial-gradient(closest-side, var(--color-highlight) 0%, white 100%);
-	flex: 0 0 auto;
-	height: 95px;
-	margin-right: 8px;
-	width: 95px;
-}
-
-.forbidden-lands .stronghold .bio .avatar img {
-	border: 0 none;
-	display: block;
-	max-width: 95px;
-	max-height: 95px;
-	min-width: 20px;
-	min-height: 20px;
-	margin: auto;
-}
-.forbidden-lands .stronghold .bio .avatar img:hover {
-	box-shadow: 0 0 10px red;
-	cursor: pointer;
-}
-
 .forbidden-lands .stronghold .bio .name {
 	display: flex;
 	flex-direction: row;

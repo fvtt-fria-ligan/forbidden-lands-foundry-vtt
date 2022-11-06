@@ -70,6 +70,14 @@
 			height: 95px;
 			width: 95px;
 
+			&:hover {
+				cursor: pointer;
+
+				& > img {
+					filter: drop-shadow(0 0 6px #a00);
+				}
+			}
+
 			img {
 				border: 0 none;
 				display: block;
@@ -78,11 +86,6 @@
 				min-width: 20px;
 				min-height: 20px;
 				margin: auto;
-
-				&:hover {
-					box-shadow: 0 0 10px #a00;
-					cursor: pointer;
-				}
 			}
 		}
 

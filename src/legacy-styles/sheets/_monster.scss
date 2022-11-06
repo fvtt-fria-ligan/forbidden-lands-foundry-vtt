@@ -30,27 +30,6 @@
 	}
 }
 
-.forbidden-lands .monster .bio .avatar {
-	background: radial-gradient(closest-side, var(--color-highlight) 0%, white 100%);
-	flex: 0 0 auto;
-	height: 95px;
-	width: 95px;
-}
-
-.forbidden-lands .monster .bio .avatar img {
-	border: 0 none;
-	display: block;
-	place-self: center;
-	max-width: 100%;
-	max-height: 100%;
-	min-width: 20px;
-	min-height: 20px;
-}
-.forbidden-lands .monster .bio .avatar:hover {
-	box-shadow: 0 0 10px #a00;
-	cursor: pointer;
-}
-
 .forbidden-lands .monster .bio .name {
 	display: flex;
 	flex-direction: row;

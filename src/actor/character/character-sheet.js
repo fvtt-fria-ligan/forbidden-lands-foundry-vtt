@@ -3,14 +3,14 @@ import { ForbiddenLandsActorSheet } from "../actor-sheet.js";
 import { ForbiddenLandsCharacterGenerator } from "@components/character-generator/character-generator.js";
 import { FBLRoll, FBLRollHandler } from "@components/roll-engine/engine.js";
 import localizeString from "@utils/localize-string";
-//import { ActorSheetConfig } from "@utils/sheet-config.js";
+import { ActorSheetConfig } from "@utils/sheet-config.js";
 
 export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			classes: ["forbidden-lands", "sheet", "actor"],
-			width: 700,
-			height: 780,
+			width: 660,
+			height: 740,
 			resizable: false,
 			scrollY: [
 				".armors .item-list .items",
@@ -174,13 +174,13 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	}
 
 	/* Override */
-	// _onConfigureSheet(event) {
-	// 	event.preventDefault();
-	// 	new ActorSheetConfig(this.actor, {
-	// 		top: this.position.top + 40,
-	// 		left: this.position.left + (this.position.width - 400) / 2,
-	// 	}).render(true);
-	// }
+	_onConfigureSheet(event) {
+		event.preventDefault();
+		new ActorSheetConfig(this.actor, {
+			top: this.position.top + 40,
+			left: this.position.left + (this.position.width - 400) / 2,
+		}).render(true);
+	}
 
 	_getHeaderButtons() {
 		let buttons = super._getHeaderButtons();

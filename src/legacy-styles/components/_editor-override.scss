@@ -30,6 +30,8 @@
 	.journal-entry-content {
 		font-family: var(--font-editor);
 		font-size: var(--font-size-18);
+		max-width: max(90%, 60ch);
+		margin-inline: auto;
 
 		.journal-header > input[name="name"] {
 			font-family: "IM Fell Three Line Pica";
@@ -47,7 +49,8 @@
 			width: min(100%, 900px);
 			min-height: 200px;
 			height: min(45%, 300px);
-			margin: auto;
+			display: block;
+			margin-inline: auto;
 			&:focus {
 				box-shadow: none;
 			}
