@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [10.0.1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.0.0...v10.0.1) (2022-11-06)
+
+
+### Bug Fixes
+
+* 🐛 Reimplement adventure sites ([96ba869](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/96ba8692f65ecc17dd81cd96378d13f2fd16d4b7))
+
 ## [10.0.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.0.0-4...v10.0.0) (2022-11-06)
 
 
