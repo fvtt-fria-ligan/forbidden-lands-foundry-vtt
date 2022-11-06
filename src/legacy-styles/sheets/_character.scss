@@ -19,6 +19,7 @@
 
 .forbidden-lands .character .bio table td {
 	padding: 0.25em;
+	text-align: right;
 	input {
 		max-width: 50px;
 		&.kin,
@@ -32,26 +33,7 @@
 }
 
 .forbidden-lands .character .bio {
-	padding: 4px 8px;
-	.avatar {
-		background: radial-gradient(closest-side, var(--color-highlight) 0%, white 100%);
-		flex: 0 0 auto;
-		height: 95px;
-		width: 95px;
-		&:hover {
-			box-shadow: 0 0 10px #a00;
-			cursor: pointer;
-		}
-		img {
-			place-self: center;
-			border: none;
-			display: block;
-			max-width: 100%;
-			max-height: 100%;
-			min-width: 20px;
-			min-height: 20px;
-		}
-	}
+
 	.willpower.skulls {
 		justify-content: flex-start;
 		align-items: flex-end;

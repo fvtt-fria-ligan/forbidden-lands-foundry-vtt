@@ -275,11 +275,13 @@
 .app {
 	background: #292929f0;
 	&.window-app {
-		color: black;
-		border: 9px solid transparent;
-		border-image: url(./assets/journal-art/box-border-large.webp) 108/3 repeat;
-		border-image-outset: 1;
-		background-color: white;
+		color: #000;
+		border: 2px solid transparent;
+		border-image: url(./assets/journal-art/box-border-large.webp) 110/11 repeat;
+		border-image-outset: 3;
+		padding: 0 4px 4px;
+		margin: 0;
+		background-color: #fff;
 		.journal-sheet {
 			min-width: 500px;
 			min-height: 300px;
@@ -297,6 +299,33 @@
 					::-webkit-scrollbar-thumb {
 						background: var(--color-secondary);
 						border: 0 none;
+					}
+				}
+
+				.bio {
+					padding: 4px 8px;
+					.avatar {
+						background: radial-gradient(closest-side, var(--color-highlight) 0%, white 100%);
+						flex: 0 0 auto;
+						height: 95px;
+						width: 95px;
+
+						&:hover {
+							cursor: pointer;
+
+							& > img {
+								filter: drop-shadow(0 0 5px #a00);
+							}
+						}
+						img {
+							place-self: center;
+							border: none;
+							display: block;
+							max-width: 100%;
+							max-height: 100%;
+							min-width: 20px;
+							min-height: 20px;
+						}
 					}
 				}
 			}
