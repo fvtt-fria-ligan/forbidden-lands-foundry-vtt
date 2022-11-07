@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [10.0.2](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.0.1...v10.0.2) (2022-11-07)
+
+
+### Bug Fixes
+
+* 🐛 Inability to update raw material value from character ([6c7fa7d](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/6c7fa7db768c64a81b5a6da0a657b7fcd77c90f2))
+
 ### [10.0.1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.0.0...v10.0.1) (2022-11-06)
 
 
