@@ -29,9 +29,10 @@
 	.editor,
 	.journal-entry-content {
 		font-family: var(--font-editor);
-		font-size: var(--font-size-18);
 		max-width: max(90%, 60ch);
 		margin-inline: auto;
+		line-height: 1.75;
+		font-size: var(--font-size-16);
 
 		.journal-header > input[name="name"] {
 			font-family: "IM Fell Three Line Pica";
@@ -55,6 +56,15 @@
 				box-shadow: none;
 			}
 		}
+
+		p {
+			margin-block: 0;
+		}
+
+		p + p {
+			text-indent: 2rem;
+		}
+
 		#{utils.fromTo(h,1,6)} {
 			font-family: "IM Fell Three Line Pica";
 			text-transform: uppercase;
