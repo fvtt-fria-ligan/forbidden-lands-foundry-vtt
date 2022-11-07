@@ -125,6 +125,7 @@
 	"ENCUMBRANCE": "Encumbrance",
 	"ERROR.NOT_PUSHED": "Cannot confirm that the roll was pushed. Failed to apply damage and reduce Willpower!",
 	"ERROR.NOT_OWNER": "You are not allowed to modify this entity.",
+	"ERROR.NO_ID": "Failed to update the entity due to lacking an Id",
 	"GEAR.BONUS": "Bonus",
 	"GEAR.COST": "Price",
 	"GEAR.DROP": "Drop Backpack",
