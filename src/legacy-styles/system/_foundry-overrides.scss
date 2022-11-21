@@ -206,18 +206,30 @@ a {
 	left: 180px;
 }
 #scenes {
+	.directory-item:last-child {
+		border-bottom: none;
+	}
 	.scene {
 		h3 {
-			background-color: #cccccc60;
+			-webkit-backdrop-filter: saturate(0.5) blur(2px) brightness(0.7);
+			backdrop-filter: saturate(0.5) blur(2px) brightness(0.7);
 			white-space: pre-wrap;
 			line-height: 1;
 			display: grid;
+			margin-inline-start: 0;
+			padding: 0.25rem;
+
 			& > a {
 				place-self: center;
+			}
+
+			@supports not (backdrop-filter: blur(0px)) {
+				background: #292929f0;
 			}
 		}
 	}
 }
+
 #chat-log {
 	.message {
 		position: relative;
