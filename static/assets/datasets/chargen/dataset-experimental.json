@@ -796,7 +796,7 @@
 			"key": "champion",
 			"name": "Champion",
 			"weight": 1,
-			"paths": ["Path of the Blade", "Path of the Enemy", "Path of the Shield"],
+			"paths": ["Path of the Holy Vow", "Path of Protection", "Path of Fate"],
 			"equipment": [],
 			"consumables": { "food": 8, "water": 8, "arrows": 0, "torches": 6 },
 			"currency": { "gold": 0, "silver": 0, "copper": 12 },
