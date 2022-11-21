@@ -36,19 +36,33 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 		return buttons;
 	}
 
-	_computeQuality(data) {
+	#computeQuality(data) {
 		data.artifact = !!data.system.artifactBonus;
 		data.lethal = data.system.lethal === "yes";
 		data.ranks = data.system.type === "general" || data.system.type === "profession";
+		return data;
 	}
 
-	getData() {
+	async #enrichTextEditorFields(data) {
+		const fields = CONFIG.fbl.enrichedItemFields;
+		for (const field of fields)
+			if (data.system[field])
+				data.system[field] = await TextEditor.enrichHTML(data.system[field], {
+					async: true,
+					secrets: this.item.isOwner,
+				});
+		return data;
+	}
+
+	async getData() {
 		const superData = super.getData();
-		const data = superData.data;
+		let data = superData.data;
 		data.flags = this.item.flags["forbidden-lands"];
 		data.encumbranceValues = this.config.encumbrance;
 		data.isGM = game.user.isGM;
-		this._computeQuality(data);
+		data = this.#computeQuality(data);
+		data = await this.#enrichTextEditorFields(data);
+
 		return data;
 	}
 
