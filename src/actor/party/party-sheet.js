@@ -17,8 +17,8 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 		return this.actor.system;
 	}
 
-	getData() {
-		const data = super.getData().data;
+	async getData() {
+		const data = await super.getData().data;
 		data.partyMembers = {};
 		data.travelActions = this.getTravelActions();
 		let ownedActorId;
@@ -26,6 +26,7 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 			ownedActorId = data.system.members[i];
 			data.partyMembers[ownedActorId] = game.actors.get(ownedActorId).data;
 		}
+		data.system.description = await TextEditor.enrichHTML(data.system.description, { async: true });
 		return data;
 	}
 

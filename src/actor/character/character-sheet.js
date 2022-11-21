@@ -38,10 +38,11 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 		return "systems/forbidden-lands/templates/actor/character/character-sheet.hbs";
 	}
 
-	getData() {
-		const actorData = super.getData();
-		this.computeSkills(actorData);
-		this.computeEncumbrance(actorData);
+	async getData() {
+		let actorData = await super.getData();
+		actorData = this.computeSkills(actorData);
+		actorData = this.computeEncumbrance(actorData);
+
 		return actorData;
 	}
 
@@ -121,6 +122,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			max: weightAllowed,
 			over: weightCarried > weightAllowed,
 		};
+		return data;
 	}
 
 	/************************************************/

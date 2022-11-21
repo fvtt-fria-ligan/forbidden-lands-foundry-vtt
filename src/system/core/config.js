@@ -104,7 +104,9 @@ FBL.encumbrance = {
 	8: 8,
 };
 
-FBL.enrichedItemFields = ["description", "effect", "drawback", "appearance", "tools"];
+FBL.enrichedActorFields = ["note", "pride", "face", "body", "clothing", "darkSecret"];
+
+FBL.enrichedItemFields = ["description", "effect", "drawback", "appearance", "tools", "features.others"];
 
 FBL.i18n = {
 	armor: "ITEM.TypeArmor",

@@ -5,10 +5,12 @@ import localizeString from "@utils/localize-string";
 export class ForbiddenLandsActorSheet extends ActorSheet {
 	altInteraction = game.settings.get("forbidden-lands", "alternativeSkulls");
 
-	getData() {
-		const data = this.actor.toObject();
+	async getData() {
+		let data = this.actor.toObject();
+		data = await this.#enrichTextEditorFields(data);
+		data.items = await Promise.all(this.actor.items.map((i) => i.sheet.getData()));
 		data.items?.sort((a, b) => (a.sort || 0) - (b.sort || 0));
-		this.computeItems(data);
+		data = this.computeItems(data);
 		data.carriedStates = this.#getCarriedStates();
 		data.gear = this.#filterGear(data.items);
 		return data;
@@ -187,7 +189,9 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		});
 
 		html.find(".quantity").on("blur", (ev) => {
-			const itemId = ev.currentTarget.parentElement.parentElement.dataset.itemId;
+			const itemId =
+				ev.currentTarget.parentElement.parentElement.dataset.itemId ??
+				ev.currentTarget.parentElement.dataset.itemId;
 			if (!itemId) {
 				ui.notifications.notify("ERROR.NO_ID", "error", { localize: true });
 				throw new Error("No item id found");
@@ -405,6 +409,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			skill[`has${skill?.attribute?.capitalize()}`] = false;
 			if (CONFIG.fbl.attributes.includes(skill.attribute)) skill[`has${skill.attribute.capitalize()}`] = true;
 		}
+		return data;
 	}
 
 	computeItems(data) {
@@ -413,6 +418,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			if (item.system.part === "shield") item.isWeapon = true;
 			else if (CONFIG.fbl.itemTypes.includes(item.type)) item[`is${item.type.capitalize()}`] = true;
 		}
+		return data;
 	}
 
 	computeItemEncumbrance(data) {
@@ -421,12 +427,22 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			? this.config.encumbrance[data?.system.weight] ?? 1
 			: Number(data?.system.weight) ?? 1;
 		// If the item isn't carried or equipped, don't count it.
-		if (!data.flags["forbidden-lands"]?.state) return 0;
+		if (!data.flags?.state) return 0;
 		// Only return weight for these types.
 		if (type === "rawMaterial") return 1 * Number(data.system.quantity);
 		if (["gear", "armor", "weapon"].includes(type)) return weight;
 		// Talents, Spells, and the like dont have weight.
 		return 0;
+	}
+
+	async #enrichTextEditorFields(data) {
+		const fields = CONFIG.fbl.enrichedActorFields;
+		for (const field of fields)
+			if (data.system.bio?.[field]?.value)
+				data.system.bio[field].value = await TextEditor.enrichHTML(data.system.bio[field].value, {
+					async: true,
+				});
+		return data;
 	}
 
 	#getCarriedStates() {
@@ -467,7 +483,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	#filterGear(items) {
 		const filteredItems = items
 			?.filter(({ type }) => CONFIG.fbl.carriedItemTypes.includes(type))
-			.map((item) => ({ ...item, state: item.flags["forbidden-lands"]?.state || "none" }));
+			.map((item) => ({ ...item, state: item.flags?.state || "none" }));
 		const reduced = filteredItems.reduce((acc, item) => {
 			const { state } = item;
 			if (!acc[state]) acc[state] = [];
