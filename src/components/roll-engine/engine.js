@@ -631,7 +631,7 @@ export class FBLRoll extends YearZeroRoll {
 	}
 
 	get isOwner() {
-		return game.actors.get(this.options.actorId)?.isOwner ?? null;
+		return game.actors.get(this.options.actorId)?.isOwner || null;
 	}
 
 	get damage() {

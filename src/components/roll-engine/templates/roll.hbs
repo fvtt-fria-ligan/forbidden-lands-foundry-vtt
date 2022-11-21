@@ -70,7 +70,7 @@
 	{{{infos}}}
 {{/if}}
 {{! Push button }}
-{{#if (and pushable (or roll.isOwner (eq user game.user.id)))}}
+{{#if (and pushable (or roll.isOwner user.isGM))}}
 	<div class="dice-buttons">
 		<button class="fbl-button push" data-action="push">
 			{{localize "PUSH"}}
