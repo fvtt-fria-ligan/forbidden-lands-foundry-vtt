@@ -19,8 +19,9 @@ export class ForbiddenLandsStrongholdSheet extends ForbiddenLandsActorSheet {
 		});
 	}
 
-	getData() {
-		const actorData = super.getData();
+	async getData() {
+		const actorData = await super.getData();
+		actorData.system.description = await TextEditor.enrichHTML(actorData.system.description, { async: true });
 		this._computeItems(actorData);
 		return actorData;
 	}

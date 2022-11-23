@@ -27,8 +27,8 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 		});
 	}
 
-	getData() {
-		const actorData = super.getData();
+	async getData() {
+		const actorData = await super.getData();
 		this.computeSkills(actorData);
 		this.computeItems(actorData);
 		this.computeEncumbrance(actorData);
@@ -63,7 +63,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 	}
 
 	async rollSpecificAttack(attackId) {
-		if (this.actor.isBroken) throw this.broken();
+		if (!this.actor.canAct) throw this.broken();
 		const attack = this.actor.items.get(attackId);
 		const gear = attack.getRollData();
 		const rollOptions = this.getRollOptions();

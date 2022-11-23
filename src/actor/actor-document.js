@@ -17,8 +17,10 @@ export class ForbiddenLandsActor extends Actor {
 		return this.actorProperties.consumable;
 	}
 
-	get isBroken() {
-		return Object.values(this.attributes).some((attribute) => attribute.value <= 0 && attribute.max > 0);
+	get canAct() {
+		return Object.entries(this.attributes).every(
+			([key, attribute]) => attribute.value > 0 || attribute.max <= 0 || key === "empathy",
+		);
 	}
 
 	get skills() {
@@ -39,7 +41,7 @@ export class ForbiddenLandsActor extends Actor {
 			alias: this.token?.name || this.name,
 			actorId: this.id,
 			actorType: this.system.type,
-			isBroken: this.isBroken,
+			canAct: this.canAct,
 			sceneId: this.token?.parent.id,
 			tokenId: this.token?.id,
 			unlimitedPush: this.unlimitedPush,
