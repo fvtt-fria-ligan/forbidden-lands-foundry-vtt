@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [10.0.3](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.0.2...v10.0.3) (2022-11-23)
+
+
+### Bug Fixes
+
+* 🐛 Cannot act when empathy is broken ([f403fb2](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/f403fb2dfe455d982ecc3f8f7d13528d38dc56ec)), closes [#258](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/258)
+* 🐛 Damage displaying on weapon related actions ([886de07](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/886de07825355900ab00eaa0869236a4890d7926)), closes [#276](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/276)
+* 🐛 Enrich Actor Fields ([fb923ba](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/fb923ba2fb14d699d30dbf4d719bc8428b303cdc))
+* 🐛 Enrich item fields ([6a8619b](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/6a8619b4743c1564c738c2db1958a64ca2993c8d))
+* 🐛 Improve scene thumbnails in sidebar ([8b27554](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/8b27554e67d02c32f673dec43c2b947d1228bc58))
+* 🐛 Incorrect owner chech for push button visibility ([43ddb9d](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/43ddb9de41d675bc2fd2f76b42ae9c3b83dc673a))
+* 🐛 Lineheights and text-indents ([2645e8e](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/2645e8e3316bc811c34d891d83f51a24a548f3bd))
+* 🐛 Wrong paths in experimental dataset ([7bd7309](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/7bd730996e8b516d859cbd43530b10e978250d8e))
+
 ### [10.0.2](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.0.1...v10.0.2) (2022-11-07)
 
 
