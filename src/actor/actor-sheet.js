@@ -267,6 +267,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			title: actionName,
 			...properties,
 		};
+		if (itemId) delete data.gear.damage;
 		const options = {
 			...this.getRollOptions(actionName, data.skill?.name, data.attribute?.name, data.gear?.itemId),
 		};
