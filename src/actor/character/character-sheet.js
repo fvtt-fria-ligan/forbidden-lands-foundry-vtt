@@ -150,7 +150,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	}
 
 	async rollPride() {
-		if (this.actor.isBroken) throw this.broken();
+		if (!this.actor.canAct) throw this.broken();
 		const pride = this.actor.actorProperties.bio.pride;
 		const rollName = localizeString(pride.label);
 		const options = {

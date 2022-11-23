@@ -260,7 +260,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	/************************************************/
 
 	rollAction(actionName, itemId = undefined) {
-		if (this.actor.isBroken) throw this.broken();
+		if (!this.actor.canAct) throw this.broken();
 
 		const properties = itemId ? this.getGear(itemId) : this.getSkill(actionName);
 		const data = {
@@ -319,7 +319,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	}
 
 	rollAttribute(attrName) {
-		if (this.actor.isBroken) throw this.broken();
+		if (!this.actor.canAct) throw this.broken();
 
 		const data = {
 			title: attrName,
@@ -332,7 +332,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	}
 
 	rollGear(itemId) {
-		if (this.actor.isBroken) throw this.broken();
+		if (!this.actor.canAct) throw this.broken();
 
 		const properties = this.getGear(itemId);
 		const data = {
@@ -346,7 +346,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	}
 
 	rollSkill(skillName) {
-		if (this.actor.isBroken) throw this.broken();
+		if (!this.actor.canAct) throw this.broken();
 
 		const data = {
 			title: skillName,
@@ -359,7 +359,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	}
 
 	rollSpell(spellId) {
-		if (this.actor.isBroken) throw this.broken();
+		if (!this.actor.canAct) throw this.broken();
 		if (!this.actor.willpower.value && !this.actorProperties.subtype?.type === "npc")
 			throw ui.notifications.warn(localizeString("WARNING.NO_WILLPOWER"));
 
