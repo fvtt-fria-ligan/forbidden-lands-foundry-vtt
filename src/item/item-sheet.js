@@ -80,7 +80,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 		super.activateListeners(html);
 		html.find(".add-modifier").click(async (ev) => {
 			ev.preventDefault();
-			let data = this.getData();
+			let data = await this.getData();
 			let rollModifiers = data.system.rollModifiers || {};
 			// To preserve order, make sure the new index is the highest
 			let modifierId = Math.max(-1, ...Object.getOwnPropertyNames(rollModifiers)) + 1;
@@ -94,7 +94,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 		});
 		html.find(".delete-modifier").click(async (ev) => {
 			ev.preventDefault();
-			let data = this.getData();
+			let data = await this.getData();
 			let rollModifiers = duplicate(data.system.rollModifiers || {});
 			let modifierId = $(ev.currentTarget).data("modifier-id");
 			delete rollModifiers[modifierId];
