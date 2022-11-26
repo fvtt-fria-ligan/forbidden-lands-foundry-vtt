@@ -29,11 +29,10 @@
 	.editor,
 	.journal-entry-content {
 		font-family: var(--font-editor);
-		max-width: max(90%, 60ch);
-		margin-inline: auto;
+		margin: 1rem;
 		line-height: 1.75;
 		font-size: var(--font-size-16);
-
+		
 		.journal-header > input[name="name"] {
 			font-family: "IM Fell Three Line Pica";
 			font-size: var(--font-size-32);
