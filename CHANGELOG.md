@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [10.0.4](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.0.3...v10.0.4) (2022-11-27)
+
+
+### Bug Fixes
+
+* Editor indent and max-width ([#280](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/280)) ([22ecea2](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/22ecea274fd8213455c983eaa546335cfe58daa6))
+
 ### [10.0.3](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.0.2...v10.0.3) (2022-11-23)
 
 
