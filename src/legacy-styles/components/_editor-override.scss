@@ -64,9 +64,6 @@
 		p + p {
 			text-indent: 2rem;
 		}
-		p + p > * {
-			text-indent: 0;
-		}
 
 		#{utils.fromTo(h,1,6)} {
 			font-family: "IM Fell Three Line Pica";
