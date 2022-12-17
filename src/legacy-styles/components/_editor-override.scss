@@ -3,6 +3,10 @@
 .app.sheet .editor {
 	min-height: 55px;
 	height: 100%;
+
+	.editor-content[data-engine="tinymce"] {
+		margin-inline: 1rem;
+	}
 }
 
 .window-app.image-popout .window-content {
@@ -29,10 +33,12 @@
 	.editor,
 	.journal-entry-content {
 		font-family: var(--font-editor);
-		max-width: max(90%, 60ch);
-		margin-inline: auto;
 		line-height: 1.75;
 		font-size: var(--font-size-16);
+
+		article.journal-entry-page.text {
+			margin-inline: 1rem;
+		}
 
 		.journal-header > input[name="name"] {
 			font-family: "IM Fell Three Line Pica";
@@ -58,11 +64,7 @@
 		}
 
 		p {
-			margin-block: 0;
-		}
-
-		p + p {
-			text-indent: 2rem;
+			margin-block: 1rem;
 		}
 
 		#{utils.fromTo(h,1,6)} {
