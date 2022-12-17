@@ -668,7 +668,7 @@
 			"name": "Druide",
 			"weight": 1,
 			"paths": ["Weg der Heilung", "Weg der Gestaltwandlung", "Weg der Hellsicht"],
-			"equipment": [["Staff", "Knife"], "Trade Goods"],
+			"equipment": [["Kampfstab", "Messer"], "Handelswaren"],
 			"consumables": { "food": 8, "water": 6, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
@@ -733,7 +733,7 @@
 			"name": "Kämpfer",
 			"weight": 1,
 			"paths": ["Weg der Klinge", "Weg des Schildes", "Weg des Feindes"],
-			"equipment": ["One-handed Weapon", "Studded Leather", "Trade Goods"],
+			"equipment": ["Einhandwaffen", "Verstärkte Lederrüstung", "Handelswaren"],
 			"consumables": { "food": 8, "water": 8, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
@@ -798,7 +798,7 @@
 			"name": "Jäger",
 			"weight": 1,
 			"paths": ["Weg des Tieres", "Weg des Pfeils", "Weg des Waldes"],
-			"equipment": [["Bow", "Sling"], "Trade Goods", "Trade Goods"],
+			"equipment": [["Bow", "Sling"], "Handelswaren", "Handelswaren"],
 			"consumables": { "food": 8, "water": 8, "arrows": 10, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
@@ -863,7 +863,7 @@
 			"name": "Barde",
 			"weight": 1,
 			"paths": ["Weg des Liedes", "Weg des Lobgesangs", "Weg des Kampfschreis"],
-			"equipment": [["Lute", "Flute"], "Knife", "Trade Goods"],
+			"equipment": [["Laute", "Flöte"], "Messer", "Handelswaren"],
 			"consumables": { "food": 8, "water": 6, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 8, "copper": 0 },
 			"formativeEvents": {
@@ -928,7 +928,7 @@
 			"name": "Händler",
 			"weight": 1,
 			"paths": ["Weg des Golds", "Weg der Vielen Dinge", "Weg der Lügen"],
-			"equipment": ["Knife", "Trade Goods", "Trade Goods", "Trade Goods"],
+			"equipment": ["Messer", "Handelswaren", "Handelswaren", "Handelswaren"],
 			"consumables": { "food": 8, "water": 8, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 12, "copper": 0 },
 			"formativeEvents": {
@@ -993,7 +993,7 @@
 			"name": "Reiter",
 			"weight": 1,
 			"paths": ["Weg des Gefährten", "Weg des Ritters", "Weg der Ebenen"],
-			"equipment": ["Riding Horse", ["Spear", "Handaxe"], ["Short Bow", "Sling"], "Trade Goods"],
+			"equipment": ["Riding Horse", ["Spear", "Handaxe"], ["Short Bow", "Sling"], "Handelswaren"],
 			"consumables": { "food": 8, "water": 8, "arrows": 10, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
@@ -1058,7 +1058,7 @@
 			"name": "Schurke",
 			"weight": 1,
 			"paths": ["Weg der Maske", "Weg des Giftes", "Weg des Meuchlers"],
-			"equipment": ["Dagger", "Trade Goods", "Trade Goods"],
+			"equipment": ["Dolch", "Handelswaren", "Handelswaren"],
 			"consumables": { "food": 6, "water": 6, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 10, "copper": 0 },
 			"formativeEvents": {
@@ -1123,7 +1123,7 @@
 			"name": "Zauberer",
 			"weight": 1,
 			"paths": ["Weg des Zeichens", "Weg des Steins", "Weg des Blutes", "Weg des Todes"],
-			"equipment": [["Kampfstab", "Messer"], "Handelsgüter"],
+			"equipment": [["Kampfstab", "Messer"], "Handelswaren"],
 			"consumables": { "food": 6, "water": 8, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 8, "copper": 0 },
 			"formativeEvents": {
