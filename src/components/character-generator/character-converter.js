@@ -153,10 +153,10 @@ export class CharacterConverter {
 
 	generateNotes(character) {
 		const childhood = character.childhood;
-		let notes = `<h3>Childhood: ${childhood.name}</h3><p>${childhood.description}</p>`;
+		let notes = `<h3>${game.i18n.localize("FLCG.CHILDHOOD")}: ${childhood.name}</h3><p>${childhood.description}</p>`;
 		for (let i = 0; i < character.formativeEvents.length; i++) {
 			const event = character.formativeEvents[i];
-			notes += `<h3>Formative Event: ${event.name}</h3><p>${event.description}</p>`;
+			notes += `<h3>${game.i18n.localize("FLCG.EVENT")}: ${event.name}</h3><p>${event.description}</p>`;
 		}
 		const noteWrapper = `<div class="fbl-core">${notes}</div>`;
 		return noteWrapper;
