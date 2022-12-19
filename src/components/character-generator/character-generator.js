@@ -105,7 +105,7 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 	}
 
 	handleInputAge(event) {
-		const mapping = ["Young", "Adult", "Old"];
+		const mapping = [game.i18n.localize("FLCG.AGE_YOUNG"), game.i18n.localize("FLCG.AGE_ADULT"), game.i18n.localize("FLCG.AGE_OLD")];
 		const ageNumber = parseInt($(event.currentTarget).val());
 		const kin = this.dataset.kin[this.character.kin];
 		let ageKey = 2;
@@ -260,7 +260,7 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 			character.age = {
 				ageNumber: NaN,
 				ageKey: 1,
-				ageString: "Adult",
+				ageString: game.i18n.localize("FLCG.AGE_ADULT"),
 			};
 			character = this.rollFormativeEvents(character);
 		} else {
@@ -332,7 +332,7 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 	}
 
 	rollAge(ageRanges) {
-		const mapping = ["Young", "Adult", "Old"];
+		const mapping = [game.i18n.localize("FLCG.AGE_YOUNG"), game.i18n.localize("FLCG.AGE_ADULT"), game.i18n.localize("FLCG.AGE_OLD")];
 		let age = {};
 		age.ageKey = this.rollNumber(0, 2);
 		age.ageNumber = this.rollNumber(ageRanges[age.ageKey][0], ageRanges[age.ageKey][1]);
