@@ -15,7 +15,7 @@
 					"key": "orphaned",
 					"name": "Weise",
 					"weight": 1,
-					"description": "You have never met your mother or father, never had a family. Since you were little, you've had to care for yourself. It has hardened you and made you strong, but a feeling of rootlessness gnaws within you.",
+					"description": "Du hast deine Mutter oder deinen Vater nie kennengelernt, hattest niemals eine Familie. Von klein auf musstest du für dich selbst sorgen. Das hat dich hart und stark gemacht, das Gefühl, keine Wurzeln zu haben, nagt jedoch an dir.",
 					"attributes": { "strength": "3", "agility": "5", "wits": "3", "empathy": "4" },
 					"skills": {
 						"endurance": "1",
@@ -30,7 +30,7 @@
 					"key": "herder",
 					"name": "Hirte",
 					"weight": 1,
-					"description": "You were taught as a child that livestock are the source of life. As an apprentice, you wandered the plains of the Forbidden Lands, guarding your herd. You spent your nights under starry skies, dreaming of adventure.",
+					"description": "Als Kind hast du gelernt, dass euer Vieh die Grundlage eures Lebens ist. Als Lehrling bist du durch die Ebenen der Verbotenen Lande gestreift und hast deine Herde gehütet. Du hast die Nächte unter dem sternenklaren Himmel verbracht und von Abenteuern geträumt.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
 					"skills": { "might": "1", "crafting": "1", "scouting": "2", "animal-handling": "2" }
 				},
@@ -38,7 +38,7 @@
 					"key": "vagabond",
 					"name": "Herumtreiber",
 					"weight": 1,
-					"description": "You and your family traveled from village to village, making a living doing simple jobs. You never had a real home, every day was a new adventure. You learned to live off the land, and the importance of staying together",
+					"description": "Du und deine Familie seid von Dorf zu Dorf gereist und habt euch dabei vor dem Blutnebel versteckt. Du hattest nie ein wirkliches Zuhause, jeder Tag war ein neues Abenteuer. Du hast gelernt, wie du dich auf Reisen selbst versorgen kannst und wie wichtig es ist, dass man zusammenbleibt.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
 					"skills": { "endurance": "1", "melee": "1", "scouting": "1", "survival": "2", "insight": "1" }
 				},
@@ -46,7 +46,7 @@
 					"key": "squire",
 					"name": "Knappe",
 					"weight": 1,
-					"description": "You served a proud warrior. Carried her weapons and gear, took care of her horse, and learned everything you could. You dreamed of making a name for yourself in the Forbidden Lands, of one day being your own master",
+					"description": "Du hast einer stolzen Kriegerin gedient. Du hast ihre Waffen und ihre Ausrüstung getragen, dich um ihr Pferd gekümmert und von ihr gelernt, was immer du konntest. Du hast davon geträumt, dir selbst einen Namen in den Verbotenen Landen zu machen – und eines Tages dein eigener Herr zu sein.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
 					"skills": { "endurance": "1", "melee": "2", "marksmanship": "1", "move": "1", "healing": "1" }
 				},
@@ -54,7 +54,7 @@
 					"key": "laborer",
 					"name": "Arbeiter",
 					"weight": 1,
-					"description": "You worked on a farm performing menial laborious chores. You know everything about grains, cattle, and crops. But deep inside you longed for something else.",
+					"description": "Du hast auf einem Bauernhof einfache Handlangertätigkeiten ausgeführt. Du weißt alles über Korn, Vieh und Feldfrüchte. Aber tief in dir hast du dich schon immer nach etwas anderem gesehnt.",
 					"attributes": { "strength": "5", "agility": "3", "wits": "3", "empathy": "4" },
 					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal-handling": "1" }
 				},
@@ -62,7 +62,7 @@
 					"key": "hard studies",
 					"name": "Harte Lehrjahre",
 					"weight": 1,
-					"description": "A learned man or woman took you under his/her wing and set you to studying the elder writings. The days were long, the learning hard, but in the end, you found that knowledge was the key to the world.",
+					"description": "Ein gelehrter Mann/eine gelehrte Frau hat dich unter seine/ihre Fittiche genommen und dir aufgetragen, die alten Schriften zu studieren. Die Tage waren lang, die Arbeit schwer, aber am Ende hast du das Wissen gefunden, das dir den Schlüssel zur Welt verleiht.",
 					"attributes": { "strength": "3", "agility": "3", "wits": "5", "empathy": "4" },
 					"skills": { "crafting": "1", "lore": "3", "insight": "1", "manipulation": "1" }
 				}
@@ -83,7 +83,7 @@
 					"key": "born in the saddle",
 					"name": "Im Sattel geboren",
 					"weight": 1,
-					"description": "You have always felt more kinship with animals than humans, and it is only on the back of your horse, with the wind whipping your face, that you feel truly free. Together you are one entity, riding across everlasting expanses in the name of the god Horn.",
+					"description": "Du hast dich Tieren schon immer näher gefühlt als Menschen. Nur auf dem Rücken deines Pferdes, mit dem Wind im Gesicht, fühlst du dich wahrhaft frei. Ihr seid eine Einheit und prescht gemeinsam über die ewigen Ebenen, alles im Namen des Gottes Horn.",
 					"attributes": { "strength": "4", "agility": "5", "wits": "3", "empathy": "3" },
 					"skills": { "move": "2", "survival": "2", "animal-handling": "2" }
 				},
@@ -91,7 +91,7 @@
 					"key": "dreamer",
 					"name": "Träumer",
 					"weight": 1,
-					"description": "You have always dreamed of gods, legends, and myhts. Ever since you were a tiny tot, you sat by the campfire listening to the clan's minstrel telling stories of the volcano god Horn, proud ancestors, and demonic invasions. It is in the dreams of your people, of heroes and legends, that you live to the fullest. Maybe one day you'll be able to create a legend of your own?",
+					"description": "Du hast schon immer von Göttern, Legenden und Mythen geträumt. Schon als Knirps hast du am Lagerfeuer gesessen und zugehört, wie der Clansänger Geschichten über den Vulkangott Horn, stolze Vorfahren und dämonische Überfälle erzählte. In den Träumen deines Volkes, Träumen von Helden und Legenden, findest du dich wieder. Vielleicht werden eines Tages auch über dich Legenden erzählt?",
 					"attributes": { "strength": "3", "agility": "3", "wits": "4", "empathy": "5" },
 					"skills": { "lore": "2", "manipulation": "1", "performance": "1", "animal-handling": "1" }
 				},
@@ -99,7 +99,7 @@
 					"key": "strongest of the clan",
 					"name": "Die Stärkste im Clan",
 					"weight": 1,
-					"description": "Already as a child you learned that you were bigger and stronger than others. You had to work harder, be more responsible, fight the hardest. Some idolized you, others despised you.",
+					"description": "Als du noch ein Kind warst, wusstest du bereits, dass du größer und stärker bist als alle anderen. Du musstest härter arbeiten, mehr Verantwortung übernehmen, am meisten kämpfen. Einige haben dich verehrt, andere verachtet.",
 					"attributes": { "strength": "5", "agility": "3", "wits": "3", "empathy": "4" },
 					"skills": { "might": "2", "endurance": "1", "melee": "2", "animal-handling": "1" }
 				},
@@ -107,7 +107,7 @@
 					"key": "taught by a wise women",
 					"name": "Schüler einer weissen Frau",
 					"weight": 1,
-					"description": "As a child you befriended a wise women of the clan. Soon you became her apprentice, and learned all about the history of your people, of ancient feats of heroism, and bloody wars.",
+					"description": "Als Kind hast du eine weise Frau aus dem Clan kennengelernt. Schon bald wurdest du ihr Schüler und hast alles über die Geschichte deines Volkes gelernt, über alte Heldentaten und blutige Kriege.",
 					"attributes": { "strength": "3", "agility": "3", "wits": "5", "empathy": "4" },
 					"skills": { "lore": "2", "insight": "1", "healing": "2", "animal-handling": "1" }
 				},
@@ -115,7 +115,7 @@
 					"key": "hunter",
 					"name": "Jäger",
 					"weight": 1,
-					"description": "As a child you learned to live in tune with nature. The hunt is your task, and even if you learned to kill, you also learned to honor the value of the life of every animal.",
+					"description": "Als Kind hast du gelernt, in Einklang mit der Natur zu leben. Die Jagd ist deine Aufgabe und du weißt zwar, wie man tötet, hast aber auch erfahren, wie wichtig es ist, das Leben jedes Tieres zu achten.",
 					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
 					"skills": { "marksmanship": "2", "scouting": "2", "survival": "1", "animal-handling": "1" }
 				},
@@ -123,7 +123,7 @@
 					"key": "child of the winds",
 					"name": "Kind der Winde",
 					"weight": 1,
-					"description": "You were chosen as a Child of the Winds and set out on a long pilgrimage to the highlands and the mountains. All for the sake of your clan. You fulfilled your duty, but to this day you still unsure of where you feel at home.",
+					"description": "Du wurdest als Kind der Winde auserwählt und hast dich auf eine lange Pilgerreise zu den Hochebenen und Gebirgen begeben – alles für das Wohl deines Clans. Du hast deine Aufgabe erfüllt, aber noch heute bist du dir unsicher, wo deine wirkliche Heimat ist.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
 					"skills": {
 						"melee": "1",
@@ -150,7 +150,7 @@
 					"key": "child of the raven",
 					"name": "Kind des Raben",
 					"weight": 1,
-					"description": "You grew up among the Raven Sisters, and learned to venerate the Raven god. You learned to fear the Rust Brothers, and to live off the land. It is in the wind that you feel the most free",
+					"description": "Du bist unter den Rabenschwestern aufgewachsen, als Verehrer des Gottes Rabe. Du hast die Rostbrüder zu fürchten gelernt und weißt, wie du dich selbst versorgst. Nur mit dem Wind im Gesicht fühlst du dich wirklich frei.",
 					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
 					"skills": { "crafting": "1", "move": "1", "scouting": "1", "lore": "2", "insight": "1" }
 				},
@@ -158,7 +158,7 @@
 					"key": "druid's apprentice",
 					"name": "Druidenlehrling",
 					"weight": 1,
-					"description": "You were apprenticed to a druid, and learned everything you could of the holy mysteries, of rituals and sorcery. Your master is long dead, but you still remember his/her words.",
+					"description": "Du bist bei einem Druiden in die Lehre gegangen. Von ihm hast du dein Wissen über die heiligen Mysterien, über Rituale und Zauberkunst. Dein Meister ist schon lange tot, aber du erinnerst dich noch immer an seine Worte.",
 					"attributes": { "strength": "3", "agility": "4", "wits": "5", "empathy": "3" },
 					"skills": { "scouting": "1", "lore": "1", "survival": "2", "healing": "1", "animal-handling": "1" }
 				},
@@ -166,7 +166,7 @@
 					"key": "guardian",
 					"name": "Beschützer",
 					"weight": 1,
-					"description": "The Ailanders were always an oppressed and hunted people. You realized this early on, and were trained to protect your people from dangers with shield and sword in hand. You were soon hardened by battle, and wear the scars to prove it.",
+					"description": "Die Ailander werden schon lange unterdrückt und gejagt. Das war dir schon früh klar – und du wurdest ausgebildet, um dein Volk mit Schwert und Schild in der Hand vor Gefahren zu schützen. Schon bald wurdest du in Kämpfen auf die Probe gestellt, und du hast Narben, die das beweisen.",
 					"attributes": { "strength": "5", "agility": "4", "wits": "3", "empathy": "3" },
 					"skills": { "might": "1", "melee": "2", "marksmanship": "2", "move": "1" }
 				},
@@ -174,7 +174,7 @@
 					"key": "wanderer",
 					"name": "Wanderer",
 					"weight": 1,
-					"description": "You had no fixed place in life, the road was your home, and the Forbidden Lands was your neighborhood. Already as a child, you had seen more of the land than most.",
+					"description": "Du hattest nie einen festen Ort im Leben. Die Straße war dein Zuhause und du hast gelernt, nachts Zuflucht vor dem Blutnebel zu finden. Schon als Kind hattest du mehr von der Welt gesehen als die meisten in ihrem ganzen Leben.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
 					"skills": {
 						"endurance": "1",
@@ -188,7 +188,7 @@
 					"key": "laborer",
 					"name": "Arbeiter",
 					"weight": 1,
-					"description": "You worked on a farm performing menial laborious chores. You know everything about grains, cattle, and crops. But deep inside you longed for something else.",
+					"description": "Du hast auf einem Bauernhof einfache Handlangertätigkeiten ausgeführt. Du weißt alles über Korn, Vieh und Feldfrüchte. Aber tief in dir hast du dich schon immer nach etwas anderem gesehnt.",
 					"attributes": { "strength": "5", "agility": "3", "wits": "3", "empathy": "4" },
 					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal-handling": "1" }
 				},
@@ -196,7 +196,7 @@
 					"key": "herder",
 					"name": "Hirte",
 					"weight": 1,
-					"description": "You were taught as a child that livestock are the source of life. As an apprentice, you wandered the plains of the Forbidden Lands, guarding your herd. You spent your nights under starry skies, dreaming of adventure.",
+					"description": "Als Kind hast du gelernt, dass euer Vieh die Grundlage eures Lebens ist. Als Lehrling bist du durch die Ebenen der Verbotenen Lande gestreift und hast deine Herde gehütet. Du hast die Nächte unter dem sternenklaren Himmel verbracht und von Abenteuern geträumt.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
 					"skills": { "might": "1", "crafting": "1", "scouting": "2", "animal-handling": "2" }
 				}
@@ -233,7 +233,7 @@
 					"key": "student",
 					"name": "Schüler",
 					"weight": 1,
-					"description": "You always knew that you were a little wiser than your friends. When a sage teacher took you on, you immersed yourself in the mysteries of the world. What you found in books was all that you had ever dreamed of and more.",
+					"description": "Du wusstest schon immer, dass du ein bisschen klüger warst als deine Freunde. Als sich ein weiser Lehrer deiner annahm, hast du dich in die Geheimnisse der Welt vertieft. Das, was du in den Büchern gefunden hast, war alles, was du dir erträumt hattest – und mehr.",
 					"attributes": { "strength": "3", "agility": "4", "wits": "5", "empathy": "3" },
 					"skills": { "crafting": "1", "lore": "3", "insight": "1", "healing": "1" }
 				},
@@ -241,7 +241,7 @@
 					"key": "acrobat",
 					"name": "Akrobat",
 					"weight": 1,
-					"description": "As a child you were agile and nimble, climbed everywhere, and discovered every nook in your neighborhood of the village. You learned the art of performance, and the importance of the beauty in the Forbidden Lands.",
+					"description": "Du warst schon als Kind beweglich und geschickt, bist überall hochgeklettert und hast jeden Winkel deines Heimatortes erkundet. Du hast die Kunst der Darbietung erlernt – und wie wichtig Schönheit auch in den Verbotenen Landen ist.",
 					"attributes": { "strength": "3", "agility": "5", "wits": "3", "empathy": "4" },
 					"skills": { "stealth": "1", "move": "2", "sleight-of-hand": "2", "performance": "1" }
 				},
@@ -249,7 +249,7 @@
 					"key": "fighter",
 					"name": "Kämpfer",
 					"weight": 1,
-					"description": "You learned early on that you were talented with weapons. Soon, you were taken on by a warrior who taught you the mysteries of battle. You trained hard and long, and in time you became your master's equal.",
+					"description": "Du hast schon früh festgestellt, dass du begabt im Umgang mit Waffen bist. Irgendwann nahm dich ein Krieger auf, der dir die Geheimnisse der Schlacht beibrachte. Du hast lange und hart geübt, und schließlich warst du deinem Meister ebenbürtig.",
 					"attributes": { "strength": "4", "agility": "5", "wits": "3", "empathy": "3" },
 					"skills": { "might": "1", "endurance": "1", "melee": "2", "marksmanship": "2" }
 				},
@@ -257,7 +257,7 @@
 					"key": "ghost child",
 					"name": "Geisterkind",
 					"weight": 1,
-					"description": "You grew up without a real family or home. Instead, you sought out other youths who had run away or been cast out. You were called ghost children, and lived by stealing and performing odd jobs.",
+					"description": "Du bist ohne echte Familie oder Heim aufgewachsen. Stattdessen hast dich mit anderen Kindern zusammengetan, die fortgelaufen sind oder ausgestoßen wurden. Geisterkinder – so nannte man euch, und ihr habt gestohlen und einfache Arbeiten verrichtet, um zu überleben.",
 					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
 					"skills": { "melee": "1", "stealth": "2", "sleight-of-hand": "2", "insight": "1" }
 				}
@@ -278,7 +278,7 @@
 					"key": "baker's apprentice",
 					"name": "Bäckerlehrling",
 					"weight": 1,
-					"description": "You have always loved the scent of freshly baked bread. Since childhood, you have worked in the kitchen, baking bread that'd make anyone's mouth water.",
+					"description": "Du hast den Duft frisch gebackenen Brotes schon immer geliebt. Seit deiner Kindheit hast du in der Küche gearbeitet und Brot gebacken, das jedem anderen den Mund wässrig machen würde.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
 					"skills": {
 						"crafting": "2",
@@ -292,7 +292,7 @@
 					"key": "laborer",
 					"name": "Arbeiter",
 					"weight": 1,
-					"description": "You worked on a farm performing menial laborious chores. You know everything about grains, cattle, and crops. But deep inside you longed for something else.",
+					"description": "Du hast auf einem Bauernhof einfache Handlangertätigkeiten ausgeführt. Du weißt alles über Korn, Vieh und Feldfrüchte. Aber tief in dir hast du dich schon immer nach etwas anderem gesehnt.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
 					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal-handling": "1" }
 				},
@@ -300,7 +300,7 @@
 					"key": "craftsman",
 					"name": "Handwerker",
 					"weight": 1,
-					"description": "You were always skilled with your fingers, and learned to master a craft early on. You expressed yourself through the objects you created. But they also made you long to see the works of the real masters.",
+					"description": "Du hattest schon immer geschickte Finger und hast früh ein Handwerk gemeistert. Du hast dir selbst in deiner Kunst Ausdruck verliehen. Aber dadurch ist in dir auch die Sehnsucht nach den Werken echter Meister erwacht.",
 					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
 					"skills": { "melee": "1", "crafting": "3", "lore": "1", "insight": "1" }
 				},
@@ -308,7 +308,7 @@
 					"key": "raised in the kitchen",
 					"name": "Küchenkind",
 					"weight": 1,
-					"description": "You spent almost all of your childhood in the kitchen. Among the scents of soups, stews, and brews. Your learned the secrets of spices and the joy of a well-cooked meal.",
+					"description": "Du hast fast deine gesamte Kindheit in der Küche verbracht, inmitten der Düfte von Suppen, Eintöpfen und Soßen. Du hast geheime Gewürze kennengelernt – und weißt, welche Freude ein gutes Mahl bereiten kann.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
 					"skills": {
 						"crafting": "2",
@@ -322,7 +322,7 @@
 					"key": "bookworm",
 					"name": "Bücherwurm",
 					"weight": 1,
-					"description": "When other children played in the forest, you preffered to bury your nose in an old book, reading of myths, dragons, and treasures.",
+					"description": "Während andere Kinder im Wald gespielt haben, hast du deine Nase in alte Bücher gesteckt und Geschichten über Legenden, Drachen und Schätze gelesen.",
 					"attributes": { "strength": "3", "agility": "3", "wits": "5", "empathy": "4" },
 					"skills": { "lore": "3", "insight": "1", "manipulation": "1", "animal-handling": "1" }
 				},
@@ -330,7 +330,7 @@
 					"key": "loner",
 					"name": "Enzelgänger",
 					"weight": 1,
-					"description": "You have never felt at home among your people, always keeping to yourself. You grew up in the shadow of your comrades. You saw things they didn´t see, did things they never imagined.",
+					"description": "Du hast dich in Gesellschaft nie wohl gefühlt und warst immer lieber für dich. Du hast im Schatten deiner Gefährten gestanden. Du hast Dinge gesehen, die sie niemals gesehen haben, und Dinge getan, die sie sich nicht vorstellen könnten.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
 					"skills": {
 						"melee": "1",
@@ -357,7 +357,7 @@
 					"key": "wolfling",
 					"name": "Wolfling",
 					"weight": 1,
-					"description": "Your parents abandoned you when you were a child, but you found a new home with a wolf pack. You became one of the wolves, howled at the moon, loped across the plains, and ate raw flesh.",
+					"description": "Deine Eltern haben dich verlassen, als du noch ein kleines Kind warst, aber du wurdest von einem Wolfsrudel aufgenommen. Du wurdest Teil des Rudels, hast den Mond angeheult, bist über die Ebenen gerannt und hast rohes Fleisch gegessen.",
 					"attributes": { "strength": "3", "agility": "5", "wits": "3", "empathy": "4" },
 					"skills": { "endurance": "1", "melee": "1", "stealth": "1", "move": "1", "animal-handling": "2" }
 				},
@@ -365,7 +365,7 @@
 					"key": "scrounger",
 					"name": "Langfinger",
 					"weight": 1,
-					"description": "You learned as a child that the ownership of objects is nothing but a fleeting thought. You have always had a talent for acquiring things that aren't yours. It's like they just... appear.",
+					"description": "Du hast schon als Kind gelernt, dass Eigentum nur ein flüchtiger Gedanke ist. Du warst schon immer gut darin, dir Dinge anzueignen, die nicht dir gehören. Sie… tauchen einfach irgendwie auf.",
 					"attributes": { "strength": "3", "agility": "5", "wits": "3", "empathy": "4" },
 					"skills": { "stealth": "2", "scouting": "2", "insight": "1", "manipulation": "1" }
 				},
@@ -373,7 +373,7 @@
 					"key": "child of the woods",
 					"name": "Kind der Wälder",
 					"weight": 1,
-					"description": "You grew up under the cover of the forest. You climbed the trees, and felt the wind whisper among the leaves. It is in the forest that you feel safe, and you know that its creatures will always protect you.",
+					"description": "Du bist im Schutz des Waldes aufgewachsen. Du bist auf Bäume geklettert und hast dem Flüstern des Windes in den Baumkronen gelauscht. Im Wald fühlst du dich sicher und du weißt, dass seine Bewohner dich immer beschützen werden.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
 					"skills": { "endurance": "1", "move": "1", "marksmanship": "1", "scouting": "1", "survival": "2" }
 				},
@@ -381,7 +381,7 @@
 					"key": "wildling",
 					"name": "Wildling",
 					"weight": 1,
-					"description": "Your clan was a bunch of mavericks who didn't care for old lineages and pacts. You grew up wild and free, no one has ever been able to tell you what to do.",
+					"description": "Du stammst aus einem Clan von Querdenkern, denen Blutlinien und Pakte egal waren. Von klein auf warst du wild und frei, und noch nie hat dir jemand gesagt, was du zu tun hast.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
 					"skills": { "might": "1", "melee": "2", "move": "2", "survival": "1" }
 				},
@@ -389,7 +389,7 @@
 					"key": "wanderer",
 					"name": "Wanderer",
 					"weight": 1,
-					"description": "You had no fixed place in life, the road was your home, and the Forbidden Lands was your neighborhood. Already as a child, you had seen more of the land than most.",
+					"description": "Du hattest nie einen festen Ort im Leben. Die Straße war dein Zuhause und du hast gelernt, nachts Zuflucht vor dem Blutnebel zu finden. Schon als Kind hattest du mehr von der Welt gesehen als die meisten.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
 					"skills": {
 						"endurance": "1",
@@ -403,7 +403,7 @@
 					"key": "storyteller",
 					"name": "Geschichtenerzähler",
 					"weight": 1,
-					"description": "As a wee goblin, you sat by the fire, eyes like saucers, and listened to the legends of your people being told by the clan elder. In your mind, you traveled through time and space, and relived the fantastic stories. You made sure that you learned all you could from the old goblin, and it didn't take long before you became one of the clan's storytellers.",
+					"description": "Als kleiner Goblin hast du am liebsten am Feuer gesessen und mit großen Augen dem Clanältesten gelauscht, der die Legenden eures Volkes erzählte. In deiner Fantasie bist du durch Zeit und Raum gereist und hast großartige Abenteuer erlebt. Du hast dafür gesorgt, dass der alte Goblin dir alles beibrachte, was er wusste, und schon bald warst du selbst einer der Geschichtenerzähler des Clans.",
 					"attributes": { "strength": "3", "agility": "4", "wits": "3", "empathy": "5" },
 					"skills": { "lore": "1", "manipulation": "2", "performance": "3" }
 				}
@@ -424,7 +424,7 @@
 					"key": "minstrel",
 					"name": "Barde",
 					"weight": 1,
-					"description": "It was in the stories of the suffering of your people that you found your true self. In your youth, you learned the songs of the betrayal of the elves, and the blood spilt in the wars. You will never forget.",
+					"description": "In den Geschichten über das Leid deines Volkes hast du dein wahres Ich erkannt. In deiner Jugend hast du die Lieder über den Betrug der Elfen erlernt, und über das Blut, das in den Kriegen vergossen wurde. Du wirst das niemals vergessen.",
 					"attributes": { "strength": "3", "agility": "3", "wits": "4", "empathy": "5" },
 					"skills": { "lore": "1", "insight": "1", "manipulation": "1", "performance": "1" }
 				},
@@ -432,7 +432,7 @@
 					"key": "worker",
 					"name": "Arbeiter",
 					"weight": 1,
-					"description": "Life was hard, even as a young orc. You have toiled for as long as you can remember. Worked hard to be able to live your life as you please.",
+					"description": "Dein Leben war schon immer hart, auch als Orkkind. So lange du dich zurückerinnern kannst, hast du geschuftet. Du hast hart dafür gearbeitet, das Leben so genießen zu können, wie es dir gefällt.",
 					"attributes": { "strength": "5", "agility": "4", "wits": "3", "empathy": "3" },
 					"skills": { "might": "2", "endurance": "2", "crafting": "2" }
 				},
@@ -440,7 +440,7 @@
 					"key": "brigand",
 					"name": "Räuber",
 					"weight": 1,
-					"description": "A strong orc is an orc that can care for himself. You realized early on that you must steal to survive. And why not? The orcs have been betrayed time and time again.",
+					"description": "Ein Ork, der für sich selbst sorgen kann, ist ein starker Ork. Du hast schon früh erkannt, dass du stehlen musst, um zu überleben. Und warum auch nicht? Die Orks wurden wieder und wieder betrogen.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
 					"skills": { "melee": "2", "stealth": "1", "sleight-of-hand": "1", "scouting": "1", "survival": "1" }
 				},
@@ -448,7 +448,7 @@
 					"key": "drifter",
 					"name": "Streuner",
 					"weight": 1,
-					"description": "You grew up on the road, in the forest, and on the plains. You have never been able to settle in one place. Your restless legs won't let you.",
+					"description": "Du bist auf der Straße aufgewachsen, in den Wäldern und auf den Ebenen. Tagsüber bist du herumgereist und nachts hast du dich vor dem Blutnebel versteckt. Deine rastlosen Füße lassen das einfach nicht zu.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
 					"skills": {
 						"endurance": "1",
@@ -462,15 +462,15 @@
 					"key": "warrior",
 					"name": "Krieger",
 					"weight": 1,
-					"description": "You grew up on the battlefield. Had already slain your first enemy as a young orc. It was with weapon in hand that you felt respected for the first time.",
+					"description": "Du bist auf dem Schlachtfeld aufgewachsen. Schon als Orkkind hattest du deinen ersten Feind bereits getötet. Mit der Waffe in der Hand hast du zum ersten Mal Respekt erfahren.",
 					"attributes": { "strength": "5", "agility": "4", "wits": "3", "empathy": "3" },
 					"skills": { "might": "1", "melee": "2", "marksmanship": "2", "move": "1" }
 				},
 				"loner": {
 					"key": "loner",
-					"name": "einzelgänger",
+					"name": "Einzelgänger",
 					"weight": 1,
-					"description": "You have never felt at home among your people, always keeping to yourself. You grew up in the shadow of your comrades. You saw things they didn´t see, did things they never imagined.",
+					"description": "Du hast dich in Gesellschaft nie wohl gefühlt und warst immer lieber für dich. Du hast im Schatten deiner Gefährten gestanden. Du hast Dinge gesehen, die sie niemals gesehen haben, und Dinge getan, die sie sich nicht vorstellen könnten.",
 					"attributes": { "strength": "4", "agility": "3", "wits": "5", "empathy": "3" },
 					"skills": { "melee": "1", "scouting": "1", "insight": "2", "survival": "2" }
 				}
@@ -491,7 +491,7 @@
 					"key": "howler",
 					"name": "Heuler",
 					"weight": 1,
-					"description": "You grew up among the howlers, wolfkin that moved between the clans, their own masters, free. You were trained in the telling of the tragic legends that have been told by generations of howlers before you.",
+					"description": "Du bist unter Heulern aufgewachsen, Wolfsmenschen, die zwischen den Clans umherstreifen, als ihre eigenen Herren. Dir wurde beigebracht, tragische Legenden zu erzählen, die schon Generationen von Heulern vor dir erzählt haben.",
 					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
 					"skills": { "lore": "1", "manipulation": "1", "performance": "3", "survival": "1" }
 				},
@@ -499,7 +499,7 @@
 					"key": "hunter",
 					"name": "Jäger",
 					"weight": 1,
-					"description": "Already as a young pup you learned that blood is life. The older hunters in the clan taught you to respect the animals, even as you kill them. The hunt is the basis of life.",
+					"description": "Schon als Welpe war dir bewusst, dass Blut Leben bedeutet. Die älteren Jäger in deinem Clan haben dir beigebracht, die Tiere zu respektieren, auch wenn du sie tötest. Die Jagd ist die Grundlage des Lebens.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
 					"skills": { "endurance": "1", "melee": "1", "scouting": "2", "survival": "2" }
 				},
@@ -507,7 +507,7 @@
 					"key": "outcast",
 					"name": "Ausgestoßener",
 					"weight": 1,
-					"description": "When the other cubs ran with the pack, you were cast out. Alone, you learned to live off the forest, and that other kin could be more kind than your own. One day, you will find your way home.",
+					"description": "Die anderen Welpen schlossen sich dem Rudel an, aber du wurdest ausgestoßen. Auf dich gestellt hast du gelernt, im Wald zu überleben – und erfahren, dass andere Völker freundlicher sein können als dein eigenes. Eines Tages wirst du den Weg nach Hause finden.",
 					"attributes": { "strength": "4", "agility": "3", "wits": "5", "empathy": "3" },
 					"skills": { "melee": "1", "scouting": "1", "insight": "2", "survival": "2" }
 				},
@@ -515,7 +515,7 @@
 					"key": "tracker",
 					"name": "Fährtenleser",
 					"weight": 1,
-					"description": "You learned early on that your sense of smell was better than your comrades, and you soon realized that you could find the most amazing things if you just followed your snout.",
+					"description": "Schon früh hast du festgestellt, dass dein Geruchssinn besser entwickelt war als der deiner Gefährten und dass du die aufregendsten Sachen finden kannst, wenn du einfach nur deiner Nase folgst.",
 					"attributes": { "strength": "3", "agility": "4", "wits": "5", "empathy": "3" },
 					"skills": { "stealth": "2", "scouting": "3", "survival": "1" }
 				},
@@ -523,7 +523,7 @@
 					"key": "fighter",
 					"name": "Kämpfer",
 					"weight": 1,
-					"description": "You were the strongest in your litter, and completely dominated your siblings' games. As you grew bigger, the elders in the clan saw that you were a natural fighter, and trained you in the secrets of battle.",
+					"description": "Du warst der Stärkste in deinem Wurf und hast deine Geschwister in allen Spielen geschlagen. Als du größer wurdest, bemerkten die Clanältesten, dass du zum Kämpfer geboren warst, und lehrten dich die Geheimnisse des Kampfes.",
 					"attributes": { "strength": "5", "agility": "4", "wits": "3", "empathy": "3" },
 					"skills": { "might": "2", "melee": "3", "move": "1" }
 				},
@@ -531,7 +531,7 @@
 					"key": "child of the forest",
 					"name": "Kind des Waldes",
 					"weight": 1,
-					"description": "Ever since you were a child, you've been drawn to the fruits of the forests, to flowers, herbs, and lakes. You learned everything you could from the clan's herbalist, the scent of every flower, and which plants nurtured life - or ended it.",
+					"description": "Schon als Kind hast du dich dem Wald nahe gefühlt, den Blumen, Kräutern und Seen. Der Kräuterkundige deines Clans brachte dir alles Mögliche bei: den Duft jeder Blume, und welche Pflanzen ein Leben retten können – oder es beenden.",
 					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
 					"skills": { "lore": "2", "scouting": "1", "survival": "3" }
 				}
@@ -552,7 +552,7 @@
 					"key": "smith's apprentice",
 					"name": "Schmiedelehrling",
 					"weight": 1,
-					"description": "It has always in the sweltering heat of the forge that you felt most at home. You learned the mystery of steel during many long days in the glow of the fire.",
+					"description": "In der glühenden Hitze der Schmiede hast du dich immer zu Hause gefühlt. Während der langen Tage im Schein des Schmiedefeuers hast du die Geheimnisse erlernt, wie man Stahl formt.",
 					"attributes": { "strength": "5", "agility": "3", "wits": "4", "empathy": "3" },
 					"skills": { "might": "1", "endurance": "1", "melee": "1", "crafting": "3" }
 				},
@@ -560,7 +560,7 @@
 					"key": "mineborn",
 					"name": "Minenkind",
 					"weight": 1,
-					"description": "Already as a child, you learned to navigate in the darkness, deep below the eart. It was in the presence of the rock and the cold that you felt most at home.",
+					"description": "Schon als Kind hast du gelernt, dich in völliger Finsternis zurechtzufinden, tief unter der Erde. Dort, umgeben von Fels und Kälte, hast du dich zu Hause gefühlt.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
 					"skills": { "endurance": "2", "crafting": "1", "scouting": "1", "survival": "2" }
 				},
@@ -568,7 +568,7 @@
 					"key": "scout's apprentice",
 					"name": "Kundschafterlehrling",
 					"weight": 1,
-					"description": "You were always perceptive, always curious. It soon came to the attention of your clan members, and you were handpicked to learn the duties of a scout. Many long days where spent hiding, watching the dangers of the Forbidden Lands.",
+					"description": " Du warst schon immer aufmerksam und neugierig. Das ist auch den anderen Clanmitgliedern aufgefallen, und du wurdest auserwählt, künftig als Späher zu dienen. Viele lange Tage hast du im Verborgenen verbracht und die Gefahren der Verbotenen Lande beobachtet.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
 					"skills": { "melee": "1", "stealth": "2", "scouting": "2", "survival": "1" }
 				},
@@ -576,7 +576,7 @@
 					"key": "guardian",
 					"name": "Wächter in Ausbildung",
 					"weight": 1,
-					"description": "You were chosen to be a guardian-in-training, serving as something similar to a squire to a proud and powerful dwarven warrior. It was arduous work, but also educational. Your master taught you to handle weapons, to temper your courage, and to stand proud - no matter the dangers you face.",
+					"description": "Du wurdest zum Wächter in Ausbildung ernannt, einer Art Knappe für einen stolzen und mächtigen Zwergenkrieger. Die Arbeit war hart, aber lehrreich. Dein Meister hat dir den Umgang mit der Waffe beigebracht, und wie du dich mutig und hoch erhobenen Hauptes Gefahren entgegenstellst.",
 					"attributes": { "strength": "5", "agility": "4", "wits": "3", "empathy": "3" },
 					"skills": { "might": "2", "endurance": "1", "melee": "2", "marksmanship": "1" }
 				},
@@ -584,7 +584,7 @@
 					"key": "carver",
 					"name": "Steinmetz",
 					"weight": 1,
-					"description": "Dwarves have always burrowed inwards and downwards. Created life out of rock. As a child you were fascinated by the art of shaping the mountain after your image. You became a carver, an engineer and builder, who worked as much with the mind as with brute strength.",
+					"description": "Zwerge haben schon immer tief gegraben. Leben aus Fels geschaffen. Als Kind warst du von der Kunst fasziniert, ganze Berge nach deinem Willen zu formen. Du wurdest ein Steinmetz, ein Techniken und Baumeister. Du hast ebenso viel mit deinem Kopf gearbeitet wie mit roher Kraft.",
 					"attributes": { "strength": "4", "agility": "3", "wits": "5", "empathy": "3" },
 					"skills": { "might": "1", "crafting": "2", "lore": "2", "survival": "1" }
 				},
@@ -592,7 +592,7 @@
 					"key": "hard studies",
 					"name": "Harte Lehrjahre",
 					"weight": 1,
-					"description": "A learned man or woman took you under his/her wing and set you to studying the elder writings. The days were long, the learning hard, but in the end, you found that knowledge was the key to the world.",
+					"description": "Ein gelehrter Mann/eine gelehrte Frau hat dich unter seine/ ihre Fittiche genommen und dir aufgetragen, die alten Schriften zu studieren. Die Tage waren lang, die Arbeit schwer, aber am Ende hast du das Wissen gefunden, das dir den Schlüssel zur Welt verleiht.",
 					"attributes": { "strength": "3", "agility": "3", "wits": "5", "empathy": "4" },
 					"skills": { "crafting": "1", "lore": "3", "insight": "1", "manipulation": "1" }
 				}
@@ -609,7 +609,7 @@
 					"key": "loner",
 					"name": "Einzelgänger",
 					"weight": 1,
-					"description": "You have never felt at home among your people, always keeping to yourself. You grew up in the shadow of your comrades. You saw things they didn´t see, did things they never imagined.",
+					"description": "Du hast dich in Gesellschaft nie wohl gefühlt und warst immer lieber für dich. Du hast im Schatten deiner Gefährten gestanden. Du hast Dinge gesehen, die sie niemals gesehen haben, und Taten vollbracht, die sie sich nicht vorstellen könnten.",
 					"attributes": { "strength": "4", "agility": "3", "wits": "5", "empathy": "3" },
 					"skills": { "melee": "1", "scouting": "1", "insight": "2", "survival": "2" }
 				},
@@ -617,7 +617,7 @@
 					"key": "fighter",
 					"name": "Kämpfer",
 					"weight": 1,
-					"description": "You learned early on that you were talented with weapons. Soon, you were taken on by a warrior who taught you the mysteries of battle. You trained hard and long, and in time you became your master's equal.",
+					"description": "Du hast schon früh festgestellt, dass du begabt im Umgang mit Waffen bist. Irgendwann nahm dich ein Krieger auf, der dir die Geheimnisse der Schlacht beibrachte. Du hast lange und hart geübt, und schließlich warst du deinem Meister ebenbürtig.",
 					"attributes": { "strength": "4", "agility": "5", "wits": "3", "empathy": "3" },
 					"skills": { "might": "1", "endurance": "1", "melee": "2", "marksmanship": "2" }
 				},
@@ -625,7 +625,7 @@
 					"key": "child of the forest",
 					"name": "Kind des Waldes",
 					"weight": 1,
-					"description": "Ever since you were a child, you've been drawn to the fruits of the forests, to flowers, herbs, and lakes. You learned everything you could from the clan's herbalist, the scent of every flower, and which plants nurtured life - or ended it.",
+					"description": "Schon als Kind hast du dich dem Wald nahe gefühlt, den Blumen, Kräutern und Seen. Der Kräuterkundige deines Clans brachte dir alles Mögliche bei: den Duft jeder Blume, und welche Pflanzen ein Leben retten können – oder es beenden.",
 					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
 					"skills": { "lore": "2", "scouting": "1", "survival": "3" }
 				},
@@ -633,7 +633,7 @@
 					"key": "hard studies",
 					"name": "Harte Lehrjahre",
 					"weight": 1,
-					"description": "A learned man or woman took you under his/her wing and set you to studying the elder writings. The days were long, the learning hard, but in the end, you found that knowledge was the key to the world.",
+					"description": "Ein gelehrter Mann/eine gelehrte Frau hat dich unter seine/ihre Fittiche genommen und dir aufgetragen, die alten Schriften zu studieren. Die Tage waren lang, die Arbeit schwer, aber am Ende hast du das Wissen gefunden, das dir den Schlüssel zur Welt verleiht.",
 					"attributes": { "strength": "3", "agility": "3", "wits": "5", "empathy": "4" },
 					"skills": { "crafting": "1", "lore": "3", "insight": "1", "manipulation": "1" }
 				},
@@ -641,7 +641,7 @@
 					"key": "wanderer",
 					"name": "Wanderer",
 					"weight": 1,
-					"description": "You had no fixed place in life, the road was your home, and the Forbidden Lands was your neighborhood. Already as a child, you had seen more of the land than most.",
+					"description": "Du hattest nie einen festen Ort im Leben. Die Straße war dein Zuhause und du hast gelernt, nachts Zuflucht vor dem Blutnebel zu finden. Schon als Kind hattest du mehr von der Welt gesehen als die meisten.",
 					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
 					"skills": {
 						"endurance": "1",
@@ -655,7 +655,7 @@
 					"key": "druid's apprentice",
 					"name": "Druidenlehrling",
 					"weight": 1,
-					"description": "You were apprenticed to a druid, and learned everything you could of the holy mysteries, of rituals and sorcery. Your master is long dead, but you still remember his/her words.",
+					"description": "Du bist bei einem Druiden in die Lehre gegangen. Von ihm hast du dein Wissen über die heiligen Mysterien, über Rituale und Zauberkunst. Dein Meister ist schon lange tot, aber du erinnerst dich immer noch an seine Worte.",
 					"attributes": { "strength": "3", "agility": "4", "wits": "5", "empathy": "3" },
 					"skills": { "scouting": "1", "lore": "1", "survival": "2", "healing": "1", "animal-handling": "1" }
 				}
@@ -676,8 +676,8 @@
 					"key": "pilgrimage",
 					"name": "Pilgerfahrt",
 					"weight": 1,
-					"description": "You performed a pilgrimage that lead you across the Forbidden Lands. You reached your destination after many hardships, but you will never forget your perilous journey.",
-					"items": "✥ Receive a staff, a backpack, and a waterskin.",
+					"description": "Du hast auf einer Pilgerreise durch die Verbotenen Lande dem Blutnebel getrotzt. Du hast nur knapp überlebt und dein Ziel nach vielen Strapazen erreicht.",
+					"items": "✥ Du erhältst einen Kampfstab, einen Rucksack und einen Wasserschlauch.",
 					"skills": { "lore": "1", "survival": "1" },
 					"talent": "Wanderer"
 				},
@@ -685,8 +685,8 @@
 					"key": "hunted",
 					"name": "Gejagt",
 					"weight": 1,
-					"description": "Something happened that forced you to run for your life. Maybe you rubbed the wrong person the wrong way, maybe you were accused of something you hadn't done.",
-					"items": "✥ Receive D3 doses sleeping poison and a dagger.",
+					"description": "Irgendetwas ist passiert, das dich dazu gezwungen hat, zu fliehen. Vielleicht hast du dich mit der falschen Person angelegt, oder dir wurde ein Verbrechen vorgeworfen, das du nie begangen hast.",
+					"items": "✥ Du erhältst W3 Anwendungen Schlafgift und einen Dolch.",
 					"skills": { "melee": "1", "move": "1" },
 					"talent": "Sechster Sinn"
 				},
@@ -694,8 +694,8 @@
 					"key": "unexpected find",
 					"name": "Unerwarteter Fund",
 					"weight": 1,
-					"description": "You found a treasure marked with the sign of your god. You saw this as a sign that your mission was righteous, but others didn't see it the same way. Maybe there is still someone looking for the treasure?",
-					"items": "✥ Roll once on the table for @Macro[Valuable Finds in the Lair], reroll if the result is too hheavy to carry.",
+					"description": "Du hast einen Schatz gefunden, auf dem sich das Symbol deines Gottes befand. Du hast das als Zeichen angesehen, auf dem richtigen Weg zu sein, aber andere waren anderer Meinung. Vielleicht sucht noch immer jemand nach dem Schatz?",
+					"items": "✥ Würfle einmal auf der Tabelle für Wertvolle Funde in einem Versteck. Falls das Ergebnis unter 32 liegt, würfle erneut.",
 					"skills": { "crafting": "1", "survival": "1" },
 					"talent": "Glückspilz"
 				},
@@ -703,8 +703,8 @@
 					"key": "studied with a master",
 					"name": "Lehre bei einer Meisterin",
 					"weight": 1,
-					"description": "A wise druid took you under his/her wing and taught you for a long period. It was an intense time, but also educational. Maybe your master is still alive somewhere, maybe he/she was killed by the Iron Guard.",
-					"items": "✥ Receive parchment, ink, and quill.",
+					"description": "Eine weise Druidin hat dich unter ihre Fittiche genommen und dich lange unterrichtet. Es war eine harte Zeit, aber auch lehrreich. Vielleicht ist deine Meisterin noch irgendwo am Leben, vielleicht wurde sie aber auch von der Eisengarde getötet.",
+					"items": "✥ Du erhältst Pergament, Feder und Tinte.",
 					"skills": { "lore": "1", "healing": "1" },
 					"talent": "Scharfe Zunge"
 				},
@@ -712,8 +712,8 @@
 					"key": "protected the forest",
 					"name": "Wächter des Waldes",
 					"weight": 1,
-					"description": "You took it upon yourself to protect a forest against the evil and violence of strangers. You lived in the cover of proud trees, one with the beings of the forest.",
-					"items": "✥ Receive a short bow and a D12 Resource Die for arrows.",
+					"description": "Du hast es als deine Pflicht angesehen, einen Wald vor boshaften und gewalttätigen Fremden zu schützen. Du hast im Schutze der stolzen Bäume gelebt, eins mit dem Wald.",
+					"items": "✥ Du erhältst einen Kurzbogen und einen W12-Ressourcenwürfel für Pfeile.",
 					"skills": { "marksmanship": "1", "animal-handling": "1" },
 					"talent": "Kräuterkundler"
 				},
@@ -721,8 +721,8 @@
 					"key": "lived as a hermit",
 					"name": "Eremitendasein",
 					"weight": 1,
-					"description": "You sought the beauty of nature, away from the violent conflicts of the Forbidden Lands. When you finally returned to the land, you did so with newfound strength.",
-					"items": "✥ Receive a tent and a field kitchen.",
+					"description": "Du hast die Schönheit der Natur gesucht, weit weg von all der Gewalt der Verbotenen Lande. Als du schließlich zurückgekehrt bist, hattest du neue Kraft geschöpft.",
+					"items": "✥ Du erhältst einen Kampfstab, ein Zelt und eine Feldküche.",
 					"skills": { "endurance": "1", "survival": "1" },
 					"talent": "Kundschafter"
 				}
@@ -741,8 +741,8 @@
 					"key": "captured",
 					"name": "Gefangen",
 					"weight": 1,
-					"description": "You were shamefully captured by enemies. You were thrown in a dungeon to be forgotten and die. When the opportunity arose to escape, you took it.",
-					"items": "✥ Receive studded leather armor.",
+					"description": "Was für eine Schmach – du wurdest von Feinden gefangengenommen. Sie ließen dich vergessen in einem Kerker zum Sterben zurück. Als sich die Gelegenheit zur Flucht bot, hast du sie ergriffen.",
+					"items": "✥ Du erhältst eine beschlagene Lederrüstung.",
 					"skills": { "might": "1", "survival": "1" },
 					"talent": "Schmerzresistent"
 				},
@@ -750,8 +750,8 @@
 					"key": "bloody battle",
 					"name": "Blutige Schlacht",
 					"weight": 1,
-					"description": "You took part in a terrible battle and were badly injured. When dawn broke, your friends had been defeated to the last man, and the enemy had left you to the ravens.",
-					"items": "✥ Receive a longsword.",
+					"description": "Du hast in einer fürchterlichen Schlacht gekämpft und wurdest schwer verwundet. Als die Dämmerung anbrach, waren deine Freunde alle tot, und der Feind hatte dich als Futter für die Raben zurückgelassen.",
+					"items": "✥ Du erhältst ein Langschwert.",
 					"skills": { "melee": "2" },
 					"talent": "Schwertkämpfer"
 				},
@@ -759,8 +759,8 @@
 					"key": "a long march",
 					"name": "Ein langer Marsch",
 					"weight": 1,
-					"description": "You signed on as a soldier and marched across the Forbidden Lands. You barely remember what you fought for, or who your enemies were. But you remember how the forces of nature took your friends one by one.",
-					"items": "✥ Receive a tent, a blanket, and a cauldron.",
+					"description": "Du hast als Soldat gedient und bist quer durch die Verbotenen Lande marschiert. Du erinnerst dich kaum noch daran, wofür du gekämpft hast oder wer deine Feinde waren. Aber du erinnerst dich daran, wie der Blutnebel dir deine Freunde genommen hat, einen nach dem anderen.",
+					"items": "✥ Du erhältst ein Zelt, eine Decke und einen Kessel.",
 					"skills": { "survival": "1", "healing": "1" },
 					"talent": "Packesel"
 				},
@@ -768,8 +768,8 @@
 					"key": "on horseback",
 					"name": "Zu Pferde",
 					"weight": 1,
-					"description": "You learned to ride and signed on as a knight with a lord. You fought in skirmishes, patrolled and guarded the country from enemies.",
-					"items": "✥ Receive a mount of your choice (not warhorse)",
+					"description": "Du hast das Reiten erlernt und einem Herren als Ritter gedient. Du hast in Gefechten gekämpft und die Grenzen des Landes vor Feinden geschützt.",
+					"items": "✥ Du erhältst ein Reittier deiner Wahl (kein Schlachtross).",
 					"skills": { "melee": "1", "animal-handling": "1" },
 					"talent": "Berittener Kämpfer"
 				},
@@ -777,8 +777,8 @@
 					"key": "scout",
 					"name": "Kundschafter",
 					"weight": 1,
-					"description": "You signed on with a company of soldiers and were placed in the vanguard as a scout. Your task to discover the enemy before they discovered you, and you were good at it. Maybe something happened to your squad, maybe you weren't paying much attention just that once?",
-					"items": "✥ Receive a light crossbow and a D12 Resource Die for arrows.",
+					"description": "Du hast als Kundschafter in der Vorhut einer Soldatentruppe gedient. Deine Aufgabe war es, Feinde zu entdecken, bevor sie dich entdecken, und du warst gut darin. Vielleicht ist deiner Einheit etwas geschehen – vielleicht hast du ein einziges Mal nicht richtig aufgepasst?",
+					"items": "✥ Du erhältst eine leichte Armbrust und einen W12-Ressourcenwürfel für Pfeile.",
 					"skills": { "scouting": "1", "marksmanship": "1" },
 					"talent": "Verteidiger"
 				},
@@ -786,8 +786,8 @@
 					"key": "commander",
 					"name": "Befehlshaber",
 					"weight": 1,
-					"description": "You commanded a squad of soldiers. Your comrades looked up to you and would die for you. But something happened, maybe you were betrayed, maybe defeated in an ambush. Your comrades fell or fled, but you survived.",
-					"items": "✥ Receive chainmail armor and a closed helmet.",
+					"description": "Du hast eine Soldatentruppe angeführt. Deine Kameraden haben zu dir aufgesehen und wären für dich in den Tod gegangen. Aber etwas ist geschehen. Vielleicht wurdest du verraten oder durch einen Hinterhalt besiegt. Deine Kameraden sind gestorben oder geflohen, aber du hast überlebt.",
+					"items": "✥ Du erhältst eine Kettenrüstung und einen geschlossenen Helm.",
 					"skills": { "lore": "1", "manipulation": "1" },
 					"talent": "Kaltblütig"
 				}
@@ -806,8 +806,8 @@
 					"key": "hunted a beast",
 					"name": "Auf der Jagd nach einer Bestie",
 					"weight": 1,
-					"description": "The hunt was everything. You tracked the beast over land, water, and mountain. At times, the roles were reversed, maybe at times you were the prey?",
-					"items": "✥ Receive a short spear and a bear trap.",
+					"description": "Die Jagd war alles. Du hast die Bestie über Land, Wasser und Berge verfolgt. Manchmal waren die Rollen vertauscht – vielleicht warst auch du gelegentlich die Beute?",
+					"items": "✥ Du erhältst einen Speer und eine Bärenfalle.",
 					"skills": { "melee": "1", "scouting": "1" },
 					"talent": "Speerkämpfer"
 				},
@@ -815,8 +815,8 @@
 					"key": "lived off the forest",
 					"name": "Eins mit dem Wald",
 					"weight": 1,
-					"description": "You dwelt in the forest and lived off it. During the days you hunted, and at night, you slept under the open sky. It was a simple but good life. It had to end one day.",
-					"items": "✥ Receive a throwing spear and a dagger.",
+					"description": "Du hast im Wald gelebt und dich von dem ernährt, was du dort gefunden hast. Bei Tag hast du gejagt, bei Nacht hast du unter offenem Himmel geschlafen. Das Leben war einfach, aber gut. Es musste ja eines Tages enden.",
+					"items": "✥ Du erhältst einen Wurfspeer und einen Dolch.",
 					"skills": { "marksmanship": "1", "survival": "1" },
 					"talent": "Jagdmeister"
 				},
@@ -824,8 +824,8 @@
 					"key": "tamed a mount",
 					"name": "Ein Reittier gezähmt",
 					"weight": 1,
-					"description": "You caught a wild horse (or another suitable animal). It wasn't easy, but after a long time you tamed the creature and in time you became inseparable.",
-					"items": "✥ Receive a mount of your choice. It cannot be a warhorse.",
+					"description": "Du hast ein Wildpferd (oder ein anderes passendes Tier) gefangen. Es war nicht leicht, aber mit der Zeit hast du es geschafft, das Tier zu zähmen. Heute seid ihr unzertrennlich.",
+					"items": "✥ Du erhältst ein Reittier deiner Wahl. Es kann kein Schlachtross sein.",
 					"skills": { "animal-handling": "2" },
 					"talent": "Berittener Kämpfer"
 				},
@@ -833,8 +833,8 @@
 					"key": "won an archery competition",
 					"name": "Sieg in einem Schiesswettbewerb",
 					"weight": 1,
-					"description": "You realized early on that you had a natural talent for archery, and set out to become even better. When you visited a large village or castle, you participated in a competition and won.",
-					"items": "✥ Receive a longbow and a D12 Resource Die for arrows.",
+					"description": "Schon früh hast du festgestellt, dass du eine natürliche Begabung für das Bogenschießen hast. Du bist ausgezogen, um noch besser zu werden. In einem großen Dorf oder einer Burg hast du an einem Wettkampf teilgenommen und gewonnen.",
+					"items": "✥ Du erhältst einen Langbogen und einen W12-Ressourcenwürfel für Pfeile.",
 					"skills": { "marksmanship": "2" },
 					"talent": "Scharfschütze"
 				},
@@ -842,8 +842,8 @@
 					"key": "guide",
 					"name": "Führer",
 					"weight": 1,
-					"description": "You loaned your talents as a guide to those who paid the best. You led caravans of peddlers, troops of soldiers, and curious adventurers. You learned the art of traversing the Forbidden Lands and living off of it.",
-					"items": "✥ Receive a tent, a cauldron, and a blanket.",
+					"description": "Du hast deine Fähigkeiten denen angeboten, die dich am besten bezahlt haben. Du hast Handelskarawanen, Truppenverbände und neugierige Abenteurer geführt. Du hast gelernt, wie man dem Blutnebel ausweicht und sich in der Wildnis versorgt.",
+					"items": "✥ Du erhältst ein Zelt, einen Kessel und eine Decke.",
 					"skills": { "scouting": "2" },
 					"talent": "Kundschafter"
 				},
@@ -851,8 +851,8 @@
 					"key": "hunted for a lord",
 					"name": "Jäger für einen Adligen",
 					"weight": 1,
-					"description": "A nobleman noticed your skills and hired you as his forester. You lived a good life, half of the time in comfort in the lord's castle, the rest of the time hunting in the woods.",
-					"items": "✥ Receive a well-sewn cloak and a sleeping fur.",
+					"description": "Ein Adliger hat deine Fähigkeiten erkannt und dich als Förster angeheuert. Du hast ein gutes Leben geführt, zur Hälfte in der Sicherheit der Burg deines Herrn, den Rest der Zeit auf der Jagd in den Wäldern.",
+					"items": "✥ Du erhältst einen gut gearbeiteten Mantel und einen Schlafpelz.",
 					"skills": { "marksmanship": "1", "insight": "1" },
 					"talent": "Sechster Sinn"
 				}
@@ -871,8 +871,8 @@
 					"key": "wrote a popular ballad",
 					"name": "Autor einer beliebten Ballade",
 					"weight": 1,
-					"description": "A ballad or story that you wrote became immensely popular in the surrounding area. To this day, you hear local minstrels performing your piece.",
-					"items": "✥ Receive ink, a feather, and parchment.",
+					"description": "Eine Ballade oder Geschichte, die du geschrieben hast, wurde in deiner Gegend außerordentlich beliebt. Noch heute hörst du, wie Barden dein Lied vortragen.",
+					"items": "✥ Du erhältst Feder, Tinte und Pergament.",
 					"skills": { "manipulation": "1", "performance": "1" },
 					"talent": "Glückspilz"
 				},
@@ -880,8 +880,8 @@
 					"key": "worked as a minstrel",
 					"name": "Als Barde gearbeitet",
 					"weight": 1,
-					"description": "You used your artistic talents to make a living as a minstre. Maybe you were of the traveling kind, maybe you worked at a more permanent location, like a tavern or a castle.",
-					"items": "✥ Receive a lute.",
+					"description": "Du hast deine Künste eingesetzt, um deinen Lebensunterhalt als Barde zu verdienen. Vielleicht warst du ein reisender Sänger oder hast an einem festen Ort gearbeitet, zum Beispiel in einer Taverne oder einer Burg.",
+					"items": "✥ Du erhältst eine Laute.",
 					"skills": { "performance": "2" },
 					"talent": "Scharfe Zunge"
 				},
@@ -889,8 +889,8 @@
 					"key": "inspirational journey",
 					"name": "Inspirierende Reise",
 					"weight": 1,
-					"description": "You went on a journey across the Forbidden Lands, to learn of the kin, cultures, and legends. On your journey you encountered many adventures and gathered enough material to fill a smaller book of ballads.",
-					"items": "✥ Receive a small tent, a blanket, and a cauldron.",
+					"description": "Du hat eine Reise quer durch die Verbotenen Lande angetreten, um etwas über die Völker, Kulturen und Legenden zu lernen. Auf deiner Reise hast du viele Abenteuer erlebt, bist dem Blutnebel entkommen und hast genug Material zusammengetragen, um ein kleines Buch mit Balladen zu füllen.",
+					"items": "✥ Du erhältst ein kleines Zelt, eine Decke und einen Kessel.",
 					"skills": { "lore": "1", "survival": "1" },
 					"talent": "Furchtlos"
 				},
@@ -898,8 +898,8 @@
 					"key": "sang for a lord",
 					"name": "Sänger für einen Adligen",
 					"weight": 1,
-					"description": "Your talent drew the attention of a local lord and he offered you a place as an entertainer at his court. Your time in the castle was filled with wine, delicious food, and clinking silver. But also insidious intrigue, assassinations, and jealousy.",
-					"items": "✥ Receive fine garments and a dagger",
+					"description": "Deine Begabung hat die Aufmerksamkeit eines örtlichen Adligen auf sich gezogen. Er hat dir einen Platz als Sänger an seinem Hof angeboten. In der Burg hast du dich an Wein, köstlichem Essen und glänzendem Silber erfreut – musstest dich aber auch mit Intrigen, Anschlägen und Eifersucht auseinandersetzen.",
+					"items": "✥ Du erhältst feine Gewänder und einen Dolch.",
 					"skills": { "insight": "1", "performance": "1" },
 					"talent": "Sechster Sinn"
 				},
@@ -907,8 +907,8 @@
 					"key": "enlisted",
 					"name": "Angeworben",
 					"weight": 1,
-					"description": "Life took an unexpected turn and you were enlisted in a company of soldiers. Life in the field was rough, but you made faithful friends and learned to live off the land.",
-					"items": "✥ Receive leather armor, an open helmet and a short bow (D8 Resource Die for arrows).",
+					"description": "Das Leben nahm eine unerwartete Wendung und du wurdest von einer Kompanie angeworben. Das Leben in der Armee war hart, aber du hast treue Freunde gefunden und gelernt, dich selbst zu versorgen.",
+					"items": "✥ Du erhältst eine Lederrüstung und einen offenen Helm.",
 					"skills": { "melee": "1", "survival": "1" },
 					"talent": "Verteidiger"
 				},
@@ -916,8 +916,8 @@
 					"key": "dueled a rival",
 					"name": "Duell mit einem Rivalen",
 					"weight": 1,
-					"description": "A rival saw you as a thorn in his side. For a period, your fates were interwined in the most troublesome ways: love, money, and work. In the end, it was too much. You were challenged to a duel, and you were injured. Maybe your rival is still out somewhere.",
-					"items": "✥ Receive a short sword.",
+					"description": "Du warst ein Dorn im Auge eines Rivalen. Eine Zeit lang waren eure Schicksale miteinander verbunden – auf die komplizierteste Art: über Liebe, Geld und Arbeit. Am Ende war es zu viel. Du wurdest zum Duell gefordert und verwundet. Vielleicht ist dein Rivale immer noch da draußen.",
+					"items": "✥ Du erhältst ein Kurzschwert.",
 					"skills": { "melee": "1", "healing": "1" },
 					"talent": "Schwertkämpfer"
 				}
@@ -936,8 +936,8 @@
 					"key": "caravan",
 					"name": "Karawane",
 					"weight": 1,
-					"description": "You were part of an arduous trade caravan that traveled through the Forbidden Lands. The caravan encountered many dangers, and not everyone made it to the final destination. Maybe someone was left behind on the way?",
-					"items": "✥ Receive a donkey",
+					"description": "Du warst Teil einer anstrengenden Handelskarawane, die dem Blutnebel trotzte. Die Karawane hat viele Gefahren erlebt und nicht jeder hat den Blutnebel überlebt. Vielleicht wurde unterwegs irgendjemand zurückgelassen?",
+					"items": "✥ Du erhältst einen Esel.",
 					"skills": { "animal-handling": "1", "manipulation": "1" },
 					"talent": "Wanderer"
 				},
@@ -945,8 +945,8 @@
 					"key": "local business",
 					"name": "Lokales Geschäft",
 					"weight": 1,
-					"description": "You saw a financial opportunity and you made the most of it. Maybe you imported fruit to a lord's castle, maybe you sold fabrics from Alderland. Business went swimmingly - for a while.",
-					"items": "✥ Receive a cart",
+					"description": "Du hast eine Gelegenheit für Profit gesehen und das Beste daraus gemacht. Vielleicht hast du Obst für einen lokalen Adligen importiert oder Stoffe aus Erlenland verkauft. Das Geschäft lief prächtig – zumindest eine Zeit lang.",
+					"items": "✥ Du erhältst einen Karren.",
 					"skills": { "insight": "1", "manipulation": "1" },
 					"talent": "Glückspilz"
 				},
@@ -954,8 +954,8 @@
 					"key": "cheated",
 					"name": "Betrogen",
 					"weight": 1,
-					"description": "A trusted companion deceived you and left you destitute. You learned and important lesson the hard way, and had to spend a long time rebuilding your life from the rubble. Maybe your old companion still alive?",
-					"items": "✥ Receive a small tent, a blanket and a cauldron.",
+					"description": "Ein treuer Freund hat dich betrogen und bettelarm zurückgelassen. Das war eine harte, aber wichtige Lektion. Du hast lange gebraucht, um dein Leben aus diesen Trümmern neu zu errichten. Vielleicht ist dein alter Gefährte noch am Leben?",
+					"items": "✥ Du erhältst ein kleines Zelt, eine Decke und einen Kessel.",
 					"skills": { "insight": "2" },
 					"talent": "Unbestechlich"
 				},
@@ -963,8 +963,8 @@
 					"key": "side mission",
 					"name": "Nebenquest",
 					"weight": 1,
-					"description": "You teamed up with a group of adventurers and went on a great adventure in the Forbidden Lands. You had to face many dangers, and many perished on the journey, but you learned a lot about yourself on the way.",
-					"items": "✥ Receive a chainmail armor and a small shield.",
+					"description": "Du hast dich mit einer Abenteurergruppe zusammengetan und bist auf ein großes Abenteuer in den Verbotenen Landen ausgezogen. Du hast viele Gefahren überstanden, und viele sind auf der Reise durch den Blutnebel gestorben, aber du hast unterwegs viel über dich gelernt.",
+					"items": "✥ Du erhältst eine Kettenrüstung und einen kleinen Schild.",
 					"skills": { "melee": "1", "lore": "1" },
 					"talent": "Furchtlos"
 				},
@@ -972,8 +972,8 @@
 					"key": "smuggler",
 					"name": "Schmuggler",
 					"weight": 1,
-					"description": "You created a lucrative business by smuggling contraband between the settlements of the Forbidden Lands. Maybe you smuggled weapons, maybe forbidden drugs. You learned the importance of discretion and how to avoid attention.",
-					"items": "✥ Receive a spyglass.",
+					"description": " Du hast ein lukratives Geschäft daraus gemacht, Schmuggelware zwischen Siedlungen in den Verbotenen Landen zu befördern und dabei Rostbrüdern und dem Blutnebel auszuweichen. Du hast gelernt, wie wichtig es ist, diskret zu sein und Aufmerksamkeit zu vermeiden.",
+					"items": "✥ Du erhältst ein Fernglas.",
 					"skills": { "scouting": "1", "insight": "1" },
 					"talent": "Sechster Sinn"
 				},
@@ -981,8 +981,8 @@
 					"key": "ran a shop",
 					"name": "Ladenbesitzer",
 					"weight": 1,
-					"description": "You chose to settle in a village and run a shop for a period of your life. You could live off of it, but not very well. In the end, you realized that the quiet existance wasn't for you.",
-					"items": "✥ Receive a scale, ink, a quill, and parchment.",
+					"description": "Du hast dich in einem Dorf niedergelassen und eine Weile einen kleinen Laden geführt. Damit konntest du dich über Wasser halten, aber mehr auch nicht. Letzten Endes hast du festgestellt, dass so ein ruhiges Leben nichts für dich ist.",
+					"items": "✥ Du erhältst eine Waage, Tinte, eine Feder und Pergament.",
 					"skills": { "manipulation": "2" },
 					"talent": "Scharfe Zunge"
 				}
@@ -1001,8 +1001,8 @@
 					"key": "enlisted",
 					"name": "Angeworben",
 					"weight": 1,
-					"description": "You joined a company of soldiers. Maybe you joined of your own free will, maybe you were conscripted. With your comrades you braved many hardships: battles, long marches, and harsh weather. In the end, something happened to make you leave the company.",
-					"items": "✥ Receive studded leather armor and a large shield.",
+					"description": "Du hast dich einer Soldatentruppe angeschlossen, vielleicht aus freien Stücken, vielleicht wurdest du zwangsverpflichtet. Mit deinen Kameraden hast du viele Strapazen überstanden: Schlachten, lange Märsche und der gefürchtete Blutnebel. Letzten Endes ist etwas geschehen, was dich dazu gebracht hat, die Gruppe zu verlassen.",
+					"items": "✥ Du erhältst eine beschlagene Lederrüstung und einen großen Schild.",
 					"skills": { "melee": "1", "marksmanship": "1" },
 					"talent": "Berittener Kämpfer"
 				},
@@ -1010,8 +1010,8 @@
 					"key": "competed",
 					"name": "Wettkämpfer",
 					"weight": 1,
-					"description": "You earned a living as a competitive rider, and traveled from village to village, castle to castle and competed against other riders. As long as you were winning you had a good life, but when you started losing, it was time to move on.",
-					"items": "✥ Receive a cloak.",
+					"description": "Du hast dir dein Geld mit Wettkämpfen zu Pferd verdient und bist von Dorf zu Dorf und Burg zu Burg gereistund dabei dem tödlichen Blutnebel getrotzt. Als du noch gewonnen hast, war dein Leben schön, aber als die Niederlagen anfingen, hast du beschlossen, weiterzuziehen.",
+					"items": "✥ Du erhältst einen Mantel.",
 					"skills": { "move": "1", "animal-handling": "1" },
 					"talent": "Flinke Füße"
 				},
@@ -1019,8 +1019,8 @@
 					"key": "traveled the land",
 					"name": "Das Land bereist",
 					"weight": 1,
-					"description": "Your lust for adventure took over, and you went out for a long ride across the Forbidden Lands. You rode through miserable wastes, severe storms, and braves many dangers.",
-					"items": "✥ Receive a small tent, a cauldron, and a blanket.",
+					"description": "Deine Abenteuerlust hat Besitz von dir ergriffen, und du bist quer durch die Verbotenen Lande geritten. Du hast verdorrtes Ödland und schwere Stürme durchquert und und bist dabei stets dem schrecklichen Blutnebel ausgewichen.",
+					"items": "✥ Du erhältst ein kleines Zelt, einen Kessel und eine Decke.",
 					"skills": { "survival": "1", "scouting": "1" },
 					"talent": "Kräuterkundler"
 				},
@@ -1028,8 +1028,8 @@
 					"key": "caravan guard",
 					"name": "Karawanenwache",
 					"weight": 1,
-					"description": "You took employment as a guard in a caravan, and escorted peddlers through dark forests and high mountains.",
-					"items": "✥ Receive a short spear",
+					"description": "Du wurdest als Wache für eine Karawane angestellt und hast Händler durch tiefe Wälder und über hohe Berge begleitet, während ihr stets dem schrecklichen Blutnebel ausgewichen seid.",
+					"items": "✥ Du erhältst einen Speer.",
 					"skills": { "melee": "1", "scouting": "1" },
 					"talent": "Kundschafter"
 				},
@@ -1037,8 +1037,8 @@
 					"key": "cattle herder",
 					"name": "Viehirte",
 					"weight": 1,
-					"description": "You herded livestock to greener pastures in the Forbidden Lands. In the daytime, you guarded the herd from horseback. At night, you slept under the open sky.",
-					"items": "✥ Receive a lantern and a waterskin.",
+					"description": "Du hast Vieh auf die üppigeren Weiden der Verbotenen Lande getrieben. Tagsüber hast du die Herde vom Sattel aus bewacht. Nachts hast du sichergestellt, dass keine Tiere dem Blutnebel zum Opfer gefallen sind.",
+					"items": "✥ Du erhältst eine Laterne und einen Wasserschlauch.",
 					"skills": { "move": "1", "animal-handling": "1" },
 					"talent": "Quartiermeister"
 				},
@@ -1046,8 +1046,8 @@
 					"key": "steppe rider",
 					"name": "Steppenreiter",
 					"weight": 1,
-					"description": "You rode across the everlasting steppes of the Forbidden Lands and lived simply by hunting and selling meat and animals hides.",
-					"items": "✥ Receive a short bow and a D12 Resource Die for arrows",
+					"description": "Du bist über die ewigen Steppen der Verbotenen Lande geritten und hast ein einfaches Leben geführt. Du hast gejagt und Fleisch und Tierhäute verkauft.",
+					"items": "✥ Du erhältst einen Kurzbogen und einen W12-Ressourcenwürfel für Pfeile.",
 					"skills": { "marksmanship": "1", "animal-handling": "1" },
 					"talent": "Gerber"
 				}
@@ -1066,8 +1066,8 @@
 					"key": "stole from the wrong person",
 					"name": "Von den Falschen gestohlen",
 					"weight": 1,
-					"description": "It was the perfect crime. For a while. You stole something valuable from the wrong person, at the wrong time. You were hunted and had to run for your life.",
-					"items": "✥ Receive lockpicks.",
+					"description": " Es war das perfekte Verbrechen. Zumindest für eine Weile. Du hast etwas Wertvolles von der falschen Person zur falschen Zeit gestohlen. Du wurdest gejagt und musstest um dein Leben rennen.",
+					"items": "✥ Du erhältst Dietriche.",
 					"skills": { "sleight-of-hand": "1", "move": "1" },
 					"talent": "Blitzschnell"
 				},
@@ -1075,8 +1075,8 @@
 					"key": "imprisoned",
 					"name": "Eingesperrt",
 					"weight": 1,
-					"description": "Guilty or not, you were caught and thrown in jail. You had to spend a long time in the darkness but never gave up. Finally, the chance to escape emerged, and you took it.",
-					"items": "✥ Receive a dagger.",
+					"description": "Ob schuldig oder nicht, du wurdest gefasst und ins Gefängnis geworfen. Du hast viel Zeit in der Dunkelheit verbracht, aber nie aufgegeben. Schließlich bot sich die Gelegenheit zur Flucht – und du hast sie ergriffen.",
+					"items": "✥ Du erhältst einen Dolch.",
 					"skills": { "endurance": "1", "survival": "1" },
 					"talent": "Schmerzresistent"
 				},
@@ -1084,8 +1084,8 @@
 					"key": "successful heist",
 					"name": "Erfolgreicher Fischzug",
 					"weight": 1,
-					"description": "You planned and successfully performed a heist. Maybe it was against a rich peddler, maybe against a local lord.",
-					"items": "✥ Receive an item from Valuable finds in a lair. Reroll if the result is below 33.",
+					"description": "Du hast einen Fischzug geplant und erfolgreich durchgeführt – vielleicht bei einem reichen Händler, vielleicht bei einem örtlichen Adligen.",
+					"items": "✥ Würfle einmal auf der Tabelle für Wertvolle Funde in einem Versteck. Falls das Ergebnis unter 32 liegt, würfle erneut.",
 					"skills": { "sleight-of-hand": "1", "stealth": "1" },
 					"talent": "Glückspilz"
 				},
@@ -1093,8 +1093,8 @@
 					"key": "joined a guild of thieves",
 					"name": "Einer Diebesgilde beigetreten",
 					"weight": 1,
-					"description": "You sought out an association of thieves and became part of the community. Together, you planned heists, and carried out dangerous missions.",
-					"items": "✥ Receive leather armor.",
+					"description": "Du bist Teil einer Gemeinschaft von Dieben geworden. Zusammen habt ihr Fischzüge geplant und gefährliche Aufträge durchgeführt.",
+					"items": "✥ Du erhältst eine Lederrüstung.",
 					"skills": { "insight": "1", "scouting": "1" },
 					"talent": "Sechster Sinn"
 				},
@@ -1102,8 +1102,8 @@
 					"key": "enlisted",
 					"name": "Angeworben",
 					"weight": 1,
-					"description": "You found yourself, probably against your will, enlisted in a company of soldiers. There you worked as a scout, and ranged far ahead of the others. Your time there was filled with misery and dangers, but also friendship.",
-					"items": "✥ Receive a short bow and a D12 Resource Die for arrows.",
+					"description": "Irgendwie bist du in einer Soldatentruppe gelandet, vermutlich gegen deinen Willen. Du hast als Kundschafter gearbeitet und die Gegend für deine Kameraden ausgekundschaftet. Es war eine Zeit voller Elend und Gefahr, aber auch voller Freundschaft.",
+					"items": "✥ Du erhältst einen Kurzbogen und einen W12-Ressourcenwürfel für Pfeile.",
 					"skills": { "marksmanship": "1", "scouting": "1" },
 					"talent": "Kundschafter"
 				},
@@ -1111,8 +1111,8 @@
 					"key": "band of robbers",
 					"name": "Räuberbande",
 					"weight": 1,
-					"description": "You disappeared into the woods and joined a band of robbers that lived off peddlers and caravans who stumbled into their path. Life in the forest was carefree and good for as long as it lasted, but in the end, the robbers were ousted from the woods.",
-					"items": "✥ Receive a short sword.",
+					"description": "Du hast dich in die Wälder verzogen und bist einer Räuberbande beigetreten, die reisende Händler überfallen hat, die in ihr Revier gestolpert sind. Das Leben im Wald war sorgenlos und gut, solange es anhielt, aber am Ende wurden die Räuber aus dem Wald vertrieben.",
+					"items": "✥ Du erhältst ein Kurzschwert.",
 					"skills": { "melee": "1", "survival": "1" },
 					"talent": "Blitzschnell"
 				}
@@ -1149,8 +1149,8 @@
 					"key": "found strange artifact",
 					"name": "Seltsames Artefakt gefunden",
 					"weight": 1,
-					"description": "You found a strange artifact during your travels through the Forbidden Lands. You became obsessed with its history and the thought that it might hold magical powers.",
-					"items": "✥ Roll once on the table for Valuable finds in the lair. Re-roll if the result is below 32.",
+					"description": "Du hast auf deinen Reisen durch die Verbotenen Lande ein seltsames Artefakt gefunden. Die Herkunft dieses Artefakts und der Gedanke, welche magische Macht darin steckt, lassen dir keine Ruhe.",
+					"items": "✥ Würfle einmal auf der Tabelle für Wertvolle Funde in einem Versteck. Falls das Ergebnis unter 32 liegt, würfle erneut.",
 					"skills": { "crafting": "1", "insight": "1" },
 					"talent": "Unbestechlich"
 				},
@@ -1158,8 +1158,8 @@
 					"key": "court magician",
 					"name": "Hofmagier",
 					"weight": 1,
-					"description": "You took employment with a local lord and served as his arcane advisor. Maybe the lord had a hidden agenda, maybe you got into a conflict with higher ranking advisors. You learned much about people in positions of power.",
-					"items": "✥ Receive a bottle of expensive wine and a cloak.",
+					"description": "Du wurdest von einem Adligen angeheuert und hast ihm als magischer Berater gedient. Vielleicht hatte dein Herr geheime Ziele, vielleicht hast du dich mit einem höherrangigen Berater angelegt. Du hast viel über Personen in Machtpositionen gelernt.",
+					"items": "✥ Du erhältst eine Flasche teuren Weins und einen Mantel.",
 					"skills": { "insight": "1", "manipulation": "1" },
 					"talent": "Scharfe Zunge"
 				},
@@ -1167,8 +1167,8 @@
 					"key": "entertainer",
 					"name": "Unterhaltungskünstler",
 					"weight": 1,
-					"description": "You worked as an entertainer, using your knowledge of magic to perform illusioins and tricks. Maybe you worked at a run down inn, maybe you were employed at a lord's court.",
-					"items": "✥ Receive fine garments and a crystal ball.",
+					"description": "Du hast als Unterhaltungskünstler gearbeitet und mit deiner Magie Illusionen und Tricks vorgeführt. Vielleicht hast du in einer heruntergekommenen Herberge oder am Hofe eines Adligen gearbeitet.",
+					"items": "✥ Du erhältst feine Gewänder und eine Kristallkugel.",
 					"skills": { "manipulation": "2" },
 					"talent": "Blitzschnell"
 				},
@@ -1176,8 +1176,8 @@
 					"key": "enlisted",
 					"name": "Angeworben",
 					"weight": 1,
-					"description": "You were enlisted in a company of soldiers. You spent a long time in the field where you assisted with your magical expertise. You saw comrades killed, but you managed to make it out with just an ugly scar or two.",
-					"items": "✥ Receive studded leather armor and a closed helmet.",
+					"description": "Du wurdest von einer Soldatentruppe angeworben. Du hast viel Zeit im Feld verbracht, wo du sie mit deinen magischen Künsten unterstützt hast. Du hast gesehen, wie Gefährten getötet wurden, aber du bist davongekommen, mit nichts als ein paar hässlichen Narben.",
+					"items": "✥ Du erhältst eine beschlagene Lederrüstung und einen geschlossenen Helm.",
 					"skills": { "melee": "1", "healing": "1" },
 					"talent": "Verteidiger"
 				}
