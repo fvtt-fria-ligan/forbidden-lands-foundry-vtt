@@ -88,6 +88,7 @@ FBL.dataSetConfig = {
 	"pt-BR": "dataset-pt-br",
 	es: "dataset-es",
 	fr: "dataset-fr",
+	de: "dataset-de",
 };
 
 FBL.encumbrance = {
