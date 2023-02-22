@@ -40,7 +40,7 @@ export class ForbiddenLandsActor extends Actor {
 		return {
 			alias: this.token?.name || this.name,
 			actorId: this.id,
-			actorType: this.system.type,
+			actorType: this.type,
 			canAct: this.canAct,
 			sceneId: this.token?.parent.id,
 			tokenId: this.token?.id,
