@@ -2,24 +2,21 @@
 	"ACTION.BREAK_FREE": "Bryt grepp",
 	"ACTION.DISARM": "Avväpna",
 	"ACTION.DODGE": "Ducka",
-	"ACTION.GRAPPLE_ATTACK": "Tjuvnyp",
 	"ACTION.GRAPPLE": "Greppa",
+	"ACTION.GRAPPLE_ATTACK": "Tjuvnyp",
 	"ACTION.PARRY": "Parad",
 	"ACTION.RETREAT": "Retirera",
 	"ACTION.SHOVE": "Knuff",
 	"ACTION.UNARMED_STRIKE": "Obeväpnad attack",
-
 	"ACTOR.TypeCharacter": "Karaktär",
 	"ACTOR.TypeMonster": "Monster",
 	"ACTOR.TypeStronghold": "Fäste",
-
 	"ARMOR.BODY": "Kropp",
 	"ARMOR.HELMET": "Huvud",
 	"ARMOR.PART": "Kroppsdel",
 	"ARMOR.RATING": "Skydd",
 	"ARMOR.SHIELD": "Sköld",
 	"ARMOR.TOTAL": "Totalt",
-
 	"ARTIFACT.APPEARANCE": "Utseende",
 	"ARTIFACT.ARTIFACT_BONUS": "Artefakttärning",
 	"ARTIFACT.DESCRIPTION": "Beskrivning",
@@ -28,18 +25,15 @@
 	"ARTIFACT.LEGENDARY": "Legendarisk",
 	"ARTIFACT.MIGHTY": "Mäktig",
 	"ARTIFACT.REGULAR": "Vanligt föremål",
-
 	"ATTACK.BLUNT": "Kross",
 	"ATTACK.FEAR": "Skräck",
 	"ATTACK.OTHER": "Övrig",
 	"ATTACK.SLASH": "Hugg",
 	"ATTACK.STAB": "Stick",
-
 	"ATTRIBUTE.AGILITY": "Smidighet",
 	"ATTRIBUTE.EMPATHY": "Karisma",
 	"ATTRIBUTE.STRENGTH": "Styrka",
 	"ATTRIBUTE.WITS": "Intelligens",
-
 	"BIO.AGE": "Ålder",
 	"BIO.BODY": "Kropp",
 	"BIO.CLOTHING": "Kläder",
@@ -53,7 +47,6 @@
 	"BIO.PROFESSION": "Yrke",
 	"BIO.REPUTATION": "Rykte",
 	"BIO.WILLPOWER": "Kraftpoäng",
-
 	"BUILDING.DESCRIPTION": "Beskrivning",
 	"BUILDING.EFFECT": "Effekt",
 	"BUILDING.NAME": "Namn",
@@ -63,31 +56,24 @@
 	"BUILDING.REQUIREMENT": "Krav",
 	"BUILDING.TIME": "Tid",
 	"BUILDING.TOOLS": "Verktyg",
-
 	"CARRYING_CAPACITY": "Bärförmåga",
-
 	"CONDITION.COLD": "Nedkyld",
 	"CONDITION.HUNGRY": "Utsvulten",
 	"CONDITION.SLEEPY": "Sömnlös",
 	"CONDITION.THIRSTY": "Uttorkad",
-
 	"CONSUMABLE.ARROWS": "PILAR",
 	"CONSUMABLE.FOOD": "MAT",
 	"CONSUMABLE.TORCHES": "FACKLOR",
 	"CONSUMABLE.WATER": "VATTEN",
-
 	"CRITICAL_INJURY.EFFECT": "Effekter",
 	"CRITICAL_INJURY.HEALING_TIME": "Läkningstid",
 	"CRITICAL_INJURY.LETHAL": "Dödlig",
 	"CRITICAL_INJURY.LIMIT": "Tidsgräns",
 	"CRITICAL_INJURY.NAME": "Namn",
-
 	"CURRENCY.COPPER": "Koppar",
 	"CURRENCY.GOLD": "Guld",
 	"CURRENCY.SILVER": "Silver",
-
 	"DAMAGE": "Skada",
-
 	"DICE.ARTIFACTS": "Artefakter",
 	"DICE.AUTOMATIC_SUCCESS": "Automatisk framgång",
 	"DICE.BASE": "Grund",
@@ -96,9 +82,7 @@
 	"DICE.MODIFIER": "Modifikation",
 	"DICE.ROLL": "Slå tärningar",
 	"DICE.SKILL": "Färdighet",
-
 	"ENCUMBRANCE": "Belastning",
-
 	"GEAR.BONUS": "Bonus",
 	"GEAR.COST": "Kostnad",
 	"GEAR.EFFECT": "Effekter",
@@ -109,7 +93,6 @@
 	"GEAR.TIME": "Tid",
 	"GEAR.TOOLS": "Verktyg",
 	"GEAR.WEIGHT": "Vikt",
-
 	"HEADER.ACTIONS": "HANDLINGAR",
 	"HEADER.ARMOR": "RUSTNING",
 	"HEADER.ATTACK": "ATTACKER",
@@ -131,13 +114,11 @@
 	"HEADER.SPELL": "BESVÄRJELSER",
 	"HEADER.TALENT": "TALANGER",
 	"HEADER.WEAPON": "VAPEN",
-
 	"HIRELING.DESCRIPTION": "Beskrivning",
 	"HIRELING.NAME": "Namn",
 	"HIRELING.NUMBER": "Antal",
 	"HIRELING.SALARY": "Lön",
 	"HIRELING.SUPPLY": "Lager",
-
 	"ITEM.ADD_MODIFIER": "Ny modifikation",
 	"ITEM.CUSTOM_ROLL_MODIFIERS": "Egna modifikationer",
 	"ITEM.DELETE_MODIFIER": "Ta bort modifikation",
@@ -153,40 +134,29 @@
 	"ITEM.TypeSpell": "Besvärjelse",
 	"ITEM.TypeTalent": "Talang",
 	"ITEM.TypeWeapon": "Vapen",
-
 	"LETHAL.NO": "Nej",
 	"LETHAL.YES": "Ja",
-
 	"MONSTER.ARMOR": "Skydd",
-	"MONSTER.DAMAGE_TYPE": "Skadetyp",
 	"MONSTER.DAMAGE": "Skada",
+	"MONSTER.DAMAGE_TYPE": "Skadetyp",
 	"MONSTER.DESCRIPTION": "Beskrivning",
 	"MONSTER.DICE": "Tärningar",
 	"MONSTER.NAME": "Namn",
 	"MONSTER.RANGE": "Räckvidd",
-
 	"MOVEMENT": "Förflyttning",
-
 	"OTHER": "ÖVRIGA",
-
 	"POWER_LEVEL": "Effektgrad",
-
 	"PUSH": "PRESSA!",
-
 	"PUSHED": "Pressat",
-
 	"RANGE.ARM": "Armslängd",
 	"RANGE.DISTANT": "Distans",
 	"RANGE.LONG": "Långt",
 	"RANGE.NEAR": "Nära",
 	"RANGE.SHORT": "Kort",
-
 	"RAW_MATERIAL.SHELF_LIFE": "Hållbarhetstid",
-
 	"SHEET.HEADER.POST_ITEM": "Visa upp",
 	"SHEET.HEADER.PUSH": "Pressa",
 	"SHEET.HEADER.ROLL": "Slå tärningar",
-
 	"SKILL.ANIMAL_HANDLING": "Djurhantering",
 	"SKILL.CRAFTING": "Hantverk",
 	"SKILL.ENDURANCE": "Uthållighet",
@@ -203,7 +173,6 @@
 	"SKILL.SLEIGHT_OF_HAND": "Fingerfärdighet",
 	"SKILL.STEALTH": "Smyga",
 	"SKILL.SURVIVAL": "Överlevnad",
-
 	"SPELL.DESCRIPTION": "Beskrivning",
 	"SPELL.DURATION": "Varaktighet",
 	"SPELL.INGREDIENT": "Ingrediens",
@@ -212,12 +181,10 @@
 	"SPELL.RANGE": "Räckvidd",
 	"SPELL.RANK": "Nivå",
 	"SPELL.RITUAL": "Ritual",
-	"SPELL.SPELL_TYPE": "Typ",
 	"SPELL.SPELL": "Besvärjelse",
-
+	"SPELL.SPELL_TYPE": "Typ",
 	"STRONGHOLD.DEFENSE_RATING": "Försvar",
 	"STRONGHOLD.LOCATION": "Läge",
-
 	"TAB.ARTIFACT": "ARTEFAKT",
 	"TAB.BIO": "BIOGRAFI",
 	"TAB.BUILDING": "BYGGNADER",
@@ -228,7 +195,6 @@
 	"TAB.MAIN": "STATS",
 	"TAB.NOTE": "ANTECKNINGAR",
 	"TAB.TALENT": "TALANGER",
-
 	"TALENT.DESCRIPTION": "Beskrivning",
 	"TALENT.GENERAL": "Allmän talang",
 	"TALENT.KIN": "Släktestalang",
@@ -236,7 +202,6 @@
 	"TALENT.PROFESSION": "Yrkestalang",
 	"TALENT.RANK": "Nivå",
 	"TALENT.TYPE": "Typ",
-
 	"WEAPON.1H": "1H",
 	"WEAPON.2H": "2H",
 	"WEAPON.BONUS": "Bonus",
@@ -249,7 +214,6 @@
 	"WEAPON.RANGE": "Räckvidd",
 	"WEAPON.RANGED": "Avstånd",
 	"WEAPON.SKILL_BONUS": "Modifikation",
-
 	"WEIGHT.HEAVY": "Tung",
 	"WEIGHT.LIGHT": "Lätt",
 	"WEIGHT.NONE": "Ingen",

@@ -2,24 +2,21 @@
 	"ACTION.BREAK_FREE": "Vysmeknutí",
 	"ACTION.DISARM": "Odzbrojení",
 	"ACTION.DODGE": "Úhyb",
-	"ACTION.GRAPPLE_ATTACK": "Útok na chyceného",
 	"ACTION.GRAPPLE": "Chycení",
+	"ACTION.GRAPPLE_ATTACK": "Útok na chyceného",
 	"ACTION.PARRY": "Odražení",
 	"ACTION.RETREAT": "Ústup",
 	"ACTION.SHOVE": "Povalení",
 	"ACTION.UNARMED_STRIKE": "Útok beze zbraně",
-
 	"ACTOR.TypeCharacter": "Postava",
 	"ACTOR.TypeMonster": "Nestvůra",
 	"ACTOR.TypeStronghold": "Tvrz",
-
 	"ARMOR.BODY": "Tělo",
 	"ARMOR.HELMET": "Přilbice",
 	"ARMOR.PART": "Část těla",
 	"ARMOR.RATING": "Třída",
 	"ARMOR.SHIELD": "Štít",
 	"ARMOR.TOTAL": "Dohromady",
-
 	"ARTIFACT.APPEARANCE": "Vzhled",
 	"ARTIFACT.ARTIFACT_BONUS": "Bonus artefaktů",
 	"ARTIFACT.DESCRIPTION": "Popis",
@@ -28,18 +25,15 @@
 	"ARTIFACT.LEGENDARY": "Legendární",
 	"ARTIFACT.MIGHTY": "Mocné",
 	"ARTIFACT.REGULAR": "Normální",
-
 	"ATTACK.BLUNT": "Tupá",
 	"ATTACK.FEAR": "Hrůza",
 	"ATTACK.OTHER": "Ostatní",
 	"ATTACK.SLASH": "Řezná",
 	"ATTACK.STAB": "Bodná",
-
 	"ATTRIBUTE.AGILITY": "Obratnost",
 	"ATTRIBUTE.EMPATHY": "Osobnost",
 	"ATTRIBUTE.STRENGTH": "Síla",
 	"ATTRIBUTE.WITS": "Bystrost",
-
 	"BIO.AGE": "Stáří",
 	"BIO.BODY": "Tělo",
 	"BIO.CLOTHING": "Oblečení",
@@ -53,7 +47,6 @@
 	"BIO.PROFESSION": "Povolání",
 	"BIO.REPUTATION": "Reputace",
 	"BIO.WILLPOWER": "Vůle",
-
 	"BUILDING.DESCRIPTION": "Popis",
 	"BUILDING.EFFECT": "Účinek",
 	"BUILDING.NAME": "Název",
@@ -63,31 +56,24 @@
 	"BUILDING.REQUIREMENT": "Požadavky",
 	"BUILDING.TIME": "Čas",
 	"BUILDING.TOOLS": "Nářadí",
-
 	"CARRYING_CAPACITY": "Nosnost",
-
 	"CONDITION.COLD": "Podchlazení",
 	"CONDITION.HUNGRY": "Hlad",
 	"CONDITION.SLEEPY": "Ospalost",
 	"CONDITION.THIRSTY": "Žízeň",
-
 	"CONSUMABLE.ARROWS": "ŠÍPY",
 	"CONSUMABLE.FOOD": "JÍDLO",
 	"CONSUMABLE.TORCHES": "POCHODNĚ",
 	"CONSUMABLE.WATER": "VODA",
-
 	"CRITICAL_INJURY.EFFECT": "Účinky",
 	"CRITICAL_INJURY.HEALING_TIME": "Doba na uzdravení",
 	"CRITICAL_INJURY.LETHAL": "Smrtelné",
 	"CRITICAL_INJURY.LIMIT": "Časový limit",
 	"CRITICAL_INJURY.NAME": "Název",
-
 	"CURRENCY.COPPER": "Měď",
 	"CURRENCY.GOLD": "Zlato",
 	"CURRENCY.SILVER": "Stříbro",
-
 	"DAMAGE": "Zranění",
-
 	"DICE.ARTIFACTS": "Kostky artefaktů",
 	"DICE.AUTOMATIC_SUCCESS": "Automatický úspěch",
 	"DICE.BASE": "Základní kostky",
@@ -96,12 +82,45 @@
 	"DICE.MODIFIER": "Úprava",
 	"DICE.ROLL": "Hod",
 	"DICE.SKILL": "Kostky dovedností",
-
 	"ENCUMBRANCE": "Zátěž",
-
+	"FLPS.PARTY.HINT_ADD": "Přetáhni & pusť zde postavu, abys jí přidal do skupiny.",
+	"FLPS.PARTY.HINT_ASSIGN": "Přetáhni & pusť zde postavu, abys jí přidělil k požadované cestovní aktivitě.",
+	"FLPS.PARTY.MEMBERS": "Členové skupiny",
+	"FLPS.PARTY.NAME": "Jméno skupiny",
+	"FLPS.SETTINGS.ALLOW_PUSH": "Povolit zkoušku štětí u hodů během cestování",
+	"FLPS.SETTINGS.ALLOW_PUSH_HINT": "Někteří Vypravěči povolují zkoušet štětí u hodů během cestování pouze do výše počtu bodů vůle. Jestliže je tato volba vypnutá, tlačítko zkoušet štěstí nebude zobrazeno v listu skupiny.",
+	"FLPS.TAB.MAIN": "HLAVNÍ",
+	"FLPS.TAB.TRAVEL": "CESTOVÁNÍ",
+	"FLPS.TRAVEL_ROLL.CATCH_FISH": "Rybaření (PŘEŽITÍ)",
+	"FLPS.TRAVEL_ROLL.FIND_FOOD": "Hledání potravy (PŘEŽITÍ)",
+	"FLPS.TRAVEL_ROLL.FIND_GOOD_PLACE": "Najít vhodné místo (PŘEŽITÍ)",
+	"FLPS.TRAVEL_ROLL.FIND_PREY": "Nalezení kořisti (PŘEŽITÍ)",
+	"FLPS.TRAVEL_ROLL.FORCED_MARCH": "Nucený pochod (VÝDRŽ)",
+	"FLPS.TRAVEL_ROLL.HIKE_IN_DARKNESS": "Pochod ve tmě (OSTRAŽITOST)",
+	"FLPS.TRAVEL_ROLL.KEEP_WATCH": "Držení hlídky (OSTRAŽITOST)",
+	"FLPS.TRAVEL_ROLL.KILL_PREY": "Zabití kořisti (STŘELBA/PŘEŽITÍ)",
+	"FLPS.TRAVEL_ROLL.MAKE_CAMP": "Rozdělání tábora (PŘEŽITÍ)",
+	"FLPS.TRAVEL_ROLL.NAVIGATE": "Určování směru (PŘEŽITÍ)",
+	"FLPS.TRAVEL_ROLL.RECOVER": "Odpočinek",
+	"FLPS.TRAVEL.CAMP": "Táboření",
+	"FLPS.TRAVEL.FISH": "Rybaření",
+	"FLPS.TRAVEL.FORAGE": "Hledání potravy",
+	"FLPS.TRAVEL.HIKE": "Pochod",
+	"FLPS.TRAVEL.HUNT": "Lov",
+	"FLPS.TRAVEL.LEAD": "Udávání směru",
+	"FLPS.TRAVEL.OTHER": "Jiné",
+	"FLPS.TRAVEL.RESET": "RESETOVAT",
+	"FLPS.TRAVEL.REST": "Odpočinek",
+	"FLPS.TRAVEL.SLEEP": "Spánek",
+	"FLPS.TRAVEL.WATCH": "Držení hlídky",
+	"FLPS.UI.ATTENTION": "Pozor",
+	"FLPS.UI.ERROR.OPEN_SHEET": "Před tím než provedete hod na cestování, otevřete prosím nejméně jednou list vaší postavy.",
+	"FLPS.UI.WHO_PUSHES": "Kdo zkouší štěstí?",
+	"FLPS.UI.WHO_ROLLS": "Kdo háže?",
 	"GEAR.BONUS": "Bonus",
 	"GEAR.COST": "Cena",
 	"GEAR.EFFECT": "Účinek",
+	"GEAR.MOUNTED": "Mounted",
 	"GEAR.NAME": "Název",
 	"GEAR.RAW_MATERIAL": "Suroviny",
 	"GEAR.SUPPLY": "Dostupnost",
@@ -109,8 +128,6 @@
 	"GEAR.TIME": "Čas",
 	"GEAR.TOOLS": "Nářádí",
 	"GEAR.WEIGHT": "Váha",
-	"GEAR.MOUNTED": "Mounted",
-
 	"HEADER.ACTIONS": "AKCE",
 	"HEADER.ARMOR": "ZBROJ",
 	"HEADER.ATTACK": "ÚTOKY",
@@ -132,13 +149,11 @@
 	"HEADER.SPELL": "KOUZLA",
 	"HEADER.TALENT": "TALENTY",
 	"HEADER.WEAPON": "ZBRANĚ",
-
 	"HIRELING.DESCRIPTION": "Popis",
 	"HIRELING.NAME": "Název",
 	"HIRELING.NUMBER": "Počet",
 	"HIRELING.SALARY": "Mzda",
 	"HIRELING.SUPPLY": "Dostupnost",
-
 	"ITEM.ADD_MODIFIER": "Přidat úpravu",
 	"ITEM.CUSTOM_ROLL_MODIFIERS": "Vlastní úpravy hodu",
 	"ITEM.DELETE_MODIFIER": "Smazat úpravu",
@@ -154,13 +169,11 @@
 	"ITEM.TypeSpell": "Kouzlo",
 	"ITEM.TypeTalent": "Talent",
 	"ITEM.TypeWeapon": "Zbraň",
-
 	"LETHAL.NO": "Ne",
 	"LETHAL.YES": "Ano",
-
 	"MONSTER.ARMOR": "Třída zbroje",
-	"MONSTER.DAMAGE_TYPE": "Typ zranění",
 	"MONSTER.DAMAGE": "Zranění",
+	"MONSTER.DAMAGE_TYPE": "Typ zranění",
 	"MONSTER.DESCRIPTION": "Popis",
 	"MONSTER.DICE": "Kostka",
 	"MONSTER.NAME": "Název",
@@ -168,29 +181,20 @@
 	"MONSTER.TYPE.LABEL": "Typ:",
 	"MONSTER.TYPE.MONSTER": "Monstrum",
 	"MONSTER.TYPE.MOUNT": "Mount",
-
 	"MOVEMENT": "Pohyblivost",
-
 	"OTHER": "Ostatní",
-
 	"POWER_LEVEL": "Síla kouzla",
-
 	"PUSH": "Zkusit štěstí!",
-
 	"PUSHED": "Zkoušení štěstí",
-
 	"RANGE.ARM": "Délka paže",
 	"RANGE.DISTANT": "Extrémní",
 	"RANGE.LONG": "Dlouhá",
 	"RANGE.NEAR": "Krátká",
 	"RANGE.SHORT": "Střední",
-
 	"RAW_MATERIAL.SHELF_LIFE": "Trvanlivost",
-
 	"SHEET.HEADER.POST_ITEM": "Do chatu",
 	"SHEET.HEADER.PUSH": "Zkusit štěstí",
 	"SHEET.HEADER.ROLL": "Hodit",
-
 	"SKILL.ANIMAL_HANDLING": "Zvířata",
 	"SKILL.CRAFTING": "Řemesla",
 	"SKILL.ENDURANCE": "Výdrž",
@@ -207,7 +211,6 @@
 	"SKILL.SLEIGHT_OF_HAND": "Zlodějina",
 	"SKILL.STEALTH": "Plížení",
 	"SKILL.SURVIVAL": "Přežití",
-
 	"SPELL.DESCRIPTION": "Popis",
 	"SPELL.DURATION": "Trvání",
 	"SPELL.INGREDIENT": "Pomůcka",
@@ -216,12 +219,10 @@
 	"SPELL.RANGE": "Vzdálenost",
 	"SPELL.RANK": "Stupeň",
 	"SPELL.RITUAL": "Rituál",
-	"SPELL.SPELL_TYPE": "Typ kouzla",
 	"SPELL.SPELL": "Kouzlo",
-
+	"SPELL.SPELL_TYPE": "Typ kouzla",
 	"STRONGHOLD.DEFENSE_RATING": "Obranyschopnost",
 	"STRONGHOLD.LOCATION": "Místo",
-
 	"TAB.ARTIFACT": "ARTEFAKTY",
 	"TAB.BIO": "BIO",
 	"TAB.BUILDING": "BUDOVY",
@@ -232,7 +233,6 @@
 	"TAB.MAIN": "HLAVNÍ",
 	"TAB.NOTE": "POZNÁMKY",
 	"TAB.TALENT": "TALENTY",
-
 	"TALENT.DESCRIPTION": "Popis",
 	"TALENT.GENERAL": "Obecné",
 	"TALENT.KIN": "Rodové",
@@ -240,7 +240,6 @@
 	"TALENT.PROFESSION": "Povolání",
 	"TALENT.RANK": "Stupeň",
 	"TALENT.TYPE": "Typ",
-
 	"WEAPON.1H": "1R",
 	"WEAPON.2H": "2R",
 	"WEAPON.BONUS": "Bonus",
@@ -253,51 +252,11 @@
 	"WEAPON.RANGE": "Vzdálenost",
 	"WEAPON.RANGED": "Střelná",
 	"WEAPON.SKILL_BONUS": "Dovednostní bonus",
-
 	"WEIGHT.HEAVY": "Težký",
 	"WEIGHT.LIGHT": "Lehký",
 	"WEIGHT.NONE": "Žádný",
 	"WEIGHT.REGULAR": "Běžný",
 	"WEIGHT.TINY": "Drobný",
 	"WEIGHT.TYPE_REGULAR": "Regular",
-	"WEIGHT.TYPE_SPECIAL": "Special",
-	"FLPS.SETTINGS.ALLOW_PUSH": "Povolit zkoušku štětí u hodů během cestování",
-	"FLPS.SETTINGS.ALLOW_PUSH_HINT": "Někteří Vypravěči povolují zkoušet štětí u hodů během cestování pouze do výše počtu bodů vůle. Jestliže je tato volba vypnutá, tlačítko zkoušet štěstí nebude zobrazeno v listu skupiny.",
-
-	"FLPS.TAB.MAIN": "HLAVNÍ",
-	"FLPS.TAB.TRAVEL": "CESTOVÁNÍ",
-
-	"FLPS.PARTY.NAME": "Jméno skupiny",
-	"FLPS.PARTY.MEMBERS": "Členové skupiny",
-	"FLPS.PARTY.HINT_ADD": "Přetáhni & pusť zde postavu, abys jí přidal do skupiny.",
-	"FLPS.PARTY.HINT_ASSIGN": "Přetáhni & pusť zde postavu, abys jí přidělil k požadované cestovní aktivitě.",
-
-	"FLPS.TRAVEL.HIKE": "Pochod",
-	"FLPS.TRAVEL.LEAD": "Udávání směru",
-	"FLPS.TRAVEL.WATCH": "Držení hlídky",
-	"FLPS.TRAVEL.REST": "Odpočinek",
-	"FLPS.TRAVEL.SLEEP": "Spánek",
-	"FLPS.TRAVEL.FORAGE": "Hledání potravy",
-	"FLPS.TRAVEL.HUNT": "Lov",
-	"FLPS.TRAVEL.FISH": "Rybaření",
-	"FLPS.TRAVEL.CAMP": "Táboření",
-	"FLPS.TRAVEL.OTHER": "Jiné",
-	"FLPS.TRAVEL.RESET": "RESETOVAT",
-
-	"FLPS.UI.WHO_ROLLS": "Kdo háže?",
-	"FLPS.UI.WHO_PUSHES": "Kdo zkouší štěstí?",
-	"FLPS.UI.ATTENTION": "Pozor",
-	"FLPS.UI.ERROR.OPEN_SHEET": "Před tím než provedete hod na cestování, otevřete prosím nejméně jednou list vaší postavy.",
-
-	"FLPS.TRAVEL_ROLL.FORCED_MARCH": "Nucený pochod (VÝDRŽ)",
-	"FLPS.TRAVEL_ROLL.HIKE_IN_DARKNESS": "Pochod ve tmě (OSTRAŽITOST)",
-	"FLPS.TRAVEL_ROLL.NAVIGATE": "Určování směru (PŘEŽITÍ)",
-	"FLPS.TRAVEL_ROLL.KEEP_WATCH": "Držení hlídky (OSTRAŽITOST)",
-	"FLPS.TRAVEL_ROLL.RECOVER": "Odpočinek",
-	"FLPS.TRAVEL_ROLL.FIND_GOOD_PLACE": "Najít vhodné místo (PŘEŽITÍ)",
-	"FLPS.TRAVEL_ROLL.FIND_FOOD": "Hledání potravy (PŘEŽITÍ)",
-	"FLPS.TRAVEL_ROLL.FIND_PREY": "Nalezení kořisti (PŘEŽITÍ)",
-	"FLPS.TRAVEL_ROLL.KILL_PREY": "Zabití kořisti (STŘELBA/PŘEŽITÍ)",
-	"FLPS.TRAVEL_ROLL.CATCH_FISH": "Rybaření (PŘEŽITÍ)",
-	"FLPS.TRAVEL_ROLL.MAKE_CAMP": "Rozdělání tábora (PŘEŽITÍ)"
+	"WEIGHT.TYPE_SPECIAL": "Special"
 }
