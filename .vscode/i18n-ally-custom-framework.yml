@@ -19,6 +19,7 @@ usageMatchRegex:
   # you can ignore it and use your own matching rules as well
   - "[^\\w\\d]game\\.i18n\\.localize\\(['\"`]({key})['\"`]\\)"
   - "[^\\w\\d]game\\.i18n\\.format\\(['\"`]({key})['\"`]"
+  - "[^\\w\\d]localize\\(['\"`]({key})['\"`]"
   - "[^\\w\\d]ui\\.notifications\\.notify\\(['\"`]({key})['\"`],\\s*.*,\\s{\\s*.*\\slocalize: true\\s*.*}"
   - "[^\\w\\d]ui\\.notifications\\.warn\\(['\"`]({key})['\"`],\\s{\\s*.*\\slocalize: true\\s*.*}"
   - "[^\\w\\d]ui\\.notifications\\.error\\(['\"`]({key})['\"`],\\s{\\s*.*\\slocalize: true\\s*.*}"
