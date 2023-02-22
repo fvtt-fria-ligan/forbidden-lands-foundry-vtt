@@ -128,7 +128,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 			const featureName = $(ev.currentTarget).data("feature");
 			const features = this.object.itemProperties.features;
 			if (CONFIG.fbl.weaponFeatures.includes(featureName))
-				this.object.update({ [`data.features.${featureName}`]: !features[featureName] });
+				this.object.update({ [`system.features.${featureName}`]: !features[featureName] });
 			this._render();
 		});
 		html.find(".hide-field").click((ev) => {

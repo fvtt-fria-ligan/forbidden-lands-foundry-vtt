@@ -207,7 +207,7 @@ FBL.skillAttributeMap = {
 	survival: "wits",
 };
 
-FBL.weaponFeatures = ["blunt", "edged", "hook", "parrying", "pointed", "slowReload"];
+FBL.weaponFeatures = ["blunt", "edged", "hook", "parrying", "shield", "pointed", "slowReload"];
 
 export const modifyConfig = () => {
 	const settings = ["maxInit"];
