@@ -404,6 +404,7 @@
 	"MACRO.NO_ACTOR": "You have no actor assigned to your player",
 	"MACRO.COMPENDIUM_NAME": "Forbidden Lands: Macros",
 	"ERROR.NO_ID": "Failed to update the entity due to lacking an Id",
+	"ARMOR.OTHER": "Other"
 	"ROLL.DODGE_SLASH": "Dodge slash attack",
 	"WEAPON.FEATURES.SHIELD": "Shield"
 }

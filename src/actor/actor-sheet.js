@@ -277,12 +277,16 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 
 	rollArmor() {
 		const rollName = `${localizeString("ITEM.TypeArmor")}: ${localizeString("ARMOR.TOTAL")}`;
+		const identifiers = ["armor"];
+		const artifactDies = [];
 		const totalArmor = this.actor.itemTypes.armor.reduce((sum, armor) => {
 			if (armor.itemProperties.part === "shield" || armor.state !== "equipped") return sum;
 			const rollData = armor.getRollData();
 			if (rollData.isBroken) throw this.broken("item");
 			const value = armor.itemProperties.bonus.value;
-			return (sum += value);
+			if (rollData.artifactDie) artifactDies.push(rollData.artifactDie);
+			identifiers.push(armor.id);
+			return sum + value;
 		}, 0);
 		if (!totalArmor) return ui.notifications.warn(localizeString("WARNING.NO_ARMOR"));
 
@@ -292,11 +296,12 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 				label: localizeString("ITEM.TypeArmor"),
 				name: localizeString("ITEM.TypeArmor"),
 				value: totalArmor,
+				artifactDie: artifactDies.join("+"),
 			},
 		};
 		const options = {
 			maxPush: "0",
-			...this.getRollOptions(),
+			...this.getRollOptions(...identifiers),
 		};
 
 		return FBLRollHandler.createRoll(data, { ...options, gears: this.getGears() });
@@ -313,7 +318,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		};
 		const options = {
 			maxPush: "0",
-			...this.getRollOptions(),
+			...this.getRollOptions("armor", armorId),
 		};
 		return FBLRollHandler.createRoll(data, { ...options, gears: this.getGears() });
 	}

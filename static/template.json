@@ -326,6 +326,7 @@
 				"blunt": false,
 				"parrying": false,
 				"hook": false,
+				"shield": false,
 				"slowReload": false,
 				"others": ""
 			},
