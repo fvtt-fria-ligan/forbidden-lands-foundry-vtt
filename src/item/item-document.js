@@ -68,7 +68,8 @@ export class ForbiddenLandsItem extends Item {
 		if (foundry.utils.getType(this.rollModifiers) !== "Object") return;
 		const modifiers = Object.values(this.rollModifiers).reduce((array, mod) => {
 			const match = rollIdentifiers.includes(objectSearch(CONFIG.fbl.i18n, mod.name));
-			if (match) {
+			const state = this.getFlag("forbidden-lands", "state");
+			if (match && state === "equipped") {
 				let value;
 				if (mod.value.match(/\d*d(?:8|10|12)/i)) value = mod.value.replace(/^\+/, "");
 				else if (mod.gearBonus) value = Number(this.bonus);
