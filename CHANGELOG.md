@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [10.1.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.0.4...v10.1.0) (2023-02-22)
+
+
+### Features
+
+* Add parry/dodge modifiers ([#291](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/291)) ([1f74dad](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/1f74dad2099806b4052bee7f8ba5a3a38970df52)), closes [#282](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/282)
+
+
+### Bug Fixes
+
+* Artifact die on total armor roll ([#293](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/293)) ([ae2bdb9](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/ae2bdb9b8c80e39c143a8bbcfa9dcdcb91a682ec)), closes [#286](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/286)
+* Not rolling arrow dice on ranged weapons ([#290](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/290)) ([9bbbc18](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/9bbbc185ef1f95e7c2bd6205b811b5b97596b1ac)), closes [#281](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/281)
+* Roll modifiers on equipped items only ([#294](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/294)) ([16ebe4a](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/16ebe4a0d5a742e25254b533c3be16d3adeb1822)), closes [#289](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/289)
+
 ### [10.0.4](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.0.3...v10.0.4) (2022-11-27)
 
 
