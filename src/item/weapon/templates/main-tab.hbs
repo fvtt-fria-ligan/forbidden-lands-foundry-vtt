@@ -63,39 +63,38 @@
 	</div>
 	<div class="features flex row">
 		{{#if (eq system.category "melee")}}
-		<a class="feature {{# if system.features.edged}}active{{/if}}" data-feature="edged" title="{{localize "
-			WEAPON.FEATURES.EDGED"}}">
+		<a class="feature {{# if system.features.edged}}active{{/if}}" data-feature="edged" title="{{localize "WEAPON.FEATURES.EDGED"}}">
 			<i class="far {{#if system.features.edged}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
 			{{localize "WEAPON.FEATURES.EDGED"}}
 		</a>
 
-		<a class="feature {{# if system.features.pointed}}active{{/if}}" data-feature="pointed" title="{{localize "
-			WEAPON.FEATURES.POINTED"}}">
+		<a class="feature {{# if system.features.pointed}}active{{/if}}" data-feature="pointed" title="{{localize "WEAPON.FEATURES.POINTED"}}">
 			<i class="far {{#if system.features.pointed}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
 			{{localize "WEAPON.FEATURES.POINTED"}}
 		</a>
 
-		<a class="feature {{# if system.features.blunt}}active{{/if}}" data-feature="blunt" title="{{localize "
-			WEAPON.FEATURES.BLUNT"}}">
+		<a class="feature {{# if system.features.blunt}}active{{/if}}" data-feature="blunt" title="{{localize "WEAPON.FEATURES.BLUNT"}}">
 			<i class="far {{#if system.features.blunt}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
 			{{localize "WEAPON.FEATURES.BLUNT"}}
 		</a>
 
-		<a class="feature {{# if system.features.parrying}}active{{/if}}" data-feature="parrying" title="{{localize "
-			WEAPON.FEATURES.PARRYING"}}">
+		<a class="feature {{# if system.features.parrying}}active{{/if}}" data-feature="parrying" title="{{localize "WEAPON.FEATURES.PARRYING"}}">
 			<i class="far {{#if system.features.parrying}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
 			{{localize "WEAPON.FEATURES.PARRYING"}}
 		</a>
 
-		<a class="feature {{# if system.features.hook}}active{{/if}}" data-feature="hook" title="{{localize "
-			WEAPON.FEATURES.HOOK"}}">
+		<a class="feature {{# if system.features.shield}}active{{/if}}" data-feature="shield" title="{{localize "WEAPON.FEATURES.SHIELD"}}">
+			<i class="far {{#if system.features.shield}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
+			{{localize "WEAPON.FEATURES.SHIELD"}}
+		</a>
+
+		<a class="feature {{# if system.features.hook}}active{{/if}}" data-feature="hook" title="{{localize "WEAPON.FEATURES.HOOK"}}">
 			<i class="far {{#if system.features.hook}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
 			{{localize "WEAPON.FEATURES.HOOK"}}
 		</a>
 		{{/if}}
 		{{#if (eq system.category "ranged")}}
-		<a class="feature {{# if system.features.slowReload}}active{{/if}}" data-feature="slowReload" title="{{localize "
-			WEAPON.FEATURES.SLOW_RELOAD"}}">
+		<a class="feature {{# if system.features.slowReload}}active{{/if}}" data-feature="slowReload" title="{{localize "WEAPON.FEATURES.SLOW_RELOAD"}}">
 			<i class="far {{#if system.features.slowReload}}fa-check-circle{{else}}fa-circle{{/if}}"></i>
 			{{localize "WEAPON.FEATURES.SLOW_RELOAD"}}
 		</a>

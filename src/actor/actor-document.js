@@ -40,7 +40,7 @@ export class ForbiddenLandsActor extends Actor {
 		return {
 			alias: this.token?.name || this.name,
 			actorId: this.id,
-			actorType: this.system.type,
+			actorType: this.type,
 			canAct: this.canAct,
 			sceneId: this.token?.parent.id,
 			tokenId: this.token?.id,
@@ -50,11 +50,23 @@ export class ForbiddenLandsActor extends Actor {
 
 	getRollModifierOptions(...rollIdentifiers) {
 		if (!rollIdentifiers.length) return [];
-		return this.items.reduce((array, item) => {
+		const itemModifiers = this.items.reduce((array, item) => {
 			const modifiers = item.getRollModifier(...rollIdentifiers);
 			if (modifiers) array = [...array, ...modifiers];
 			return array;
 		}, []);
+		if (rollIdentifiers.includes("dodge")) {
+			itemModifiers.push({
+				name: localize("ROLL.STANDING_DODGE"),
+				value: -2,
+				active: true,
+			});
+			itemModifiers.push({
+				name: localize("ROLL.DODGE_SLASH"),
+				value: +2,
+			});
+		}
+		return itemModifiers;
 	}
 
 	async createEmbeddedDocuments(embeddedName, data, options) {
