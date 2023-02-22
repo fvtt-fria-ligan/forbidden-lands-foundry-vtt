@@ -90,12 +90,30 @@ export class ForbiddenLandsItem extends Item {
 			} else return array;
 		}, []);
 
-		if (this.parryPenalty && rollIdentifiers.includes("parry") && rollIdentifiers.includes(this.id))
-			modifiers.push({
-				name: localizeString("WEAPON.FEATURES.PARRYING"),
-				value: this.parryPenalty,
-				active: true,
-			});
+		if (rollIdentifiers.includes("parry") && rollIdentifiers.includes(this.id)) {
+			if (this.parryPenalty)
+				modifiers.push({
+					name: localizeString("WEAPON.FEATURES.PARRYING"),
+					value: this.parryPenalty,
+					active: true,
+				});
+			if (this.itemProperties.features?.shield) {
+				modifiers.push({
+					name: localizeString("ROLL.PARRY_NON_SLASH"),
+					value: 2,
+				});
+			} else {
+				modifiers.push({
+					name: localizeString("ROLL.PARRY_STAB"),
+					value: -2,
+					active: true,
+				});
+				modifiers.push({
+					name: localizeString("ROLL.PARRY_PUNCH"),
+					value: 2,
+				});
+			}
+		}
 
 		return modifiers;
 	}

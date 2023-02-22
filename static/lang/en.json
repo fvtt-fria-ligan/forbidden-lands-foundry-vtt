@@ -229,6 +229,10 @@
 	"ROLL.CHANCE": "Chance Cast: Roll Mishap.",
 	"ROLL.MISHAP": "Roll Mishap!",
 	"ROLL_MODIFIER.SELECT": "Please select a modifier",
+	"ROLL.STANDING_DODGE": "Standing dodge",
+	"ROLL.PARRY_NON_SLASH": "Parry Stab/Punch/Kick",
+	"ROLL.PARRY_STAB": "Parry Stab",
+	"ROLL.PARRY_PUNCH": "Parry Punch/Kick",
 	"SHEET.CREATE_CR": "Add Critical Injury",
 	"SHEET.HEADER.CHAR_GEN": "Chargen",
 	"SHEET.CLOSE": "Close",
@@ -399,5 +403,7 @@
 	"MACRO.TYPE.ATTACK": "Attack",
 	"MACRO.NO_ACTOR": "You have no actor assigned to your player",
 	"MACRO.COMPENDIUM_NAME": "Forbidden Lands: Macros",
-	"ERROR.NO_ID": "Failed to update the entity due to lacking an Id"
+	"ERROR.NO_ID": "Failed to update the entity due to lacking an Id",
+	"ROLL.DODGE_SLASH": "Dodge slash attack",
+	"WEAPON.FEATURES.SHIELD": "Shield"
 }
