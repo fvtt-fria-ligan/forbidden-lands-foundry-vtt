@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [10.1.1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.1.0...v10.1.1) (2023-02-23)
+
+
+### Bug Fixes
+
+* 🐛 Not only equipped items provide modifiers to rolls ([3d7e1aa](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/3d7e1aacb6953ec5b9e528fbad9c0333f943776b))
+
 ## [10.1.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.0.4...v10.1.0) (2023-02-22)
 
 
