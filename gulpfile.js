@@ -111,7 +111,7 @@ function getDataPath() {
  */
 async function linkUserData() {
 	let destinationDirectory;
-	if (fs.existsSync(path.resolve("manif/system.json"))) {
+	if (fs.existsSync(path.resolve(`manifests/v${majorVersion}/system.json`))) {
 		destinationDirectory = "systems";
 	} else {
 		throw new Error(`Could not find ${chalk.blueBright("system.json")}`);

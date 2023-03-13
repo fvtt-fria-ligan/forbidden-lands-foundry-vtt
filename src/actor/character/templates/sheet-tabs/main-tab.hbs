@@ -2,6 +2,7 @@
     <div class="attributes border">
         <h1>{{localize "HEADER.ATTRIBUTES"}}</h1>
         {{#each system.attribute as |attribute key|}}
+
             <div class="name">
                 <button type="button" class="roll-attribute"
                     data-attribute="{{key}}">{{localize attribute.label}}</button>

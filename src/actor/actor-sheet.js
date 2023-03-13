@@ -4,6 +4,7 @@ import localizeString from "@utils/localize-string";
 /* eslint-disable no-unused-vars */
 export class ForbiddenLandsActorSheet extends ActorSheet {
 	altInteraction = game.settings.get("forbidden-lands", "alternativeSkulls");
+	useHealthAndResolve = game.settings.get("forbidden-lands", "useHealthAndResolve");
 
 	async getData() {
 		let data = this.actor.toObject();
@@ -13,6 +14,13 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		data = this.computeItems(data);
 		data.carriedStates = this.#getCarriedStates();
 		data.gear = this.#filterGear(data.items);
+		if (!this.useHealthAndResolve) {
+			const filteredAttributes = Object.entries(data.system.attribute).filter(
+				([key, value]) => key !== "health" && key !== "resolve",
+			);
+			data.system.attribute = Object.fromEntries(filteredAttributes);
+		}
+
 		return data;
 	}
 
