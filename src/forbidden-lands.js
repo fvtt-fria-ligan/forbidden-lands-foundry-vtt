@@ -16,6 +16,7 @@ import { ForbiddenLandsJournalEntry } from "@journal/journal-document.js";
 import { init, utilities } from "@journal/adventure-sites/adventure-site-generator.js";
 import { FBLCombat, FBLCombatant, FBLCombatTracker } from "@system/combat/combat.js";
 import { importMacros } from "@components/macros/macros.js";
+import { initializeEditorEnrichers } from "@system/core/editor.js";
 
 /**
  * We use this label to remove the debug option in production builds.
@@ -54,6 +55,7 @@ Hooks.once("init", () => {
 	registerYZURLabels();
 	registerSheets();
 	initializeHandlebars();
+	initializeEditorEnrichers();
 	registerSettings();
 	modifyConfig();
 });
