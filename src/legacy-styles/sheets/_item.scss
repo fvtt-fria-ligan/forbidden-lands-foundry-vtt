@@ -9,6 +9,7 @@
 		.header {
 			align-items: center;
 			display: flex;
+			gap: 8px;
 			padding: 8px;
 			justify-content: space-between;
 			height: fit-content;
@@ -44,6 +45,48 @@
 					.skulls {
 						font-size: var(--font-size-12);
 					}
+				}
+			}
+
+			.stats {
+				display: grid;
+				grid-template-columns: repeat(4, auto);
+				justify-items: flex-end;
+				gap: 8px;
+
+				label {
+					display: flex;
+					flex-wrap: nowrap;
+					white-space: nowrap;
+					gap: 4px;
+					align-items: center;
+				}
+
+				input {
+					justify-self: flex-start;
+				}
+
+				input[type="number"] {
+					width: 50px;
+				}
+
+				input[name="name"] {
+					grid-column: span 3;
+				}
+
+				input[type="checkbox"] {
+					margin: 0;
+					flex: none;
+					height: unset;
+					width: unset;
+				}
+
+				.icon {
+					width: 50px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					margin-right: 4px;
 				}
 			}
 		}

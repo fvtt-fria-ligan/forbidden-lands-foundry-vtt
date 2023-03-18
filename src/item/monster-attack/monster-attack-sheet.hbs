@@ -3,18 +3,48 @@
 		<div class="avatar">
 			<img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" />
 		</div>
-		<div class="header-stats">
-			<label>{{localize "MONSTER.NAME"}}</label>
+		<div class="stats">
+			<label>{{localize "MONSTER.NAME"}}:</label>
 			<input name="name" type="text" value="{{name}}" />
-			<label>{{localize "MONSTER.DICE"}}</label>
-			<input name="system.dice" type="number" data-dtype="Number" value="{{system.dice}}" />
-			<label>{{localize "MONSTER.DAMAGE"}}</label>
+			<label>{{localize "MONSTER.DICE"}}:</label>
+			<div class="flex gap">
+				{{#unless system.usingStrength}}
+					<input name="system.dice" type="number" data-dtype="Number" value="{{system.dice}}" />
+					<input
+						name="system.usingStrength"
+						type="checkbox"
+						data-dtype="Boolean"
+						{{checked system.usingStrength}}
+						data-tooltip="{{localize 'ATTACK.USE_STRENGTH'}}"
+					/>
+				{{else}}
+					<label data-tooltip="{{localize 'ATTACK.USE_STRENGTH'}}">
+						<span class="icon">
+							<i class="fas fa-hand-fist"></i>
+						</span>
+						<input
+							name="system.usingStrength"
+							type="checkbox"
+							data-dtype="Boolean"
+							{{checked system.usingStrength}}
+						/>
+					</label>
+				{{/unless}}
+
+			</div>
+			<label>{{localize "MONSTER.RANGE"}}:</label>
+			<select name="system.range">
+				{{#select system.range}}
+					<option value="arm">{{localize "RANGE.ARM"}}</option>
+					<option value="near">{{localize "RANGE.NEAR"}}</option>
+					<option value="short">{{localize "RANGE.SHORT"}}</option>
+					<option value="long">{{localize "RANGE.LONG"}}</option>
+					<option value="distant">{{localize "RANGE.DISTANT"}}</option>
+				{{/select}}
+			</select>
+			<label>{{localize "MONSTER.DAMAGE"}}:</label>
 			<input name="system.damage" type="number" data-dtype="Number" value="{{system.damage}}" />
-		</div>
-	</div>
-	<div class="item">
-		<div class="damageType">
-			<label>{{localize "MONSTER.DAMAGE_TYPE"}}</label>
+			<label>{{localize "MONSTER.DAMAGE_TYPE"}}:</label>
 			<select name="system.damageType">
 				{{#select system.damageType}}
 					<option value="stab">{{localize "ATTACK.STAB"}}</option>
@@ -25,18 +55,8 @@
 				{{/select}}
 			</select>
 		</div>
-		<div class="range">
-			<label>{{localize "MONSTER.RANGE"}}</label>
-			<select name="system.range">
-				{{#select system.range}}
-					<option value="arm">{{localize "RANGE.ARM"}}</option>
-					<option value="near">{{localize "RANGE.NEAR"}}</option>
-					<option value="short">{{localize "RANGE.SHORT"}}</option>
-					<option value="long">{{localize "RANGE.LONG"}}</option>
-					<option value="distant">{{localize "RANGE.DISTANT"}}</option>
-				{{/select}}
-			</select>
-		</div>
+	</div>
+	<div class="item">
 		<div class="monster-description">
 			<label>{{localize "MONSTER.DESCRIPTION"}}</label>
 			{{editor system.description target="system.description" owner=owner button=true editable=true}}
