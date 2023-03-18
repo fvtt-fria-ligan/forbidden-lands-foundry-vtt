@@ -35,6 +35,9 @@ export default function registerHooks() {
 				skill: { label: "DICE.SKILL", value: 0 },
 				gear: { label: "DICE.GEAR", value: 0, artifactDie: "" },
 			};
+			const options = {
+				modifiers: [],
+			};
 			if (dice) {
 				for (const term of dice) {
 					const [num, deno] = term.split("d");
@@ -42,12 +45,14 @@ export default function registerHooks() {
 						b: "attribute",
 						s: "skill",
 						g: "gear",
+						n: "negative",
 					};
-					if (map[deno]) data[map[deno]].value += Number(num);
+					if (map[deno] === "negative") options.modifiers.push({ value: -Number(num), active: true });
+					else if (map[deno]) data[map[deno]].value += Number(num);
 					else data.gear.artifactDie += term;
 				}
 			}
-			FBLRollHandler.createRoll(data);
+			FBLRollHandler.createRoll(data, options);
 			return false;
 		} else return true;
 	});
