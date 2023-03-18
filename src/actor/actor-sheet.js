@@ -525,7 +525,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		Hooks.once("renderDialog", (_, html) =>
 			html
 				.find("option")
-				.filter((i, el) =>
+				.filter((_i, el) =>
 					[
 						"criticalInjury",
 						"building",
