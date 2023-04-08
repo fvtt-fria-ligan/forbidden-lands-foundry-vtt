@@ -24,9 +24,11 @@
 		max-width: 50px;
 		&.kin,
 		&.profession {
+			text-align: left;
 			max-width: 120px;
 		}
 		&.name {
+			text-align: left;
 			max-width: 225px;
 		}
 	}

@@ -155,4 +155,20 @@ export class ForbiddenLandsItem extends Item {
 		}
 		await message.setFlag("forbidden-lands", "itemData", itemData); // Adds posted item data to chat message flags for item drag/drop
 	}
+
+	/**
+	 * Override initializing a character to set default portraits.
+	 * @param {object} data object of an initialized character.
+	 * @param {object?} options optional object of options.
+	 */
+	static async create(data, options) {
+		if (!data.img) {
+			switch (data.type) {
+				case "building":
+					data.img = "icons/svg/castle.svg";
+					break;
+			}
+		}
+		super.create(data, options);
+	}
 }

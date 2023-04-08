@@ -1,0 +1,176 @@
+.app.sheet {
+	.editor,
+	.journal-page-content {
+		ol.fbl-centered {
+			list-style: none;
+			counter-reset: fbl-list;
+			overflow-x: hidden;
+		}
+
+		ol.fbl-centered li {
+			counter-increment: fbl-list;
+		}
+
+		ol.fbl-centered li > a {
+			display: inline-block;
+			margin-left: 50%;
+			transform: translateX(-50%);
+		}
+
+		ol.fbl-centered li:before {
+			content: counter(fbl-list);
+			background-image: url(../assets/journal-art/list-skulls.webp);
+			background-position-x: 1px;
+			background-size: 100%;
+			background-repeat: no-repeat;
+			line-height: 1;
+			padding-top: 3px;
+			margin-left: 50%;
+			margin-top: 10px;
+			display: inline-block;
+			height: 55px;
+			width: 160px;
+			transform: translate(-50%);
+			text-align: center;
+		}
+
+		.fbl-uppercase {
+			font-style: normal;
+			text-transform: uppercase;
+			font-family: "IM Fell DW Pica SC";
+			font-size: var(--font-size-14);
+		}
+		.fbl-inline-heading {
+			font-family: "IM Fell Three Line Pica";
+			font-weight: bold;
+			margin-top: 4px;
+			font-size: var(--font-size-16);
+		}
+
+		.fbl-italic {
+			font-style: italic;
+		}
+
+		.fbl-centered {
+			padding-inline: 70px 2rem;
+		}
+
+		p.fbl-centered + p.fbl-centered {
+			text-indent: 1rem;
+		}
+
+		.fbl-centered:last-child {
+			margin-bottom: 2rem;
+		}
+
+		.fbl-example {
+			margin: 10px auto 0;
+			font-family: "IM Fell Three Line Pica";
+			text-transform: uppercase;
+			border-top: 1px solid black;
+			width: 18%;
+			padding-top: 4px;
+		}
+
+		.fbl-skull {
+			display: inline;
+			font-family: "skullz";
+			line-height: 0;
+			text-transform: lowercase;
+			font-style: normal;
+			position: relative;
+			top: 5px;
+			font-size: 1.75rem;
+		}
+
+		h3 .fbl-skull {
+			font-size: var(--font-size-32);
+		}
+
+		.fbl-swords {
+			display: inline;
+			font-family: "Swordlings";
+			font-style: normal;
+			position: relative;
+			left: 1px;
+			font-weight: 600;
+			line-height: 0;
+		}
+
+		.fbl-page-divider {
+			content: url("../assets/journal-art/endstop.webp");
+			display: block;
+			margin: auto;
+			margin-top: 25px;
+			width: 170px;
+			height: 22px;
+		}
+		.fbl-box {
+			border-style: solid;
+			border-color: black;
+			border-width: 5px 2px;
+			border-image: url("../assets/journal-art/box-border-top-bottom.webp") 60 0 round;
+			border-image-width: 20px 0;
+			font-family: "Branding";
+			line-height: 1;
+			padding: 25px 0;
+			max-width: 100%;
+		}
+
+		.fbl-box table.fbl-table {
+			font-family: "Branding";
+		}
+
+		.fbl-box h4 {
+			font-family: "Branding";
+			font-weight: bold;
+			margin: 8px auto;
+		}
+
+		.fbl-table th {
+			font-weight: bold;
+			text-transform: uppercase;
+			text-align: left;
+		}
+
+		.fbl-table tr:nth-child(1) {
+			background-color: rgb(255, 255, 255);
+		}
+
+		.fbl-journal-info-box {
+			font-family: "Branding";
+			margin: 2%;
+			width: 300px;
+			float: right;
+		}
+
+		.fbl-journal-info-box > p,
+		.fbl-journal-info-box > p + p {
+			margin: 4px;
+			margin-left: 7px;
+			line-height: 1;
+			text-indent: 0;
+		}
+
+		.fbl-branding-bold {
+			font-size: 0.9rem;
+			font-family: "Branding";
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+
+		.fbl-maha {
+			text-align: center;
+			transform: translateY(25px);
+		}
+
+		.fbl-maha > img {
+			display: inline;
+		}
+
+		img {
+			display: block;
+			margin: 20px auto;
+		}
+	}
+}

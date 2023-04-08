@@ -101,7 +101,6 @@
 					text-transform: uppercase;
 				}
 				.name {
-					display: block;
 					padding-left: 4px;
 					font-size: var(--font-size-14);
 				}
@@ -115,7 +114,8 @@
 		}
 	}
 
-	.talent-description {
+	.talent-description,
+	.monster-attack .name .name {
 		display: -webkit-box;
 		-webkit-line-clamp: 2;
 		-webkit-box-orient: vertical;

@@ -204,6 +204,10 @@
 		outline: none;
 	}
 
+	ul {
+		list-style-type: "\2725   ";
+	}
+
 	.sheet-body {
 		overflow: hidden;
 		flex-grow: 1;
@@ -486,5 +490,41 @@ button,
 		display: grid;
 		grid-template-columns: auto 1fr;
 		gap: 1rem;
+	}
+}
+
+.app.journal-sheet .journal-entry-content .fbl-table-display,
+.fbl-table-display {
+	table:hover {
+		cursor: pointer;
+		box-shadow: 1px 2px 4px #000;
+	}
+
+	h4 {
+		font-family: var(--font-table);
+		font-weight: 600;
+		font-size: var(--font-size-18);
+		margin: 0;
+	}
+
+	th {
+		text-transform: uppercase;
+		font-size: var(--font-size-16);
+	}
+
+	th:nth-child(2) {
+		text-align: left;
+		padding-left: 8px;
+	}
+
+	td:first-child {
+		text-align: center;
+		width: 60px;
+		padding-right: 8px;
+	}
+
+	td:nth-child(2) {
+		text-align: left;
+		padding-left: 8px;
 	}
 }
