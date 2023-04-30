@@ -1,3 +1,5 @@
+import localizeString from "@utils/localize-string.js";
+
 export function initializeEditorEnrichers() {
 	CONFIG.TextEditor.enrichers = CONFIG.TextEditor.enrichers.concat([
 		{
@@ -64,41 +66,35 @@ export function initializeEditorEnrichers() {
 			},
 		},
 		{
-			pattern: /@DisplayTable\[(.+?)\]/gim,
+			pattern: /@Draw\[(.+?)\]/gim,
 			enricher: async (match) => {
 				const table = game.tables.get(match[1]) ?? game.tables.getName(match[1]);
-				if (!table) return /* html */ `<span class="broken"><i class="fas fa-broken"></i>match[1]</span>`;
-				const div = document.createElement("div");
-				div.className = "fbl-table-display";
-				const html = /* html */ `
-						<h4>${table.name}</h4>
-						<table>
-							<thead>
-								<tr>
-									<th>${table.formula === "1d6*10+1d6" ? "D66" : table.formula}</th>
-									<th>Result</th>
-								</tr>
-							</thead>
-							<tbody>
-								${table.results
-									.map((result) => {
-										const range =
-											result.range[1] - result.range[0] === 0
-												? result.range[0]
-												: result.range.join("-");
-										return /* html */ `
-											<tr>
-												<td>${range}</td>
-												<td>${result.text}</td>
-											</tr>
-											`;
-									})
-									.join("")}
-							</tbody>
-						</table>
-				`;
-				div.innerHTML = html;
-				return div;
+				const html = table
+					? /* html */ `<a
+					class="inline-table"
+					data-id="${table.id}"
+					onclick="game.tables.get('${table.id}').draw();"
+					data-tooltip="${localizeString("TABLE.DRAW")} ${table.name}"
+					><i class="fas fa-cards" ></i>${table.name}</a>
+				`
+					: /* html */ `<span class="broken"><i class="fas fa-broken"></i>${match[1]}</span>`;
+				return $(html)[0];
+			},
+		},
+		{
+			pattern: /@ToggleScene\[(.+?)\]/gim,
+			enricher: async (match) => {
+				const scene = game.scenes.get(match[1]) ?? game.scenes.getName(match[1]);
+				const html = scene
+					? /* html */ `<a
+					class="inline-scene"
+					data-id="${scene.id}"
+					onclick="game.scenes.get('${scene.id}').view();"
+					data-tooltip="${localizeString("SCENE.RENDER")} ${scene.name}"
+					><i class="fas fa-map" ></i>${scene.name}</a>
+				`
+					: /* html */ `<span class="broken"><i class="fas fa-broken"></i>${match[1]}</span>`;
+				return $(html)[0];
 			},
 		},
 	]);

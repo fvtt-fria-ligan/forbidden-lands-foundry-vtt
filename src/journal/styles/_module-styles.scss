@@ -1,0 +1,51 @@
+:where(.fbl-box) {
+	border-style: solid;
+	border-image: url("./assets/journal-art/box-border-top-bottom.webp") 60 0 round;
+	border-image-width: 20px 0;
+	font-family: var(--font-primary);
+	line-height: 135%;
+	padding: 25px 0;
+	margin: 1rem;
+
+	h3,
+	h4 {
+		font-family: var(--font-primary);
+		text-transform: unset;
+		font-weight: 600;
+		font-size: var(--font-size-16);
+		margin: 0;
+	}
+
+	table {
+		th {
+			font-size: var(--font-size-14);
+		}
+
+		td {
+			text-align: center;
+		}
+	}
+
+	.info-right,
+	.fbl-journal-info-box {
+		max-width: 300px;
+		float: right;
+	}
+
+	.info-left {
+		max-width: 300px;
+		float: left;
+	}
+}
+
+.fbl-italic {
+	font-style: italic;
+}
+
+.fbl-italic.fbl-centered,
+.italic-intro {
+	line-height: 200%;
+	margin: 2rem 3rem;
+	font-size: var(--font-size-18);
+	font-weight: 600;
+}

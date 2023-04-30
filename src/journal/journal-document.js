@@ -7,7 +7,6 @@ export class ForbiddenLandsJournalEntry extends JournalEntry {
 		const path = CONFIG.fbl.adventureSites?.types[data.type];
 		const content = await CONFIG.fbl.adventureSites?.generate(path, data.type);
 		data.pages = [{ name: "Overview", title: { show: false }, text: { content } }];
-		console.log(options);
 		super.create(data, options);
 	}
 	get type() {

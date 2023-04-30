@@ -105,6 +105,12 @@ export default function registerHooks() {
 		}
 	});
 
+	Hooks.on("renderJournalSheet", function (app, html) {
+		if (app.document.flags["forbidden-lands"]?.isBook) {
+			html.addClass("fbl-book");
+		}
+	});
+
 	Hooks.on("renderChatMessage", async (app, html) => {
 		const postedItem = html.find(".chat-item")[0];
 		if (postedItem) {
