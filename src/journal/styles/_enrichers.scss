@@ -108,6 +108,10 @@
 
 		p:has(span.big-first-char.r4) {
 			padding-top: 3rem;
+
+			span.big-first-char.r4 {
+				margin-inline-start: 1.8rem;
+			}
 		}
 
 		.big-first-char.r6::before {

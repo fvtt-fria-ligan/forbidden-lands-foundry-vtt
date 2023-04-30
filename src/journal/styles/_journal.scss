@@ -30,6 +30,12 @@
 	}
 }
 
+// Force proper height
+.app.sheet .editor {
+	min-height: 55px;
+	height: 100%;
+}
+
 // Edit button
 .editor:focus,
 .editor:hover,
@@ -103,7 +109,7 @@
 /* ------------------------------------ */
 
 // Headings
-:where(.journal-entry-page) {
+:where(.journal-entry-page, .editor-content) {
 	#{utils.fromTo(h,1,6)} {
 		font-family: "IM Fell Three Line Pica";
 		text-transform: uppercase;
@@ -118,28 +124,34 @@
 	h1,
 	h2,
 	h3 {
-		font-size: var(--font-size-32);
-		text-transform: uppercase;
-		text-align: center;
-		line-height: 1;
+		min-height: 250px;
+		width: min(100%, 900px);
+		margin-inline: auto;
+		padding: 20px 85px 0px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		border: 1px solid transparent;
 		border-image: url("./assets/journal-art/title-border.webp");
 		border-image-slice: 50%;
 		border-image-width: 100%;
-		padding: max(85px, 1%) min(14%, 90px) 0;
+		font-size: var(--font-size-32);
+		text-transform: uppercase;
+		text-align: center;
+		line-height: 1;
 		text-overflow: ellipsis;
-		width: min(100%, 900px);
-		min-height: 200px;
-		height: min(45%, 300px);
-		margin-inline: auto;
 	}
 }
 
 // Page Content
-:where(.journal-page-content) {
+:where(.journal-page-content, .editor-content) {
 	font-family: var(--font-editor);
 	line-height: 1.75;
 	font-size: var(--font-size-16);
+
+	&[data-engine="tinymce"] {
+		margin-inline: 1rem;
+	}
 
 	ul {
 		list-style-type: "\2725      ";
