@@ -187,6 +187,8 @@ FBL.i18n = {
 	tundra: "BIOME.TUNDRA",
 	"crimson-forest": "BIOME.CRIMSON_FOREST",
 	ashlands: "BIOME.ASHLANDS",
+	ocean: "BIOME.OCEAN",
+	firelands: "BIOME.FIRELANDS",
 };
 
 FBL.itemTypes = [
@@ -226,6 +228,8 @@ FBL.encounterTables = [
 	"ice-forest",
 	"sea-ice",
 	"tundra",
+	"ocean",
+	"firelands",
 	"crimson-forest",
 	"ashlands",
 ];
