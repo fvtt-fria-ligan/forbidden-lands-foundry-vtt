@@ -5,12 +5,13 @@ import localizeString from "@utils/localize-string.js";
 
 /**
  * Roll skill check to perform a travel action
- * @param {object<Actor>} Character Actor Document used to identify who rolls.
+ * @param {object<Actor>} character Actor Document used to identify who rolls.
  * @param  {string} rollName Display name for the roll
  */
 function rollTravelAction(character, rollName) {
 	if (!character && !character.owner) return;
-	character.sheet.rollAction(rollName);
+	if (rollName === "rest") character.rest();
+	else character.sheet.rollAction(rollName);
 }
 
 /**
@@ -98,11 +99,32 @@ export let TravelActionsConfig = {
 			},
 		],
 	},
+	rest: {
+		key: "rest",
+		journalEntryName: "Rest",
+		name: "FLPS.TRAVEL.REST",
+		buttons: [
+			{
+				name: "FLPS.TRAVEL.REST",
+				class: "travel-rest",
+				handler: function (party) {
+					handleTravelAction(party.actorProperties.travel.rest, "rest");
+				},
+			},
+		],
+	},
 	sleep: {
 		key: "sleep",
 		journalEntryName: "Sleep",
 		name: "FLPS.TRAVEL.SLEEP",
 		buttons: [
+			{
+				name: "FLPS.TRAVEL.REST",
+				class: "travel-sleep",
+				handler: function (party) {
+					handleTravelAction(party.actorProperties.travel.sleep, "rest");
+				},
+			},
 			{
 				name: "FLPS.TRAVEL_ROLL.FIND_GOOD_PLACE",
 				class: "travel-find-good-place",
@@ -111,12 +133,6 @@ export let TravelActionsConfig = {
 				},
 			},
 		],
-	},
-	rest: {
-		key: "rest",
-		journalEntryName: "Rest",
-		name: "FLPS.TRAVEL.REST",
-		buttons: [],
 	},
 	other: {
 		key: "other",

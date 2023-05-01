@@ -72,10 +72,6 @@ h3 {
 		width: 19px;
 		height: 19px;
 
-		&:hover {
-			text-shadow: 0 0 5px #a00;
-		}
-
 		i.fas {
 			transform: translateY(-1.5px) rotate(45deg);
 		}
@@ -161,9 +157,6 @@ a.inline-roll {
 a {
 	&.inline-roll {
 		border: none;
-	}
-	&:hover {
-		text-shadow: 0 0 5px #a00;
 	}
 }
 
@@ -332,7 +325,7 @@ li {
 
 	&:hover,
 	&.active {
-		background: #700;
+		background: var(--color-shadow-primary);
 	}
 }
 
@@ -380,4 +373,16 @@ li {
 a.card-control > i.fa-caret-down,
 a.card-control > i.fa-caret-up {
 	font-size: var(--font-size-16);
+}
+
+#controls ol.control-tools > li.toggle {
+	background: #a0040466;
+	border-color: var(--color-border-dark-tertiary);
+
+	&.active,
+	&:hover {
+		background: #a00404;
+		border-color: var(--color-border-dark-tertiary);
+		box-shadow: 0 0 10px var(--color-shadow-primary);
+	}
 }

@@ -3,6 +3,27 @@
 	height: 100%;
 	max-height: calc(100vh - 10%);
 
+	.main {
+		padding: 1rem;
+		gap: 2rem;
+		justify-content: space-between;
+
+		.random-enc {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+
+			ul {
+				list-style: none;
+				margin-inline-start: 0.5rem;
+
+				li {
+					padding-inline-end: 1rem;
+				}
+			}
+		}
+	}
+
 	.avatar {
 		padding: 0.5rem;
 		& > img {
@@ -101,7 +122,7 @@
 			grid-row: 2/4;
 			grid-column: 3;
 		}
-		&.action-rest {
+		&.action-sleep {
 			grid-row: 2/4;
 			grid-column: 2;
 		}

@@ -21,10 +21,12 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 		const data = await super.getData().data;
 		data.partyMembers = {};
 		data.travelActions = this.getTravelActions();
+		data.encounterTables = await this.getEncounterTables();
+		data.isGm = game.user.isGM;
 		let ownedActorId;
 		for (let i = 0; i < (data.system.members || []).length; i++) {
 			ownedActorId = data.system.members[i];
-			data.partyMembers[ownedActorId] = game.actors.get(ownedActorId).data;
+			data.partyMembers[ownedActorId] = game.actors.get(ownedActorId);
 		}
 		data.system.description = await TextEditor.enrichHTML(data.system.description, { async: true });
 		return data;
@@ -56,6 +58,18 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 			action.participants = this.document.system.travel[action.key].map((id) => game.actors.get(id));
 		}
 		return travelActions;
+	}
+
+	async getEncounterTables() {
+		const tableSettings = game.settings.get("forbidden-lands", "encounterTables");
+		const tables = await Promise.all(
+			Object.values(tableSettings)
+				.filter((table) => !!table)
+				.map(async (table) => {
+					return TextEditor.enrichHTML(`@Draw[${table}]`, { async: true });
+				}),
+		);
+		return tables;
 	}
 
 	async handleRemoveMember(event) {

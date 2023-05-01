@@ -7,6 +7,13 @@ import safeParse from "@utils/safe-parse.js";
  * @see Dialog
  */
 export class FBLRollHandler extends FormApplication {
+	#resolve = (args) => args;
+	#reject = (args) => args;
+	#promise = new Promise((resolve, reject) => {
+		this.#resolve = resolve;
+		this.#reject = reject;
+	});
+
 	constructor(
 		{
 			attribute = { label: "DICE.BASE", value: 0 },
@@ -112,6 +119,19 @@ export class FBLRollHandler extends FormApplication {
 	 */
 	get safecastMax() {
 		return this.spell.psych || this.base.value > 1 ? 2 : 1;
+	}
+
+	get mishapTable() {
+		try {
+			const tableConfig = game.settings.get("forbidden-lands", "mishapTables");
+			const tableId = tableConfig[this.options.mishapType];
+			const hasTable = game.tables.some((t) => t.id === tableId);
+			if (!hasTable) throw new Error("Table not found.");
+			return tableId;
+		} catch {
+			console.warn(`Forbidden Lands | Mishap table ${this.options.type} not found.`);
+			return null;
+		}
 	}
 
 	/**
@@ -277,8 +297,8 @@ export class FBLRollHandler extends FormApplication {
 	 */
 	async _updateObject(event, formData) {
 		this._validateForm(event, formData);
-		if (this.options.type === "spell") return this._handleRollSpell(formData);
-		else return this._handleYZRoll(formData);
+		if (this.options.type === "spell") this._handleRollSpell(formData);
+		else this._handleYZRoll(formData);
 	}
 
 	/**
@@ -308,7 +328,7 @@ export class FBLRollHandler extends FormApplication {
 	/**
 	 * Handler for Spell roll. Takes total spelldice and powerlevel and stores in constructor then calls executeRoll.
 	 * @param {Object<number>} data passed from formData.
-	 * @returns method initiating roll.
+	 * @returns Promise<void>
 	 */
 	async _handleRollSpell({ base, power }) {
 		this.b = base;
@@ -320,15 +340,16 @@ export class FBLRollHandler extends FormApplication {
 		});
 		const subtractValue = this.spell.willpower.max + 1 - this.spell.willpower.value;
 		await FBLRollHandler.modifyWillpower(actor, subtractValue, "subtract");
-		return this.executeRoll();
+		const result = await this.executeRoll();
+		this.#resolve(result);
 	}
 
 	/**
 	 * Handler for standard (Year Zero) rolls. Takes total amount of dice and stores in constructor then calls executeRoll.
 	 * @param {Object<number} data passed from formData.
-	 * @returns method initiating roll.
+	 * @returns Promise<void>
 	 */
-	_handleYZRoll({ base, skill, gear, artifact, modifier, ...modifierItems }) {
+	async _handleYZRoll({ base, skill, gear, artifact, modifier, ...modifierItems }) {
 		// Handle optional gear
 		if (Object.values(modifierItems).some((item) => item)) {
 			const checkedItems = Object.entries(modifierItems)
@@ -343,7 +364,8 @@ export class FBLRollHandler extends FormApplication {
 		this.modifier = modifier;
 		// Handle automatically rolling arrow dice on ranged attacks.
 		this.handleRollArrows();
-		return this.executeRoll();
+		const result = await this.executeRoll();
+		this.#resolve(result);
 	}
 
 	_getModifierGear(modifierItemsArray, gear) {
@@ -420,6 +442,8 @@ export class FBLRollHandler extends FormApplication {
 			item: this.gear.name || this.gears.map((gear) => gear.name),
 			itemId: this.gear.itemId || this.spell?.item?.id || this.gears.map((gear) => gear.id),
 			willpower: this.options.willpower,
+			mishapTable: this.mishapTable,
+			mishapType: this.options.mishapType,
 		};
 	}
 
@@ -454,13 +478,29 @@ export class FBLRollHandler extends FormApplication {
 		// If Safe casting we might roll 0 dice.
 		if (!roll.dice.length && roll.type === "spell") {
 			roll._evaluated = true;
-			return roll.toMessage();
+			return {
+				roll,
+				message: await roll.toMessage(),
+			};
 		}
 		// If roll is modified call modify Roll
 		if (this.modifier) await roll.modify(this.modifier);
 		// Roll the dice!
 		await roll.roll({ async: true });
-		return roll.toMessage();
+		return {
+			roll,
+			message: await roll.toMessage(),
+		};
+	}
+
+	async close(options) {
+		await super.close(options);
+		if (!options) this.#reject(new Error("Roll cancelled"));
+	}
+
+	async render(force = false, options = {}) {
+		await super.render(force, options);
+		return this.#promise;
 	}
 
 	/* -------------------------------------- */
@@ -487,11 +527,14 @@ export class FBLRollHandler extends FormApplication {
 	 * @returns rendered instance of FBLRollHandler
 	 * @see constructor
 	 */
-	static createRoll(data = {}, options = {}) {
+	static async createRoll(data = {}, options = {}) {
 		if (!data) console.warn("No roll data passed. Executing generic roll.");
-		return new FBLRollHandler(data, { ...options, title: localizeString(data.title) || "ACTION.GENERIC" }).render(
-			true,
-		);
+		const rollHandler = new FBLRollHandler(data, {
+			...options,
+			mishapType: options.type || data.title,
+			title: localizeString(data.title) || "ACTION.GENERIC",
+		}).render(true);
+		return rollHandler;
 	}
 
 	/**
@@ -644,6 +687,20 @@ export class FBLRoll extends YearZeroRoll {
 			obj[term.flavor] = term.failure;
 			return obj;
 		}, {});
+	}
+
+	get mishapTable() {
+		return this.options.mishapTable || null;
+	}
+
+	get isMishap() {
+		const spellMishap = this.options.mishapType === "spell" && (this.baneCount > 0 || this.options.chance);
+		const mishap = this.options.mishapType !== "spell" && this.options.mishapTable && this.successCount === 0;
+		return spellMishap || mishap;
+	}
+
+	get mishapType() {
+		return this.options.mishapType || null;
 	}
 
 	// Override the create method to use FBLRoll class

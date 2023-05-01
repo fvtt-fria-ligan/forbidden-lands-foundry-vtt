@@ -200,12 +200,8 @@
 	select:focus,
 	textarea:focus {
 		border: 1px solid var(--color-border);
-		box-shadow: 0 0 10px #a00;
+		box-shadow: 0 0 10px var(--color-shadow-primary);
 		outline: none;
-	}
-
-	ul {
-		list-style-type: "\2725   ";
 	}
 
 	.sheet-body {
@@ -325,7 +321,7 @@
 							cursor: pointer;
 
 							& > img {
-								filter: drop-shadow(0 0 5px #a00);
+								filter: drop-shadow(0 0 5px #a00404);
 							}
 						}
 						img {
@@ -429,7 +425,7 @@ button,
 
 	b:hover {
 		cursor: pointer;
-		text-shadow: 0 0 8px #a00;
+		text-shadow: 0 0 8px #a00404;
 	}
 	.tab-item {
 		position: relative;
@@ -461,7 +457,7 @@ button,
 }
 
 .forbidden-lands .broken {
-	color: #a00;
+	color: #a00404;
 }
 
 .broken .fas.fa-circle,
@@ -469,7 +465,7 @@ button,
 .broken .far.fa-times-circle,
 .condition .far.fa-times-circle,
 .broken .far.fa-check-circle {
-	color: #a00;
+	color: #a00404;
 }
 .broken .change-willpower .far.fa-circle {
 	color: #333;

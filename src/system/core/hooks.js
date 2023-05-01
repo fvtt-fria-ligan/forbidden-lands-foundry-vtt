@@ -151,6 +151,20 @@ export default function registerHooks() {
 				}
 			});
 		}
+		const tableButton = html.find(".fbl-button.table")[0];
+		if (tableButton) {
+			tableButton.addEventListener("click", async () => {
+				let table;
+
+				if (tableButton.dataset.action === "prey") {
+					const tables = game.settings.get("forbidden-lands", "mishapTables");
+					table = game.tables.get(tables["travel-found-prey"]);
+				} else table = game.tables.get(tableButton.dataset.id);
+
+				if (table) table.draw({ displayChat: true });
+				else ui.notifications?.warn("Could not find mishap table");
+			});
+		}
 	});
 
 	/**

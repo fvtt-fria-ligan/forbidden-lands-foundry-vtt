@@ -1,131 +1,124 @@
-.app.sheet {
-	.editor,
-	.journal-page-content {
-		visibility: visible;
+.fbl-example {
+	margin: 10px auto 0;
+	font-family: "IM Fell Three Line Pica";
+	text-transform: uppercase;
+	border-top: 1px solid black;
+	width: 18%;
+	padding-top: 4px;
+}
 
-		.fbl-example {
-			margin: 10px auto 0;
-			font-family: "IM Fell Three Line Pica";
-			text-transform: uppercase;
-			border-top: 1px solid black;
-			width: 18%;
-			padding-top: 4px;
-		}
+.fbl-uppercase {
+	font-style: normal;
+	text-transform: uppercase;
+	font-family: "IM Fell DW Pica SC";
+	font-size: var(--font-size-14);
+}
 
-		.fbl-uppercase {
-			font-style: normal;
-			text-transform: uppercase;
-			font-family: "IM Fell DW Pica SC";
-			font-size: var(--font-size-14);
-		}
+.fbl-inline-heading {
+	font-family: "IM Fell Three Line Pica";
+	font-weight: bold;
+	margin-top: 4px;
+}
 
-		.fbl-inline-heading {
-			font-family: "IM Fell Three Line Pica";
-			font-weight: bold;
-			margin-top: 4px;
-		}
+.fbl-branding-bold {
+	font-size: 0.9rem;
+	font-family: Branding, poppins, sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+}
 
-		.fbl-branding-bold {
-			font-size: 0.9rem;
-			font-family: Branding, poppins, sans-serif;
-			font-weight: bold;
-			text-transform: uppercase;
-		}
+.fbl-skull {
+	display: inline;
+	font-family: "skullz";
+	line-height: 0;
+	text-transform: lowercase;
+	font-style: normal;
+	position: relative;
+	top: 5px;
+	font-size: 1.75rem;
+}
 
-		.fbl-skull {
-			display: inline;
-			font-family: "skullz";
-			line-height: 0;
-			text-transform: lowercase;
-			font-style: normal;
-			position: relative;
-			top: 5px;
-			font-size: 1.75rem;
-		}
+.fbl-swords {
+	display: inline;
+	font-family: "Swordlings";
+	font-style: normal;
+	position: relative;
+	left: 1px;
+	font-weight: 600;
+	line-height: 0;
+}
 
-		.fbl-swords {
-			display: inline;
-			font-family: "Swordlings";
-			font-style: normal;
-			position: relative;
-			left: 1px;
-			font-weight: 600;
-			line-height: 0;
-		}
+.inline-table,
+.inline-scene {
+	border: none;
+	background: transparent;
+	border-bottom: 1px dotted grey;
+	padding: 0;
 
-		.inline-table,
-		.inline-scene {
-			border: none;
-			background: transparent;
-			border-bottom: 1px dotted grey;
-			padding: 0;
-
-			& > i {
-				color: var(--color-text-dark-inactive);
-				margin-right: 0.25em;
-			}
-		}
-
-		.big-first-char {
-			font-size: 4.125rem;
-			transform: translateY(-0.2rem);
-			font-style: normal;
-			line-height: 1;
-			position: relative;
-			margin-bottom: -2rem;
-			float: left;
-			margin-right: 0.5rem;
-			margin-inline-start: 1rem;
-		}
-
-		p:has(span.big-first-char) {
-			padding-top: 6rem;
-		}
-
-		.big-first-char::before {
-			content: url(./assets/journal-art/ravens/raven1.webp);
-			position: absolute;
-			display: inherit;
-			transform: scale(0.25) translate(-170%, -220%);
-		}
-		.big-first-char.r2::before {
-			content: url(./assets/journal-art/ravens/raven2.webp);
-			transform: scale(0.22) translate(-200%, -259%);
-		}
-
-		p:has(span.big-first-char.r2) {
-			padding-top: 5rem;
-		}
-
-		.big-first-char.r3::before {
-			content: url(./assets/journal-art/ravens/raven3.webp);
-			transform: scale(0.16) translate(-282%, -335%);
-		}
-		.big-first-char.r4::before {
-			content: url(./assets/journal-art/ravens/raven4.webp);
-			transform: scale(0.2) translate(-234%, -263%);
-		}
-
-		p:has(span.big-first-char.r4) {
-			padding-top: 3rem;
-
-			span.big-first-char.r4 {
-				margin-inline-start: 1.8rem;
-			}
-		}
-
-		.big-first-char.r6::before {
-			content: url(./assets/journal-art/ravens/raven6.webp);
-			transform: scale(0.15) translate(-302%, -357%);
-		}
-
-		.big-first-char.r7::before {
-			content: url(./assets/journal-art/ravens/raven7.webp);
-			transform: scale(0.22) translate(-200%, -210%);
-		}
-
-		p:has(span.big-first-char.r7) {
-			padding-top: 2rem;
-		}
+	& > i {
+		color: var(--color-text-dark-inactive);
+		margin-right: 0.25em;
 	}
+}
+
+.big-first-char {
+	font-size: 4.125rem;
+	transform: translateY(-0.2rem);
+	font-style: normal;
+	line-height: 1;
+	position: relative;
+	margin-bottom: -2rem;
+	float: left;
+	margin-right: 0.5rem;
+	margin-inline-start: 1rem;
+}
+
+p:has(span.big-first-char) {
+	padding-top: 6rem;
+}
+
+.big-first-char::before {
+	content: url(./assets/journal-art/ravens/raven1.webp);
+	position: absolute;
+	display: inherit;
+	transform: scale(0.25) translate(-170%, -220%);
+}
+.big-first-char.r2::before {
+	content: url(./assets/journal-art/ravens/raven2.webp);
+	transform: scale(0.22) translate(-200%, -259%);
+}
+
+p:has(span.big-first-char.r2) {
+	padding-top: 5rem;
+}
+
+.big-first-char.r3::before {
+	content: url(./assets/journal-art/ravens/raven3.webp);
+	transform: scale(0.16) translate(-282%, -335%);
+}
+.big-first-char.r4::before {
+	content: url(./assets/journal-art/ravens/raven4.webp);
+	transform: scale(0.2) translate(-234%, -263%);
+}
+
+p:has(span.big-first-char.r4) {
+	padding-top: 3rem;
+
+	span.big-first-char.r4 {
+		margin-inline-start: 1.8rem;
+	}
+}
+
+.big-first-char.r6::before {
+	content: url(./assets/journal-art/ravens/raven6.webp);
+	transform: scale(0.15) translate(-302%, -357%);
+}
+
+.big-first-char.r7::before {
+	content: url(./assets/journal-art/ravens/raven7.webp);
+	transform: scale(0.22) translate(-200%, -210%);
+}
+
+p:has(span.big-first-char.r7) {
+	padding-top: 2rem;
 }
