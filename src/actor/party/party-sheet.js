@@ -1,4 +1,6 @@
 import { TravelActionsConfig } from "@actor/party/components/travel-actions";
+import { TableConfigMenu } from "@system/core/settings.js";
+import localizeString from "@utils/localize-string.js";
 export class ForbiddenLandsPartySheet extends ActorSheet {
 	static get defaultOptions() {
 		let dragDrop = [...super.defaultOptions.dragDrop];
@@ -42,6 +44,19 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 			this.render(true);
 		});
 
+		html.find(".encounter-table").click(async (event) => {
+			event.preventDefault();
+			const target = event.currentTarget;
+			const table = game.tables.get(target.dataset.id);
+			await table.draw();
+		});
+
+		html.find(".configure-tables").click(async (event) => {
+			event.preventDefault();
+			await new TableConfigMenu().render(true);
+			this.render(true);
+		});
+
 		let button;
 		for (let key in TravelActionsConfig) {
 			for (let i = 0; i < TravelActionsConfig[key].buttons.length; i++) {
@@ -62,12 +77,10 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 
 	async getEncounterTables() {
 		const tableSettings = game.settings.get("forbidden-lands", "encounterTables");
-		const tables = await Promise.all(
-			Object.values(tableSettings)
-				.filter((table) => !!table)
-				.map(async (table) => {
-					return TextEditor.enrichHTML(`@Draw[${table}]`, { async: true });
-				}),
+		const tables = Object.fromEntries(
+			Object.entries(tableSettings)
+				.filter((t) => !!t[1])
+				.map((t) => [localizeString(t[0]), t[1]]),
 		);
 		return tables;
 	}

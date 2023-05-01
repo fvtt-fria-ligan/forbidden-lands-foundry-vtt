@@ -26,7 +26,12 @@ Hooks.on("renderSettingsConfig", (_app, html, _user) => {
 
 const debouncedReload = foundry.utils.debounce(() => window.location.reload(), 100);
 
-class TableConfigMenu extends FormApplication {
+export class TableConfigMenu extends FormApplication {
+	#resolve = null;
+	#promise = new Promise((resolve) => {
+		this.#resolve = resolve;
+	});
+
 	constructor(options = {}) {
 		super(options);
 	}
@@ -95,6 +100,16 @@ class TableConfigMenu extends FormApplication {
 		game.settings.set("forbidden-lands", "mishapTables", tables.mishap);
 		game.settings.set("forbidden-lands", "encounterTables", tables.encounter);
 		game.settings.set("forbidden-lands", "otherTables", tables.other);
+	}
+
+	async render(force, context = {}) {
+		await super.render(force, context);
+		return this.#promise;
+	}
+
+	async close(...args) {
+		await super.close(...args);
+		this.#resolve();
 	}
 }
 
