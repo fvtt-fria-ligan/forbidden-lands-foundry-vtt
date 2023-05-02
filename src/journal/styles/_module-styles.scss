@@ -9,12 +9,12 @@
 
 	&.info-right,
 	&.fbl-journal-info-box {
-		max-width: 320px;
+		width: 320px;
 		float: right;
 	}
 
 	&.info-left {
-		max-width: 320px;
+		width: 320px;
 		float: left;
 	}
 
@@ -23,7 +23,7 @@
 		font-family: var(--font-primary);
 		text-transform: unset;
 		font-weight: 600;
-		font-size: var(--font-size-16);
+		font-size: var(--font-size-18);
 		margin: 0;
 	}
 

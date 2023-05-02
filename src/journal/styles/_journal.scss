@@ -149,6 +149,11 @@
 	line-height: 1.75;
 	font-size: var(--font-size-16);
 
+	img {
+		display: block;
+		margin-inline: auto;
+	}
+
 	&[data-engine="tinymce"] {
 		margin-inline: 1rem;
 	}
