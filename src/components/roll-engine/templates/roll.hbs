@@ -52,14 +52,16 @@
 		{{#if (eq roll.type "spell")}}
 			{{{tooltip}}}
 			<h4 class="dice-total">
+			<div>
 				<span class="spell-roll power">
-					Power
-					<br />
-					Level:
+					{{localize "POWER_LEVEL"}}:
 				</span>
+			</div>
+			<div>
 				<span class="spell-roll result">
 					{{roll.damage}}
 				</span>
+			</div>
 			</h4>
 		{{/if}}
 	</div>
