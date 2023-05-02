@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [10.2.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.1.1...v10.2.0) (2023-05-02)
+
+
+### Features
+
+* ✨ Add Editor enrichers ([9b9b326](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/9b9b32635cf0ad946c9ef9c51ac4194dff418450))
+* ✨ Buttons for random tables in roll cards and party sheet ([134de1f](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/134de1fc2b2b627c46c29cbd022b89ab915a906e))
+* ✨ Monster attack/movement/armor improvements ([8fbeff5](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/8fbeff52d048a7b09ea376477452b5286a0b339f))
+
+
+### Bug Fixes
+
+* 🐛 Fixes [#301](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/301) ([10f69e6](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/10f69e69fdc0eed8c68c3746a2295ab8b640c728))
+* 🐛 Improve random table section ([c7eef82](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/c7eef820c61d3624755981e0ce04f249ae649333))
+* 🐛 Journal style fixes ([becae28](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/becae28159be993efac125561b02c1271dcbafdc))
+* 🐛 Minor style fixes ([8bc671d](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/8bc671d17859d19e88251642e1389b75835f7e77))
+* 🐛 Style Improvements ([bc36d39](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/bc36d3906fecf952ddb2778ed335a81957e48455))
+* 🐛 Support negative dice in generic roll chat macro ([5b55bce](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/5b55bce65f686f13f839de06b7f2e24e8b0cf9e7))
+* **lang:** Update German localization ([cbdadc9](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/cbdadc90f1a9280bb3f54d4df2baa48cc1749494))
+* **lang:** Update Swedish Localization ([5b34891](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/5b348914df5f27573fd34681992191bb9a647f90))
+
 ### [10.1.1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.1.0...v10.1.1) (2023-02-23)
 
 
