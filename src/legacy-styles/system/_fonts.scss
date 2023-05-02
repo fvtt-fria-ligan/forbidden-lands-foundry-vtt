@@ -34,27 +34,31 @@ $ra-font-path: "./fonts";
 }
 
 @font-face {
-	font-family: "Poppins";
-	src: url("./fonts/Poppins-Regular.ttf");
+	font-family: "Author";
+	size-adjust: 110%;
+	src: url("./fonts/Author-Medium.otf");
 }
 
 @font-face {
-	font-family: "Poppins";
+	font-family: "Author";
 	font-weight: bold;
-	src: url("./fonts/Poppins-Bold.ttf");
+	size-adjust: 110%;
+	src: url("./fonts/Author-SemiBold.otf");
 }
 
 @font-face {
-	font-family: "Poppins";
+	font-family: "Author";
 	font-style: italic;
-	src: url("./fonts/Poppins-Italic.ttf");
+	size-adjust: 110%;
+	src: url("./fonts/Author-MediumItalic.otf");
 }
 
 @font-face {
-	font-family: "Poppins";
+	font-family: "Author";
 	font-style: italic;
 	font-weight: bold;
-	src: url("./fonts/Poppins-BoldItalic.ttf");
+	size-adjust: 110%;
+	src: url("./fonts/Author-SemiBoldItalic.otf");
 }
 
 @font-face {

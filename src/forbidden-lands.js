@@ -17,6 +17,7 @@ import { init, utilities } from "@journal/adventure-sites/adventure-site-generat
 import { FBLCombat, FBLCombatant, FBLCombatTracker } from "@system/combat/combat.js";
 import { importMacros } from "@components/macros/macros.js";
 import { initializeEditorEnrichers } from "@system/core/editor.js";
+import { registerFonts } from "@system/core/fonts.js";
 
 /**
  * We use this label to remove the debug option in production builds.
@@ -57,6 +58,7 @@ Hooks.once("init", () => {
 	registerSheets();
 	initializeHandlebars();
 	initializeEditorEnrichers();
+	registerFonts();
 	modifyConfig();
 });
 
