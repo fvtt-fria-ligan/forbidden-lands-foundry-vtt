@@ -24,9 +24,11 @@
 		max-width: 50px;
 		&.kin,
 		&.profession {
+			text-align: left;
 			max-width: 120px;
 		}
 		&.name {
+			text-align: left;
 			max-width: 225px;
 		}
 	}
@@ -65,7 +67,7 @@
 
 .forbidden-lands .character .roll:hover {
 	box-shadow: none;
-	text-shadow: 0 0 8px #a00;
+	text-shadow: 0 0 8px var(--color-shadow-primary);
 }
 
 .forbidden-lands .character .push {
@@ -78,7 +80,7 @@
 
 .forbidden-lands .character .push:hover {
 	box-shadow: none;
-	text-shadow: 0 0 8px #a00;
+	text-shadow: 0 0 8px #a00404;
 }
 
 .forbidden-lands .monster h1,

@@ -1,17 +1,4 @@
 <div class="dice-infos">
-	{{#if (eq roll.type "spell")}}
-	{{#if (or roll.baneCount roll.options.chance)}}
-	<div class="dice-info">
-		<span class="result">
-			{{#unless roll.options.chance}}
-			{{localize "ROLL.MISHAP"}}
-			{{else}}
-			{{localize "ROLL.CHANCE"}}
-			{{/unless}}
-		</span>
-	</div>
-	{{/if}}
-	{{/if}}
 	{{#if roll.pushed}}
 	{{#if (and roll.attributeTrauma attributeLabel)}}
 	<div class="dice-info">

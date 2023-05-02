@@ -104,7 +104,6 @@ const fns = (type) => {
 			} else {
 				const newResult = results.reduce((obj, cur, i) => {
 					cur = Object.entries(cur);
-					console.log(cur);
 					return { ...obj, [cur[i][0]]: cur[i][1] };
 				}, {});
 				return [newResult];
@@ -144,13 +143,10 @@ const rollOnTable = (table, fn, count = 1, modifier = 0) => {
 	for (let i = 0; i < count; i++) {
 		let resultCount = 0;
 		const dieRoll = Math.floor(Math.random() * table.reduce((acc, cur) => acc + cur.weight, 0) + modifier + 1);
-		console.log("rolled: ", dieRoll);
 		// Loop over the table until we find the rolled result, accounting for the weight of each result
 		for (const result of table) {
 			resultCount += result.weight;
-			console.log("counting: ", resultCount);
 			if (dieRoll <= resultCount) {
-				console.log("result: ", result);
 				// Look for rerolls in each result
 				const rerolls = parseReRolls(result);
 				// If there are rerolls, roll again
@@ -178,7 +174,6 @@ export const init = async (path, adventureSite) => {
 	// initiate final data object with rolled data
 	let data = getRolledData(adventureSite);
 	data = moldData(data, adventureSite);
-	console.log(data);
 	// construct the html
 	const html = await renderTemplate(`modules/${path}/templates/${adventureSite}.hbs`, data);
 	const content = inlineRolls(html);

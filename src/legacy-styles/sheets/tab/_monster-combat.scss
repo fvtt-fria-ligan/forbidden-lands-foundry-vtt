@@ -1,95 +1,124 @@
-.forbidden-lands .monster .armors .armor {
-	align-items: center;
-	padding: 0 5px 5px 5px;
-}
+.forbidden-lands .monster {
+	.armors {
+		.armor {
+			align-items: center;
+			padding: 0 5px 5px 5px;
 
-.forbidden-lands .monster .armors .armor b {
-	flex-basis: 50%;
-}
+			&.total input {
+				flex-basis: 50%;
+				margin-right: 5px;
+				margin-left: 5px;
+				text-align: center;
+			}
 
-.forbidden-lands .monster .armors .armor input {
-	flex-basis: 25%;
-	margin-right: 5px;
-	text-align: center;
-}
+			b {
+				flex-basis: 50%;
+			}
 
-.forbidden-lands .monster .armors .armor input:last-child {
-	margin-right: 0;
-	margin-left: 5px;
-}
+			input {
+				flex-basis: 25%;
+				margin-right: 5px;
+				text-align: center;
 
-.forbidden-lands .monster .armors .armor.total input {
-	flex-basis: 50%;
-	margin-right: 5px;
-	margin-left: 5px;
-	text-align: center;
-}
+				&:last-child {
+					margin-right: 0;
+					margin-left: 5px;
+				}
+			}
+		}
+	}
 
-.forbidden-lands .monster .monster-talents {
-	overflow: hidden;
-	padding-bottom: 8px;
-}
+	.monster-talents {
+		overflow: hidden;
+		padding-bottom: 8px;
 
-.forbidden-lands .monster .monster-talents .monster-talent {
-	align-items: center;
-}
+		.monster-talent {
+			align-items: center;
 
-.forbidden-lands .monster .monster-talents .monster-talent .name {
-	align-items: center;
-	display: flex;
-	flex-basis: 90%;
-}
-.forbidden-lands .monster .monster-talents .monster-talent .name b {
-	font-size: small;
-	font-weight: bold;
-	text-transform: uppercase;
-}
-.forbidden-lands .monster .monster-talents .monster-talent .name .name {
-	display: block;
-	padding-left: 4px;
-}
-.forbidden-lands .monster .monster-talents .monster-talent .button {
-	flex-basis: 10%;
-	font-size: var(--font-size-12);
-	text-align: right;
-}
+			.name {
+				align-items: center;
+				display: flex;
+				flex-basis: 90%;
 
-.forbidden-lands .monster .monster-attacks {
-	margin-top: 8px;
-	overflow: hidden;
-}
+				b {
+					font-size: var(--font-size-14);
+					font-weight: bold;
+					text-transform: uppercase;
+				}
+				.name {
+					display: block;
+					padding-left: 4px;
+				}
+			}
 
-.forbidden-lands .monster .monster-attacks .monster-attack {
-	align-items: center;
-}
+			.button {
+				flex-basis: 10%;
+				font-size: var(--font-size-12);
+				text-align: right;
+			}
+		}
+	}
 
-.forbidden-lands .monster .monster-attacks .monster-attack button {
-	margin: -2px -4px;
-}
+	.monster-attacks {
+		margin-top: 8px;
+		overflow: hidden;
 
-.forbidden-lands .monster .monster-attacks .monster-attack .name {
-	align-items: center;
-	display: flex;
-	flex-basis: 90%;
-}
-.forbidden-lands .monster .monster-attacks .monster-attack .name a {
-	font-size: small;
-	font-weight: bold;
-	text-transform: uppercase;
-}
-.forbidden-lands .monster .monster-attacks .monster-attack .name .name {
-	display: block;
-	padding-left: 4px;
-}
-.forbidden-lands .monster .monster-attacks .monster-attack .button {
-	flex-basis: 10%;
-	font-size: var(--font-size-12);
-	text-align: right;
-}
+		ol {
+			list-style: none;
+			counter-reset: item;
+			margin: 0;
+			padding: 0;
 
-.forbidden-lands .monster .talent-description {
-	display: -webkit-box;
-	-webkit-line-clamp: 2;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
+			li {
+				counter-increment: item;
+
+				&:before {
+					margin-inline: 8px;
+					content: counter(item);
+					font-weight: 600;
+					font-size: var(--font-size-12);
+					text-align: center;
+					display: inline-block;
+				}
+			}
+		}
+
+		.monster-attack {
+			align-items: center;
+
+			button {
+				margin: -2px -4px;
+			}
+
+			.name {
+				align-items: center;
+				display: flex;
+				flex-basis: 90%;
+
+				a {
+					font-size: small;
+					font-weight: bold;
+					text-transform: uppercase;
+				}
+				.name {
+					padding-left: 4px;
+					font-size: var(--font-size-14);
+				}
+			}
+
+			.button {
+				flex-basis: 10%;
+				font-size: var(--font-size-12);
+				text-align: right;
+			}
+		}
+	}
+
+	.talent-description,
+	.monster-attack .name .name {
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
 }

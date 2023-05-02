@@ -18,6 +18,7 @@ export class ForbiddenLandsActor extends Actor {
 	}
 
 	get canAct() {
+		if (!this.attributes) return false;
 		return Object.entries(this.attributes).every(
 			([key, attribute]) => attribute.value > 0 || attribute.max <= 0 || key === "empathy",
 		);

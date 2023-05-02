@@ -423,6 +423,8 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			// Shields were long treated as armor. They are not. This is a workaround for that.
 			if (item.system.part === "shield") item.isWeapon = true;
 			else if (CONFIG.fbl.itemTypes.includes(item.type)) item[`is${item.type.capitalize()}`] = true;
+			item.isEquipped = item.flags?.state === "equipped";
+			item.isCarried = item.flags?.state === "carried";
 		}
 		return data;
 	}
@@ -523,7 +525,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		Hooks.once("renderDialog", (_, html) =>
 			html
 				.find("option")
-				.filter((i, el) =>
+				.filter((_i, el) =>
 					[
 						"criticalInjury",
 						"building",

@@ -184,11 +184,11 @@ Following are some of the files and folders that you may be interested in editin
 2. `dist/` \*_Generated_: The directory contains the output of the build process. It is not part of the git repository.
 3. `node_modules/` \*_Generated_: A directory generated when running the `npm install` command. It contains all the dependencies of the project.
 4. `src/`: This is the directory you want to focus most of your attention on. It contains the following subdirectories:
-    - `lang`: Language files. You may opt to do localization directly on the files. _**Note:** This is not the preferred way of doing localization._
-    - `module`: Javascript modules. The main file `forbidden-lands.js` imports the scripts in the subdirectories and configures the system.
-    - `styles`: The project uses SASS (SCSS). It is almost like CSS except it allows for modularization and more perks. `forbidden-lands.scss` only imports the various partial files.
-    - `templates`: This is the folder that contains all the html, or handlebars partials if you like. They are formatted as `.hbs`.
-5. `static/`: The static directory contains assets and the system- and template.json files. This directory rarely sees changes. Character generation datasets are contained in `assets/`.
+    - `forbidden-lands.js` imports the scripts in the subdirectories and configures the system.
+    - `forbidden-lands.scss` only imports the various partial files.
+5. `static/`: The static directory contains assets and the system- and template.json files. This directory rarely sees changes.
+    - `assets/` Character generation datasets are contained in the `datasets` subdirectory.
+    - `lang/`: Language files. You may opt to do localization directly on the files. _**Note:** This is not the preferred way of doing localization._
 6. `.editorconfig`, `.eslintrc.json`, `.prettierrc.json`: These files achieve the same goal. They lint and format the code to comply with the style guide.
 7. `.eslintignore`, `.gitignore`, `.nvmrc`, `.prettierignore`: These are ignore files configured to ignore certain directories that do not require linting or configuring.
 8. `CHANGELOG.md`: This file contains changes made up until the latest release. It is automatically generated when one of the admins bumps the version of the system.
@@ -220,7 +220,16 @@ If you want to work on a bug or a feature yourself, please raise an issue first 
 
 ### Localization
 
-Check the instructions for [localization with GitLocalize](#globe_with_meridians-Localization), as this helps you help us with localization.
+Thank you for wanting to help with localization. You can find the localization files in the `static/lang` directory. The files are named according to the [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) standard. If you want to contribute with localization, please follow these steps:
+
+1.  Fork the repository.
+2.  Create a new branch from the `main` branch.
+3.  Make your changes in the `.json`-file for your desired language, or make a new one\*\*. You can reference the `en.json`-file to see what keys are used.
+4.  Commit your changes. Make sure to follow the [Conventional Commits Standards](https://www.conventionalcommits.org/en/v1.0.0-beta.2/).
+5.  Push your changes to your fork.
+6.  Open a pull request to the `main` branch of the repository.
+
+\*\*If you are making a new file, make sure to add it to the `manifests/v10/system.json`-file.
 
 ### Spread the word
 

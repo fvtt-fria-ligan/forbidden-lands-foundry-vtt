@@ -12,13 +12,29 @@
 			</div>
 		</div>
 	</div>
-	<div class="party-member-list">
-		<h1>{{localize "FLPS.PARTY.MEMBERS" }}</h1>
-		<div class="tab-hint">{{localize "FLPS.PARTY.HINT_ADD"}}</div>
-		<ol>
-			{{#each partyMembers as | partyMember |}}
-{{> systems/forbidden-lands/templates/actor/party/components/member-component.hbs partyMember=partyMember deleteButton=true}}
+	<div class="flex row main">
+		<div class="party-member-list">
+			<h3>{{localize "FLPS.PARTY.MEMBERS" }}</h3>
+			<div class="tab-hint">{{localize "FLPS.PARTY.HINT_ADD"}}</div>
+			<ol>
+				{{#each partyMembers as | partyMember |}}
+		{{> systems/forbidden-lands/templates/actor/party/components/member-component.hbs partyMember=partyMember deleteButton=true}}
+				{{/each}}
+			</ol>
+		</div>
+		{{#if isGm}}
+		<div class="random-enc">
+			<h3>{{localize "FLPS.PARTY.RANDOM_ENCOUNTERS"}}</h3>
+			<ul>
+			{{#each encounterTables as | value |}}
+				<li>
+					<button class="encounter-table" data-id="{{value}}"><i class="fas fa-dice"></i>{{@key}}</button>
+				</li>
 			{{/each}}
-		</ol>
+			</ul>
+			<hr style="width: 100%;" />
+			<button class="configure-tables"><i class="fas fa-th-list"></i> {{localize "CONFIG.TABLE_CONFIG_MENU_LABEL"}}</button>
+		</div>
+		{{/if}}
 	</div>
 </div>
