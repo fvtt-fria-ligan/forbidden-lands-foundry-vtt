@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [10.2.1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.2.0...v10.2.1) (2023-05-03)
+
+
+### Bug Fixes
+
+* 🐛 Accumulate carrying capacity modifiers ([170eb85](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/170eb85e4505f9ab95ea63d6cc0ac2a390a5b3d6)), closes [#295](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/295)
+* 🐛 Add setting for collapsing sheet header buttons ([db5f679](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/db5f67913b960b8b95fe520872151b4f3ab5ffe1))
+* 🐛 Find a prey button not working ([16f1d86](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/16f1d86473f064acb9f4034ea2f78d53dd56e29a)), closes [#310](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/310)
+
 ## [10.2.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.1.1...v10.2.0) (2023-05-02)
 
 
