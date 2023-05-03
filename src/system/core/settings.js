@@ -157,6 +157,15 @@ export default function registerSettings() {
 		onChange: debouncedReload,
 		type: Boolean,
 	});
+	game.settings.register("forbidden-lands", "collapseSheetHeaderButtons", {
+		name: "CONFIG.COLLAPSE_SHEET_HEADER_BUTTONS",
+		hint: "CONFIG.COLLAPSE_SHEET_HEADER_BUTTONS_DESC",
+		scope: "client",
+		config: true,
+		default: false,
+		type: Boolean,
+		onChange: debouncedReload,
+	});
 	game.settings.register("forbidden-lands", "datasetDir", {
 		name: "FLCG.SETTINGS.DATASET_DIR",
 		hint: "FLCG.SETTINGS.DATASET_DIR_HINT",

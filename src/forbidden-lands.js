@@ -31,6 +31,7 @@ import { initializeEditorEnrichers } from "@system/core/editor.js";
 
 Hooks.once("init", () => {
 	FoundryOverrides(); // Initialize Foundry Overrides
+	registerSettings();
 	registerHooks();
 	game.fbl = {
 		config: FBL,
@@ -56,7 +57,6 @@ Hooks.once("init", () => {
 	registerSheets();
 	initializeHandlebars();
 	initializeEditorEnrichers();
-	registerSettings();
 	modifyConfig();
 });
 
