@@ -105,28 +105,6 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 	/************************************************/
 	/************************************************/
 
-	computeEncumbrance(data) {
-		let weightCarried = 0;
-		for (let item of Object.values(data.items)) {
-			weightCarried += this.computeItemEncumbrance(item);
-		}
-		const weightAllowed = data.system.attribute.strength.max * 2 * (data.system.isMounted ? 1 : 2);
-		data.system.encumbrance = {
-			value: weightCarried,
-			max: weightAllowed,
-			over: weightCarried > weightAllowed,
-		};
-	}
-
-	/* Override */
-	// _onConfigureSheet(event) {
-	// 	event.preventDefault();
-	// 	new ActorSheetConfig(this.actor, {
-	// 		top: this.position.top + 40,
-	// 		left: this.position.left + (this.position.width - 400) / 2,
-	// 	}).render(true);
-	// }
-
 	_getHeaderButtons() {
 		let buttons = super._getHeaderButtons();
 
