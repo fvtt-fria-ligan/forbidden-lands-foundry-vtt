@@ -16,8 +16,8 @@
 	"minimumCoreVersion": 10,
 	"compatibility": {
 		"minimum": 10,
-		"verified": 10.288,
-		"maximum": 10
+		"verified": 10.291,
+		"maximum": 11
 	},
 	"contributors": "perfectro, patrys, Maxter, jimorie, giant-teapot, romelwell, roonel, moo-man, lasseborly",
 	"localization": "Rosataker, ptosekigloo, DavidCMeier, ismail-ahmed, franklinbenini",
