@@ -157,8 +157,8 @@ export default function registerHooks() {
 				let table;
 
 				if (tableButton.dataset.action === "prey") {
-					const tables = game.settings.get("forbidden-lands", "mishapTables");
-					table = game.tables.get(tables["travel-found-prey"]);
+					const tables = game.settings.get("forbidden-lands", "otherTables");
+					table = game.tables.get(tables["travel-find-prey"]);
 				} else table = game.tables.get(tableButton.dataset.id);
 
 				if (table) table.draw({ displayChat: true });
