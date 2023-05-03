@@ -13,11 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2.2.1
-      - name: Setup NodeJS 18
+      - uses: pnpm/action-setup@v2.2.4
+      - name: Setup NodeJS 20
         uses: actions/setup-node@v3
         with:
-          node-version: "18"
+          node-version: "20"
           cache: "pnpm"
       - name: "Install Dependencies"
         run: pnpm -recursive install
@@ -25,19 +25,14 @@ jobs:
         run: pnpm run build
       - name: Get Version Tag
         id: version
-        uses: ncipollo/semantic-version-action@v1
-      - name: Generate Changelog
-        id: changelog
-        uses: mikepenz/release-changelog-builder-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: ncipollo/semantic-version-action@v1.0.1
       - name: Create Zipped Artifact
         run: |
           cd dist/
           zip -r ../fbl-fvtt_${{ steps.version.outputs.tag }}.zip *
       - name: Create Release
-        uses: ncipollo/release-action@v1.9.0
+        uses: ncipollo/release-action@v1.12.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           artifacts: "fbl-fvtt_${{ steps.version.outputs.tag }}.zip"
-          body: ${{ steps.changelog.outputs.changelog }}
+          generateReleaseNotes: true
