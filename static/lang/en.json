@@ -112,6 +112,8 @@
 	"CONFIG.EFFECTFIELD": "Show effect field",
 	"CONFIG.MAX_INIT_DESC": "Used to set the maximum initiative value for the initiative roll.",
 	"CONFIG.MAX_INIT": "Max Initiative",
+	"CONFIG.COLLAPSE_SHEET_HEADER_BUTTONS": "Collapse sheet header buttons",
+	"CONFIG.COLLAPSE_SHEET_HEADER_BUTTONS_DESC": "Collapses the buttons in the headers of all sheets to just icons, removing the text.",
 	"CONFIG.SHEET.CHARACTER_SUBTYPE_DESC": "Select whether this is a PC or NPC. An NPC provides a pared down character sheet and added functionality for the GM to more easily run NPCs.",
 	"CONFIG.SHEET.CHARACTER_SUBTYPE": "Subtype",
 	"CONFIG.SUPPLYFIELD_DESC": "Used to show or hide the supply field on item sheets.",

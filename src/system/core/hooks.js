@@ -57,34 +57,35 @@ export default function registerHooks() {
 		} else return true;
 	});
 
-	for (const hook of ["renderItemSheet", "renderActorSheet", "renderJournalSheet", "renderApplication"]) {
-		Hooks.on(hook, (_app, html) => {
-			html.find(".char-gen")?.html(
-				`<i class="fas fa-leaf" data-tooltip="${game.i18n.localize("SHEET.HEADER.CHAR_GEN")}"></i>`,
-			);
-			html.find(".rest-up")?.html(
-				`<i class="fas fa-bed" data-tooltip="${game.i18n.localize("SHEET.HEADER.REST")}"></i>`,
-			);
-			html.find(".custom-roll")?.html(
-				`<i class="fas fa-dice" data-tooltip="${game.i18n.localize("SHEET.HEADER.ROLL")}"></i>`,
-			);
-			html.find(".configure-sheet")?.html(
-				`<i class="fas fa-cog" data-tooltip="${game.i18n.localize("SHEET.CONFIGURE")}"></i>`,
-			);
-			html.find(".configure-token")?.html(
-				`<i class="fas fa-user-circle" data-tooltip="${game.i18n.localize("SHEET.TOKEN")}"></i>`,
-			);
-			html.find(".item-post")?.html(
-				`<i class="fas fa-comment" data-tooltip="${game.i18n.localize("SHEET.HEADER.POST_ITEM")}"></i>`,
-			);
-			html.find(".share-image")?.html(
-				`<i class="fas fa-eye" data-tooltip="${game.i18n.localize("JOURNAL.ActionShow")}"></i>`,
-			);
-			html.find(".close")?.html(
-				`<i class="fas fa-times" data-tooltip="${game.i18n.localize("SHEET.CLOSE")}"></i>`,
-			);
-		});
-	}
+	if (game.settings.get("forbidden-lands", "collapseSheetHeaderButtons"))
+		for (const hook of ["renderItemSheet", "renderActorSheet", "renderJournalSheet", "renderApplication"]) {
+			Hooks.on(hook, (_app, html) => {
+				html.find(".char-gen")?.html(
+					`<i class="fas fa-leaf" data-tooltip="${game.i18n.localize("SHEET.HEADER.CHAR_GEN")}"></i>`,
+				);
+				html.find(".rest-up")?.html(
+					`<i class="fas fa-bed" data-tooltip="${game.i18n.localize("SHEET.HEADER.REST")}"></i>`,
+				);
+				html.find(".custom-roll")?.html(
+					`<i class="fas fa-dice" data-tooltip="${game.i18n.localize("SHEET.HEADER.ROLL")}"></i>`,
+				);
+				html.find(".configure-sheet")?.html(
+					`<i class="fas fa-cog" data-tooltip="${game.i18n.localize("SHEET.CONFIGURE")}"></i>`,
+				);
+				html.find(".configure-token")?.html(
+					`<i class="fas fa-user-circle" data-tooltip="${game.i18n.localize("SHEET.TOKEN")}"></i>`,
+				);
+				html.find(".item-post")?.html(
+					`<i class="fas fa-comment" data-tooltip="${game.i18n.localize("SHEET.HEADER.POST_ITEM")}"></i>`,
+				);
+				html.find(".share-image")?.html(
+					`<i class="fas fa-eye" data-tooltip="${game.i18n.localize("JOURNAL.ActionShow")}"></i>`,
+				);
+				html.find(".close")?.html(
+					`<i class="fas fa-times" data-tooltip="${game.i18n.localize("SHEET.CLOSE")}"></i>`,
+				);
+			});
+		}
 
 	/**
 	 * Localize header buttons on Item Sheets and Actor Sheets.
