@@ -2,6 +2,6 @@
 	@if $from == $to {
 		@return "#{$pref}#{$from}";
 	} @else {
-		@return "#{$pref}#{$from},"+fromTo($pref, $from + 1, $to);
+		@return "#{$pref}#{$from}," + fromTo($pref, $from + 1, $to);
 	}
 }
