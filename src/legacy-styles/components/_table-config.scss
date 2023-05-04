@@ -1,0 +1,36 @@
+.tables-config {
+	form {
+		display: grid;
+		grid-template-columns: repeat(2, auto);
+		gap: 16px;
+	}
+
+	fieldset {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 16px;
+
+		&.encounter {
+			grid-template-columns: 1fr 1fr;
+			grid-row: span 2;
+		}
+	}
+
+	button[type="submit"] {
+		grid-column: span 2;
+	}
+
+	legend {
+		font-weight: 600;
+		font-size: var(--font-size-18);
+	}
+
+	label {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		max-width: 250px;
+
+		font-weight: 600;
+	}
+}

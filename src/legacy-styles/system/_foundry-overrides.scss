@@ -1,33 +1,13 @@
 .window-app .window-header a.header-button {
-	@mixin hoverWidth($class) {
-		&.#{$class}:hover {
-			max-width: 200px;
-			color: #292929f0;
-		}
-	}
 	display: flex;
 	flex-flow: row-reverse;
 	align-items: center;
-	max-width: 34px;
 	height: 26px;
 	white-space: nowrap;
 	line-height: 1;
 	overflow: hidden;
 	padding-left: 6px;
 	margin: 0 0 0 4px;
-	color: transparent;
-	transition: max-width 1s ease;
-	@include hoverWidth("char-gen");
-	@include hoverWidth("rest-up");
-	@include hoverWidth("custom-roll");
-	@include hoverWidth("push-roll");
-	@include hoverWidth("configure-sheet");
-	@include hoverWidth("configure-token");
-	@include hoverWidth("item-post");
-	@include hoverWidth("share-image");
-	@include hoverWidth("entry-text");
-	@include hoverWidth("entry-image");
-	@include hoverWidth("close");
 	> i {
 		font-size: var(--font-size-16);
 		margin-left: 10px;
@@ -91,10 +71,6 @@ h3 {
 		border: none;
 		width: 19px;
 		height: 19px;
-
-		&:hover {
-			text-shadow: 0 0 5px #a00;
-		}
 
 		i.fas {
 			transform: translateY(-1.5px) rotate(45deg);
@@ -181,9 +157,6 @@ a.inline-roll {
 a {
 	&.inline-roll {
 		border: none;
-	}
-	&:hover {
-		text-shadow: 0 0 5px #a00;
 	}
 }
 
@@ -352,7 +325,7 @@ li {
 
 	&:hover,
 	&.active {
-		background: #700;
+		background: var(--color-shadow-primary);
 	}
 }
 
@@ -400,4 +373,16 @@ li {
 a.card-control > i.fa-caret-down,
 a.card-control > i.fa-caret-up {
 	font-size: var(--font-size-16);
+}
+
+#controls ol.control-tools > li.toggle {
+	background: #a0040466;
+	border-color: var(--color-border-dark-tertiary);
+
+	&.active,
+	&:hover {
+		background: #a00404;
+		border-color: var(--color-border-dark-tertiary);
+		box-shadow: 0 0 10px var(--color-shadow-primary);
+	}
 }

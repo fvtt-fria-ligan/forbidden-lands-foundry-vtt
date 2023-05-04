@@ -28,8 +28,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 				class: "item-post",
 				icon: "fas fa-comment",
 				onclick: () => {
-					const item = this.item;
-					item.sendToChat();
+					this.item.sendToChat();
 				},
 			},
 		].concat(buttons);

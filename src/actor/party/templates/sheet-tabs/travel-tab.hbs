@@ -4,7 +4,6 @@
 		<button class="reset">{{localize "FLPS.TRAVEL.RESET"}}</button>
 	</form>
 	<ul class="travel-actions">
-		{{log this}}
 		{{#each travelActions as |action|}}
 			<li class="border action-{{action.key}}">
 {{> systems/forbidden-lands/templates/actor/party/components/action-component.hbs assignedCharacters=action.participants action=action }}

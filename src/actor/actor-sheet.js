@@ -215,6 +215,48 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		});
 	}
 
+	computeEncumbrance(data) {
+		let weightCarried = 0;
+
+		// Get the weight of all items
+		for (let item of Object.values(data.items)) {
+			weightCarried += this.computeItemEncumbrance(item);
+		}
+
+		if (this.actor.type === "character") {
+			// Get the weight of all consumables
+			for (let consumable of Object.values(data.system.consumable)) {
+				if (consumable.value > 0) {
+					weightCarried += 1;
+				}
+			}
+
+			// Get the weight of all coins
+			const coinsCarried =
+				parseInt(data.system.currency.gold.value) +
+				parseInt(data.system.currency.silver.value) +
+				parseInt(data.system.currency.copper.value);
+			weightCarried += Math.floor(coinsCarried / 100) * 0.5;
+		}
+
+		// Calculate max encumbrance
+		const baseEncumbrance = data.system.attribute.strength.value * 2;
+		// eslint-disable-next-line no-nested-ternary
+		const monsterEncumbranceMultiplier = this.actor.type === "monster" ? (data.system.isMounted ? 1 : 2) : 1;
+
+		const modifiers = this.actor.getRollModifierOptions("carryingCapacity");
+		const weightAllowed =
+			baseEncumbrance * monsterEncumbranceMultiplier +
+			// Moidifers
+			modifiers.reduce((acc, m) => (acc += parseInt(m?.value || 0)), 0);
+		data.system.encumbrance = {
+			value: weightCarried,
+			max: weightAllowed,
+			over: weightCarried > weightAllowed,
+		};
+		return data;
+	}
+
 	broken(type) {
 		const msg = type === "item" ? "WARNING.ITEM_BROKEN" : "WARNING.ACTOR_BROKEN";
 		const locmsg = localizeString(msg);
@@ -433,6 +475,8 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			// Shields were long treated as armor. They are not. This is a workaround for that.
 			if (item.system.part === "shield") item.isWeapon = true;
 			else if (CONFIG.fbl.itemTypes.includes(item.type)) item[`is${item.type.capitalize()}`] = true;
+			item.isEquipped = item.flags?.state === "equipped";
+			item.isCarried = item.flags?.state === "carried";
 		}
 		return data;
 	}
@@ -533,7 +577,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		Hooks.once("renderDialog", (_, html) =>
 			html
 				.find("option")
-				.filter((i, el) =>
+				.filter((_i, el) =>
 					[
 						"criticalInjury",
 						"building",

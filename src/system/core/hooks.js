@@ -35,6 +35,9 @@ export default function registerHooks() {
 				skill: { label: "DICE.SKILL", value: 0 },
 				gear: { label: "DICE.GEAR", value: 0, artifactDie: "" },
 			};
+			const options = {
+				modifiers: [],
+			};
 			if (dice) {
 				for (const term of dice) {
 					const [num, deno] = term.split("d");
@@ -42,40 +45,70 @@ export default function registerHooks() {
 						b: "attribute",
 						s: "skill",
 						g: "gear",
+						n: "negative",
 					};
-					if (map[deno]) data[map[deno]].value += Number(num);
+					if (map[deno] === "negative") options.modifiers.push({ value: -Number(num), active: true });
+					else if (map[deno]) data[map[deno]].value += Number(num);
 					else data.gear.artifactDie += term;
 				}
 			}
-			FBLRollHandler.createRoll(data);
+			FBLRollHandler.createRoll(data, options);
 			return false;
 		} else return true;
 	});
+
+	if (game.settings.get("forbidden-lands", "collapseSheetHeaderButtons"))
+		for (const hook of ["renderItemSheet", "renderActorSheet", "renderJournalSheet", "renderApplication"]) {
+			Hooks.on(hook, (_app, html) => {
+				html.find(".char-gen")?.html(
+					`<i class="fas fa-leaf" data-tooltip="${game.i18n.localize("SHEET.HEADER.CHAR_GEN")}"></i>`,
+				);
+				html.find(".rest-up")?.html(
+					`<i class="fas fa-bed" data-tooltip="${game.i18n.localize("SHEET.HEADER.REST")}"></i>`,
+				);
+				html.find(".custom-roll")?.html(
+					`<i class="fas fa-dice" data-tooltip="${game.i18n.localize("SHEET.HEADER.ROLL")}"></i>`,
+				);
+				html.find(".configure-sheet")?.html(
+					`<i class="fas fa-cog" data-tooltip="${game.i18n.localize("SHEET.CONFIGURE")}"></i>`,
+				);
+				html.find(".configure-token")?.html(
+					`<i class="fas fa-user-circle" data-tooltip="${game.i18n.localize("SHEET.TOKEN")}"></i>`,
+				);
+				html.find(".item-post")?.html(
+					`<i class="fas fa-comment" data-tooltip="${game.i18n.localize("SHEET.HEADER.POST_ITEM")}"></i>`,
+				);
+				html.find(".share-image")?.html(
+					`<i class="fas fa-eye" data-tooltip="${game.i18n.localize("JOURNAL.ActionShow")}"></i>`,
+				);
+				html.find(".close")?.html(
+					`<i class="fas fa-times" data-tooltip="${game.i18n.localize("SHEET.CLOSE")}"></i>`,
+				);
+			});
+		}
 
 	/**
 	 * Localize header buttons on Item Sheets and Actor Sheets.
 	 * These are hardcoded in English in Foundry. Bad practice. Thus we fix.
 	 */
-	Hooks.on("renderItemSheet", function (app, html) {
+	Hooks.on("renderItemSheet", function (app) {
 		app._element[0].style.height = "auto";
-
-		html.find(".close").html(`<i class="fas fa-times"></i>` + game.i18n.localize("SHEET.CLOSE"));
-		html.find(".configure-sheet").html(`<i class="fas fa-cog"></i>` + game.i18n.localize("SHEET.CONFIGURE"));
-		html.find(".configure-token").html(`<i class="fas fa-user-circle"></i>` + game.i18n.localize("SHEET.TOKEN"));
 	});
 
-	Hooks.on("renderActorSheet", (app, html) => {
+	Hooks.on("renderActorSheet", function (app, html) {
 		if (app.actor.system.type === "party") app._element[0].style.height = "auto";
-
-		html.find(".close").html(`<i class="fas fa-times"></i>` + game.i18n.localize("SHEET.CLOSE"));
-		html.find(".configure-sheet").html(`<i class="fas fa-cog"></i>` + game.i18n.localize("SHEET.CONFIGURE"));
-		html.find(".configure-token").html(`<i class="fas fa-user-circle"></i>` + game.i18n.localize("SHEET.TOKEN"));
 
 		if (app.cellId?.match(/#gm-screen.+/)) {
 			const buttons = html.find("button");
 			buttons.each((_i, button) => {
 				button.disabled = false;
 			});
+		}
+	});
+
+	Hooks.on("renderJournalSheet", function (app, html) {
+		if (app.document.flags["forbidden-lands"]?.isBook) {
+			html.addClass("fbl-book");
 		}
 	});
 
@@ -117,6 +150,20 @@ export default function registerHooks() {
 						});
 					else fireEvent();
 				}
+			});
+		}
+		const tableButton = html.find(".fbl-button.table")[0];
+		if (tableButton) {
+			tableButton.addEventListener("click", async () => {
+				let table;
+
+				if (tableButton.dataset.action === "prey") {
+					const tables = game.settings.get("forbidden-lands", "otherTables");
+					table = game.tables.get(tables["travel-find-prey"]);
+				} else table = game.tables.get(tableButton.dataset.id);
+
+				if (table) table.draw({ displayChat: true });
+				else ui.notifications?.warn("Could not find mishap table");
 			});
 		}
 	});

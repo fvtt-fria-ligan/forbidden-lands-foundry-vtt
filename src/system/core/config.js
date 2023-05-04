@@ -171,6 +171,24 @@ FBL.i18n = {
 	"travel-catch-fish": "FLPS.TRAVEL_ROLL.CATCH_FISH",
 	"travel-make-camp": "FLPS.TRAVEL_ROLL.MAKE_CAMP",
 	carryingCapacity: "CARRYING_CAPACITY",
+	"dark-forest": "BIOME.DARK_FOREST",
+	forest: "BIOME.FOREST",
+	hills: "BIOME.HILLS",
+	lake: "BIOME.LAKE",
+	marshlands: "BIOME.MARSHLANDS",
+	mountains: "BIOME.MOUNTAINS",
+	plains: "BIOME.PLAINS",
+	quagmire: "BIOME.QUAGMIRE",
+	ruins: "BIOME.RUINS",
+	"beneath-the-ice": "BIOME.BENEATH_THE_ICE",
+	"ice-cap": "BIOME.ICE_CAP",
+	"ice-forest": "BIOME.ICE_FOREST",
+	"sea-ice": "BIOME.SEA_ICE",
+	tundra: "BIOME.TUNDRA",
+	"crimson-forest": "BIOME.CRIMSON_FOREST",
+	ashlands: "BIOME.ASHLANDS",
+	ocean: "BIOME.OCEAN",
+	firelands: "BIOME.FIRELANDS",
 };
 
 FBL.itemTypes = [
@@ -185,6 +203,38 @@ FBL.itemTypes = [
 	"talent",
 	"weapon",
 ];
+
+FBL.mishapTables = [
+	"travel-make-camp",
+	"travel-catch-fish",
+	"travel-find-food",
+	"travel-find-prey",
+	"travel-navigate",
+	"spell",
+];
+
+FBL.encounterTables = [
+	"dark-forest",
+	"forest",
+	"hills",
+	"lake",
+	"marshlands",
+	"mountains",
+	"plains",
+	"quagmire",
+	"ruins",
+	"beneath-the-ice",
+	"ice-cap",
+	"ice-forest",
+	"sea-ice",
+	"tundra",
+	"ocean",
+	"firelands",
+	"crimson-forest",
+	"ashlands",
+];
+
+FBL.otherTables = ["travel-find-prey"];
 
 FBL.prideDice = "1d12";
 

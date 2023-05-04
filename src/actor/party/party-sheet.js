@@ -1,4 +1,6 @@
 import { TravelActionsConfig } from "@actor/party/components/travel-actions";
+import { TableConfigMenu } from "@system/core/settings.js";
+import localizeString from "@utils/localize-string.js";
 export class ForbiddenLandsPartySheet extends ActorSheet {
 	static get defaultOptions() {
 		let dragDrop = [...super.defaultOptions.dragDrop];
@@ -21,10 +23,12 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 		const data = await super.getData().data;
 		data.partyMembers = {};
 		data.travelActions = this.getTravelActions();
+		data.encounterTables = await this.getEncounterTables();
+		data.isGm = game.user.isGM;
 		let ownedActorId;
 		for (let i = 0; i < (data.system.members || []).length; i++) {
 			ownedActorId = data.system.members[i];
-			data.partyMembers[ownedActorId] = game.actors.get(ownedActorId).data;
+			data.partyMembers[ownedActorId] = game.actors.get(ownedActorId);
 		}
 		data.system.description = await TextEditor.enrichHTML(data.system.description, { async: true });
 		return data;
@@ -37,6 +41,19 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 		html.find(".reset").click((event) => {
 			event.preventDefault();
 			this.resetTravelActions();
+			this.render(true);
+		});
+
+		html.find(".encounter-table").click(async (event) => {
+			event.preventDefault();
+			const target = event.currentTarget;
+			const table = game.tables.get(target.dataset.id);
+			await table.draw();
+		});
+
+		html.find(".configure-tables").click(async (event) => {
+			event.preventDefault();
+			await new TableConfigMenu().render(true);
 			this.render(true);
 		});
 
@@ -56,6 +73,16 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 			action.participants = this.document.system.travel[action.key].map((id) => game.actors.get(id));
 		}
 		return travelActions;
+	}
+
+	async getEncounterTables() {
+		const tableSettings = game.settings.get("forbidden-lands", "encounterTables");
+		const tables = Object.fromEntries(
+			Object.entries(tableSettings)
+				.filter((t) => !!t[1])
+				.map((t) => [localizeString(t[0]), t[1]]),
+		);
+		return tables;
 	}
 
 	async handleRemoveMember(event) {

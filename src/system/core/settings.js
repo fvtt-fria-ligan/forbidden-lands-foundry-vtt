@@ -1,3 +1,5 @@
+import localizeString from "@utils/localize-string.js";
+
 Hooks.on("renderSettingsConfig", (_app, html, _user) => {
 	const target = html.find('input[name="forbidden-lands.datasetDir"]')[0];
 	if (!target) return;
@@ -23,6 +25,93 @@ Hooks.on("renderSettingsConfig", (_app, html, _user) => {
 });
 
 const debouncedReload = foundry.utils.debounce(() => window.location.reload(), 100);
+
+export class TableConfigMenu extends FormApplication {
+	#resolve = null;
+	#promise = new Promise((resolve) => {
+		this.#resolve = resolve;
+	});
+
+	constructor(options = {}) {
+		super(options);
+	}
+
+	static get defaultOptions() {
+		return mergeObject(super.defaultOptions, {
+			template: "systems/forbidden-lands/templates/components/tables-config.hbs",
+			classes: ["tables-config"],
+			title: "CONFIG.TABLE_CONFIG.TITLE",
+			submitOnClose: false,
+		});
+	}
+
+	async getData() {
+		const data = await super.getData();
+		const mishapConfig = game.settings.get("forbidden-lands", "mishapTables");
+		const encounterConfig = game.settings.get("forbidden-lands", "encounterTables");
+		const otherConfig = game.settings.get("forbidden-lands", "otherTables");
+		const mishapKeys = CONFIG.fbl.mishapTables;
+		const encounterKeys = CONFIG.fbl.encounterTables;
+		const otherKeys = CONFIG.fbl.otherTables;
+		data.mishapTables = mishapKeys.map((key) => ({
+			key,
+			name: localizeString(key),
+			id: mishapConfig[key],
+		}));
+		data.encounterTables = encounterKeys.map((key) => ({
+			key,
+			name: localizeString(key),
+			id: encounterConfig[key],
+		}));
+		data.otherTables = otherKeys.map((key) => ({
+			key,
+			name: localizeString(key),
+			id: otherConfig[key],
+		}));
+
+		data.tables = (() => {
+			const selectOptions = {};
+			const tree = game.tables.directory.folders;
+			for (const folder of tree) {
+				const options =
+					folder.contents?.map((table) => `<option value="${table.id}">${table.name}</option>`) ?? null;
+				if (options.length > 0) {
+					if (selectOptions[folder.name]) {
+						selectOptions[folder.name] += options;
+					} else {
+						const property = `<optgroup label="${folder.name}">${options}`;
+						selectOptions[folder.name] = property;
+					}
+				}
+			}
+			return Object.values(selectOptions).join("");
+		})();
+		return data;
+	}
+
+	_updateObject(_event, formData) {
+		const tables = Object.entries(formData).reduce((acc, [key, value]) => {
+			const [tableType, tableKey] = key.split("_");
+			if (!acc[tableType]) acc[tableType] = {};
+			acc[tableType][tableKey] = value;
+			return acc;
+		}, {});
+
+		game.settings.set("forbidden-lands", "mishapTables", tables.mishap);
+		game.settings.set("forbidden-lands", "encounterTables", tables.encounter);
+		game.settings.set("forbidden-lands", "otherTables", tables.other);
+	}
+
+	async render(force, context = {}) {
+		await super.render(force, context);
+		return this.#promise;
+	}
+
+	async close(...args) {
+		await super.close(...args);
+		this.#resolve();
+	}
+}
 
 export default function registerSettings() {
 	game.settings.register("forbidden-lands", "worldSchemaVersion", {
@@ -67,6 +156,15 @@ export default function registerSettings() {
 		default: false,
 		onChange: debouncedReload,
 		type: Boolean,
+	});
+	game.settings.register("forbidden-lands", "collapseSheetHeaderButtons", {
+		name: "CONFIG.COLLAPSE_SHEET_HEADER_BUTTONS",
+		hint: "CONFIG.COLLAPSE_SHEET_HEADER_BUTTONS_DESC",
+		scope: "client",
+		config: true,
+		default: false,
+		type: Boolean,
+		onChange: debouncedReload,
 	});
 	game.settings.register("forbidden-lands", "datasetDir", {
 		name: "FLCG.SETTINGS.DATASET_DIR",
@@ -132,6 +230,32 @@ export default function registerSettings() {
 		config: true,
 		default: true,
 		type: Boolean,
+	});
+	game.settings.register("forbidden-lands", "mishapTables", {
+		name: "Mishap Tables",
+		scope: "world",
+		config: false,
+		default: {},
+	});
+	game.settings.register("forbidden-lands", "encounterTables", {
+		name: "Encounter Tables",
+		scope: "world",
+		config: false,
+		default: {},
+	});
+	game.settings.register("forbidden-lands", "otherTables", {
+		name: "Other Tables",
+		scope: "world",
+		config: false,
+		default: {},
+	});
+	game.settings.registerMenu("forbidden-lands", "tableConfigMenu", {
+		name: "CONFIG.TABLE_CONFIG_MENU",
+		hint: "CONFIG.TABLE_CONFIG_MENU_DESC",
+		label: "CONFIG.TABLE_CONFIG_MENU_LABEL",
+		icon: "fas fa-th-list",
+		type: TableConfigMenu,
+		restricted: true,
 	});
 	game.settings.register("forbidden-lands", "useHealthAndResolve", {
 		name: "CONFIG.HEALTHANDRESOLVE",

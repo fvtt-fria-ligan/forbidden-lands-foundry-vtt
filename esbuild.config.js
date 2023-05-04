@@ -1,11 +1,11 @@
-import { build } from "esbuild";
+import { context } from "esbuild";
 import { sassPlugin } from "esbuild-sass-plugin";
 import templatePathsPromise from "./tools/get-template-paths.js";
 
 const templatePaths = await templatePathsPromise;
 
-export default ({ watch = false, production = false } = {}) =>
-	build({
+export default async ({ watch = false, production = false } = {}) => {
+	const ctx = await context({
 		bundle: true,
 		entryPoints: ["./src/forbidden-lands.js", "./src/forbidden-lands.scss"],
 		outdir: "dist",
@@ -19,7 +19,6 @@ export default ({ watch = false, production = false } = {}) =>
 		define: {
 			GLOBALPATHS: JSON.stringify(templatePaths),
 		},
-		watch,
 		plugins: [
 			sassPlugin({
 				logger: {
@@ -36,3 +35,8 @@ export default ({ watch = false, production = false } = {}) =>
 			},
 		],
 	});
+
+	ctx.rebuild();
+
+	if (watch) ctx.watch();
+};

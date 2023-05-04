@@ -1,0 +1,30 @@
+{{#*inline "tables" config scope}}
+  {{#each config as |table|}}
+		<label>
+			{{table.name}}
+			<select name="{{../scope}}_{{table.key}}">
+				{{#select table.id}}
+				<option value="">{{localize "NONE"}}</option>
+				{{{../tables}}}
+				{{/select}}
+			</select>
+		</label>
+	{{/each}}
+{{/inline}}
+
+<form>
+	<fieldset>
+		<legend>{{localize "CONFIG.TABLE_CONFIG.MISHAPS"}}</legend>
+		{{> tables config=mishapTables scope="mishap"}}
+	</fieldset>
+	<fieldset class="encounter">
+		<legend>{{localize "CONFIG.TABLE_CONFIG.RANDOM_ENCOUNTERS"}}</legend>
+		{{> tables config=encounterTables scope="encounter"}}
+	</fieldset>
+	<fieldset class="other">
+		<legend>{{localize "CONFIG.TABLE_CONFIG.OTHER"}}</legend>
+		{{> tables config=otherTables scope="other"}}
+	</fieldset>
+	<button type="submit">Submit</button>
+</form>
+

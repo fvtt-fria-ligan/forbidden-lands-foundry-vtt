@@ -69,8 +69,9 @@ export class ForbiddenLandsItem extends Item {
 		const modifiers = Object.values(this.rollModifiers).reduce((array, mod) => {
 			const match = rollIdentifiers.includes(objectSearch(CONFIG.fbl.i18n, mod.name));
 			const state = this.getFlag("forbidden-lands", "state");
-			const isEquippedOrTalent = state === "equipped" || !CONFIG.fbl.carriedItemTypes.includes(this.type);
-			if (match && isEquippedOrTalent) {
+			const isCarriedOrTalent =
+				state === "equipped" || state === "carried" || !CONFIG.fbl.carriedItemTypes.includes(this.type);
+			if (match && isCarriedOrTalent) {
 				let value;
 				if (mod.value.match(/\d*d(?:8|10|12)/i)) value = mod.value.replace(/^\+/, "");
 				else if (mod.gearBonus) value = Number(this.bonus);
@@ -154,5 +155,21 @@ export class ForbiddenLandsItem extends Item {
 			itemData.system.healingTime = healingTime;
 		}
 		await message.setFlag("forbidden-lands", "itemData", itemData); // Adds posted item data to chat message flags for item drag/drop
+	}
+
+	/**
+	 * Override initializing a character to set default portraits.
+	 * @param {object} data object of an initialized character.
+	 * @param {object?} options optional object of options.
+	 */
+	static async create(data, options) {
+		if (!data.img) {
+			switch (data.type) {
+				case "building":
+					data.img = "icons/svg/castle.svg";
+					break;
+			}
+		}
+		super.create(data, options);
 	}
 }

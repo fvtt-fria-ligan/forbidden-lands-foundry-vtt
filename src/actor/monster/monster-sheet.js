@@ -38,7 +38,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 	activateListeners(html) {
 		super.activateListeners(html);
 
-		html.find(".roll-armor").click(() => this.rollArmor());
+		html.find(".roll-armor").click((ev) => this.rollArmor() && ev.target.blur());
 		html.find("#monster-attack-btn").click(() => this.rollAttack());
 		html.find(".roll-attack").click((ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
@@ -65,6 +65,9 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 	async rollSpecificAttack(attackId) {
 		if (!this.actor.canAct) throw this.broken();
 		const attack = this.actor.items.get(attackId);
+
+		if (attack.type !== "monsterAttack") return this.rollGear(attackId);
+
 		const gear = attack.getRollData();
 		const rollOptions = this.getRollOptions();
 		const options = {
@@ -76,7 +79,10 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 			gear,
 			...rollOptions,
 		};
-		const roll = FBLRoll.create(`${attack.itemProperties.dice}db[${attack.name}]`, {}, options);
+		const dice = attack.itemProperties.usingStrength
+			? this.actor.attributes.strength.value
+			: attack.itemProperties.dice;
+		const roll = FBLRoll.create(`${dice}db[${attack.name}]`, {}, options);
 		await roll.roll({ async: true });
 		return roll.toMessage();
 	}
@@ -92,33 +98,12 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 		};
 		const roll = FBLRoll.create(`${armor.value}dg[${rollName}]`, {}, options);
 		await roll.roll({ async: true });
-		return roll.toMessage();
+		roll.toMessage();
+		return true;
 	}
 
 	/************************************************/
 	/************************************************/
-
-	computeEncumbrance(data) {
-		let weightCarried = 0;
-		for (let item of Object.values(data.items)) {
-			weightCarried += this.computeItemEncumbrance(item);
-		}
-		const weightAllowed = data.system.attribute.strength.max * 2 * (data.system.isMounted ? 1 : 2);
-		data.system.encumbrance = {
-			value: weightCarried,
-			max: weightAllowed,
-			over: weightCarried > weightAllowed,
-		};
-	}
-
-	/* Override */
-	// _onConfigureSheet(event) {
-	// 	event.preventDefault();
-	// 	new ActorSheetConfig(this.actor, {
-	// 		top: this.position.top + 40,
-	// 		left: this.position.left + (this.position.width - 400) / 2,
-	// 	}).render(true);
-	// }
 
 	_getHeaderButtons() {
 		let buttons = super._getHeaderButtons();

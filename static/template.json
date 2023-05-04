@@ -255,11 +255,13 @@
 			"templates": ["attributes", "skills", "subtype"],
 			"movement": {
 				"label": "MOVEMENT",
-				"value": 1
+				"value": 1,
+				"description": ""
 			},
 			"armor": {
 				"label": "MONSTER.ARMOR",
-				"value": 0
+				"value": 0,
+				"description": ""
 			},
 			"isMounted": false
 		},
@@ -390,6 +392,7 @@
 		},
 		"monsterAttack": {
 			"description": "",
+			"usingStrength": false,
 			"dice": 0,
 			"damage": 0,
 			"damageType": "",
