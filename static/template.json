@@ -394,13 +394,15 @@
 			"time": "",
 			"effect": "",
 			"reputation": "",
-			"number": 0
+			"number": 0,
+			"quantity": 1
 		},
 		"hireling": {
 			"description": "",
 			"salary": "",
 			"supply": "",
-			"number": 0
+			"number": 0,
+			"quantity": 1
 		}
 	}
 }

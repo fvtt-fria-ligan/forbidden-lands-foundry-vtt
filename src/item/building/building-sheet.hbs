@@ -1,6 +1,9 @@
 <form class="{{cssClass}}" autocomplete="off">
-	<div class="border">
-		<div class="item">
+	<div class="header border">
+		<div class="avatar">
+			<img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" />
+		</div>
+		<div class="header-stats">
 			<div class="name" style="grid-column: 1/-1">
 				<label>{{localize "GEAR.NAME"}}</label>
 				<input name="name" type="text" value="{{name}}" />
@@ -13,30 +16,26 @@
 				<label>{{localize "BUILDING.REPUTATION"}}</label>
 				<input name="system.reputation" type="text" value="{{system.reputation}}" />
 			</div>
-			<div class="building-number">
-				<label>{{localize "BUILDING.NUMBER"}}</label>
-				<input name="system.number" type="text" value="{{system.number}}" />
-			</div>
-			<div class="requirement">
-				<label>{{localize "BUILDING.REQUIREMENT"}}</label>
-				<input name="system.requirement" type="text" value="{{system.requirement}}" />
-			</div>
-			<div class="tools">
-				<label>{{localize "BUILDING.TOOLS"}}</label>
-				<input name="system.tools" type="text" value="{{system.tools}}" />
-			</div>
-			<div class="building-raw-materials">
-				<label>{{localize "BUILDING.RAW_MATERIALS"}}</label>
-				<input name="system.rawMaterials" type="text" value="{{system.rawMaterials}}" />
-			</div>
-			<div class="effect">
-				<label>{{localize "BUILDING.EFFECT"}}</label>
-				{{editor system.effect target="system.effect" owner=owner button=true editable=true}}
-			</div>
-			<div class="building-description">
-				<label>{{localize "BUILDING.DESCRIPTION"}}</label>
-				{{editor system.description target="system.description" owner=owner button=true editable=true}}
-			</div>
 		</div>
+	</div>
+	<div class="requirement">
+		<label>{{localize "BUILDING.REQUIREMENT"}}</label>
+		<input name="system.requirement" type="text" value="{{system.requirement}}" />
+	</div>
+	<div class="tools">
+		<label>{{localize "BUILDING.TOOLS"}}</label>
+		<input name="system.tools" type="text" value="{{system.tools}}" />
+	</div>
+	<div class="building-raw-materials">
+		<label>{{localize "BUILDING.RAW_MATERIALS"}}</label>
+		<input name="system.rawMaterials" type="text" value="{{system.rawMaterials}}" />
+	</div>
+	<div class="effect">
+		<label>{{localize "BUILDING.EFFECT"}}</label>
+		{{editor system.effect target="system.effect" owner=owner button=true editable=true}}
+	</div>
+	<div class="building-description">
+		<label>{{localize "BUILDING.DESCRIPTION"}}</label>
+		{{editor system.description target="system.description" owner=owner button=true editable=true}}
 	</div>
 </form>

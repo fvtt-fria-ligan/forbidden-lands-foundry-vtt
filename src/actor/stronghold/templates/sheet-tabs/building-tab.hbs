@@ -1,7 +1,6 @@
 <div class="flex row full">
 	<div class="flex column" style="flex: 0 0 100%">
 		<div class="item-list buildings flex column border grow">
-			<h1>{{localize "HEADER.BUILDING"}}</h1>
 			<div class="header building flex row">
 				<b class="name">{{localize "BUILDING.NAME"}}</b>
 				<b class="number">{{localize "BUILDING.NUMBER"}}</b>
@@ -14,10 +13,17 @@
 					{{#if item.isBuilding}}
 						<div class="building item flex row" data-item-id="{{item._id}}">
 							<div class="name">
-								<a class="name">{{item.name}}:</a>
-								{{{item.system.effect}}}
+								<details>
+									<summary>{{item.name}}</summary>
+									<div>{{{item.system.effect}}}</div>
+								</details>
 							</div>
-							<div class="number">{{item.system.number}}</div>
+							<input
+								class="quantity"
+								type="number"
+								data-dtype="Number"
+								value="{{item.system.quantity}}"
+							/>
 							<div class="button">
 								<a class="item-control item-edit" title="Edit Building"><i class="fas fa-edit"></i></a>
 								<a class="item-control item-post" title="Post Building"><i
