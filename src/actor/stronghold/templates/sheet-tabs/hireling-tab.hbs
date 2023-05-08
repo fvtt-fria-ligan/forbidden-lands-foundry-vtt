@@ -1,15 +1,15 @@
 <div class="flex column full">
 	<div class="item-list hirelings flex column border grow">
-		<div class="header hireling flex row">
+		<div class="header hireling flex row gap">
 			<b class="name">{{localize "HIRELING.NAME"}}</b>
 			<b class="salary">{{localize "HIRELING.SALARY"}}</b>
-			<b class="number">{{localize "HIRELING.NUMBER"}}</b>
+			<b class="quantity">{{localize "HIRELING.NUMBER"}}</b>
 			<a class="button item-create" title="Add Hireling" data-type="hireling"><i class="fas fa-plus"></i></a>
 		</div>
 		<div class="items">
 			{{#each items as |item|}}
 				{{#if item.isHireling}}
-					<div class="hireling item flex row" data-item-id="{{item._id}}">
+					<div class="hireling item flex row gap" data-item-id="{{item._id}}">
 						<div class="name">
 							<details>
 								<summary>{{item.name}}</summary>

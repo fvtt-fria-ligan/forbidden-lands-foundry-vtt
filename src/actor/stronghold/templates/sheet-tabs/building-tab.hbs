@@ -1,9 +1,9 @@
 <div class="flex row full">
 	<div class="flex column" style="flex: 0 0 100%">
 		<div class="item-list buildings flex column border grow">
-			<div class="header building flex row">
+			<div class="header building flex row gap">
 				<b class="name">{{localize "BUILDING.NAME"}}</b>
-				<b class="number">{{localize "BUILDING.NUMBER"}}</b>
+				<b class="quantity">{{localize "BUILDING.NUMBER"}}</b>
 				<a class="button item-create" title="{{localize 'SHEET.CREATE_BUILDING'}}" data-type="building"><i
 						class="fas fa-plus"
 					></i></a>
@@ -11,7 +11,7 @@
 			<div class="items">
 				{{#each items as |item|}}
 					{{#if item.isBuilding}}
-						<div class="building item flex row" data-item-id="{{item._id}}">
+						<div class="building item flex row gap" data-item-id="{{item._id}}">
 							<div class="name">
 								<details>
 									<summary>{{item.name}}</summary>

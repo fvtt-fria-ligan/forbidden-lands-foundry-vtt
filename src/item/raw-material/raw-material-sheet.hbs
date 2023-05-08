@@ -4,32 +4,32 @@
 			<img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" />
 		</div>
 		<div class="header-stats">
-			<label>{{localize "GEAR.NAME"}}</label>
-			<input name="name" type="text" value="{{name}}" />
-			<label>{{localize "ITEM.QUANTITY"}}</label>
-			<input name="system.quantity" type="text" value="{{system.quantity}}" />
+			<div class="name" style="grid-column: 1/-1">
+				<label>{{localize "GEAR.NAME"}}</label>
+				<input name="name" type="text" value="{{name}}" />
+			</div>
+			<div class="flex row gap">
+				<div class="shelf-life">
+					<label>{{localize "RAW_MATERIAL.SHELF_LIFE"}}</label>
+					<input name="system.shelfLife" type="text" value="{{system.shelfLife}}" />
+				</div>
+				<div class="cost">
+					<label>{{localize "GEAR.COST"}}</label>
+					<input name="system.cost" type="text" value="{{system.cost}}" />
+				</div>
+			</div>
 		</div>
 	</div>
-	<div class="item">
-		<div class="cost">
-			<label>{{localize "GEAR.COST"}}</label>
-			<input name="system.cost" type="text" value="{{system.cost}}" />
-		</div>
-		<div class="shelf-life">
-			<label>{{localize "RAW_MATERIAL.SHELF_LIFE"}}</label>
-			<input name="system.shelfLife" type="text" value="{{system.shelfLife}}" />
-		</div>
-		<div class="raw-materials">
-			<label>{{localize "BUILDING.RAW_MATERIALS"}}</label>
-			<input name="system.rawMaterials" type="text" value="{{system.rawMaterials}}" />
-		</div>
-		<div class="talent">
-			<label>{{localize "GEAR.TALENT"}}</label>
-			<input name="system.talent" type="text" value="{{system.talent}}" />
-		</div>
-		<div class="tools">
-			<label>{{localize "GEAR.TOOLS"}}</label>
-			{{editor system.tools target="system.tools" owner=owner button=true editable=true}}
-		</div>
+	<div class="raw-materials">
+		<label>{{localize "BUILDING.RAW_MATERIALS"}}</label>
+		<input name="system.rawMaterials" type="text" value="{{system.rawMaterials}}" />
+	</div>
+	<div class="talent">
+		<label>{{localize "GEAR.TALENT"}}</label>
+		<input name="system.talent" type="text" value="{{system.talent}}" />
+	</div>
+	<div class="tools">
+		<label>{{localize "GEAR.TOOLS"}}</label>
+		{{editor system.tools target="system.tools" owner=owner button=true editable=true}}
 	</div>
 </form>

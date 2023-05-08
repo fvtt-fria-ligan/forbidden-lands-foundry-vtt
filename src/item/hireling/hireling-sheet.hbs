@@ -1,6 +1,9 @@
 <form class="{{cssClass}}" autocomplete="off">
-	<div class="border">
-		<div class="item" style="grid-column: 1/-1; padding: 8px">
+	<div class="header border">
+		<div class="avatar">
+			<img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" />
+		</div>
+		<div class="header-stats">
 			<div class="name" style="grid-column: 1/-1">
 				<label>{{localize "GEAR.NAME"}}</label>
 				<input name="name" type="text" value="{{name}}" />
@@ -13,14 +16,10 @@
 				<label>{{localize "HIRELING.SALARY"}}</label>
 				<input name="system.salary" type="text" value="{{system.salary}}" />
 			</div>
-			<div class="number">
-				<label>{{localize "HIRELING.NUMBER"}}</label>
-				<input name="system.number" type="text" value="{{system.number}}" />
-			</div>
-			<div class="hireling-description">
-				<label>{{localize "HIRELING.DESCRIPTION"}}</label>
-				{{editor system.description target="system.description" owner=owner button=true editable=true}}
-			</div>
 		</div>
+	</div>
+	<div class="hireling-description">
+		<label>{{localize "HIRELING.DESCRIPTION"}}</label>
+		{{editor system.description target="system.description" owner=owner button=true editable=true}}
 	</div>
 </form>
