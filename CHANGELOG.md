@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [10.2.2](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.2.1...v10.2.2) (2023-05-04)
+
+
+### Features
+
+* ✨ Add editable roll dialog title ([5978bc0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/5978bc004b9333c46aa7b5f38630a7c1253a2d51)), closes [#297](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/297)
+
+
+### Bug Fixes
+
+* 🐛 Encumbrance using temp strength not max ([4c791ee](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/4c791eee13c9198292741bfd857c674c164a792a)), closes [#319](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/319)
+* 🐛 Party sheet action list dynamic size ([aa4e2e1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/aa4e2e133494ec0f06fbb9070386ff71a2b60f6f)), closes [#318](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/318)
+* 🐛 Title of mishap and other table should be hunting (they use the same key) ([1ab4b86](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/1ab4b86ee3285e96ba830f116d20a02329b1113b)), closes [#315](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/315)
+
 ### [10.2.1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.2.0...v10.2.1) (2023-05-03)
 
 

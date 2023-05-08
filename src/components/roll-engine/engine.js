@@ -193,6 +193,12 @@ export class FBLRollHandler extends FormApplication {
 	activateListeners(html) {
 		super.activateListeners(html);
 
+		html.find("h2 > span[contenteditable]").blur((ev) => {
+			const value = ev.currentTarget.textContent;
+			this.options.title = value;
+			html.parentsUntil("body").find(".window-title").text(value);
+		});
+
 		//These are used only in standard or Year Zero roll instances to add or remove modifiers to either input.
 		const totalModifierInput = html[0].querySelector("input#modifier");
 		const totalGearInput = html[0].querySelector("input#gear");

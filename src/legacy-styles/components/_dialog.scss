@@ -172,6 +172,10 @@
 		background-size: 100%;
 		margin: 0 auto;
 	}
+	span[contenteditable="true"]:focus-visible {
+		outline-color: black;
+		outline-offset: 4px;
+	}
 }
 
 .roll-group-btns {
