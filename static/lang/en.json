@@ -283,6 +283,7 @@
 	"ITEM.TypeSpell": "Spell",
 	"ITEM.TypeTalent": "Talent",
 	"ITEM.TypeWeapon": "Weapon",
+	"JOURNAL.AddRoom": "Add Room",
 	"LETHAL.NO": "No",
 	"LETHAL.YES": "Yes",
 	"MACRO.CHOOSE_TYPE": "Choose Type",

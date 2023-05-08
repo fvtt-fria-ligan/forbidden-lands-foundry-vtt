@@ -39,4 +39,5 @@ export default async ({ watch = false, production = false } = {}) => {
 	ctx.rebuild();
 
 	if (watch) ctx.watch();
+	else ctx.dispose();
 };

@@ -113,7 +113,6 @@
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 1rem;
-	height: 100%;
 
 	li {
 		min-height: 1px;
@@ -131,8 +130,7 @@
 
 .travel-action {
 	min-width: 196px;
-	min-height: 90px;
-	height: 100%;
+	min-height: 106px;
 	margin-bottom: 10px;
 
 	flex-grow: 1;

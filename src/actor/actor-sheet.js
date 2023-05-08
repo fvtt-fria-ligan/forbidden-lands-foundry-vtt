@@ -233,7 +233,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		}
 
 		// Calculate max encumbrance
-		const baseEncumbrance = data.system.attribute.strength.value * 2;
+		const baseEncumbrance = data.system.attribute.strength.max * 2;
 		// eslint-disable-next-line no-nested-ternary
 		const monsterEncumbranceMultiplier = this.actor.type === "monster" ? (data.system.isMounted ? 1 : 2) : 1;
 
