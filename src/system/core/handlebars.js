@@ -239,9 +239,6 @@ function registerHandlebarsHelpers() {
 	Handlebars.registerHelper("ternary", function (conditional, string1, string2) {
 		return conditional ? string1 : string2;
 	});
-	Handlebars.registerHelper("debug", function (string) {
-		console.log(string);
-	});
 }
 
 function normalize(data, defaultValue) {

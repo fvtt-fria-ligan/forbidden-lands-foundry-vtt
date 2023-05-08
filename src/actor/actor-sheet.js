@@ -14,14 +14,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		data = this.computeItems(data);
 		data.carriedStates = this.#getCarriedStates();
 		data.gear = this.#filterGear(data.items);
-		if (!this.useHealthAndResolve) {
-			const filteredAttributes = Object.entries(data.system.attribute).filter(
-				([key, _]) => key !== "health" && key !== "resolve",
-			);
-			data.system.attribute = Object.fromEntries(filteredAttributes);
-		} else {
-			data.system.useHealthAndResolve = true;
-		}
+		data.system.useHealthAndResolve = this.useHealthAndResolve;
 
 		return data;
 	}
