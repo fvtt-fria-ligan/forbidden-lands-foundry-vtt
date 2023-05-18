@@ -152,8 +152,12 @@ export class CharacterConverter {
 	}
 
 	generateNotes(character) {
+		const homeland = character.homeland
+			? `<p>${game.i18n.localize("FLCG.HOMELAND")} ${character.homeland}.</p>`
+			: "";
 		const childhood = character.childhood;
-		let notes = `<h3>${game.i18n.localize("FLCG.CHILDHOOD")}: ${childhood.name}</h3><p>${childhood.description}</p>`;
+		let notes = `<h3>${game.i18n.localize("FLCG.CHILDHOOD")}: ${childhood.name}</h3>
+			<p>${childhood.description}</p>${homeland}`;
 		for (let i = 0; i < character.formativeEvents.length; i++) {
 			const event = character.formativeEvents[i];
 			notes += `<h3>${game.i18n.localize("FLCG.EVENT")}: ${event.name}</h3><p>${event.description}</p>`;
