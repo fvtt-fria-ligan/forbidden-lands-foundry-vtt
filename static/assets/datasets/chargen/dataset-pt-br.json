@@ -669,7 +669,7 @@
 			"weight": 1,
 			"paths": ["Caminho da Cura", "Caminho do Metamorfo", "Caminho da Visão"],
 			"equipment": [["Bastão", "Faca"], "Bens de Comércio"],
-			"consumables": { "food": 8, "water": 6, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 2, "water": 1, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
 				"pilgrimage": {
@@ -734,7 +734,7 @@
 			"weight": 1,
 			"paths": ["Caminho da Lâmina", "Caminho do Inimigo", "Caminho do Escudo"],
 			"equipment": ["Uma arma de uma mão", "Armadura de couro batido,", "Bens de Comércio"],
-			"consumables": { "food": 8, "water": 8, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 2, "water": 2, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
 				"captured": {
@@ -799,7 +799,7 @@
 			"weight": 1,
 			"paths": ["Caminho da Flecha", "Caminho da Fera", "Caminho da Floresta"],
 			"equipment": [["Arco", "Funda"], "Bens de Comércio", "Bens de Comércio"],
-			"consumables": { "food": 8, "water": 8, "arrows": 10, "torches": 0 },
+			"consumables": { "food": 2, "water": 2, "arrows": 3, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
 				"hunted a beast": {
@@ -864,7 +864,7 @@
 			"weight": 1,
 			"paths": ["Caminho do Hino", "Caminho da Canção ", "Caminho do Grito de Guerra"],
 			"equipment": [["Lira", "Flauta"], "Faca", "Bens de Comércio"],
-			"consumables": { "food": 8, "water": 6, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 2, "water": 1, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 8, "copper": 0 },
 			"formativeEvents": {
 				"wrote a popular ballad": {
@@ -929,7 +929,7 @@
 			"weight": 1,
 			"paths": ["Caminho do Ouro", "Caminho da Mentira", "Caminho das Muitas Coisas"],
 			"equipment": ["Faca", "Bens de Comércio", "Bens de Comércio", "Bens de Comércio"],
-			"consumables": { "food": 8, "water": 8, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 2, "water": 2, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 12, "copper": 0 },
 			"formativeEvents": {
 				"caravan": {
@@ -994,7 +994,7 @@
 			"weight": 1,
 			"paths": ["Caminho do Companheiro", "Caminho do Cavaleiro", "Caminho das Planícies"],
 			"equipment": ["Cavalo", ["Lança", "Machadinha"], ["Arco curto", "Funda"], "Bens de Comércio"],
-			"consumables": { "food": 8, "water": 8, "arrows": 10, "torches": 0 },
+			"consumables": { "food": 2, "water": 2, "arrows": 3, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
 				"enlisted": {
@@ -1059,7 +1059,7 @@
 			"weight": 1,
 			"paths": ["Caminho do Rosto", "Caminho do Matador", "Caminho do Veneno"],
 			"equipment": ["Adaga", "Bens de Comércio", "Bens de Comércio"],
-			"consumables": { "food": 6, "water": 6, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 1, "water": 1, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 10, "copper": 0 },
 			"formativeEvents": {
 				"stole from the wrong person": {
@@ -1124,7 +1124,7 @@
 			"weight": 1,
 			"paths": ["Caminho do Sangue", "Caminho da Morte", "Caminho dos Símbolos", "Caminho das Rochas"],
 			"equipment": [["Bastão", "Faca"], "Bens de Comércio"],
-			"consumables": { "food": 6, "water": 8, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 1, "water": 2, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 8, "copper": 0 },
 			"formativeEvents": {
 				"failed experiment": {

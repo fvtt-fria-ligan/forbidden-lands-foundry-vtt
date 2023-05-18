@@ -669,7 +669,7 @@
 			"weight": 1,
 			"paths": ["Weg der Heilung", "Weg der Gestaltwandlung", "Weg der Hellsicht"],
 			"equipment": [["Kampfstab", "Messer"], "Handelswaren"],
-			"consumables": { "food": 8, "water": 6, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 2, "water": 1, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
 				"pilgrimage": {
@@ -734,7 +734,7 @@
 			"weight": 1,
 			"paths": ["Weg der Klinge", "Weg des Schildes", "Weg des Feindes"],
 			"equipment": ["Einhandwaffen", "Verstärkte Lederrüstung", "Handelswaren"],
-			"consumables": { "food": 8, "water": 8, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 2, "water": 2, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
 				"captured": {
@@ -799,7 +799,7 @@
 			"weight": 1,
 			"paths": ["Weg des Tieres", "Weg des Pfeils", "Weg des Waldes"],
 			"equipment": [["Bow", "Sling"], "Handelswaren", "Handelswaren"],
-			"consumables": { "food": 8, "water": 8, "arrows": 10, "torches": 0 },
+			"consumables": { "food": 2, "water": 2, "arrows": 3, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
 				"hunted a beast": {
@@ -864,7 +864,7 @@
 			"weight": 1,
 			"paths": ["Weg des Liedes", "Weg des Lobgesangs", "Weg des Kampfschreis"],
 			"equipment": [["Laute", "Flöte"], "Messer", "Handelswaren"],
-			"consumables": { "food": 8, "water": 6, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 2, "water": 1, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 8, "copper": 0 },
 			"formativeEvents": {
 				"wrote a popular ballad": {
@@ -929,7 +929,7 @@
 			"weight": 1,
 			"paths": ["Weg des Golds", "Weg der Vielen Dinge", "Weg der Lügen"],
 			"equipment": ["Messer", "Handelswaren", "Handelswaren", "Handelswaren"],
-			"consumables": { "food": 8, "water": 8, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 2, "water": 2, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 12, "copper": 0 },
 			"formativeEvents": {
 				"caravan": {
@@ -994,7 +994,7 @@
 			"weight": 1,
 			"paths": ["Weg des Gefährten", "Weg des Ritters", "Weg der Ebenen"],
 			"equipment": ["Riding Horse", ["Spear", "Handaxe"], ["Short Bow", "Sling"], "Handelswaren"],
-			"consumables": { "food": 8, "water": 8, "arrows": 10, "torches": 0 },
+			"consumables": { "food": 2, "water": 2, "arrows": 3, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
 				"enlisted": {
@@ -1059,7 +1059,7 @@
 			"weight": 1,
 			"paths": ["Weg der Maske", "Weg des Giftes", "Weg des Meuchlers"],
 			"equipment": ["Dolch", "Handelswaren", "Handelswaren"],
-			"consumables": { "food": 6, "water": 6, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 1, "water": 1, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 10, "copper": 0 },
 			"formativeEvents": {
 				"stole from the wrong person": {
@@ -1124,7 +1124,7 @@
 			"weight": 1,
 			"paths": ["Weg des Zeichens", "Weg des Steins", "Weg des Blutes", "Weg des Todes"],
 			"equipment": [["Kampfstab", "Messer"], "Handelswaren"],
-			"consumables": { "food": 6, "water": 8, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 1, "water": 2, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 8, "copper": 0 },
 			"formativeEvents": {
 				"failed experiment": {

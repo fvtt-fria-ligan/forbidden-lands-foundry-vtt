@@ -669,7 +669,7 @@
 			"weight": 1,
 			"paths": ["Path of Healing", "Path of Shifting Shapes", "Path of Sight"],
 			"equipment": [["Staff", "Knife"], "Trade Goods"],
-			"consumables": { "food": 8, "water": 6, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 2, "water": 1, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
 				"pilgrimage": {
@@ -734,7 +734,7 @@
 			"weight": 1,
 			"paths": ["Path of the Blade", "Path of the Enemy", "Path of the Shield"],
 			"equipment": ["One-handed Weapon", "Studded Leather", "Trade Goods"],
-			"consumables": { "food": 8, "water": 8, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 2, "water": 2, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
 				"captured": {
@@ -799,7 +799,7 @@
 			"weight": 1,
 			"paths": ["Path of the Arrow", "Path of the Beast", "Path of the Forest"],
 			"equipment": [["Bow", "Sling"], "Trade Goods", "Trade Goods"],
-			"consumables": { "food": 8, "water": 8, "arrows": 10, "torches": 0 },
+			"consumables": { "food": 2, "water": 2, "arrows": 3, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
 				"hunted a beast": {
@@ -864,7 +864,7 @@
 			"weight": 1,
 			"paths": ["Path of the Hymn", "Path of the Song", "Path of the Warcry"],
 			"equipment": [["Lute", "Flute"], "Knife", "Trade Goods"],
-			"consumables": { "food": 8, "water": 6, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 2, "water": 1, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 8, "copper": 0 },
 			"formativeEvents": {
 				"wrote a popular ballad": {
@@ -929,7 +929,7 @@
 			"weight": 1,
 			"paths": ["Path of Gold", "Path of Lies", "Path of Many Things"],
 			"equipment": ["Knife", "Trade Goods", "Trade Goods", "Trade Goods"],
-			"consumables": { "food": 8, "water": 8, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 2, "water": 2, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 12, "copper": 0 },
 			"formativeEvents": {
 				"caravan": {
@@ -994,7 +994,7 @@
 			"weight": 1,
 			"paths": ["Path of the Companion", "Path of the Knight", "Path of the Plains"],
 			"equipment": ["Riding Horse", ["Spear", "Handaxe"], ["Short Bow", "Sling"], "Trade Goods"],
-			"consumables": { "food": 8, "water": 8, "arrows": 10, "torches": 0 },
+			"consumables": { "food": 2, "water": 2, "arrows": 3, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
 				"enlisted": {
@@ -1059,7 +1059,7 @@
 			"weight": 1,
 			"paths": ["Path of the Face", "Path of the Killer", "Path of Poison"],
 			"equipment": ["Dagger", "Trade Goods", "Trade Goods"],
-			"consumables": { "food": 6, "water": 6, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 1, "water": 1, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 10, "copper": 0 },
 			"formativeEvents": {
 				"stole from the wrong person": {
@@ -1124,7 +1124,7 @@
 			"weight": 1,
 			"paths": ["Path of Blood", "Path of Death", "Path of Signs", "Path of Stone"],
 			"equipment": [["Staff", "Knife"], "Trade Goods"],
-			"consumables": { "food": 6, "water": 8, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 1, "water": 2, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 8, "copper": 0 },
 			"formativeEvents": {
 				"failed experiment": {

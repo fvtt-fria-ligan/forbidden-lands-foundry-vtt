@@ -669,7 +669,7 @@
 			"weight": 1,
 			"paths": ["Sendda de la Curación", "Senda del Cambio de Forma", "Senda de la Visión"],
 			"equipment": [["Bastón", "Cuchillo"], "Mercancías"],
-			"consumables": { "food": 8, "water": 6, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 2, "water": 1, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
 				"pilgrimage": {
@@ -734,7 +734,7 @@
 			"weight": 1,
 			"paths": ["Senda de la Espada", "Senda del Enemigo", "Senda del Escudo"],
 			"equipment": ["Arma a una mano", "Armadura de cuero tachonado", "Mercancías"],
-			"consumables": { "food": 8, "water": 8, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 2, "water": 2, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
 				"captured": {
@@ -799,7 +799,7 @@
 			"weight": 1,
 			"paths": ["Senda de la Flecha", "Senda de la Bestia", "Senda del Bosque"],
 			"equipment": [["Arco", "Honda"], "Mercancías", "Mercancías"],
-			"consumables": { "food": 8, "water": 8, "arrows": 10, "torches": 0 },
+			"consumables": { "food": 2, "water": 2, "arrows": 3, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
 				"hunted a beast": {
@@ -864,7 +864,7 @@
 			"weight": 1,
 			"paths": ["Senda del Himno", "Senda de la Canción", "Senda del Grito de Guerra"],
 			"equipment": [["Laud", "Flauta"], "Cuchillo", "Mercancías"],
-			"consumables": { "food": 8, "water": 6, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 2, "water": 1, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 8, "copper": 0 },
 			"formativeEvents": {
 				"wrote a popular ballad": {
@@ -929,7 +929,7 @@
 			"weight": 1,
 			"paths": ["Senda del Oro", "Senda de las Mentiras", "Senda de las Muchas Cosas"],
 			"equipment": ["Cuchillo", "Mercancías", "Mercancías", "Mercancías"],
-			"consumables": { "food": 8, "water": 8, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 2, "water": 2, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 12, "copper": 0 },
 			"formativeEvents": {
 				"caravan": {
@@ -994,7 +994,7 @@
 			"weight": 1,
 			"paths": ["Senda del Compañero", "Senda del Caballero", "Senda de las Llanuras"],
 			"equipment": ["Caballo de monta", ["Lanza", "Hacha de mano"], ["Arco Corto", "Honda"], "Mercancías"],
-			"consumables": { "food": 8, "water": 8, "arrows": 10, "torches": 0 },
+			"consumables": { "food": 2, "water": 2, "arrows": 3, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
 				"enlisted": {
@@ -1059,7 +1059,7 @@
 			"weight": 1,
 			"paths": ["Senda del Rostro", "Senda del Asesino", "Senda del Veneno"],
 			"equipment": ["Daga", "Mercancías", "Mercancías"],
-			"consumables": { "food": 6, "water": 6, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 1, "water": 1, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 10, "copper": 0 },
 			"formativeEvents": {
 				"stole from the wrong person": {
@@ -1124,7 +1124,7 @@
 			"weight": 1,
 			"paths": ["Senda de la Sangre", "Senda de la Muerte", "Senda de los Signos", "Senda de la Piedra"],
 			"equipment": [["Bastón", "Cuchillo"], "Mercancías"],
-			"consumables": { "food": 6, "water": 8, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 1, "water": 2, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 8, "copper": 0 },
 			"formativeEvents": {
 				"failed experiment": {
