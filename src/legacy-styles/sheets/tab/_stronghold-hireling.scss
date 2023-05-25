@@ -1,39 +1,28 @@
 .forbidden-lands .stronghold .hirelings {
 	flex-basis: 50%;
-}
 
-.forbidden-lands .stronghold .hirelings .hireling {
-	align-items: center;
-	height: 32px;
-}
+	.hireling {
+		align-items: center;
+		padding-block: 4px;
 
-.forbidden-lands .character .hirelings .header .name,
-.forbidden-lands .character .hirelings .name .name,
-.forbidden-lands .character .hirelings .number,
-.forbidden-lands .character .hirelings .button {
-	margin-left: 4px;
-}
+		.name {
+			flex-basis: 55%;
+		}
 
-.forbidden-lands .stronghold .hirelings .hireling .name {
-	flex-basis: 55%;
-}
+		.quantity {
+			flex-basis: 15%;
+			text-align: center;
+		}
 
-.forbidden-lands .stronghold .hirelings .hireling .name a {
-	font-weight: bold;
-}
+		.salary {
+			flex-basis: 20%;
+			text-align: right;
+		}
 
-.forbidden-lands .stronghold .hirelings .hireling .number {
-	flex-basis: 15%;
-	text-align: center;
-}
-
-.forbidden-lands .stronghold .hirelings .hireling .salary {
-	flex-basis: 20%;
-	text-align: right;
-}
-
-.forbidden-lands .stronghold .hirelings .hireling .button {
-	flex-basis: 10%;
-	font-size: var(--font-size-12);
-	text-align: right;
+		.button {
+			flex-basis: 10%;
+			font-size: var(--font-size-12);
+			text-align: right;
+		}
+	}
 }

@@ -27,6 +27,18 @@
 						"value": 0,
 						"min": 0,
 						"max": 0
+					},
+					"health": {
+						"label": "ATTRIBUTE.HEALTH",
+						"value": 0,
+						"min": 0,
+						"max": 0
+					},
+					"resolve": {
+						"label": "ATTRIBUTE.RESOLVE",
+						"value": 0,
+						"min": 0,
+						"max": 0
 					}
 				}
 			},
@@ -394,13 +406,15 @@
 			"time": "",
 			"effect": "",
 			"reputation": "",
-			"number": 0
+			"number": 0,
+			"quantity": 1
 		},
 		"hireling": {
 			"description": "",
 			"salary": "",
 			"supply": "",
-			"number": 0
+			"number": 0,
+			"quantity": 1
 		}
 	}
 }

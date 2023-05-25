@@ -4,6 +4,7 @@ import localizeString from "@utils/localize-string";
 /* eslint-disable no-unused-vars */
 export class ForbiddenLandsActorSheet extends ActorSheet {
 	altInteraction = game.settings.get("forbidden-lands", "alternativeSkulls");
+	useHealthAndResolve = game.settings.get("forbidden-lands", "useHealthAndResolve");
 
 	async getData() {
 		let data = this.actor.toObject();
@@ -13,6 +14,8 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		data = this.computeItems(data);
 		data.carriedStates = this.#getCarriedStates();
 		data.gear = this.#filterGear(data.items);
+		data.system.useHealthAndResolve = this.useHealthAndResolve;
+
 		return data;
 	}
 
@@ -136,16 +139,19 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			const item = this.actor.items.get(div.data("itemId"));
 			item.sheet.render(true);
 		});
+
 		html.find(".item-delete").click((ev) => {
 			const div = $(ev.currentTarget).parents(".item");
 			this.actor.deleteEmbeddedDocuments("Item", [div.data("itemId")]);
 			div.slideUp(200, () => this.render(false));
 		});
+
 		html.find(".item-post").click((ev) => {
 			const div = $(ev.currentTarget).parents(".item");
 			const item = this.actor.items.get(div.data("itemId"));
 			item.sendToChat();
 		});
+
 		html.find(".change-item-bonus").on("click contextmenu", (ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
 			const item = this.actor.items.get(itemId);
@@ -168,10 +174,12 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			const attributeName = $(ev.currentTarget).data("attribute");
 			return this.rollAttribute(attributeName);
 		});
+
 		html.find(".roll-skill").click((ev) => {
 			const skillName = $(ev.currentTarget).data("skill");
 			return this.rollSkill(skillName);
 		});
+
 		html.find(".roll-weapon").click((ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");
 			return this.rollGear(itemId);

@@ -26,13 +26,6 @@ export class ForbiddenLandsStrongholdSheet extends ForbiddenLandsActorSheet {
 		return actorData;
 	}
 
-	activateListeners(html) {
-		super.activateListeners(html);
-		html.find(".item-create").click((ev) => {
-			this.onItemCreate(ev);
-		});
-	}
-
 	_computeItems(data) {
 		for (let item of Object.values(data.items)) {
 			item.isWeapon = item.type === "weapon";
@@ -49,11 +42,20 @@ export class ForbiddenLandsStrongholdSheet extends ForbiddenLandsActorSheet {
 		}
 	}
 
-	onItemCreate(event) {
-		event.preventDefault();
-		let header = event.currentTarget;
-		let data = duplicate(header.dataset);
-		data.name = `New ${data.type.capitalize()}`;
-		this.actor.createEmbeddedDocuments("Item", data, { renderSheet: true });
+	activateListeners(html) {
+		super.activateListeners(html);
+
+		const details = html.find("details");
+		details.on("click", (e) => {
+			const detail = $(e.target).closest("details");
+			const content = detail.find("summary ~ *");
+			if (detail.attr("open")) {
+				e.preventDefault();
+				content.slideUp(200);
+				setTimeout(() => {
+					detail.removeAttr("open");
+				}, 200);
+			} else content.slideDown(200);
+		});
 	}
 }

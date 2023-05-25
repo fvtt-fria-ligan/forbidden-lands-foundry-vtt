@@ -7,10 +7,11 @@ import { ActorSheetConfig } from "@utils/sheet-config.js";
 
 export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
+		const useHealthAndResolve = game.settings.get("forbidden-lands", "useHealthAndResolve");
 		return mergeObject(super.defaultOptions, {
 			classes: ["forbidden-lands", "sheet", "actor"],
 			width: 660,
-			height: 740,
+			height: useHealthAndResolve ? 790 : 740,
 			resizable: false,
 			scrollY: [
 				".armors .item-list .items",

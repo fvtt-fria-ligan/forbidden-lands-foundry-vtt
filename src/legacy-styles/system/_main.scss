@@ -33,6 +33,24 @@
 		background: var(--color-background);
 	}
 
+	details {
+		summary {
+			list-style: none;
+			cursor: pointer;
+
+			font-weight: 600;
+
+			& ~ * {
+				display: none;
+			}
+
+			&:hover,
+			&:focus-visible {
+				text-shadow: 0 0 8px var(--color-shadow-primary);
+			}
+		}
+	}
+
 	.rotated {
 		transform: rotate(90deg);
 		font-size: var(--font-size-16);
@@ -437,6 +455,8 @@ button,
 		color: #fff;
 		text-align: center;
 		white-space: nowrap;
+		text-transform: uppercase;
+
 		&:hover {
 			text-shadow: 0 0 6px #fff;
 		}

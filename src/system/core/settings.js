@@ -257,4 +257,13 @@ export default function registerSettings() {
 		type: TableConfigMenu,
 		restricted: true,
 	});
+	game.settings.register("forbidden-lands", "useHealthAndResolve", {
+		name: "CONFIG.HEALTHANDRESOLVE",
+		hint: "CONFIG.HEALTHANDRESOLVE_DESC",
+		scope: "client",
+		config: true,
+		default: false,
+		onChange: debouncedReload,
+		type: Boolean,
+	});
 }

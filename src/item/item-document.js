@@ -122,7 +122,7 @@ export class ForbiddenLandsItem extends Item {
 	}
 
 	async sendToChat() {
-		const itemData = this.data.toObject();
+		const itemData = this.toObject();
 		if (itemData.img.includes("/mystery-man")) {
 			itemData.img = null;
 		}
