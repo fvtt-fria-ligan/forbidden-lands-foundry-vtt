@@ -15,7 +15,11 @@ export class AdventureSitesSheet extends JournalSheet {
 			const type = this.object.type;
 			const path = CONFIG.fbl.adventureSites.types[type];
 			const room = await CONFIG.fbl.adventureSites?.generate(path, type + "_rooms");
-			const pageName = $(room).find("strong").first().text().replace(/\W+/, " ").trim();
+			const pageName = ($(room).find("h4") || $(room).find("strong"))
+				?.first()
+				.text()
+				.replace(/[^\p{L}]+/u, " ")
+				.trim();
 			await this.object.createEmbeddedDocuments("JournalEntryPage", [
 				{ name: pageName, title: { level: 2, show: false }, text: { content: room } },
 			]);
