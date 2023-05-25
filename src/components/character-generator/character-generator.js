@@ -23,7 +23,7 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 	static async loadDataset() {
 		const dataset = game.settings.get("forbidden-lands", "datasetDir") || null;
 		if (dataset && dataset.substr(-4, 4) !== "json")
-			throw ForbiddenLandsCharacterGenerator.handleBadDataset("Dataset is not a JSON file.");
+			throw ForbiddenLandsCharacterGenerator.handleBadDataset(game.i18n.localize("FLCG.ERROR_NOT_A_DATAFILE"));
 		const lang = game.i18n.lang;
 		const datasetName = CONFIG.fbl.dataSetConfig[lang] || "dataset";
 		const defaultDataset = `systems/forbidden-lands/assets/datasets/chargen/${datasetName}.json`;
@@ -75,7 +75,7 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 
 	async handleCreateActor() {
 		if (!this.existActor) {
-			ui.notifications.error("Could not find the actor that initiated this session.");
+			ui.notifications.error(game.i18n.localize("FLCG.ERROR_NO_ACTOR"));
 			return this.close();
 		}
 		const coverter = new CharacterConverter(this.dataset);
@@ -105,7 +105,11 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 	}
 
 	handleInputAge(event) {
-		const mapping = ["Young", "Adult", "Old"];
+		const mapping = [
+			game.i18n.localize("FLCG.YOUNG"),
+			game.i18n.localize("FLCG.ADULT"),
+			game.i18n.localize("FLCG.OLD"),
+		];
 		const ageNumber = parseInt($(event.currentTarget).val());
 		const kin = this.dataset.kin[this.character.kin];
 		let ageKey = 2;
@@ -241,7 +245,10 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 
 	async generateCharacter() {
 		if (!this.dataset.profession || !this.dataset.kin)
-			throw ForbiddenLandsCharacterGenerator.handleBadDataset("Dataset is not in the correct format.", this);
+			throw ForbiddenLandsCharacterGenerator.handleBadDataset(
+				game.i18n.localize("FLCG.ERROR_DATASET_WRONG_FORMAT"),
+				this,
+			);
 		let character = {};
 		character = this.setKin(character);
 		let profession = this.rollOn(this.dataset.profession);
@@ -261,7 +268,7 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 			character.age = {
 				ageNumber: NaN,
 				ageKey: 1,
-				ageString: "Adult",
+				ageString: game.i18n.localize("FLCG.ADULT"),
 			};
 			character = this.rollFormativeEvents(character);
 		} else {
@@ -341,7 +348,11 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 	}
 
 	rollAge(ageRanges) {
-		const mapping = ["Young", "Adult", "Old"];
+		const mapping = [
+			game.i18n.localize("FLCG.YOUNG"),
+			game.i18n.localize("FLCG.ADULT"),
+			game.i18n.localize("FLCG.OLD"),
+		];
 		let age = {};
 		age.ageKey = this.rollNumber(0, 2);
 		age.ageNumber = this.rollNumber(ageRanges[age.ageKey][0], ageRanges[age.ageKey][1]);
@@ -372,8 +383,8 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 
 	static async handleBadDataset(err, app) {
 		console.error(err);
-		if (!app) return ui.notifications.error("Cannot recover, try again.");
-		ui.notifications.warn("Warning: Dataset not valid. See console for details. Attempting to recover.");
+		if (!app) return ui.notifications.error(game.i18n.localize("FLCG.ERROR_CANNOT_REVOCER"));
+		ui.notifications.warn(game.i18n.localize("FLCG.WARNING_DATASET_NOT_VALID"));
 		app.close();
 
 		await game.settings.set("forbidden-lands", "datasetDir", "");
