@@ -9,6 +9,7 @@
 				[26, 50],
 				[51, 80]
 			],
+			"homeland": ["den Randgebieten des Arinawaldes", "den Ebenen von Moldena", "den Ebenen von Moldena", "den Uferregionen vom Varda-See", "der Harga-Wüste"],
 			"talent": "Anpassungsfähig",
 			"childhood": {
 				"orphaned": {
@@ -77,6 +78,7 @@
 				[26, 50],
 				[51, 80]
 			],
+			"homeland": ["Die Felder von Margelda", "Die Felder von Margelda", "Die Yendra-Steppe", "Die Ebenen von Moldena", "Die Finsternis des Leichentuchs"],
 			"talent": "Anpassungsfähig",
 			"childhood": {
 				"born in the saddle": {
@@ -144,6 +146,7 @@
 				[26, 50],
 				[51, 80]
 			],
+			"homeland": ["den Feldern von Margelda", "der Küste der Zornbucht", "den Ebenen von Moldena", "dem Grasland von Vivend", "den Uferzonen des Varda-Sees"],
 			"talent": "Anpassungsfähig",
 			"childhood": {
 				"child of the raven": {
@@ -211,6 +214,7 @@
 				[31, 100],
 				[101, 200]
 			],
+			"homeland": ["den Feldern von Margelda", "den Ebenen von Moldena", "dem Grasland von Vivend", "den Rändern des Arinawaldes", "den Randgebieten des Arinawaldes", "der Harga-Wüste"],
 			"talent": "Die Macht des Geistes",
 			"childhood": {
 				"on the run": {
@@ -272,6 +276,7 @@
 				[26, 60],
 				[61, 100]
 			],
+			"homeland": ["den Auen von Belifar", "den Auen von Belifar", "den Auen von Belifar", "den Auen von Belifar", "den Felder von Margelda", "den Ebenen von Moldena"],
 			"talent": "Schwer zu fassen",
 			"childhood": {
 				"baker's apprentice": {
@@ -351,6 +356,7 @@
 				[26, 60],
 				[61, 100]
 			],
+			"homeland": ["den Schatten der Reißzahnwälder", "den Schatten der Reißzahnwälder", "den Schatten der Reißzahnwälder", "den Hainen des Leichentuchs", "den Hainen des Leichentuchs", "den Tiefen der Hainwäldern"],
 			"talent": "Nachtaktiv",
 			"childhood": {
 				"wolfling": {
@@ -418,6 +424,7 @@
 				[21, 45],
 				[46, 70]
 			],
+			"homeland": ["den Tiefen der Hainwäldern", "den Tiefen der Hainwäldern", "den Tiefen des Arinawaldes", "den Tiefen des Arinawaldes", "der Harga-Wüste"],
 			"talent": "Unbezwingbar",
 			"childhood": {
 				"minstrel": {
@@ -485,6 +492,7 @@
 				[21, 40],
 				[41, 65]
 			],
+			"homeland": ["den Schatten der Reißzahnwälder", "den Schatten der Reißzahnwälder", "den Tiefen der Hainwäldern", "den Tiefen der Hainwäldern", "den Tiefen des Arinawaldes", "den Hainen des Leichentuchs"],
 			"talent": "Jagdinstinkt",
 			"childhood": {
 				"howler": {
@@ -546,6 +554,7 @@
 				[41, 80],
 				[81, 160]
 			],
+			"homeland": ["den Bergen von Moldena", "den Klippen von Fern-Vivend", "den Klippen von Fern-Vivend", "den Gipfeln der nördlichen Feulenmark", "den Gipfeln der nördlichen Feulenmark", "den nördlichen Berge von Belderand"],
 			"talent": "True Grit",
 			"childhood": {
 				"smith's apprentice": {
@@ -603,6 +612,7 @@
 			"name": "Elf",
 			"weight": 2,
 			"age": [[0, 0]],
+			"homeland": ["den Tiefen des Fennwaldes", "den Tiefen des Fennwaldes", "den Rändern des Fennwaldes", "den Siedlungen von Vivend", "den Siedlungen von Fern-Vivend", "der Insel Maidenholm"],
 			"talent": "Inner Peace",
 			"childhood": {
 				"loner": {
