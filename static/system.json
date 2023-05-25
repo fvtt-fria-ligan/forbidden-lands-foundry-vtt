@@ -84,7 +84,7 @@
 	"secondaryTokenAttribute": null,
 	"url": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt",
 	"socket": true,
-	"manifest": "https://raw.githubusercontent.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/main/manifests/v10/system.json",
+	"manifest": "https://raw.githubusercontent.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/main/static/system.json",
 	"download": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v11.0.1/fbl-fvtt_v11.0.1.zip",
 	"license": "LICENSE.txt"
 }
