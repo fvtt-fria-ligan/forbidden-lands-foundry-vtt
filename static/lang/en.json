@@ -170,6 +170,7 @@
 	"FLCG.ERROR_NO_ACTOR": "Could not find the actor that initiated this session.",
 	"FLCG.ERROR_DATASET_WRONG_FORMAT": "Dataset is not in the correct format.",
 	"FLCG.EVENT": "Formative Event",
+	"FLCG.HOMELAND": "You hail from",
 	"FLCG.KIN": "Kin",
 	"FLCG.OLD": "Old",
 	"FLCG.PATH": "Path",

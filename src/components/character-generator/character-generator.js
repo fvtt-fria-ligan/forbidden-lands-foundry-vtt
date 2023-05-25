@@ -253,6 +253,7 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 		character = this.setKin(character);
 		let profession = this.rollOn(this.dataset.profession);
 		character.profession = profession.key;
+		character = this.rollHomeland(character);
 		character = this.rollPath(character);
 		character = this.rollFormativeEvents(character);
 
@@ -281,6 +282,14 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 			}
 		}
 		character.childhood = this.rollOn(kin.childhood);
+		return character;
+	}
+
+	rollHomeland(character) {
+		if (this.dataset.kin[character.kin]?.homeland) {
+			const numberOfHomelands = this.dataset.kin[character.kin]?.homeland?.length || 1;
+			character.homeland = this.dataset.kin[character.kin]?.homeland[this.rollNumber(0, numberOfHomelands - 1)];
+		}
 		return character;
 	}
 

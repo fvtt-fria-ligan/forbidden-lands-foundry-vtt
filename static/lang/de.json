@@ -126,6 +126,7 @@
 	"FLCG.ERROR_NO_ACTOR": "Der Akteur mit dem der Generator gestartet wurde ist nicht mehr verfügbar.",
 	"FLCG.ERROR_DATASET_WRONG_FORMAT": "Das Dataset hat nicht das richtige Format.",
 	"FLCG.EVENT": "Prägendes Ereignis",
+	"FLCG.HOMELAND": "Du stammst aus",
 	"FLCG.KIN": "Volk",
 	"FLCG.OLD": "Alt",
 	"FLCG.PATH": "Pfad",
