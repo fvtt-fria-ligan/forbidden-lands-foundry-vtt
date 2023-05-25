@@ -1,0 +1,19 @@
+{{#*inline "fields" config}}
+	{{#each config as |field|}}
+		<div>
+			<hr />
+			<label>
+				<input type="checkbox" name="{{field.key}}" {{checked field.checked}} />
+				<div>
+					{{field.label}}
+					<span class="description">{{field.description}}</span>
+				</div>
+			</label>
+		</div>
+	{{/each}}
+{{/inline}}
+
+<form>
+	{{> fields config=config}}
+	<button type="submit">Submit</button>
+</form>
