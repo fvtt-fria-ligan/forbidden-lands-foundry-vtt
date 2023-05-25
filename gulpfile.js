@@ -21,7 +21,6 @@ const getDownloadURL = (tag) =>
 const packageJson = JSON.parse(fs.readFileSync("package.json"));
 const { version } = packageJson;
 const majorVersion = version.split(".")[0];
-const manifest = JSON.parse(fs.readFileSync(`manifests/v${majorVersion}/system.json`));
 const staticFiles = fs.readdirSync(`./static`).map((file) => `static/${file}`);
 staticFiles.push("README.md", "LICENSE", `manifests/v${majorVersion}/system.json`);
 
@@ -163,17 +162,15 @@ async function commitTagPush() {
  * Update version and download URL.
  */
 async function bumpVersion(cb) {
-	if (!manifest) cb(Error(chalk.red("Manifest JSON not found")));
-
 	try {
 		// eslint-disable-next-line no-shadow
 		const release = argv.release || argv.r;
 
-		const currentVersion = version;
-
 		if (!release) {
 			return cb(Error("Missing release type"));
 		}
+
+		const currentVersion = version;
 
 		const targetVersion = getTargetVersion(currentVersion, release);
 
@@ -185,14 +182,19 @@ async function bumpVersion(cb) {
 			return cb(new Error(chalk.red("Error: Target version is identical to current version")));
 		}
 
+		const major = targetVersion.split(".")[0];
+		const systemManifest = JSON.parse(fs.readFileSync(`manifests/v${major}/system.json`));
+
+		if (!systemManifest) cb(Error(chalk.red("Manifest JSON not found")));
+
 		console.log(`Updating version number to '${targetVersion}'`);
 
 		packageJson.version = targetVersion;
 		fs.writeFileSync("package.json", JSON.stringify(packageJson, null, "\t"));
 
-		manifest.version = targetVersion;
-		manifest.download = getDownloadURL(targetVersion);
-		fs.writeFileSync(`manifests/v${majorVersion}/system.json`, JSON.stringify(manifest, null, "\t"));
+		systemManifest.version = targetVersion;
+		systemManifest.download = getDownloadURL(targetVersion);
+		fs.writeFileSync(`manifests/v${major}/system.json`, JSON.stringify(systemManifest, null, "\t"));
 
 		return cb();
 	} catch (err) {

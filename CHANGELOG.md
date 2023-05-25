@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [11.0.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.2.2...v11.0.0) (2023-05-25)
+
+
+### Features
+
+* ✨ Add selection of homeland to the chargen script ([5bcb732](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/5bcb732bb911c0c2b817a5babe5cf5ac02ebf2ac))
+* ✨ adds HEALTH and RESOLVE fields as a system option ([fe73f38](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/fe73f38aa4370f3614eea822eda343506c9a55ad))
+* ✨ Interface tweaks and localization ([357e192](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/357e192ac93bff6fed5f55a5866adbe23b401806))
+
+
+### Bug Fixes
+
+* 🐛 change values for consumables in chargen datasets ([88b359c](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/88b359c1e00b8510fcfeed79b536ca84748073dd))
+* 🐛 clearing merge conflicts ([72a2109](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/72a21091c65c573b2d9724a5751b8b0dbce0a72a))
+* 🐛 formating things in last changes ([cf2ee94](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/cf2ee94377d67c01b5a58444aa27ab47a42005b0))
+* 🐛 i18n static strings in character-generator ([1ad652b](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/1ad652b63d088383102758147a61f13dec5f35c0))
+* 🐛 Item layouts ([ff0a99f](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/ff0a99f0bc86174ea22dcb8c2f6f97746739d09e))
+* 🐛 Rename all fonts ([9836bf1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/9836bf1f4192106d8699f11ae1bbb060330e6486))
+
 ### [10.2.2](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v10.2.1...v10.2.2) (2023-05-04)
 
 
