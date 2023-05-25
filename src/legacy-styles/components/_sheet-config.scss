@@ -1,0 +1,30 @@
+.sheet-config {
+	form {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	label {
+		display: flex;
+		flex-direction: row;
+		font-weight: 600;
+		gap: 8px;
+
+		div {
+			display: flex;
+			flex-direction: column;
+
+			.description {
+				font-size: var(--font-size-12);
+				font-weight: 400;
+				color: var(--color-text-dark-5);
+				font-style: italic;
+			}
+		}
+	}
+
+	hr {
+		width: 100%;
+	}
+}
