@@ -20,9 +20,8 @@ const getDownloadURL = (tag) =>
 	`https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v${tag}/fbl-fvtt_v${tag}.zip`;
 const packageJson = JSON.parse(fs.readFileSync("package.json"));
 const { version } = packageJson;
-const majorVersion = version.split(".")[0];
 const staticFiles = fs.readdirSync(`./static`).map((file) => `static/${file}`);
-staticFiles.push("README.md", "LICENSE", `manifests/v${majorVersion}/system.json`);
+staticFiles.push("README.md", "LICENSE", "static/system.json");
 
 /********************/
 /*      BUILD       */
@@ -56,11 +55,9 @@ async function pipeTemplates() {
  */
 async function pipeStatics() {
 	for (const file of staticFiles) {
-		await fs
-			.copy(file, `${distDirectory}/${file.replace(/static\/|manifests\/v\d+\//, "")}`, { recursive: true })
-			.catch((err) => {
-				console.log(err);
-			});
+		await fs.copy(file, `${distDirectory}/${file.replace(/static\//, "")}`, { recursive: true }).catch((err) => {
+			console.log(err);
+		});
 	}
 }
 
@@ -110,7 +107,7 @@ function getDataPath() {
  */
 async function linkUserData() {
 	let destinationDirectory;
-	if (fs.existsSync(path.resolve(`manifests/v${majorVersion}/system.json`))) destinationDirectory = "systems";
+	if (fs.existsSync(path.resolve("static/system.json"))) destinationDirectory = "systems";
 	else throw new Error(`Could not find ${chalk.blueBright("system.json")}`);
 
 	const linkDirectory = path.resolve(getDataPath(), destinationDirectory, repoName);
@@ -182,8 +179,7 @@ async function bumpVersion(cb) {
 			return cb(new Error(chalk.red("Error: Target version is identical to current version")));
 		}
 
-		const major = targetVersion.split(".")[0];
-		const systemManifest = JSON.parse(fs.readFileSync(`manifests/v${major}/system.json`));
+		const systemManifest = JSON.parse(fs.readFileSync("static/system.json"));
 
 		if (!systemManifest) cb(Error(chalk.red("Manifest JSON not found")));
 
@@ -194,7 +190,7 @@ async function bumpVersion(cb) {
 
 		systemManifest.version = targetVersion;
 		systemManifest.download = getDownloadURL(targetVersion);
-		fs.writeFileSync(`manifests/v${major}/system.json`, JSON.stringify(systemManifest, null, "\t"));
+		fs.writeFileSync("static/system.json", JSON.stringify(systemManifest, null, "\t"));
 
 		return cb();
 	} catch (err) {
