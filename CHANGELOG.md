@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [11.1.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v11.0.1...v11.1.0) (2023-05-26)
+
+
+### Features
+
+* ✨ Add reputation roll ([0c7fe95](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/0c7fe95683b0e8642792420629d1c8aedf32d629)), closes [#327](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/327)
+* ✨ Count items in gear tab ([fdea12b](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/fdea12bb0639cc3be536cf712c41e5915790d346)), closes [#325](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/325)
+
 ### [11.0.1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v11.0.0...v11.0.1) (2023-05-25)
 
 
