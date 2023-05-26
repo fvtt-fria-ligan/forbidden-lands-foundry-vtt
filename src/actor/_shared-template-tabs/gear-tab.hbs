@@ -2,7 +2,9 @@
 {{#*inline "table" gear state collapsed}}
 	<table data-state="{{state}}">
 		<thead>
-			<th class="profile"><button type="button" class="collapse-table" title="{{localize 'HEADER.COLLAPSE'}}"
+			<th class="profile">
+				<span class="count" data-tooltip="{{localize "GEAR.COUNT"}}">{{count (lookup gear state)}}</span>
+				<button type="button" class="collapse-table" title="{{localize 'HEADER.COLLAPSE'}}"
 					{{ternary (eq state 'none') 'disabled' ''}}><i
 						class="fas fa-caret-{{ternary collapsed "right" "down"}}"></i></button>
 				{{fblLocalize 'GEAR' @root.type state }}<button type="button" class="header-sort" data-sort="name" title="{{localize "GEAR.SORT"}}"><i

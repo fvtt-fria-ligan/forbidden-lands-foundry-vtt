@@ -239,6 +239,10 @@ function registerHandlebarsHelpers() {
 	Handlebars.registerHelper("ternary", function (conditional, string1, string2) {
 		return conditional ? string1 : string2;
 	});
+	Handlebars.registerHelper("count", function (array = []) {
+		if (!Array.isArray(array)) return 0;
+		return array.length;
+	});
 }
 
 function normalize(data, defaultValue) {
