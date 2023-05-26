@@ -29,7 +29,14 @@
 								data-dtype="Number" />
 						</td>
 						<td>
+							{{#if system.bio.reputation.value}}
+							<button type="button" class="roll-reputation flex row align-center" data-tooltip="{{localize "DICE.ROLL"}} {{localize system.bio.reputation.label}}">
+								<i class="fas fa-dice"></i>
+								<label style="margin-left: 0px;">{{localize system.bio.reputation.label}}:</label>
+							</button>
+							{{else}}
 							<label>{{localize system.bio.reputation.label}}:</label>
+							{{/if}}
 						</td>
 						<td>
 							<input name="system.bio.reputation.value" type="number" value="{{system.bio.reputation.value}}"
