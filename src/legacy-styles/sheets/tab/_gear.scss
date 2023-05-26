@@ -147,6 +147,16 @@
 				.profile {
 					overflow: hidden;
 					text-overflow: ellipsis;
+
+					.count {
+						background-color: var(--color-highlight);
+						width: 22px;
+						height: 18px;
+						display: inline-grid;
+						place-content: center;
+						border-radius: 10px;
+						color: var(--color-foreground);
+					}
 				}
 
 				button {
