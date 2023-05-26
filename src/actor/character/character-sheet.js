@@ -68,7 +68,9 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			return this.rollConsumable(consumable);
 		});
 
-		html.find("#pride-roll-btn").click(() => this.rollPride());
+		html.find(".roll-reputation").click(() => this.rollReputation());
+
+		html.find(".roll-pride").click(() => this.rollPride());
 
 		html.find(".currency-button").on("click contextmenu", (ev) => {
 			const currency = $(ev.currentTarget).data("currency");
@@ -136,6 +138,20 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			...this.getRollOptions(),
 		};
 		const roll = FBLRoll.create(CONFIG.fbl.prideDice + `[${rollName}]`, {}, options);
+		await roll.roll({ async: true });
+		return roll.toMessage();
+	}
+
+	async rollReputation() {
+		const reputation = this.actor.actorProperties.bio.reputation;
+		const rollName = localizeString(reputation.label);
+		const options = {
+			name: rollName,
+			flavor: `<span class="chat-flavor">${reputation.value}</span>`,
+			maxPush: "0",
+			...this.getRollOptions(),
+		};
+		const roll = FBLRoll.create(reputation.value + "db" + `[${rollName}]`, {}, options);
 		await roll.roll({ async: true });
 		return roll.toMessage();
 	}
