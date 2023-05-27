@@ -168,20 +168,20 @@
 	"FLCG.ATTRIBUTES": "Attributs",
 	"FLCG.ADULT": "Adulte",
 	"FLCG.CHILDHOOD": "Enfance",
-	"FLCG.EVENT": "Évènement formateur",+
+	"FLCG.EVENT": "Évènement formateur",
 	"FLCG.ERROR_CANNOT_REVOCER": "Impossible de récupérer, réessayer.",
 	"FLCG.ERROR_NOT_A_DATAFILE": "Le dataset n'est pas un fichier JSON.",
 	"FLCG.ERROR_NO_ACTOR": "Impossible de trouver l'acteur qui a initié cette session.",
 	"FLCG.ERROR_DATASET_WRONG_FORMAT": " Le Dataset n'est pas dans le bon format.",
 	"FLCG.HOMELAND": "Vous êtes originaire de",
-	"FLCG.KIN": "Peuple",+
+	"FLCG.KIN": "Peuple",
 	"FLCG.OLD": "Vieux"
 	"FLCG.PATH": "Voie",
 	"FLCG.PROFESSION": "Profession",
 	"FLCG.RANDOMIZE": "Tout aléatoire",
 	"FLCG.SETTINGS.DATASET_HINT": "Chemin d'accès au répertoire contenant le fichier dataset.json. Vous pouvez créer votre propre base de données afin de personnaliser le générateur.",
 	"FLCG.SETTINGS.DATASET": "Répertoire du dataset",
-	"FLCG.SETTINGS.RESET": "Réinitialiser le répertoire du dataset.",+
+	"FLCG.SETTINGS.RESET": "Réinitialiser le répertoire du dataset.",
 	"FLCG.SETTINGS.RFP_SET": "Générateur des modules Reforged Power",
 	"FLCG.SKILLS": "Compétences",
 	"FLCG.TALENT": "Talent",
