@@ -3,19 +3,21 @@ export class AdventureSitesSheet extends JournalSheet {
 		return "systems/forbidden-lands/templates/journal/adventure-sites/adventure-site-sheet.hbs";
 	}
 
-	getData() {
-		const data = super.getData();
+	getData(options) {
+		const data = super.getData(options);
 		data.type = this.object.type;
 		return data;
 	}
 
 	activateListeners(html) {
 		super.activateListeners(html);
+
 		html.find('[data-action="add-room"]').on("click", async () => {
 			const type = this.object.type;
 			const path = CONFIG.fbl.adventureSites.types[type];
 			const room = await CONFIG.fbl.adventureSites?.generate(path, type + "_rooms");
-			const pageName = ($(room).find("h4") || $(room).find("strong"))
+			const pageName = $(room)
+				.find("h4, strong")
 				?.first()
 				.text()
 				.replace(/[^\p{L}]+/u, " ")

@@ -11,6 +11,11 @@
 					data-action="toggleView"
 					data-tooltip="{{localize viewMode.label}}"
 				><i class="{{viewMode.icon}}"></i></a>
+				<a
+					class="action-button toggle-search-mode"
+					data-action="toggleSearch"
+					data-tooltip="{{localize searchTooltip}}"
+				><i class="fas {{searchIcon}}"></i></a>
 				<input
 					type="search"
 					name="search"
@@ -30,7 +35,7 @@
 		<nav class="pages-list" aria-label="{{localize 'JOURNAL.NavLabel'}}" data-tooltip-direction="RIGHT">
 			<ol class="directory-list scrollable">
 				{{#each toc as |page|}}
-					<li class="directory-item {{page.cssClass}}" data-page-id="{{page._id}}">
+					<li class="directory-item {{page.tocClass}}" data-page-id="{{page._id}}">
 						<div class="page-heading">
 							<span class="page-number" data-tooltip="{{page.name}}">{{page.number}}.</span>
 							<span class="page-title">{{page.name}}</span>
@@ -60,7 +65,9 @@
 				</button>
 				&nbsp;
 				{{#if (or (eq type "ice_cave") (eq type "dungeon") (eq type "elven_ruin"))}}
-					<button type="button" class="create" data-action="add-room"><i class="fas fa-plus-circle"></i>{{localize "JOURNAL.AddRoom"}}
+					<button type="button" class="create" data-action="add-room"><i
+							class="fas fa-plus-circle"
+						></i>{{localize "JOURNAL.AddRoom"}}
 					</button>
 				{{/if}}
 			{{/if}}
@@ -82,10 +89,10 @@
 			/>
 		</form>
 
-		<div class="journal-entry-pages {{cssClass}}">
+		<div class="journal-entry-pages {{cssClass}} {{viewMode.cls}}">
 			<div class="scrollable">
 				{{#each pages as |page|}}
-					<article class="journal-entry-page {{page.type}}" data-page-id="{{page._id}}">
+					<article class="journal-entry-page {{page.viewClass}}" data-page-id="{{page._id}}">
 						{{#if page.editable}}
 							<div class="edit-container">
 								<a class="editor-edit"><i class="fas fa-edit"></i></a>
