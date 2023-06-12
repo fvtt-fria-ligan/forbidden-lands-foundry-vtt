@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [11.1.1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v11.1.0...v11.1.1) (2023-06-11)
+
+
+### Bug Fixes
+
+* 🐛 Adventure Site journal entries not working correctly ([27d7bbe](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/27d7bbe3b45afc51cf1dbd0601a85d5e4e973eb7)), closes [#343](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues/343)
+
 ## [11.1.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v11.0.1...v11.1.0) (2023-05-26)
 
 
