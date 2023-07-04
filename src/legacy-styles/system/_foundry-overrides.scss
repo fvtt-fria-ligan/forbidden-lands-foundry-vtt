@@ -143,7 +143,8 @@ img {
 }
 
 a.content-link,
-a.inline-roll {
+a.inline-roll,
+button.inline-roll {
 	border: none;
 	background: transparent;
 	border-bottom: 1px dotted grey;
@@ -152,6 +153,23 @@ a.inline-roll {
 a {
 	&.inline-roll {
 		border: none;
+	}
+}
+button {
+	&.inline-roll {
+		&:hover {
+			text-shadow: 0 0 8px var(--color-shadow-primary);
+			box-shadow: none;
+		}
+		& > .fa-dice-d20 {
+			margin-inline-end: 0.25em;
+			color: var(--color-text-dark-inactive);
+		}
+		width: auto;
+		border: none;
+		line-height: initial;
+		font-size: inherit;
+		font-family: "IM Fell Great Primer", serif;
 	}
 }
 
