@@ -175,7 +175,7 @@ function fblrListener(event) {
 	};
 	const options = {};
 	if (button.dataset.fblModifier) {
-		options.modifiers = [{ name: "Modifikator", value: button.dataset.fblModifier, active: true }];
+		options.modifiers = [{ name: localizeString("DICE.MODIFIER"), value: button.dataset.fblModifier, active: true }];
 	}
 	return game.fbl.roll(data, options).catch((error) => console.log(error));
 }
