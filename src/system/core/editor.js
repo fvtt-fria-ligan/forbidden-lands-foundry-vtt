@@ -115,7 +115,7 @@ export function initializeEditorEnrichers() {
 }
 
 const fblrRegEx =
-	/\[\[\/fblr (?:(\d)db\s?)?(?:(\d)ds\s?)?(?:(\d)dg\s?)?(?:1d(6|8|10|12)\s?)?(?:([+|-]\d+))?\]\](?:{([^}]+)})?/gi;
+	/\[\[\/fblr (?:(\d)db\s?)?(?:(\d)ds\s?)?(?:(\d)dg\s?)?(?:1d(6|8|10|12)\s?)?(?:([+|-]\d+)\s?)?(\d)?\]\](?:{([^}]+)})?/gi;
 
 /**
  * The "fblr" text enricher that creates a deferred inline roll button.
@@ -141,9 +141,9 @@ function fblrEnricher(match /*, options*/) {
 	button.dataset.fblGear = match[3] || 0;
 	button.dataset.fblArtifact = match[4] || "";
 	button.dataset.fblModifier = match[5] || "";
-	/* button.dataset.fblDamage = 1; */
+	button.dataset.fblDamage = match[6] || "";
 	// the text inside
-	button.innerHTML = match[6] || localizeString("ACTION.GENERIC");
+	button.innerHTML = match[7] || localizeString("ACTION.GENERIC");
 	button.prepend(span);
 	return button;
 }
@@ -169,7 +169,7 @@ function fblrListener(event) {
 			label: "DICE.GEAR",
 			value: button.dataset.fblGear,
 			artifactDie: button.dataset.fblArtifact ? `1d${button.dataset.fblArtifact}` : "",
-			damage: button.dataset.fblDamage,
+			damage: Number(button.dataset.fblDamage),
 		},
 		/* title: "inline Roll", */
 	};
