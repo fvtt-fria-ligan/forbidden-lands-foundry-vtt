@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [11.2.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v11.1.3...v11.2.0) (2023-08-13)
+
+
+### Features
+
+* ✨ add damage to enricher ([6cd8c39](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/6cd8c39f14d5c4633856d08f59b744f066d7afb8))
+* ✨ add fblr enricher ([9a6b2d6](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/9a6b2d656439e8fb897d793d4f2523a96b6b6e86))
+
+
+### Bug Fixes
+
+* 🐛 allow dices greater than 9 ([8bc5a5f](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/8bc5a5f6aace15f36adac6c8cbf94837afeb5981))
+* 🐛 code formating ([b9c79a1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/b9c79a118e64a3e37b3f23624ef528f48f40fcc7))
+* 🐛 i18n modifier label ([474b9da](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/474b9dae2e502bd1441a577521cae06b50b114f5))
+* use correct attributes when conditions block resting. ([16b7119](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/16b71194d0c188bcdad1caa853419d53677b2c07))
+
 ### [11.1.3](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v11.1.1...v11.1.3) (2023-07-01)
 
 ### Bug Fixes
