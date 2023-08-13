@@ -30,7 +30,9 @@
 	display: block;
 	margin: 0 auto;
 	border-radius: 6px;
-	transition: transform 80ms ease-in-out, box-shadow 80ms ease-in-out;
+	transition:
+		transform 80ms ease-in-out,
+		box-shadow 80ms ease-in-out;
 
 	&:hover,
 	&:focus {
