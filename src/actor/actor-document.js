@@ -143,7 +143,7 @@ export class ForbiddenLandsActor extends Actor {
 		const data = {
 			attribute: {
 				agility: {
-					value: isBlocked("thirsty") ? this.attributes.strength.value : this.attributes.agility.max,
+					value: isBlocked("thirsty") ? this.attributes.agility.value : this.attributes.agility.max,
 				},
 				strength: {
 					value: isBlocked("thirsty", "cold", "hungry")
@@ -152,7 +152,7 @@ export class ForbiddenLandsActor extends Actor {
 				},
 				wits: {
 					value: isBlocked("thirsty", "cold", "sleepy")
-						? this.attributes.strength.value
+						? this.attributes.wits.value
 						: this.attributes.wits.max,
 				},
 				empathy: {
