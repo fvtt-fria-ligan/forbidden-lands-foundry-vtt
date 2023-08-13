@@ -115,7 +115,7 @@ export function initializeEditorEnrichers() {
 }
 
 const fblrRegEx =
-	/\[\[\/fblr (?:(\d)db\s?)?(?:(\d)ds\s?)?(?:(\d)dg\s?)?(?:1d(6|8|10|12)\s?)?(?:([+|-]\d+)\s?)?(\d)?\]\](?:{([^}]+)})?/gi;
+	/\[\[\/fblr (?:(\d+)db\s?)?(?:(\d+)ds\s?)?(?:(\d+)dg\s?)?(?:1d(6|8|10|12)\s?)?(?:([+|-]\d+)\s?)?(\d)?\]\](?:{([^}]+)})?/gi;
 
 /**
  * The "fblr" text enricher that creates a deferred inline roll button.
