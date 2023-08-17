@@ -1,6 +1,6 @@
 <div class="main-tab">
     <div class="attributes border">
-        <h1>{{localize "HEADER.ATTRIBUTES"}}</h1>
+        <h2>{{localize "HEADER.ATTRIBUTES"}}</h2>
         {{#each system.attribute as |attribute key|}}
 			{{#unless (or (eq attribute.label "ATTRIBUTE.HEALTH") (eq attribute.label "ATTRIBUTE.RESOLVE"))}}
             <div class="name">
@@ -26,7 +26,7 @@
     </div>
     <div class="conditions flex column border grow center">
 		{{#if system.useHealthAndResolve}}
-        <h1>{{localize "DAMAGE"}}</h1>
+        <h2>{{localize "DAMAGE"}}</h2>
 		<div class="attributes">
         {{#each system.attribute as |attribute key|}}
 			{{#if (or (eq attribute.label "ATTRIBUTE.HEALTH") (eq attribute.label "ATTRIBUTE.RESOLVE"))}}
@@ -52,7 +52,7 @@
 		{{/each}}
 		</div>
 		{{/if}}
-        <h1>{{localize "HEADER.CONDITION"}}</h1>
+        <h2>{{localize "HEADER.CONDITION"}}</h2>
         <div class="conditions-grid">
             <a class="condition {{# if system.condition.sleepy.value}}active{{/if}}" data-condition="sleepy"
                 title="{{localize "CONDITION.SLEEPY"}}">
@@ -79,7 +79,7 @@
     </div>
 
     <div class="skills strength border">
-        <h1>{{localize "ATTRIBUTE.STRENGTH"}}</h1>
+        <h2>{{localize "ATTRIBUTE.STRENGTH"}}</h2>
         {{#each system.skill as |skill key|}}
             {{#if skill.hasStrength}}
                 <div class="name"><button type="button" class="roll-skill"
@@ -90,7 +90,7 @@
         {{/each}}
     </div>
     <div class="skills agility border">
-        <h1>{{localize "ATTRIBUTE.AGILITY"}}</h1>
+        <h2>{{localize "ATTRIBUTE.AGILITY"}}</h2>
         {{#each system.skill as |skill key|}}
             {{#if skill.hasAgility}}
                 <div class="name"><button type="button" class="roll-skill"
@@ -101,7 +101,7 @@
         {{/each}}
     </div>
     <div class="skills wits border">
-        <h1>{{localize "ATTRIBUTE.WITS"}}</h1>
+        <h2>{{localize "ATTRIBUTE.WITS"}}</h2>
         {{#each system.skill as |skill key|}}
             {{#if skill.hasWits}}
                 <div class="name"><button type="button" class="roll-skill"
@@ -112,7 +112,7 @@
         {{/each}}
     </div>
     <div class="skills empathy border">
-        <h1>{{localize "ATTRIBUTE.EMPATHY"}}</h1>
+        <h2>{{localize "ATTRIBUTE.EMPATHY"}}</h2>
         {{#each system.skill as |skill key|}}
             {{#if skill.hasEmpathy}}
                 <div class="name"><button type="button" class="roll-skill"

@@ -1,6 +1,6 @@
 <div class="bio-tab border">
 	<div class="section">
-		<h1>
+		<h2 style="display: flex;justify-content: center;">
 			<button
 				type="button"
 				class="roll-pride flex row align-center"
@@ -8,13 +8,13 @@
 			>
 				<i class="fas fa-dice"></i>{{localize "HEADER.PRIDE"}}
 			</button>
-		</h1>
+		</h2>
 		{{editor system.bio.pride.value target="system.bio.pride.value" owner=owner button=true editable=true}}
 	</div>
 	<div class="section">
-		<h1>
+		<h2>
 			{{localize "HEADER.DARK_SECRET"}}
-		</h1>
+		</h2>
 		{{editor
 			system.bio.darkSecret.value
 			target="system.bio.darkSecret.value"
@@ -24,21 +24,21 @@
 		}}
 	</div>
 	<div class="section">
-		<h1>
+		<h2>
 			{{localize "HEADER.FACE"}}
-		</h1>
+		</h2>
 		{{editor system.bio.face.value target="system.bio.face.value" owner=owner button=true editable=true}}
 	</div>
 	<div class="section">
-		<h1>
+		<h2>
 			{{localize "HEADER.BODY"}}
-		</h1>
+		</h2>
 		{{editor system.bio.body.value target="system.bio.body.value" owner=owner button=true editable=true}}
 	</div>
 	<div class="section">
-		<h1>
+		<h2>
 			{{localize "HEADER.CLOTHING"}}
-		</h1>
+		</h2>
 		{{editor system.bio.clothing.value target="system.bio.clothing.value" owner=owner button=true editable=true}}
 	</div>
 </div>
