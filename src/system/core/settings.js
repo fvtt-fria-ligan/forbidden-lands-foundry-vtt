@@ -1,3 +1,4 @@
+import { Changelog } from "$changelog/changelog.js";
 import localizeString from "@utils/localize-string.js";
 
 const debouncedReload = foundry.utils.debounce(() => window.location.reload(), 100);
@@ -284,6 +285,14 @@ export default function registerSettings() {
 	/* -------------------------------------------- */
 	/*  Menus (Always go on top)                    */
 	/* -------------------------------------------- */
+	game.settings.registerMenu("forbidden-lands", "changelog", {
+		name: "CONFIG.CHANGELOG",
+		hint: "CONFIG.CHANGELOG_DESC",
+		label: "CONFIG.CHANGELOG_LABEL",
+		icon: "fas fa-book",
+		type: Changelog,
+	});
+
 	game.settings.registerMenu("forbidden-lands", "tableConfigMenu", {
 		name: "CONFIG.TABLE_CONFIG_MENU",
 		hint: "CONFIG.TABLE_CONFIG_MENU_DESC",

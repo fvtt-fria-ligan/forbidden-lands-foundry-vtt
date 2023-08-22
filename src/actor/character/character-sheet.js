@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
-import { ForbiddenLandsActorSheet } from "../actor-sheet.js";
 import { ForbiddenLandsCharacterGenerator } from "@components/character-generator/character-generator.js";
 import { FBLRoll, FBLRollHandler } from "@components/roll-engine/engine.js";
 import localizeString from "@utils/localize-string";
 import { ActorSheetConfig } from "@utils/sheet-config.js";
+import { ForbiddenLandsActorSheet } from "../actor-sheet.js";
 
 export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
@@ -206,7 +206,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 							Dialog.confirm({
 								title: game.i18n.localize("FLCG.TITLE"),
 								content: `
-									<h1 style="text-align: center;font-weight: 600; border:none;">${game.i18n.localize("FLCG.WARNING")}</h1>
+									<h2 style="text-align: center;font-weight: 600; border:none;">${game.i18n.localize("FLCG.WARNING")}</h2>
 									<p>${game.i18n.localize("FLCG.WARNING_DESTRUCTIVE_EDIT")}</p><hr/>
 									<p>${game.i18n.localize("FLCG.WARNING_HINT")}</p>
 									<p style="text-align: center;"><b>${game.i18n.localize("FLCG.WARNING_ARE_YOU_SURE")}</b></p>

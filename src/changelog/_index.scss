@@ -1,0 +1,63 @@
+.app.fbl.changelog {
+	.dialog-content {
+		font-family: var(--font-editor);
+		padding-inline: 16px;
+		line-height: 165%;
+	}
+
+	h1,
+	h2,
+	h3 {
+		font-family: var(--font-subheader);
+		border: none;
+	}
+
+	h1 {
+		text-align: center;
+	}
+
+	ul {
+		list-style-type: "\2725   ";
+	}
+
+	code {
+		background: var(--color-border-light-1);
+		padding: 0.1em 0.2em;
+		border-radius: 0.25em;
+		display: block;
+		user-select: all;
+	}
+
+	details {
+		margin-bottom: 8px;
+
+		summary > i {
+			transition: transform 0.2s ease-in-out;
+		}
+
+		&[open] summary {
+			margin-bottom: 20px;
+			& > i {
+				transform: rotate(90deg);
+			}
+		}
+	}
+
+	summary {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+
+		h2 {
+			margin: 0px;
+
+			span {
+				font-size: var(--font-size-16);
+			}
+		}
+
+		&::marker {
+			content: none;
+		}
+	}
+}
