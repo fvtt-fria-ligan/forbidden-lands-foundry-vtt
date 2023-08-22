@@ -1,0 +1,32 @@
+@forward "variables";
+
+html.dark {
+	--color-theme-background: #222020;
+	--color-theme-text: #fff;
+
+	#sidebar,
+	#hotbar #hotbar-directory-controls,
+	#hotbar #action-bar,
+	#hotbar #hotbar-page-controls,
+	#players,
+	#controls ol .scene-control,
+	#controls ol .control-tool,
+	#controls ol .scene-control.active,
+	#controls ol .control-tool.active,
+	#navigation #nav-toggle,
+	#navigation #scene-list .scene.view,
+	.app.window-app {
+		border-image-source: url(./assets/journal-art/box-border-large-dark.webp);
+	}
+}
+
+button,
+form button,
+.dark button {
+	background: var(--color-theme-gray-600);
+	color: var(--color-theme-gray-200);
+}
+
+.window-app .window-content {
+	background-image: none;
+}

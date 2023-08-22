@@ -1,23 +1,23 @@
 import { ForbiddenLandsActor } from "@actor/actor-document.js";
-import { ForbiddenLandsItem } from "@item/item-document.js";
-import { initializeHandlebars } from "@system/core/handlebars.js";
-import { migrateWorld } from "@system/core/migration.js";
-import { registerSheets } from "@system/core/sheets.js";
-import FBL, { modifyConfig } from "@system/core/config.js";
-import registerSettings from "@system/core/settings.js";
-import registerHooks from "@system/core/hooks.js";
+import { importMacros } from "@components/macros/macros.js";
 import displayMessages from "@components/message-system.js";
-import FoundryOverrides from "@system/core/foundry-overrides.js";
-import { YearZeroRollManager } from "@components/roll-engine/yzur";
 import { ForbiddenLandsD6, registerYZURLabels } from "@components/roll-engine/dice-labels";
 import { FBLRollHandler } from "@components/roll-engine/engine.js";
-import localizeString from "@utils/localize-string.js";
-import { ForbiddenLandsJournalEntry } from "@journal/journal-document.js";
+import { YearZeroRollManager } from "@components/roll-engine/yzur";
+import { ForbiddenLandsItem } from "@item/item-document.js";
 import { init, utilities } from "@journal/adventure-sites/adventure-site-generator.js";
-import { FBLCombat, FBLCombatant, FBLCombatTracker } from "@system/combat/combat.js";
-import { importMacros } from "@components/macros/macros.js";
+import { ForbiddenLandsJournalEntry } from "@journal/journal-document.js";
+import { FBLCombat, FBLCombatTracker, FBLCombatant } from "@system/combat/combat.js";
+import FBL, { modifyConfig } from "@system/core/config.js";
 import { initializeEditorEnrichers } from "@system/core/editor.js";
 import { registerFonts } from "@system/core/fonts.js";
+import FoundryOverrides from "@system/core/foundry-overrides.js";
+import { initializeHandlebars } from "@system/core/handlebars.js";
+import registerHooks from "@system/core/hooks.js";
+import { migrateWorld } from "@system/core/migration.js";
+import registerSettings from "@system/core/settings.js";
+import { registerSheets } from "@system/core/sheets.js";
+import localizeString from "@utils/localize-string.js";
 
 /**
  * We use this label to remove the debug option in production builds.
@@ -60,6 +60,9 @@ Hooks.once("init", () => {
 	initializeEditorEnrichers();
 	registerFonts();
 	modifyConfig();
+
+	// Add dark mode class to html tag
+	if (game.settings.get("forbidden-lands", "darkmode")) $("html").addClass("dark");
 });
 
 Hooks.once("ready", () => {
