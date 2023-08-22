@@ -1,0 +1,105 @@
+body.game {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	grid-template-areas: "ui-left ui-middle ui-right";
+	gap: 5px;
+
+	#ui-left {
+		grid-area: ui-left;
+	}
+
+	#ui-middle {
+		grid-area: ui-middle;
+		margin-bottom: 3px;
+	}
+
+	#ui-right {
+		grid-area: ui-right;
+		margin-inline-start: auto;
+	}
+}
+
+#ui-left {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	grid-template-areas:
+		"ui-left-top"
+		"ui-left-middle"
+		"ui-left-bottom";
+	align-content: flex-start;
+	gap: 10px;
+
+	#controls {
+		grid-area: ui-left-middle;
+		place-items: flex-start;
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 10px;
+		justify-content: space-between;
+		height: unset;
+		padding-top: unset;
+		margin-left: 20px;
+
+		ol.main-controls {
+			overflow: unset;
+			padding: unset;
+			width: unset;
+			display: grid;
+		}
+	}
+}
+
+$border-selectors: "#sidebar", "#hotbar #hotbar-directory-controls", "#hotbar #action-bar", "#players",
+	"#controls ol .scene-control", "#controls ol .scene-control:hover", "#controls ol .control-tool",
+	"#controls ol .control-tool:hover", "#controls ol .scene-control.active", "#controls ol .scene-control.active:hover",
+	"#controls ol .control-tool.active", "#controls ol .control-tool.toggle", "#controls ol .control-tool.toggle:hover",
+	"#controls ol .control-tool.active:hover", "#controls ol .control-tool.toggle.active",
+	"#controls ol .control-tool.toggle.active:hover", "#navigation #nav-toggle", "#navigation #scene-list .scene.nav-item",
+	".app.window-app";
+
+// Overriding the base look of almost every major UI element
+@each $selector in $border-selectors {
+	#{$selector} {
+		border: 4px solid transparent;
+		border-image: url(./assets/journal-art/box-border-large.webp) 108/3 repeat;
+		border-image-outset: 1;
+		background: var(--color-theme-background);
+		color: var(--color-theme-text);
+	}
+}
+
+.window-app .window-content,
+.chat-message {
+	background: none;
+}
+
+#pause {
+	background: none;
+	& > img {
+		width: 180px;
+		height: 180px;
+		top: -40px;
+		left: calc(50% - 90px);
+		opacity: 0.75;
+		-webkit-animation: rotation 8s infinite linear;
+		animation: rotation 8s infinite linear;
+	}
+	h3 {
+		color: #f2f2f2;
+		font-family: var(--font-header-sc);
+		font-size: var(--font-size-28);
+		text-shadow: 0px 3px 5px #000;
+	}
+}
+
+// Darkmode
+html.dark {
+	--color-theme-background: #222020;
+	--color-theme-text: #fff;
+
+	@each $selector in $border-selectors {
+		#{$selector} {
+			border-image-source: url(./assets/journal-art/box-border-large-dark.webp);
+		}
+	}
+}

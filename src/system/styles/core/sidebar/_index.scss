@@ -1,0 +1,47 @@
+.directory .directory-header .header-search input {
+	background: unset;
+}
+
+.app.sidebar-popout .window-content {
+	color: unset;
+}
+
+#sidebar-tabs > .collapse {
+	font-size: var(--font-size-20);
+	color: var(--color-text-dark-primary);
+
+	&:hover {
+		color: var(--color-theme-alt-600);
+	}
+}
+
+li.folder > .folder-header h3 {
+	color: var(--color-text-dark-primary);
+}
+
+li.folder > .folder-header .create-folder,
+li.folder > .folder-header .create-document {
+	&:hover {
+		color: var(--color-theme-alt-600);
+	}
+}
+
+li.folder.collapsed > .folder-header {
+	background: var(--color-theme-gray-200);
+}
+
+#chat-form textarea {
+	background: unset;
+}
+
+.directory .directory-list li.directory-item.document {
+	&:hover,
+	&:focus-visible {
+		background-color: var(--color-theme-gray-200);
+		cursor: pointer;
+	}
+	a:hover {
+		color: unset;
+		text-shadow: unset;
+	}
+}

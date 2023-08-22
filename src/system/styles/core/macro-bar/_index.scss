@@ -1,0 +1,58 @@
+#hotbar {
+	gap: var(--spacing-3);
+}
+
+#hotbar #macro-list {
+	border: none;
+	gap: var(--spacing-1);
+	justify-content: flex-end;
+}
+
+#hotbar .macro {
+	border: none;
+	box-shadow: none;
+	background-color: var(--color-theme-gray-600);
+
+	.macro-key {
+		aspect-ratio: 1 / 1;
+		width: 1rem;
+		font-size: var(--font-size-12);
+		padding: 0;
+		text-align: center;
+		top: 0;
+		right: 0;
+		border-radius: 0 var(--radius-1) 0 var(--radius-1);
+		background: var(--color-theme-alt-800);
+		z-index: 1;
+	}
+
+	&.active:hover {
+		border: none;
+		box-shadow: none;
+
+		.macro-icon {
+			filter: drop-shadow(2px 4px 6px var(--color-theme-alt-800));
+		}
+	}
+}
+
+#hotbar .macro.inactive {
+	box-shadow: none;
+}
+
+#hotbar #hotbar-page-controls {
+	border: none;
+	box-shadow: none;
+	background: var(--color-theme-background);
+	color: var(--color-theme-text);
+	justify-content: center;
+}
+
+@media (max-width: 1120px) {
+	#hotbar {
+		--hotbar-width: 665px;
+	}
+	#hotbar #macro-list {
+		grid-template-columns: repeat(5, var(--macro-size));
+	}
+}
