@@ -351,6 +351,8 @@
 	"ROLL.STANDING_DODGE": "Standing dodge",
 	"ROLL_MODIFIER.SELECT": "Please select a modifier",
 	"SCENE.RENDER": "Toggle scene",
+	"SETTINGS.DARKMODE": "Dark Mode (Experimental)",
+	"SETTINGS.DARKMODE_HINT": "Set sheets to display in dark grey instead of white. This is an experimental feature and may give poor contrast with some sheets or UI controls.",
 	"SHEET.CLOSE": "Close",
 	"SHEET.CONFIGURE": "Configure",
 	"SHEET.CREATE_ARMOR": "Create Armor",

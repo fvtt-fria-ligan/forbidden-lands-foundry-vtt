@@ -1,0 +1,79 @@
+@forward "variables";
+
+html.dark {
+	#sidebar,
+	#hotbar #hotbar-directory-controls,
+	#hotbar #action-bar,
+	#hotbar #hotbar-page-controls,
+	#players,
+	#controls ol .scene-control,
+	#controls ol .control-tool,
+	#controls ol .scene-control.active,
+	#controls ol .control-tool.active,
+	#navigation #nav-toggle,
+	#navigation #scene-list .scene.view,
+	.app.window-app {
+		border-image-source: url(./assets/journal-art/box-border-large-dark.webp);
+	}
+
+	button {
+		background: var(--color-theme-gray-800);
+		color: var(--color-theme-gray-200);
+	}
+
+	input[type="text"],
+	input[type="number"],
+	input[type="password"],
+	input[type="date"],
+	input[type="time"],
+	input[type="search"] {
+		color: #111;
+	}
+
+	.forbidden-lands input {
+		color: var(--color-theme-text);
+	}
+
+	form .notes,
+	form .hint {
+		color: var(--color-theme-gray-200);
+	}
+
+	#chat-log .message {
+		background: var(--color-theme-background);
+	}
+
+	.chat-message .message-header {
+		color: var(--color-theme-text);
+	}
+
+	.journal-page-header h1,
+	.journal-page-header h2,
+	.journal-page-header h3 {
+		color: var(--color-theme-background);
+		filter: invert(1);
+	}
+
+	.journal-sheet .journal-header:after {
+		filter: invert(1);
+	}
+
+	.journal-sheet .journal-header .title {
+		color: var(--color-theme-text);
+	}
+
+	.prosemirror menu .pm-dropdown {
+		background: var(--color-theme-contrast);
+	}
+}
+
+button,
+form button,
+.dark button {
+	background: var(--color-theme-gray-200);
+	color: var(--color-theme-gray-800);
+}
+
+.window-app .window-content {
+	background-image: none;
+}

@@ -108,7 +108,7 @@
 		}
 
 		.avatar {
-			background: radial-gradient(closest-side, var(--color-highlight) 0%, white 100%);
+			background: radial-gradient(closest-side, var(--color-highlight) 0%, var(--color-theme-background) 100%);
 			grid-row: 1/3;
 			height: 95px;
 			width: 95px;

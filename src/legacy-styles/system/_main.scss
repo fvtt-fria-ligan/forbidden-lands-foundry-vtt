@@ -183,7 +183,7 @@
 		background: var(--color-background);
 		border: 1px solid var(--color-border);
 		border-radius: 3px;
-		box-shadow: inset 0 0 6px var(--color-secondary);
+		box-shadow: inset 0 0 6px var(--color-theme-gray-200);
 		color: var(--color-foreground);
 		font-family: var(--font-input);
 		font-size: var(--font-size-14);
@@ -272,12 +272,14 @@
 				}
 
 				&:nth-child(odd) {
-					background: var(--color-secondary);
+					background: var(--color-theme-gray-200);
+					color: var(--color-theme-gray-800);
 				}
 
 				&:nth-child(odd) button:focus,
 				&:nth-child(odd) button:hover {
 					background: var(--color-background);
+					color: var(--color-theme-gray-800);
 				}
 
 				img {
@@ -291,8 +293,8 @@
 }
 
 .forbidden-lands.sheet .window-content {
-	background: var(--color-background);
-	color: var(--color-foreground);
+	background: var(--color-theme-background);
+	color: var(--color-theme-text);
 	height: 100%;
 }
 
@@ -300,13 +302,13 @@
 .app {
 	background: #292929f0;
 	&.window-app {
-		color: #000;
+		color: var(--color-theme-text);
 		border: 2px solid transparent;
 		border-image: url(./assets/journal-art/box-border-large.webp) 110/11 repeat;
 		border-image-outset: 3;
 		padding: 0 4px 4px;
 		margin: 0;
-		background-color: #fff;
+		background-color: var(--color-theme-background);
 		.journal-sheet {
 			min-width: 500px;
 			min-height: 300px;
@@ -322,7 +324,7 @@
 						width: 6px;
 					}
 					::-webkit-scrollbar-thumb {
-						background: var(--color-secondary);
+						background: var(--color-theme-gray-200);
 						border: 0 none;
 					}
 				}
@@ -330,7 +332,7 @@
 				.bio {
 					padding: 4px 8px;
 					.avatar {
-						background: radial-gradient(closest-side, var(--color-highlight) 0%, white 100%);
+						background: radial-gradient(closest-side, var(--color-highlight) 0%, var(--color-background) 100%);
 						flex: 0 0 auto;
 						height: 95px;
 						width: 95px;
@@ -407,34 +409,15 @@
 #chat-log .message {
 	background: white;
 }
-.app,
-#hotbar .macro,
-#hotbar .macro .macro-key,
-#hotbar .bar-controls,
-#controls .scene-control,
-#controls .control-tool,
-#navigation #nav-toggle,
-#navigation #scene-list .scene {
-	background: var(--color-foreground);
-	color: var(--color-background);
-}
-button,
-.dialog .dialog-buttons button.default,
-#chat-form textarea,
-#chat-controls div.roll-type-select select,
-.window-app .window-content,
-.sidebar-tab .directory-header .header-search input {
-	background: var(--color-background);
-	color: var(--color-foreground);
-}
+
 #navigation #scene-list .scene.gm {
 	background: #525252;
-	border: 1px solid var(--color-border);
+	border: 1px solid var(--color-border-light-secondary);
 }
 
 .forbidden-lands .sheet-tabs {
-	background-color: var(--color-foreground);
-	color: #ddd;
+	background-color: var(--color-border-dark);
+	color: var(--color-text-light-1);
 	font-family: var(--font-special);
 	margin: 8px 0;
 	padding: 0 8px;
@@ -473,7 +456,7 @@ button,
 .forbidden-lands .far.fa-times-circle,
 .forbidden-lands .far.fa-check-circle {
 	font-size: var(--font-size-14);
-	color: #333;
+	color: var(--color-text);
 }
 
 .forbidden-lands .broken {

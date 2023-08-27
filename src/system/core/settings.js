@@ -1,8 +1,6 @@
 import { Changelog } from "$changelog/changelog.js";
 import localizeString from "@utils/localize-string.js";
 
-const debouncedReload = foundry.utils.debounce(() => window.location.reload(), 100);
-
 // Add additional buttons to the Chargen dataset filepicker
 Hooks.on("renderSettingsConfig", (_app, html, _user) => {
 	const target = html.find('input[name="forbidden-lands.datasetDir"]')[0];
@@ -314,6 +312,17 @@ export default function registerSettings() {
 	/*  Visible                                     */
 	/* -------------------------------------------- */
 
+	// System Settings
+	game.settings.register("forbidden-lands", "darkmode", {
+		name: "SETTINGS.DARKMODE",
+		hint: "SETTINGS.DARKMODE_HINT",
+		scope: "client",
+		config: true,
+		default: false,
+		requiresReload: true,
+		type: Boolean,
+	});
+
 	// Sheet Settings
 	game.settings.register("forbidden-lands", "collapseSheetHeaderButtons", {
 		name: "CONFIG.COLLAPSE_SHEET_HEADER_BUTTONS",
@@ -322,7 +331,7 @@ export default function registerSettings() {
 		config: true,
 		default: false,
 		type: Boolean,
-		onChange: debouncedReload,
+		requiresReload: true,
 	});
 
 	game.settings.register("forbidden-lands", "alternativeSkulls", {
@@ -331,7 +340,7 @@ export default function registerSettings() {
 		scope: "client",
 		config: true,
 		default: false,
-		onChange: debouncedReload,
+		requiresReload: true,
 		type: Boolean,
 	});
 
@@ -342,7 +351,7 @@ export default function registerSettings() {
 		scope: "client",
 		config: true,
 		default: false,
-		onChange: debouncedReload,
+		requiresReload: true,
 		type: Boolean,
 	});
 
