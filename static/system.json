@@ -3,7 +3,7 @@
 	"name": "forbidden-lands",
 	"title": "Forbidden Lands",
 	"description": "'Round the beggar from Varassa all sat in a ring, and by the campfire they sat and heard his song. About walkers and wolfkin and every terrible thing, and of his fear he sang to them all night long: <em>\"There is something beyond the mountains, beyond the howls beyond the mist, there is something behind the veils, behind hearts cold as stone. Hearken, something walks and whispers, walks and lures you in and whimpers: Come to us, for this earth shall ever be ours and ours alone!\"</em>",
-	"version": "11.2.1",
+	"version": "11.3.0",
 	"authors": [
 		{
 			"name": "aMediocreDad",
@@ -32,12 +32,8 @@
 			"url": "https://user-images.githubusercontent.com/9851733/115126329-9cf03780-9fce-11eb-953f-96cc54a097c4.png"
 		}
 	],
-	"esmodules": [
-		"forbidden-lands.js"
-	],
-	"styles": [
-		"forbidden-lands.css"
-	],
+	"esmodules": ["forbidden-lands.js"],
+	"styles": ["forbidden-lands.css"],
 	"packs": [],
 	"languages": [
 		{
@@ -83,16 +79,8 @@
 	],
 	"flags": {
 		"hotReload": {
-			"extensions": [
-				"css",
-				"hbs",
-				"json"
-			],
-			"paths": [
-				"forbidden-lands.css",
-				"templates",
-				"lang"
-			]
+			"extensions": ["css", "hbs", "json"],
+			"paths": ["forbidden-lands.css", "templates", "lang"]
 		}
 	},
 	"gridDistance": 1,
@@ -103,6 +91,6 @@
 	"url": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt",
 	"socket": true,
 	"manifest": "https://raw.githubusercontent.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/main/static/system.json",
-	"download": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v11.2.1/fbl-fvtt_v11.2.1.zip",
+	"download": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v11.3.0/fbl-fvtt_v11.3.0.zip",
 	"license": "LICENSE.txt"
 }

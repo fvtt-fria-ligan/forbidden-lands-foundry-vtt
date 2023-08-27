@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [11.3.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v11.2.1...v11.3.0) (2023-08-27)
+
+
+### Features
+
+* ✨ Add Changelog menu in Settings ([c9814aa](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/c9814aa071a048135ae7b80cc0ba41e476d93307))
+* ✨ Initial implementation of dark mode ([1652080](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/1652080271f27235e00152146e9fc6ba4b2e57ad))
+
+
+### Bug Fixes
+
+* 🐛 Center pride button ([21c7a4d](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/21c7a4d988e4fd9af7e8abc9cb8c4ed9c61fbb18))
+* 🐛 Contrast issues in dark and light-mode ([ea5b3b7](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/ea5b3b7d5c7910a201a3c524778c4296752d635e))
+
 ### [11.2.1](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v11.2.0...v11.2.1) (2023-08-18)
 
 ## [11.2.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v11.1.3...v11.2.0) (2023-08-13)
