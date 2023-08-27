@@ -2,6 +2,7 @@
 	// Theme Colors
 	--color-theme-text: #222020;
 	--color-theme-background: #fff;
+	--color-theme-contrast: var(--color-theme-gray-200);
 	--color-theme-accent: #a00404;
 	--color-theme-gray-200: #dddddd;
 	--color-theme-gray-600: #707070;
@@ -86,4 +87,10 @@
 	--line-height-16: 1rem;
 	--line-height-20: 1.25rem;
 	--line-height-30: 1.875rem;
+}
+
+html.dark {
+	--color-theme-background: #222020;
+	--color-theme-contrast: var(--color-theme-gray-800);
+	--color-theme-text: #fff;
 }

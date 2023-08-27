@@ -32,8 +32,12 @@
 			"url": "https://user-images.githubusercontent.com/9851733/115126329-9cf03780-9fce-11eb-953f-96cc54a097c4.png"
 		}
 	],
-	"esmodules": ["forbidden-lands.js"],
-	"styles": ["forbidden-lands.css"],
+	"esmodules": [
+		"forbidden-lands.js"
+	],
+	"styles": [
+		"forbidden-lands.css"
+	],
 	"packs": [],
 	"languages": [
 		{
@@ -77,6 +81,20 @@
 			"path": "lang/zh-TW.json"
 		}
 	],
+	"flags": {
+		"hotReload": {
+			"extensions": [
+				"css",
+				"hbs",
+				"json"
+			],
+			"paths": [
+				"forbidden-lands.css",
+				"templates",
+				"lang"
+			]
+		}
+	},
 	"gridDistance": 1,
 	"gridUnits": "m",
 	"background": "systems/forbidden-lands/assets/splash-page.jpg",
