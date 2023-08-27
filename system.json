@@ -32,8 +32,12 @@
 			"url": "https://user-images.githubusercontent.com/9851733/115126329-9cf03780-9fce-11eb-953f-96cc54a097c4.png"
 		}
 	],
-	"esmodules": ["forbidden-lands.js"],
-	"styles": ["forbidden-lands.css"],
+	"esmodules": [
+		"forbidden-lands.js"
+	],
+	"styles": [
+		"forbidden-lands.css"
+	],
 	"packs": [],
 	"languages": [
 		{
@@ -79,8 +83,16 @@
 	],
 	"flags": {
 		"hotReload": {
-			"extensions": ["css", "hbs", "json"],
-			"paths": ["forbidden-lands.css", "templates", "lang"]
+			"extensions": [
+				"css",
+				"hbs",
+				"json"
+			],
+			"paths": [
+				"forbidden-lands.css",
+				"templates",
+				"lang"
+			]
 		}
 	},
 	"gridDistance": 1,
@@ -90,7 +102,7 @@
 	"secondaryTokenAttribute": null,
 	"url": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt",
 	"socket": true,
-	"manifest": "https://raw.githubusercontent.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/main/static/system.json",
+	"manifest": "https://raw.githubusercontent.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/main/system.json",
 	"download": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v11.3.0/fbl-fvtt_v11.3.0.zip",
 	"license": "LICENSE.txt"
 }
