@@ -1,7 +1,8 @@
-import { registerDiceSoNice } from "../../external-api/dice-so-nice.js";
+import { Changelog } from "$changelog/changelog.js";
+import { handleHotbarDrop } from "@components/macros/macros.js";
 import { FBLRollHandler } from "@components/roll-engine/engine.js";
 import localizeString from "@utils/localize-string.js";
-import { handleHotbarDrop } from "@components/macros/macros.js";
+import { registerDiceSoNice } from "../../external-api/dice-so-nice.js";
 
 /**
  * Registers all hooks that are not 'init' or 'ready'
@@ -196,4 +197,18 @@ export default function registerHooks() {
 	});
 
 	Hooks.on("hotbarDrop", async (_, data, slot) => handleHotbarDrop(data, slot));
+
+	Hooks.on("renderSidebarTab", (app, html) => {
+		if (app.tabName !== "settings") return;
+
+		const section = html.find("#settings-documentation");
+		const button = `<button type="button"><i class='fas fa-book'></i> ${game.i18n.localize(
+			"CONFIG.CHANGELOG",
+		)}</button>`;
+
+		section.prepend(button).on("click", (ev) => {
+			ev.preventDefault();
+			new Changelog().render(true);
+		});
+	});
 }
