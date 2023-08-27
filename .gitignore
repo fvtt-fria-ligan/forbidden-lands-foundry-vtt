@@ -16,6 +16,8 @@ foundryconfig.json
 
 # Distribution files
 /dist
+/forbidden-lands.js
+/forbidden-lands.css
 
 # ESLint
 /.eslintcache

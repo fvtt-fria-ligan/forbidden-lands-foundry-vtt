@@ -20,16 +20,14 @@
 		}
 	],
 	"scripts": {
-		"dev": "cross-env NODE_ENV=development gulp build",
-		"dev:watch": "cross-env NODE_ENV=development gulp watch",
-		"build": "cross-env NODE_ENV=production gulp build",
+		"dev": "cross-env NODE_ENV=development npm run build",
+		"dev:watch": "cross-env NODE_ENV=development node esbuild.config.js --watch",
+		"build": "node esbuild.config.js",
 		"link-project": "gulp link",
 		"clean": "gulp clean",
 		"clean:link": "gulp link --clean",
 		"bump": "cross-env NODE_ENV=production npm run lint:fix && gulp bump --r",
 		"release": "npm run format && gulp release",
-		"lint": "eslint --ext .js .",
-		"lint:fix": "eslint --ext .js --fix .",
 		"format": "prettier --write \"./**/*.(js|json|scss)\"",
 		"format:hbs": "prettier **/*.hbs --write --parser=glimmer",
 		"postinstall": "npx patch-package & npx husky install"
