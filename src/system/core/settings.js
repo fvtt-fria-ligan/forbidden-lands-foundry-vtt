@@ -37,10 +37,6 @@ export class TableConfigMenu extends FormApplication {
 		this.#resolve = resolve;
 	});
 
-	constructor(options = {}) {
-		super(options);
-	}
-
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			template:
@@ -129,10 +125,6 @@ export class SheetConfigMenu extends FormApplication {
 	#promise = new Promise((resolve) => {
 		this.#resolve = resolve;
 	});
-
-	constructor(options = {}) {
-		super(options);
-	}
 
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {

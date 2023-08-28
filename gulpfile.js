@@ -16,7 +16,7 @@ const getDownloadURL = (tag) =>
 	`https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v${tag}/fbl-fvtt_v${tag}.zip`;
 const packageJson = JSON.parse(fs.readFileSync("package.json"));
 const { version } = packageJson;
-const staticFiles = fs.readdirSync(`./static`).map((file) => `static/${file}`);
+const staticFiles = fs.readdirSync("./static").map((file) => `static/${file}`);
 staticFiles.push("README.md", "LICENSE", "static/system.json");
 
 /********************/

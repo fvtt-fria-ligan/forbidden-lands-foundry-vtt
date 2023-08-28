@@ -3,13 +3,13 @@ export class CharacterPickerDialog extends Dialog {
 	 * Show dialog that allows to pick a character from a list
 	 *
 	 */
-	static async show(title, characters = [], onSelect, onCancel) {
+	static async show(title, characters, onSelect, onCancel) {
 		onSelect = onSelect || function () {};
 		onCancel = onCancel || function () {};
 
 		const characterSelector = await this.buildCharacterSelector(characters);
 
-		let d = new CharacterPickerDialog({
+		const d = new CharacterPickerDialog({
 			title: title,
 			content: this.buildDivHtmlDialog(characterSelector),
 			buttons: {
@@ -65,6 +65,6 @@ export class CharacterPickerDialog extends Dialog {
 	 * @param  {string} divContent
 	 */
 	static buildDivHtmlDialog(divContent) {
-		return "<div class='flex row roll-dialog'>" + divContent + "</div>";
+		return `<div class='flex row roll-dialog'>${divContent}</div>`;
 	}
 }

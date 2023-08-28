@@ -48,7 +48,9 @@ export const migrateWorld = async () => {
 					await scene.update(updateData, { enforceTypes: false });
 					// If we do not do this, then synthetic token actors remain in cache
 					// with the un-updated actorData.
-					scene.tokens.forEach((t) => (t._actor = null));
+					scene.tokens.forEach((t) => {
+						t._actor = null;
+					});
 				}
 			} catch (err) {
 				err.message = `Failed migration for Scene ${scene.name}: ${err.message}`;
@@ -97,7 +99,7 @@ const migrateActorData = (actor, worldSchemaVersion) => {
 	const items = actor.items.reduce((arr, i) => {
 		// Migrate the Owned Item
 		const itemData = i instanceof CONFIG.Item.documentClass ? i.toObject() : i;
-		let itemUpdate = migrateItemData(itemData, worldSchemaVersion);
+		const itemUpdate = migrateItemData(itemData, worldSchemaVersion);
 
 		// Update the Owned Item
 		if (!foundry.utils.isEmpty(itemUpdate)) {
@@ -167,7 +169,7 @@ const migrateItemData = (item, worldSchemaVersion) => {
 					feature === "slowReload" ? feature : feature.toLowerCase();
 				if (lcFeature in update["system.features"])
 					update["system.features"][lcFeature] = true;
-				else otherFeatures += feature + ", ";
+				else otherFeatures += `${feature}, `;
 			}
 			update["system.features"].others = otherFeatures.substr(
 				0,
@@ -232,7 +234,7 @@ const migrateCompendium = async function (pack, worldSchemaVersion) {
 	const documents = await pack.getDocuments();
 
 	// Iterate over compendium entries - applying fine-tuned migration functions
-	for (let doc of documents) {
+	for (const doc of documents) {
 		let updateData = {};
 		try {
 			switch (entity) {

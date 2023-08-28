@@ -1,7 +1,7 @@
 import { CharacterConverter } from "./character-converter.js";
 
 export class ForbiddenLandsCharacterGenerator extends Application {
-	constructor(dataset = {}, existActor, options = {}) {
+	constructor(dataset, existActor, options = {}) {
 		super(options);
 
 		this.character = null;
@@ -85,7 +85,7 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 	}
 
 	_getHeaderButtons() {
-		let buttons = super._getHeaderButtons();
+		const buttons = super._getHeaderButtons();
 
 		return buttons;
 	}
@@ -238,9 +238,9 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 
 	handleRollEvent(event) {
 		const profession = this.dataset.profession[this.character.profession];
-		let button = $(event.currentTarget);
+		const button = $(event.currentTarget);
 		const id = parseInt(button.data("key"));
-		let rolled = [];
+		const rolled = [];
 		let newEvent = {};
 		for (let i = 0; i < this.character.formativeEvents.length; i++) {
 			if (i === id) continue;
@@ -273,7 +273,7 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 			);
 		let character = {};
 		character = this.setKin(character);
-		let profession = this.rollOn(this.dataset.profession);
+		const profession = this.rollOn(this.dataset.profession);
 		character.profession = profession.key;
 		character = this.rollHomeland(character);
 		character = this.rollPath(character);
@@ -283,7 +283,9 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 	}
 
 	setKin(character, kinKey) {
-		let kin = kinKey ? this.dataset.kin[kinKey] : this.rollOn(this.dataset.kin);
+		const kin = kinKey
+			? this.dataset.kin[kinKey]
+			: this.rollOn(this.dataset.kin);
 
 		character.kin = kin.key;
 		if (character.kin === "elf") {
@@ -330,10 +332,10 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 	}
 
 	rollFormativeEvents(character) {
-		let profession = this.dataset.profession[character.profession];
+		const profession = this.dataset.profession[character.profession];
 		if (!profession) return character;
 		let formativeEvents = [];
-		let rolled = [];
+		const rolled = [];
 		let event = {};
 		if (!character.formativeEvents) {
 			for (let i = 0; i < character.age.ageKey + 1; i++) {
@@ -378,7 +380,7 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 	}
 
 	rollOn(options) {
-		let rollTable = this.buildRollTable(options);
+		const rollTable = this.buildRollTable(options);
 		return options[this.rollTable(rollTable)];
 	}
 
@@ -388,7 +390,7 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 			game.i18n.localize("FLCG.ADULT"),
 			game.i18n.localize("FLCG.OLD"),
 		];
-		let age = {};
+		const age = {};
 		age.ageKey = this.rollNumber(0, 2);
 		age.ageNumber = this.rollNumber(
 			ageRanges[age.ageKey][0],
@@ -402,8 +404,7 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 	buildRollTable(options) {
 		let rollTable = [];
 		for (const key in options) {
-			// eslint-disable-next-line no-prototype-builtins
-			if (options.hasOwnProperty(key)) {
+			if (Object.hasOwn(options, key)) {
 				const element = options[key];
 				rollTable = rollTable.concat(Array(element.weight).fill(element.key));
 			}

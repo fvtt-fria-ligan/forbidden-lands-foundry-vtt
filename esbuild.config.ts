@@ -7,8 +7,8 @@ import templatePathsPromise from "./tools/get-template-paths.js";
 
 const templatePaths = await templatePathsPromise;
 
-const development = args.hasOwnProperty("dev");
-const watch = args.hasOwnProperty("watch") && development;
+const development = Object.hasOwn(args, "dev");
+const watch = Object.hasOwn(args, "watch") && development;
 
 if (existsSync("./forbidden-lands.js")) await rm("./forbidden-lands.js");
 if (existsSync("./forbidden-lands.css")) await rm("./forbidden-lands.css");

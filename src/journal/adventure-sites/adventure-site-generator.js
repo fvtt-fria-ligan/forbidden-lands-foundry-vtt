@@ -147,9 +147,9 @@ const getRolledData = (adventureSite) => {
 		const table = ALL_TABLES[tableName];
 		const result = rollOnTable(table, fns(type), rollCount);
 		results[tableName] = result;
-		if (ALL_TABLES[tableName + "_description"]) {
-			results[tableName + "_description"] =
-				ALL_TABLES[tableName + "_description"];
+		if (ALL_TABLES[`${tableName}_description`]) {
+			results[`${tableName}_description`] =
+				ALL_TABLES[`${tableName}_description`];
 		}
 	}
 	return results;

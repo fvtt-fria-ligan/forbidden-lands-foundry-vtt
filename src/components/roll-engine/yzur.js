@@ -41,7 +41,7 @@ class YearZeroDie extends Die {
 		termData.faces = termData.faces || 6;
 		super(termData);
 
-		if (this.maxPush == undefined) {
+		if (this.maxPush === undefined) {
 			this.maxPush = termData.maxPush ?? 1;
 		}
 	}
@@ -147,12 +147,12 @@ class YearZeroDie extends Die {
 
 		// Stores indexes
 		roll.indexResult = options.indexResult;
-		if (roll.indexResult == undefined) {
+		if (roll.indexResult === undefined) {
 			roll.indexResult =
 				1 +
 				this.results.reduce((c, r) => {
 					let i = r.indexResult;
-					if (i == undefined) i = -1;
+					if (i === undefined) i = -1;
 					return Math.max(c, i);
 				}, -1);
 		}
@@ -270,8 +270,8 @@ class YearZeroDie extends Die {
 		//* Refactors the isMin & isMax for YZE dice.
 		// const isMax = result.result === this.faces;
 		// const isMin = result.result === 1;
-		let isMax = false,
-			isMin = false;
+		let isMax = false;
+		let isMin = false;
 		if (this.type === "neg") {
 			isMax = false;
 			isMin = result.result === 6;
@@ -286,7 +286,7 @@ class YearZeroDie extends Die {
 		//* <==
 		return [
 			this.constructor.name.toLowerCase(),
-			"d" + this.faces,
+			`d${this.faces}`,
 			//* ==>
 			// result.success ? 'success' : null,
 			// result.failure ? 'failure' : null,
@@ -631,7 +631,7 @@ class D12BladeRunnerDie extends BladeRunnerDie {
 D12BladeRunnerDie.DENOMINATION = "12";
 D12BladeRunnerDie.LOCKED_VALUES = [1, 10, 11, 12];
 
-var YearZeroDice = /*#__PURE__*/ Object.freeze({
+const YearZeroDice = /*#__PURE__*/ Object.freeze({
 	__proto__: null,
 	YearZeroDie: YearZeroDie,
 	BaseDie: BaseDie,
@@ -1071,15 +1071,17 @@ class YearZeroRoll extends Roll {
 	 * @param {number}         [options.maxPush] The maximum number of times the roll can be pushed
 	 * @param {boolean}        [options.yzur]    Forces the roll of a YearZeroRoll in Foundry
 	 */
+
+	// rome-ignore lint/correctness/noUnreachableSuper: <explanation>
 	constructor(formula, data = {}, options = {}) {
-		if (options.name == undefined) options.name = data.name;
-		if (options.game == undefined) options.game = data.game;
-		if (options.maxPush == undefined) options.maxPush = data.maxPush;
+		if (options.name === undefined) options.name = data.name;
+		if (options.game === undefined) options.game = data.game;
+		if (options.maxPush === undefined) options.maxPush = data.maxPush;
 
 		super(formula, data, options);
 
 		if (!this.game) this.game = CONFIG.YZUR.game ?? "myz";
-		if (options.maxPush != undefined) this.maxPush = options.maxPush;
+		if (options.maxPush !== undefined) this.maxPush = options.maxPush;
 	}
 
 	/* -------------------------------------------- */
@@ -1393,9 +1395,9 @@ class YearZeroRoll extends Roll {
 		}
 
 		// Creates the roll.
-		if (options.name == undefined) options.name = title;
-		if (options.game == undefined) options.game = yzGame;
-		if (options.maxPush == undefined) options.maxPush = maxPush;
+		if (options.name === undefined) options.name = title;
+		if (options.game === undefined) options.game = yzGame;
+		if (options.maxPush === undefined) options.maxPush = maxPush;
 		const roll = YearZeroRoll.create(formula, {}, options);
 		if (CONFIG.debug.dice) console.log(roll);
 		return roll;
@@ -1407,7 +1409,7 @@ class YearZeroRoll extends Roll {
 	// eslint-disable-next-line no-unused-vars
 	static createFromDiceQuantities(
 		dice = {},
-		{ title, yzGame = null, maxPush = 1, push = false } = {},
+		{ title, yzGame = null, maxPush = 1 } = {},
 	) {
 		// eslint-disable-next-line max-len
 		console.warn(
@@ -1481,9 +1483,9 @@ class YearZeroRoll extends Roll {
 			return this.terms.filter((t) => t.type === search);
 		return this.terms.filter((t) => {
 			let f = true;
-			if (search.type != undefined) f = f && search.type === t.type;
-			if (search.number != undefined) f = f && search.number === t.number;
-			if (search.faces != undefined) f = f && search.faces === t.faces;
+			if (search.type !== undefined) f = f && search.type === t.type;
+			if (search.number !== undefined) f = f && search.number === t.number;
+			if (search.faces !== undefined) f = f && search.faces === t.faces;
 			if (search.options) {
 				for (const key in search.options) {
 					f = f && search.options[key] === t.options[key];
@@ -1557,7 +1559,7 @@ class YearZeroRoll extends Roll {
 		if (!qty) return this;
 		const search = { type, faces: range, options };
 		if (qty < 0) return this.removeDice(-qty, search);
-		if (value != undefined && !this._evaluated)
+		if (value !== undefined && !this._evaluated)
 			await this.roll({ async: true });
 
 		let term = this.getTerms(search)[0];
@@ -1567,7 +1569,7 @@ class YearZeroRoll extends Roll {
 				if (this._evaluated) {
 					term.roll();
 					// TODO missing term._evaluateModifiers() for this new result only
-					if (value != undefined) {
+					if (value !== undefined) {
 						term.results[term.results.length - 1].result = value;
 					}
 				}
@@ -1584,8 +1586,8 @@ class YearZeroRoll extends Roll {
 			});
 			if (this._evaluated) {
 				await term.evaluate({ async: true });
-				if (value != undefined) {
-					term.results.forEach((r) => (r.result = value));
+				if (value !== undefined) {
+					term.results.forEach((r) => r.result === value);
 				}
 			}
 			if (this.terms.length > 0) {
@@ -2268,7 +2270,7 @@ class YearZeroRollManager {
 		YearZeroCustomDie.DENOMINATION = deno;
 
 		// Defines the type of the new die class, if any.
-		if (type != undefined) {
+		if (type !== undefined) {
 			if (typeof type !== "string") {
 				throw new DieTermError(`YZUR | Invalid die class type "${type}"`);
 			}
@@ -2282,7 +2284,7 @@ class YearZeroRollManager {
 		}
 
 		// Defines the locked values of the new die class, if any.
-		if (lockedValues != undefined) {
+		if (lockedValues !== undefined) {
 			if (!Array.isArray(lockedValues)) {
 				throw new DieTermError(
 					`YZUR | Invalid die class locked values "${lockedValues}" (Not an Array)`,

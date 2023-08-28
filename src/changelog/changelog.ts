@@ -14,6 +14,12 @@ declare namespace game {
 
 type PromiseFullfilled<T> = { status: "fulfilled"; value: T };
 
+interface Release {
+	tag_name: string;
+	published_at: string;
+	body: string;
+}
+
 export class Changelog extends FormApplication {
 	SOURCE: string;
 	#converter: showdown.Converter;
@@ -89,7 +95,7 @@ export class Changelog extends FormApplication {
 		});
 
 		const changelog = await Promise.allSettled(
-			data.map(async (release: any, index: number) => {
+			data.map(async (release: Release, index: number) => {
 				const version = release.tag_name;
 				const date = localizedDate.format(new Date(release.published_at));
 				const raw = release.body;

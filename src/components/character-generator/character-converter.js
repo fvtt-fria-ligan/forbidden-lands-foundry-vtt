@@ -6,7 +6,7 @@ export class CharacterConverter {
 
 	async convert(character) {
 		this.character = character;
-		let actorData = {
+		const actorData = {
 			data: this.buildCharacterData(),
 			items: this.buildCharacterItems(),
 		};
@@ -21,7 +21,7 @@ export class CharacterConverter {
 		const agePenalty = age.ageKey;
 		const profession = this.dataset.profession[this.character.profession];
 
-		let data = {
+		const data = {
 			bio: {
 				kin: { value: kin.name },
 				age: { value: age.ageNumber },
@@ -71,9 +71,9 @@ export class CharacterConverter {
 	}
 
 	buildEventGear() {
-		let gear = [];
+		const gear = [];
 		for (let i = 0; i < this.character.formativeEvents.length; i++) {
-			let event = this.character.formativeEvents[i];
+			const event = this.character.formativeEvents[i];
 			gear.push(this.createNewItem(event.items).toObject());
 		}
 
@@ -83,7 +83,7 @@ export class CharacterConverter {
 	buildTalents() {
 		const kin = this.dataset.kin[this.character.kin];
 		const profession = this.dataset.profession[this.character.profession];
-		let talents = [
+		const talents = [
 			this.getItem(kin.talent, "talent"),
 			this.getItem(profession.paths[this.character.path], "talent"),
 		];
@@ -124,7 +124,7 @@ export class CharacterConverter {
 	}
 
 	createNewItem(itemName, type = false) {
-		let ItemClass = CONFIG.Item.documentClass;
+		const ItemClass = CONFIG.Item.documentClass;
 		return new ItemClass({
 			name: itemName,
 			type: type || "gear",
@@ -133,7 +133,7 @@ export class CharacterConverter {
 	}
 
 	generateAttributes() {
-		let attributes = JSON.parse(
+		const attributes = JSON.parse(
 			JSON.stringify(this.character.childhood.attributes),
 		);
 		const agePenalty = this.character.age.ageKey;

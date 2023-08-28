@@ -64,7 +64,7 @@ export class ForbiddenLandsJournalEntry extends JournalEntry {
 				const form = JQhtml[0].querySelector("form");
 				const fd = new FormDataExtended(form);
 				foundry.utils.mergeObject(data, fd.object, { inplace: true });
-				if (!data.folder) delete data.folder;
+				if (!data.folder) data.folder = undefined;
 				if (types.length === 1) data.type = types[0];
 				if (!data.name?.trim()) data.name = this.defaultName();
 				return this.create(data, {

@@ -2,10 +2,11 @@
 {
 	"compilerOptions": {
 		"noEmit": true,
-		"module": "Node16",
 		"target": "ESNext",
-		"moduleResolution": "Node16",
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
 		"allowJs": true,
+		//"lib": ["ESNext", "DOM"],
 		"types": [
 			"@league-of-foundry-developers/foundry-vtt-types",
 			"@types/jquery",
@@ -22,6 +23,6 @@
 			"@system/*": ["./src/system/*"]
 		}
 	},
-	"include": ["src/**/*.js"],
-	"exclude": ["node_modules/*", "**/node_modules/*", "dist/*"]
+	"include": ["./**/*.ts", "./**/*.js"],
+	"exclude": ["node_modules/*", "**/node_modules/*", "./forbidden-lands.js"]
 }

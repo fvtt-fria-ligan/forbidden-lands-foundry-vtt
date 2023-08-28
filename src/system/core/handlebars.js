@@ -8,8 +8,8 @@ function preloadHandlebarsTemplates() {
 
 function registerHandlebarsHelpers() {
 	Handlebars.registerHelper("skulls", function (current, max, block) {
-		var acc = "";
-		for (var i = 0; i < max; ++i) {
+		let acc = "";
+		for (let i = 0; i < max; ++i) {
 			block.data.index = i;
 			block.data.damaged = i >= current;
 			acc += block.fn(this);
@@ -26,9 +26,8 @@ function registerHandlebarsHelpers() {
 			? value[0].toUpperCase() + value.slice(1)
 			: value;
 	});
-	Handlebars.registerHelper("flps_strconcat", function () {
-		const args = Array.prototype.slice.call(arguments);
-		args.pop(); // remove unrelated data
+	Handlebars.registerHelper("flps_strconcat", function (...args) {
+		args.pop();
 		return args.join("");
 	});
 
@@ -130,11 +129,11 @@ function registerHandlebarsHelpers() {
 		}
 	});
 	Handlebars.registerHelper("formatRollModifiers", function (rollModifiers) {
-		let output = [];
+		const output = [];
 		Object.values(rollModifiers)
 			.filter((mod) => !mod.gearBonus)
 			.forEach((mod) => {
-				let modName = game.i18n.localize(mod.name);
+				const modName = game.i18n.localize(mod.name);
 				output.push(`${modName} ${mod.value}`);
 			});
 		return output.join(", ");
@@ -169,7 +168,7 @@ function registerHandlebarsHelpers() {
 	Handlebars.registerHelper(
 		"formatWeaponFeatures",
 		function (weaponType, features) {
-			let output = [];
+			const output = [];
 			if (weaponType === "melee") {
 				if (features.edged) {
 					output.push(game.i18n.localize("WEAPON.FEATURES.EDGED"));
@@ -210,20 +209,20 @@ function registerHandlebarsHelpers() {
 		return str.toUpperCase();
 	});
 
-	Handlebars.registerHelper("eq", function () {
-		const args = Array.prototype.slice.call(arguments, 0, -1);
+	Handlebars.registerHelper("eq", function (...args) {
+		args.pop();
 		return args.every(function (expression) {
 			return args[0] === expression;
 		});
 	});
 
-	Handlebars.registerHelper("or", function () {
-		const args = Array.prototype.slice.call(arguments, 0, -1);
+	Handlebars.registerHelper("or", function (...args) {
+		args.pop();
 		return args.reduce((x, y) => x || y);
 	});
 
-	Handlebars.registerHelper("and", function () {
-		const args = Array.prototype.slice.call(arguments, 0, -1);
+	Handlebars.registerHelper("and", function (...args) {
+		args.pop();
 		return args.reduce((x, y) => x && y);
 	});
 

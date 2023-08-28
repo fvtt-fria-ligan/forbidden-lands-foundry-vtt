@@ -72,7 +72,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 				this.readOnly = true;
 				this.setAttribute(
 					"style",
-					"height:" + this.scrollHeight + "px;overflow-y:hidden;",
+					`height:${this.scrollHeight}px;overflow-y:hidden;`,
 				);
 			}
 		});
@@ -83,12 +83,12 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 		super.activateListeners(html);
 		html.find(".add-modifier").click(async (ev) => {
 			ev.preventDefault();
-			let data = await this.getData();
-			let rollModifiers = data.system.rollModifiers || {};
+			const data = await this.getData();
+			const rollModifiers = data.system.rollModifiers || {};
 			// To preserve order, make sure the new index is the highest
-			let modifierId =
+			const modifierId =
 				Math.max(-1, ...Object.getOwnPropertyNames(rollModifiers)) + 1;
-			let update = {};
+			const update = {};
 			// Using a default value of Strength and 1 in order NOT to create an empty modifier.
 			update[`data.rollModifiers.${modifierId}`] = {
 				name: "ATTRIBUTE.STRENGTH",
@@ -98,12 +98,12 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 		});
 		html.find(".delete-modifier").click(async (ev) => {
 			ev.preventDefault();
-			let data = await this.getData();
-			let rollModifiers = duplicate(data.system.rollModifiers || {});
-			let modifierId = $(ev.currentTarget).data("modifier-id");
+			const data = await this.getData();
+			const rollModifiers = duplicate(data.system.rollModifiers || {});
+			const modifierId = $(ev.currentTarget).data("modifier-id");
 			delete rollModifiers[modifierId];
 			// Safety cleanup of null modifiers
-			for (let key in Object.keys(rollModifiers)) {
+			for (const key in Object.keys(rollModifiers)) {
 				if (!rollModifiers[key]) {
 					delete rollModifiers[key];
 				}
@@ -154,9 +154,9 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 	}
 
 	async getCustomRollModifiers() {
-		let pack = game.packs.get("world.customrollmodifiers");
+		const pack = game.packs.get("world.customrollmodifiers");
 		if (pack) {
-			let customRollModifier = await pack.getContent();
+			const customRollModifier = await pack.getContent();
 			return customRollModifier.map((item) => item.name);
 		}
 		return [];

@@ -17,7 +17,7 @@ export class AdventureSitesSheet extends JournalSheet {
 			const path = CONFIG.fbl.adventureSites.types[type];
 			const room = await CONFIG.fbl.adventureSites?.generate(
 				path,
-				type + "_rooms",
+				`${type}_rooms`,
 			);
 			const pageName = $(room)
 				.find("h4, strong")

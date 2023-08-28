@@ -45,7 +45,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	 * Extends the sheet drop handler for system specific usages
 	 */
 	async _onDrop(event, data) {
-		let dragData = JSON.parse(event.dataTransfer.getData("text/plain"));
+		const dragData = JSON.parse(event.dataTransfer.getData("text/plain"));
 		if (dragData.type === "itemDrop") {
 			this.actor.createEmbeddedDocuments("Item", [dragData.item]);
 		} else {
@@ -55,7 +55,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 
 	async _onSortItem(event, itemData) {
 		// Sorts items in the various containers by drag and drop
-		let state = $(event.target).closest("[data-state]")?.data("state");
+		const state = $(event.target).closest("[data-state]")?.data("state");
 		if (state || state === "") {
 			await this.actor.updateEmbeddedDocuments("Item", [
 				{
@@ -95,7 +95,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 				value = Math.min(value + 1, attribute.max);
 			}
 			this.actor.update({
-				["system.attribute." + attributeName + ".value"]: value,
+				[`system.attribute.${attributeName}.value`]: value,
 			});
 		});
 
@@ -237,13 +237,13 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		let weightCarried = 0;
 
 		// Get the weight of all items
-		for (let item of Object.values(data.items)) {
+		for (const item of Object.values(data.items)) {
 			weightCarried += this.computeItemEncumbrance(item);
 		}
 
 		if (this.actor.type === "character") {
 			// Get the weight of all consumables
-			for (let consumable of Object.values(data.system.consumable)) {
+			for (const consumable of Object.values(data.system.consumable)) {
 				if (consumable.value > 0) {
 					weightCarried += 1;
 				}
@@ -267,7 +267,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		const weightAllowed =
 			baseEncumbrance * monsterEncumbranceMultiplier +
 			// Moidifers
-			modifiers.reduce((acc, m) => (acc += parseInt(m?.value || 0)), 0);
+			modifiers.reduce((acc, m) => acc + parseInt(m?.value || 0), 0);
 		data.system.encumbrance = {
 			value: weightCarried,
 			max: weightAllowed,
@@ -346,7 +346,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			title: actionName,
 			...properties,
 		};
-		if (itemId) delete data.gear.damage;
+		if (itemId) data.gear.damage = undefined;
 		const options = {
 			...this.getRollOptions(
 				actionName,
@@ -528,7 +528,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	}
 
 	computeSkills(data) {
-		for (let skill of Object.values(data.system.skill)) {
+		for (const skill of Object.values(data.system.skill)) {
 			skill[`has${skill?.attribute?.capitalize()}`] = false;
 			if (CONFIG.fbl.attributes.includes(skill.attribute))
 				skill[`has${skill.attribute.capitalize()}`] = true;
@@ -601,13 +601,14 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 						?.toLocaleLowerCase()
 						.localeCompare(b[key]?.toLocaleLowerCase()) ?? 0
 				);
-			case "attribute":
+			case "attribute": {
 				const aComp =
 					a.type === "rawMaterial" ? a.system.quantity : a.system.bonus.value;
 				const bComp =
 					b.type === "rawMaterial" ? b.system.quantity : b.system.bonus.value;
 				return Number(bComp) - Number(aComp);
-			case "weight":
+			}
+			case "weight": {
 				const weightMap = CONFIG.fbl.encumbrance;
 				const aWeight =
 					a.type === "rawMaterial"
@@ -618,6 +619,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 						? Number(b.system.quantity)
 						: Math.floor(weightMap[b.system.weight] || 0);
 				return bWeight - aWeight;
+			}
 		}
 		/* eslint-enable no-case-declarations, no-nested-ternary */
 	}

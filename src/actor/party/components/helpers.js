@@ -6,14 +6,14 @@ export class Helpers {
 		if (!character) return;
 
 		let charSheetClass = function () {};
-		for (let chName in CONFIG.Actor.sheetClasses.character) {
+		for (const chName in CONFIG.Actor.sheetClasses.character) {
 			if (chName === "forbidden-lands.ForbiddenLandsCharacterSheet") {
 				charSheetClass = CONFIG.Actor.sheetClasses.character[chName].cls;
 				break;
 			}
 		}
 		let charSheet;
-		for (let key in character.apps) {
+		for (const key in character.apps) {
 			if (character.apps[key] instanceof charSheetClass) {
 				charSheet = character.apps[key];
 				break;
@@ -35,11 +35,10 @@ export class Helpers {
 			typeof characterIds !== "object" && characterIds !== ""
 				? [characterIds]
 				: characterIds;
-		let characters = [];
+		const characters = [];
 		for (let i = 0; i < characterIds.length; i++) {
 			const actor = game.actors.get(characterIds[i]);
-			if (actor && actor.isOwner)
-				characters.push(game.actors.get(characterIds[i]));
+			if (actor?.isOwner) characters.push(game.actors.get(characterIds[i]));
 		}
 
 		return characters;

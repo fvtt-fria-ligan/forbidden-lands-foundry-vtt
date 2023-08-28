@@ -1,6 +1,6 @@
-import { YearZeroRoll, YearZeroRollManager } from "./yzur.js";
 import localizeString from "@utils/localize-string.js";
 import safeParse from "@utils/safe-parse.js";
+import { YearZeroRoll, YearZeroRollManager } from "./yzur.js";
 /**
  * @extends FormApplication
  * @description A Form Application that mimics Dialog, but provides more functionality in terms of data binds and handling of a roll object. Supports Forbidden Lands standard rolls and spell rolls.
@@ -33,7 +33,7 @@ export class FBLRollHandler extends FormApplication {
 		this.gears = options.gears || [];
 		this.modifier =
 			options.modifiers?.reduce(
-				(sum, mod) => (mod.value < 0 ? (sum += Number(mod.value)) : sum),
+				(sum, mod) => (mod.value < 0 ? sum + Number(mod.value) : sum),
 				0,
 			) || 0;
 		this.spell = { safecast: 0, ...spell };
@@ -223,7 +223,7 @@ export class FBLRollHandler extends FormApplication {
 		html.find(".inc-dec-btns").click((ev) => {
 			const type = $(ev.currentTarget).data("type");
 			const operator = $(ev.currentTarget).data("operator");
-			const input = html.find("#" + type);
+			const input = html.find(`#${type}`);
 			let value = parseInt(input.val(), 10) || 0;
 			value += operator === "plus" ? 1 : -1;
 			input.val(value > 0 ? value : 0);
@@ -602,7 +602,7 @@ export class FBLRollHandler extends FormApplication {
 		const roll = msg.roll;
 		await roll.push({ async: true });
 
-		let speaker = this.getSpeaker(msg.speaker);
+		const speaker = this.getSpeaker(msg.speaker);
 		if (speaker) await this.updateActor(roll, speaker);
 
 		return roll.toMessage();
@@ -635,7 +635,7 @@ export class FBLRollHandler extends FormApplication {
 		{ attributeTrauma, options: { attribute, characterDamage } },
 		speaker,
 	) {
-		let { attribute: appliedDamage } = characterDamage;
+		const { attribute: appliedDamage } = characterDamage;
 		const currentDamage = attributeTrauma - appliedDamage;
 
 		let value = speaker?.attributes[attribute]?.value;

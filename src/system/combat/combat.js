@@ -1,10 +1,6 @@
 import localizeString from "@utils/localize-string.js";
 
 export class FBLCombatant extends Combatant {
-	constructor(data, options) {
-		super(data, options);
-	}
-
 	get fast() {
 		return this.getFlag("forbidden-lands", "fast");
 	}
@@ -82,7 +78,7 @@ export class FBLCombat extends Combat {
 		// Iterate over Combatants, performing an initiative roll for each
 		const updates = [];
 		const messages = [];
-		for (let [i, id] of ids.entries()) {
+		for (const [i, id] of ids.entries()) {
 			// Get Combatant data (non-strictly)
 			const combatant = this.combatants.get(id);
 
@@ -112,7 +108,7 @@ export class FBLCombat extends Combat {
 			roll.terms = [];
 
 			// Construct chat message data
-			let messageData = foundry.utils.mergeObject(
+			const messageData = foundry.utils.mergeObject(
 				{
 					speaker: ChatMessage.getSpeaker({
 						actor: combatant.actor,

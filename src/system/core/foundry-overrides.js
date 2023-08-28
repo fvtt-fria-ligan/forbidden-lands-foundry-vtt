@@ -18,9 +18,9 @@ export default async function FoundryOverrides() {
 		if (!options.fitToSize) options.height = options.target.offsetHeight;
 		if (editor.hasButton) editor.button.style.display = "none";
 		const instance =
-			(editor.instance =
-			editor.mce =
-				await TextEditor.create(options, initialContent || editor.initial));
+			editor.instance ===
+			(editor.mce ===
+				(await TextEditor.create(options, initialContent || editor.initial)));
 		options.target
 			.closest(".editor")
 			?.classList.add(options.engine ?? "tinymce");
@@ -29,7 +29,7 @@ export default async function FoundryOverrides() {
 		/** @deprecated since v10 */
 		if (options.engine !== "prosemirror") {
 			instance.focus();
-			instance.on("change", () => (editor.changed = true));
+			instance.on("change", () => editor.changed === true);
 		}
 		return instance;
 	};

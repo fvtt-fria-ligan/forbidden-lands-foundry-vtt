@@ -20,13 +20,15 @@ function rollTravelAction(character, rollName) {
  * @param {string} rollName Used to identify roll.
  */
 function handleTravelAction(assignedPartyMemberIds, rollName) {
-	let assignedPartyMembers = Helpers.getOwnedCharacters(assignedPartyMemberIds);
+	const assignedPartyMembers = Helpers.getOwnedCharacters(
+		assignedPartyMemberIds,
+	);
 
 	if (assignedPartyMembers.length === 1) {
 		rollTravelAction(assignedPartyMembers[0], rollName);
 	} else if (assignedPartyMembers.length > 1) {
 		CharacterPickerDialog.show(
-			localizeString("FLPS.UI.WHO_ROLLS") + " " + localizeString(rollName),
+			`${localizeString("FLPS.UI.WHO_ROLLS")} ${localizeString(rollName)}`,
 			assignedPartyMembers,
 			function (entityId) {
 				rollTravelAction(game.actors.get(entityId), rollName);
@@ -35,7 +37,7 @@ function handleTravelAction(assignedPartyMemberIds, rollName) {
 	}
 }
 
-export let TravelActionsConfig = {
+export const TravelActionsConfig = {
 	hike: {
 		key: "hike",
 		journalEntryName: "Hike",

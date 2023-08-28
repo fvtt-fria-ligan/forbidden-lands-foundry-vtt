@@ -48,5 +48,5 @@ function coerceNum(string) {
 		throw new Error(`Invalid SemVer string: ${string}`);
 	array[0] = array[0] * 1000000;
 	array[1] = array[1] * 1000;
-	return array.reduce((sum, val) => (sum += val));
+	return array.reduce((sum, val) => sum + val, 0);
 }

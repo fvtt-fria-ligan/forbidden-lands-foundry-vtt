@@ -79,7 +79,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			const currency = $(ev.currentTarget).data("currency");
 			const operator = $(ev.currentTarget).data("operator");
 			const modifier = ev.type === "contextmenu" ? 5 : 1;
-			let coins = [
+			const coins = [
 				this.actor.actorProperties.currency.gold.value,
 				this.actor.actorProperties.currency.silver.value,
 				this.actor.actorProperties.currency.copper.value,
@@ -123,7 +123,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			type: "consumable",
 			...this.getRollOptions(),
 		};
-		const roll = FBLRoll.create(dice + `[${rollName}]`, {}, options);
+		const roll = FBLRoll.create(`${dice}[${rollName}]`, {}, options);
 		await roll.roll({ async: true });
 		const message = await roll.toMessage();
 		if (
@@ -145,7 +145,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			...this.getRollOptions(),
 		};
 		const roll = FBLRoll.create(
-			CONFIG.fbl.prideDice + `[${rollName}]`,
+			`${CONFIG.fbl.prideDice}[${rollName}]`,
 			{},
 			options,
 		);
@@ -163,7 +163,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			...this.getRollOptions(),
 		};
 		const roll = FBLRoll.create(
-			reputation.value + "db" + `[${rollName}]`,
+			`${reputation.value}db[${rollName}]`,
 			{},
 			options,
 		);

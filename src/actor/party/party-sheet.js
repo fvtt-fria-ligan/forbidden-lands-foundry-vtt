@@ -3,7 +3,7 @@ import { TableConfigMenu } from "@system/core/settings.js";
 import localizeString from "@utils/localize-string.js";
 export class ForbiddenLandsPartySheet extends ActorSheet {
 	static get defaultOptions() {
-		let dragDrop = [...super.defaultOptions.dragDrop];
+		const dragDrop = [...super.defaultOptions.dragDrop];
 		dragDrop.push({
 			dragSelector: ".party-member",
 			dropSelector: ".party-member-list",
@@ -70,16 +70,16 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 		});
 
 		let button;
-		for (let key in TravelActionsConfig) {
+		for (const key in TravelActionsConfig) {
 			for (let i = 0; i < TravelActionsConfig[key].buttons.length; i++) {
 				button = TravelActionsConfig[key].buttons[i];
-				html.find("." + button.class).click(button.handler.bind(this, this));
+				html.find(`.${button.class}`).click(button.handler.bind(this, this));
 			}
 		}
 	}
 
 	getTravelActions() {
-		let travelActions = TravelActionsConfig;
+		const travelActions = TravelActionsConfig;
 		for (const action of Object.values(travelActions)) {
 			action.displayJournalEntry =
 				!!action.journalEntryName &&
@@ -109,24 +109,25 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 		const div = $(event.currentTarget).parents(".party-member");
 		const entityId = div.data("entity-id");
 
-		let partyMembers = this.actorProperties.members;
+		const partyMembers = this.actorProperties.members;
 		partyMembers.splice(partyMembers.indexOf(entityId), 1);
 
-		let updateData = {
+		const updateData = {
 			"data.members": partyMembers,
 		};
 
-		let travelAction, actionParticipants;
-		for (let travelActionKey in this.actorProperties.travel) {
+		let travelAction;
+		let actionParticipants;
+		for (const travelActionKey in this.actorProperties.travel) {
 			travelAction = this.actorProperties.travel[travelActionKey];
 			if (travelAction.indexOf(entityId) < 0) continue;
 
 			if (typeof travelAction === "object") {
 				actionParticipants = [...travelAction];
 				actionParticipants.splice(actionParticipants.indexOf(entityId), 1);
-				updateData["data.travel." + travelActionKey] = actionParticipants;
+				updateData[`data.travel.${travelActionKey}`] = actionParticipants;
 			} else {
-				updateData["data.travel." + travelActionKey] = "";
+				updateData[`data.travel.${travelActionKey}`] = "";
 			}
 		}
 
@@ -141,13 +142,13 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 			return;
 		}
 
-		let entityId = event.currentTarget.dataset.entityId;
+		const entityId = event.currentTarget.dataset.entityId;
 		event.dataTransfer.setData(
 			"text/plain",
 			JSON.stringify({
 				type: "Actor",
 				action: "assign",
-				uuid: "Actor." + entityId,
+				uuid: `Actor.${entityId}`,
 			}),
 		);
 	}
@@ -171,7 +172,7 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 
 	async handleTravelActionAssignment(event, actor) {
 		const targetElement = event.toElement ? event.toElement : event.target;
-		let actionContainer = targetElement.classList.contains("travel-action")
+		const actionContainer = targetElement.classList.contains("travel-action")
 			? targetElement
 			: targetElement.closest(".travel-action");
 		if (actionContainer === null) return; // character was dragged god knows where; just pretend it never happened
