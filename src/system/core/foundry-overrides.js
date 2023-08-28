@@ -1,10 +1,15 @@
 /* eslint-disable no-unused-vars, no-shadow */
 export default async function FoundryOverrides() {
-	FormApplication.prototype.activateEditor = async function (name, options = {}, initialContent = "") {
+	FormApplication.prototype.activateEditor = async function (
+		name,
+		options = {},
+		initialContent = "",
+	) {
 		const editor = this.editors[name];
 		if (!editor) throw new Error(`${name} is not a registered editor name!`);
 		options = foundry.utils.mergeObject(editor.options, options);
-		options.height = options.target.offsetHeight > 200 ? options.target.offsetHeight : 200;
+		options.height =
+			options.target.offsetHeight > 200 ? options.target.offsetHeight : 200;
 		if (this instanceof ActorSheet || this instanceof ItemSheet) {
 			options.toolbar = "bold italic bullist numlist hr removeformat code save";
 			options.plugins = "lists quickbars hr code save";
@@ -16,7 +21,9 @@ export default async function FoundryOverrides() {
 			(editor.instance =
 			editor.mce =
 				await TextEditor.create(options, initialContent || editor.initial));
-		options.target.closest(".editor")?.classList.add(options.engine ?? "tinymce");
+		options.target
+			.closest(".editor")
+			?.classList.add(options.engine ?? "tinymce");
 		editor.changed = false;
 		editor.active = true;
 		/** @deprecated since v10 */

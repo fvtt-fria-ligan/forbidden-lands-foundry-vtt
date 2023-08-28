@@ -4,12 +4,17 @@ import localizeString from "@utils/localize-string";
 /* eslint-disable no-unused-vars */
 export class ForbiddenLandsActorSheet extends ActorSheet {
 	altInteraction = game.settings.get("forbidden-lands", "alternativeSkulls");
-	useHealthAndResolve = game.settings.get("forbidden-lands", "useHealthAndResolve");
+	useHealthAndResolve = game.settings.get(
+		"forbidden-lands",
+		"useHealthAndResolve",
+	);
 
 	async getData() {
 		let data = this.actor.toObject();
 		data = await this.#enrichTextEditorFields(data);
-		data.items = await Promise.all(this.actor.items.map((i) => i.sheet.getData()));
+		data.items = await Promise.all(
+			this.actor.items.map((i) => i.sheet.getData()),
+		);
 		data.items?.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 		data = this.computeItems(data);
 		data.carriedStates = this.#getCarriedStates();
@@ -55,7 +60,9 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			await this.actor.updateEmbeddedDocuments("Item", [
 				{
 					_id: itemData._id,
-					flags: { "forbidden-lands": { state: state === "none" ? "" : state } },
+					flags: {
+						"forbidden-lands": { state: state === "none" ? "" : state },
+					},
 				},
 			]);
 		}
@@ -76,7 +83,10 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			const attributeName = $(ev.currentTarget).data("attribute");
 			const attribute = this.actorProperties.attribute[attributeName];
 			let value = attribute.value;
-			if ((ev.type === "click" && !this.altInteraction) || (ev.type === "contextmenu" && this.altInteraction)) {
+			if (
+				(ev.type === "click" && !this.altInteraction) ||
+				(ev.type === "contextmenu" && this.altInteraction)
+			) {
 				value = Math.max(value - 1, 0);
 			} else if (
 				(ev.type === "contextmenu" && !this.altInteraction) ||
@@ -93,7 +103,10 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		html.find(".change-willpower").on("click contextmenu", (ev) => {
 			const attribute = this.actorProperties.bio.willpower;
 			let value = attribute.value;
-			if ((ev.type === "click" && !this.altInteraction) || (ev.type === "contextmenu" && this.altInteraction)) {
+			if (
+				(ev.type === "click" && !this.altInteraction) ||
+				(ev.type === "contextmenu" && this.altInteraction)
+			) {
 				value = Math.max(value - 1, 0);
 			} else if (
 				(ev.type === "contextmenu" && !this.altInteraction) ||
@@ -108,7 +121,11 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			const direction = $(ev.currentTarget).data("direction");
 			const oppositeDirection = direction === "carried" ? "" : "carried";
 			const updates = this.actor.items
-				.filter((item) => CONFIG.fbl.carriedItemTypes.includes(item.type) && item.state === oppositeDirection)
+				.filter(
+					(item) =>
+						CONFIG.fbl.carriedItemTypes.includes(item.type) &&
+						item.state === oppositeDirection,
+				)
 				.map((item) => {
 					return {
 						_id: item.id,
@@ -156,7 +173,10 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			const itemId = $(ev.currentTarget).data("itemId");
 			const item = this.actor.items.get(itemId);
 			let value = item.system.bonus.value;
-			if ((ev.type === "click" && !this.altInteraction) || (ev.type === "contextmenu" && this.altInteraction)) {
+			if (
+				(ev.type === "click" && !this.altInteraction) ||
+				(ev.type === "contextmenu" && this.altInteraction)
+			) {
 				value = Math.max(value - 1, 0);
 			} else if (
 				(ev.type === "contextmenu" && !this.altInteraction) ||
@@ -240,7 +260,8 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		// Calculate max encumbrance
 		const baseEncumbrance = data.system.attribute.strength.max * 2;
 		// eslint-disable-next-line no-nested-ternary
-		const monsterEncumbranceMultiplier = this.actor.type === "monster" ? (data.system.isMounted ? 1 : 2) : 1;
+		const monsterEncumbranceMultiplier =
+			this.actor.type === "monster" ? (data.system.isMounted ? 1 : 2) : 1;
 
 		const modifiers = this.actor.getRollModifierOptions("carryingCapacity");
 		const weightAllowed =
@@ -256,7 +277,8 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	}
 
 	broken(type) {
-		const msg = type === "item" ? "WARNING.ITEM_BROKEN" : "WARNING.ACTOR_BROKEN";
+		const msg =
+			type === "item" ? "WARNING.ITEM_BROKEN" : "WARNING.ACTOR_BROKEN";
 		const locmsg = localizeString(msg);
 		ui.notifications.warn(locmsg);
 		return new Error(locmsg);
@@ -270,7 +292,8 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	}
 
 	getAttribute(identifier) {
-		const attributeName = CONFIG.fbl.skillAttributeMap[identifier] || identifier;
+		const attributeName =
+			CONFIG.fbl.skillAttributeMap[identifier] || identifier;
 		const attribute = this.actor.attributes[attributeName];
 		if (!attribute) return {};
 		return {
@@ -291,13 +314,17 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	}
 
 	getGears() {
-		return this.actor.items.filter((item) => item.type === "gear" && !item.isBroken);
+		return this.actor.items.filter(
+			(item) => item.type === "gear" && !item.isBroken,
+		);
 	}
 
 	getGear(itemId) {
 		const gear = this.actor.items.get(itemId).getRollData();
 		if (gear.isBroken) throw this.broken("item");
-		const properties = this.getSkill(CONFIG.fbl.actionSkillMap[gear.category] || "melee");
+		const properties = this.getSkill(
+			CONFIG.fbl.actionSkillMap[gear.category] || "melee",
+		);
 
 		return {
 			gear: gear,
@@ -312,25 +339,38 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	rollAction(actionName, itemId = undefined) {
 		if (!this.actor.canAct) throw this.broken();
 
-		const properties = itemId ? this.getGear(itemId) : this.getSkill(actionName);
+		const properties = itemId
+			? this.getGear(itemId)
+			: this.getSkill(actionName);
 		const data = {
 			title: actionName,
 			...properties,
 		};
 		if (itemId) delete data.gear.damage;
 		const options = {
-			...this.getRollOptions(actionName, data.skill?.name, data.attribute?.name, data.gear?.itemId),
+			...this.getRollOptions(
+				actionName,
+				data.skill?.name,
+				data.attribute?.name,
+				data.gear?.itemId,
+			),
 		};
 		if (actionName === "unarmed") options.damage = 1;
-		return FBLRollHandler.createRoll(data, { ...options, gears: this.getGears() });
+		return FBLRollHandler.createRoll(data, {
+			...options,
+			gears: this.getGears(),
+		});
 	}
 
 	rollArmor() {
-		const rollName = `${localizeString("ITEM.TypeArmor")}: ${localizeString("ARMOR.TOTAL")}`;
+		const rollName = `${localizeString("ITEM.TypeArmor")}: ${localizeString(
+			"ARMOR.TOTAL",
+		)}`;
 		const identifiers = ["armor"];
 		const artifactDies = [];
 		const totalArmor = this.actor.itemTypes.armor.reduce((sum, armor) => {
-			if (armor.itemProperties.part === "shield" || armor.state !== "equipped") return sum;
+			if (armor.itemProperties.part === "shield" || armor.state !== "equipped")
+				return sum;
 			const rollData = armor.getRollData();
 			if (rollData.isBroken) throw this.broken("item");
 			const value = armor.itemProperties.bonus.value;
@@ -338,7 +378,8 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			identifiers.push(armor.id);
 			return sum + value;
 		}, 0);
-		if (!totalArmor) return ui.notifications.warn(localizeString("WARNING.NO_ARMOR"));
+		if (!totalArmor)
+			return ui.notifications.warn(localizeString("WARNING.NO_ARMOR"));
 
 		const data = {
 			title: rollName,
@@ -354,7 +395,10 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			...this.getRollOptions(...identifiers),
 		};
 
-		return FBLRollHandler.createRoll(data, { ...options, gears: this.getGears() });
+		return FBLRollHandler.createRoll(data, {
+			...options,
+			gears: this.getGears(),
+		});
 	}
 
 	rollSpecificArmor(armorId) {
@@ -370,7 +414,10 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			maxPush: "0",
 			...this.getRollOptions("armor", armorId),
 		};
-		return FBLRollHandler.createRoll(data, { ...options, gears: this.getGears() });
+		return FBLRollHandler.createRoll(data, {
+			...options,
+			gears: this.getGears(),
+		});
 	}
 
 	rollAttribute(attrName) {
@@ -383,7 +430,10 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		const options = {
 			...this.getRollOptions(attrName),
 		};
-		return FBLRollHandler.createRoll(data, { ...options, gears: this.getGears() });
+		return FBLRollHandler.createRoll(data, {
+			...options,
+			gears: this.getGears(),
+		});
 	}
 
 	rollGear(itemId) {
@@ -395,9 +445,16 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			...properties,
 		};
 		const options = {
-			...this.getRollOptions(data.skill?.name, data.attribute?.name, data.gear.itemId),
+			...this.getRollOptions(
+				data.skill?.name,
+				data.attribute?.name,
+				data.gear.itemId,
+			),
 		};
-		return FBLRollHandler.createRoll(data, { ...options, gears: this.getGears() });
+		return FBLRollHandler.createRoll(data, {
+			...options,
+			gears: this.getGears(),
+		});
 	}
 
 	rollSkill(skillName) {
@@ -410,12 +467,18 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		const options = {
 			...this.getRollOptions(skillName, data.attribute?.name),
 		};
-		return FBLRollHandler.createRoll(data, { ...options, gears: this.getGears() });
+		return FBLRollHandler.createRoll(data, {
+			...options,
+			gears: this.getGears(),
+		});
 	}
 
 	rollSpell(spellId) {
 		if (!this.actor.canAct) throw this.broken();
-		if (!this.actor.willpower.value && !this.actorProperties.subtype?.type === "npc")
+		if (
+			!this.actor.willpower.value &&
+			!this.actorProperties.subtype?.type === "npc"
+		)
 			throw ui.notifications.warn(localizeString("WARNING.NO_WILLPOWER"));
 
 		const spell = this.actor.items.get(spellId);
@@ -444,12 +507,16 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 
 		const options = {
 			maxPush: "0",
-			template: "systems/forbidden-lands/templates/components/roll-engine/spell-dialog.hbs",
+			template:
+				"systems/forbidden-lands/templates/components/roll-engine/spell-dialog.hbs",
 			type: "spell",
 			skulls: this.altInteraction,
 			...this.getRollOptions(),
 		};
-		return FBLRollHandler.createRoll(data, { ...options, gears: this.getGears() });
+		return FBLRollHandler.createRoll(data, {
+			...options,
+			gears: this.getGears(),
+		});
 	}
 
 	/************************************************/
@@ -463,7 +530,8 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	computeSkills(data) {
 		for (let skill of Object.values(data.system.skill)) {
 			skill[`has${skill?.attribute?.capitalize()}`] = false;
-			if (CONFIG.fbl.attributes.includes(skill.attribute)) skill[`has${skill.attribute.capitalize()}`] = true;
+			if (CONFIG.fbl.attributes.includes(skill.attribute))
+				skill[`has${skill.attribute.capitalize()}`] = true;
 		}
 		return data;
 	}
@@ -472,7 +540,8 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		for (const item of Object.values(data.items)) {
 			// Shields were long treated as armor. They are not. This is a workaround for that.
 			if (item.system.part === "shield") item.isWeapon = true;
-			else if (CONFIG.fbl.itemTypes.includes(item.type)) item[`is${item.type.capitalize()}`] = true;
+			else if (CONFIG.fbl.itemTypes.includes(item.type))
+				item[`is${item.type.capitalize()}`] = true;
 			item.isEquipped = item.flags?.state === "equipped";
 			item.isCarried = item.flags?.state === "carried";
 		}
@@ -497,9 +566,12 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		const fields = CONFIG.fbl.enrichedActorFields;
 		for (const field of fields)
 			if (data.system.bio?.[field]?.value)
-				data.system.bio[field].value = await TextEditor.enrichHTML(data.system.bio[field].value, {
-					async: true,
-				});
+				data.system.bio[field].value = await TextEditor.enrichHTML(
+					data.system.bio[field].value,
+					{
+						async: true,
+					},
+				);
 		return data;
 	}
 
@@ -514,7 +586,9 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	}
 
 	#getSortKey(state) {
-		return this.actor.getFlag("forbidden-lands", `${state ?? "none"}-sort`) || "name";
+		return (
+			this.actor.getFlag("forbidden-lands", `${state ?? "none"}-sort`) || "name"
+		);
 	}
 
 	#sortGear(a, b, key) {
@@ -522,17 +596,27 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		switch (key) {
 			case "name":
 			case "type":
-				return a[key]?.toLocaleLowerCase().localeCompare(b[key]?.toLocaleLowerCase()) ?? 0;
+				return (
+					a[key]
+						?.toLocaleLowerCase()
+						.localeCompare(b[key]?.toLocaleLowerCase()) ?? 0
+				);
 			case "attribute":
-				const aComp = a.type === "rawMaterial" ? a.system.quantity : a.system.bonus.value;
-				const bComp = b.type === "rawMaterial" ? b.system.quantity : b.system.bonus.value;
+				const aComp =
+					a.type === "rawMaterial" ? a.system.quantity : a.system.bonus.value;
+				const bComp =
+					b.type === "rawMaterial" ? b.system.quantity : b.system.bonus.value;
 				return Number(bComp) - Number(aComp);
 			case "weight":
 				const weightMap = CONFIG.fbl.encumbrance;
 				const aWeight =
-					a.type === "rawMaterial" ? Number(a.system.quantity) : Math.floor(weightMap[a.system.weight] || 0);
+					a.type === "rawMaterial"
+						? Number(a.system.quantity)
+						: Math.floor(weightMap[a.system.weight] || 0);
 				const bWeight =
-					b.type === "rawMaterial" ? Number(b.system.quantity) : Math.floor(weightMap[b.system.weight] || 0);
+					b.type === "rawMaterial"
+						? Number(b.system.quantity)
+						: Math.floor(weightMap[b.system.weight] || 0);
 				return bWeight - aWeight;
 		}
 		/* eslint-enable no-case-declarations, no-nested-ternary */
@@ -589,6 +673,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 				.remove(),
 		);
 		const item = await Item.createDialog({}, { parent: this.actor });
-		if (item) item.setFlag("forbidden-lands", "state", state === "none" ? "" : state);
+		if (item)
+			item.setFlag("forbidden-lands", "state", state === "none" ? "" : state);
 	}
 }

@@ -1,11 +1,17 @@
 import { context } from "esbuild";
 import { sassPlugin } from "esbuild-sass-plugin";
+import { existsSync } from "node:fs";
+import { rm } from "node:fs/promises";
+import { args } from "./tools/args-parser.js";
 import templatePathsPromise from "./tools/get-template-paths.js";
 
 const templatePaths = await templatePathsPromise;
 
-const production = process.env.NODE_ENV !== "development";
-const watch = process.argv.includes("--watch") && !production;
+const development = args.hasOwnProperty("dev");
+const watch = args.hasOwnProperty("watch") && development;
+
+if (existsSync("./forbidden-lands.js")) await rm("./forbidden-lands.js");
+if (existsSync("./forbidden-lands.css")) await rm("./forbidden-lands.css");
 
 const ctx = await context({
 	bundle: true,
@@ -13,11 +19,11 @@ const ctx = await context({
 	outdir: "./",
 	format: "esm",
 	logLevel: "info",
-	sourcemap: !production ? "inline" : false,
-	ignoreAnnotations: !production,
+	sourcemap: development ? "inline" : false,
+	ignoreAnnotations: development,
 	minifyWhitespace: true,
 	minifySyntax: true,
-	drop: production ? ["console", "debugger"] : [],
+	drop: development ? [] : ["console", "debugger"],
 	define: {
 		GLOBALPATHS: JSON.stringify(templatePaths),
 	},
@@ -30,9 +36,12 @@ const ctx = await context({
 		{
 			name: "external-files",
 			setup(inBuild) {
-				inBuild.onResolve({ filter: /(\.\/assets|\.\/fonts|\/systems)/ }, () => {
-					return { external: true };
-				});
+				inBuild.onResolve(
+					{ filter: /(\.\/assets|\.\/fonts|\/systems)/ },
+					() => {
+						return { external: true };
+					},
+				);
 			},
 		},
 	],
@@ -42,4 +51,3 @@ ctx.rebuild();
 
 if (watch) ctx.watch();
 else ctx.dispose();
-

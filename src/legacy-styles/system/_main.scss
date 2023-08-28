@@ -279,7 +279,7 @@
 				&:nth-child(odd) button:focus,
 				&:nth-child(odd) button:hover {
 					background: var(--color-background);
-					color: var(--color-theme-gray-800);
+					color: var(--color-theme-gray-600);
 				}
 
 				img {
@@ -332,7 +332,11 @@
 				.bio {
 					padding: 4px 8px;
 					.avatar {
-						background: radial-gradient(closest-side, var(--color-highlight) 0%, var(--color-background) 100%);
+						background: radial-gradient(
+							closest-side,
+							var(--color-highlight) 0%,
+							var(--color-background) 100%
+						);
 						flex: 0 0 auto;
 						height: 95px;
 						width: 95px;

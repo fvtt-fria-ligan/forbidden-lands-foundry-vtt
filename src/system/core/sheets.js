@@ -16,23 +16,47 @@ import { AdventureSitesSheet } from "@journal/adventure-sites/adventure-site-she
 
 export function registerSheets() {
 	Actors.unregisterSheet("core", ActorSheet);
-	Actors.registerSheet("forbidden-lands", ForbiddenLandsCharacterSheet, { types: ["character"], makeDefault: true });
-	Actors.registerSheet("forbidden-lands", ForbiddenLandsMonsterSheet, { types: ["monster"], makeDefault: true });
+	Actors.registerSheet("forbidden-lands", ForbiddenLandsCharacterSheet, {
+		types: ["character"],
+		makeDefault: true,
+	});
+	Actors.registerSheet("forbidden-lands", ForbiddenLandsMonsterSheet, {
+		types: ["monster"],
+		makeDefault: true,
+	});
 	Actors.registerSheet("forbidden-lands", ForbiddenLandsStrongholdSheet, {
 		types: ["stronghold"],
 		makeDefault: true,
 	});
-	Actors.registerSheet("forbidden-lands", ForbiddenLandsPartySheet, { types: ["party"], makeDefault: true });
+	Actors.registerSheet("forbidden-lands", ForbiddenLandsPartySheet, {
+		types: ["party"],
+		makeDefault: true,
+	});
 	Items.unregisterSheet("core", ItemSheet);
-	Items.registerSheet("forbidden-lands", ForbiddenLandsWeaponSheet, { types: ["weapon"], makeDefault: true });
-	Items.registerSheet("forbidden-lands", ForbiddenLandsArmorSheet, { types: ["armor"], makeDefault: true });
-	Items.registerSheet("forbidden-lands", ForbiddenLandsGearSheet, { types: ["gear"], makeDefault: true });
+	Items.registerSheet("forbidden-lands", ForbiddenLandsWeaponSheet, {
+		types: ["weapon"],
+		makeDefault: true,
+	});
+	Items.registerSheet("forbidden-lands", ForbiddenLandsArmorSheet, {
+		types: ["armor"],
+		makeDefault: true,
+	});
+	Items.registerSheet("forbidden-lands", ForbiddenLandsGearSheet, {
+		types: ["gear"],
+		makeDefault: true,
+	});
 	Items.registerSheet("forbidden-lands", ForbiddenLandsRawMaterialSheet, {
 		types: ["rawMaterial"],
 		makeDefault: true,
 	});
-	Items.registerSheet("forbidden-lands", ForbiddenLandsSpellSheet, { types: ["spell"], makeDefault: true });
-	Items.registerSheet("forbidden-lands", ForbiddenLandsTalentSheet, { types: ["talent"], makeDefault: true });
+	Items.registerSheet("forbidden-lands", ForbiddenLandsSpellSheet, {
+		types: ["spell"],
+		makeDefault: true,
+	});
+	Items.registerSheet("forbidden-lands", ForbiddenLandsTalentSheet, {
+		types: ["talent"],
+		makeDefault: true,
+	});
 	Items.registerSheet("forbidden-lands", ForbiddenLandsCriticalInjurySheet, {
 		types: ["criticalInjury"],
 		makeDefault: true,
@@ -41,7 +65,13 @@ export function registerSheets() {
 		types: ["monsterAttack"],
 		makeDefault: true,
 	});
-	Items.registerSheet("forbidden-lands", ForbiddenLandsBuildingSheet, { types: ["building"], makeDefault: true });
-	Items.registerSheet("forbidden-lands", ForbiddenLandsHirelingSheet, { types: ["hireling"], makeDefault: true });
+	Items.registerSheet("forbidden-lands", ForbiddenLandsBuildingSheet, {
+		types: ["building"],
+		makeDefault: true,
+	});
+	Items.registerSheet("forbidden-lands", ForbiddenLandsHirelingSheet, {
+		types: ["hireling"],
+		makeDefault: true,
+	});
 	CONFIG.fbl.adventureSites.sheetClass = AdventureSitesSheet;
 }

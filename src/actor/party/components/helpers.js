@@ -20,7 +20,10 @@ export class Helpers {
 			}
 		}
 		if (!charSheet) {
-			InfoDialog.show(game.i18n.localize("FLPS.UI.ATTENTION"), game.i18n.localize("FLPS.UI.ERROR.OPEN_SHEET"));
+			InfoDialog.show(
+				game.i18n.localize("FLPS.UI.ATTENTION"),
+				game.i18n.localize("FLPS.UI.ERROR.OPEN_SHEET"),
+			);
 			return null;
 		}
 
@@ -28,11 +31,15 @@ export class Helpers {
 	}
 
 	static getOwnedCharacters(characterIds) {
-		characterIds = typeof characterIds !== "object" && characterIds !== "" ? [characterIds] : characterIds;
+		characterIds =
+			typeof characterIds !== "object" && characterIds !== ""
+				? [characterIds]
+				: characterIds;
 		let characters = [];
 		for (let i = 0; i < characterIds.length; i++) {
 			const actor = game.actors.get(characterIds[i]);
-			if (actor && actor.isOwner) characters.push(game.actors.get(characterIds[i]));
+			if (actor && actor.isOwner)
+				characters.push(game.actors.get(characterIds[i]));
 		}
 
 		return characters;

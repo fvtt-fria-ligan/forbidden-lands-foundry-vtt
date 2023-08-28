@@ -25,7 +25,8 @@ export class Changelog extends FormApplication {
 	constructor(object?: object, options?: FormApplicationOptions) {
 		super(object, options);
 
-		this.SOURCE = "https://api.github.com/repos/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases?per_page=10";
+		this.SOURCE =
+			"https://api.github.com/repos/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases?per_page=10";
 
 		this.#converter = (() => {
 			Object.entries({
@@ -102,7 +103,10 @@ export class Changelog extends FormApplication {
 		);
 
 		return changelog
-			.filter((entry): entry is PromiseFullfilled<string> => entry.status === "fulfilled")
+			.filter(
+				(entry): entry is PromiseFullfilled<string> =>
+					entry.status === "fulfilled",
+			)
 			.map((entry) => entry.value)
 			.join("<hr>");
 	}

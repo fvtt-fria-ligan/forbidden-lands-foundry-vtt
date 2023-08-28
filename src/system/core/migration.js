@@ -6,9 +6,13 @@ export const migrateWorld = async () => {
 			game.system.version.split(".")[0], //Get Major release version
 		);
 		// In older instances of the system the worldSchemaVersion was user-changeable. We therefore need to make sure we get a number.
-		worldSchemaVersion = Number(game.settings.get("forbidden-lands", "worldSchemaVersion") || 0);
+		worldSchemaVersion = Number(
+			game.settings.get("forbidden-lands", "worldSchemaVersion") || 0,
+		);
 	} catch (error) {
-		ui.notifications.error("Failed getting version numbers. Backup your files and contact support.");
+		ui.notifications.error(
+			"Failed getting version numbers. Backup your files and contact support.",
+		);
 		throw new Error(`Failed getting version numbers: ${error}`);
 	}
 	if (worldSchemaVersion < systemVersion && game.user.isGM) {
@@ -52,7 +56,9 @@ export const migrateWorld = async () => {
 			}
 		}
 		for (const pack of game.packs.filter(
-			(p) => p.metadata.package === "world" && ["Actor", "Item", "Scene"].includes(p.metadata.type),
+			(p) =>
+				p.metadata.package === "world" &&
+				["Actor", "Item", "Scene"].includes(p.metadata.type),
 		)) {
 			await migrateCompendium(pack, worldSchemaVersion);
 		}
@@ -68,7 +74,8 @@ const migrateActorData = (actor, worldSchemaVersion) => {
 	// Sleepless -> Sleepy
 	if (worldSchemaVersion < 3)
 		if (actor.type === "character")
-			if (!actor.system.condition.sleepy) update["system.condition.sleepy"] = actor.system.condition.sleepless;
+			if (!actor.system.condition.sleepy)
+				update["system.condition.sleepy"] = actor.system.condition.sleepless;
 
 	// Improve consumable values
 	if (worldSchemaVersion < 7)
@@ -119,7 +126,8 @@ const migrateItemData = (item, worldSchemaVersion) => {
 				const parts = item.system.bonus.split("+").map((p) => p.trim());
 				parts.forEach((p) => {
 					if (Number.isNumeric(p)) baseBonus += +p;
-					else if (artifactBonus.length) artifactBonus = `${artifactBonus} + ${p}`;
+					else if (artifactBonus.length)
+						artifactBonus = `${artifactBonus} + ${p}`;
 					else artifactBonus = p;
 				});
 			}
@@ -132,7 +140,8 @@ const migrateItemData = (item, worldSchemaVersion) => {
 	}
 
 	if (worldSchemaVersion < 4) {
-		if (item.type === "spell" && !item.system.spellType) update["system.spellType"] = "SPELL.SPELL";
+		if (item.type === "spell" && !item.system.spellType)
+			update["system.spellType"] = "SPELL.SPELL";
 	}
 
 	if (worldSchemaVersion < 5) {
@@ -154,11 +163,16 @@ const migrateItemData = (item, worldSchemaVersion) => {
 			};
 			let otherFeatures = "";
 			for (const feature of features) {
-				const lcFeature = feature === "slowReload" ? feature : feature.toLowerCase();
-				if (lcFeature in update["system.features"]) update["system.features"][lcFeature] = true;
+				const lcFeature =
+					feature === "slowReload" ? feature : feature.toLowerCase();
+				if (lcFeature in update["system.features"])
+					update["system.features"][lcFeature] = true;
 				else otherFeatures += feature + ", ";
 			}
-			update["system.features"].others = otherFeatures.substr(0, otherFeatures.length - 2);
+			update["system.features"].others = otherFeatures.substr(
+				0,
+				otherFeatures.length - 2,
+			);
 		}
 	}
 
@@ -236,7 +250,9 @@ const migrateCompendium = async function (pack, worldSchemaVersion) {
 			// Save the entry, if data was changed
 			if (foundry.utils.isEmpty(updateData)) continue;
 			await doc.update(updateData);
-			console.log(`Migrated ${entity} entity ${doc.name} in Compendium ${pack.collection}`);
+			console.log(
+				`Migrated ${entity} entity ${doc.name} in Compendium ${pack.collection}`,
+			);
 		} catch (err) {
 			// Handle migration failures
 			err.message = `Failed migration for entity ${doc.name} in pack ${pack.collection}: ${err.message}`;
@@ -246,7 +262,9 @@ const migrateCompendium = async function (pack, worldSchemaVersion) {
 
 	// Apply the original locked status for the pack
 	await pack.configure({ locked: wasLocked });
-	console.log(`Migrated all ${entity} entities from Compendium ${pack.collection}`);
+	console.log(
+		`Migrated all ${entity} entities from Compendium ${pack.collection}`,
+	);
 };
 
 const migrateSettings = async function (worldSchemaVersion) {
@@ -259,5 +277,6 @@ const migrateSettings = async function (worldSchemaVersion) {
 		game.settings.set("forbidden-lands", "showDrawbackField", true);
 		game.settings.set("forbidden-lands", "showAppearanceField", true);
 	}
-	if (worldSchemaVersion < 5) game.settings.set("forbidden-lands", "alternativeSkulls", false);
+	if (worldSchemaVersion < 5)
+		game.settings.set("forbidden-lands", "alternativeSkulls", false);
 };

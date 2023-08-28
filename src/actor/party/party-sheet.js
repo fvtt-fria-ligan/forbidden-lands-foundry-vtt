@@ -4,13 +4,22 @@ import localizeString from "@utils/localize-string.js";
 export class ForbiddenLandsPartySheet extends ActorSheet {
 	static get defaultOptions() {
 		let dragDrop = [...super.defaultOptions.dragDrop];
-		dragDrop.push({ dragSelector: ".party-member", dropSelector: ".party-member-list" });
+		dragDrop.push({
+			dragSelector: ".party-member",
+			dropSelector: ".party-member-list",
+		});
 		return mergeObject(super.defaultOptions, {
 			classes: ["forbidden-lands", "sheet", "actor", "party"],
 			template: "systems/forbidden-lands/templates/actor/party/party-sheet.hbs",
 			width: window.innerWidth * 0.05 + 650,
 			resizable: false,
-			tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "main" }],
+			tabs: [
+				{
+					navSelector: ".sheet-tabs",
+					contentSelector: ".sheet-body",
+					initial: "main",
+				},
+			],
 			dragDrop: dragDrop,
 		});
 	}
@@ -30,7 +39,10 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 			ownedActorId = data.system.members[i];
 			data.partyMembers[ownedActorId] = game.actors.get(ownedActorId);
 		}
-		data.system.description = await TextEditor.enrichHTML(data.system.description, { async: true });
+		data.system.description = await TextEditor.enrichHTML(
+			data.system.description,
+			{ async: true },
+		);
 		return data;
 	}
 
@@ -69,14 +81,21 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 	getTravelActions() {
 		let travelActions = TravelActionsConfig;
 		for (const action of Object.values(travelActions)) {
-			action.displayJournalEntry = !!action.journalEntryName && !!game.journal.getName(action.journalEntryName);
-			action.participants = this.document.system.travel[action.key].map((id) => game.actors.get(id));
+			action.displayJournalEntry =
+				!!action.journalEntryName &&
+				!!game.journal.getName(action.journalEntryName);
+			action.participants = this.document.system.travel[action.key].map((id) =>
+				game.actors.get(id),
+			);
 		}
 		return travelActions;
 	}
 
 	async getEncounterTables() {
-		const tableSettings = game.settings.get("forbidden-lands", "encounterTables");
+		const tableSettings = game.settings.get(
+			"forbidden-lands",
+			"encounterTables",
+		);
 		const tables = Object.fromEntries(
 			Object.entries(tableSettings)
 				.filter((t) => !!t[1])
@@ -143,7 +162,8 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 		const actor = game.actors.get(actorId);
 		if (actor?.type !== "character") return;
 
-		if (draggedItem.action === "assign") await this.handleTravelActionAssignment(event, actor);
+		if (draggedItem.action === "assign")
+			await this.handleTravelActionAssignment(event, actor);
 		else await this.handleAddToParty(actor);
 
 		return this.render(true);
@@ -156,7 +176,10 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 			: targetElement.closest(".travel-action");
 		if (actionContainer === null) return; // character was dragged god knows where; just pretend it never happened
 
-		return this.assignPartyMemberToAction(actor, actionContainer.dataset.travelAction);
+		return this.assignPartyMemberToAction(
+			actor,
+			actionContainer.dataset.travelAction,
+		);
 	}
 
 	async assignPartyMemberToAction(partyMember, travelActionKey) {
@@ -165,14 +188,16 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 		// If the action already includes the party member we don't need to do anything
 		if (travelAction.includes(partyMember.id)) return;
 
-		const currentAction = Object.entries(this.actorProperties.travel).find(([_, array]) =>
-			array.includes(partyMember.id),
+		const currentAction = Object.entries(this.actorProperties.travel).find(
+			([_, array]) => array.includes(partyMember.id),
 		);
 		const updateData = {
 			// Add party member to new action, making sure not to remove existing ones
 			[`system.travel.${travelActionKey}`]: [...travelAction, partyMember.id],
 			// Remove party member from old action
-			[`system.travel.${currentAction[0]}`]: currentAction[1].filter((id) => id !== partyMember.id),
+			[`system.travel.${currentAction[0]}`]: currentAction[1].filter(
+				(id) => id !== partyMember.id,
+			),
 		};
 		return this.actor.update(updateData);
 	}
@@ -185,15 +210,22 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 		if (initialCount === partyMembers.length) return;
 
 		const travelOther = [...this.actorProperties.travel.other, actor.id];
-		return this.actor.update({ ["system.members"]: partyMembers, ["system.travel.other"]: travelOther });
+		return this.actor.update({
+			["system.members"]: partyMembers,
+			["system.travel.other"]: travelOther,
+		});
 	}
 
 	async resetTravelActions() {
-		const updates = Object.keys(this.actorProperties.travel).reduce((acc, key) => {
-			if (key === "other") acc[`system.travel.${key}`] = this.actorProperties.members;
-			else acc[`system.travel.${key}`] = [];
-			return acc;
-		}, {});
+		const updates = Object.keys(this.actorProperties.travel).reduce(
+			(acc, key) => {
+				if (key === "other")
+					acc[`system.travel.${key}`] = this.actorProperties.members;
+				else acc[`system.travel.${key}`] = [];
+				return acc;
+			},
+			{},
+		);
 		return this.actor.update(updates);
 	}
 }

@@ -1,13 +1,23 @@
 import { ForbiddenLandsActor } from "@actor/actor-document.js";
 import { importMacros } from "@components/macros/macros.js";
 import displayMessages from "@components/message-system.js";
-import { ForbiddenLandsD6, registerYZURLabels } from "@components/roll-engine/dice-labels";
+import {
+	ForbiddenLandsD6,
+	registerYZURLabels,
+} from "@components/roll-engine/dice-labels";
 import { FBLRollHandler } from "@components/roll-engine/engine.js";
 import { YearZeroRollManager } from "@components/roll-engine/yzur";
 import { ForbiddenLandsItem } from "@item/item-document.js";
-import { init, utilities } from "@journal/adventure-sites/adventure-site-generator.js";
+import {
+	init,
+	utilities,
+} from "@journal/adventure-sites/adventure-site-generator.js";
 import { ForbiddenLandsJournalEntry } from "@journal/journal-document.js";
-import { FBLCombat, FBLCombatTracker, FBLCombatant } from "@system/combat/combat.js";
+import {
+	FBLCombat,
+	FBLCombatTracker,
+	FBLCombatant,
+} from "@system/combat/combat.js";
 import FBL, { modifyConfig } from "@system/core/config.js";
 import { initializeEditorEnrichers } from "@system/core/editor.js";
 import { registerFonts } from "@system/core/fonts.js";
@@ -43,15 +53,19 @@ Hooks.once("init", () => {
 	CONFIG.JournalEntry.documentClass = ForbiddenLandsJournalEntry;
 	CONFIG.fbl = FBL;
 	CONFIG.fbl.adventureSites.utilities = utilities;
-	CONFIG.fbl.adventureSites.generate = (path, adventureSite) => init(path, adventureSite);
+	CONFIG.fbl.adventureSites.generate = (path, adventureSite) =>
+		init(path, adventureSite);
 	CONFIG.Item.documentClass = ForbiddenLandsItem;
 	CONFIG.Combat.documentClass = FBLCombat;
 	CONFIG.Combatant.documentClass = FBLCombatant;
 	CONFIG.ui.combat = FBLCombatTracker;
 	YearZeroRollManager.register("fbl", {
-		"ROLL.chatTemplate": "systems/forbidden-lands/templates/components/roll-engine/roll.hbs",
-		"ROLL.tooltipTemplate": "systems/forbidden-lands/templates/components/roll-engine/tooltip.hbs",
-		"ROLL.infosTemplate": "systems/forbidden-lands/templates/components/roll-engine/infos.hbs",
+		"ROLL.chatTemplate":
+			"systems/forbidden-lands/templates/components/roll-engine/roll.hbs",
+		"ROLL.tooltipTemplate":
+			"systems/forbidden-lands/templates/components/roll-engine/tooltip.hbs",
+		"ROLL.infosTemplate":
+			"systems/forbidden-lands/templates/components/roll-engine/infos.hbs",
 	});
 	CONFIG.Dice.terms["6"] = ForbiddenLandsD6;
 	registerYZURLabels();
@@ -62,7 +76,8 @@ Hooks.once("init", () => {
 	modifyConfig();
 
 	// Add dark mode class to html tag
-	if (game.settings.get("forbidden-lands", "darkmode")) $("html").addClass("dark");
+	if (game.settings.get("forbidden-lands", "darkmode"))
+		$("html").addClass("dark");
 });
 
 Hooks.once("ready", () => {
@@ -71,7 +86,9 @@ Hooks.once("ready", () => {
 	importMacros();
 
 	// Hack to remove monsterTalents from System
-	game.system.documentTypes.Item = game.system.documentTypes.Item.filter((type) => type !== "monsterTalent");
+	game.system.documentTypes.Item = game.system.documentTypes.Item.filter(
+		(type) => type !== "monsterTalent",
+	);
 
 	// Only add the context menu to decrease consumables if consumables aren't automatically handled.
 	if (game.settings.get("forbidden-lands", "autoDecreaseConsumable") === 0)
@@ -81,7 +98,8 @@ Hooks.once("ready", () => {
 				name: localizeString("CONTEXT.REDUCE_CONSUMABLE"),
 				icon: "<i class='fas fa-arrow-down'></i>",
 				condition: isConsumableRoll,
-				callback: (li) => FBLRollHandler.decreaseConsumable(li.attr("data-message-id")),
+				callback: (li) =>
+					FBLRollHandler.decreaseConsumable(li.attr("data-message-id")),
 			});
 		});
 });

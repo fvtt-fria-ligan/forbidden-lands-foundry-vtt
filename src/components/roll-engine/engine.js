@@ -32,7 +32,10 @@ export class FBLRollHandler extends FormApplication {
 		this.artifact = gear?.artifactDie;
 		this.gears = options.gears || [];
 		this.modifier =
-			options.modifiers?.reduce((sum, mod) => (mod.value < 0 ? (sum += Number(mod.value)) : sum), 0) || 0;
+			options.modifiers?.reduce(
+				(sum, mod) => (mod.value < 0 ? (sum += Number(mod.value)) : sum),
+				0,
+			) || 0;
 		this.spell = { safecast: 0, ...spell };
 	}
 
@@ -62,7 +65,9 @@ export class FBLRollHandler extends FormApplication {
 	}
 	set g(val) {
 		if (Array.isArray(val)) {
-			const value = val.map((item) => this.generateTermFormula(item[2], "g", item[1])).join("+");
+			const value = val
+				.map((item) => this.generateTermFormula(item[2], "g", item[1]))
+				.join("+");
 			this.roll._g = value;
 		} else this.roll._g = this.generateTermFormula(val, "g", this.gear?.name);
 	}
@@ -129,7 +134,9 @@ export class FBLRollHandler extends FormApplication {
 			if (!hasTable) throw new Error("Table not found.");
 			return tableId;
 		} catch {
-			console.warn(`Forbidden Lands | Mishap table ${this.options.type} not found.`);
+			console.warn(
+				`Forbidden Lands | Mishap table ${this.options.type} not found.`,
+			);
 			return null;
 		}
 	}
@@ -150,7 +157,10 @@ export class FBLRollHandler extends FormApplication {
 	 * Foundry override allowing custom Roll Dialog template (used for spell rolls only atm. but intended to be extensible).
 	 */
 	get template() {
-		return this.options.template || "systems/forbidden-lands/templates/components/roll-engine/dialog.hbs";
+		return (
+			this.options.template ||
+			"systems/forbidden-lands/templates/components/roll-engine/dialog.hbs"
+		);
 	}
 
 	/**
@@ -240,7 +250,9 @@ export class FBLRollHandler extends FormApplication {
 			}
 
 			if (modifier.value) {
-				const totalBonusInput = modifier.item.gearBonus ? totalGearInput : totalModifierInput;
+				const totalBonusInput = modifier.item.gearBonus
+					? totalGearInput
+					: totalModifierInput;
 				let currentValue = Number(totalBonusInput.value);
 				if (this.checked) currentValue += Number(modifier.value[0]);
 				else currentValue -= Number(modifier.value[0]);
@@ -255,7 +267,10 @@ export class FBLRollHandler extends FormApplication {
 			const type = this.options.skulls ? "contextmenu" : "click";
 
 			let value = this.base.value;
-			if (ev.type === type && this.spell.willpower.value < this.spell.willpower.max) {
+			if (
+				ev.type === type &&
+				this.spell.willpower.value < this.spell.willpower.max
+			) {
 				value = Math.max(--value, 1);
 				++this.spell.willpower.value;
 			} else if (ev.type !== type && this.spell.willpower.value > 0) {
@@ -283,7 +298,8 @@ export class FBLRollHandler extends FormApplication {
 					break;
 				}
 			}
-			if (!this.spell.psych && this.spell.safecast === 2) this.spell.safecast = 1;
+			if (!this.spell.psych && this.spell.safecast === 2)
+				this.spell.safecast = 1;
 			this.render(true);
 		});
 
@@ -315,7 +331,9 @@ export class FBLRollHandler extends FormApplication {
 	 */
 	_validateForm(event, formData) {
 		const isEmpty = Object.values(formData).every((value) => !value);
-		const invalidArtifactField = !this.constructor.isValidArtifact(formData.artifact);
+		const invalidArtifactField = !this.constructor.isValidArtifact(
+			formData.artifact,
+		);
 		if (isEmpty) {
 			const warning = localizeString("WARNING.NO_DICE_INPUT");
 			event.target.base.focus();
@@ -344,7 +362,8 @@ export class FBLRollHandler extends FormApplication {
 			scene: this.options.sceneId,
 			token: this.options.tokenId,
 		});
-		const subtractValue = this.spell.willpower.max + 1 - this.spell.willpower.value;
+		const subtractValue =
+			this.spell.willpower.max + 1 - this.spell.willpower.value;
 		await FBLRollHandler.modifyWillpower(actor, subtractValue, "subtract");
 		const result = await this.executeRoll();
 		this.#resolve(result);
@@ -355,7 +374,14 @@ export class FBLRollHandler extends FormApplication {
 	 * @param {Object<number} data passed from formData.
 	 * @returns Promise<void>
 	 */
-	async _handleYZRoll({ base, skill, gear, artifact, modifier, ...modifierItems }) {
+	async _handleYZRoll({
+		base,
+		skill,
+		gear,
+		artifact,
+		modifier,
+		...modifierItems
+	}) {
 		// Handle optional gear
 		if (Object.values(modifierItems).some((item) => item)) {
 			const checkedItems = Object.entries(modifierItems)
@@ -378,9 +404,22 @@ export class FBLRollHandler extends FormApplication {
 		const modifierGearArray = modifierItemsArray
 			.filter((string) => string.startsWith("true"))
 			.map((string) => string.split("_"));
-		if (this.gear.value) modifierGearArray.unshift([this.gear.itemId, this.gear.label, this.gear.value]);
-		const modTotal = modifierGearArray.reduce((acc, [_, __, value]) => acc + Number(value), 0);
-		if (Number(gear) - modTotal > 0) modifierGearArray.push(["", "YZUR.DIETYPES.GearDie", Number(gear) - modTotal]);
+		if (this.gear.value)
+			modifierGearArray.unshift([
+				this.gear.itemId,
+				this.gear.label,
+				this.gear.value,
+			]);
+		const modTotal = modifierGearArray.reduce(
+			(acc, [_, __, value]) => acc + Number(value),
+			0,
+		);
+		if (Number(gear) - modTotal > 0)
+			modifierGearArray.push([
+				"",
+				"YZUR.DIETYPES.GearDie",
+				Number(gear) - modTotal,
+			]);
 		return modifierGearArray;
 	}
 	/**
@@ -406,12 +445,16 @@ export class FBLRollHandler extends FormApplication {
 	 * @see Roll
 	 */
 	parseArtifacts(string = "", artifactName = "") {
-		const artifacts = string.split(/[+, ]/).filter((term) => !!term && term !== "0");
+		const artifacts = string
+			.split(/[+, ]/)
+			.filter((term) => !!term && term !== "0");
 		const terms = artifacts
 			.reduce((array, artifact) => {
 				let [num, term] = artifact.split(/d/i);
 				num = Number(num) || 1;
-				const existTermIndex = array.findIndex((termVal) => termVal[0] === term);
+				const existTermIndex = array.findIndex(
+					(termVal) => termVal[0] === term,
+				);
 				if (existTermIndex > -1) array[existTermIndex][1] += num;
 				else array.push([term, num]);
 				return array;
@@ -430,7 +473,11 @@ export class FBLRollHandler extends FormApplication {
 		// however Infinity is finicky to serialize.
 		// So we use a sufficiently large number instead.
 		// eslint-disable-next-line no-nested-ternary
-		const maxPush = unlimitedPush ? 10000 : this.options.actorType === "monster" ? "0" : 1;
+		const maxPush = unlimitedPush
+			? 10000
+			: this.options.actorType === "monster"
+			? "0"
+			: 1;
 		return {
 			name: this.title,
 			maxPush: this.options.maxPush || maxPush,
@@ -446,7 +493,10 @@ export class FBLRollHandler extends FormApplication {
 			tokenId: this.options.tokenId,
 			sceneId: this.options.sceneId,
 			item: this.gear.name || this.gears.map((gear) => gear.name),
-			itemId: this.gear.itemId || this.spell?.item?.id || this.gears.map((gear) => gear.id),
+			itemId:
+				this.gear.itemId ||
+				this.spell?.item?.id ||
+				this.gears.map((gear) => gear.id),
 			willpower: this.options.willpower,
 			mishapTable: this.mishapTable,
 			mishapType: this.options.mishapType,
@@ -565,10 +615,14 @@ export class FBLRollHandler extends FormApplication {
 	 */
 	static async updateActor(roll, speaker) {
 		// We need to keep track of how much damage has been done to the actor in case it's a Dwarf and allowed unlimited pushes.
-		if (!roll.options.characterDamage) roll.options.characterDamage = { gear: 0, attribute: 0 };
+		if (!roll.options.characterDamage)
+			roll.options.characterDamage = { gear: 0, attribute: 0 };
 		if (roll.gearDamage) await this.applyGearDamage(roll, speaker);
 		if (roll.attributeTrauma) await this.applyAttributDamage(roll, speaker);
-		roll.options.characterDamage = { gear: roll.gearDamage || 0, attribute: roll.attributeTrauma || 0 };
+		roll.options.characterDamage = {
+			gear: roll.gearDamage || 0,
+			attribute: roll.attributeTrauma || 0,
+		};
 	}
 
 	/**
@@ -577,7 +631,10 @@ export class FBLRollHandler extends FormApplication {
 	 * @param {ActorData} speaker
 	 * @returns updates actor with attribute trauma.
 	 */
-	static async applyAttributDamage({ attributeTrauma, options: { attribute, characterDamage } }, speaker) {
+	static async applyAttributDamage(
+		{ attributeTrauma, options: { attribute, characterDamage } },
+		speaker,
+	) {
 		let { attribute: appliedDamage } = characterDamage;
 		const currentDamage = attributeTrauma - appliedDamage;
 
@@ -588,7 +645,8 @@ export class FBLRollHandler extends FormApplication {
 
 		value = Math.max(value - currentDamage, 0);
 
-		if (value === 0) ui.notifications.notify(localizeString("NOTIFY.YOU_ARE_BROKEN"));
+		if (value === 0)
+			ui.notifications.notify(localizeString("NOTIFY.YOU_ARE_BROKEN"));
 		await speaker.update({ [`system.attribute.${attribute}.value`]: value });
 	}
 
@@ -608,7 +666,8 @@ export class FBLRollHandler extends FormApplication {
 			.filter((item) => item)
 			.map((item) => {
 				const value = Math.max(item.bonus - gearDamageByName[item.name], 0);
-				if (value === 0) ui.notifications.notify(localizeString("NOTIFY.YOUR_ITEM_BROKE"));
+				if (value === 0)
+					ui.notifications.notify(localizeString("NOTIFY.YOUR_ITEM_BROKE"));
 				return {
 					_id: item.id,
 					"system.bonus.value": value,
@@ -643,17 +702,18 @@ export class FBLRollHandler extends FormApplication {
 	static async decreaseConsumable(messageId) {
 		let {
 			data: { speaker },
-			roll: {
-				options: { consumable },
-			},
+			roll: { options: { consumable } },
 		} = game.messages.get(messageId);
 
 		speaker = this.getSpeaker(speaker);
-		if (!speaker) return console.error("Could not decrease consumable: No actor found.");
+		if (!speaker)
+			return console.error("Could not decrease consumable: No actor found.");
 
 		const currentValue = speaker?.consumables[consumable]?.value;
 		const newValue = Math.max(currentValue - 1, 0);
-		return await speaker.update({ [`data.consumable.${consumable}.value`]: newValue });
+		return await speaker.update({
+			[`data.consumable.${consumable}.value`]: newValue,
+		});
 	}
 }
 
@@ -685,7 +745,9 @@ export class FBLRoll extends YearZeroRoll {
 
 	get damage() {
 		const modifier = this.type === "spell" ? 0 : -1;
-		return (this.options.damage || 0) + Math.max(this.successCount + modifier, 0);
+		return (
+			(this.options.damage || 0) + Math.max(this.successCount + modifier, 0)
+		);
 	}
 
 	get gearDamageByName() {
@@ -700,8 +762,13 @@ export class FBLRoll extends YearZeroRoll {
 	}
 
 	get isMishap() {
-		const spellMishap = this.options.mishapType === "spell" && (this.baneCount > 0 || this.options.chance);
-		const mishap = this.options.mishapType !== "spell" && this.options.mishapTable && this.successCount === 0;
+		const spellMishap =
+			this.options.mishapType === "spell" &&
+			(this.baneCount > 0 || this.options.chance);
+		const mishap =
+			this.options.mishapType !== "spell" &&
+			this.options.mishapTable &&
+			this.successCount === 0;
 		return spellMishap || mishap;
 	}
 

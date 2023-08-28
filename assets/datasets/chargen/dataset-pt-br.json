@@ -4,11 +4,7 @@
 			"key": "alderlander",
 			"name": "Amiense",
 			"weight": 8,
-			"age": [
-				[16, 25],
-				[26, 50],
-				[51, 80]
-			],
+			"age": [[16, 25], [26, 50], [51, 80]],
 			"talent": "Adaptável",
 			"childhood": {
 				"orphaned": {
@@ -16,7 +12,12 @@
 					"name": "Órfã",
 					"weight": 1,
 					"description": "Você nunca conheceu sua mãe ou pai, e nunca teve uma família. Desde que você era pequena, você teve que cuidar de si mesma. Isso te deixou resistente e forte, mas um sentimento de solidão te corrói.",
-					"attributes": { "strength": "3", "agility": "5", "wits": "3", "empathy": "4" },
+					"attributes": {
+						"strength": "3",
+						"agility": "5",
+						"wits": "3",
+						"empathy": "4"
+					},
 					"skills": {
 						"endurance": "1",
 						"melee": "1",
@@ -31,40 +32,93 @@
 					"name": "Pastora",
 					"weight": 1,
 					"description": "Você aprendeu em sua infância que a pecuária é a fonte da vida. Como aprendiz, você vagou pelas planícies ao redor da aldeia, guardando seu rebanho. Você passou suas noites dormindo próximo ao gado, sonhando com aventuras.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
-					"skills": { "might": "1", "crafting": "1", "scouting": "2", "animal-handling": "2" }
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "4"
+					},
+					"skills": {
+						"might": "1",
+						"crafting": "1",
+						"scouting": "2",
+						"animal-handling": "2"
+					}
 				},
 				"vagabond": {
 					"key": "vagabond",
 					"name": "Errante",
 					"weight": 1,
 					"description": "Você e sua família viajavam de aldeia em aldeia, escondendo-se da Névoa de Sangue, sobrevivendo ao fazer trabalhos simples. Você nunca teve uma casa de verdade, cada dia era uma aventura nova. Você aprendeu a viver da terra e também sobre a importância da união entre as pessoas.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
-					"skills": { "endurance": "1", "melee": "1", "scouting": "1", "survival": "2", "insight": "1" }
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "3"
+					},
+					"skills": {
+						"endurance": "1",
+						"melee": "1",
+						"scouting": "1",
+						"survival": "2",
+						"insight": "1"
+					}
 				},
 				"squire": {
 					"key": "squire",
 					"name": "Escudeira",
 					"weight": 1,
 					"description": "Você serviu a uma orgulhosa guerreira. Carregou suas armas e equipamento, cuidou de seu cavalo e aprendeu tudo que pôde. Você sonhava forjar sua lenda nas Terras Proibidas, e um dia ser sua própria mestra.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
-					"skills": { "endurance": "1", "melee": "2", "marksmanship": "1", "move": "1", "healing": "1" }
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "4"
+					},
+					"skills": {
+						"endurance": "1",
+						"melee": "2",
+						"marksmanship": "1",
+						"move": "1",
+						"healing": "1"
+					}
 				},
 				"laborer": {
 					"key": "laborer",
 					"name": "Trabalhadora",
 					"weight": 1,
 					"description": "Você trabalhou em uma fazenda realizando trabalhos braçais. Você sabe tudo sobre grãos, gado e colheitas. No fundo, porém, você almejava outra coisa.",
-					"attributes": { "strength": "5", "agility": "3", "wits": "3", "empathy": "4" },
-					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal-handling": "1" }
+					"attributes": {
+						"strength": "5",
+						"agility": "3",
+						"wits": "3",
+						"empathy": "4"
+					},
+					"skills": {
+						"might": "2",
+						"melee": "1",
+						"crafting": "1",
+						"survival": "1",
+						"animal-handling": "1"
+					}
 				},
 				"hard studies": {
 					"key": "hard studies",
 					"name": "Estudante Dedicada",
 					"weight": 1,
 					"description": "Um sábio te colocou sob sua tutela e te orientou nos estudos dos escritos antigos. Os dias eram longos e o aprendizado era difícil, mas ao fim você aprendeu que o conhecimento é a chave para o mundo.",
-					"attributes": { "strength": "3", "agility": "3", "wits": "5", "empathy": "4" },
-					"skills": { "crafting": "1", "lore": "3", "insight": "1", "manipulation": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "3",
+						"wits": "5",
+						"empathy": "4"
+					},
+					"skills": {
+						"crafting": "1",
+						"lore": "3",
+						"insight": "1",
+						"manipulation": "1"
+					}
 				}
 			}
 		},
@@ -72,11 +126,7 @@
 			"key": "aslene",
 			"name": "Aslênio",
 			"weight": 5,
-			"age": [
-				[16, 25],
-				[26, 50],
-				[51, 80]
-			],
+			"age": [[16, 25], [26, 50], [51, 80]],
 			"talent": "Adaptável",
 			"childhood": {
 				"born in the saddle": {
@@ -84,7 +134,12 @@
 					"name": "Nascida na Sela",
 					"weight": 1,
 					"description": "Você sempre se identificou mais com os animais do que com humanos, e apenas quando está no lombo de seu cavalo e com o vento em seus cabelos é que você se sente livre. Juntos vocês são uma entidade única, cavalgando pelo terreno aberto em nome do deus Chifre.",
-					"attributes": { "strength": "4", "agility": "5", "wits": "3", "empathy": "3" },
+					"attributes": {
+						"strength": "4",
+						"agility": "5",
+						"wits": "3",
+						"empathy": "3"
+					},
 					"skills": { "move": "2", "survival": "2", "animal-handling": "2" }
 				},
 				"dreamer": {
@@ -92,39 +147,84 @@
 					"name": "Sonhadora",
 					"weight": 1,
 					"description": "Você sempre sonhou com deuses, lendas e mitos. Desde que era uma criança pequena, você se sentava ao lado do fogo e ouvia o menestrel do clã contar histórias sobre o deus vulcão Chifre, sobre seus orgulhosos ancestrais e sobre invasões demoníacas. Está nos sonhos de seu povo, de heróis e lendas, que você viva sua vida ao máximo. Talvez um dia você possa criar sua própria lenda.",
-					"attributes": { "strength": "3", "agility": "3", "wits": "4", "empathy": "5" },
-					"skills": { "lore": "2", "manipulation": "1", "performance": "1", "animal-handling": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "3",
+						"wits": "4",
+						"empathy": "5"
+					},
+					"skills": {
+						"lore": "2",
+						"manipulation": "1",
+						"performance": "1",
+						"animal-handling": "1"
+					}
 				},
 				"strongest of the clan": {
 					"key": "strongest of the clan",
 					"name": "A Mais Forte do Clã",
 					"weight": 1,
 					"description": "Mesmo quando criança, você percebeu que era maior e mais forte do que os outros. Você teve que trabalhar mais, ser mais responsável e lutar muito mais. Alguns te idolatram, outros te desprezam.",
-					"attributes": { "strength": "5", "agility": "3", "wits": "3", "empathy": "4" },
-					"skills": { "might": "2", "endurance": "1", "melee": "2", "animal-handling": "1" }
+					"attributes": {
+						"strength": "5",
+						"agility": "3",
+						"wits": "3",
+						"empathy": "4"
+					},
+					"skills": {
+						"might": "2",
+						"endurance": "1",
+						"melee": "2",
+						"animal-handling": "1"
+					}
 				},
 				"taught by a wise women": {
 					"key": "taught by a wise women",
 					"name": "Aprendiz de uma Sábia",
 					"weight": 1,
 					"description": "Quando era criança, você fez amizade com uma sábia do clã. Logo, você se tornou sua aprendiz e aprendeu tudo sobre a história de seu povo, antigos feitos de heroísmo e guerras sangrentas.",
-					"attributes": { "strength": "3", "agility": "3", "wits": "5", "empathy": "4" },
-					"skills": { "lore": "2", "insight": "1", "healing": "2", "animal-handling": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "3",
+						"wits": "5",
+						"empathy": "4"
+					},
+					"skills": {
+						"lore": "2",
+						"insight": "1",
+						"healing": "2",
+						"animal-handling": "1"
+					}
 				},
 				"hunter": {
 					"key": "hunter",
 					"name": "Caçadora",
 					"weight": 1,
 					"description": "Quando era criança, você aprendeu a viver da natureza. A caçada é a sua tarefa, e mesmo que você tenha aprendido a matar, você também aprendeu o valor da vida de todos os animais.",
-					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
-					"skills": { "marksmanship": "2", "scouting": "2", "survival": "1", "animal-handling": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "4"
+					},
+					"skills": {
+						"marksmanship": "2",
+						"scouting": "2",
+						"survival": "1",
+						"animal-handling": "1"
+					}
 				},
 				"child of the winds": {
 					"key": "child of the winds",
 					"name": "Criança dos Ventos",
 					"weight": 1,
 					"description": "Você foi escolhida como uma Criança dos Ventos, e partiu em uma longa peregrinação nas terras altas, viajando de dia, e se escondendo da Névoa de Sangue à noite. Você cumpriu suas obrigações, mas até hoje é insegura quando se trata de se sentir em casa.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "4"
+					},
 					"skills": {
 						"melee": "1",
 						"marksmanship": "1",
@@ -139,11 +239,7 @@
 			"key": "ailander",
 			"name": "Ailônio",
 			"weight": 3,
-			"age": [
-				[16, 25],
-				[26, 50],
-				[51, 80]
-			],
+			"age": [[16, 25], [26, 50], [51, 80]],
 			"talent": "Adaptável",
 			"childhood": {
 				"child of the raven": {
@@ -151,31 +247,68 @@
 					"name": "Criança do Corvo",
 					"weight": 1,
 					"description": "Você cresceu entre as Irmãs do Corvo e aprendeu a venerar o deus Corvo. Você aprendeu a temer a Irmandade Enferrujada, e a viver da terra. É sob o vento que você se sente mais livre.",
-					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
-					"skills": { "crafting": "1", "move": "1", "scouting": "1", "lore": "2", "insight": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "4"
+					},
+					"skills": {
+						"crafting": "1",
+						"move": "1",
+						"scouting": "1",
+						"lore": "2",
+						"insight": "1"
+					}
 				},
 				"druid's apprentice": {
 					"key": "druid's apprentice",
 					"name": "Aprendiz de Druida",
 					"weight": 1,
 					"description": "Você era aprendiz de um druida, e aprendeu tudo o que pôde sobre os mistérios sagrados, sobre rituais e feitiçaria. Seu mestre morreu há muito tempo, mas você ainda lembra de suas palavras.",
-					"attributes": { "strength": "3", "agility": "4", "wits": "5", "empathy": "3" },
-					"skills": { "scouting": "1", "lore": "1", "survival": "2", "healing": "1", "animal-handling": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "4",
+						"wits": "5",
+						"empathy": "3"
+					},
+					"skills": {
+						"scouting": "1",
+						"lore": "1",
+						"survival": "2",
+						"healing": "1",
+						"animal-handling": "1"
+					}
 				},
 				"guardian": {
 					"key": "guardian",
 					"name": "Guardiã",
 					"weight": 1,
 					"description": "Os Ailônios sempre foram um povo oprimido e caçado. Você percebeu isso cedo, e foi treinada para proteger o seu povo dos perigos com sua espada e escudo em mãos. Logo você foi forjada em batalha, e exibe as cicatrizes que provam isso.",
-					"attributes": { "strength": "5", "agility": "4", "wits": "3", "empathy": "3" },
-					"skills": { "might": "1", "melee": "2", "marksmanship": "2", "move": "1" }
+					"attributes": {
+						"strength": "5",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "3"
+					},
+					"skills": {
+						"might": "1",
+						"melee": "2",
+						"marksmanship": "2",
+						"move": "1"
+					}
 				},
 				"wanderer": {
 					"key": "wanderer",
 					"name": "Viajante",
 					"weight": 1,
 					"description": "Você não tinha um lar fixo, a estrada era sua casa e você aprendeu a encontrar abrigo da Névoa de Sangue a cada noite. Ainda criança, você viu mais das terras do que a maioria das pessoas.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "4"
+					},
 					"skills": {
 						"endurance": "1",
 						"melee": "1",
@@ -189,16 +322,37 @@
 					"name": "Trabalhadora",
 					"weight": 1,
 					"description": "Você trabalhou em uma fazenda realizando serviços braçais. Você sabe tudo sobre grãos, gado e colheitas. No fundo, porém, você almejava outra coisa.",
-					"attributes": { "strength": "5", "agility": "3", "wits": "3", "empathy": "4" },
-					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal-handling": "1" }
+					"attributes": {
+						"strength": "5",
+						"agility": "3",
+						"wits": "3",
+						"empathy": "4"
+					},
+					"skills": {
+						"might": "2",
+						"melee": "1",
+						"crafting": "1",
+						"survival": "1",
+						"animal-handling": "1"
+					}
 				},
 				"herder": {
 					"key": "herder",
 					"name": "Pastora",
 					"weight": 1,
 					"description": "Você aprendeu em sua infância que a pecuária é a fonte da vida. Como aprendiz, você vagou pelas planícies ao redor da aldeia, guardando seu rebanho. Você passou suas noites dormindo próximo ao gado, sonhando com aventuras.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
-					"skills": { "might": "1", "crafting": "1", "scouting": "2", "animal-handling": "2" }
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "4"
+					},
+					"skills": {
+						"might": "1",
+						"crafting": "1",
+						"scouting": "2",
+						"animal-handling": "2"
+					}
 				}
 			}
 		},
@@ -206,11 +360,7 @@
 			"key": "halfelf",
 			"name": "Meio-Elfo",
 			"weight": 3,
-			"age": [
-				[16, 30],
-				[31, 100],
-				[101, 200]
-			],
+			"age": [[16, 30], [31, 100], [101, 200]],
 			"talent": "Poder Mental",
 			"childhood": {
 				"on the run": {
@@ -218,48 +368,108 @@
 					"name": "Em Fuga",
 					"weight": 1,
 					"description": "Você sempre esteve fugindo de alguma coisa. Nunca se sentiu segura e nunca teve um lar permanente. Você viajou de aldeia em aldeia nas Terras Proibidas, mas nunca dormiu com as costas para a porta.",
-					"attributes": { "strength": "4", "agility": "5", "wits": "3", "empathy": "3" },
-					"skills": { "melee": "1", "stealth": "2", "scouting": "2", "insight": "1" }
+					"attributes": {
+						"strength": "4",
+						"agility": "5",
+						"wits": "3",
+						"empathy": "3"
+					},
+					"skills": {
+						"melee": "1",
+						"stealth": "2",
+						"scouting": "2",
+						"insight": "1"
+					}
 				},
 				"artist": {
 					"key": "artist",
 					"name": "Artista",
 					"weight": 1,
 					"description": "Ainda criança, você descobriu que tinha talento para projetos artísticos. Foi nas atuações e nas artes que você encontrou a paz, e foi onde você viveu plenamente.",
-					"attributes": { "strength": "3", "agility": "3", "wits": "4", "empathy": "5" },
-					"skills": { "crafting": "2", "move": "1", "lore": "1", "performance": "2" }
+					"attributes": {
+						"strength": "3",
+						"agility": "3",
+						"wits": "4",
+						"empathy": "5"
+					},
+					"skills": {
+						"crafting": "2",
+						"move": "1",
+						"lore": "1",
+						"performance": "2"
+					}
 				},
 				"student": {
 					"key": "student",
 					"name": "Estudante",
 					"weight": 1,
 					"description": "Você sempre soube que era um pouco mais sábia que seus amigos. Quando um professor acadêmico a aceitou como aprendiz, você imergiu nos mistérios do mundo. O que você encontrou nos livros era tudo o que você tinha sonhado, e mais.",
-					"attributes": { "strength": "3", "agility": "4", "wits": "5", "empathy": "3" },
-					"skills": { "crafting": "1", "lore": "3", "insight": "1", "healing": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "4",
+						"wits": "5",
+						"empathy": "3"
+					},
+					"skills": {
+						"crafting": "1",
+						"lore": "3",
+						"insight": "1",
+						"healing": "1"
+					}
 				},
 				"acrobat": {
 					"key": "acrobat",
 					"name": "Acrobata",
 					"weight": 1,
 					"description": "Quando criança, você era ágil e rápida, e escalava qualquer lugar. Você explorou cada canto de sua aldeia natal, e aprendeu a arte da atuação e a importância da beleza nas Terras Proibidas.",
-					"attributes": { "strength": "3", "agility": "5", "wits": "3", "empathy": "4" },
-					"skills": { "stealth": "1", "move": "2", "sleight-of-hand": "2", "performance": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "5",
+						"wits": "3",
+						"empathy": "4"
+					},
+					"skills": {
+						"stealth": "1",
+						"move": "2",
+						"sleight-of-hand": "2",
+						"performance": "1"
+					}
 				},
 				"fighter": {
 					"key": "fighter",
 					"name": "Lutadora",
 					"weight": 1,
 					"description": "Você descobriu ainda jovem que era talentosa com armas. Logo, você começou a treinar com um guerreiro que lhe ensinou os mistérios da batalha. Você treinou exaustivamente e por muito tempo, e com o tempo se equiparou ao seu mestre.",
-					"attributes": { "strength": "4", "agility": "5", "wits": "3", "empathy": "3" },
-					"skills": { "might": "1", "endurance": "1", "melee": "2", "marksmanship": "2" }
+					"attributes": {
+						"strength": "4",
+						"agility": "5",
+						"wits": "3",
+						"empathy": "3"
+					},
+					"skills": {
+						"might": "1",
+						"endurance": "1",
+						"melee": "2",
+						"marksmanship": "2"
+					}
 				},
 				"ghost child": {
 					"key": "ghost child",
 					"name": "Criança Fantasma",
 					"weight": 1,
 					"description": "Você cresceu sem uma família ou casa de verdade. Em vez disso, você procurou por outros jovens que fugiram ou foram expulsos de casa. Vocês eram chamados de crianças fantasmas, e viviam de pequenos furtos e trabalhos irregulares.",
-					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
-					"skills": { "melee": "1", "stealth": "2", "sleight-of-hand": "2", "insight": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "4"
+					},
+					"skills": {
+						"melee": "1",
+						"stealth": "2",
+						"sleight-of-hand": "2",
+						"insight": "1"
+					}
 				}
 			}
 		},
@@ -267,11 +477,7 @@
 			"key": "halfling",
 			"name": "Halfling",
 			"weight": 3,
-			"age": [
-				[16, 25],
-				[26, 60],
-				[61, 100]
-			],
+			"age": [[16, 25], [26, 60], [61, 100]],
 			"talent": "Difícil de Acertar",
 			"childhood": {
 				"baker's apprentice": {
@@ -279,7 +485,12 @@
 					"name": "Aprendiz de Padeiro",
 					"weight": 1,
 					"description": "Você sempre adorou o cheiro de pão quente saído do forno. Desde sua infância você trabalhou na cozinha, assando pães que fariam qualquer um salivar.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "4"
+					},
 					"skills": {
 						"crafting": "2",
 						"sleight-of-hand": "1",
@@ -293,23 +504,49 @@
 					"name": "Trabalhadora",
 					"weight": 1,
 					"description": "Você trabalhou em uma fazenda realizando serviços braçais. Você sabe tudo sobre grãos, gado e colheitas. No fundo, porém, você almejava outra coisa.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
-					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal-handling": "1" }
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "4"
+					},
+					"skills": {
+						"might": "2",
+						"melee": "1",
+						"crafting": "1",
+						"survival": "1",
+						"animal-handling": "1"
+					}
 				},
 				"craftsman": {
 					"key": "craftsman",
 					"name": "Artesã",
 					"weight": 1,
 					"description": "Você sempre foi hábil com os dedos, e aprendeu cedo a dominar a manufatura. Você se expressa através dos objetos que você cria, mas eles também te fazem desejar os trabalhos dos verdadeiros mestres do ofício.",
-					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
-					"skills": { "melee": "1", "crafting": "3", "lore": "1", "insight": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "4"
+					},
+					"skills": {
+						"melee": "1",
+						"crafting": "3",
+						"lore": "1",
+						"insight": "1"
+					}
 				},
 				"raised in the kitchen": {
 					"key": "raised in the kitchen",
 					"name": "Criada na Cozinha",
 					"weight": 1,
 					"description": "Você passou quase toda a sua infância na cozinha. Entre as sopas, guisados e caldos, você aprendeu os segredos dos temperos e da refeição bem feita.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "4"
+					},
 					"skills": {
 						"crafting": "2",
 						"sleight-of-hand": "1",
@@ -323,15 +560,30 @@
 					"name": "Rata de Biblioteca",
 					"weight": 1,
 					"description": "Enquanto as outras crianças brincavam na floresta, você preferia enterrar o nariz em livros antigos, lendo sobre mitos, dragões e tesouros.",
-					"attributes": { "strength": "3", "agility": "3", "wits": "5", "empathy": "4" },
-					"skills": { "lore": "3", "insight": "1", "manipulation": "1", "animal-handling": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "3",
+						"wits": "5",
+						"empathy": "4"
+					},
+					"skills": {
+						"lore": "3",
+						"insight": "1",
+						"manipulation": "1",
+						"animal-handling": "1"
+					}
 				},
 				"loner": {
 					"key": "loner",
 					"name": "Solitária",
 					"weight": 1,
 					"description": "Você nunca se sentiu em casa em meio ao seu povo, e sempre se manteve reservada. Você cresceu nas sombras de seus camaradas, mas viu coisas que eles não viram e fez coisas que eles nem imaginam.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "3"
+					},
 					"skills": {
 						"melee": "1",
 						"stealth": "2",
@@ -346,11 +598,7 @@
 			"key": "goblin",
 			"name": "Goblin",
 			"weight": 4,
-			"age": [
-				[16, 25],
-				[26, 60],
-				[61, 100]
-			],
+			"age": [[16, 25], [26, 60], [61, 100]],
 			"talent": "Noturno",
 			"childhood": {
 				"wolfling": {
@@ -358,31 +606,68 @@
 					"name": "Cria de Lobo",
 					"weight": 1,
 					"description": "Seus pais te abandonaram quando você era criança, mas você encontrou um novo lar com a alcateia. Você se unificou com os lobos, uivando para a lua, correndo pelas planícies e devorando carne crua.",
-					"attributes": { "strength": "3", "agility": "5", "wits": "3", "empathy": "4" },
-					"skills": { "endurance": "1", "melee": "1", "stealth": "1", "move": "1", "animal-handling": "2" }
+					"attributes": {
+						"strength": "3",
+						"agility": "5",
+						"wits": "3",
+						"empathy": "4"
+					},
+					"skills": {
+						"endurance": "1",
+						"melee": "1",
+						"stealth": "1",
+						"move": "1",
+						"animal-handling": "2"
+					}
 				},
 				"scrounger": {
 					"key": "scrounger",
 					"name": "Surrupiadora",
 					"weight": 1,
 					"description": "Você aprendeu quando ainda era criança que a propriedade sobre objetos não passa de uma ilusão. Você sempre teve talento para conseguir coisas que não eram suas. É como se elas... aparecessem.",
-					"attributes": { "strength": "3", "agility": "5", "wits": "3", "empathy": "4" },
-					"skills": { "stealth": "2", "scouting": "2", "insight": "1", "manipulation": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "5",
+						"wits": "3",
+						"empathy": "4"
+					},
+					"skills": {
+						"stealth": "2",
+						"scouting": "2",
+						"insight": "1",
+						"manipulation": "1"
+					}
 				},
 				"child of the woods": {
 					"key": "child of the woods",
 					"name": "Criança do Mato",
 					"weight": 1,
 					"description": "Você cresceu sob a cobertura da floresta. Você escalou árvores e sentiu o vento passando entre as folhas. É na floresta que você se sente segura, e você sabe que as criaturas da floresta sempre te protegerão.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
-					"skills": { "endurance": "1", "move": "1", "marksmanship": "1", "scouting": "1", "survival": "2" }
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "3"
+					},
+					"skills": {
+						"endurance": "1",
+						"move": "1",
+						"marksmanship": "1",
+						"scouting": "1",
+						"survival": "2"
+					}
 				},
 				"wildling": {
 					"key": "wildling",
 					"name": "Criança Selvagem",
 					"weight": 1,
 					"description": "O seu clã era um grupo de dissidentes que não ligava para antigas linhagens e pactos. Você cresceu livre e selvagem, e nunca deixou alguém te dizer o que fazer.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "4"
+					},
 					"skills": { "might": "1", "melee": "2", "move": "2", "survival": "1" }
 				},
 				"wanderer": {
@@ -390,7 +675,12 @@
 					"name": "Viajante",
 					"weight": 1,
 					"description": "Você não tinha um lar fixo, a estrada era sua casa e você aprendeu a encontrar abrigo da Névoa de Sangue a cada noite. Ainda criança, você viu mais das terras do que a maioria das pessoas.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "3"
+					},
 					"skills": {
 						"endurance": "1",
 						"melee": "1",
@@ -404,7 +694,12 @@
 					"name": "Contadora de Histórias",
 					"weight": 1,
 					"description": "Como uma pequena goblin, você se sentava junto ao fogo, de olhos vidrados, ouvindo as lendas de seu povo sendo contadas pelo ancião do clã. Em sua mente, você viajou pelo espaço e pelo tempo, vivendo histórias fantásticas. Você aprendeu tudo o que pôde do velho goblin, e não demorou para que você mesma se tornasse a contadora de histórias do clã.",
-					"attributes": { "strength": "3", "agility": "4", "wits": "3", "empathy": "5" },
+					"attributes": {
+						"strength": "3",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "5"
+					},
 					"skills": { "lore": "1", "manipulation": "2", "performance": "3" }
 				}
 			}
@@ -413,11 +708,7 @@
 			"key": "orc",
 			"name": "Orc",
 			"weight": 4,
-			"age": [
-				[13, 20],
-				[21, 45],
-				[46, 70]
-			],
+			"age": [[13, 20], [21, 45], [46, 70]],
 			"talent": "Imbatível",
 			"childhood": {
 				"minstrel": {
@@ -425,15 +716,30 @@
 					"name": "Menestrel",
 					"weight": 1,
 					"description": "Foi nas histórias de sofrimento do seu povo que você se encontrou. Na juventude, você aprendeu canções sobre a traição dos elfos e do sangue derramado nas guerras. Você nunca se esquecerá.",
-					"attributes": { "strength": "3", "agility": "3", "wits": "4", "empathy": "5" },
-					"skills": { "lore": "1", "insight": "1", "manipulation": "1", "performance": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "3",
+						"wits": "4",
+						"empathy": "5"
+					},
+					"skills": {
+						"lore": "1",
+						"insight": "1",
+						"manipulation": "1",
+						"performance": "1"
+					}
 				},
 				"worker": {
 					"key": "worker",
 					"name": "Trabalhadora",
 					"weight": 1,
 					"description": "A vida era difícil, mesmo como uma jovem orc. Você trabalhou desde que consegue se lembrar, se esforçando para poder viver da maneira que queria.",
-					"attributes": { "strength": "5", "agility": "4", "wits": "3", "empathy": "3" },
+					"attributes": {
+						"strength": "5",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "3"
+					},
 					"skills": { "might": "2", "endurance": "2", "crafting": "2" }
 				},
 				"brigand": {
@@ -441,15 +747,31 @@
 					"name": "Bandido",
 					"weight": 1,
 					"description": "Uma orc forte é uma orc que consegue se virar sozinha. Você percebeu cedo que precisaria roubar para viver. E por que não? Orcs foram traídos várias vezes.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
-					"skills": { "melee": "2", "stealth": "1", "sleight-of-hand": "1", "scouting": "1", "survival": "1" }
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "3"
+					},
+					"skills": {
+						"melee": "2",
+						"stealth": "1",
+						"sleight-of-hand": "1",
+						"scouting": "1",
+						"survival": "1"
+					}
 				},
 				"drifter": {
 					"key": "drifter",
 					"name": "Andarilha",
 					"weight": 1,
 					"description": "Você cresceu na estrada, na floresta e nas planícies. Viajando de dia e se escondendo da Névoa de Sangue à noite. Você nunca conseguiu se estabelecer em um lugar. Suas pernas inquietas não deixam.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "4"
+					},
 					"skills": {
 						"endurance": "1",
 						"melee": "1",
@@ -463,16 +785,36 @@
 					"name": "Guerreira",
 					"weight": 1,
 					"description": "Você cresceu no campo de batalha. Já havia matado seu primeiro inimigo quando ainda era uma jovem orc. Foi com uma arma em punho que você se sentiu respeitada pela primeira vez.",
-					"attributes": { "strength": "5", "agility": "4", "wits": "3", "empathy": "3" },
-					"skills": { "might": "1", "melee": "2", "marksmanship": "2", "move": "1" }
+					"attributes": {
+						"strength": "5",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "3"
+					},
+					"skills": {
+						"might": "1",
+						"melee": "2",
+						"marksmanship": "2",
+						"move": "1"
+					}
 				},
 				"loner": {
 					"key": "loner",
 					"name": "Solitária",
 					"weight": 1,
 					"description": "Você nunca se sentiu em casa em meio ao seu povo, e sempre se manteve reservada. Você cresceu nas sombras de seus camaradas, mas viu coisas que eles não viram e fez coisas que eles nem imaginam.",
-					"attributes": { "strength": "4", "agility": "3", "wits": "5", "empathy": "3" },
-					"skills": { "melee": "1", "scouting": "1", "insight": "2", "survival": "2" }
+					"attributes": {
+						"strength": "4",
+						"agility": "3",
+						"wits": "5",
+						"empathy": "3"
+					},
+					"skills": {
+						"melee": "1",
+						"scouting": "1",
+						"insight": "2",
+						"survival": "2"
+					}
 				}
 			}
 		},
@@ -480,11 +822,7 @@
 			"key": "wolfkin",
 			"name": "Lupino",
 			"weight": 2,
-			"age": [
-				[13, 20],
-				[21, 40],
-				[41, 65]
-			],
+			"age": [[13, 20], [21, 40], [41, 65]],
 			"talent": "Instintos de Caçador",
 			"childhood": {
 				"howler": {
@@ -492,31 +830,66 @@
 					"name": "Uivadora",
 					"weight": 1,
 					"description": "Você cresceu entre os uivadores, que são lupinos que se mudavam entre os clãs, sendo seus próprios mestres, sempre livres. Você foi treinada para contar as lendas trágicas repassadas por gerações pelos uivadores.",
-					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
-					"skills": { "lore": "1", "manipulation": "1", "performance": "3", "survival": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "4"
+					},
+					"skills": {
+						"lore": "1",
+						"manipulation": "1",
+						"performance": "3",
+						"survival": "1"
+					}
 				},
 				"hunter": {
 					"key": "hunter",
 					"name": "Caçadora",
 					"weight": 1,
 					"description": "Ainda como um filhote, você aprendeu que sangue é vida. Os caçadores mais velhos do clã te ensinaram a respeitar os animais, mesmo quando você os mata. A caçada é a base da vida.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
-					"skills": { "endurance": "1", "melee": "1", "scouting": "2", "survival": "2" }
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "3"
+					},
+					"skills": {
+						"endurance": "1",
+						"melee": "1",
+						"scouting": "2",
+						"survival": "2"
+					}
 				},
 				"outcast": {
 					"key": "outcast",
 					"name": "Pária",
 					"weight": 1,
 					"description": "Quando os outros filhotes acompanharam a alcateia, você foi exilada. Sozinha, você aprendeu a viver da floresta, e que outras ascendências podiam ser mais gentis que a sua própria. Um dia, você encontrará o caminho para casa.",
-					"attributes": { "strength": "4", "agility": "3", "wits": "5", "empathy": "3" },
-					"skills": { "melee": "1", "scouting": "1", "insight": "2", "survival": "2" }
+					"attributes": {
+						"strength": "4",
+						"agility": "3",
+						"wits": "5",
+						"empathy": "3"
+					},
+					"skills": {
+						"melee": "1",
+						"scouting": "1",
+						"insight": "2",
+						"survival": "2"
+					}
 				},
 				"tracker": {
 					"key": "tracker",
 					"name": "Rastreadora",
 					"weight": 1,
 					"description": "Você aprendeu cedo que o seu faro era melhor do que o de seus camaradas, e logo percebeu que poderia encontrar coisas incríveis se apenas o seguisse.",
-					"attributes": { "strength": "3", "agility": "4", "wits": "5", "empathy": "3" },
+					"attributes": {
+						"strength": "3",
+						"agility": "4",
+						"wits": "5",
+						"empathy": "3"
+					},
 					"skills": { "stealth": "2", "scouting": "3", "survival": "1" }
 				},
 				"fighter": {
@@ -524,7 +897,12 @@
 					"name": "Lutadora",
 					"weight": 1,
 					"description": "Você era a mais forte da ninhada, e dominou completamente os jogos entre irmãos. Enquanto crescia, os anciões do clã viram que você era uma lutadora natural, e a treinaram para compreender os segredos da batalha.",
-					"attributes": { "strength": "5", "agility": "4", "wits": "3", "empathy": "3" },
+					"attributes": {
+						"strength": "5",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "3"
+					},
 					"skills": { "might": "2", "melee": "3", "move": "1" }
 				},
 				"child of the forest": {
@@ -532,7 +910,12 @@
 					"name": "Criança da Floresta",
 					"weight": 1,
 					"description": "Desde que você era uma criança, foi atraída pelas frutas da floresta, pelas flores, ervas e lagos. Você aprendeu tudo o que pôde do herbalista do clã: o cheiro de cada flor, e quais plantas nutriam vida — ou acabavam com ela..",
-					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
+					"attributes": {
+						"strength": "3",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "4"
+					},
 					"skills": { "lore": "2", "scouting": "1", "survival": "3" }
 				}
 			}
@@ -541,11 +924,7 @@
 			"key": "dwarf",
 			"name": "Anão",
 			"weight": 2,
-			"age": [
-				[20, 40],
-				[41, 80],
-				[81, 160]
-			],
+			"age": [[20, 40], [41, 80], [81, 160]],
 			"talent": "Bravura Indômita",
 			"childhood": {
 				"smith's apprentice": {
@@ -553,48 +932,108 @@
 					"name": "Aprendiz de Ferreiro",
 					"weight": 1,
 					"description": "Sempre foi no calor escaldante da forja que você se sentiu em casa. Você aprendeu o enigma do aço durante muitos e longos dias sob o brilho do fogo.",
-					"attributes": { "strength": "5", "agility": "3", "wits": "4", "empathy": "3" },
-					"skills": { "might": "1", "endurance": "1", "melee": "1", "crafting": "3" }
+					"attributes": {
+						"strength": "5",
+						"agility": "3",
+						"wits": "4",
+						"empathy": "3"
+					},
+					"skills": {
+						"might": "1",
+						"endurance": "1",
+						"melee": "1",
+						"crafting": "3"
+					}
 				},
 				"mineborn": {
 					"key": "mineborn",
 					"name": "Nascido na Mina",
 					"weight": 1,
 					"description": "Ainda criança, você aprendeu a se guiar na escuridão do subterrâneo. Era na presença da rocha e do frio que você se sentia em casa.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
-					"skills": { "endurance": "2", "crafting": "1", "scouting": "1", "survival": "2" }
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "3"
+					},
+					"skills": {
+						"endurance": "2",
+						"crafting": "1",
+						"scouting": "1",
+						"survival": "2"
+					}
 				},
 				"scout's apprentice": {
 					"key": "scout's apprentice",
 					"name": "Aprendiz de Batedor",
 					"weight": 1,
 					"description": "Você sempre foi perceptiva e curiosa. Logo, isso chamou a atenção dos membros do clã, e você foi escolhida para se tornar aprendiz de batedor. Muitos dias foram gastos enquanto você se escondia e vigiava os perigos das Terras Proibidas.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
-					"skills": { "melee": "1", "stealth": "2", "scouting": "2", "survival": "1" }
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "3"
+					},
+					"skills": {
+						"melee": "1",
+						"stealth": "2",
+						"scouting": "2",
+						"survival": "1"
+					}
 				},
 				"guardian": {
 					"key": "guardian",
 					"name": "Guardiã em Treinamento",
 					"weight": 1,
 					"description": "Você foi escolhida para ser uma guardiã em treinamento, servindo como algo parecido com um escudeiro de um orgulhoso guerreiro anão. Foi um trabalho árduo, mas também foi educativo. O seu mestre te ensinou a manejar armas, a ser corajosa e a se manter orgulhosa — não importa os perigos que enfrente.",
-					"attributes": { "strength": "5", "agility": "4", "wits": "3", "empathy": "3" },
-					"skills": { "might": "2", "endurance": "1", "melee": "2", "marksmanship": "1" }
+					"attributes": {
+						"strength": "5",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "3"
+					},
+					"skills": {
+						"might": "2",
+						"endurance": "1",
+						"melee": "2",
+						"marksmanship": "1"
+					}
 				},
 				"carver": {
 					"key": "carver",
 					"name": "Escultora",
 					"weight": 1,
 					"description": "Anões sempre escavaram para baixo, mas também para dentro de si. Criaram vida a partir da pedra. Quando criança, você sempre foi fascinada pela arte de esculpir a montanha de acordo com sua vontade. Você se tornou uma escultora, uma engenheira e construtora, que trabalha tanto com a mente como com força bruta.",
-					"attributes": { "strength": "4", "agility": "3", "wits": "5", "empathy": "3" },
-					"skills": { "might": "1", "crafting": "2", "lore": "2", "survival": "1" }
+					"attributes": {
+						"strength": "4",
+						"agility": "3",
+						"wits": "5",
+						"empathy": "3"
+					},
+					"skills": {
+						"might": "1",
+						"crafting": "2",
+						"lore": "2",
+						"survival": "1"
+					}
 				},
 				"hard studies": {
 					"key": "hard studies",
 					"name": "Estudante Dedicada",
 					"weight": 1,
 					"description": "Um sábio te colocou sob sua tutela e te orientou nos estudos dos escritos antigos. Os dias eram longos e o aprendizado era difícil, mas ao fim você aprendeu que o conhecimento é a chave para o mundo.",
-					"attributes": { "strength": "3", "agility": "3", "wits": "5", "empathy": "4" },
-					"skills": { "crafting": "1", "lore": "3", "insight": "1", "manipulation": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "3",
+						"wits": "5",
+						"empathy": "4"
+					},
+					"skills": {
+						"crafting": "1",
+						"lore": "3",
+						"insight": "1",
+						"manipulation": "1"
+					}
 				}
 			}
 		},
@@ -610,23 +1049,48 @@
 					"name": "Solitária",
 					"weight": 1,
 					"description": "Você nunca se sentiu em casa em meio ao seu povo, e sempre se manteve reservada. Você cresceu nas sombras de seus camaradas, mas viu coisas que eles não viram e fez coisas que eles nem imaginam.",
-					"attributes": { "strength": "4", "agility": "3", "wits": "5", "empathy": "3" },
-					"skills": { "melee": "1", "scouting": "1", "insight": "2", "survival": "2" }
+					"attributes": {
+						"strength": "4",
+						"agility": "3",
+						"wits": "5",
+						"empathy": "3"
+					},
+					"skills": {
+						"melee": "1",
+						"scouting": "1",
+						"insight": "2",
+						"survival": "2"
+					}
 				},
 				"fighter": {
 					"key": "fighter",
 					"name": "Lutadora",
 					"weight": 1,
 					"description": "Você descobriu ainda jovem que era talentosa com armas. Logo você começou a treinar com um guerreiro que lhe ensinou os mistérios da batalha. Você treinou exaustivamente e por muito tempo, e com o tempo se equiparou ao seu mestre.",
-					"attributes": { "strength": "4", "agility": "5", "wits": "3", "empathy": "3" },
-					"skills": { "might": "1", "endurance": "1", "melee": "2", "marksmanship": "2" }
+					"attributes": {
+						"strength": "4",
+						"agility": "5",
+						"wits": "3",
+						"empathy": "3"
+					},
+					"skills": {
+						"might": "1",
+						"endurance": "1",
+						"melee": "2",
+						"marksmanship": "2"
+					}
 				},
 				"child of the forest": {
 					"key": "child of the forest",
 					"name": "Criança da Floresta",
 					"weight": 1,
 					"description": "Desde que você era uma criança, foi atraída pelas frutas da floresta, pelas flores, ervas e lagos. Você aprendeu tudo o que pôde do herbalista do clã: o cheiro de cada flor, e quais plantas nutriam vida — ou acabavam com ela.",
-					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
+					"attributes": {
+						"strength": "3",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "4"
+					},
 					"skills": { "lore": "2", "scouting": "1", "survival": "3" }
 				},
 				"hard studies": {
@@ -634,15 +1098,30 @@
 					"name": "Estudante Dedicada",
 					"weight": 1,
 					"description": "Um sábio te colocou sob sua tutela e te orientou nos estudos dos escritos antigos. Os dias eram longos e o aprendizado era difícil, mas ao fim você aprendeu que o conhecimento é a chave para o mundo.",
-					"attributes": { "strength": "3", "agility": "3", "wits": "5", "empathy": "4" },
-					"skills": { "crafting": "1", "lore": "3", "insight": "1", "manipulation": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "3",
+						"wits": "5",
+						"empathy": "4"
+					},
+					"skills": {
+						"crafting": "1",
+						"lore": "3",
+						"insight": "1",
+						"manipulation": "1"
+					}
 				},
 				"wanderer": {
 					"key": "wanderer",
 					"name": "Viajante",
 					"weight": 1,
 					"description": "Você não teve um lar fixo em sua vida, a estrada era sua casa e você aprendeu a encontrar abrigo da Névoa de Sangue a cada noite. Ainda criança, você viu mais das terras do que a maioria das pessoas.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "4"
+					},
 					"skills": {
 						"endurance": "1",
 						"melee": "1",
@@ -656,8 +1135,19 @@
 					"name": "Aprendiz de Druida",
 					"weight": 1,
 					"description": "Você era aprendiz de um druida, e aprendeu tudo o que pôde sobre os mistérios sagrados, sobre rituais e feitiçaria. Seu mestre morreu há muito tempo, mas você ainda lembra de suas palavras.",
-					"attributes": { "strength": "3", "agility": "4", "wits": "5", "empathy": "3" },
-					"skills": { "scouting": "1", "lore": "1", "survival": "2", "healing": "1", "animal-handling": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "4",
+						"wits": "5",
+						"empathy": "3"
+					},
+					"skills": {
+						"scouting": "1",
+						"lore": "1",
+						"survival": "2",
+						"healing": "1",
+						"animal-handling": "1"
+					}
 				}
 			}
 		}
@@ -733,7 +1223,11 @@
 			"name": "Guerreiro",
 			"weight": 1,
 			"paths": ["Caminho da Lâmina", "Caminho do Inimigo", "Caminho do Escudo"],
-			"equipment": ["Uma arma de uma mão", "Armadura de couro batido,", "Bens de Comércio"],
+			"equipment": [
+				"Uma arma de uma mão",
+				"Armadura de couro batido,",
+				"Bens de Comércio"
+			],
 			"consumables": { "food": 2, "water": 2, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
@@ -862,7 +1356,11 @@
 			"key": "minstrel",
 			"name": "Menestrel",
 			"weight": 1,
-			"paths": ["Caminho do Hino", "Caminho da Canção ", "Caminho do Grito de Guerra"],
+			"paths": [
+				"Caminho do Hino",
+				"Caminho da Canção ",
+				"Caminho do Grito de Guerra"
+			],
 			"equipment": [["Lira", "Flauta"], "Faca", "Bens de Comércio"],
 			"consumables": { "food": 2, "water": 1, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 8, "copper": 0 },
@@ -927,8 +1425,17 @@
 			"key": "peddler",
 			"name": "Mascate",
 			"weight": 1,
-			"paths": ["Caminho do Ouro", "Caminho da Mentira", "Caminho das Muitas Coisas"],
-			"equipment": ["Faca", "Bens de Comércio", "Bens de Comércio", "Bens de Comércio"],
+			"paths": [
+				"Caminho do Ouro",
+				"Caminho da Mentira",
+				"Caminho das Muitas Coisas"
+			],
+			"equipment": [
+				"Faca",
+				"Bens de Comércio",
+				"Bens de Comércio",
+				"Bens de Comércio"
+			],
 			"consumables": { "food": 2, "water": 2, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 12, "copper": 0 },
 			"formativeEvents": {
@@ -992,8 +1499,17 @@
 			"key": "rider",
 			"name": "Ginete",
 			"weight": 1,
-			"paths": ["Caminho do Companheiro", "Caminho do Cavaleiro", "Caminho das Planícies"],
-			"equipment": ["Cavalo", ["Lança", "Machadinha"], ["Arco curto", "Funda"], "Bens de Comércio"],
+			"paths": [
+				"Caminho do Companheiro",
+				"Caminho do Cavaleiro",
+				"Caminho das Planícies"
+			],
+			"equipment": [
+				"Cavalo",
+				["Lança", "Machadinha"],
+				["Arco curto", "Funda"],
+				"Bens de Comércio"
+			],
 			"consumables": { "food": 2, "water": 2, "arrows": 3, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
@@ -1122,7 +1638,12 @@
 			"key": "sorcerer",
 			"name": "Feiticeiro",
 			"weight": 1,
-			"paths": ["Caminho do Sangue", "Caminho da Morte", "Caminho dos Símbolos", "Caminho das Rochas"],
+			"paths": [
+				"Caminho do Sangue",
+				"Caminho da Morte",
+				"Caminho dos Símbolos",
+				"Caminho das Rochas"
+			],
 			"equipment": [["Bastão", "Faca"], "Bens de Comércio"],
 			"consumables": { "food": 1, "water": 2, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 8, "copper": 0 },

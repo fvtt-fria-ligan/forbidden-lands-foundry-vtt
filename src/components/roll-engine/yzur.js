@@ -449,7 +449,10 @@ StressDie.LOCKED_VALUES = [1, 6];
 class ArtifactDie extends SkillDie {
 	/** @override */
 	getResultLabel(result) {
-		return CONFIG.YZUR.Icons.getLabel(`d${this.constructor.DENOMINATION}`, result.result);
+		return CONFIG.YZUR.Icons.getLabel(
+			`d${this.constructor.DENOMINATION}`,
+			result.result,
+		);
 	}
 }
 ArtifactDie.TYPE = "arto";
@@ -696,7 +699,16 @@ const YZUR = {
 	},
 	Dice: {
 		localizeDieTerms: true,
-		DIE_TYPES: ["base", "skill", "neg", "gear", "stress", "arto", "ammo", "loc"],
+		DIE_TYPES: [
+			"base",
+			"skill",
+			"neg",
+			"gear",
+			"stress",
+			"arto",
+			"ammo",
+			"loc",
+		],
 		DIE_TERMS: {
 			base: BaseDie,
 			skill: SkillDie,
@@ -1012,14 +1024,22 @@ const YZUR = {
 
 class GameTypeError extends TypeError {
 	constructor(msg) {
-		super(`Unknown game: "${msg}". Allowed games are: ${YearZeroRollManager.GAMES.join(", ")}.`);
+		super(
+			`Unknown game: "${msg}". Allowed games are: ${YearZeroRollManager.GAMES.join(
+				", ",
+			)}.`,
+		);
 		this.name = "YZUR | GameType Error";
 	}
 }
 
 class DieTermError extends TypeError {
 	constructor(msg) {
-		super(`Unknown die term: "${msg}". Allowed terms are: ${Object.keys(CONFIG.YZUR.Dice.DIE_TERMS).join(", ")}.`);
+		super(
+			`Unknown die term: "${msg}". Allowed terms are: ${Object.keys(
+				CONFIG.YZUR.Dice.DIE_TERMS,
+			).join(", ")}.`,
+		);
 		this.name = "YZUR | DieTerm Error";
 	}
 }
@@ -1102,7 +1122,10 @@ class YearZeroRoll extends Roll {
 	}
 	get maxPush() {
 		// Note: Math.max(null, n) returns a number between [0, n[.
-		return this.terms.reduce((max, t) => (t instanceof YearZeroDie ? Math.max(max, t.maxPush) : max), null);
+		return this.terms.reduce(
+			(max, t) => (t instanceof YearZeroDie ? Math.max(max, t.maxPush) : max),
+			null,
+		);
 	}
 
 	/**
@@ -1111,7 +1134,10 @@ class YearZeroRoll extends Roll {
 	 * @readonly
 	 */
 	get size() {
-		return this.terms.reduce((s, t) => (t instanceof YearZeroDie ? s + t.number : s), 0);
+		return this.terms.reduce(
+			(s, t) => (t instanceof YearZeroDie ? s + t.number : s),
+			0,
+		);
 	}
 
 	/**
@@ -1316,15 +1342,23 @@ class YearZeroRoll extends Roll {
 	 * @returns {YearZeroRoll}
 	 * @static
 	 */
-	static forge(dice = [], { title, yzGame = null, maxPush = 1 } = {}, options = {}) {
+	static forge(
+		dice = [],
+		{ title, yzGame = null, maxPush = 1 } = {},
+		options = {},
+	) {
 		// Checks the game.
 		yzGame = yzGame ?? options.game ?? CONFIG.YZUR?.game;
-		if (!YearZeroRollManager.GAMES.includes(yzGame)) throw new GameTypeError(yzGame);
+		if (!YearZeroRollManager.GAMES.includes(yzGame))
+			throw new GameTypeError(yzGame);
 
 		// Converts old format DiceQuantities.
 		// ? Was: {Object.<DieTermString, number>}
 		// ! This is temporary support. @deprecated
-		const isOldFormat = !Array.isArray(dice) && typeof dice === "object" && !Object.keys(dice).includes("term");
+		const isOldFormat =
+			!Array.isArray(dice) &&
+			typeof dice === "object" &&
+			!Object.keys(dice).includes("term");
 		if (isOldFormat) {
 			// eslint-disable-next-line max-len
 			console.warn(
@@ -1352,7 +1386,9 @@ class YearZeroRoll extends Roll {
 		let formula = out.join(" + ");
 
 		if (!YearZeroRoll.validate(formula)) {
-			console.warn(`YZUR | ${YearZeroRoll.name} | Invalid roll formula: "${formula}"`);
+			console.warn(
+				`YZUR | ${YearZeroRoll.name} | Invalid roll formula: "${formula}"`,
+			);
 			formula = yzGame === "t2k" ? "1d6" : "1ds";
 		}
 
@@ -1369,7 +1405,10 @@ class YearZeroRoll extends Roll {
 
 	/** @deprecated */
 	// eslint-disable-next-line no-unused-vars
-	static createFromDiceQuantities(dice = {}, { title, yzGame = null, maxPush = 1, push = false } = {}) {
+	static createFromDiceQuantities(
+		dice = {},
+		{ title, yzGame = null, maxPush = 1, push = false } = {},
+	) {
 		// eslint-disable-next-line max-len
 		console.warn(
 			"YZUR | createFromDiceQuantities() is deprecated and will be removed in a future release. Use forge() instead.",
@@ -1438,7 +1477,8 @@ class YearZeroRoll extends Roll {
 	 * });
 	 */
 	getTerms(search) {
-		if (typeof search === "string") return this.terms.filter((t) => t.type === search);
+		if (typeof search === "string")
+			return this.terms.filter((t) => t.type === search);
 		return this.terms.filter((t) => {
 			let f = true;
 			if (search.type != undefined) f = f && search.type === t.type;
@@ -1517,7 +1557,8 @@ class YearZeroRoll extends Roll {
 		if (!qty) return this;
 		const search = { type, faces: range, options };
 		if (qty < 0) return this.removeDice(-qty, search);
-		if (value != undefined && !this._evaluated) await this.roll({ async: true });
+		if (value != undefined && !this._evaluated)
+			await this.roll({ async: true });
 
 		let term = this.getTerms(search)[0];
 		if (term) {
@@ -1549,7 +1590,9 @@ class YearZeroRoll extends Roll {
 			}
 			if (this.terms.length > 0) {
 				// eslint-disable-next-line no-undef
-				this.terms.push(new OperatorTerm({ operator: type === "neg" ? "-" : "+" }));
+				this.terms.push(
+					new OperatorTerm({ operator: type === "neg" ? "-" : "+" }),
+				);
 			}
 			this.terms.push(term);
 		}
@@ -1579,7 +1622,9 @@ class YearZeroRoll extends Roll {
 				term.number--;
 				if (term.number <= 0) {
 					const type = search.type ?? search;
-					const index = this.terms.findIndex((t) => t.type === type && t.number === 0);
+					const index = this.terms.findIndex(
+						(t) => t.type === type && t.number === 0,
+					);
 					this.terms.splice(index, 1);
 					if (this.terms[index - 1]?.operator) {
 						this.terms.splice(index - 1, 1);
@@ -1707,7 +1752,9 @@ class YearZeroRoll extends Roll {
 							dice[i] = refactorRange(dice[i], 1);
 						}
 					} else if (dice[i] === undefined) {
-						throw new Error(`YZUR | YearZeroRoll#modify<T2K> | dice[${i}] is out of bounds (mod: ${mod})`);
+						throw new Error(
+							`YZUR | YearZeroRoll#modify<T2K> | dice[${i}] is out of bounds (mod: ${mod})`,
+						);
 					}
 				}
 			}
@@ -1781,7 +1828,8 @@ class YearZeroRoll extends Roll {
 			.map((d) => d.getTooltipData())
 			// ==>
 			.sort((a, b) => {
-				const sorts = CONFIG?.YZUR?.Chat?.diceSorting || YZUR.Chat.diceSorting || [];
+				const sorts =
+					CONFIG?.YZUR?.Chat?.diceSorting || YZUR.Chat.diceSorting || [];
 				if (!sorts.length) return 0;
 				const at = sorts.indexOf(a.type);
 				const bt = sorts.indexOf(b.type);
@@ -1811,7 +1859,9 @@ class YearZeroRoll extends Roll {
 		return renderTemplate(this.constructor.TOOLTIP_TEMPLATE, {
 			parts,
 			pushed: this.pushed,
-			pushCounts: this.pushed ? [...Array(this.pushCount + 1).keys()].sort((a, b) => b - a) : undefined,
+			pushCounts: this.pushed
+				? [...Array(this.pushCount + 1).keys()].sort((a, b) => b - a)
+				: undefined,
 			config: CONFIG.YZUR ?? {},
 		});
 		// <== END MODIFIED PART
@@ -1878,7 +1928,9 @@ class YearZeroRoll extends Roll {
 			total: isPrivate ? "?" : Math.round(this.total * 100) / 100,
 			success: isPrivate ? "?" : this.successCount,
 			showInfos: isPrivate ? false : CONFIG.YZUR?.Chat?.showInfos,
-			infos: isPrivate ? null : await this.getRollInfos(chatOptions.infosTemplate),
+			infos: isPrivate
+				? null
+				: await this.getRollInfos(chatOptions.infosTemplate),
 			pushable: isPrivate ? false : this.pushable,
 			options: chatOptions,
 			isPrivate,
@@ -1969,7 +2021,9 @@ class YearZeroRoll extends Roll {
  */
 class YearZeroRollManager {
 	constructor() {
-		throw new SyntaxError(`YZUR | ${this.constructor.name} cannot be instanciated!`);
+		throw new SyntaxError(
+			`YZUR | ${this.constructor.name} cannot be instanciated!`,
+		);
 	}
 
 	/**
@@ -2020,7 +2074,9 @@ class YearZeroRollManager {
 	static registerDice(yzGame, i) {
 		// Exists early if `game` is omitted.
 		if (!yzGame || typeof yzGame !== "string") {
-			throw new SyntaxError("YZUR | A game must be specified for the registration.");
+			throw new SyntaxError(
+				"YZUR | A game must be specified for the registration.",
+			);
 		}
 
 		// Checks the game validity.
@@ -2074,7 +2130,9 @@ class YearZeroRollManager {
 		// Registers the die in the Foundry CONFIG.
 		const reg = CONFIG.Dice.terms[deno];
 		if (reg) {
-			console.warn(`YZUR | Die Registration: "${deno}" | Overwritting ${reg.name} with "${cls.name}".`);
+			console.warn(
+				`YZUR | Die Registration: "${deno}" | Overwritting ${reg.name} with "${cls.name}".`,
+			);
 		} else {
 			console.log(`YZUR | Die Registration: "${deno}" with ${cls.name}.`);
 		}
@@ -2100,7 +2158,9 @@ class YearZeroRollManager {
 		const cls = YearZeroRollManager.createDieClass(data);
 
 		if (CONFIG.YZUR.Dice.DIE_TERMS[term]) {
-			console.warn(`YZUR | Overwriting an existing die "${CONFIG.YZUR.Dice.DIE_TERMS[term]}" with: "${term}"`);
+			console.warn(
+				`YZUR | Overwriting an existing die "${CONFIG.YZUR.Dice.DIE_TERMS[term]}" with: "${term}"`,
+			);
 		}
 		CONFIG.YZUR.Dice.DIE_TERMS[term] = cls;
 
@@ -2115,9 +2175,12 @@ class YearZeroRollManager {
 	 * @static
 	 */
 	static _initialize(yzGame) {
-		if (!CONFIG.YZUR) throw new ReferenceError("YZUR | CONFIG.YZUR does not exists!");
+		if (!CONFIG.YZUR)
+			throw new ReferenceError("YZUR | CONFIG.YZUR does not exists!");
 		if (CONFIG.YZUR.game) {
-			console.warn(`YZUR | Overwriting the default Year Zero game "${CONFIG.YZUR.game}" with: "${yzGame}"`);
+			console.warn(
+				`YZUR | Overwriting the default Year Zero game "${CONFIG.YZUR.game}" with: "${yzGame}"`,
+			);
 		}
 		CONFIG.YZUR.game = yzGame;
 		console.log(`YZUR | The name of the Year Zero game is: "${yzGame}".`);
@@ -2135,7 +2198,11 @@ class YearZeroRollManager {
 	 * @static
 	 */
 	static _overrideRollCreate(index = 1) {
-		Roll.prototype.constructor.create = function (formula, data = {}, options = {}) {
+		Roll.prototype.constructor.create = function (
+			formula,
+			data = {},
+			options = {},
+		) {
 			const isYZURFormula =
 				options.yzur ??
 				("game" in data ||
@@ -2169,7 +2236,9 @@ class YearZeroRollManager {
 	 */
 	static createDieClass(data) {
 		if (!data || typeof data !== "object") {
-			throw new SyntaxError("YZUR | To create a Die class, you must pass a DieClassData object!");
+			throw new SyntaxError(
+				"YZUR | To create a Die class, you must pass a DieClassData object!",
+			);
 		}
 
 		// eslint-disable-next-line no-shadow
@@ -2215,11 +2284,15 @@ class YearZeroRollManager {
 		// Defines the locked values of the new die class, if any.
 		if (lockedValues != undefined) {
 			if (!Array.isArray(lockedValues)) {
-				throw new DieTermError(`YZUR | Invalid die class locked values "${lockedValues}" (Not an Array)`);
+				throw new DieTermError(
+					`YZUR | Invalid die class locked values "${lockedValues}" (Not an Array)`,
+				);
 			}
 			for (const [i, v] of lockedValues.entries()) {
 				if (typeof v !== "number") {
-					throw new DieTermError(`YZUR | Invalid die class locked value "${v}" at [${i}] (Not a Number)`);
+					throw new DieTermError(
+						`YZUR | Invalid die class locked value "${v}" at [${i}] (Not a Number)`,
+					);
 				}
 			}
 			YearZeroCustomDie.LOCKED_VALUES = lockedValues;

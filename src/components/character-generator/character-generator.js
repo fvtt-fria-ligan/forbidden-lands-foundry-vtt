@@ -12,7 +12,8 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			classes: ["forbidden-lands", "sheet", "actor"],
-			template: "systems/forbidden-lands/templates/components/character-generator/generator-sheet.hbs",
+			template:
+				"systems/forbidden-lands/templates/components/character-generator/generator-sheet.hbs",
 			title: game.i18n.localize("FLCG.TITLE"),
 			width: 700,
 			height: 840,
@@ -23,13 +24,17 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 	static async loadDataset() {
 		const dataset = game.settings.get("forbidden-lands", "datasetDir") || null;
 		if (dataset && dataset.substr(-4, 4) !== "json")
-			throw ForbiddenLandsCharacterGenerator.handleBadDataset(game.i18n.localize("FLCG.ERROR_NOT_A_DATAFILE"));
+			throw ForbiddenLandsCharacterGenerator.handleBadDataset(
+				game.i18n.localize("FLCG.ERROR_NOT_A_DATAFILE"),
+			);
 		const lang = game.i18n.lang;
 		const datasetName = CONFIG.fbl.dataSetConfig[lang] || "dataset";
 		const defaultDataset = `systems/forbidden-lands/assets/datasets/chargen/${datasetName}.json`;
-		const resp = await fetch(dataset ? dataset : defaultDataset).catch((_err) => {
-			return {};
-		});
+		const resp = await fetch(dataset ? dataset : defaultDataset).catch(
+			(_err) => {
+				return {};
+			},
+		);
 		return resp.json();
 	}
 
@@ -41,28 +46,40 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 		data.character = this.character;
 		data.dataset = this.dataset;
 		data.dataset.childhood = this.dataset.kin[this.character.kin].childhood;
-		data.dataset.paths = this.dataset.profession[this.character.profession].paths;
-		data.dataset.formativeEvents = this.dataset.profession[this.character.profession].formativeEvents;
+		data.dataset.paths =
+			this.dataset.profession[this.character.profession].paths;
+		data.dataset.formativeEvents =
+			this.dataset.profession[this.character.profession].formativeEvents;
 		return data;
 	}
 
 	activateListeners(html) {
 		super.activateListeners(html);
 
-		html.find(".chargen-randomize-all").click(this.handleRandomizeAll.bind(this));
+		html
+			.find(".chargen-randomize-all")
+			.click(this.handleRandomizeAll.bind(this));
 		html.find(".chargen-create-actor").click(this.handleCreateActor.bind(this));
 
 		html.find(".chargen-roll-kin").click(this.handleRollKin.bind(this));
 		html.find(".chargen-roll-age").click(this.handleRollAge.bind(this));
-		html.find(".chargen-roll-childhood").click(this.handleRollChildhood.bind(this));
-		html.find(".chargen-roll-profession").click(this.handleRollProfession.bind(this));
+		html
+			.find(".chargen-roll-childhood")
+			.click(this.handleRollChildhood.bind(this));
+		html
+			.find(".chargen-roll-profession")
+			.click(this.handleRollProfession.bind(this));
 		html.find(".chargen-roll-path").click(this.handleRollPath.bind(this));
 		html.find(".chargen-roll-event").click(this.handleRollEvent.bind(this));
 
 		html.find(".chargen-select-kin").change(this.handleInputKin.bind(this));
 		html.find(".chargen-age-input").change(this.handleInputAge.bind(this));
-		html.find(".chargen-select-childhood").change(this.handleInputChildhood.bind(this));
-		html.find(".chargen-select-profession").change(this.handleInputProfession.bind(this));
+		html
+			.find(".chargen-select-childhood")
+			.change(this.handleInputChildhood.bind(this));
+		html
+			.find(".chargen-select-profession")
+			.change(this.handleInputProfession.bind(this));
 		html.find(".chargen-select-path").change(this.handleInputPath.bind(this));
 		html.find(".chargen-select-event").change(this.handleInputEvent.bind(this));
 	}
@@ -81,7 +98,8 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 		const coverter = new CharacterConverter(this.dataset);
 		const updateData = await coverter.convert(this.character);
 
-		if (this.existActor.items.contents.length > 0) await this.handleDeleteExistingItems();
+		if (this.existActor.items.contents.length > 0)
+			await this.handleDeleteExistingItems();
 
 		await this.existActor.update({ ["data"]: updateData.data });
 		await this.existActor.createEmbeddedDocuments("Item", updateData.items);
@@ -120,7 +138,11 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 				break;
 			}
 		}
-		this.character.age = { ageKey: ageKey, ageNumber: ageNumber, ageString: mapping[ageKey] };
+		this.character.age = {
+			ageKey: ageKey,
+			ageNumber: ageNumber,
+			ageString: mapping[ageKey],
+		};
 		this.character = this.rollFormativeEvents(this.character);
 
 		this.render(true);
@@ -287,15 +309,21 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 
 	rollHomeland(character) {
 		if (this.dataset.kin[character.kin]?.homeland) {
-			const numberOfHomelands = this.dataset.kin[character.kin]?.homeland?.length || 1;
-			character.homeland = this.dataset.kin[character.kin]?.homeland[this.rollNumber(0, numberOfHomelands - 1)];
+			const numberOfHomelands =
+				this.dataset.kin[character.kin]?.homeland?.length || 1;
+			character.homeland =
+				this.dataset.kin[character.kin]?.homeland[
+					this.rollNumber(0, numberOfHomelands - 1)
+				];
 		}
 		return character;
 	}
 
 	rollPath(character) {
 		const numberOfPaths =
-			this.dataset.profession[character.profession]?.paths?.length - 1 || this.dataset.paths?.length - 1 || 2;
+			this.dataset.profession[character.profession]?.paths?.length - 1 ||
+			this.dataset.paths?.length - 1 ||
+			2;
 		character.path = this.rollNumber(0, numberOfPaths);
 
 		return character;
@@ -322,7 +350,11 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 				rolled.push(element.key);
 				formativeEvents.push(element);
 			}
-			for (let i = character.formativeEvents.length; i < character.age.ageKey + 1; i++) {
+			for (
+				let i = character.formativeEvents.length;
+				i < character.age.ageKey + 1;
+				i++
+			) {
 				do {
 					event = this.rollOn(profession.formativeEvents);
 				} while (rolled.includes(event.key));
@@ -331,7 +363,10 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 				formativeEvents.push(event);
 			}
 		} else if (character.formativeEvents.length > character.age.ageKey + 1) {
-			formativeEvents = character.formativeEvents.slice(0, character.age.ageKey + 1);
+			formativeEvents = character.formativeEvents.slice(
+				0,
+				character.age.ageKey + 1,
+			);
 		} else {
 			// no change needed
 			formativeEvents = character.formativeEvents;
@@ -355,7 +390,10 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 		];
 		let age = {};
 		age.ageKey = this.rollNumber(0, 2);
-		age.ageNumber = this.rollNumber(ageRanges[age.ageKey][0], ageRanges[age.ageKey][1]);
+		age.ageNumber = this.rollNumber(
+			ageRanges[age.ageKey][0],
+			ageRanges[age.ageKey][1],
+		);
 		age.ageString = mapping[age.ageKey];
 
 		return age;
@@ -383,7 +421,10 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 
 	static async handleBadDataset(err, app) {
 		console.error(err);
-		if (!app) return ui.notifications.error(game.i18n.localize("FLCG.ERROR_CANNOT_REVOCER"));
+		if (!app)
+			return ui.notifications.error(
+				game.i18n.localize("FLCG.ERROR_CANNOT_REVOCER"),
+			);
 		ui.notifications.warn(game.i18n.localize("FLCG.WARNING_DATASET_NOT_VALID"));
 		app.close();
 

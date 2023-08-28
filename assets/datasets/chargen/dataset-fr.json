@@ -4,11 +4,7 @@
 			"key": "alderlander",
 			"name": "Aulnois",
 			"weight": 8,
-			"age": [
-				[16, 25],
-				[26, 50],
-				[51, 80]
-			],
+			"age": [[16, 25], [26, 50], [51, 80]],
 			"talent": "Adaptation",
 			"childhood": {
 				"orphaned": {
@@ -16,7 +12,12 @@
 					"name": "Orphelin",
 					"weight": 1,
 					"description": "Vous n’avez jamais connu vos parents et n’avez pas de famille. Vous devez vous débrouiller seul depuis votre plus jeune âge. Cette condition vous a endurci et a forgé votre caractère, mais vous êtes rongé par un sentiment de déracinement.",
-					"attributes": { "strength": "3", "agility": "5", "wits": "3", "empathy": "4" },
+					"attributes": {
+						"strength": "3",
+						"agility": "5",
+						"wits": "3",
+						"empathy": "4"
+					},
 					"skills": {
 						"endurance": "1",
 						"melee": "1",
@@ -31,40 +32,93 @@
 					"name": "Berger",
 					"weight": 1,
 					"description": "Vous avez appris dès l’enfance à respecter le bétail, cette source de subsistance. Au cours de votre jeunesse, vous avez parcouru les plaines des Contrées Interdites en veillant sur votre troupeau. Vous passiez la nuit sous les cieux étoilés en rêvant d’aventures.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
-					"skills": { "might": "1", "crafting": "1", "scouting": "2", "animal-handling": "2" }
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "4"
+					},
+					"skills": {
+						"might": "1",
+						"crafting": "1",
+						"scouting": "2",
+						"animal-handling": "2"
+					}
 				},
 				"vagabond": {
 					"key": "vagabond",
 					"name": "Vagabond",
 					"weight": 1,
 					"description": "Votre famille voyageait de village en village, vivant de menus travaux. Vous n’avez jamais eu de foyer, chaque jour s’apparentait à une nouvelle aventure. Vous savez tirer votre subsistance des produits de la terre et connaissez l’importance de l’entraide.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
-					"skills": { "endurance": "1", "melee": "1", "scouting": "1", "survival": "2", "insight": "1" }
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "3"
+					},
+					"skills": {
+						"endurance": "1",
+						"melee": "1",
+						"scouting": "1",
+						"survival": "2",
+						"insight": "1"
+					}
 				},
 				"squire": {
 					"key": "squire",
 					"name": "Écuyer",
 					"weight": 1,
 					"description": "Vous avez servi un grand guerrier. Vous portiez ses armes et son équipement, preniez soin de sa monture, sans jamais dédaigner ses enseignements. Vous rêviez de vous forger une réputation dans les Contrées Interdites et de devenir un jour votre propre maître.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
-					"skills": { "endurance": "1", "melee": "2", "marksmanship": "1", "move": "1", "healing": "1" }
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "4"
+					},
+					"skills": {
+						"endurance": "1",
+						"melee": "2",
+						"marksmanship": "1",
+						"move": "1",
+						"healing": "1"
+					}
 				},
 				"laborer": {
 					"key": "laborer",
 					"name": "Fermier",
 					"weight": 1,
 					"description": "Vous avez travaillé dans une ferme où vous accomplissiez des corvées pénibles. Les céréales, le bétail et les plantations n’ont aucun secret pour vous. Mais au plus profond de vous, vous avez toujours aspiré à autre chose.",
-					"attributes": { "strength": "5", "agility": "3", "wits": "3", "empathy": "4" },
-					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal-handling": "1" }
+					"attributes": {
+						"strength": "5",
+						"agility": "3",
+						"wits": "3",
+						"empathy": "4"
+					},
+					"skills": {
+						"might": "2",
+						"melee": "1",
+						"crafting": "1",
+						"survival": "1",
+						"animal-handling": "1"
+					}
 				},
 				"hard studies": {
 					"key": "hard studies",
 					"name": "Études laborieuses",
 					"weight": 1,
 					"description": "Un homme ou une femme lettré vous a pris sous son aile et s’est chargé de vous enseigner les langues anciennes. Les journées d’étude étaient interminables, l’apprentissage pénible, mais, à la fin, vous vous êtes rendu compte que la connaissance était une clef pour comprendre le monde.",
-					"attributes": { "strength": "3", "agility": "3", "wits": "5", "empathy": "4" },
-					"skills": { "crafting": "1", "lore": "3", "insight": "1", "manipulation": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "3",
+						"wits": "5",
+						"empathy": "4"
+					},
+					"skills": {
+						"crafting": "1",
+						"lore": "3",
+						"insight": "1",
+						"manipulation": "1"
+					}
 				}
 			}
 		},
@@ -72,11 +126,7 @@
 			"key": "aslene",
 			"name": "Aslène",
 			"weight": 5,
-			"age": [
-				[16, 25],
-				[26, 50],
-				[51, 80]
-			],
+			"age": [[16, 25], [26, 50], [51, 80]],
 			"talent": "Adaptation",
 			"childhood": {
 				"born in the saddle": {
@@ -84,7 +134,12 @@
 					"name": "Cavalier né",
 					"weight": 1,
 					"description": "Vous avez toujours eu plus d’affinité avec les animaux qu’avec les humains. Vous vous sentez vraiment libre quand vous êtes en selle, le visage fouetté par le vent. Vous ne faites qu’un avec votre cheval, galopant à travers les étendues infinies pour la gloire du dieu Cornu.",
-					"attributes": { "strength": "4", "agility": "5", "wits": "3", "empathy": "3" },
+					"attributes": {
+						"strength": "4",
+						"agility": "5",
+						"wits": "3",
+						"empathy": "3"
+					},
 					"skills": { "move": "2", "survival": "2", "animal-handling": "2" }
 				},
 				"dreamer": {
@@ -92,39 +147,84 @@
 					"name": "Rêveur",
 					"weight": 1,
 					"description": "Les dieux, les mythes et les légendes ont toujours peuplé vos rêves. Alors que vous n’étiez qu’un bambin, vous vous asseyiez déjà auprès du feu de camp pour écouter les histoires du ménestrel du clan à propos du dieu Cornu, des glorieux ancêtres et des invasions démoniaques. Vous vivez pleinement dans l’imaginaire de votre peuple, dans les récits épiques et mythologiques. Peut-être que vous donnerez un jour vie à votre propre légende ?",
-					"attributes": { "strength": "3", "agility": "3", "wits": "4", "empathy": "5" },
-					"skills": { "lore": "2", "manipulation": "1", "performance": "1", "animal-handling": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "3",
+						"wits": "4",
+						"empathy": "5"
+					},
+					"skills": {
+						"lore": "2",
+						"manipulation": "1",
+						"performance": "1",
+						"animal-handling": "1"
+					}
 				},
 				"strongest of the clan": {
 					"key": "strongest of the clan",
 					"name": "Protecteur du clan",
 					"weight": 1,
 					"description": "Dès votre enfance, on vous a fait comprendre que vous étiez plus grand et plus robuste que les autres. Vous deviez travailler plus dur, endosser plus de responsabilités, combattre les plus forts. Certains compatriotes vous admiraient, d’autres vous haïssaient.",
-					"attributes": { "strength": "5", "agility": "3", "wits": "3", "empathy": "4" },
-					"skills": { "might": "2", "endurance": "1", "melee": "2", "animal-handling": "1" }
+					"attributes": {
+						"strength": "5",
+						"agility": "3",
+						"wits": "3",
+						"empathy": "4"
+					},
+					"skills": {
+						"might": "2",
+						"endurance": "1",
+						"melee": "2",
+						"animal-handling": "1"
+					}
 				},
 				"taught by a wise women": {
 					"key": "taught by a wise women",
 					"name": "Aiguillé par une sage",
 					"weight": 1,
 					"description": "Quand vous étiez enfant, vous vous êtes lié d’amitié avec une sage du clan. Elle vous a rapidement pris comme apprenti, vous enseignant l’histoire de votre peuple et ses anciens faits d’armes, sans omettre les conflits sanglants.",
-					"attributes": { "strength": "3", "agility": "3", "wits": "5", "empathy": "4" },
-					"skills": { "lore": "2", "insight": "1", "healing": "2", "animal-handling": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "3",
+						"wits": "5",
+						"empathy": "4"
+					},
+					"skills": {
+						"lore": "2",
+						"insight": "1",
+						"healing": "2",
+						"animal-handling": "1"
+					}
 				},
 				"hunter": {
 					"key": "hunter",
 					"name": "Chasseur",
 					"weight": 1,
 					"description": "Vous avez appris à vivre en harmonie avec la nature. La chasse fait partie de vos devoirs, et bien qu’on vous ait enseigné l’art de tuer, on vous a aussi appris à respecter la vie de tous les animaux.",
-					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
-					"skills": { "marksmanship": "2", "scouting": "2", "survival": "1", "animal-handling": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "4"
+					},
+					"skills": {
+						"marksmanship": "2",
+						"scouting": "2",
+						"survival": "1",
+						"animal-handling": "1"
+					}
 				},
 				"child of the winds": {
 					"key": "child of the winds",
 					"name": "Fils ou fille du vent",
 					"weight": 1,
 					"description": "Quand on vous a élu fils ou fille du Vent, vous avez dû entamer un long pèlerinage à travers les montagnes et les hautes terres pour le bien de votre clan. Vous avez rempli votre devoir, mais aujourd’hui encore, vous ne savez trop quel est votre véritable foyer.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "4"
+					},
 					"skills": {
 						"melee": "1",
 						"marksmanship": "1",
@@ -139,11 +239,7 @@
 			"key": "ailander",
 			"name": "Ailander",
 			"weight": 3,
-			"age": [
-				[16, 25],
-				[26, 50],
-				[51, 80]
-			],
+			"age": [[16, 25], [26, 50], [51, 80]],
 			"talent": "Adaptation",
 			"childhood": {
 				"child of the raven": {
@@ -151,31 +247,68 @@
 					"name": "Enfant du corbeau",
 					"weight": 1,
 					"description": "Vous avez grandi parmi les Soeurs du Corbeau, qui vont ont appris à vénérer le dieu Corbeau et à craindre les Frères du Rouillé. Vous savez vivre des fruits que prodigue la nature. C’est au milieu des tourbillons du vent que vous vous sentez le plus libre.",
-					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
-					"skills": { "crafting": "1", "move": "1", "scouting": "1", "lore": "2", "insight": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "4"
+					},
+					"skills": {
+						"crafting": "1",
+						"move": "1",
+						"scouting": "1",
+						"lore": "2",
+						"insight": "1"
+					}
 				},
 				"druid's apprentice": {
 					"key": "druid's apprentice",
 					"name": "Apprenti d'un druide",
 					"weight": 1,
 					"description": "Un druide vous a pris en apprentissage pour vous enseigner les secrets des mystères sacrés, des rituels et de la sorcellerie. Bien que votre mentor ait depuis longtemps quitté ce monde, vous vous rappelez toujours ses paroles.",
-					"attributes": { "strength": "3", "agility": "4", "wits": "5", "empathy": "3" },
-					"skills": { "scouting": "1", "lore": "1", "survival": "2", "healing": "1", "animal-handling": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "4",
+						"wits": "5",
+						"empathy": "3"
+					},
+					"skills": {
+						"scouting": "1",
+						"lore": "1",
+						"survival": "2",
+						"healing": "1",
+						"animal-handling": "1"
+					}
 				},
 				"guardian": {
 					"key": "guardian",
 					"name": "Guardien",
 					"weight": 1,
 					"description": "De tout temps, les Ailanders ont été opprimés et persécutés. Vous avez fait ce constat très tôt. On vous a par ailleurs entraîné à protéger votre peuple, l’épée à la main. Vous n’avez pas tardé à connaître l’épreuve du feu, comme en témoignent vos cicatrices.",
-					"attributes": { "strength": "5", "agility": "4", "wits": "3", "empathy": "3" },
-					"skills": { "might": "1", "melee": "2", "marksmanship": "2", "move": "1" }
+					"attributes": {
+						"strength": "5",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "3"
+					},
+					"skills": {
+						"might": "1",
+						"melee": "2",
+						"marksmanship": "2",
+						"move": "1"
+					}
 				},
 				"wanderer": {
 					"key": "wanderer",
 					"name": "Vagabond",
 					"weight": 1,
 					"description": "Vous n’avez jamais eu de demeure fixe, la route était votre foyer, et les Contrées Interdites votre terrain de jeu. Enfant, vous aviez déjà vu plus de pays que la majorité des adultes de ce monde.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "4"
+					},
 					"skills": {
 						"endurance": "1",
 						"melee": "1",
@@ -189,16 +322,37 @@
 					"name": "Fermier",
 					"weight": 1,
 					"description": "Vous avez travaillé dans une ferme où vous accomplissiez des corvées pénibles. Les céréales, le bétail et les plantations n’ont aucun secret pour vous. Mais au plus profond de vous, vous avez toujours aspiré à autre chose.",
-					"attributes": { "strength": "5", "agility": "3", "wits": "3", "empathy": "4" },
-					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal-handling": "1" }
+					"attributes": {
+						"strength": "5",
+						"agility": "3",
+						"wits": "3",
+						"empathy": "4"
+					},
+					"skills": {
+						"might": "2",
+						"melee": "1",
+						"crafting": "1",
+						"survival": "1",
+						"animal-handling": "1"
+					}
 				},
 				"herder": {
 					"key": "herder",
 					"name": "Berger",
 					"weight": 1,
 					"description": "Vous avez appris dès l’enfance à respecter le bétail, cette source de subsistance. Au cours de votre jeunesse, vous avez parcouru les plaines des Contrées Interdites en veillant sur votre troupeau. Vous passiez la nuit sous les cieux étoilés en rêvant d’aventures.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
-					"skills": { "might": "1", "crafting": "1", "scouting": "2", "animal-handling": "2" }
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "4"
+					},
+					"skills": {
+						"might": "1",
+						"crafting": "1",
+						"scouting": "2",
+						"animal-handling": "2"
+					}
 				}
 			}
 		},
@@ -206,11 +360,7 @@
 			"key": "halfelf",
 			"name": "Demi-elfe",
 			"weight": 3,
-			"age": [
-				[16, 30],
-				[31, 100],
-				[101, 200]
-			],
+			"age": [[16, 30], [31, 100], [101, 200]],
 			"talent": "Énergie psychique",
 			"childhood": {
 				"on the run": {
@@ -218,48 +368,108 @@
 					"name": "En cavale",
 					"weight": 1,
 					"description": "Vous avez dû fuir toute votre enfance. Vous ne vous sentiez jamais en sécurité et n’aviez pas de foyer permanent. Vous avez voyagé de village en village dans les Contrées Interdites. Vous n’avez jamais réussi à fermer l’oeil de la nuit en tournant le dos à la porte d’entrée.",
-					"attributes": { "strength": "4", "agility": "5", "wits": "3", "empathy": "3" },
-					"skills": { "melee": "1", "stealth": "2", "scouting": "2", "insight": "1" }
+					"attributes": {
+						"strength": "4",
+						"agility": "5",
+						"wits": "3",
+						"empathy": "3"
+					},
+					"skills": {
+						"melee": "1",
+						"stealth": "2",
+						"scouting": "2",
+						"insight": "1"
+					}
 				},
 				"artist": {
 					"key": "artist",
 					"name": "Artiste",
 					"weight": 1,
 					"description": "Dès l’enfance, vous vous êtes découvert un talent pour les activitésartistiques. C’est en donnant des représentations ou en vous adonnant à votre art que vous trouviez la paix et croquiez la vie à pleines dents.",
-					"attributes": { "strength": "3", "agility": "3", "wits": "4", "empathy": "5" },
-					"skills": { "crafting": "2", "move": "1", "lore": "1", "performance": "2" }
+					"attributes": {
+						"strength": "3",
+						"agility": "3",
+						"wits": "4",
+						"empathy": "5"
+					},
+					"skills": {
+						"crafting": "2",
+						"move": "1",
+						"lore": "1",
+						"performance": "2"
+					}
 				},
 				"student": {
 					"key": "student",
 					"name": "Élève",
 					"weight": 1,
 					"description": "Vous aviez conscience d’être plus intelligent que vos amis. Quand un sage vous a pris sous son aile, vous vous êtes plongé à corps perdu dans les mystères de ce monde. Vous avez trouvé dans les livres ce dont vous aviez toujours rêvé, et bien plus encore.",
-					"attributes": { "strength": "3", "agility": "4", "wits": "5", "empathy": "3" },
-					"skills": { "crafting": "1", "lore": "3", "insight": "1", "healing": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "4",
+						"wits": "5",
+						"empathy": "3"
+					},
+					"skills": {
+						"crafting": "1",
+						"lore": "3",
+						"insight": "1",
+						"healing": "1"
+					}
 				},
 				"acrobat": {
 					"key": "acrobat",
 					"name": "Acrobate",
 					"weight": 1,
 					"description": "Vous étiez un enfant agile comme un singe. Vous grimpiez partout et exploriez les moindres recoins des environs de votre village. Vous avez appris à vous donner en spectacle et à savourer la beauté des Contrées Interdites.",
-					"attributes": { "strength": "3", "agility": "5", "wits": "3", "empathy": "4" },
-					"skills": { "stealth": "1", "move": "2", "sleight-of-hand": "2", "performance": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "5",
+						"wits": "3",
+						"empathy": "4"
+					},
+					"skills": {
+						"stealth": "1",
+						"move": "2",
+						"sleight-of-hand": "2",
+						"performance": "1"
+					}
 				},
 				"fighter": {
 					"key": "fighter",
 					"name": "Combattant",
 					"weight": 1,
 					"description": "Très tôt, vous avez prouvé que vous étiez doué pour le métier des armes. Très vite, un guerrier vous a enseigné les secrets de l’escrime. Vous avez suivi un entraînement long et rigoureux, jusqu’à devenir l’égal de votre maître.",
-					"attributes": { "strength": "4", "agility": "5", "wits": "3", "empathy": "3" },
-					"skills": { "might": "1", "endurance": "1", "melee": "2", "marksmanship": "2" }
+					"attributes": {
+						"strength": "4",
+						"agility": "5",
+						"wits": "3",
+						"empathy": "3"
+					},
+					"skills": {
+						"might": "1",
+						"endurance": "1",
+						"melee": "2",
+						"marksmanship": "2"
+					}
 				},
 				"ghost child": {
 					"key": "ghost child",
 					"name": "Enfant spectre",
 					"weight": 1,
 					"description": "Comme vous n’aviez ni famille ni foyer, vous avez rejoint d’autres gamins en fuite ou exilés. On vous appelait les enfants spectres. Pour survivre, vous avez dû voler et travailler pour des employeurs plus ou moins louches.",
-					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
-					"skills": { "melee": "1", "stealth": "2", "sleight-of-hand": "2", "insight": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "4"
+					},
+					"skills": {
+						"melee": "1",
+						"stealth": "2",
+						"sleight-of-hand": "2",
+						"insight": "1"
+					}
 				}
 			}
 		},
@@ -267,11 +477,7 @@
 			"key": "halfling",
 			"name": "Halfelin",
 			"weight": 3,
-			"age": [
-				[16, 25],
-				[26, 60],
-				[61, 100]
-			],
+			"age": [[16, 25], [26, 60], [61, 100]],
 			"talent": "Insaisissable",
 			"childhood": {
 				"baker's apprentice": {
@@ -279,7 +485,12 @@
 					"name": "Apprenti boulanger",
 					"weight": 1,
 					"description": "Vous vous êtes toujours délecté des senteurs de pain fraîchement sorti du four. Enfant, vous vous affairiez déjà au fourneau pour préparer des brioches dont l’odeur mettait l’eau à la bouche.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "4"
+					},
 					"skills": {
 						"crafting": "2",
 						"sleight-of-hand": "1",
@@ -293,23 +504,49 @@
 					"name": "Fermier",
 					"weight": 1,
 					"description": "Vous avez travaillé dans une ferme où vous accomplissiez des corvées pénibles. Les céréales, le bétail et les plantations n’ont aucun secret pour vous. Mais, au plus profond de vous, vous avez toujours aspiré à autre chose.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
-					"skills": { "might": "2", "melee": "1", "crafting": "1", "survival": "1", "animal-handling": "1" }
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "4"
+					},
+					"skills": {
+						"might": "2",
+						"melee": "1",
+						"crafting": "1",
+						"survival": "1",
+						"animal-handling": "1"
+					}
 				},
 				"craftsman": {
 					"key": "craftsman",
 					"name": "Artisan",
 					"weight": 1,
 					"description": "Doué pour le travail manuel, vous avez appris très tôt les voies d’un métier artisanal. Vous vous exprimiez à travers les objets qui prenaient vie entre vos mains. Ils vous ont aussi donné envie de contempler les chefsd’oeuvre des maîtres dans le domaine.",
-					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
-					"skills": { "melee": "1", "crafting": "3", "lore": "1", "insight": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "4"
+					},
+					"skills": {
+						"melee": "1",
+						"crafting": "3",
+						"lore": "1",
+						"insight": "1"
+					}
 				},
 				"raised in the kitchen": {
 					"key": "raised in the kitchen",
 					"name": "Élevé dans la cuisins",
 					"weight": 1,
 					"description": "Vous avez passé presque toute votre enfance dans la cuisine, au milieu des odeurs de soupes, de ragoûts et de breuvages sucrés. Vous dosez les condiments comme personne et adorez préparer de bons petits plats.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "4"
+					},
 					"skills": {
 						"crafting": "2",
 						"sleight-of-hand": "1",
@@ -323,15 +560,30 @@
 					"name": "Rat de bibliothèque",
 					"weight": 1,
 					"description": "Alors que les autres enfants jouaient dans les bois, vous préfériez vous plonger dans de vieux livres pour vous abreuver d’histoires de héros, de dragons et de trésors.",
-					"attributes": { "strength": "3", "agility": "3", "wits": "5", "empathy": "4" },
-					"skills": { "lore": "3", "insight": "1", "manipulation": "1", "animal-handling": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "3",
+						"wits": "5",
+						"empathy": "4"
+					},
+					"skills": {
+						"lore": "3",
+						"insight": "1",
+						"manipulation": "1",
+						"animal-handling": "1"
+					}
 				},
 				"loner": {
 					"key": "loner",
 					"name": "Solitaire",
 					"weight": 1,
 					"description": "Vous ne vous êtes jamais senti chez vous parmi vos proches et vous promeniez souvent seul. Vous avez grandi dans l’ombre de vos camarades. Vous avez contemplé des spectacles qu’ils ne verront jamais, accompli des choses incroyables qu’ils n’oseraient même pas rêver.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "3"
+					},
 					"skills": {
 						"melee": "1",
 						"stealth": "2",
@@ -346,11 +598,7 @@
 			"key": "goblin",
 			"name": "Gobelin",
 			"weight": 4,
-			"age": [
-				[16, 25],
-				[26, 60],
-				[61, 100]
-			],
+			"age": [[16, 25], [26, 60], [61, 100]],
 			"talent": "Nocturne",
 			"childhood": {
 				"wolfling": {
@@ -358,31 +606,68 @@
 					"name": "Enfant loup",
 					"weight": 1,
 					"description": "Vos parents vous ont abandonné quand vous étiez enfant, mais vous avez trouvé votre place au sein d’une meute de loups. Vous êtes devenu l’un des leurs, hurlant à la lune, parcourant les plaines à grandes enjambées et mangeant comme eux la chair crue de vos proies.",
-					"attributes": { "strength": "3", "agility": "5", "wits": "3", "empathy": "4" },
-					"skills": { "endurance": "1", "melee": "1", "stealth": "1", "move": "1", "animal-handling": "2" }
+					"attributes": {
+						"strength": "3",
+						"agility": "5",
+						"wits": "3",
+						"empathy": "4"
+					},
+					"skills": {
+						"endurance": "1",
+						"melee": "1",
+						"stealth": "1",
+						"move": "1",
+						"animal-handling": "2"
+					}
 				},
 				"scrounger": {
 					"key": "scrounger",
 					"name": "Parasite",
 					"weight": 1,
 					"description": "Vous avez appris dès l’enfance que la propriété était une notion toute relative. Vous avez toujours eu un certain talent pour vous approprier ce qui ne vous appartenait pas, comme si les choses apparaissaient comme par magie entre vos mains…",
-					"attributes": { "strength": "3", "agility": "5", "wits": "3", "empathy": "4" },
-					"skills": { "stealth": "2", "scouting": "2", "insight": "1", "manipulation": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "5",
+						"wits": "3",
+						"empathy": "4"
+					},
+					"skills": {
+						"stealth": "2",
+						"scouting": "2",
+						"insight": "1",
+						"manipulation": "1"
+					}
 				},
 				"child of the woods": {
 					"key": "child of the woods",
 					"name": "Enfant des bois",
 					"weight": 1,
 					"description": "Vous avez grandi sous le couvert des arbres. Vous escaladiez les troncs en écoutant le murmure du vent à travers les feuillages. C’est dans les bois que vous vous sentez en sécurité. Vous savez que ses habitants seront toujours là pour vous protéger.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
-					"skills": { "endurance": "1", "move": "1", "marksmanship": "1", "scouting": "1", "survival": "2" }
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "3"
+					},
+					"skills": {
+						"endurance": "1",
+						"move": "1",
+						"marksmanship": "1",
+						"scouting": "1",
+						"survival": "2"
+					}
 				},
 				"wildling": {
 					"key": "wildling",
 					"name": "Sauvageon",
 					"weight": 1,
 					"description": "Votre clan rassemblait toutes sortes de marginaux qui ne se souciaient pas des histoires de lignées et de pactes séculaires. Vous avez grandi dans un environnement libre, sans personne pour vous dicter votre avenir.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "4"
+					},
 					"skills": { "might": "1", "melee": "2", "move": "2", "survival": "1" }
 				},
 				"wanderer": {
@@ -390,7 +675,12 @@
 					"name": "Vagabond",
 					"weight": 1,
 					"description": "Vous n’avez jamais eu de demeure fixe, la route était votre foyer, et les Contrées Interdites votre terrain de jeu. Enfant, vous aviez déjà vu plus de pays que la majorité des adultes de ce monde.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "3"
+					},
 					"skills": {
 						"endurance": "1",
 						"melee": "1",
@@ -404,7 +694,12 @@
 					"name": "Conteur",
 					"weight": 1,
 					"description": "Quand vous étiez haut comme trois pommes, vous vous asseyiez devant le feu, les yeux grands ouverts, écoutant l’ancien du clan raconter les légendes de votre peuple. Dans votre esprit, vous voyagiez à travers le temps et l’espace pour revivre ces récits merveilleux. Vous avez appris du mieux que vous pouviez auprès du vieux gobelin, si bien que vous êtes rapidement devenu un des conteurs attitrés du clan.",
-					"attributes": { "strength": "3", "agility": "4", "wits": "3", "empathy": "5" },
+					"attributes": {
+						"strength": "3",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "5"
+					},
 					"skills": { "lore": "1", "manipulation": "2", "performance": "3" }
 				}
 			}
@@ -413,11 +708,7 @@
 			"key": "orc",
 			"name": "Orque",
 			"weight": 4,
-			"age": [
-				[13, 20],
-				[21, 45],
-				[46, 70]
-			],
+			"age": [[13, 20], [21, 45], [46, 70]],
 			"talent": "Inébranlable",
 			"childhood": {
 				"minstrel": {
@@ -425,15 +716,30 @@
 					"name": "Ménestrel",
 					"weight": 1,
 					"description": "L’histoire des souffrances de votre peuple vous a aidé à trouver votre voie. Dans votre jeunesse, vous avez appris les chants relatant la trahison des elfes et tout le sang que vos compatriotes ont versé au cours des guerres. Vous n’oublierez jamais.",
-					"attributes": { "strength": "3", "agility": "3", "wits": "4", "empathy": "5" },
-					"skills": { "lore": "1", "insight": "1", "manipulation": "1", "performance": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "3",
+						"wits": "4",
+						"empathy": "5"
+					},
+					"skills": {
+						"lore": "1",
+						"insight": "1",
+						"manipulation": "1",
+						"performance": "1"
+					}
 				},
 				"worker": {
 					"key": "worker",
 					"name": "Ouvrier",
 					"weight": 1,
 					"description": "La vie était rude, même quand vous n’étiez qu’un jeune orque. Aussi loin que vous vous souveniez, vous avez toujours sué sang et eau pour pouvoir mener l’existence dont vous rêviez.",
-					"attributes": { "strength": "5", "agility": "4", "wits": "3", "empathy": "3" },
+					"attributes": {
+						"strength": "5",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "3"
+					},
 					"skills": { "might": "2", "endurance": "2", "crafting": "2" }
 				},
 				"brigand": {
@@ -441,15 +747,31 @@
 					"name": "Brigand",
 					"weight": 1,
 					"description": "Un orque fort est un orque capable de survenir seul à ses propres besoins. Très vite, vous vous êtes rendu compte qu’il allait falloir voler pour survivre. Et pourquoi pas ? Après tout, les orques ont essuyé d’innombrables trahisons.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
-					"skills": { "melee": "2", "stealth": "1", "sleight-of-hand": "1", "scouting": "1", "survival": "1" }
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "3"
+					},
+					"skills": {
+						"melee": "2",
+						"stealth": "1",
+						"sleight-of-hand": "1",
+						"scouting": "1",
+						"survival": "1"
+					}
 				},
 				"drifter": {
 					"key": "drifter",
 					"name": "Vagabond",
 					"weight": 1,
 					"description": "Vous avez grandi sur les routes, dans les bois, au coeur des plaines. Vous ne vous êtes jamais installé durablement à un endroit. Vos jambes vous démangent, elles ne vous laissent jamais tranquille.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "4"
+					},
 					"skills": {
 						"endurance": "1",
 						"melee": "1",
@@ -463,16 +785,36 @@
 					"name": "Guerrier",
 					"weight": 1,
 					"description": "Vous avez grandi sur les champs de bataille, tuant votre premier adversaire alors que vous n’étiez qu’un jeune orque. C’est l’arme au poing que vous vous êtes senti respecté pour la première fois.",
-					"attributes": { "strength": "5", "agility": "4", "wits": "3", "empathy": "3" },
-					"skills": { "might": "1", "melee": "2", "marksmanship": "2", "move": "1" }
+					"attributes": {
+						"strength": "5",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "3"
+					},
+					"skills": {
+						"might": "1",
+						"melee": "2",
+						"marksmanship": "2",
+						"move": "1"
+					}
 				},
 				"loner": {
 					"key": "loner",
 					"name": "Solitaire",
 					"weight": 1,
 					"description": "Vous ne vous êtes jamais senti chez vous parmi vos proches et vous promeniez souvent seul. Vous avez grandi dans l’ombre de vos camarades. Vous avez contemplé des spectacles qu’ils ne verront jamais, accompli des choses incroyables qu’ils n’oseraient même pas rêver.",
-					"attributes": { "strength": "4", "agility": "3", "wits": "5", "empathy": "3" },
-					"skills": { "melee": "1", "scouting": "1", "insight": "2", "survival": "2" }
+					"attributes": {
+						"strength": "4",
+						"agility": "3",
+						"wits": "5",
+						"empathy": "3"
+					},
+					"skills": {
+						"melee": "1",
+						"scouting": "1",
+						"insight": "2",
+						"survival": "2"
+					}
 				}
 			}
 		},
@@ -480,11 +822,7 @@
 			"key": "wolfkin",
 			"name": "Lycan",
 			"weight": 2,
-			"age": [
-				[13, 20],
-				[21, 40],
-				[41, 65]
-			],
+			"age": [[13, 20], [21, 40], [41, 65]],
 			"talent": "Instinct du prédateur",
 			"childhood": {
 				"howler": {
@@ -492,31 +830,66 @@
 					"name": "Hurleur",
 					"weight": 1,
 					"description": "Vous avez grandi au milieu des lycans qui sont leur propre maître et naviguent parmi les clans en toute liberté. On vous a appris à raconter les légendes tragiques que se transmettent les hurleurs depuis des générations.",
-					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
-					"skills": { "lore": "1", "manipulation": "1", "performance": "3", "survival": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "4"
+					},
+					"skills": {
+						"lore": "1",
+						"manipulation": "1",
+						"performance": "3",
+						"survival": "1"
+					}
 				},
 				"hunter": {
 					"key": "hunter",
 					"name": "Chasseur",
 					"weight": 1,
 					"description": "Alors que vous n’étiez qu’un chiot, on vous a vite appris que le sang était source de vie. Les anciens chasseurs du clan vous ont enjoint à respecter les autres animaux, même si vous leur ôtez la vie. La chasse constitue la base de l’existence.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
-					"skills": { "endurance": "1", "melee": "1", "scouting": "2", "survival": "2" }
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "3"
+					},
+					"skills": {
+						"endurance": "1",
+						"melee": "1",
+						"scouting": "2",
+						"survival": "2"
+					}
 				},
 				"outcast": {
 					"key": "outcast",
 					"name": "Paria",
 					"weight": 1,
 					"description": "Pendant que les jeunes de votre âge suivaient la meute, vous avez été rejeté. Seul, vous avez appris à vivre de ce qu’offre la forêt et vous êtes aperçu que les autres peuples étaient parfois plus tolérants que vos semblables. Un jour, vous retrouverez le chemin menant à votre foyer.",
-					"attributes": { "strength": "4", "agility": "3", "wits": "5", "empathy": "3" },
-					"skills": { "melee": "1", "scouting": "1", "insight": "2", "survival": "2" }
+					"attributes": {
+						"strength": "4",
+						"agility": "3",
+						"wits": "5",
+						"empathy": "3"
+					},
+					"skills": {
+						"melee": "1",
+						"scouting": "1",
+						"insight": "2",
+						"survival": "2"
+					}
 				},
 				"tracker": {
 					"key": "tracker",
 					"name": "Traqueur",
 					"weight": 1,
 					"description": "Très tôt, vous vous êtes aperçu que votre odorat surpassait celui de vos camarades et que vous pouviez faire des découvertes incroyables en vous fiant simplement à votre truffe.",
-					"attributes": { "strength": "3", "agility": "4", "wits": "5", "empathy": "3" },
+					"attributes": {
+						"strength": "3",
+						"agility": "4",
+						"wits": "5",
+						"empathy": "3"
+					},
 					"skills": { "stealth": "2", "scouting": "3", "survival": "1" }
 				},
 				"fighter": {
@@ -524,7 +897,12 @@
 					"name": "Combattant",
 					"weight": 1,
 					"description": "Vous étiez le plus fort de la portée et aviez le dessus chaque fois que vous jouiez avec vos frères et soeurs. En grandissant, les anciens du clan ont vu en vous un guerrier né, ils vous ont donc enseigné les secrets du combat.",
-					"attributes": { "strength": "5", "agility": "4", "wits": "3", "empathy": "3" },
+					"attributes": {
+						"strength": "5",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "3"
+					},
 					"skills": { "might": "2", "melee": "3", "move": "1" }
 				},
 				"child of the forest": {
@@ -532,7 +910,12 @@
 					"name": "Enfant de la forêt",
 					"weight": 1,
 					"description": "Depuis votre tendre enfance, vous êtes attiré par les trésors des bois, des fleurs aux herbes en passant par les lacs. Vous avez appris tout ce que vous pouviez auprès de l’herboriste du clan, la senteur de chaque fleur et les plantes qui permettent de survivre – ou de mettre fin à l’existence.",
-					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
+					"attributes": {
+						"strength": "3",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "4"
+					},
 					"skills": { "lore": "2", "scouting": "1", "survival": "3" }
 				}
 			}
@@ -541,11 +924,7 @@
 			"key": "dwarf",
 			"name": "Nain",
 			"weight": 2,
-			"age": [
-				[20, 40],
-				[41, 80],
-				[81, 160]
-			],
+			"age": [[20, 40], [41, 80], [81, 160]],
 			"talent": "Dur à cuire",
 			"childhood": {
 				"smith's apprentice": {
@@ -553,48 +932,108 @@
 					"name": "Apprenti forgeron",
 					"weight": 1,
 					"description": "Vous vous sentiez chez vous dans la chaleur oppressante de la forge. On vous a dévoilé les mystères de l’acier au cours de longues leçons dispensées à la lueur du foyer.",
-					"attributes": { "strength": "5", "agility": "3", "wits": "4", "empathy": "3" },
-					"skills": { "might": "1", "endurance": "1", "melee": "1", "crafting": "3" }
+					"attributes": {
+						"strength": "5",
+						"agility": "3",
+						"wits": "4",
+						"empathy": "3"
+					},
+					"skills": {
+						"might": "1",
+						"endurance": "1",
+						"melee": "1",
+						"crafting": "3"
+					}
 				},
 				"mineborn": {
 					"key": "mineborn",
 					"name": "Mineur né",
 					"weight": 1,
 					"description": "Enfant, vous avez appris à naviguer dans l’obscurité qui tapisse les profondeurs de la terre. C’est au contact des roches glaciales que vous vous sentiez le mieux.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
-					"skills": { "endurance": "2", "crafting": "1", "scouting": "1", "survival": "2" }
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "3"
+					},
+					"skills": {
+						"endurance": "2",
+						"crafting": "1",
+						"scouting": "1",
+						"survival": "2"
+					}
 				},
 				"scout's apprentice": {
 					"key": "scout's apprentice",
 					"name": "Apprenti éclaireur",
 					"weight": 1,
 					"description": "Vous étiez un enfant attentif, curieux de tout. Ces qualités n’ont pas échappé aux membres du clan qui vont ont choisi pour apprendre les tâches dévolues aux éclaireurs. Vous ne comptez plus le nombre de journées où vous êtes resté dissimulé pour guetter les dangers des Contrées Interdites.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "4", "empathy": "3" },
-					"skills": { "melee": "1", "stealth": "2", "scouting": "2", "survival": "1" }
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "3"
+					},
+					"skills": {
+						"melee": "1",
+						"stealth": "2",
+						"scouting": "2",
+						"survival": "1"
+					}
 				},
 				"guardian": {
 					"key": "guardian",
 					"name": "Gardien novice",
 					"weight": 1,
 					"description": "On vous a choisi comme gardien novice. Pendant cette période, vous serviez un guerrier nain puissant et renommé, à la manière d’un écuyer. C’était un travail exigeant, mais formateur. Votre maître vous a appris à manier les armes, à fortifier votre coeur et à toujours affronter le danger en face, quel qu’il soit.",
-					"attributes": { "strength": "5", "agility": "4", "wits": "3", "empathy": "3" },
-					"skills": { "might": "2", "endurance": "1", "melee": "2", "marksmanship": "1" }
+					"attributes": {
+						"strength": "5",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "3"
+					},
+					"skills": {
+						"might": "2",
+						"endurance": "1",
+						"melee": "2",
+						"marksmanship": "1"
+					}
 				},
 				"carver": {
 					"key": "carver",
 					"name": "Sculpteur",
 					"weight": 1,
 					"description": "Les nains ont toujours creusé vers la surface ou vers le coeur de la terre. Enfant, vous étiez fasciné par l’art de façonner les montagnes à son image. Vous êtes devenu sculpteur, ingénieur et bâtisseur. Votre travail exigeait de se servir de ses muscles autant que de sa tête.",
-					"attributes": { "strength": "4", "agility": "3", "wits": "5", "empathy": "3" },
-					"skills": { "might": "1", "crafting": "2", "lore": "2", "survival": "1" }
+					"attributes": {
+						"strength": "4",
+						"agility": "3",
+						"wits": "5",
+						"empathy": "3"
+					},
+					"skills": {
+						"might": "1",
+						"crafting": "2",
+						"lore": "2",
+						"survival": "1"
+					}
 				},
 				"hard studies": {
 					"key": "hard studies",
 					"name": "Études laborieuses",
 					"weight": 1,
 					"description": "Un homme ou une femme lettré vous a pris sous son aile et s’est chargé de vous enseigner les langues anciennes. Les journées d’étude étaient interminables, l’apprentissage pénible, mais à la fin, vous vous êtes rendu compte que la connaissance était une clef pour comprendre le monde.",
-					"attributes": { "strength": "3", "agility": "3", "wits": "5", "empathy": "4" },
-					"skills": { "crafting": "1", "lore": "3", "insight": "1", "manipulation": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "3",
+						"wits": "5",
+						"empathy": "4"
+					},
+					"skills": {
+						"crafting": "1",
+						"lore": "3",
+						"insight": "1",
+						"manipulation": "1"
+					}
 				}
 			}
 		},
@@ -610,23 +1049,48 @@
 					"name": "Solitaire",
 					"weight": 1,
 					"description": "Vous ne vous êtes jamais senti chez vous parmi vos proches et vous promeniez souvent seul. Vous avez grandi dans l’ombre de vos camarades. Vous avez contemplé des spectacles qu’ils ne verront jamais, accompli des choses incroyables qu’ils n’oseraient même pas rêver.",
-					"attributes": { "strength": "4", "agility": "3", "wits": "5", "empathy": "3" },
-					"skills": { "melee": "1", "scouting": "1", "insight": "2", "survival": "2" }
+					"attributes": {
+						"strength": "4",
+						"agility": "3",
+						"wits": "5",
+						"empathy": "3"
+					},
+					"skills": {
+						"melee": "1",
+						"scouting": "1",
+						"insight": "2",
+						"survival": "2"
+					}
 				},
 				"fighter": {
 					"key": "fighter",
 					"name": "Combattant",
 					"weight": 1,
 					"description": "Dès votre enfance, vous avez prouvé que vous étiez doué pour le métier des armes. Très vite, un guerrier vous a enseigné les secrets de l’escrime. Vous avez suivi un entraînement long et rigoureux, jusqu’à devenir l’égal de votre maître.",
-					"attributes": { "strength": "4", "agility": "5", "wits": "3", "empathy": "3" },
-					"skills": { "might": "1", "endurance": "1", "melee": "2", "marksmanship": "2" }
+					"attributes": {
+						"strength": "4",
+						"agility": "5",
+						"wits": "3",
+						"empathy": "3"
+					},
+					"skills": {
+						"might": "1",
+						"endurance": "1",
+						"melee": "2",
+						"marksmanship": "2"
+					}
 				},
 				"child of the forest": {
 					"key": "child of the forest",
 					"name": "Enfant de la forêt",
 					"weight": 1,
 					"description": "Depuis votre tendre enfance, vous êtes attiré par les trésors des bois, des fleurs aux herbes en passant par les lacs. Vous avez appris tout ce que vous pouviez auprès de l’herboriste du clan, la senteur de chaque fleur et les plantes qui permettent de survivre – ou de mettre fin à l’existence.",
-					"attributes": { "strength": "3", "agility": "4", "wits": "4", "empathy": "4" },
+					"attributes": {
+						"strength": "3",
+						"agility": "4",
+						"wits": "4",
+						"empathy": "4"
+					},
 					"skills": { "lore": "2", "scouting": "1", "survival": "3" }
 				},
 				"hard studies": {
@@ -634,15 +1098,30 @@
 					"name": "Études laborieuses",
 					"weight": 1,
 					"description": "Un homme ou une femme lettré vous a pris sous son aile et s’est chargé de vous enseigner les langues anciennes. Les journées d’étude étaient interminables, l’apprentissage pénible, mais à la fin, vous vous êtes rendu compte que la connaissance était une clef pour comprendre le monde.",
-					"attributes": { "strength": "3", "agility": "3", "wits": "5", "empathy": "4" },
-					"skills": { "crafting": "1", "lore": "3", "insight": "1", "manipulation": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "3",
+						"wits": "5",
+						"empathy": "4"
+					},
+					"skills": {
+						"crafting": "1",
+						"lore": "3",
+						"insight": "1",
+						"manipulation": "1"
+					}
 				},
 				"wanderer": {
 					"key": "wanderer",
 					"name": "Vagabond",
 					"weight": 1,
 					"description": "Vous n’avez jamais eu de demeure fixe, la route était votre foyer, et les Contrées Interdites votre terrain de jeu. Enfant, vous aviez déjà vu plus de pays que la majorité des adultes de ce monde.",
-					"attributes": { "strength": "4", "agility": "4", "wits": "3", "empathy": "4" },
+					"attributes": {
+						"strength": "4",
+						"agility": "4",
+						"wits": "3",
+						"empathy": "4"
+					},
 					"skills": {
 						"endurance": "1",
 						"melee": "1",
@@ -656,8 +1135,19 @@
 					"name": "Apprenti d'un druide",
 					"weight": 1,
 					"description": "Un druide vous a pris en apprentissage pour vous enseigner les secrets des mystères sacrés, des rituels et de la sorcellerie. Bien que votre mentor ait depuis longtemps quitté ce monde, vous vous rappelez toujours ses paroles.",
-					"attributes": { "strength": "3", "agility": "4", "wits": "5", "empathy": "3" },
-					"skills": { "scouting": "1", "lore": "1", "survival": "2", "healing": "1", "animal-handling": "1" }
+					"attributes": {
+						"strength": "3",
+						"agility": "4",
+						"wits": "5",
+						"empathy": "3"
+					},
+					"skills": {
+						"scouting": "1",
+						"lore": "1",
+						"survival": "2",
+						"healing": "1",
+						"animal-handling": "1"
+					}
 				}
 			}
 		}
@@ -667,7 +1157,11 @@
 			"key": "druid",
 			"name": "Druide",
 			"weight": 1,
-			"paths": ["Voie de la Guérison", "Voie de la Métamorphose", "Voie de la Clairvoyance"],
+			"paths": [
+				"Voie de la Guérison",
+				"Voie de la Métamorphose",
+				"Voie de la Clairvoyance"
+			],
 			"equipment": [["Bâton", "Knife"], "Trade Goods"],
 			"consumables": { "food": 2, "water": 1, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
@@ -993,7 +1487,12 @@
 			"name": "Cavalier",
 			"weight": 1,
 			"paths": ["Voie du Compagnon", "Voie du Chevalier", "Voie des Plaines"],
-			"equipment": ["Cheval de selle", ["Lance courte", "Hachette"], ["Arc court", "Fronde"], "Trade Goods"],
+			"equipment": [
+				"Cheval de selle",
+				["Lance courte", "Hachette"],
+				["Arc court", "Fronde"],
+				"Trade Goods"
+			],
 			"consumables": { "food": 2, "water": 2, "arrows": 3, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
@@ -1122,7 +1621,12 @@
 			"key": "sorcerer",
 			"name": "Sorcier",
 			"weight": 1,
-			"paths": ["Voie du Sang", "Voie de la Mort", "Voie des Signes", "Voie de la Pierre"],
+			"paths": [
+				"Voie du Sang",
+				"Voie de la Mort",
+				"Voie des Signes",
+				"Voie de la Pierre"
+			],
 			"equipment": [["Bâton", "Knife"], "Trade Goods"],
 			"consumables": { "food": 1, "water": 2, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 8, "copper": 0 },

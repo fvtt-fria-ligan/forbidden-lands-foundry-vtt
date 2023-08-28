@@ -38,7 +38,8 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 	#computeQuality(data) {
 		data.artifact = !!data.system.artifactBonus;
 		data.lethal = data.system.lethal === "yes";
-		data.ranks = data.system.type === "general" || data.system.type === "profession";
+		data.ranks =
+			data.system.type === "general" || data.system.type === "profession";
 		return data;
 	}
 
@@ -69,7 +70,10 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 		$(`#${this.id} textarea`).each(function () {
 			if (this.value) {
 				this.readOnly = true;
-				this.setAttribute("style", "height:" + this.scrollHeight + "px;overflow-y:hidden;");
+				this.setAttribute(
+					"style",
+					"height:" + this.scrollHeight + "px;overflow-y:hidden;",
+				);
 			}
 		});
 		return super._onChangeTab(event, tabs, active);
@@ -82,7 +86,8 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 			let data = await this.getData();
 			let rollModifiers = data.system.rollModifiers || {};
 			// To preserve order, make sure the new index is the highest
-			let modifierId = Math.max(-1, ...Object.getOwnPropertyNames(rollModifiers)) + 1;
+			let modifierId =
+				Math.max(-1, ...Object.getOwnPropertyNames(rollModifiers)) + 1;
 			let update = {};
 			// Using a default value of Strength and 1 in order NOT to create an empty modifier.
 			update[`data.rollModifiers.${modifierId}`] = {
@@ -113,10 +118,19 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 		html.find(".change-bonus").on("click contextmenu", (ev) => {
 			const bonus = this.itemProperties.bonus;
 			let value = bonus.value;
-			const altInteraction = game.settings.get("forbidden-lands", "alternativeSkulls");
-			if ((ev.type === "click" && !altInteraction) || (ev.type === "contextmenu" && altInteraction)) {
+			const altInteraction = game.settings.get(
+				"forbidden-lands",
+				"alternativeSkulls",
+			);
+			if (
+				(ev.type === "click" && !altInteraction) ||
+				(ev.type === "contextmenu" && altInteraction)
+			) {
 				value = Math.max(value - 1, 0);
-			} else if ((ev.type === "contextmenu" && !altInteraction) || (ev.type === "click" && altInteraction)) {
+			} else if (
+				(ev.type === "contextmenu" && !altInteraction) ||
+				(ev.type === "click" && altInteraction)
+			) {
 				value = Math.min(value + 1, bonus.max);
 			}
 			this.object.update({
@@ -127,7 +141,9 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 			const featureName = $(ev.currentTarget).data("feature");
 			const features = this.object.itemProperties.features;
 			if (CONFIG.fbl.weaponFeatures.includes(featureName))
-				this.object.update({ [`system.features.${featureName}`]: !features[featureName] });
+				this.object.update({
+					[`system.features.${featureName}`]: !features[featureName],
+				});
 			this._render();
 		});
 		html.find(".hide-field").click((ev) => {
@@ -148,14 +164,24 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 
 	async _renderInner(data, options) {
 		const showField = (field) => {
-			const enabledInSettings = game.settings.get("forbidden-lands", `show${field}Field`);
-			const isVisibleToPlayer = game.user.isGM || !this.object.getFlag("forbidden-lands", field);
+			const enabledInSettings = game.settings.get(
+				"forbidden-lands",
+				`show${field}Field`,
+			);
+			const isVisibleToPlayer =
+				game.user.isGM || !this.object.getFlag("forbidden-lands", field);
 			return enabledInSettings && isVisibleToPlayer;
 		};
 		data = {
 			...data,
-			alternativeSkulls: game.settings.get("forbidden-lands", "alternativeSkulls"),
-			showCraftingFields: game.settings.get("forbidden-lands", "showCraftingFields"),
+			alternativeSkulls: game.settings.get(
+				"forbidden-lands",
+				"alternativeSkulls",
+			),
+			showCraftingFields: game.settings.get(
+				"forbidden-lands",
+				"showCraftingFields",
+			),
 			showCostField: game.settings.get("forbidden-lands", "showCostField"),
 			showSupplyField: game.settings.get("forbidden-lands", "showSupplyField"),
 			showEffectField: showField("Effect"),

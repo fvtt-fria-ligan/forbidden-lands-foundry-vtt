@@ -4,11 +4,16 @@ export class ForbiddenLandsStrongholdSheet extends ForbiddenLandsActorSheet {
 		return mergeObject(super.defaultOptions, {
 			...super.defaultOptions,
 			classes: ["forbidden-lands", "sheet", "actor"],
-			template: "systems/forbidden-lands/templates/actor/stronghold/stronghold-sheet.hbs",
+			template:
+				"systems/forbidden-lands/templates/actor/stronghold/stronghold-sheet.hbs",
 			width: 650,
 			height: 700,
 			resizable: false,
-			scrollY: [".buildings.item-list .items", ".hirelings.item-list .items", ".gears.item-listing .items"],
+			scrollY: [
+				".buildings.item-list .items",
+				".hirelings.item-list .items",
+				".gears.item-listing .items",
+			],
 			tabs: [
 				{
 					navSelector: ".sheet-tabs",
@@ -21,7 +26,10 @@ export class ForbiddenLandsStrongholdSheet extends ForbiddenLandsActorSheet {
 
 	async getData() {
 		const actorData = await super.getData();
-		actorData.system.description = await TextEditor.enrichHTML(actorData.system.description, { async: true });
+		actorData.system.description = await TextEditor.enrichHTML(
+			actorData.system.description,
+			{ async: true },
+		);
 		this._computeItems(actorData);
 		return actorData;
 	}
@@ -36,8 +44,9 @@ export class ForbiddenLandsStrongholdSheet extends ForbiddenLandsActorSheet {
 			item.isHireling = item.type === "hireling";
 			if (item.type !== "building" || item.type !== "hireling") {
 				item.totalWeight =
-					(CONFIG.fbl.encumbrance[item.system.weight] ?? item.system.weight ?? 1) *
-					(item.system.quantity ?? 1);
+					(CONFIG.fbl.encumbrance[item.system.weight] ??
+						item.system.weight ??
+						1) * (item.system.quantity ?? 1);
 			}
 		}
 	}

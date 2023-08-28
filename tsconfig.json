@@ -1,10 +1,16 @@
 // @ts-nocheck
 {
 	"compilerOptions": {
+		"noEmit": true,
 		"module": "Node16",
 		"target": "ESNext",
 		"moduleResolution": "Node16",
-		"types": ["@league-of-foundry-developers/foundry-vtt-types", "@types/jquery", "@types/showdown"],
+		"allowJs": true,
+		"types": [
+			"@league-of-foundry-developers/foundry-vtt-types",
+			"@types/jquery",
+			"@types/showdown"
+		],
 		"baseUrl": ".",
 		"paths": {
 			"$*": ["./src/*"],

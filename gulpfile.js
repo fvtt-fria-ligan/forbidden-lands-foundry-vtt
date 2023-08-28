@@ -1,85 +1,23 @@
-import gulp from "gulp";
 import chalk from "chalk";
-import * as fs from "fs-extra-plus";
-import path from "path";
 import { execa } from "execa";
+import * as fs from "fs-extra-plus";
+import gulp from "gulp";
+import path from "path";
 import semver from "semver";
 import argv from "./tools/args-parser.js";
-import esBuild from "./esbuild.config.js";
 
 /********************/
 /*  CONFIGURATION   */
 /********************/
-const production = process.env.NODE_ENV === "production";
 const repoName = "forbidden-lands";
-const sourceDirectory = "./src";
 const distDirectory = "./dist";
 const stdio = "inherit";
-const templateExt = "hbs";
 const getDownloadURL = (tag) =>
 	`https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v${tag}/fbl-fvtt_v${tag}.zip`;
 const packageJson = JSON.parse(fs.readFileSync("package.json"));
 const { version } = packageJson;
 const staticFiles = fs.readdirSync(`./static`).map((file) => `static/${file}`);
 staticFiles.push("README.md", "LICENSE", "static/system.json");
-
-/********************/
-/*      BUILD       */
-/********************/
-
-/**
- * Build the distributable JavaScript code
- */
-// eslint-disable-next-line no-shadow
-async function buildSource({ watch } = {}) {
-	await esBuild({ production, watch });
-}
-
-/**
- * Copy other source files
- */
-async function pipeTemplates() {
-	const templateFiles = await fs.glob([`${sourceDirectory}/**/*.${templateExt}`]);
-	if (templateFiles && templateFiles.length > 0) {
-		for (const file of templateFiles) {
-			await fs.copy(
-				file,
-				`${distDirectory}/templates/${file.replace(`${sourceDirectory}/`, "").replace("templates/", "")}`,
-			);
-		}
-	}
-}
-
-/**
- * Copy other source files
- */
-async function pipeStatics() {
-	for (const file of staticFiles) {
-		await fs.copy(file, `${distDirectory}/${file.replace(/static\//, "")}`, { recursive: true }).catch((err) => {
-			console.log(err);
-		});
-	}
-}
-
-/**
- * Watch for changes for each build step
- */
-function buildWatch() {
-	buildSource({ watch: true });
-	gulp.watch(`${sourceDirectory}/**/*.${templateExt}`, { ignoreInitial: false }, pipeTemplates);
-	gulp.watch(staticFiles, { ignoreInitial: false }, pipeStatics);
-}
-
-/********************/
-/*      CLEAN       */
-/********************/
-
-/**
- * Remove built files from `dist` folder while ignoring source files
- */
-async function cleanDist() {
-	if (fs.existsSync(`./dist`)) await fs.remove(`./dist`);
-}
 
 /********************/
 /*       LINK       */
@@ -107,17 +45,26 @@ function getDataPath() {
  */
 async function linkUserData() {
 	let destinationDirectory;
-	if (fs.existsSync(path.resolve("static/system.json"))) destinationDirectory = "systems";
+	if (fs.existsSync(path.resolve("static/system.json")))
+		destinationDirectory = "systems";
 	else throw new Error(`Could not find ${chalk.blueBright("system.json")}`);
 
-	const linkDirectory = path.resolve(getDataPath(), destinationDirectory, repoName);
+	const linkDirectory = path.resolve(
+		getDataPath(),
+		destinationDirectory,
+		repoName,
+	);
 
 	if (argv.clean || argv.c) {
-		console.log(chalk.yellow(`Removing build in ${chalk.blueBright(linkDirectory)}.`));
+		console.log(
+			chalk.yellow(`Removing build in ${chalk.blueBright(linkDirectory)}.`),
+		);
 
 		await fs.remove(linkDirectory);
 	} else if (!fs.existsSync(linkDirectory)) {
-		console.log(chalk.green(`Linking dist to ${chalk.blueBright(linkDirectory)}.`));
+		console.log(
+			chalk.green(`Linking dist to ${chalk.blueBright(linkDirectory)}.`),
+		);
 		await fs.ensureDir(path.resolve(linkDirectory, ".."));
 		fs.symlinkSync(path.resolve(distDirectory), linkDirectory);
 	}
@@ -132,7 +79,17 @@ async function linkUserData() {
  */
 // eslint-disable-next-line no-shadow
 function getTargetVersion(currentVersion, release) {
-	if (["major", "premajor", "minor", "preminor", "patch", "prepatch", "prerelease"].includes(release)) {
+	if (
+		[
+			"major",
+			"premajor",
+			"minor",
+			"preminor",
+			"patch",
+			"prepatch",
+			"prerelease",
+		].includes(release)
+	) {
 		return semver.inc(currentVersion, release);
 	} else {
 		return semver.valid(release);
@@ -140,7 +97,11 @@ function getTargetVersion(currentVersion, release) {
 }
 
 async function changelog() {
-	await execa("npx", ["standard-version", "--skip.bump", "--skip.tag", "--skip.commit"], { stdio });
+	await execa(
+		"npx",
+		["standard-version", "--skip.bump", "--skip.tag", "--skip.commit"],
+		{ stdio },
+	);
 }
 
 /**
@@ -176,7 +137,11 @@ async function bumpVersion(cb) {
 		}
 
 		if (targetVersion === currentVersion) {
-			return cb(new Error(chalk.red("Error: Target version is identical to current version")));
+			return cb(
+				new Error(
+					chalk.red("Error: Target version is identical to current version"),
+				),
+			);
 		}
 
 		const systemManifest = JSON.parse(fs.readFileSync("static/system.json"));
@@ -190,7 +155,10 @@ async function bumpVersion(cb) {
 
 		systemManifest.version = targetVersion;
 		systemManifest.download = getDownloadURL(targetVersion);
-		fs.writeFileSync("static/system.json", JSON.stringify(systemManifest, null, "\t"));
+		fs.writeFileSync(
+			"static/system.json",
+			JSON.stringify(systemManifest, null, "\t"),
+		);
 
 		return cb();
 	} catch (err) {

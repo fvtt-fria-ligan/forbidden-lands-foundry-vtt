@@ -75,7 +75,10 @@ const parseStrings = (result) => {
 					}, []);
 				return array[Math.floor(Math.random() * array.length)];
 			};
-			return { ...obj, [key]: value.replace(/\{\{(.*?)\}\}/g, (_, p1) => randomizedString(p1)) };
+			return {
+				...obj,
+				[key]: value.replace(/\{\{(.*?)\}\}/g, (_, p1) => randomizedString(p1)),
+			};
 		} else {
 			return { ...obj, [key]: value };
 		}
@@ -85,7 +88,11 @@ const parseStrings = (result) => {
 const parseRollStrings = (results) => {
 	const parsedResults = results.split(":");
 	if (parsedResults.length === 3)
-		return rollOnTable(ALL_TABLES[parsedResults[2]], fns("all_results"), parseInt(parsedResults[1]));
+		return rollOnTable(
+			ALL_TABLES[parsedResults[2]],
+			fns("all_results"),
+			parseInt(parsedResults[1]),
+		);
 	else return [];
 };
 
@@ -95,7 +102,10 @@ const fns = (type) => {
 		all_results: (results) => results.map((result) => parseStrings(result)),
 		some_results: (results, variable = "None") =>
 			results.filter(
-				(result) => !Object.values(result).some((value) => typeof value === "string" && value.match(variable)),
+				(result) =>
+					!Object.values(result).some(
+						(value) => typeof value === "string" && value.match(variable),
+					),
 			),
 		hybrid: (results) => {
 			// The more results the higher the chance we go for unique columns
@@ -111,9 +121,17 @@ const fns = (type) => {
 		},
 		inn_name_string: (results) => {
 			if (Math.random() > 0.5) {
-				return [{ the_name_of_the_inn: `The ${results[0].first_word} ${results[1].second_word}` }];
+				return [
+					{
+						the_name_of_the_inn: `The ${results[0].first_word} ${results[1].second_word}`,
+					},
+				];
 			} else {
-				return [{ the_name_of_the_inn: `The ${results[0].second_word} & ${results[0].second_word}` }];
+				return [
+					{
+						the_name_of_the_inn: `The ${results[0].second_word} & ${results[0].second_word}`,
+					},
+				];
 			}
 		},
 	};
@@ -130,7 +148,8 @@ const getRolledData = (adventureSite) => {
 		const result = rollOnTable(table, fns(type), rollCount);
 		results[tableName] = result;
 		if (ALL_TABLES[tableName + "_description"]) {
-			results[tableName + "_description"] = ALL_TABLES[tableName + "_description"];
+			results[tableName + "_description"] =
+				ALL_TABLES[tableName + "_description"];
 		}
 	}
 	return results;
@@ -142,7 +161,11 @@ const rollOnTable = (table, fn, count = 1, modifier = 0) => {
 	// Loop over the number of times we want to roll
 	for (let i = 0; i < count; i++) {
 		let resultCount = 0;
-		const dieRoll = Math.floor(Math.random() * table.reduce((acc, cur) => acc + cur.weight, 0) + modifier + 1);
+		const dieRoll = Math.floor(
+			Math.random() * table.reduce((acc, cur) => acc + cur.weight, 0) +
+				modifier +
+				1,
+		);
 		// Loop over the table until we find the rolled result, accounting for the weight of each result
 		for (const result of table) {
 			resultCount += result.weight;
@@ -175,7 +198,10 @@ export const init = async (path, adventureSite) => {
 	let data = getRolledData(adventureSite);
 	data = moldData(data, adventureSite);
 	// construct the html
-	const html = await renderTemplate(`modules/${path}/templates/${adventureSite}.hbs`, data);
+	const html = await renderTemplate(
+		`modules/${path}/templates/${adventureSite}.hbs`,
+		data,
+	);
 	const content = inlineRolls(html);
 	return content;
 };

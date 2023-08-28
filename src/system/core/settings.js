@@ -23,7 +23,8 @@ Hooks.on("renderSettingsConfig", (_app, html, _user) => {
 		)}"><i class="fas fa-flask"></i></button>`,
 	);
 	experimentalButton.on("click", function () {
-		target.value = "systems/forbidden-lands/assets/datasets/chargen/dataset-experimental.json";
+		target.value =
+			"systems/forbidden-lands/assets/datasets/chargen/dataset-experimental.json";
 		this.blur();
 	});
 
@@ -42,7 +43,8 @@ export class TableConfigMenu extends FormApplication {
 
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
-			template: "systems/forbidden-lands/templates/components/tables-config.hbs",
+			template:
+				"systems/forbidden-lands/templates/components/tables-config.hbs",
 			classes: ["tables-config"],
 			title: "CONFIG.TABLE_CONFIG.TITLE",
 			submitOnClose: false,
@@ -52,7 +54,10 @@ export class TableConfigMenu extends FormApplication {
 	async getData() {
 		const data = await super.getData();
 		const mishapConfig = game.settings.get("forbidden-lands", "mishapTables");
-		const encounterConfig = game.settings.get("forbidden-lands", "encounterTables");
+		const encounterConfig = game.settings.get(
+			"forbidden-lands",
+			"encounterTables",
+		);
 		const otherConfig = game.settings.get("forbidden-lands", "otherTables");
 		const mishapKeys = CONFIG.fbl.mishapTables;
 		const encounterKeys = CONFIG.fbl.encounterTables;
@@ -78,7 +83,9 @@ export class TableConfigMenu extends FormApplication {
 			const tree = game.tables.directory.folders;
 			for (const folder of tree) {
 				const options =
-					folder.contents?.map((table) => `<option value="${table.id}">${table.name}</option>`) ?? null;
+					folder.contents?.map(
+						(table) => `<option value="${table.id}">${table.name}</option>`,
+					) ?? null;
 				if (options.length > 0) {
 					if (selectOptions[folder.name]) {
 						selectOptions[folder.name] += options;

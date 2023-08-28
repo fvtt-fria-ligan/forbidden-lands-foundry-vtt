@@ -59,11 +59,15 @@ export class FBLCombat extends Combat {
 		return initA - initB;
 	}
 
-	async rollInitiative(ids, { _ = null, updateTurn = true, messageOptions = {} } = {}) {
+	async rollInitiative(
+		ids,
+		{ _ = null, updateTurn = true, messageOptions = {} } = {},
+	) {
 		// Structure input data
 		ids = typeof ids === "string" ? [ids] : ids;
 		const currentId = this.combatant?.id;
-		const rollMode = messageOptions.rollMode || game.settings.get("core", "rollMode");
+		const rollMode =
+			messageOptions.rollMode || game.settings.get("core", "rollMode");
 
 		// Initialize finite initiative deck based on existing initiative values in Combat.
 		this.initiativeDeck = Array.fromRange(CONFIG.fbl.maxInit ?? 10)
@@ -71,7 +75,9 @@ export class FBLCombat extends Combat {
 			.filter((num) => !this.turns.some((c) => c?.initiative === num));
 
 		if (this.initiativeDeck.length === 0)
-			return ui.notifications.warn(localizeString("WARNING.NO_AVAILABLE_VALUES"));
+			return ui.notifications.warn(
+				localizeString("WARNING.NO_AVAILABLE_VALUES"),
+			);
 
 		// Iterate over Combatants, performing an initiative roll for each
 		const updates = [];
@@ -113,14 +119,19 @@ export class FBLCombat extends Combat {
 						token: combatant.token,
 						alias: combatant.name,
 					}),
-					flavor: game.i18n.format("COMBAT.RollsInitiative", { name: combatant.name }),
+					flavor: game.i18n.format("COMBAT.RollsInitiative", {
+						name: combatant.name,
+					}),
 					flags: { "core.initiativeRoll": true },
 				},
 				messageOptions,
 			);
 			const chatData = await roll.toMessage(messageData, {
 				create: false,
-				rollMode: combatant.hidden && ["roll", "publicroll"].includes(rollMode) ? "gmroll" : rollMode,
+				rollMode:
+					combatant.hidden && ["roll", "publicroll"].includes(rollMode)
+						? "gmroll"
+						: rollMode,
 			});
 
 			// Play 1 sound for the whole rolled set
@@ -134,7 +145,9 @@ export class FBLCombat extends Combat {
 
 		// Ensure the turn order remains with the same combatant
 		if (updateTurn && currentId) {
-			await this.update({ turn: this.turns.findIndex((t) => t.id === currentId) });
+			await this.update({
+				turn: this.turns.findIndex((t) => t.id === currentId),
+			});
 		}
 
 		// Create multiple chat messages
