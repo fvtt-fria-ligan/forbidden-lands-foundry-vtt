@@ -1,12 +1,14 @@
 {
 	"compilerOptions": {
 		"noEmit": true,
+		"strict": true,
+		"skipLibCheck": true,
 		"target": "ESNext",
 		"module": "ESNext",
 		"moduleResolution": "Bundler",
 		"lib": ["ESNext"],
 		"types": []
 	},
-	"include": ["./**/*.ts"],
+	"include": ["./tools/*.ts", "package.json", "system.json"],
 	"exclude": ["node_modules"]
 }

@@ -15,7 +15,7 @@ const cli = build("setup")
 			const { print, prompt, filesystem } = tools;
 			print.highlight("Welcome to Forbidden Lands Development!");
 
-			let data: string;
+			let data = "";
 			while (!data) {
 				let { directory } = await prompt.ask([
 					{

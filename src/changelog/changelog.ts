@@ -28,7 +28,7 @@ export class Changelog extends FormApplication {
 		throw new Error("Method not implemented.");
 	}
 
-	constructor(object?: object, options?: FormApplicationOptions) {
+	constructor(object: object = {}, options?: FormApplicationOptions) {
 		super(object, options);
 
 		this.SOURCE =
