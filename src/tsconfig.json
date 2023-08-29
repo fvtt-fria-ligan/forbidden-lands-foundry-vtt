@@ -1,0 +1,23 @@
+{
+	"extends": "../tsconfig.json",
+	"compilerOptions": {
+		"allowJs": true,
+		"lib": ["ESNext", "DOM"],
+		"types": [
+			"@league-of-foundry-developers/foundry-vtt-types",
+			"@types/jquery",
+			"@types/showdown"
+		],
+		"baseUrl": ".",
+		"paths": {
+			"$*": ["./*"],
+			"@utils/*": ["./utils/*"],
+			"@actor/*": ["./actor/*"],
+			"@item/*": ["./item/*"],
+			"@journal/*": ["./journal/*"],
+			"@components/*": ["./components/*"],
+			"@system/*": ["./system/*"]
+		}
+	},
+	"include": ["./**/*.ts", "./**/*.js"]
+}

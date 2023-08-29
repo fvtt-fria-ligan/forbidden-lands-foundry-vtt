@@ -7,8 +7,7 @@ import templatePathsPromise from "./tools/get-template-paths.js";
 
 const templatePaths = await templatePathsPromise;
 
-const development = Object.hasOwn(args, "dev");
-const watch = Object.hasOwn(args, "watch") && development;
+const development = Object.hasOwn(args, "development");
 
 if (existsSync("./forbidden-lands.js")) await rm("./forbidden-lands.js");
 if (existsSync("./forbidden-lands.css")) await rm("./forbidden-lands.css");
@@ -49,5 +48,5 @@ const ctx = await context({
 
 ctx.rebuild();
 
-if (watch) ctx.watch();
+if (development) ctx.watch();
 else ctx.dispose();

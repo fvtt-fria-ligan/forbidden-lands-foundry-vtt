@@ -1,28 +1,12 @@
-// @ts-nocheck
 {
 	"compilerOptions": {
 		"noEmit": true,
 		"target": "ESNext",
 		"module": "ESNext",
 		"moduleResolution": "Bundler",
-		"allowJs": true,
-		//"lib": ["ESNext", "DOM"],
-		"types": [
-			"@league-of-foundry-developers/foundry-vtt-types",
-			"@types/jquery",
-			"@types/showdown"
-		],
-		"baseUrl": ".",
-		"paths": {
-			"$*": ["./src/*"],
-			"@utils/*": ["./src/utils/*"],
-			"@actor/*": ["./src/actor/*"],
-			"@item/*": ["./src/item/*"],
-			"@journal/*": ["./src/journal/*"],
-			"@components/*": ["./src/components/*"],
-			"@system/*": ["./src/system/*"]
-		}
+		"lib": ["ESNext"],
+		"types": []
 	},
-	"include": ["./**/*.ts", "./**/*.js"],
-	"exclude": ["node_modules/*", "**/node_modules/*", "./forbidden-lands.js"]
+	"include": ["./**/*.ts"],
+	"exclude": ["node_modules"]
 }
