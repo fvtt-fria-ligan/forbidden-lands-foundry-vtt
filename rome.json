@@ -5,9 +5,7 @@
 	},
 	"linter": {
 		"enabled": true,
-		"ignore": [
-			"./forbidden-lands.js"
-		],
+		"ignore": ["./forbidden-lands.js"],
 		"rules": {
 			"recommended": true,
 			"style": {

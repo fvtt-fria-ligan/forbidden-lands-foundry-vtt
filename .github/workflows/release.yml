@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - main
-    tags:
-      - "*"
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   release:
@@ -13,26 +13,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2.2.4
-      - name: Setup NodeJS 20
-        uses: actions/setup-node@v3
-        with:
-          node-version: "20"
-          cache: "pnpm"
-      - name: "Install Dependencies"
-        run: pnpm -recursive install
+      - uses: oven-sh/setup-bun@v1
+      - name: Install Dependencies
+        run: bun install
       - name: Build Project
-        run: pnpm run build
-      - name: Get Version Tag
-        id: version
-        uses: ncipollo/semantic-version-action@v1.0.1
-      - name: Create Zipped Artifact
-        run: |
-          cd dist/
-          zip -r ../fbl-fvtt_${{ steps.version.outputs.tag }}.zip *
-      - name: Create Release
-        uses: ncipollo/release-action@v1.12.0
+        run: bun run build
+      - name: Create Release Pull Request
+        uses: changesets/action@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          artifacts: "fbl-fvtt_${{ steps.version.outputs.tag }}.zip"
-          generateReleaseNotes: true
+          commit: 'chore(release): :ship: Create Release'
+          title: 'Create Release'
+          version: bun run version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
