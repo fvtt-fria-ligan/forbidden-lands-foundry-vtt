@@ -8,8 +8,8 @@ function preloadHandlebarsTemplates() {
 
 function registerHandlebarsHelpers() {
 	Handlebars.registerHelper("skulls", function (current, max, block) {
-		var acc = "";
-		for (var i = 0; i < max; ++i) {
+		let acc = "";
+		for (let i = 0; i < max; ++i) {
 			block.data.index = i;
 			block.data.damaged = i >= current;
 			acc += block.fn(this);
@@ -22,11 +22,12 @@ function registerHandlebarsHelpers() {
 		return new Handlebars.SafeString(content);
 	});
 	Handlebars.registerHelper("flps_capitalize", function (value) {
-		return typeof value === "string" && value.length > 0 ? value[0].toUpperCase() + value.slice(1) : value;
+		return typeof value === "string" && value.length > 0
+			? value[0].toUpperCase() + value.slice(1)
+			: value;
 	});
-	Handlebars.registerHelper("flps_strconcat", function () {
-		const args = Array.prototype.slice.call(arguments);
-		args.pop(); // remove unrelated data
+	Handlebars.registerHelper("flps_strconcat", function (...args) {
+		args.pop();
 		return args.join("");
 	});
 
@@ -118,99 +119,110 @@ function registerHandlebarsHelpers() {
 		}
 	});
 	Handlebars.registerHelper("isBroken", function (item) {
-		if (parseInt(item.system.bonus.max, 10) > 0 && parseInt(item.system.bonus.value, 10) === 0) {
+		if (
+			parseInt(item.system.bonus.max, 10) > 0 &&
+			parseInt(item.system.bonus.value, 10) === 0
+		) {
 			return "broken";
 		} else {
 			return "";
 		}
 	});
 	Handlebars.registerHelper("formatRollModifiers", function (rollModifiers) {
-		let output = [];
+		const output = [];
 		Object.values(rollModifiers)
 			.filter((mod) => !mod.gearBonus)
 			.forEach((mod) => {
-				let modName = game.i18n.localize(mod.name);
+				const modName = game.i18n.localize(mod.name);
 				output.push(`${modName} ${mod.value}`);
 			});
 		return output.join(", ");
 	});
 
-	Handlebars.registerHelper("hasWeaponFeatures", function (weaponType, features) {
-		const meleeFeatures = ["edged", "pointed", "blunt", "parry", "hook"];
-		const rangedFeatures = ["slowReload"];
+	Handlebars.registerHelper(
+		"hasWeaponFeatures",
+		function (weaponType, features) {
+			const meleeFeatures = ["edged", "pointed", "blunt", "parry", "hook"];
+			const rangedFeatures = ["slowReload"];
 
-		if (features.others !== "") {
-			return true;
-		}
-
-		let weaponFeatures = [];
-		if (weaponType === "melee") {
-			weaponFeatures = meleeFeatures;
-		} else if (weaponType === "ranged") {
-			weaponFeatures = rangedFeatures;
-		}
-
-		for (const feature in features) {
-			if (weaponFeatures.includes(feature) && features[feature]) {
+			if (features.others !== "") {
 				return true;
 			}
-		}
-		return false;
-	});
 
-	Handlebars.registerHelper("formatWeaponFeatures", function (weaponType, features) {
-		let output = [];
-		if (weaponType === "melee") {
-			if (features.edged) {
-				output.push(game.i18n.localize("WEAPON.FEATURES.EDGED"));
+			let weaponFeatures = [];
+			if (weaponType === "melee") {
+				weaponFeatures = meleeFeatures;
+			} else if (weaponType === "ranged") {
+				weaponFeatures = rangedFeatures;
 			}
-			if (features.pointed) {
-				output.push(game.i18n.localize("WEAPON.FEATURES.POINTED"));
+
+			for (const feature in features) {
+				if (weaponFeatures.includes(feature) && features[feature]) {
+					return true;
+				}
 			}
-			if (features.blunt) {
-				output.push(game.i18n.localize("WEAPON.FEATURES.BLUNT"));
+			return false;
+		},
+	);
+
+	Handlebars.registerHelper(
+		"formatWeaponFeatures",
+		function (weaponType, features) {
+			const output = [];
+			if (weaponType === "melee") {
+				if (features.edged) {
+					output.push(game.i18n.localize("WEAPON.FEATURES.EDGED"));
+				}
+				if (features.pointed) {
+					output.push(game.i18n.localize("WEAPON.FEATURES.POINTED"));
+				}
+				if (features.blunt) {
+					output.push(game.i18n.localize("WEAPON.FEATURES.BLUNT"));
+				}
+				if (features.parrying) {
+					output.push(game.i18n.localize("WEAPON.FEATURES.PARRYING"));
+				}
+				if (features.hook) {
+					output.push(game.i18n.localize("WEAPON.FEATURES.HOOK"));
+				}
+			} else if (weaponType === "ranged") {
+				if (features.slowReload) {
+					output.push(game.i18n.localize("WEAPON.FEATURES.SLOW_RELOAD"));
+				}
+			} else if (features.others) {
+				output.push(features.others);
+			} else if (features) {
+				output.push(features);
 			}
-			if (features.parrying) {
-				output.push(game.i18n.localize("WEAPON.FEATURES.PARRYING"));
-			}
-			if (features.hook) {
-				output.push(game.i18n.localize("WEAPON.FEATURES.HOOK"));
-			}
-		} else if (weaponType === "ranged") {
-			if (features.slowReload) {
-				output.push(game.i18n.localize("WEAPON.FEATURES.SLOW_RELOAD"));
-			}
-		} else if (features.others) {
-			output.push(features.others);
-		} else if (features) {
-			output.push(features);
-		}
-		return output.join(", ");
-	});
+			return output.join(", ");
+		},
+	);
 
 	Handlebars.registerHelper("plaintextToHTML", function (value) {
 		// strip tags, add <br/> tags
-		return new Handlebars.SafeString(value.replace(/(<([^>]+)>)/gi, "").replace(/(?:\r\n|\r|\n)/g, "<br/>"));
+		return new Handlebars.SafeString(
+			value.replace(/(<([^>]+)>)/gi, "").replace(/(?:\r\n|\r|\n)/g, "<br/>"),
+		);
 	});
 
 	Handlebars.registerHelper("toUpperCase", function (str) {
 		return str.toUpperCase();
 	});
 
-	Handlebars.registerHelper("eq", function () {
-		const args = Array.prototype.slice.call(arguments, 0, -1);
+	Handlebars.registerHelper("eq", function (...args) {
+		args.pop();
 		return args.every(function (expression) {
 			return args[0] === expression;
 		});
 	});
 
-	Handlebars.registerHelper("or", function () {
-		const args = Array.prototype.slice.call(arguments, 0, -1);
+	Handlebars.registerHelper("or", function (...args) {
+		args.pop();
 		return args.reduce((x, y) => x || y);
 	});
 
-	Handlebars.registerHelper("and", function () {
-		const args = Array.prototype.slice.call(arguments, 0, -1);
+	Handlebars.registerHelper("and", function (...args) {
+		args.pop();
 		return args.reduce((x, y) => x && y);
 	});
 
@@ -236,9 +248,12 @@ function registerHandlebarsHelpers() {
 		return localizeString(args.join("."));
 	});
 
-	Handlebars.registerHelper("ternary", function (conditional, string1, string2) {
-		return conditional ? string1 : string2;
-	});
+	Handlebars.registerHelper(
+		"ternary",
+		function (conditional, string1, string2) {
+			return conditional ? string1 : string2;
+		},
+	);
 	Handlebars.registerHelper("count", function (array = []) {
 		if (!Array.isArray(array)) return 0;
 		return array.length;

@@ -22,11 +22,26 @@ test("Missing Comparators", () => {
 test("Accepts Equality", () => {
 	console.log("Should return true if equal");
 	assert.ok(semverComp("6.6.6", "6.6.6", "", { eqMin: true }), "Equals Min");
-	assert.ok(semverComp("8.8.8", "6.6.6", "6.6.6", { eqMax: true }), "Equals Max");
-	assert.ok(semverComp("6.6.6", "6.6.6", "6.6.6", { eqMin: true, eqMax: true }), "Equals Max");
-	assert.not.ok(semverComp("6.6.6", "5.5.5", "", { eqMin: true }), "Equals Min");
-	assert.not.ok(semverComp("8.8.8", "7.7.7", "6.6.6", { eqMax: true }), "Equals Max");
-	assert.not.ok(semverComp("4.4.4", "6.6.6", "6.6.6", { eqMin: true, eqMax: true }), "Equals Max");
+	assert.ok(
+		semverComp("8.8.8", "6.6.6", "6.6.6", { eqMax: true }),
+		"Equals Max",
+	);
+	assert.ok(
+		semverComp("6.6.6", "6.6.6", "6.6.6", { eqMin: true, eqMax: true }),
+		"Equals Max",
+	);
+	assert.not.ok(
+		semverComp("6.6.6", "5.5.5", "", { eqMin: true }),
+		"Equals Min",
+	);
+	assert.not.ok(
+		semverComp("8.8.8", "7.7.7", "6.6.6", { eqMax: true }),
+		"Equals Max",
+	);
+	assert.not.ok(
+		semverComp("4.4.4", "6.6.6", "6.6.6", { eqMin: true, eqMax: true }),
+		"Equals Max",
+	);
 });
 
 test("Accepts Less Than or Equals", () => {
@@ -42,9 +57,15 @@ test("Accepts Greater Than or Equals", () => {
 });
 
 test("Accepts Less Than and Greater Than", () => {
-	console.log("Should return true if less than or equal and greater than or equal with opts");
-	assert.ok(semverComp("6.6.6", "6.6.6", "6.6.6", { gEqMin: true, lEqMax: true }));
-	assert.not.ok(semverComp("6.7.6", "6.6.6", "6.5.6", { gEqMin: true, lEqMax: true }));
+	console.log(
+		"Should return true if less than or equal and greater than or equal with opts",
+	);
+	assert.ok(
+		semverComp("6.6.6", "6.6.6", "6.6.6", { gEqMin: true, lEqMax: true }),
+	);
+	assert.not.ok(
+		semverComp("6.7.6", "6.6.6", "6.5.6", { gEqMin: true, lEqMax: true }),
+	);
 });
 
 test("Accepts Base Case", () => {
@@ -55,8 +76,14 @@ test("Accepts Base Case", () => {
 
 test("Accepts Weird Cases", () => {
 	console.log("Accepts weird cases");
-	assert.ok(semverComp("5.15.200", "10.90.47", "10.101.30"), "Greater than ten");
-	assert.ok(semverComp("5.15.200", "10.90.47", "", { gEqMin: true }), "Greater than ten missing max");
+	assert.ok(
+		semverComp("5.15.200", "10.90.47", "10.101.30"),
+		"Greater than ten",
+	);
+	assert.ok(
+		semverComp("5.15.200", "10.90.47", "", { gEqMin: true }),
+		"Greater than ten missing max",
+	);
 });
 
 test.run();

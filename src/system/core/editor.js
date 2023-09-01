@@ -68,7 +68,8 @@ export function initializeEditorEnrichers() {
 		{
 			pattern: /@Draw\[(.+?)\]/gim,
 			enricher: async (match) => {
-				const table = game.tables.get(match[1]) ?? game.tables.getName(match[1]);
+				const table =
+					game.tables.get(match[1]) ?? game.tables.getName(match[1]);
 				const html = table
 					? /* html */ `<a
 					class="inline-table"
@@ -84,7 +85,8 @@ export function initializeEditorEnrichers() {
 		{
 			pattern: /@ToggleScene\[(.+?)\]/gim,
 			enricher: async (match) => {
-				const scene = game.scenes.get(match[1]) ?? game.scenes.getName(match[1]);
+				const scene =
+					game.scenes.get(match[1]) ?? game.scenes.getName(match[1]);
 				const html = scene
 					? /* html */ `<a
 					class="inline-scene"
@@ -168,7 +170,9 @@ function fblrListener(event) {
 		gear: {
 			label: "DICE.GEAR",
 			value: button.dataset.fblGear,
-			artifactDie: button.dataset.fblArtifact ? `1d${button.dataset.fblArtifact}` : "",
+			artifactDie: button.dataset.fblArtifact
+				? `1d${button.dataset.fblArtifact}`
+				: "",
 			damage: Number(button.dataset.fblDamage),
 		},
 		/* title: "inline Roll", */
@@ -176,7 +180,11 @@ function fblrListener(event) {
 	const options = {};
 	if (button.dataset.fblModifier) {
 		options.modifiers = [
-			{ name: localizeString("DICE.MODIFIER"), value: button.dataset.fblModifier, active: true },
+			{
+				name: localizeString("DICE.MODIFIER"),
+				value: button.dataset.fblModifier,
+				active: true,
+			},
 		];
 	}
 	return game.fbl.roll(data, options).catch((error) => console.log(error));

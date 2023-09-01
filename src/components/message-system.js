@@ -1,7 +1,9 @@
 import semverComp from "../utils/semver-compare";
 
 export default async function displayMessages() {
-	const { messages } = await fetch("systems/forbidden-lands/assets/messages/messages.jsonc")
+	const { messages } = await fetch(
+		"systems/forbidden-lands/assets/messages/messages.jsonc",
+	)
 		.then((resp) => resp.text())
 		.then((jsonc) => JSON.parse(stripJSON(jsonc)));
 
@@ -24,8 +26,14 @@ const handleDisplay = (msg) => {
 const isCurrent = (msg) => {
 	const isDisplayable = !msg.display === "once" || !hasDisplayed(msg.title);
 	const correctCoreVersion =
-		foundry.utils.isNewerVersion(msg["max-core-version"] ?? "100.0.0", game.version) &&
-		foundry.utils.isNewerVersion(game.version, msg["min-core-version"] ?? "0.0.0");
+		foundry.utils.isNewerVersion(
+			msg["max-core-version"] ?? "100.0.0",
+			game.version,
+		) &&
+		foundry.utils.isNewerVersion(
+			game.version,
+			msg["min-core-version"] ?? "0.0.0",
+		);
 	const correctSysVersion = semverComp(
 		msg["min-sys-version"] ?? "0.0.0",
 		game.system.version,

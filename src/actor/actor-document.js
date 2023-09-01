@@ -20,7 +20,8 @@ export class ForbiddenLandsActor extends Actor {
 	get canAct() {
 		if (!this.attributes) return false;
 		return Object.entries(this.attributes).every(
-			([key, attribute]) => attribute.value > 0 || attribute.max <= 0 || key === "empathy",
+			([key, attribute]) =>
+				attribute.value > 0 || attribute.max <= 0 || key === "empathy",
 		);
 	}
 
@@ -81,14 +82,17 @@ export class ForbiddenLandsActor extends Actor {
 		};
 		for await (const entity of newData) {
 			if (entity.data) {
-				entity.data = await Object.entries(entity.data).reduce(async (obj, [key, value]) => {
-					if (typeof value === "string" && value.match(inlineRoll)) {
-						const result = await createRoll(inlineRoll.exec(value));
-						value = value.replace(inlineRoll, result);
-					}
-					const resolved = await obj;
-					return { ...resolved, [key]: value };
-				}, {});
+				entity.data = await Object.entries(entity.data).reduce(
+					async (obj, [key, value]) => {
+						if (typeof value === "string" && value.match(inlineRoll)) {
+							const result = await createRoll(inlineRoll.exec(value));
+							value = value.replace(inlineRoll, result);
+						}
+						const resolved = await obj;
+						return { ...resolved, [key]: value };
+					},
+					{},
+				);
 
 				// We only want to touch flags of items that are considered "gear"
 				if (!CONFIG.fbl.carriedItemTypes.includes(data.type)) continue;
@@ -124,10 +128,15 @@ export class ForbiddenLandsActor extends Actor {
 	toggleCondition(conditionName) {
 		const conditionValue = this.conditions[conditionName].value;
 		const conditionLabel = this.conditions[conditionName].label;
-		const effect = this.effects.find((condition) => condition.getFlag("core", "statusId") === conditionName);
+		const effect = this.effects.find(
+			(condition) => condition.getFlag("core", "statusId") === conditionName,
+		);
 		if (CONFIG.fbl.conditions.includes(conditionName)) {
-			this.update({ [`system.condition.${conditionName}.value`]: !conditionValue });
-			if (conditionValue && effect) this.deleteEmbeddedDocuments("ActiveEffect", [effect.id]);
+			this.update({
+				[`system.condition.${conditionName}.value`]: !conditionValue,
+			});
+			if (conditionValue && effect)
+				this.deleteEmbeddedDocuments("ActiveEffect", [effect.id]);
 			else if (!conditionValue && !effect)
 				this.createEmbeddedDocuments("ActiveEffect", {
 					...CONFIG.fbl.activeEffects[conditionName],
@@ -137,13 +146,19 @@ export class ForbiddenLandsActor extends Actor {
 	}
 
 	rest() {
-		const activeConditions = Object.entries(this.conditions ?? {}).filter(([_, value]) => value?.value);
+		const activeConditions = Object.entries(this.conditions ?? {}).filter(
+			([_, value]) => value?.value,
+		);
 		const isBlocked = (...conditions) =>
-			conditions.some((condition) => activeConditions.map(([key, _]) => key).includes(condition));
+			conditions.some((condition) =>
+				activeConditions.map(([key, _]) => key).includes(condition),
+			);
 		const data = {
 			attribute: {
 				agility: {
-					value: isBlocked("thirsty") ? this.attributes.agility.value : this.attributes.agility.max,
+					value: isBlocked("thirsty")
+						? this.attributes.agility.value
+						: this.attributes.agility.max,
 				},
 				strength: {
 					value: isBlocked("thirsty", "cold", "hungry")
@@ -156,22 +171,32 @@ export class ForbiddenLandsActor extends Actor {
 						: this.attributes.wits.max,
 				},
 				empathy: {
-					value: isBlocked("thirsty") ? this.attributes.empathy.value : this.attributes.empathy.max,
+					value: isBlocked("thirsty")
+						? this.attributes.empathy.value
+						: this.attributes.empathy.max,
 				},
 			},
 		};
 		if (this.conditions?.sleepy.value) this.toggleCondition("sleepy");
 		this.update({ data });
-		const sleepyIndex = activeConditions.map(([key, _]) => key).indexOf("sleepy");
+		const sleepyIndex = activeConditions
+			.map(([key, _]) => key)
+			.indexOf("sleepy");
 		const wasSleepy = sleepyIndex > -1;
 		if (wasSleepy) activeConditions.splice(sleepyIndex, 1);
 		const formatter = new Intl.ListFormat(game.i18n.lang, { style: "long" });
 		ChatMessage.create({
-			content: `<div class="forbidden-lands chat-item"><h3>${this.name}</h3><h4>${localize("ACTION.REST")}</h4>${
-				wasSleepy ? `<p>${this.name} ${localize("CONDITION.IS_NO_LONGER_SLEEPY")}.</p>` : ""
+			content: `<div class="forbidden-lands chat-item"><h3>${
+				this.name
+			}</h3><h4>${localize("ACTION.REST")}</h4>${
+				wasSleepy
+					? `<p>${this.name} ${localize("CONDITION.IS_NO_LONGER_SLEEPY")}.</p>`
+					: ""
 			}${
 				activeConditions.length
-					? `<p>${this.name} ${localize("CONDITION.SUFFERING_FROM")} ${formatter.format(
+					? `<p>${this.name} ${localize(
+							"CONDITION.SUFFERING_FROM",
+					  )} ${formatter.format(
 							activeConditions
 								.filter(([key, _]) => key !== "sleepy")
 								.map(([_, value]) => `<b>${localize(value.label)}</b>`),

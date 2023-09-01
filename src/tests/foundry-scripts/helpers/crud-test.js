@@ -1,5 +1,10 @@
 import Logger from "./logger";
-export default async function (documentClassName, documentType, documentName, subtype = "") {
+export default async function (
+	documentClassName,
+	documentType,
+	documentName,
+	subtype = "",
+) {
 	try {
 		Logger.init();
 		const cls = getDocumentClass(documentClassName);

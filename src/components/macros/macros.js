@@ -69,7 +69,8 @@ async function handleWeaponMacro(actor, item) {
 			: `game.actors.get("${actor.id}").sheet.rollAction("${type}","${item._id}")`;
 	/* eslint-enable no-nested-ternary */
 	// eslint-disable-next-line no-shadow
-	const name = type === "gear" ? item.name : `${item.name}: ${localizeString(type)}`;
+	const name =
+		type === "gear" ? item.name : `${item.name}: ${localizeString(type)}`;
 	return {
 		command,
 		name,
@@ -103,7 +104,9 @@ export async function handleHotbarDrop(data, slot) {
 	// eslint-disable-next-line no-shadow
 	const { command, img, name, type } = await handler(data);
 	if (!name || !command) return;
-	let macro = game.macros.contents.find((m) => m.name === name && m.command === command);
+	let macro = game.macros.contents.find(
+		(m) => m.name === name && m.command === command,
+	);
 	if (!macro) {
 		macro = await Macro.create({
 			command,

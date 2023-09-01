@@ -15,7 +15,10 @@ export class AdventureSitesSheet extends JournalSheet {
 		html.find('[data-action="add-room"]').on("click", async () => {
 			const type = this.object.type;
 			const path = CONFIG.fbl.adventureSites.types[type];
-			const room = await CONFIG.fbl.adventureSites?.generate(path, type + "_rooms");
+			const room = await CONFIG.fbl.adventureSites?.generate(
+				path,
+				`${type}_rooms`,
+			);
 			const pageName = $(room)
 				.find("h4, strong")
 				?.first()
@@ -23,7 +26,11 @@ export class AdventureSitesSheet extends JournalSheet {
 				.replace(/[^\p{L}]+/u, " ")
 				.trim();
 			await this.object.createEmbeddedDocuments("JournalEntryPage", [
-				{ name: pageName, title: { level: 2, show: false }, text: { content: room } },
+				{
+					name: pageName,
+					title: { level: 2, show: false },
+					text: { content: room },
+				},
 			]);
 		});
 	}

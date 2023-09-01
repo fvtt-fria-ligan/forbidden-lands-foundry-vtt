@@ -7,7 +7,10 @@ import { ForbiddenLandsActorSheet } from "../actor-sheet.js";
 
 export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
-		const useHealthAndResolve = game.settings.get("forbidden-lands", "useHealthAndResolve");
+		const useHealthAndResolve = game.settings.get(
+			"forbidden-lands",
+			"useHealthAndResolve",
+		);
 		return mergeObject(super.defaultOptions, {
 			classes: ["forbidden-lands", "sheet", "actor"],
 			width: 660,
@@ -76,7 +79,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			const currency = $(ev.currentTarget).data("currency");
 			const operator = $(ev.currentTarget).data("operator");
 			const modifier = ev.type === "contextmenu" ? 5 : 1;
-			let coins = [
+			const coins = [
 				this.actor.actorProperties.currency.gold.value,
 				this.actor.actorProperties.currency.silver.value,
 				this.actor.actorProperties.currency.copper.value,
@@ -109,7 +112,8 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 
 	async rollConsumable(identifier) {
 		const consumable = this.actor.consumables[identifier];
-		if (!consumable.value) return ui.notifications.warn(localizeString("WARNING.NO_CONSUMABLE"));
+		if (!consumable.value)
+			return ui.notifications.warn(localizeString("WARNING.NO_CONSUMABLE"));
 		const rollName = localizeString(consumable.label);
 		const dice = CONFIG.fbl.consumableDice[consumable.value];
 		const options = {
@@ -119,10 +123,13 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			type: "consumable",
 			...this.getRollOptions(),
 		};
-		const roll = FBLRoll.create(dice + `[${rollName}]`, {}, options);
+		const roll = FBLRoll.create(`${dice}[${rollName}]`, {}, options);
 		await roll.roll({ async: true });
 		const message = await roll.toMessage();
-		if (Number(message.roll.result) <= (game.settings.get("forbidden-lands", "autoDecreaseConsumable") || 0)) {
+		if (
+			Number(message.roll.result) <=
+			(game.settings.get("forbidden-lands", "autoDecreaseConsumable") || 0)
+		) {
 			FBLRollHandler.decreaseConsumable(message.id);
 		}
 	}
@@ -137,7 +144,11 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			maxPush: "0",
 			...this.getRollOptions(),
 		};
-		const roll = FBLRoll.create(CONFIG.fbl.prideDice + `[${rollName}]`, {}, options);
+		const roll = FBLRoll.create(
+			`${CONFIG.fbl.prideDice}[${rollName}]`,
+			{},
+			options,
+		);
 		await roll.roll({ async: true });
 		return roll.toMessage();
 	}
@@ -151,7 +162,11 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			maxPush: "0",
 			...this.getRollOptions(),
 		};
-		const roll = FBLRoll.create(reputation.value + "db" + `[${rollName}]`, {}, options);
+		const roll = FBLRoll.create(
+			`${reputation.value}db[${rollName}]`,
+			{},
+			options,
+		);
 		await roll.roll({ async: true });
 		return roll.toMessage();
 	}
@@ -198,7 +213,9 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 					class: "char-gen",
 					icon: "fas fa-leaf",
 					onclick: async () => {
-						const hasFilledAttributes = Object.values(this.actor.actorProperties.attribute)
+						const hasFilledAttributes = Object.values(
+							this.actor.actorProperties.attribute,
+						)
 							.flatMap((a) => a.value + a.max)
 							.some((v) => v > 0);
 
@@ -206,10 +223,14 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 							Dialog.confirm({
 								title: game.i18n.localize("FLCG.TITLE"),
 								content: `
-									<h2 style="text-align: center;font-weight: 600; border:none;">${game.i18n.localize("FLCG.WARNING")}</h2>
+									<h2 style="text-align: center;font-weight: 600; border:none;">${game.i18n.localize(
+										"FLCG.WARNING",
+									)}</h2>
 									<p>${game.i18n.localize("FLCG.WARNING_DESTRUCTIVE_EDIT")}</p><hr/>
 									<p>${game.i18n.localize("FLCG.WARNING_HINT")}</p>
-									<p style="text-align: center;"><b>${game.i18n.localize("FLCG.WARNING_ARE_YOU_SURE")}</b></p>
+									<p style="text-align: center;"><b>${game.i18n.localize(
+										"FLCG.WARNING_ARE_YOU_SURE",
+									)}</b></p>
 									<br/>`,
 								yes: async () => await this._charGen(),
 								no: () => {},

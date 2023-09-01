@@ -8,7 +8,8 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 		return mergeObject(super.defaultOptions, {
 			...super.defaultOptions,
 			classes: ["forbidden-lands", "sheet", "actor"],
-			template: "systems/forbidden-lands/templates/actor/monster/monster-sheet.hbs",
+			template:
+				"systems/forbidden-lands/templates/actor/monster/monster-sheet.hbs",
 			width: 700,
 			height: 770,
 			resizable: false,
@@ -38,7 +39,9 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 	activateListeners(html) {
 		super.activateListeners(html);
 
-		html.find(".roll-armor").click((ev) => this.rollArmor() && ev.target.blur());
+		html
+			.find(".roll-armor")
+			.click((ev) => this.rollArmor() && ev.target.blur());
 		html.find("#monster-attack-btn").click(() => this.rollAttack());
 		html.find(".roll-attack").click((ev) => {
 			const itemId = $(ev.currentTarget).data("itemId");

@@ -1,10 +1,6 @@
 import localizeString from "@utils/localize-string.js";
 
 export class FBLCombatant extends Combatant {
-	constructor(data, options) {
-		super(data, options);
-	}
-
 	get fast() {
 		return this.getFlag("forbidden-lands", "fast");
 	}
@@ -59,11 +55,15 @@ export class FBLCombat extends Combat {
 		return initA - initB;
 	}
 
-	async rollInitiative(ids, { _ = null, updateTurn = true, messageOptions = {} } = {}) {
+	async rollInitiative(
+		ids,
+		{ _ = null, updateTurn = true, messageOptions = {} } = {},
+	) {
 		// Structure input data
 		ids = typeof ids === "string" ? [ids] : ids;
 		const currentId = this.combatant?.id;
-		const rollMode = messageOptions.rollMode || game.settings.get("core", "rollMode");
+		const rollMode =
+			messageOptions.rollMode || game.settings.get("core", "rollMode");
 
 		// Initialize finite initiative deck based on existing initiative values in Combat.
 		this.initiativeDeck = Array.fromRange(CONFIG.fbl.maxInit ?? 10)
@@ -71,12 +71,14 @@ export class FBLCombat extends Combat {
 			.filter((num) => !this.turns.some((c) => c?.initiative === num));
 
 		if (this.initiativeDeck.length === 0)
-			return ui.notifications.warn(localizeString("WARNING.NO_AVAILABLE_VALUES"));
+			return ui.notifications.warn(
+				localizeString("WARNING.NO_AVAILABLE_VALUES"),
+			);
 
 		// Iterate over Combatants, performing an initiative roll for each
 		const updates = [];
 		const messages = [];
-		for (let [i, id] of ids.entries()) {
+		for (const [i, id] of ids.entries()) {
 			// Get Combatant data (non-strictly)
 			const combatant = this.combatants.get(id);
 
@@ -106,21 +108,26 @@ export class FBLCombat extends Combat {
 			roll.terms = [];
 
 			// Construct chat message data
-			let messageData = foundry.utils.mergeObject(
+			const messageData = foundry.utils.mergeObject(
 				{
 					speaker: ChatMessage.getSpeaker({
 						actor: combatant.actor,
 						token: combatant.token,
 						alias: combatant.name,
 					}),
-					flavor: game.i18n.format("COMBAT.RollsInitiative", { name: combatant.name }),
+					flavor: game.i18n.format("COMBAT.RollsInitiative", {
+						name: combatant.name,
+					}),
 					flags: { "core.initiativeRoll": true },
 				},
 				messageOptions,
 			);
 			const chatData = await roll.toMessage(messageData, {
 				create: false,
-				rollMode: combatant.hidden && ["roll", "publicroll"].includes(rollMode) ? "gmroll" : rollMode,
+				rollMode:
+					combatant.hidden && ["roll", "publicroll"].includes(rollMode)
+						? "gmroll"
+						: rollMode,
 			});
 
 			// Play 1 sound for the whole rolled set
@@ -134,7 +141,9 @@ export class FBLCombat extends Combat {
 
 		// Ensure the turn order remains with the same combatant
 		if (updateTurn && currentId) {
-			await this.update({ turn: this.turns.findIndex((t) => t.id === currentId) });
+			await this.update({
+				turn: this.turns.findIndex((t) => t.id === currentId),
+			});
 		}
 
 		// Create multiple chat messages

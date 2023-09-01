@@ -10,7 +10,8 @@ import { registerDiceSoNice } from "../../external-api/dice-so-nice.js";
 export default function registerHooks() {
 	// Sockets
 	game.socket.on("system.forbidden-lands", (data) => {
-		if (data.operation === "pushRoll" && data.isOwner) game.messages.get(data.id)?.delete();
+		if (data.operation === "pushRoll" && data.isOwner)
+			game.messages.get(data.id)?.delete();
 	});
 
 	Hooks.once("diceSoNiceReady", (dice3d) => {
@@ -48,7 +49,8 @@ export default function registerHooks() {
 						g: "gear",
 						n: "negative",
 					};
-					if (map[deno] === "negative") options.modifiers.push({ value: -Number(num), active: true });
+					if (map[deno] === "negative")
+						options.modifiers.push({ value: -Number(num), active: true });
 					else if (map[deno]) data[map[deno]].value += Number(num);
 					else data.gear.artifactDie += term;
 				}
@@ -59,32 +61,69 @@ export default function registerHooks() {
 	});
 
 	if (game.settings.get("forbidden-lands", "collapseSheetHeaderButtons"))
-		for (const hook of ["renderItemSheet", "renderActorSheet", "renderJournalSheet", "renderApplication"]) {
+		for (const hook of [
+			"renderItemSheet",
+			"renderActorSheet",
+			"renderJournalSheet",
+			"renderApplication",
+		]) {
 			Hooks.on(hook, (_app, html) => {
-				html.find(".char-gen")?.html(
-					`<i class="fas fa-leaf" data-tooltip="${game.i18n.localize("SHEET.HEADER.CHAR_GEN")}"></i>`,
-				);
-				html.find(".rest-up")?.html(
-					`<i class="fas fa-bed" data-tooltip="${game.i18n.localize("SHEET.HEADER.REST")}"></i>`,
-				);
-				html.find(".custom-roll")?.html(
-					`<i class="fas fa-dice" data-tooltip="${game.i18n.localize("SHEET.HEADER.ROLL")}"></i>`,
-				);
-				html.find(".configure-sheet")?.html(
-					`<i class="fas fa-cog" data-tooltip="${game.i18n.localize("SHEET.CONFIGURE")}"></i>`,
-				);
-				html.find(".configure-token")?.html(
-					`<i class="fas fa-user-circle" data-tooltip="${game.i18n.localize("SHEET.TOKEN")}"></i>`,
-				);
-				html.find(".item-post")?.html(
-					`<i class="fas fa-comment" data-tooltip="${game.i18n.localize("SHEET.HEADER.POST_ITEM")}"></i>`,
-				);
-				html.find(".share-image")?.html(
-					`<i class="fas fa-eye" data-tooltip="${game.i18n.localize("JOURNAL.ActionShow")}"></i>`,
-				);
-				html.find(".close")?.html(
-					`<i class="fas fa-times" data-tooltip="${game.i18n.localize("SHEET.CLOSE")}"></i>`,
-				);
+				html
+					.find(".char-gen")
+					?.html(
+						`<i class="fas fa-leaf" data-tooltip="${game.i18n.localize(
+							"SHEET.HEADER.CHAR_GEN",
+						)}"></i>`,
+					);
+				html
+					.find(".rest-up")
+					?.html(
+						`<i class="fas fa-bed" data-tooltip="${game.i18n.localize(
+							"SHEET.HEADER.REST",
+						)}"></i>`,
+					);
+				html
+					.find(".custom-roll")
+					?.html(
+						`<i class="fas fa-dice" data-tooltip="${game.i18n.localize(
+							"SHEET.HEADER.ROLL",
+						)}"></i>`,
+					);
+				html
+					.find(".configure-sheet")
+					?.html(
+						`<i class="fas fa-cog" data-tooltip="${game.i18n.localize(
+							"SHEET.CONFIGURE",
+						)}"></i>`,
+					);
+				html
+					.find(".configure-token")
+					?.html(
+						`<i class="fas fa-user-circle" data-tooltip="${game.i18n.localize(
+							"SHEET.TOKEN",
+						)}"></i>`,
+					);
+				html
+					.find(".item-post")
+					?.html(
+						`<i class="fas fa-comment" data-tooltip="${game.i18n.localize(
+							"SHEET.HEADER.POST_ITEM",
+						)}"></i>`,
+					);
+				html
+					.find(".share-image")
+					?.html(
+						`<i class="fas fa-eye" data-tooltip="${game.i18n.localize(
+							"JOURNAL.ActionShow",
+						)}"></i>`,
+					);
+				html
+					.find(".close")
+					?.html(
+						`<i class="fas fa-times" data-tooltip="${game.i18n.localize(
+							"SHEET.CLOSE",
+						)}"></i>`,
+					);
 			});
 		}
 
@@ -97,7 +136,8 @@ export default function registerHooks() {
 	});
 
 	Hooks.on("renderActorSheet", function (app, html) {
-		if (app.actor.system.type === "party") app._element[0].style.height = "auto";
+		if (app.actor.system.type === "party")
+			app._element[0].style.height = "auto";
 
 		if (app.cellId?.match(/#gm-screen.+/)) {
 			const buttons = html.find("button");
@@ -177,9 +217,13 @@ export default function registerHooks() {
 			name: localizeString("COMBAT.DUPLICATE"),
 			icon: "<i class='fas fa-copy'></i>",
 			callback: (li) => {
-				const combatant = game.combats.viewed.combatants.get(li.data("combatant-id"));
+				const combatant = game.combats.viewed.combatants.get(
+					li.data("combatant-id"),
+				);
 				if (combatant)
-					return game.combats.viewed.createEmbeddedDocuments("Combatant", [combatant.clone().data]);
+					return game.combats.viewed.createEmbeddedDocuments("Combatant", [
+						combatant.clone().data,
+					]);
 			},
 		});
 	});

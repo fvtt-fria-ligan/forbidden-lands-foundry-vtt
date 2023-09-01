@@ -67,13 +67,18 @@ export class ForbiddenLandsItem extends Item {
 	getRollModifier(...rollIdentifiers) {
 		if (foundry.utils.getType(this.rollModifiers) !== "Object") return;
 		const modifiers = Object.values(this.rollModifiers).reduce((array, mod) => {
-			const match = rollIdentifiers.includes(objectSearch(CONFIG.fbl.i18n, mod.name));
+			const match = rollIdentifiers.includes(
+				objectSearch(CONFIG.fbl.i18n, mod.name),
+			);
 			const state = this.getFlag("forbidden-lands", "state");
 			const isCarriedOrTalent =
-				state === "equipped" || state === "carried" || !CONFIG.fbl.carriedItemTypes.includes(this.type);
+				state === "equipped" ||
+				state === "carried" ||
+				!CONFIG.fbl.carriedItemTypes.includes(this.type);
 			if (match && isCarriedOrTalent) {
 				let value;
-				if (mod.value.match(/\d*d(?:8|10|12)/i)) value = mod.value.replace(/^\+/, "");
+				if (mod.value.match(/\d*d(?:8|10|12)/i))
+					value = mod.value.replace(/^\+/, "");
 				else if (mod.gearBonus) value = Number(this.bonus);
 				else value = Number(mod.value);
 
@@ -93,7 +98,10 @@ export class ForbiddenLandsItem extends Item {
 			} else return array;
 		}, []);
 
-		if (rollIdentifiers.includes("parry") && rollIdentifiers.includes(this.id)) {
+		if (
+			rollIdentifiers.includes("parry") &&
+			rollIdentifiers.includes(this.id)
+		) {
 			if (this.parryPenalty)
 				modifiers.push({
 					name: localizeString("WEAPON.FEATURES.PARRYING"),
@@ -126,16 +134,25 @@ export class ForbiddenLandsItem extends Item {
 		if (itemData.img.includes("/mystery-man")) {
 			itemData.img = null;
 		}
-		if (CONFIG.fbl.itemTypes.includes(itemData.type)) itemData[`is${itemData.type.capitalize()}`] = true;
+		if (CONFIG.fbl.itemTypes.includes(itemData.type))
+			itemData[`is${itemData.type.capitalize()}`] = true;
 		itemData.showField = {};
 		for (const field of ["Appearance", "Description", "Drawback", "Effect"]) {
-			if (itemData.system[field.toLowerCase()] && !this.getFlag("forbidden-lands", field))
+			if (
+				itemData.system[field.toLowerCase()] &&
+				!this.getFlag("forbidden-lands", field)
+			)
 				itemData.showField[field.toLowerCase()] = true;
 		}
 		itemData.hasRollModifiers =
 			itemData.system.rollModifiers &&
-			Object.values(itemData.system.rollModifiers).filter((mod) => !mod.gearBonus).length > 0;
-		const html = await renderTemplate("systems/forbidden-lands/templates/components/item-chatcard.hbs", itemData);
+			Object.values(itemData.system.rollModifiers).filter(
+				(mod) => !mod.gearBonus,
+			).length > 0;
+		const html = await renderTemplate(
+			"systems/forbidden-lands/templates/components/item-chatcard.hbs",
+			itemData,
+		);
 		const chatData = {
 			user: game.userId,
 			rollMode: game.settings.get("core", "rollMode"),

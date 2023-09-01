@@ -105,9 +105,23 @@ FBL.encumbrance = {
 	8: 8,
 };
 
-FBL.enrichedActorFields = ["note", "pride", "face", "body", "clothing", "darkSecret"];
+FBL.enrichedActorFields = [
+	"note",
+	"pride",
+	"face",
+	"body",
+	"clothing",
+	"darkSecret",
+];
 
-FBL.enrichedItemFields = ["description", "effect", "drawback", "appearance", "tools", "features.others"];
+FBL.enrichedItemFields = [
+	"description",
+	"effect",
+	"drawback",
+	"appearance",
+	"tools",
+	"features.others",
+];
 
 FBL.i18n = {
 	armor: "ITEM.TypeArmor",
@@ -257,7 +271,15 @@ FBL.skillAttributeMap = {
 	survival: "wits",
 };
 
-FBL.weaponFeatures = ["blunt", "edged", "hook", "parrying", "shield", "pointed", "slowReload"];
+FBL.weaponFeatures = [
+	"blunt",
+	"edged",
+	"hook",
+	"parrying",
+	"shield",
+	"pointed",
+	"slowReload",
+];
 
 export const modifyConfig = () => {
 	const settings = ["maxInit"];

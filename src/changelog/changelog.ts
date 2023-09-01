@@ -14,6 +14,12 @@ declare namespace game {
 
 type PromiseFullfilled<T> = { status: "fulfilled"; value: T };
 
+interface Release {
+	tag_name: string;
+	published_at: string;
+	body: string;
+}
+
 export class Changelog extends FormApplication {
 	SOURCE: string;
 	#converter: showdown.Converter;
@@ -22,10 +28,11 @@ export class Changelog extends FormApplication {
 		throw new Error("Method not implemented.");
 	}
 
-	constructor(object?: object, options?: FormApplicationOptions) {
+	constructor(object: object = {}, options?: FormApplicationOptions) {
 		super(object, options);
 
-		this.SOURCE = "https://api.github.com/repos/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases?per_page=10";
+		this.SOURCE =
+			"https://api.github.com/repos/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases?per_page=10";
 
 		this.#converter = (() => {
 			Object.entries({
@@ -88,7 +95,7 @@ export class Changelog extends FormApplication {
 		});
 
 		const changelog = await Promise.allSettled(
-			data.map(async (release: any, index: number) => {
+			data.map(async (release: Release, index: number) => {
 				const version = release.tag_name;
 				const date = localizedDate.format(new Date(release.published_at));
 				const raw = release.body;
@@ -102,7 +109,10 @@ export class Changelog extends FormApplication {
 		);
 
 		return changelog
-			.filter((entry): entry is PromiseFullfilled<string> => entry.status === "fulfilled")
+			.filter(
+				(entry): entry is PromiseFullfilled<string> =>
+					entry.status === "fulfilled",
+			)
 			.map((entry) => entry.value)
 			.join("<hr>");
 	}

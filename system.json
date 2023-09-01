@@ -1,0 +1,96 @@
+{
+	"id": "forbidden-lands",
+	"name": "forbidden-lands",
+	"title": "Forbidden Lands",
+	"description": "'Round the beggar from Varassa all sat in a ring, and by the campfire they sat and heard his song. About walkers and wolfkin and every terrible thing, and of his fear he sang to them all night long: <em>\"There is something beyond the mountains, beyond the howls beyond the mist, there is something behind the veils, behind hearts cold as stone. Hearken, something walks and whispers, walks and lures you in and whimpers: Come to us, for this earth shall ever be ours and ours alone!\"</em>",
+	"version": "11.3.0",
+	"authors": [
+		{
+			"name": "aMediocreDad",
+			"email": "hello@amediocre.dev"
+		},
+		{
+			"name": "narukaioh"
+		}
+	],
+	"minimumCoreVersion": 10,
+	"compatibility": {
+		"minimum": "10",
+		"verified": "11"
+	},
+	"contributors": "perfectro, patrys, Maxter, jimorie, giant-teapot, romelwell, roonel, moo-man, lasseborly",
+	"localization": "Rosataker, ptosekigloo, DavidCMeier, ismail-ahmed, franklinbenini",
+	"allowBugReporter": true,
+	"bugs": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues",
+	"media": [
+		{
+			"type": "cover",
+			"url": "https://user-images.githubusercontent.com/9851733/108728684-1a954b00-752a-11eb-9138-6fab6f83b2a8.jpg"
+		},
+		{
+			"type": "screenshot",
+			"url": "https://user-images.githubusercontent.com/9851733/115126329-9cf03780-9fce-11eb-953f-96cc54a097c4.png"
+		}
+	],
+	"esmodules": ["forbidden-lands.js"],
+	"styles": ["forbidden-lands.css"],
+	"packs": [],
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "lang/en.json"
+		},
+		{
+			"lang": "fr",
+			"name": "Français",
+			"path": "lang/fr.json"
+		},
+		{
+			"lang": "pt-BR",
+			"name": "Português Brasileiro",
+			"path": "lang/pt-br.json"
+		},
+		{
+			"lang": "cs",
+			"name": "Čeština",
+			"path": "lang/cs.json"
+		},
+		{
+			"lang": "de",
+			"name": "Deutsch",
+			"path": "lang/de.json"
+		},
+		{
+			"lang": "sv",
+			"name": "Svenska",
+			"path": "lang/sv.json"
+		},
+		{
+			"lang": "es",
+			"name": "Español",
+			"path": "lang/es.json"
+		},
+		{
+			"lang": "zh-TW",
+			"name": "正體中文",
+			"path": "lang/zh-TW.json"
+		}
+	],
+	"flags": {
+		"hotReload": {
+			"extensions": ["css", "hbs", "json"],
+			"paths": ["forbidden-lands.css", "templates", "lang"]
+		}
+	},
+	"gridDistance": 1,
+	"gridUnits": "m",
+	"background": "systems/forbidden-lands/assets/splash-page.jpg",
+	"primaryTokenAttribute": null,
+	"secondaryTokenAttribute": null,
+	"url": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt",
+	"socket": true,
+	"manifest": "https://raw.githubusercontent.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/main/system.json",
+	"download": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v11.3.0/forbidden-lands.zip",
+	"license": "LICENSE"
+}

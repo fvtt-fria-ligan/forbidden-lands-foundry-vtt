@@ -1,0 +1,16 @@
+commit-msg:
+  commands:
+    commitlint:
+      run: bunx devmoji -e --lint
+
+pre-commit:
+  commands:
+    format:
+      run: bun run format
+
+pre-push:
+  commands:
+    test:
+      run: bun run lint
+    format:
+      run: bun run format
