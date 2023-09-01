@@ -23,8 +23,4 @@ jobs:
         run: bun install
       - name: "Run Linter"
         run: bun run test
-      - name: "Test"
-      # remove after Bun test done
-        run: bun run test-script
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

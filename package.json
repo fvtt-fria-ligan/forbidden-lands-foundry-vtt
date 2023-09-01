@@ -22,15 +22,15 @@
 	"scripts": {
 		"build": "bun esbuild.config.ts",
 		"format": "rome format --write .",
-		"lint": "bun run test && rome check --apply .",
+		"lint": "rome check --apply .",
+		"lint:ci": "bunx rome ci .",
 		"postinstall": "lefthook install && bun run setup",
-		"release": "bun tools/release.js",
+		"release": "bun tools/release.ts",
 		"setup": "bun tools/setup.ts",
 		"start": "bun run build --development",
-		"test": "bun run test:types && bunx rome ci .",
+		"test": "bun run test:types && bun run lint:ci",
 		"test:types": "bunx tsc && bunx tsc -p ./src/tsconfig.json",
-		"version": "bun tools/version.js",
-		"test-script": "bunx changeset version && bunx changeset tag"
+		"version": "bun tools/version.ts"
 	},
 	"dependencies": {
 		"rpg-awesome": "0.2.0",
