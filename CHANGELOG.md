@@ -1,5 +1,11 @@
 # Changelog
 
+## 11.3.1
+
+### Patch Changes
+
+- [#358](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/358) [`986cbd9`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/986cbd9fe0c77142aab98245d5c0953f085f60cd) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Updated package structure, modernizing development environment
+
 ## [11.3.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/compare/v11.2.1...v11.3.0) (2023-08-27)
 
 ### Features
