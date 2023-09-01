@@ -1,6 +1,11 @@
 import { build, filesystem, print, type GluegunToolbox } from "gluegun";
 import { args } from "./args-parser";
 
+if (process.env.CI) {
+	print.warning("Detected CI environment, skipping setup!");
+	process.exit(0);
+}
+
 const force = Object.hasOwn(args, "force");
 if (filesystem.exists("foundryconfig.json") && !force) {
 	print.warning("This project has already been setup!");

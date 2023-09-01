@@ -1,17 +1,17 @@
 import { $ } from "execa";
-import { writeFile } from "node:fs/promises";
+import { writeFileSync } from "node:fs";
 
 /**
  * Convenience function to handle an stderr from execa.
  */
-function handlePossibleError({ stderr }: { stderr: string | null }) {
+function handlePossibleError({ stderr }) {
 	if (!stderr) return;
 	console.error(stderr);
 	process.exit(1);
 }
 
 // Version package
-await $`bunx changeset version`.then(handlePossibleError);
+await $`npx changeset version`.then(handlePossibleError);
 
 // Import versioned package.json
 const {
@@ -19,12 +19,16 @@ const {
 } = await import("../package.json", {
 	assert: { type: "json" },
 });
-const { default: manifest } = await import("../system.json");
 
-// Update system.json
+// Import system.json
+const { default: manifest } = await import("../system.json", {
+	assert: { type: "json" },
+});
+
+// Update and Write system.json
 manifest.version = version;
 manifest.download = manifest.download.replace(/v\d+\.\d+\.\d+/, `v${version}`);
-await writeFile("system.json", JSON.stringify(manifest, null, "\t") + "\n");
+writeFileSync("system.json", JSON.stringify(manifest, null, "\t") + "\n");
 
 // Format system.json
-await $`bunx rome format --write system.json`.then(handlePossibleError);
+await $`npx rome format --write system.json`.then(handlePossibleError);

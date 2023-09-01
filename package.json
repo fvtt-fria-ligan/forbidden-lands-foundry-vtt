@@ -29,7 +29,7 @@
 		"setup": "bun tools/setup.ts",
 		"start": "bun run build --development",
 		"test": "bunx tsc && bunx tsc -p ./src/tsconfig.json",
-		"version": "bun tools/version.ts",
+		"version": "node tools/version.js",
 		"release": "bun tools/release.ts"
 	},
 	"dependencies": {
