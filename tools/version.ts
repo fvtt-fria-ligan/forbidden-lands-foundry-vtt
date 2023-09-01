@@ -6,14 +6,14 @@ import { writeFile } from "node:fs/promises";
 /**
  * Convenience function to handle an stderr from execa.
  */
-function handlePossibleError({ stderr }) {
+function handlePossibleError({ stderr }: { stderr: string }) {
 	if (!stderr) return;
 	console.error(stderr);
 	process.exit(1);
 }
 
 // Version package
-await $`npx changeset version`.then(handlePossibleError);
+await $`bunx changeset version`.then(handlePossibleError);
 
 // Import versioned package.json
 const {
@@ -33,4 +33,4 @@ manifest.download = manifest.download.replace(/v\d+\.\d+\.\d+/, `v${version}`);
 await writeFile("system.json", JSON.stringify(manifest, null, "\t") + "\n");
 
 // Format system.json
-await $`npx rome format --write system.json`.then(handlePossibleError);
+await $`bunx rome format --write system.json`.then(handlePossibleError);

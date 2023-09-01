@@ -14,16 +14,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: oven-sh/setup-bun@v1
-      - uses: actions/setup-node@v3
         with:
-          node-version: '*'
+          bun-version: canary
       - name: Install Dependencies
         run: bun install
-      - name: Lint
-        run: bun lint
       - name: Build
         run: bun run build
-      - name: Create Release Pull Request
+      - name: Create Release or Version
         uses: changesets/action@v1
         with:
           commit: 'chore(release): Version Package'
