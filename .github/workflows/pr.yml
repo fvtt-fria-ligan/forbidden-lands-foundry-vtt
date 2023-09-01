@@ -6,6 +6,8 @@ on:
       - main
   workflow_dispatch:
 
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
   test:
     name: "Pull Request Linting"
@@ -20,6 +22,9 @@ jobs:
       - name: "Install Dependencies"
         run: bun install
       - name: "Run Linter"
-        run: bun run lint
-      - name: "Format Code"
-        run: bun run format
+        run: bun run test
+      - name: "Test"
+      # remove after Bun test done
+        run: bun run test-script
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -10,6 +10,6 @@
 		"lib": ["ESNext"],
 		"types": []
 	},
-	"include": ["./**/*.ts", "tools/version.js", "tools/release.js"],
+	"include": ["./**/*.ts"],
 	"exclude": ["node_modules", "src"]
 }

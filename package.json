@@ -24,12 +24,13 @@
 		"format": "rome format --write .",
 		"lint": "bun run test && rome check --apply .",
 		"postinstall": "lefthook install && bun run setup",
-		"release": "node tools/release.js",
+		"release": "bun tools/release.js",
 		"setup": "bun tools/setup.ts",
 		"start": "bun run build --development",
 		"test": "bun run test:types && bunx rome ci .",
 		"test:types": "bunx tsc && bunx tsc -p ./src/tsconfig.json",
-		"version": "node tools/version.js"
+		"version": "bun tools/version.js",
+		"test-script": "bunx changeset version && bunx changeset tag"
 	},
 	"dependencies": {
 		"rpg-awesome": "0.2.0",
@@ -43,7 +44,7 @@
 		"@types/jquery": "3.5.17",
 		"@types/node": "^20.5.7",
 		"@types/showdown": "2.0.1",
-		"bun": "0.8.1",
+		"bun": "canary",
 		"devmoji": "2.3.0",
 		"esbuild": "0.19.2",
 		"esbuild-sass-plugin": "2.13.0",
