@@ -11,6 +11,6 @@ pre-commit:
 pre-push:
   commands:
     test:
-      run: bun run lint:fix
+      run: bun run lint
     format:
       run: bun run format

@@ -22,7 +22,8 @@
 	"scripts": {
 		"postinstall": "lefthook install && bun run setup",
 		"build": "bun esbuild.config.ts",
-		"format": "rome format --write .",
+		"format": "rome format .",
+		"format:fix": "bun run format -- --write",
 		"lint": "bun run test && rome check .",
 		"lint:fix": "bun run lint -- --apply",
 		"setup": "bun tools/setup.ts",
