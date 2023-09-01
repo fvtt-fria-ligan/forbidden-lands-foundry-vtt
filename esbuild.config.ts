@@ -14,7 +14,7 @@ if (existsSync("./forbidden-lands.css")) await rm("./forbidden-lands.css");
 
 const ctx = await context({
 	bundle: true,
-	entryPoints: ["./src/forbidden-lands.js", "./src/forbidden-lands.scss"],
+	entryPoints: ["./src/forbidden-lands.ts", "./src/forbidden-lands.scss"],
 	outdir: "./",
 	format: "esm",
 	logLevel: "info",

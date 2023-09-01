@@ -1,0 +1,37 @@
+name: Publish
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  release:
+    name: Create & Publish Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: oven-sh/setup-bun@v1
+
+      - name: Install Dependencies
+        run: bun install
+      - name: Lint
+        run: bun lint
+      - name: Build
+        run: bun run build
+
+      - name: Package
+        run: |
+          zip -r forbidden-lands.zip assets fonts lang templates forbidden-lands.js forbidden-lands.css system.json template.json CHANGELOG.md CONTRIBUTING.md LICENSE README.md
+      - name: 🚀 Update Release with Artifacts
+        uses: ncipollo/release-action@v1.13.0
+        with:
+          allowUpdates: true
+          name: ${{ github.event.release.name }}
+          draft: false
+          prerelease: false
+          tag: ${{ github.event.release.tag_name }}
+          body: ${{ github.event.release.body }}
+          artifacts: './forbidden-lands.zip'
+          token: ${{ secrets.GITHUB_TOKEN }}

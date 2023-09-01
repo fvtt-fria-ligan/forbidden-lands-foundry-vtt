@@ -5,7 +5,7 @@
 	},
 	"linter": {
 		"enabled": true,
-		"ignore": ["./forbidden-lands.js"],
+		"ignore": ["./forbidden-lands.js", "./src/foundry.d.ts"],
 		"rules": {
 			"recommended": true,
 			"style": {

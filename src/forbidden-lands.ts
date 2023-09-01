@@ -36,7 +36,7 @@ import localizeString from "@utils/localize-string.js";
 /* @__PURE__ */ (async () => {
 	CONFIG.debug.hooks = true;
 	const tests = await import("./tests/foundry-scripts");
-	CONFIG.debug.tests = tests.default;
+	CONFIG.tests = tests.default;
 	console.warn("HOOKS DEBUG ENABLED: ", CONFIG.debug.hooks);
 })();
 
@@ -49,16 +49,15 @@ Hooks.once("init", () => {
 		roll: FBLRollHandler.createRoll,
 	};
 	CONFIG.Actor.documentClass = ForbiddenLandsActor;
-	CONFIG.Item.documentClass = ForbiddenLandsItem;
-	CONFIG.JournalEntry.documentClass = ForbiddenLandsJournalEntry;
-	CONFIG.fbl = FBL;
-	CONFIG.fbl.adventureSites.utilities = utilities;
-	CONFIG.fbl.adventureSites.generate = (path, adventureSite) =>
-		init(path, adventureSite);
-	CONFIG.Item.documentClass = ForbiddenLandsItem;
 	CONFIG.Combat.documentClass = FBLCombat;
 	CONFIG.Combatant.documentClass = FBLCombatant;
+	CONFIG.Item.documentClass = ForbiddenLandsItem;
+	CONFIG.JournalEntry.documentClass = ForbiddenLandsJournalEntry;
 	CONFIG.ui.combat = FBLCombatTracker;
+	CONFIG.fbl = FBL;
+	CONFIG.fbl.adventureSites.utilities = utilities;
+	CONFIG.fbl.adventureSites.generate = (path: string, adventureSite: unknown) =>
+		init(path, adventureSite);
 	YearZeroRollManager.register("fbl", {
 		"ROLL.chatTemplate":
 			"systems/forbidden-lands/templates/components/roll-engine/roll.hbs",
@@ -92,14 +91,26 @@ Hooks.once("ready", () => {
 
 	// Only add the context menu to decrease consumables if consumables aren't automatically handled.
 	if (game.settings.get("forbidden-lands", "autoDecreaseConsumable") === 0)
-		Hooks.on("getChatLogEntryContext", function (_html, options) {
-			const isConsumableRoll = (li) => li.find(".consumable-result").length;
-			options.push({
-				name: localizeString("CONTEXT.REDUCE_CONSUMABLE"),
-				icon: "<i class='fas fa-arrow-down'></i>",
-				condition: isConsumableRoll,
-				callback: (li) =>
-					FBLRollHandler.decreaseConsumable(li.attr("data-message-id")),
-			});
-		});
+		Hooks.on(
+			"getChatLogEntryContext",
+			function (
+				_html: JQuery<HTMLElement>,
+				options: {
+					name: string;
+					icon: string;
+					condition: (li: JQuery<HTMLElement>) => void;
+					callback: (li: JQuery<HTMLElement>) => Promise<void>;
+				}[],
+			) {
+				const isConsumableRoll = (li: JQuery<HTMLElement>) =>
+					li.find(".consumable-result").length;
+				options.push({
+					name: localizeString("CONTEXT.REDUCE_CONSUMABLE"),
+					icon: "<i class='fas fa-arrow-down'></i>",
+					condition: isConsumableRoll,
+					callback: (li) =>
+						FBLRollHandler.decreaseConsumable(li.attr("data-message-id") || ""),
+				});
+			},
+		);
 });

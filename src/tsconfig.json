@@ -4,7 +4,7 @@
 		"allowJs": true,
 		"lib": ["ESNext", "DOM"],
 		"types": [
-			"@league-of-foundry-developers/foundry-vtt-types",
+			"@league-of-foundry-developers/foundry-vtt-types/lenient",
 			"@types/jquery",
 			"@types/showdown"
 		],
@@ -19,5 +19,6 @@
 			"@system/*": ["./system/*"]
 		}
 	},
-	"include": ["./**/*.ts", "./**/*.js"]
+	"include": ["./"],
+	"exclude": []
 }

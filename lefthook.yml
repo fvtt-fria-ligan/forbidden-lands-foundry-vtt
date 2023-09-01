@@ -1,4 +1,4 @@
-prepare-commit-msg:
+commit-msg:
   commands:
     commitlint:
       run: bunx devmoji -e --lint

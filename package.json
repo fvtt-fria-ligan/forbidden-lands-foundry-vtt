@@ -28,7 +28,8 @@
 		"setup": "bun tools/setup.ts",
 		"start": "bun run build --development",
 		"test": "bunx tsc && bunx tsc -p ./src/tsconfig.json",
-		"version": "bun tools/version.ts"
+		"version": "bun tools/version.ts",
+		"release": "bun tools/release.ts"
 	},
 	"dependencies": {
 		"rpg-awesome": "0.2.0",
@@ -40,6 +41,7 @@
 		"@changesets/cli": "2.26.2",
 		"@league-of-foundry-developers/foundry-vtt-types": "9.280.0",
 		"@types/jquery": "3.5.17",
+		"@types/node": "^20.5.7",
 		"@types/showdown": "2.0.1",
 		"bun": "0.8.1",
 		"devmoji": "2.3.0",
