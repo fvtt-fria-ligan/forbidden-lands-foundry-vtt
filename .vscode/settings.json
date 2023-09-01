@@ -3,5 +3,8 @@
 	"i18n-ally.keystyle": "flat",
 	"i18n-ally.extract.autoDetect": true,
 	"typescript.tsdk": "node_modules/typescript/lib",
-	"editor.defaultFormatter": "rome.rome"
+	"editor.defaultFormatter": "rome.rome",
+	"[javascript]": {
+		"editor.defaultFormatter": "rome.rome"
+	}
 }

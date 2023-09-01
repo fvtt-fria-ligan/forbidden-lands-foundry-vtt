@@ -6,9 +6,10 @@
 		"module": "ESNext",
 		"moduleResolution": "Bundler",
 		"skipLibCheck": true,
+		"allowJs": true,
 		"lib": ["ESNext"],
 		"types": []
 	},
-	"include": ["./**/*.ts", "tools/version.js"],
+	"include": ["./**/*.ts", "tools/version.js", "tools/release.js"],
 	"exclude": ["node_modules", "src"]
 }

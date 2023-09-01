@@ -3,6 +3,9 @@
 	"organizeImports": {
 		"enabled": false
 	},
+	"formatter": {
+		"ignore": ["./forbidden-lands.js"]
+	},
 	"linter": {
 		"enabled": true,
 		"ignore": ["./forbidden-lands.js", "./src/foundry.d.ts"],

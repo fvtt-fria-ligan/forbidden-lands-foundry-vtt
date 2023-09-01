@@ -1,5 +1,7 @@
+// Use Bun when Bun supports node:fs/promises fully
+
 import { $ } from "execa";
-import { writeFileSync } from "node:fs";
+import { writeFile } from "node:fs/promises";
 
 /**
  * Convenience function to handle an stderr from execa.
@@ -28,7 +30,7 @@ const { default: manifest } = await import("../system.json", {
 // Update and Write system.json
 manifest.version = version;
 manifest.download = manifest.download.replace(/v\d+\.\d+\.\d+/, `v${version}`);
-writeFileSync("system.json", JSON.stringify(manifest, null, "\t") + "\n");
+await writeFile("system.json", JSON.stringify(manifest, null, "\t") + "\n");
 
 // Format system.json
 await $`npx rome format --write system.json`.then(handlePossibleError);

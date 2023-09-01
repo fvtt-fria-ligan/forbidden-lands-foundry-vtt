@@ -20,17 +20,16 @@
 	],
 	"type": "module",
 	"scripts": {
-		"postinstall": "lefthook install && bun run setup",
 		"build": "bun esbuild.config.ts",
-		"format": "rome format .",
-		"format:fix": "bun run format -- --write",
-		"lint": "bun run test && rome check .",
-		"lint:fix": "bun run lint -- --apply",
+		"format": "rome format --write .",
+		"lint": "bun run test && rome check --apply .",
+		"postinstall": "lefthook install && bun run setup",
+		"release": "node tools/release.js",
 		"setup": "bun tools/setup.ts",
 		"start": "bun run build --development",
-		"test": "bunx tsc && bunx tsc -p ./src/tsconfig.json",
-		"version": "node tools/version.js",
-		"release": "bun tools/release.ts"
+		"test": "bun run test:types && bunx rome ci .",
+		"test:types": "bunx tsc && bunx tsc -p ./src/tsconfig.json",
+		"version": "node tools/version.js"
 	},
 	"dependencies": {
 		"rpg-awesome": "0.2.0",

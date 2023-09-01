@@ -1,3 +1,5 @@
+// Use Bun when Bun supports node:fs/promises fully
+
 import { $, execa } from "execa";
 
 import rootConfig from "../package.json" assert { type: "json" };
@@ -27,8 +29,8 @@ if (exitCode !== 2) {
 
 await $`git checkout --detach`;
 await $`git add --force forbidden-lands.js forbidden-lands.css`;
-await $`git commit -m 'chore(release): :rocket: ${tag}'`;
+await execa("git", ["commit", "-m", "chore(release): :rocket: ${tag}"]);
 
-await $`changeset tag`;
+await $`npx changeset tag`;
 
 await $`git push --force --follow-tags origin HEAD:refs/heads/${releaseLine}`;
