@@ -1,5 +1,13 @@
 # Changelog
 
+## 11.3.2
+
+### Patch Changes
+
+- [#360](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/360) [`8245492`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/824549275da83ac341cd0c2ec8b115acb3807376) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Fixing issues with refactoring and CI/CD.
+
+- [#362](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/362) [`6a8df7e`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/6a8df7e088f12f5fd1927511da15144fa11c204a) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Somewhere a regression happened in Foundry, or YZUR where applying modifiers before a roll-object was rolled would make the object immutable. Fixed by moving the roll modification to after evaluating the roll.
+
 ## 11.3.1
 
 ### Patch Changes
