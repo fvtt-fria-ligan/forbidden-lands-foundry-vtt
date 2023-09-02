@@ -1,5 +1,3 @@
-import localizeString from "@utils/localize-string.js";
-
 export class FBLCombatant extends Combatant {
 	get fast() {
 		return this.getFlag("forbidden-lands", "fast");
@@ -55,10 +53,7 @@ export class FBLCombat extends Combat {
 		return initA - initB;
 	}
 
-	async rollInitiative(
-		ids,
-		{ _ = null, updateTurn = true, messageOptions = {} } = {},
-	) {
+	async rollInitiative(ids, { updateTurn = true, messageOptions = {} } = {}) {
 		// Structure input data
 		ids = typeof ids === "string" ? [ids] : ids;
 		const currentId = this.combatant?.id;
@@ -71,9 +66,9 @@ export class FBLCombat extends Combat {
 			.filter((num) => !this.turns.some((c) => c?.initiative === num));
 
 		if (this.initiativeDeck.length === 0)
-			return ui.notifications.warn(
-				localizeString("WARNING.NO_AVAILABLE_VALUES"),
-			);
+			return ui.notifications.warn("WARNING.NO_AVAILABLE_VALUES", {
+				localize: true,
+			});
 
 		// Iterate over Combatants, performing an initiative roll for each
 		const updates = [];
@@ -83,13 +78,15 @@ export class FBLCombat extends Combat {
 			const combatant = this.combatants.get(id);
 
 			if (!combatant?.isOwner) {
-				ui.notifications.error(localizeString("ERROR.NOT_OWNER"));
+				ui.notifications.error("ERROR.NOT_OWNER", { localize: true });
 				break;
 			}
 
 			// Since we may be rolling more than X combatants, we need to check that we have values left
 			if (this.initiativeDeck.length === 0) {
-				ui.notifications.warn(localizeString("WARNING.NO_AVAILABLE_VALUES"));
+				ui.notifications.warn("WARNING.NO_AVAILABLE_VALUES", {
+					localize: true,
+				});
 				break;
 			}
 

@@ -117,7 +117,6 @@ export class ForbiddenLandsItem extends Item {
 				modifiers.push({
 					name: localizeString("ROLL.PARRY_STAB"),
 					value: -2,
-					active: true,
 				});
 				modifiers.push({
 					name: localizeString("ROLL.PARRY_PUNCH"),

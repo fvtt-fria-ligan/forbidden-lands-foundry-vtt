@@ -92,7 +92,7 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 
 	async handleCreateActor() {
 		if (!this.existActor) {
-			ui.notifications.error(game.i18n.localize("FLCG.ERROR_NO_ACTOR"));
+			ui.notifications.error("FLCG.ERROR_NO_ACTOR", { localize: true });
 			return this.close();
 		}
 		const coverter = new CharacterConverter(this.dataset);
@@ -423,10 +423,10 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 	static async handleBadDataset(err, app) {
 		console.error(err);
 		if (!app)
-			return ui.notifications.error(
-				game.i18n.localize("FLCG.ERROR_CANNOT_REVOCER"),
-			);
-		ui.notifications.warn(game.i18n.localize("FLCG.WARNING_DATASET_NOT_VALID"));
+			return ui.notifications.error("FLCG.ERROR_CANNOT_REVOCER", {
+				localize: true,
+			});
+		ui.notifications.warn("FLCG.WARNING_DATASET_NOT_VALID", { localize: true });
 		app.close();
 
 		await game.settings.set("forbidden-lands", "datasetDir", "");
