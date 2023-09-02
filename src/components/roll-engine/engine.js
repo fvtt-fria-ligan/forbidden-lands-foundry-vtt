@@ -33,7 +33,7 @@ export class FBLRollHandler extends FormApplication {
 		this.gears = options.gears || [];
 		this.modifier =
 			options.modifiers?.reduce(
-				(sum, mod) => (mod.value < 0 ? sum + Number(mod.value) : sum),
+				(sum, mod) => (mod.active ? sum + Number(mod.value) : sum),
 				0,
 			) || 0;
 		this.spell = { safecast: 0, ...spell };
@@ -147,9 +147,9 @@ export class FBLRollHandler extends FormApplication {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			classes: ["forbidden-lands"],
-			width: "450",
+			width: "500",
 			height: "auto",
-			resizable: false,
+			resizable: true,
 		});
 	}
 
@@ -335,16 +335,14 @@ export class FBLRollHandler extends FormApplication {
 			formData.artifact,
 		);
 		if (isEmpty) {
-			const warning = localizeString("WARNING.NO_DICE_INPUT");
 			event.target.base.focus();
-			ui.notifications.warn(warning);
-			throw new Error(warning);
+			ui.notifications.warn("WARNING.NO_DICE_INPUT", { localize: true });
+			throw new Error("No dice input");
 		}
 		if (invalidArtifactField) {
-			const warning = localizeString("WARNING.INVALID_ARTIFACT");
 			event.target.artifact.focus();
-			ui.notifications.error(warning);
-			throw new Error(warning);
+			ui.notifications.error("WARNING.INVALID_ARTIFACT", { localize: true });
+			throw new Error("Invalid artifact string");
 		}
 		return;
 	}
@@ -394,9 +392,15 @@ export class FBLRollHandler extends FormApplication {
 		this.g = gear;
 		this.a = artifact;
 		this.modifier = modifier;
+
 		// Handle automatically rolling arrow dice on ranged attacks.
 		this.handleRollArrows();
-		const result = await this.executeRoll();
+
+		// Roll dice
+		const result = await this.executeRoll().catch((err) => {
+			ui.notifications.error("ERROR.ROLL_FAILED", { localize: true });
+			this.#reject(err);
+		});
 		this.#resolve(result);
 	}
 
@@ -539,10 +543,12 @@ export class FBLRollHandler extends FormApplication {
 				message: await roll.toMessage(),
 			};
 		}
-		// If roll is modified call modify Roll
-		if (this.modifier) await roll.modify(this.modifier);
 		// Roll the dice!
 		await roll.roll({ async: true });
+
+		// If roll is modified call modify Roll
+		if (this.modifier) await roll.modify(this.modifier);
+
 		return {
 			roll,
 			message: await roll.toMessage(),
@@ -646,7 +652,7 @@ export class FBLRollHandler extends FormApplication {
 		value = Math.max(value - currentDamage, 0);
 
 		if (value === 0)
-			ui.notifications.notify(localizeString("NOTIFY.YOU_ARE_BROKEN"));
+			ui.notifications.notify("NOTIFY.YOU_ARE_BROKEN", { localize: true });
 		await speaker.update({ [`system.attribute.${attribute}.value`]: value });
 	}
 
@@ -667,7 +673,7 @@ export class FBLRollHandler extends FormApplication {
 			.map((item) => {
 				const value = Math.max(item.bonus - gearDamageByName[item.name], 0);
 				if (value === 0)
-					ui.notifications.notify(localizeString("NOTIFY.YOUR_ITEM_BROKE"));
+					ui.notifications.notify("NOTIFY.YOUR_ITEM_BROKE", { localize: true });
 				return {
 					_id: item.id,
 					"system.bonus.value": value,

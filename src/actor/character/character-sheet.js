@@ -113,7 +113,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	async rollConsumable(identifier) {
 		const consumable = this.actor.consumables[identifier];
 		if (!consumable.value)
-			return ui.notifications.warn(localizeString("WARNING.NO_CONSUMABLE"));
+			return ui.notifications.warn("WARNING.NO_CONSUMABLE", { localize: true });
 		const rollName = localizeString(consumable.label);
 		const dice = CONFIG.fbl.consumableDice[consumable.value];
 		const options = {

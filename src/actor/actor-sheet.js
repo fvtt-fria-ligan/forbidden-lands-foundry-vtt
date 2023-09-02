@@ -279,8 +279,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	broken(type) {
 		const msg =
 			type === "item" ? "WARNING.ITEM_BROKEN" : "WARNING.ACTOR_BROKEN";
-		const locmsg = localizeString(msg);
-		ui.notifications.warn(locmsg);
+		ui.notifications.warn(msg, { localize: true });
 		return new Error(locmsg);
 	}
 
@@ -379,7 +378,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			return sum + value;
 		}, 0);
 		if (!totalArmor)
-			return ui.notifications.warn(localizeString("WARNING.NO_ARMOR"));
+			return ui.notifications.warn("WARNING.NO_ARMOR", { localize: true });
 
 		const data = {
 			title: rollName,
@@ -479,7 +478,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			!this.actor.willpower.value &&
 			!this.actorProperties.subtype?.type === "npc"
 		)
-			throw ui.notifications.warn(localizeString("WARNING.NO_WILLPOWER"));
+			throw ui.notifications.warn("WARNING.NO_WILLPOWER", { localize: true });
 
 		const spell = this.actor.items.get(spellId);
 		let { value } = duplicate(this.actor.willpower);

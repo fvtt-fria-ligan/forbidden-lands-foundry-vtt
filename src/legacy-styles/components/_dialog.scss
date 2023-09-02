@@ -52,18 +52,12 @@
 		display: flex;
 		flex-direction: column;
 
-		input[type="checkbox"] {
-			position: relative;
-			left: 50%;
-			transform: translate(-50%);
-		}
-
 		.legend,
 		.modifiers {
 			text-align: center;
 			display: grid;
 			grid-template-columns: 1fr 3fr 1fr;
-			gap: 2rem;
+			gap: 12px;
 			align-items: center;
 		}
 
@@ -75,7 +69,10 @@
 		.modifiers {
 			label {
 				display: inline;
-				text-align: center;
+
+				&:last-of-type {
+					text-align: right;
+				}
 			}
 		}
 
