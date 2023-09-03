@@ -144,7 +144,7 @@
 }
 
 // Page Content
-:where(.journal-page-content, .editor-content) {
+:where(.journal-page-content,.editor-content) {
 	font-family: var(--font-editor);
 	line-height: 1.75;
 	font-size: var(--font-size-16);
@@ -155,7 +155,7 @@
 	}
 
 	&[data-engine="tinymce"] {
-		margin-inline: 1rem;
+		margin-inline: 12px;
 	}
 
 	ul {

@@ -16,7 +16,7 @@ const ctx = await context({
 	bundle: true,
 	entryPoints: ["./src/forbidden-lands.ts", "./src/forbidden-lands.scss"],
 	outdir: "./",
-	format: "esm",
+	format: "iife",
 	logLevel: "info",
 	sourcemap: development ? "inline" : false,
 	ignoreAnnotations: development,
