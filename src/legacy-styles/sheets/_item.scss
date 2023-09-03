@@ -196,6 +196,14 @@
 		.sheet-body .main div {
 			position: relative;
 		}
+
+		.tox-toolbar__primary {
+			[aria-label="Insert/edit link"],
+			[aria-label="Table"],
+			[aria-label="Horizontal line"] {
+				display: none;
+			}
+		}
 	}
 
 	.column-header {
