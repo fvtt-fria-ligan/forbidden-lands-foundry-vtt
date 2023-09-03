@@ -16,7 +16,10 @@
 				<span class="sword" title="{{localize 'DICE.SUCCESSES'}}">
 					x
 				</span>
-				<span class="special-number" title="{{localize 'DICE.SUCCESSES'}}">
+				<span
+					class="special-number"
+					title="{{localize 'DICE.SUCCESSES'}}"
+				>
 					{{success}}
 				</span>
 				{{#if (and roll.options.isAttack (gt success 0))}}
@@ -31,7 +34,10 @@
 					<span class="skullz" title={{localize "DICE.BANES"}}>
 						l
 					</span>
-					<span class="special-number" title={{localize "DICE.BANES"}}>
+					<span
+						class="special-number"
+						title={{localize "DICE.BANES"}}
+					>
 						{{roll.baneCount}}
 					</span>
 				{{/if}}
@@ -52,16 +58,16 @@
 		{{#if (eq roll.type "spell")}}
 			{{{tooltip}}}
 			<h4 class="dice-total">
-			<div>
-				<span class="spell-roll power">
-					{{localize "POWER_LEVEL"}}:
-				</span>
-			</div>
-			<div>
-				<span class="spell-roll result">
-					{{roll.damage}}
-				</span>
-			</div>
+				<div>
+					<span class="spell-roll power">
+						{{localize "POWER_LEVEL"}}:
+					</span>
+				</div>
+				<div>
+					<span class="spell-roll result">
+						{{roll.damage}}
+					</span>
+				</div>
 			</h4>
 		{{/if}}
 	</div>
@@ -81,11 +87,15 @@
 	{{! Mishap button }}
 	{{#if roll.isMishap}}
 		{{#if roll.mishapTable}}
-			<button class="fbl-button table" data-action="mishap" data-id="{{roll.mishapTable}}">
+			<button
+				class="fbl-button table"
+				data-action="mishap"
+				data-id="{{roll.mishapTable}}"
+			>
 				{{localize "MISHAP"}}
 			</button>
 		{{else}}
-			<p>Roll Mishap!</p>
+			<p style="text-align: center;"><strong>Roll Mishap!</strong></p>
 		{{/if}}
 	{{/if}}
 	{{! Found Prey button }}

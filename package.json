@@ -33,6 +33,7 @@
 		"version": "bun tools/version.ts"
 	},
 	"dependencies": {
+		"foundry-year-zero-roller": "Stefouch/foundry-year-zero-roller#v5.1.1",
 		"rpg-awesome": "0.2.0",
 		"ultrahtml": "1.4.0"
 	},

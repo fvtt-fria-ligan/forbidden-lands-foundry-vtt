@@ -6,7 +6,6 @@ import {
 	registerYZURLabels,
 } from "@components/roll-engine/dice-labels";
 import { FBLRollHandler } from "@components/roll-engine/engine.js";
-import { YearZeroRollManager } from "@components/roll-engine/yzur";
 import { ForbiddenLandsItem } from "@item/item-document.js";
 import {
 	init,
@@ -28,6 +27,7 @@ import { migrateWorld } from "@system/core/migration.js";
 import registerSettings from "@system/core/settings.js";
 import { registerSheets } from "@system/core/sheets.js";
 import localizeString from "@utils/localize-string.js";
+import { YearZeroRollManager } from "foundry-year-zero-roller";
 
 /**
  * We use this label to remove the debug option in production builds.

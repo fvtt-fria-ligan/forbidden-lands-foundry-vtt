@@ -21,3 +21,5 @@ interface CONFIG {
 		combat: any;
 	};
 }
+
+declare module "foundry-year-zero-roller";
