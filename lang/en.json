@@ -167,6 +167,7 @@
 	"ERROR.NOT_PUSHED": "Cannot confirm that the roll was pushed. Failed to apply damage and reduce Willpower!",
 	"ERROR.NO_ID": "Failed to update the entity due to lacking an Id",
 	"ERROR.ROLL_FAILED": "There was an error rolling the dice. Please see the browser console for details.",
+	"ERROR.INVALID_FORMULA": "The generated roll is invalid. Please see the browser console for details.",
 	"FLCG.ADULT": "Adult",
 	"FLCG.AGE": "Age",
 	"FLCG.AGE_PENALTY_MESSAGE": "Attribute penalty from age will be applied randomly",
