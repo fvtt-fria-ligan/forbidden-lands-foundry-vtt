@@ -1,6 +1,6 @@
 import localizeString from "@utils/localize-string.js";
 import safeParse from "@utils/safe-parse.js";
-import { YearZeroRoll, YearZeroRollManager } from "./yzur.js";
+import { YearZeroRoll, YearZeroRollManager } from "foundry-year-zero-roller";
 /**
  * @extends FormApplication
  * @description A Form Application that mimics Dialog, but provides more functionality in terms of data binds and handling of a roll object. Supports Forbidden Lands standard rolls and spell rolls.
@@ -16,15 +16,14 @@ export class FBLRollHandler extends FormApplication {
 
 	constructor(
 		{
-			attribute = { label: "DICE.BASE", value: 0 },
-			skill = { label: "DICE.SKILL", value: 0 },
-			gear = { label: "DICE.GEAR", value: 0, artifactDie: "" },
+			attribute = { label: localizeString("DICE.BASE"), value: 0 },
+			skill = { label: localizeString("DICE.SKILL"), value: 0 },
+			gear = { label: localizeString("DICE.GEAR"), value: 0, artifactDie: "" },
 			spell = {},
 		},
 		options = {}, // This object includes information that may be required to create the roll instance but not the dice rolled.
 	) {
 		super({}, options);
-		this.roll = {};
 		this.base = attribute;
 		this.skill = skill;
 		this.gear = gear;
@@ -37,57 +36,6 @@ export class FBLRollHandler extends FormApplication {
 				0,
 			) || 0;
 		this.spell = { safecast: 0, ...spell };
-	}
-
-	/**
-	 * Base (Attribute) Dice formula
-	 */
-	get b() {
-		return this.roll._b;
-	}
-	set b(val) {
-		this.roll._b = this.generateTermFormula(val, "b", this.base?.name);
-	}
-	/**
-	 * Skill Dice formula
-	 */
-	get s() {
-		return this.roll._s;
-	}
-	set s(val) {
-		this.roll._s = this.generateTermFormula(val, "s", this.skill?.name);
-	}
-	/**
-	 * Gear Dice formula
-	 */
-	get g() {
-		return this.roll._g;
-	}
-	set g(val) {
-		if (Array.isArray(val)) {
-			const value = val
-				.map((item) => this.generateTermFormula(item[2], "g", item[1]))
-				.join("+");
-			this.roll._g = value;
-		} else this.roll._g = this.generateTermFormula(val, "g", this.gear?.name);
-	}
-	/**
-	 * Artifact Dice formula
-	 */
-	get a() {
-		return this.roll._a;
-	}
-	set a(val) {
-		this.roll._a = this.parseArtifacts(val, this.gear?.name);
-	}
-	/**
-	 * Negative Dice formula
-	 */
-	get n() {
-		return this.roll._n;
-	}
-	set n(val) {
-		this.roll._n = this.generateTermFormula(val, "n", "DICE.NEGATIVE");
 	}
 
 	/**
@@ -353,7 +301,11 @@ export class FBLRollHandler extends FormApplication {
 	 * @returns Promise<void>
 	 */
 	async _handleRollSpell({ base, power }) {
-		this.b = base;
+		this.b = {
+			term: "b",
+			number: base,
+			flavor: localizeString(this.base.label),
+		};
 		this.damage = power;
 		const actor = FBLRollHandler.getSpeaker({
 			actor: this.options.actorId,
@@ -387,11 +339,52 @@ export class FBLRollHandler extends FormApplication {
 				.map((item) => item.shift());
 			gear = this._getModifierGear(checkedItems, gear);
 		}
-		this.b = base;
-		this.s = skill;
-		this.g = gear;
-		this.a = artifact;
-		this.modifier = modifier;
+		this.b = base
+			? [
+					{
+						term: "b",
+						number: base,
+						flavor: localizeString(this.base.label),
+					},
+			  ]
+			: [];
+		this.g = Array.isArray(gear)
+			? gear
+			: gear
+			? [
+					{
+						term: "g",
+						number: gear,
+						flavor: this.gear.label,
+					},
+			  ]
+			: [];
+		this.a = this.parseArtifacts(artifact, this.gear.label);
+
+		const diff = skill + modifier;
+
+		switch (true) {
+			case diff < 0:
+				this.n = [
+					{
+						term: "n",
+						number: Math.abs(diff),
+						flavor: localizeString("DICE.NEGATIVE"),
+					},
+				];
+				break;
+			default:
+				this.s = skill
+					? [
+							{
+								term: "s",
+								number: diff,
+								flavor: localizeString(this.skill.label),
+							},
+					  ]
+					: [];
+				break;
+		}
 
 		// Handle automatically rolling arrow dice on ranged attacks.
 		this.handleRollArrows();
@@ -409,35 +402,28 @@ export class FBLRollHandler extends FormApplication {
 			.filter((string) => string.startsWith("true"))
 			.map((string) => string.split("_"));
 		if (this.gear.value)
-			modifierGearArray.unshift([
-				this.gear.itemId,
-				this.gear.label,
-				this.gear.value,
-			]);
+			modifierGearArray.unshift({
+				term: "g",
+				flavor: this.gear.label,
+				number: this.gear.value,
+			});
 		const modTotal = modifierGearArray.reduce(
-			(acc, [_, __, value]) => acc + Number(value),
+			(acc, { number }) => acc + Number(number),
 			0,
 		);
 		if (Number(gear) - modTotal > 0)
-			modifierGearArray.push([
-				"",
-				"YZUR.DIETYPES.GearDie",
-				Number(gear) - modTotal,
-			]);
+			modifierGearArray.push({
+				term: "g",
+				flavor: localizeString("YZUR.DIETYPES.GearDie"),
+				number: Number(gear) - modTotal,
+			});
 		return modifierGearArray;
 	}
-	/**
-	 * Generates a roll formula based on number of dice.
-	 * @param {number} number number of dice rolled.
-	 * @param {string} term YZUR internal naming convention for DieTerms. E.g. "base".
-	 * @param {string} flavor usually the name of the die term. E.g. "Strength".
-	 * @returns {string} valid Roll formula.
-	 * @see Roll
-	 */
-	generateTermFormula(number, term, flavor = "") {
-		if (!number) return;
-		flavor = localizeString(flavor);
-		return `${number}d${term}${flavor ? `[${flavor}]` : ""}`;
+
+	#generateTerms() {
+		return [this.b, this.s, this.n, this.g, this.a]
+			.filter((term) => !!term)
+			.flat();
 	}
 
 	/**
@@ -463,8 +449,8 @@ export class FBLRollHandler extends FormApplication {
 				else array.push([term, num]);
 				return array;
 			}, [])
-			.map(([term, num]) => this.generateTermFormula(num, term, artifactName));
-		return terms.join("+");
+			.map(([term, num]) => ({ term, number: num, flavor: artifactName }));
+		return terms;
 	}
 
 	/**
@@ -484,6 +470,7 @@ export class FBLRollHandler extends FormApplication {
 			: 1;
 		return {
 			name: this.title,
+			title: this.title,
 			maxPush: this.options.maxPush || maxPush,
 			type: this.options.type,
 			actorId: this.options.actorId,
@@ -527,14 +514,16 @@ export class FBLRollHandler extends FormApplication {
 	 * @see ChatMessage
 	 */
 	async executeRoll() {
-		const formula = Object.values(this.roll)
-			.filter((term) => term)
-			.join("+");
-		const roll = FBLRoll.create(
-			formula,
-			{} /* We pass no "data" for the roll to evaluate */,
+		const roll = FBLRoll.forge(
+			this.#generateTerms(),
+			{
+				yzGame: this.options.yzGame,
+				maxPush: this.options.maxPush,
+				title: this.title,
+			},
 			this.getRollOptions(),
 		);
+
 		// If Safe casting we might roll 0 dice.
 		if (!roll.dice.length && roll.type === "spell") {
 			roll._evaluated = true;
@@ -543,11 +532,9 @@ export class FBLRollHandler extends FormApplication {
 				message: await roll.toMessage(),
 			};
 		}
+
 		// Roll the dice!
 		await roll.roll({ async: true });
-
-		// If roll is modified call modify Roll
-		if (this.modifier) await roll.modify(this.modifier);
 
 		return {
 			roll,
@@ -785,6 +772,65 @@ export class FBLRoll extends YearZeroRoll {
 	// Override the create method to use FBLRoll class
 	static create(formula, data = {}, options = {}) {
 		return new this(formula, data, options);
+	}
+
+	static forge(
+		dice = [],
+		{ title, yzGame = null, maxPush = 1 } = {},
+		options = {},
+	) {
+		// Checks the game.
+		yzGame = yzGame ?? options.game ?? CONFIG.YZUR?.game;
+		if (!YearZeroRollManager.GAMES.includes(yzGame))
+			throw new GameTypeError(yzGame);
+
+		// Converts old format DiceQuantities.
+		// ? Was: {Object.<DieTermString, number>}
+		// ! This is temporary support. @deprecated
+		const isOldFormat =
+			!Array.isArray(dice) &&
+			typeof dice === "object" &&
+			!Object.keys(dice).includes("term");
+		if (isOldFormat) {
+			// eslint-disable-next-line max-len
+			console.warn(
+				`YZUR | ${YearZeroRoll.name} | You are using an old "DiceQuanties" format which is deprecated and could be removed in a future release. Please refer to ".forge()" for the newer format.`,
+			);
+			const _dice = [];
+			for (const [term, n] of Object.entries(dice)) {
+				if (n <= 0) continue;
+				let deno = CONFIG.YZUR.Dice.DIE_TERMS[term].DENOMINATION;
+				const cls = CONFIG.Dice.terms[deno];
+				deno = cls.DENOMINATION;
+				_dice.push({ term: deno, number: n });
+			}
+			dice = _dice;
+		}
+
+		// Converts to an array.
+		if (!Array.isArray(dice)) dice = [dice];
+
+		// Builds the formula.
+		const out = [];
+		for (const d of dice) {
+			out.push(YearZeroRoll._getTermFormulaFromBlok(d));
+		}
+		let formula = out.join(" + ");
+
+		if (!YearZeroRoll.validate(formula)) {
+			console.warn(
+				`YZUR | ${YearZeroRoll.name} | Invalid roll formula: "${formula}"`,
+			);
+			formula = yzGame === "t2k" ? "1d6" : "1ds";
+		}
+
+		// Creates the roll.
+		if (options.name === undefined) options.name = title;
+		if (options.game === undefined) options.game = yzGame;
+		if (options.maxPush === undefined) options.maxPush = maxPush;
+		const roll = this.create(formula, {}, options);
+		if (CONFIG.debug.dice) console.log(roll);
+		return roll;
 	}
 
 	getRollInfos(template = null) {
