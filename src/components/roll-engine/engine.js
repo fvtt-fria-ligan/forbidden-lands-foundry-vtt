@@ -400,7 +400,14 @@ export class FBLRollHandler extends FormApplication {
 	_getModifierGear(modifierItemsArray, gear) {
 		const modifierGearArray = modifierItemsArray
 			.filter((string) => string.startsWith("true"))
-			.map((string) => string.split("_"));
+			.map((string) => {
+				const [_, flavor, value] = string.split("_");
+				return {
+					term: "g",
+					flavor,
+					number: Number(value),
+				};
+			});
 		if (this.gear.value)
 			modifierGearArray.unshift({
 				term: "g",
@@ -812,20 +819,18 @@ export class FBLRoll extends YearZeroRoll {
 
 		// Builds the formula.
 		const out = [];
-		for (const d of dice) {
-			out.push(YearZeroRoll._getTermFormulaFromBlok(d));
-		}
-		let formula = out.join(" + ");
+		for (const d of dice) out.push(YearZeroRoll._getTermFormulaFromBlok(d));
+
+		const formula = out.join(" + ");
 
 		if (!YearZeroRoll.validate(formula)) {
-			console.warn(
-				`YZUR | ${YearZeroRoll.name} | Invalid roll formula: "${formula}"`,
-			);
-			formula = yzGame === "t2k" ? "1d6" : "1ds";
+			ui.notifications.error("ERROR.INVALID_FORMULA", { localize: true });
+			throw new Error(`Invalid roll formula: ${formula}`);
 		}
 
-		// Creates the roll.
-		if (options.name === undefined) options.name = title;
+		if (options.name === undefined)
+			// Creates the roll.
+			options.name = title;
 		if (options.game === undefined) options.game = yzGame;
 		if (options.maxPush === undefined) options.maxPush = maxPush;
 		const roll = this.create(formula, {}, options);
