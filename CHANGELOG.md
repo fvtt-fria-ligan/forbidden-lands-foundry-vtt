@@ -1,5 +1,11 @@
 # Changelog
 
+## 11.3.4
+
+### Patch Changes
+
+- [#368](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/368) [`f7edd94`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/f7edd949183df8121b2ec3674beee5979ea37fc1) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Gear modifiers would create an incorrect roll formula, thus rolling 1ds. Both behaviours have been rectified and an incorrect formula now throws.
+
 ## 11.3.3
 
 ### Patch Changes
