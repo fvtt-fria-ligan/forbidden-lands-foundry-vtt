@@ -29,6 +29,8 @@ await $`git checkout --detach`;
 await $`git add --force forbidden-lands.js forbidden-lands.css`;
 await execa("git", ["commit", "-m", `chore(release): ${tag}`]);
 
-await $`bunx changeset tag`;
+await $({ stdio: "inherit" })`bunx changeset tag`;
 
-await $`git push --force --follow-tags origin HEAD:refs/heads/${releaseLine}`;
+await $({
+	stdio: "inherit",
+})`git push --force --follow-tags origin HEAD:refs/heads/${releaseLine}`;
