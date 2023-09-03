@@ -1,5 +1,15 @@
 # Changelog
 
+## 11.3.3
+
+### Patch Changes
+
+- [#364](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/364) [`d515a9f`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/d515a9f06a5c8cf71a721d131a75a0e2676b6988) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Solved #363 - Editors erroring out when opened
+
+- [#365](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/365) [`9f88f2b`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/9f88f2b87b779c8b140440d588b25ff61f37c773) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Resolve issue where sheet templates were located in wrong directory
+
+- [#366](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/366) [`0f388e0`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/0f388e0292a7a9d84edbdf46fc0a93886c4db23e) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Solved problems where modifiers were not handled correctly
+
 ## 11.3.2
 
 ### Patch Changes
