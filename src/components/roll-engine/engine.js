@@ -374,7 +374,7 @@ export class FBLRollHandler extends FormApplication {
 				];
 				break;
 			default:
-				this.s = skill
+				this.s = diff
 					? [
 							{
 								term: "s",

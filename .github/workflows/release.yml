@@ -21,12 +21,13 @@ jobs:
       - name: Build
         run: bun run build
       - name: Create Release or Version
-        uses: changesets/action@v1
+        uses: changesets/action@63b1daab35bf3f61ec8ebb5fefb539f2e735a82a
         with:
           commit: 'chore(release): Version Package'
           title: 'Version Package'
           version: bun run version
           publish: bun run release
           createGithubReleases: true
+          createPrAsDraft: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
