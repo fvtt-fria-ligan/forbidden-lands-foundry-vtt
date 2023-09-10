@@ -1,5 +1,11 @@
 # Changelog
 
+## 11.3.5
+
+### Patch Changes
+
+- [#370](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/370) [`2f50146`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/2f50146dcab42bcd84cb2ea7c8f6218a7f27927f) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Fixes modifiers added to a roll where there are no skill dice
+
 ## 11.3.4
 
 ### Patch Changes
