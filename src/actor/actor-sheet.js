@@ -371,14 +371,11 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			if (armor.itemProperties.part === "shield" || armor.state !== "equipped")
 				return sum;
 			const rollData = armor.getRollData();
-			if (rollData.isBroken) throw this.broken("item");
 			const value = armor.itemProperties.bonus.value;
 			if (rollData.artifactDie) artifactDies.push(rollData.artifactDie);
 			identifiers.push(armor.id);
 			return sum + value;
 		}, 0);
-		if (!totalArmor)
-			return ui.notifications.warn("WARNING.NO_ARMOR", { localize: true });
 
 		const data = {
 			title: rollName,
@@ -393,6 +390,11 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 			maxPush: "0",
 			...this.getRollOptions(...identifiers),
 		};
+
+		const hasDice =
+			!!totalArmor || !!artifactDies.length || !!options.modifiers.length;
+		if (!hasDice)
+			return ui.notifications.warn("WARNING.NO_ARMOR", { localize: true });
 
 		return FBLRollHandler.createRoll(data, {
 			...options,
