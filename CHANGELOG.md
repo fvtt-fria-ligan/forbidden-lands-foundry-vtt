@@ -1,5 +1,15 @@
 # Changelog
 
+## 11.3.6
+
+### Patch Changes
+
+- [#375](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/375) [`9ceccff`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/9ceccff0256e86e2aa47181158826124b9c42065) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Fixes ForbiddenLandsItem.implementation.create such that it conforms to parent implementation design
+
+- [#376](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/376) [`9944707`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/9944707d3a205a8cbac32f26c0248713944e384f) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - When gear has duplicate names, prioritize damaging equipped gear
+
+- [#374](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/374) [`f86becf`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/f86becfbaaa1be90252c992be5a966235fc6d39a) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Armor rolls were a bit too stringent with whether they would allow a roll or not. The rules have been relaxed.
+
 ## 11.3.5
 
 ### Patch Changes
