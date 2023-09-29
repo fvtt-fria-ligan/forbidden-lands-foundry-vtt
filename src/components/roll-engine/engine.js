@@ -657,22 +657,26 @@ export class FBLRollHandler extends FormApplication {
 	 * @returns updates actor with gear damage.
 	 */
 	static async applyGearDamage({ gearDamageByName }, speaker) {
-		// This only gets the gear damage by name which is not resilient.
-		const items = Object.keys(gearDamageByName).map((itemName) =>
-			itemName ? speaker.items.getName(itemName) : null,
+		const gear = speaker?.items.contents.sort((_, b) =>
+			b.state === "equipped" ? 1 : -1,
 		);
+
+		// This only gets the gear damage by name which is not resilient.
+		const items = Object.keys(gearDamageByName)
+			.map((itemName) => gear.find((g) => g.name === itemName))
+			.filter((e) => !!e);
+
 		if (!items.length) return;
-		const updatedItems = items
-			.filter((item) => item)
-			.map((item) => {
-				const value = Math.max(item.bonus - gearDamageByName[item.name], 0);
-				if (value === 0)
-					ui.notifications.notify("NOTIFY.YOUR_ITEM_BROKE", { localize: true });
-				return {
-					_id: item.id,
-					"system.bonus.value": value,
-				};
-			});
+
+		const updatedItems = items.map((item) => {
+			const value = Math.max(item.bonus - gearDamageByName[item.name], 0);
+			if (value === 0)
+				ui.notifications.notify("NOTIFY.YOUR_ITEM_BROKE", { localize: true });
+			return {
+				_id: item.id,
+				"system.bonus.value": value,
+			};
+		});
 		await speaker.updateEmbeddedDocuments("Item", updatedItems);
 	}
 
