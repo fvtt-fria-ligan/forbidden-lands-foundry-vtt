@@ -186,6 +186,6 @@ export class ForbiddenLandsItem extends Item {
 					break;
 			}
 		}
-		super.create(data, options);
+		return super.create(data, options);
 	}
 }
