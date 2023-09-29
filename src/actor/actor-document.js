@@ -81,26 +81,27 @@ export class ForbiddenLandsActor extends Actor {
 			return roll.total;
 		};
 		for await (const entity of newData) {
-			if (entity.data) {
-				entity.data = await Object.entries(entity.data).reduce(
-					async (obj, [key, value]) => {
-						if (typeof value === "string" && value.match(inlineRoll)) {
-							const result = await createRoll(inlineRoll.exec(value));
-							value = value.replace(inlineRoll, result);
-						}
-						const resolved = await obj;
-						return { ...resolved, [key]: value };
-					},
-					{},
-				);
+			if (!entity.system) continue;
 
-				// We only want to touch flags of items that are considered "gear"
-				if (!CONFIG.fbl.carriedItemTypes.includes(data.type)) continue;
-				entity.flags["forbidden-lands"] = {
-					state: "carried",
-					...entity.flags["forbidden-lands"],
-				};
-			}
+			entity.system = await Object.entries(entity.system).reduce(
+				async (obj, [key, value]) => {
+					if (typeof value === "string" && value.match(inlineRoll)) {
+						const result = await createRoll(inlineRoll.exec(value));
+						value = value.replace(inlineRoll, result);
+					}
+					const resolved = await obj;
+					return { ...resolved, [key]: value };
+				},
+				{},
+			);
+
+			// We only want to touch flags of items that are considered "gear"
+			if (!CONFIG.fbl.carriedItemTypes.includes(entity.type)) continue;
+
+			entity.flags["forbidden-lands"] = {
+				...entity.flags["forbidden-lands"],
+				state: "carried",
+			};
 		}
 
 		return super.createEmbeddedDocuments(embeddedName, newData, options);
@@ -122,7 +123,7 @@ export class ForbiddenLandsActor extends Actor {
 					break;
 			}
 		}
-		super.create(data, options);
+		return super.create(data, options);
 	}
 
 	toggleCondition(conditionName) {
