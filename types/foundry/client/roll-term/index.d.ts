@@ -1,0 +1,11 @@
+import "./base.js";
+import "./dice-term/base.js";
+import "./dice-term/coin.js";
+import "./dice-term/die.js";
+import "./dice-term/fate-die.js";
+import "./math-term.js";
+import "./numeric-term.js";
+import "./operator-term.js";
+import "./parenthetical-term.js";
+import "./pool-term.js";
+import "./string-term.js";

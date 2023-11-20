@@ -135,5 +135,6 @@ export class Changelog extends FormApplication {
 			},
 			callback: () => {},
 		});
+		return this;
 	}
 }

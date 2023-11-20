@@ -1,0 +1,14 @@
+import "./active-effect-config.js";
+import "./actor-sheet.js";
+import "./combatant-config.js";
+import "./item-sheet.js";
+import "./journal-page-sheet.js";
+import "./journal-sheet.js";
+import "./macro-config.js";
+import "./note-config.js";
+import "./roll-table-config.js";
+import "./scene-config.js";
+import "./tile-config.js";
+import "./token-config.js";
+import "./user-config.js";
+import "./wall-config.js";

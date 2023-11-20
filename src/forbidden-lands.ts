@@ -50,9 +50,12 @@ Hooks.once("init", () => {
 	};
 	CONFIG.Actor.documentClass = ForbiddenLandsActor;
 	CONFIG.Combat.documentClass = FBLCombat;
+	// @ts-expect-error - PF2 types Internal Type Error
 	CONFIG.Combatant.documentClass = FBLCombatant;
 	CONFIG.Item.documentClass = ForbiddenLandsItem;
+	// @ts-expect-error - PF2 types Internal Type Error
 	CONFIG.JournalEntry.documentClass = ForbiddenLandsJournalEntry;
+	// @ts-expect-error - PF2 types Internal Type Error
 	CONFIG.ui.combat = FBLCombatTracker;
 	CONFIG.fbl = FBL;
 	CONFIG.fbl.adventureSites.utilities = utilities;
@@ -91,26 +94,16 @@ Hooks.once("ready", () => {
 
 	// Only add the context menu to decrease consumables if consumables aren't automatically handled.
 	if (game.settings.get("forbidden-lands", "autoDecreaseConsumable") === 0)
-		Hooks.on(
-			"getChatLogEntryContext",
-			function (
-				_html: JQuery<HTMLElement>,
-				options: {
-					name: string;
-					icon: string;
-					condition: (li: JQuery<HTMLElement>) => void;
-					callback: (li: JQuery<HTMLElement>) => Promise<void>;
-				}[],
-			) {
-				const isConsumableRoll = (li: JQuery<HTMLElement>) =>
-					li.find(".consumable-result").length;
-				options.push({
-					name: localizeString("CONTEXT.REDUCE_CONSUMABLE"),
-					icon: "<i class='fas fa-arrow-down'></i>",
-					condition: isConsumableRoll,
-					callback: (li) =>
-						FBLRollHandler.decreaseConsumable(li.attr("data-message-id") || ""),
-				});
-			},
-		);
+		Hooks.on("getChatLogEntryContext", function (_html, options) {
+			const isConsumableRoll: ContextOptionCondition = (li) =>
+				!!li.find(".consumable-result").length;
+
+			options.push({
+				name: localizeString("CONTEXT.REDUCE_CONSUMABLE"),
+				icon: "<i class='fas fa-arrow-down'></i>",
+				condition: isConsumableRoll,
+				callback: (li) =>
+					FBLRollHandler.decreaseConsumable(li.attr("data-message-id") || ""),
+			});
+		});
 });
