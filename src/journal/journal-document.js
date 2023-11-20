@@ -9,7 +9,7 @@ export class ForbiddenLandsJournalEntry extends JournalEntry {
 		data.pages = [
 			{ name: "Overview", title: { show: false }, text: { content } },
 		];
-		super.create(data, options);
+		return super.create(data, options);
 	}
 
 	get type() {

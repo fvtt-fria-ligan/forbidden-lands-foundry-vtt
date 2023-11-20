@@ -64,6 +64,7 @@ FBL.adventureSites = {
 	transformers: {},
 	types: {},
 	utilities: {},
+	generate: async (_path, _type) => {},
 };
 
 FBL.attributes = ["agility", "empathy", "strength", "wits"];

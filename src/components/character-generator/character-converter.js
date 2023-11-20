@@ -155,7 +155,8 @@ export class CharacterConverter {
 		const skills = Object.keys(CONFIG.fbl.skillAttributeMap).reduce(
 			(obj, skill) => {
 				const skillValue = { value: 0 };
-				return { ...obj, [skill]: skillValue };
+				obj[skill] = skillValue;
+				return obj;
 			},
 			{},
 		);

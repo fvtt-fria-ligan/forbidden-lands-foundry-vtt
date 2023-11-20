@@ -12,4 +12,5 @@ export const individual = {
 	criticalInjury: () => crudTest(CLSName, "criticalInjury", "CriticalInjury1"),
 	monsterAttack: () => crudTest(CLSName, "monsterAttack", "MonsterAttack1"),
 };
+// biome-ignore lint/complexity/noForEach: <explanation>
 export const all = () => Object.values(individual).forEach((item) => item());

@@ -30,7 +30,7 @@ const { default: manifest } = await import("../system.json", {
 // Update and Write system.json
 manifest.version = version;
 manifest.download = manifest.download.replace(/v\d+\.\d+\.\d+/, `v${version}`);
-await writeFile("system.json", JSON.stringify(manifest, null, "\t") + "\n");
+await writeFile("system.json", `${JSON.stringify(manifest, null, "\t")}\n`);
 
 // Format system.json
 await $`bunx rome format --write system.json`.then(handlePossibleError);

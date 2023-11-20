@@ -7,4 +7,5 @@ export const individual = {
 	party: () => crudTest(CLSName, "party", "Party1"),
 	stronghold: () => crudTest(CLSName, "stronghold", "Stronghold1"),
 };
+// biome-ignore lint/complexity/noForEach: <explanation>
 export const all = () => Object.values(individual).forEach((actor) => actor());

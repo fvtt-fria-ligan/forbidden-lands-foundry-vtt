@@ -44,7 +44,7 @@ function coerceNum(string) {
 	if (typeof string !== "string")
 		throw new Error(`Wrong term passed ${string}`);
 	const array = Array.from(string.split("."), (v) => parseInt(v));
-	if (array.some((v) => isNaN(v)) || array.length !== 3)
+	if (array.some((v) => Number.isNaN(v)) || array.length !== 3)
 		throw new Error(`Invalid SemVer string: ${string}`);
 	array[0] = array[0] * 1000000;
 	array[1] = array[1] * 1000;

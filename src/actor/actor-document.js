@@ -54,7 +54,7 @@ export class ForbiddenLandsActor extends Actor {
 		if (!rollIdentifiers.length) return [];
 		const itemModifiers = this.items.reduce((array, item) => {
 			const modifiers = item.getRollModifier(...rollIdentifiers);
-			if (modifiers) array = [...array, ...modifiers];
+			if (modifiers) array.concat(modifiers);
 			return array;
 		}, []);
 		if (rollIdentifiers.includes("dodge")) {

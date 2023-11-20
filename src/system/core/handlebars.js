@@ -130,6 +130,7 @@ function registerHandlebarsHelpers() {
 	});
 	Handlebars.registerHelper("formatRollModifiers", function (rollModifiers) {
 		const output = [];
+		// biome-ignore lint/complexity/noForEach: <explanation>
 		Object.values(rollModifiers)
 			.filter((mod) => !mod.gearBonus)
 			.forEach((mod) => {
