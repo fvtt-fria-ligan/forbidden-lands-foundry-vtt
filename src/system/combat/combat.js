@@ -65,10 +65,12 @@ export class FBLCombat extends Combat {
 			.map((num) => ++num)
 			.filter((num) => !this.turns.some((c) => c?.initiative === num));
 
-		if (this.initiativeDeck.length === 0)
-			return ui.notifications.warn("WARNING.NO_AVAILABLE_VALUES", {
+		if (this.initiativeDeck.length === 0) {
+			ui.notifications.warn("WARNING.NO_AVAILABLE_VALUES", {
 				localize: true,
 			});
+			return this;
+		}
 
 		// Iterate over Combatants, performing an initiative roll for each
 		const updates = [];
@@ -149,8 +151,14 @@ export class FBLCombat extends Combat {
 	}
 
 	async nextRound() {
-		this.turns.forEach((c) => c.setFlag("forbidden-lands", "fast", false));
-		this.turns.forEach((c) => c.setFlag("forbidden-lands", "slow", false));
+		await Promise.all(
+			this.turns.map((c) =>
+				c.actor.update({
+					"flags.forbidden-lands.fast": false,
+					"flags.forbidden-lands.slow": false,
+				}),
+			),
+		);
 		return super.nextRound();
 	}
 }

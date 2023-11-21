@@ -1,0 +1,23 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.2.2/schema.json",
+	"organizeImports": {
+		"enabled": false
+	},
+	"formatter": {
+		"ignore": ["./forbidden-lands.js", "./types/foundry/*"]
+	},
+	"linter": {
+		"enabled": true,
+		"ignore": ["./forbidden-lands.js", "./types/foundry/*"],
+		"rules": {
+			"recommended": true,
+			"style": {
+				"noParameterAssign": "off"
+			},
+			"complexity": {
+				"noStaticOnlyClass": "off",
+				"useLiteralKeys": "off"
+			}
+		}
+	}
+}

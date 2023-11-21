@@ -2,7 +2,7 @@ import { transform } from "ultrahtml";
 import sanitize from "ultrahtml/transformers/sanitize";
 
 declare namespace CONST {
-	const SHOWDOWN_OPTIONS: {};
+	const SHOWDOWN_OPTIONS: Record<string, unknown>;
 }
 
 declare namespace game {
@@ -35,7 +35,7 @@ export class Changelog extends FormApplication {
 			"https://api.github.com/repos/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases?per_page=10";
 
 		this.#converter = (() => {
-			Object.entries({
+			const options = {
 				...CONST.SHOWDOWN_OPTIONS,
 				headerLevelStart: 2,
 				simplifiedAutoLink: true,
@@ -44,7 +44,10 @@ export class Changelog extends FormApplication {
 				ghMentions: true,
 				strikethrough: true,
 				literalMidWordUnderscores: true,
-			}).forEach(([k, v]) => globalThis.showdown.setOption(k, v));
+			} as Record<string, unknown>;
+			for (const key in options) {
+				globalThis.showdown.setOption(key, options[key]);
+			}
 			const converter = new globalThis.showdown.Converter();
 			converter.setFlavor("github");
 			return converter;

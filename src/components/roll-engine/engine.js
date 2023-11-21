@@ -234,9 +234,9 @@ export class FBLRollHandler extends FormApplication {
 		html.find(".spell-option").on("change", (ev) => {
 			const el = ev.currentTarget;
 			switch (el.name) {
+				// biome-ignore lint/suspicious/noFallthroughSwitchClause: <explanation>
 				case "chance":
 					this.spell.safecast = 0;
-				// eslint-disable-next-line no-fallthrough
 				case "psych":
 				case "ingredient":
 					this.spell[el.name] = !!el.checked;

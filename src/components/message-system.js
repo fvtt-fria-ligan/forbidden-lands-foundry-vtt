@@ -7,9 +7,9 @@ export default async function displayMessages() {
 		.then((resp) => resp.text())
 		.then((jsonc) => JSON.parse(stripJSON(jsonc)));
 
-	messages.forEach((message) => {
+	for (const message of messages) {
 		handleDisplay(message);
-	});
+	}
 }
 
 const stripJSON = (data) => {

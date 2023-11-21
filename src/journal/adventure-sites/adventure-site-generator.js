@@ -75,13 +75,11 @@ const parseStrings = (result) => {
 					}, []);
 				return array[Math.floor(Math.random() * array.length)];
 			};
-			return {
-				...obj,
-				[key]: value.replace(/\{\{(.*?)\}\}/g, (_, p1) => randomizedString(p1)),
-			};
-		} else {
-			return { ...obj, [key]: value };
-		}
+			obj[key] = value.replace(/\{\{(.*?)\}\}/g, (_, p1) =>
+				randomizedString(p1),
+			);
+		} else obj[key] = value;
+		return obj;
 	}, {});
 };
 
@@ -114,7 +112,8 @@ const fns = (type) => {
 			} else {
 				const newResult = results.reduce((obj, cur, i) => {
 					cur = Object.entries(cur);
-					return { ...obj, [cur[i][0]]: cur[i][1] };
+					obj[cur[i][0]] = cur[i][1];
+					return obj;
 				}, {});
 				return [newResult];
 			}
@@ -135,7 +134,7 @@ const fns = (type) => {
 			}
 		},
 	};
-	return types[type] ?? types["all_results"];
+	return types[type] ?? types.all_results;
 };
 
 // Rolls on all tables pertaining to a given adventure site

@@ -48,9 +48,9 @@ export const migrateWorld = async () => {
 					await scene.update(updateData, { enforceTypes: false });
 					// If we do not do this, then synthetic token actors remain in cache
 					// with the un-updated actorData.
-					scene.tokens.forEach((t) => {
-						t._actor = null;
-					});
+					for (const token of scene.tokens) {
+						token._actor = null;
+					}
 				}
 			} catch (err) {
 				err.message = `Failed migration for Scene ${scene.name}: ${err.message}`;
@@ -126,12 +126,12 @@ const migrateItemData = (item, worldSchemaVersion) => {
 			let artifactBonus = "";
 			if (item.system.bonus) {
 				const parts = item.system.bonus.split("+").map((p) => p.trim());
-				parts.forEach((p) => {
-					if (Number.isNumeric(p)) baseBonus += +p;
+				for (const part of parts) {
+					if (Number.isNumeric(part)) baseBonus += +part;
 					else if (artifactBonus.length)
-						artifactBonus = `${artifactBonus} + ${p}`;
-					else artifactBonus = p;
-				});
+						artifactBonus = `${artifactBonus} + ${part}`;
+					else artifactBonus = part;
+				}
 			}
 			update["system.bonus"] = {
 				value: baseBonus,
@@ -201,15 +201,16 @@ const migrateSceneData = function (scene) {
 			const actorData = duplicate(t.actorData);
 			actorData.type = token.actor?.type;
 			const update = migrateActorData(actorData);
-			["items", "effects"].forEach((embeddedName) => {
-				if (!update[embeddedName]?.length) return;
+
+			for (const embeddedName of ["items", "effects"]) {
+				if (!update[embeddedName]?.length) continue;
 				const updates = new Map(update[embeddedName].map((u) => [u._id, u]));
-				t.actorData[embeddedName].forEach((original) => {
-					const toUpdate = updates.get(original._id);
-					if (toUpdate) mergeObject(original, toUpdate);
-				});
+				for (const embedded of actorData[embeddedName]) {
+					const toUpdate = updates.get(embedded._id);
+					if (toUpdate) mergeObject(embedded, toUpdate);
+				}
 				delete update[embeddedName];
-			});
+			}
 
 			mergeObject(t.actorData, update);
 		}

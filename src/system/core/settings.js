@@ -157,9 +157,9 @@ export class SheetConfigMenu extends FormApplication {
 	}
 
 	_updateObject(_event, formData) {
-		Object.entries(formData).forEach(([key, value]) => {
+		for (const [key, value] of Object.entries(formData)) {
 			game.settings.set("forbidden-lands", key, value);
-		});
+		}
 	}
 
 	async render(force, context = {}) {
