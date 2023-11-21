@@ -49,6 +49,21 @@ Content for the system is available as addon modules. You can purchase them at F
 2. Click the **Install System** button, and find `Forbidden Lands` in the list of available systems (should that fail, look [here](https://foundryvtt.com/packages/forbidden-lands) for available manifests).
 3. Create a Game World using the Forbidden Lands system.
 
+### Testing the development version
+
+1. Download the repository as a zip file and extract it (or clone it if you know how) into a directory where you can find it.
+2. Download [Bun](https://bun.sh/) or [Node](https://nodejs.org/).
+3. [Open a terminal](https://letmegooglethat.com/?q=how+to+open+a+folder+in+terminal) in the directory where you extracted the repository and run:
+```bash
+# If you have Bun installed
+bun install && bun run build
+
+# Or if you have Node installed
+npm install && npm run build
+```
+4. Follow the prompts that appear when you run the command.
+5. Success!
+
 ## :vertical_traffic_light: Supported Modules
 
 -   [Dice So Nice](https://foundryvtt.com/packages/dice-so-nice/) version 3.0 or later will give you beautiful 3D dice for each roll
