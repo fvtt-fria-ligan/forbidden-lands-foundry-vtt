@@ -127,22 +127,29 @@ export class ForbiddenLandsActor extends Actor {
 	}
 
 	toggleCondition(conditionName) {
-		const conditionValue = this.conditions[conditionName].value;
-		const conditionLabel = this.conditions[conditionName].label;
-		const effect = this.effects.find(
-			(condition) => condition.getFlag("core", "statusId") === conditionName,
+		const statusEffect = CONFIG.statusEffects.find(
+			(it) => it.id === conditionName,
 		);
-		if (CONFIG.fbl.conditions.includes(conditionName)) {
-			this.update({
-				[`system.condition.${conditionName}.value`]: !conditionValue,
-			});
-			if (conditionValue && effect)
-				this.deleteEmbeddedDocuments("ActiveEffect", [effect.id]);
-			else if (!conditionValue && !effect)
-				this.createEmbeddedDocuments("ActiveEffect", {
-					...CONFIG.fbl.activeEffects[conditionName],
-					label: localize(conditionLabel),
-				});
+		const currentEffect = Array.from(this.effects?.values()).find(
+			(it) => it.icon === statusEffect.icon,
+		);
+		if (currentEffect) {
+			this.deleteEmbeddedDocuments("ActiveEffect", [currentEffect.id]);
+		} else {
+			this.createEmbeddedDocuments("ActiveEffect", [
+				{
+					label: game.i18n.localize(statusEffect.label),
+					icon: statusEffect.icon,
+					changes: statusEffect.changes,
+					id: this.uuid,
+					statuses: statusEffect.statuses,
+					flags: {
+						core: {
+							statusId: statusEffect.id,
+						},
+					},
+				},
+			]);
 		}
 	}
 
