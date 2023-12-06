@@ -40,25 +40,6 @@ FBL.actionModifiers = {
 	parry: -2,
 };
 
-FBL.activeEffects = {
-	cold: {
-		"flags.core.statusId": "cold",
-		icon: "icons/svg/frozen.svg",
-	},
-	hungry: {
-		"flags.core.statusId": "hungry",
-		icon: "icons/svg/sun.svg",
-	},
-	sleepy: {
-		"flags.core.statusId": "sleepy",
-		icon: "icons/svg/unconscious.svg",
-	},
-	thirsty: {
-		"flags.core.statusId": "thirsty",
-		icon: "icons/svg/tankard.svg",
-	},
-};
-
 FBL.adventureSites = {
 	tables: {},
 	transformers: {},
