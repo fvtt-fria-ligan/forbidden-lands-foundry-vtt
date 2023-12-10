@@ -49,80 +49,7 @@ Hooks.once("init", () => {
 		config: FBL,
 		roll: FBLRollHandler.createRoll,
 	};
-	const statusEffects: Array<StatusEffect> = [
-		{
-			id: "sleepy",
-			icon: "icons/svg/unconscious.svg",
-			label: "CONDITION.SLEEPY",
-			changes: [
-				{
-					key: "system.condition.sleepy.value",
-					mode: 5,
-					value: true,
-				},
-			],
-			statuses: ["sleepy"],
-		},
-		{
-			id: "thirsty",
-			icon: "icons/svg/tankard.svg",
-			label: "CONDITION.THIRSTY",
-			changes: [
-				{
-					key: "system.condition.thirsty.value",
-					mode: 5,
-					value: true,
-				},
-			],
-			statuses: ["thirsty"],
-		},
-		{
-			id: "hungry",
-			icon: "icons/svg/sun.svg",
-			label: "CONDITION.HUNGRY",
-			changes: [
-				{
-					key: "system.condition.hungry.value",
-					mode: 5,
-					value: true,
-				},
-			],
-			statuses: ["hungry"],
-		},
-		{
-			id: "cold",
-			icon: "icons/svg/frozen.svg",
-			label: "CONDITION.COLD",
-			changes: [
-				{
-					key: "system.condition.cold.value",
-					mode: 5,
-					value: true,
-				},
-			],
-			statuses: ["cold"],
-		},
-		{
-			id: "fastAction",
-			icon: "modules/yze-combat/assets/icons/fast-action.svg",
-			label: "COMBAT.TOGGLE_FAST",
-			flags: {
-				"forbidden-lands": {
-					fast: true,
-				},
-			},
-		},
-		{
-			id: "slowAction",
-			icon: "modules/yze-combat/assets/icons/slow-action.svg",
-			label: "COMBAT.TOGGLE_SLOW",
-			flags: {
-				"forbidden-lands": {
-					slow: true,
-				},
-			},
-		},
-	];
+
 	CONFIG.Actor.documentClass = ForbiddenLandsActor;
 	CONFIG.Combat.documentClass = FBLCombat;
 	// @ts-expect-error - PF2 types Internal Type Error
@@ -132,7 +59,7 @@ Hooks.once("init", () => {
 	CONFIG.JournalEntry.documentClass = ForbiddenLandsJournalEntry;
 	// @ts-expect-error - PF2 types Internal Type Error
 	CONFIG.ui.combat = FBLCombatTracker;
-	CONFIG.statusEffects = statusEffects;
+	CONFIG.statusEffects = FBL.statusEffects;
 	CONFIG.fbl = FBL;
 	CONFIG.fbl.adventureSites.utilities = utilities;
 	CONFIG.fbl.adventureSites.generate = (path: string, adventureSite: unknown) =>
