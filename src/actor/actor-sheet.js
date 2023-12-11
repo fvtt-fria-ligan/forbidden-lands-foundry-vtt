@@ -20,6 +20,8 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		data.carriedStates = this.#getCarriedStates();
 		data.gear = this.#filterGear(data.items);
 		data.system.useHealthAndResolve = this.useHealthAndResolve;
+		data.system.condition = this.actor.system.condition;
+		data.statuses = this.actor.statuses;
 
 		return data;
 	}

@@ -28,6 +28,7 @@ import registerSettings from "@system/core/settings.js";
 import { registerSheets } from "@system/core/sheets.js";
 import localizeString from "@utils/localize-string.js";
 import { YearZeroRollManager } from "foundry-year-zero-roller";
+import { ForbiddenLandsTokenHUD } from "@system/core/hud.js";
 
 /**
  * We use this label to remove the debug option in production builds.
@@ -48,6 +49,7 @@ Hooks.once("init", () => {
 		config: FBL,
 		roll: FBLRollHandler.createRoll,
 	};
+
 	CONFIG.Actor.documentClass = ForbiddenLandsActor;
 	CONFIG.Combat.documentClass = FBLCombat;
 	// @ts-expect-error - PF2 types Internal Type Error
@@ -57,6 +59,7 @@ Hooks.once("init", () => {
 	CONFIG.JournalEntry.documentClass = ForbiddenLandsJournalEntry;
 	// @ts-expect-error - PF2 types Internal Type Error
 	CONFIG.ui.combat = FBLCombatTracker;
+	CONFIG.statusEffects = FBL.statusEffects;
 	CONFIG.fbl = FBL;
 	CONFIG.fbl.adventureSites.utilities = utilities;
 	CONFIG.fbl.adventureSites.generate = (path: string, adventureSite: unknown) =>
@@ -106,4 +109,8 @@ Hooks.once("ready", () => {
 					FBLRollHandler.decreaseConsumable(li.attr("data-message-id") || ""),
 			});
 		});
+});
+
+Hooks.on("canvasReady", (canvas) => {
+	canvas.hud.token = new ForbiddenLandsTokenHUD();
 });

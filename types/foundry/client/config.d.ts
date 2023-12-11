@@ -641,6 +641,9 @@ declare global {
 		id: string;
 		label: string;
 		icon: ImageFilePath | VideoFilePath;
+		changes?: object;
+		statuses?: Array<string>;
+		flags?: object;
 	}
 
 	interface FontFamilyDefinition {
