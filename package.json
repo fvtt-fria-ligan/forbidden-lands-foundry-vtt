@@ -54,10 +54,5 @@
 		"globby": "14.0.0",
 		"gluegun": "5.1.6",
 		"typescript": "5.3.3"
-	},
-	"workspaces": {
-		"packages": [
-			"types/foundry"
-		]
 	}
 }

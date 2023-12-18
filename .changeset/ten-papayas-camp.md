@@ -1,5 +1,5 @@
 ---
-"foundry-types": minor
+"forbidden-lands": minor
 ---
 
 Move conditions to ActiveEffects
