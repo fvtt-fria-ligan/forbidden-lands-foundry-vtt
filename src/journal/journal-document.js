@@ -15,7 +15,7 @@ export class ForbiddenLandsJournalEntry extends JournalEntry {
 	get type() {
 		const type = this.getFlag("forbidden-lands", "type");
 		if (type) return type;
-		else return CONST.BASE_DOCUMENT_TYPE;
+		return CONST.BASE_DOCUMENT_TYPE;
 	}
 
 	// Lifted straight out of Foundry because in V11 it removes the base type from the list of types

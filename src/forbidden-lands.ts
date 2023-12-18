@@ -97,7 +97,7 @@ Hooks.once("ready", () => {
 
 	// Only add the context menu to decrease consumables if consumables aren't automatically handled.
 	if (game.settings.get("forbidden-lands", "autoDecreaseConsumable") === 0)
-		Hooks.on("getChatLogEntryContext", function (_html, options) {
+		Hooks.on("getChatLogEntryContext", (_html, options) => {
 			const isConsumableRoll: ContextOptionCondition = (li) =>
 				!!li.find(".consumable-result").length;
 

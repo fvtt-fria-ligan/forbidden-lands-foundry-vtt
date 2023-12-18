@@ -1,11 +1,13 @@
+const noop = () => {};
+
 export class CharacterPickerDialog extends Dialog {
 	/**
 	 * Show dialog that allows to pick a character from a list
 	 *
 	 */
 	static async show(title, characters, onSelect, onCancel) {
-		onSelect = onSelect || function () {};
-		onCancel = onCancel || function () {};
+		onSelect = onSelect || noop;
+		onCancel = onCancel || noop;
 
 		const characterSelector = await this.buildCharacterSelector(characters);
 

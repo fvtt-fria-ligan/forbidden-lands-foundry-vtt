@@ -16,22 +16,22 @@ function registerHandlebarsHelpers() {
 		}
 		return acc;
 	});
-	Handlebars.registerHelper("flps_enrich", function (content) {
+	Handlebars.registerHelper("flps_enrich", (content) => {
 		// Enrich the content
 		content = TextEditor.enrichHTML(content, { documents: true, async: false });
 		return new Handlebars.SafeString(content);
 	});
-	Handlebars.registerHelper("flps_capitalize", function (value) {
-		return typeof value === "string" && value.length > 0
+	Handlebars.registerHelper("flps_capitalize", (value) =>
+		typeof value === "string" && value.length > 0
 			? value[0].toUpperCase() + value.slice(1)
-			: value;
-	});
-	Handlebars.registerHelper("flps_strconcat", function (...args) {
+			: value,
+	);
+	Handlebars.registerHelper("flps_strconcat", (...args) => {
 		args.pop();
 		return args.join("");
 	});
 
-	Handlebars.registerHelper("damageType", function (type) {
+	Handlebars.registerHelper("damageType", (type) => {
 		type = normalize(type, "blunt");
 		switch (type) {
 			case "blunt":
@@ -46,7 +46,7 @@ function registerHandlebarsHelpers() {
 				return game.i18n.localize("ATTACK.OTHER");
 		}
 	});
-	Handlebars.registerHelper("armorPart", function (part) {
+	Handlebars.registerHelper("armorPart", (part) => {
 		part = normalize(part, "body");
 		switch (part) {
 			case "body":
@@ -57,7 +57,7 @@ function registerHandlebarsHelpers() {
 				return game.i18n.localize("ARMOR.SHIELD");
 		}
 	});
-	Handlebars.registerHelper("itemWeight", function (weight) {
+	Handlebars.registerHelper("itemWeight", (weight) => {
 		const weightLowerCase = normalize(weight, "regular");
 		switch (weightLowerCase) {
 			case "none":
@@ -74,7 +74,7 @@ function registerHandlebarsHelpers() {
 				return weight;
 		}
 	});
-	Handlebars.registerHelper("weaponCategory", function (category) {
+	Handlebars.registerHelper("weaponCategory", (category) => {
 		category = normalize(category, "melee");
 		switch (category) {
 			case "melee":
@@ -83,7 +83,7 @@ function registerHandlebarsHelpers() {
 				return game.i18n.localize("WEAPON.RANGED");
 		}
 	});
-	Handlebars.registerHelper("weaponGrip", function (grip) {
+	Handlebars.registerHelper("weaponGrip", (grip) => {
 		grip = normalize(grip, "1h");
 		switch (grip) {
 			case "1h":
@@ -92,7 +92,7 @@ function registerHandlebarsHelpers() {
 				return game.i18n.localize("WEAPON.2H");
 		}
 	});
-	Handlebars.registerHelper("weaponRange", function (range) {
+	Handlebars.registerHelper("weaponRange", (range) => {
 		range = normalize(range, "arm");
 		switch (range) {
 			case "arm":
@@ -107,7 +107,7 @@ function registerHandlebarsHelpers() {
 				return game.i18n.localize("RANGE.DISTANT");
 		}
 	});
-	Handlebars.registerHelper("talentType", function (type) {
+	Handlebars.registerHelper("talentType", (type) => {
 		type = normalize(type, "general");
 		switch (type) {
 			case "general":
@@ -118,17 +118,15 @@ function registerHandlebarsHelpers() {
 				return game.i18n.localize("TALENT.PROFESSION");
 		}
 	});
-	Handlebars.registerHelper("isBroken", function (item) {
+	Handlebars.registerHelper("isBroken", (item) => {
 		if (
 			parseInt(item.system.bonus.max, 10) > 0 &&
 			parseInt(item.system.bonus.value, 10) === 0
-		) {
+		)
 			return "broken";
-		} else {
-			return "";
-		}
+		return "";
 	});
-	Handlebars.registerHelper("formatRollModifiers", function (rollModifiers) {
+	Handlebars.registerHelper("formatRollModifiers", (rollModifiers) => {
 		const output = [];
 		// biome-ignore lint/complexity/noForEach: <explanation>
 		Object.values(rollModifiers)
@@ -140,94 +138,84 @@ function registerHandlebarsHelpers() {
 		return output.join(", ");
 	});
 
-	Handlebars.registerHelper(
-		"hasWeaponFeatures",
-		function (weaponType, features) {
-			const meleeFeatures = ["edged", "pointed", "blunt", "parry", "hook"];
-			const rangedFeatures = ["slowReload"];
+	Handlebars.registerHelper("hasWeaponFeatures", (weaponType, features) => {
+		const meleeFeatures = ["edged", "pointed", "blunt", "parry", "hook"];
+		const rangedFeatures = ["slowReload"];
 
-			if (features.others !== "") {
+		if (features.others !== "") {
+			return true;
+		}
+
+		let weaponFeatures = [];
+		if (weaponType === "melee") {
+			weaponFeatures = meleeFeatures;
+		} else if (weaponType === "ranged") {
+			weaponFeatures = rangedFeatures;
+		}
+
+		for (const feature in features) {
+			if (weaponFeatures.includes(feature) && features[feature]) {
 				return true;
 			}
+		}
+		return false;
+	});
 
-			let weaponFeatures = [];
-			if (weaponType === "melee") {
-				weaponFeatures = meleeFeatures;
-			} else if (weaponType === "ranged") {
-				weaponFeatures = rangedFeatures;
+	Handlebars.registerHelper("formatWeaponFeatures", (weaponType, features) => {
+		const output = [];
+		if (weaponType === "melee") {
+			if (features.edged) {
+				output.push(game.i18n.localize("WEAPON.FEATURES.EDGED"));
 			}
-
-			for (const feature in features) {
-				if (weaponFeatures.includes(feature) && features[feature]) {
-					return true;
-				}
+			if (features.pointed) {
+				output.push(game.i18n.localize("WEAPON.FEATURES.POINTED"));
 			}
-			return false;
-		},
-	);
-
-	Handlebars.registerHelper(
-		"formatWeaponFeatures",
-		function (weaponType, features) {
-			const output = [];
-			if (weaponType === "melee") {
-				if (features.edged) {
-					output.push(game.i18n.localize("WEAPON.FEATURES.EDGED"));
-				}
-				if (features.pointed) {
-					output.push(game.i18n.localize("WEAPON.FEATURES.POINTED"));
-				}
-				if (features.blunt) {
-					output.push(game.i18n.localize("WEAPON.FEATURES.BLUNT"));
-				}
-				if (features.parrying) {
-					output.push(game.i18n.localize("WEAPON.FEATURES.PARRYING"));
-				}
-				if (features.hook) {
-					output.push(game.i18n.localize("WEAPON.FEATURES.HOOK"));
-				}
-			} else if (weaponType === "ranged") {
-				if (features.slowReload) {
-					output.push(game.i18n.localize("WEAPON.FEATURES.SLOW_RELOAD"));
-				}
-			} else if (features.others) {
-				output.push(features.others);
-			} else if (features) {
-				output.push(features);
+			if (features.blunt) {
+				output.push(game.i18n.localize("WEAPON.FEATURES.BLUNT"));
 			}
-			return output.join(", ");
-		},
-	);
+			if (features.parrying) {
+				output.push(game.i18n.localize("WEAPON.FEATURES.PARRYING"));
+			}
+			if (features.hook) {
+				output.push(game.i18n.localize("WEAPON.FEATURES.HOOK"));
+			}
+		} else if (weaponType === "ranged") {
+			if (features.slowReload) {
+				output.push(game.i18n.localize("WEAPON.FEATURES.SLOW_RELOAD"));
+			}
+		} else if (features.others) {
+			output.push(features.others);
+		} else if (features) {
+			output.push(features);
+		}
+		return output.join(", ");
+	});
 
-	Handlebars.registerHelper("plaintextToHTML", function (value) {
+	Handlebars.registerHelper("plaintextToHTML", (value) => {
 		// strip tags, add <br/> tags
 		return new Handlebars.SafeString(
 			value.replace(/(<([^>]+)>)/gi, "").replace(/(?:\r\n|\r|\n)/g, "<br/>"),
 		);
 	});
 
-	Handlebars.registerHelper("toUpperCase", function (str) {
-		return str.toUpperCase();
-	});
+	Handlebars.registerHelper("toUpperCase", (str) => str.toUpperCase());
 
-	Handlebars.registerHelper("eq", function (...args) {
+	Handlebars.registerHelper("eq", (...args) => {
 		args.pop();
-		return args.every(function (expression) {
-			return args[0] === expression;
-		});
+		return args.every((expression) => args[0] === expression);
 	});
 
-	Handlebars.registerHelper("or", function (...args) {
+	Handlebars.registerHelper("or", (...args) => {
 		args.pop();
 		return args.reduce((x, y) => x || y);
 	});
 
-	Handlebars.registerHelper("and", function (...args) {
+	Handlebars.registerHelper("and", (...args) => {
 		args.pop();
 		return args.reduce((x, y) => x && y);
 	});
 
-	Handlebars.registerHelper("chargenLoc", function (item) {
+	Handlebars.registerHelper("chargenLoc", (item) => {
 		let localizedString = CONFIG.fbl.i18n[item];
 		if (!localizedString) {
 			const SKILL_NAME = item.toUpperCase().replace(/[\s-]/g, "_");
@@ -236,37 +224,29 @@ function registerHandlebarsHelpers() {
 		return localizedString;
 	});
 
-	Handlebars.registerHelper("getType", function (item) {
-		return typeof (Number(item) || item);
-	});
+	Handlebars.registerHelper("getType", (item) => typeof (Number(item) || item));
 
 	Handlebars.registerHelper("randomize", (items) => {
 		return items[Math.floor(Math.random() * items.length)];
 	});
 
-	Handlebars.registerHelper("fblLocalize", function (...args) {
+	Handlebars.registerHelper("fblLocalize", (...args) => {
 		args.pop();
 		return localizeString(args.join("."));
 	});
 
-	Handlebars.registerHelper(
-		"ternary",
-		function (conditional, string1, string2) {
-			return conditional ? string1 : string2;
-		},
+	Handlebars.registerHelper("ternary", (conditional, string1, string2) =>
+		conditional ? string1 : string2,
 	);
-	Handlebars.registerHelper("count", function (array = []) {
+	Handlebars.registerHelper("count", (array = []) => {
 		if (!Array.isArray(array)) return 0;
 		return array.length;
 	});
 }
 
 function normalize(data, defaultValue) {
-	if (data) {
-		return data.toLowerCase();
-	} else {
-		return defaultValue;
-	}
+	if (data) return data.toLowerCase();
+	return defaultValue;
 }
 
 export const initializeHandlebars = () => {

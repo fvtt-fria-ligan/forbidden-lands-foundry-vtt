@@ -46,7 +46,7 @@ const isCurrent = (msg) => {
 const hasDisplayed = (identifier) => {
 	const settings = game.settings.get("forbidden-lands", "messages");
 	if (settings?.includes(identifier)) return true;
-	else return false;
+	return false;
 };
 
 const displayPrompt = (title, content) => {

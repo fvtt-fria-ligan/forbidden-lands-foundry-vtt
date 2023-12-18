@@ -1,7 +1,6 @@
 export function registerYZURLabels() {
-	CONFIG.YZUR.Icons.getLabel = function (type, result) {
-		return `<img src="systems/forbidden-lands/assets/dice/${type}-${result}.png" alt="${result}" title="${result}" />`;
-	};
+	CONFIG.YZUR.Icons.getLabel = (type, result) =>
+		`<img src="systems/forbidden-lands/assets/dice/${type}-${result}.png" alt="${result}" title="${result}" />`;
 }
 
 export class ForbiddenLandsD6 extends Die {
