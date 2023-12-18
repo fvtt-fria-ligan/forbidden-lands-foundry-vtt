@@ -141,7 +141,7 @@ export class FBLRollHandler extends FormApplication {
 	 */
 	static getSpeaker({ actor, scene, token }) {
 		if (scene && token) return game.scenes.get(scene)?.tokens.get(token)?.actor;
-		else return game.actors.get(actor);
+		return game.actors.get(actor);
 	}
 
 	/**
@@ -351,14 +351,14 @@ export class FBLRollHandler extends FormApplication {
 		this.g = Array.isArray(gear)
 			? gear
 			: gear
-			? [
-					{
-						term: "g",
-						number: gear,
-						flavor: this.gear.label,
-					},
-			  ]
-			: [];
+			  ? [
+						{
+							term: "g",
+							number: gear,
+							flavor: this.gear.label,
+						},
+				  ]
+			  : [];
 		this.a = this.parseArtifacts(artifact, this.gear.label);
 
 		const diff = skill + modifier;
@@ -473,8 +473,8 @@ export class FBLRollHandler extends FormApplication {
 		const maxPush = unlimitedPush
 			? 10000
 			: this.options.actorType === "monster"
-			? "0"
-			: 1;
+			  ? "0"
+			  : 1;
 		return {
 			name: this.title,
 			title: this.title,
@@ -730,7 +730,7 @@ export class FBLRollHandler extends FormApplication {
 /**
  * @override Register FBLRoll as rollclass and remove chat templates to support normal dice rolls.
  */
-YearZeroRollManager.registerRoll = function (cls = FBLRoll, i = 1) {
+YearZeroRollManager.registerRoll = (cls = FBLRoll, i = 1) => {
 	CONFIG.Dice.rolls[i] = cls;
 	CONFIG.Dice.rolls[i].CHAT_TEMPLATE = CONFIG.YZUR.ROLL.chatTemplate;
 	CONFIG.Dice.rolls[i].TOOLTIP_TEMPLATE = CONFIG.YZUR.ROLL.tooltipTemplate;

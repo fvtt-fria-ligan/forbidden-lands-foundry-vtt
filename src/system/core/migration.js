@@ -189,7 +189,7 @@ const migrateItemData = (item, worldSchemaVersion) => {
 	return update;
 };
 
-const migrateSceneData = function (scene) {
+const migrateSceneData = (scene) => {
 	const tokens = scene.tokens.map((token) => {
 		const t = token.toJSON();
 		if (!t.actorId || t.actorLink) {
@@ -222,7 +222,7 @@ const migrateSceneData = function (scene) {
 /**
  * Borrowed from 5e system. I don't have time to look at the intricacies of this.
  */
-const migrateCompendium = async function (pack, worldSchemaVersion) {
+const migrateCompendium = async (pack, worldSchemaVersion) => {
 	const entity = pack.metadata.entity;
 	if (!["Actor", "Item", "Scene"].includes(entity)) return;
 
@@ -270,7 +270,7 @@ const migrateCompendium = async function (pack, worldSchemaVersion) {
 	);
 };
 
-const migrateSettings = async function (worldSchemaVersion) {
+const migrateSettings = async (worldSchemaVersion) => {
 	if (worldSchemaVersion < 4) {
 		game.settings.set("forbidden-lands", "showCraftingFields", true);
 		game.settings.set("forbidden-lands", "showCostField", true);

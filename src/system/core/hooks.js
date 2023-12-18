@@ -57,7 +57,8 @@ export default function registerHooks() {
 			}
 			FBLRollHandler.createRoll(data, options);
 			return false;
-		} else return true;
+		}
+		return true;
 	});
 
 	if (game.settings.get("forbidden-lands", "collapseSheetHeaderButtons"))
@@ -131,11 +132,11 @@ export default function registerHooks() {
 	 * Localize header buttons on Item Sheets and Actor Sheets.
 	 * These are hardcoded in English in Foundry. Bad practice. Thus we fix.
 	 */
-	Hooks.on("renderItemSheet", function (app) {
+	Hooks.on("renderItemSheet", (app) => {
 		app._element[0].style.height = "auto";
 	});
 
-	Hooks.on("renderActorSheet", function (app, html) {
+	Hooks.on("renderActorSheet", (app, html) => {
 		if (app.actor.system.type === "party")
 			app._element[0].style.height = "auto";
 
@@ -147,7 +148,7 @@ export default function registerHooks() {
 		}
 	});
 
-	Hooks.on("renderJournalSheet", function (app, html) {
+	Hooks.on("renderJournalSheet", (app, html) => {
 		if (app.document.flags["forbidden-lands"]?.isBook) {
 			html.addClass("fbl-book");
 		}

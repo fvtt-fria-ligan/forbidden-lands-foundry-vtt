@@ -5,7 +5,7 @@ export class Helpers {
 		character = character instanceof Actor ? character : game.user.character;
 		if (!character) return;
 
-		let charSheetClass = function () {};
+		let charSheetClass = () => {};
 		for (const chName in CONFIG.Actor.sheetClasses.character) {
 			if (chName === "forbidden-lands.ForbiddenLandsCharacterSheet") {
 				charSheetClass = CONFIG.Actor.sheetClasses.character[chName].cls;

@@ -8,7 +8,12 @@
 		"skipLibCheck": true,
 		"resolveJsonModule": true,
 		"allowJs": true,
-		"lib": ["ESNext"]
+		"lib": ["ESNext"],
+		"types": ["bun-types"],
+		"baseUrl": "./",
+		"paths": {
+			"@utils/*": ["src/utils/*"],
+		}
 	},
 	"include": ["./**/*.ts"],
 	"exclude": ["node_modules", "src"]

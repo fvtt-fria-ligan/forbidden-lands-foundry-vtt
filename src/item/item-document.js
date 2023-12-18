@@ -32,7 +32,7 @@ export class ForbiddenLandsItem extends Item {
 	get parryPenalty() {
 		if (this.category === "melee" && !this.itemProperties.features?.parrying)
 			return CONFIG.fbl.actionModifiers.parry;
-		else return 0;
+		return 0;
 	}
 
 	get range() {

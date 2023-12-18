@@ -59,14 +59,14 @@ async function handleWeaponMacro(actor, item) {
 					rejectClose: true,
 			  })
 			: item.type === "armor"
-			? "armor"
-			: "gear";
+			  ? "armor"
+			  : "gear";
 	const command =
 		type === "gear"
 			? `game.actors.get("${actor.id}").sheet.rollGear("${item._id}")`
 			: type === "armor"
-			? `game.actors.get("${actor.id}").sheet.rollSpecificArmor("${item._id}")`
-			: `game.actors.get("${actor.id}").sheet.rollAction("${type}","${item._id}")`;
+			  ? `game.actors.get("${actor.id}").sheet.rollSpecificArmor("${item._id}")`
+			  : `game.actors.get("${actor.id}").sheet.rollAction("${type}","${item._id}")`;
 	/* eslint-enable no-nested-ternary */
 	// eslint-disable-next-line no-shadow
 	const name =

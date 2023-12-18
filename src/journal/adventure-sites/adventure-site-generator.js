@@ -91,7 +91,7 @@ const parseRollStrings = (results) => {
 			fns("all_results"),
 			parseInt(parsedResults[1]),
 		);
-	else return [];
+	return [];
 };
 
 // Result transformers applied based on the type of result
@@ -107,31 +107,28 @@ const fns = (type) => {
 			),
 		hybrid: (results) => {
 			// The more results the higher the chance we go for unique columns
-			if (Math.random() < 1 / results.length) {
-				return [results[0]];
-			} else {
-				const newResult = results.reduce((obj, cur, i) => {
-					cur = Object.entries(cur);
-					obj[cur[i][0]] = cur[i][1];
-					return obj;
-				}, {});
-				return [newResult];
-			}
+			if (Math.random() < 1 / results.length) return [results[0]];
+
+			const newResult = results.reduce((obj, cur, i) => {
+				cur = Object.entries(cur);
+				obj[cur[i][0]] = cur[i][1];
+				return obj;
+			}, {});
+			return [newResult];
 		},
 		inn_name_string: (results) => {
-			if (Math.random() > 0.5) {
+			if (Math.random() > 0.5)
 				return [
 					{
 						the_name_of_the_inn: `The ${results[0].first_word} ${results[1].second_word}`,
 					},
 				];
-			} else {
-				return [
-					{
-						the_name_of_the_inn: `The ${results[0].second_word} & ${results[0].second_word}`,
-					},
-				];
-			}
+
+			return [
+				{
+					the_name_of_the_inn: `The ${results[0].second_word} & ${results[0].second_word}`,
+				},
+			];
 		},
 	};
 	return types[type] ?? types.all_results;
