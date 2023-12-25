@@ -1,5 +1,11 @@
 # Changelog
 
+## 11.4.0
+
+### Minor Changes
+
+- [#385](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/385) [`5590bd5`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/5590bd562c02c981b08388fa060edd05ffe69071) Thanks [@Cussa](https://github.com/Cussa)! - Move conditions to ActiveEffects
+
 ## 11.3.6
 
 ### Patch Changes
