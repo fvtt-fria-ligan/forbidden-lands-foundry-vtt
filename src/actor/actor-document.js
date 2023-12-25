@@ -134,6 +134,9 @@ export class ForbiddenLandsActor extends Actor {
 			(it) => it.icon === statusEffect.icon,
 		);
 		if (currentEffect) {
+			// Removes need for migration
+			if (this.system.condition[conditionName].value)
+				this.update({ [`system.condition.${conditionName}.value`]: false });
 			this.deleteEmbeddedDocuments("ActiveEffect", [currentEffect.id]);
 		} else {
 			this.createEmbeddedDocuments("ActiveEffect", [
