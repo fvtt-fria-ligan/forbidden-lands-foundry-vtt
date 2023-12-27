@@ -12,11 +12,6 @@ import {
 	utilities,
 } from "@journal/adventure-sites/adventure-site-generator.js";
 import { ForbiddenLandsJournalEntry } from "@journal/journal-document.js";
-import {
-	FBLCombat,
-	FBLCombatTracker,
-	FBLCombatant,
-} from "@system/combat/combat.js";
 import FBL, { modifyConfig } from "@system/core/config.js";
 import { initializeEditorEnrichers } from "@system/core/editor.js";
 import { registerFonts } from "@system/core/fonts.js";
@@ -51,15 +46,15 @@ Hooks.once("init", () => {
 	};
 
 	CONFIG.Actor.documentClass = ForbiddenLandsActor;
-	CONFIG.Combat.documentClass = FBLCombat;
-	// @ts-expect-error - PF2 types Internal Type Error
-	CONFIG.Combatant.documentClass = FBLCombatant;
 	CONFIG.Item.documentClass = ForbiddenLandsItem;
 	// @ts-expect-error - PF2 types Internal Type Error
 	CONFIG.JournalEntry.documentClass = ForbiddenLandsJournalEntry;
-	// @ts-expect-error - PF2 types Internal Type Error
-	CONFIG.ui.combat = FBLCombatTracker;
-	CONFIG.statusEffects = FBL.statusEffects;
+	CONFIG.statusEffects = [
+		...CONFIG.statusEffects.filter(
+			(effect) => !["sleep", "frozen", "curse"].includes(effect.id),
+		),
+		...FBL.statusEffects,
+	];
 	CONFIG.fbl = FBL;
 	CONFIG.fbl.adventureSites.utilities = utilities;
 	CONFIG.fbl.adventureSites.generate = (path: string, adventureSite: unknown) =>

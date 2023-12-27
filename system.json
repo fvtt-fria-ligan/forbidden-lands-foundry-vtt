@@ -7,10 +7,9 @@
 	"authors": [
 		{
 			"name": "aMediocreDad",
-			"email": "hello@amediocre.dev"
-		},
-		{
-			"name": "narukaioh"
+			"discord": "aMedicoreDad",
+			"email": "hello@amediocre.dev",
+			"url": "https://amediocre.dev"
 		}
 	],
 	"minimumCoreVersion": 10,
@@ -18,9 +17,8 @@
 		"minimum": "10",
 		"verified": "11"
 	},
-	"contributors": "perfectro, patrys, Maxter, jimorie, giant-teapot, romelwell, roonel, moo-man, lasseborly",
-	"localization": "Rosataker, ptosekigloo, DavidCMeier, ismail-ahmed, franklinbenini",
-	"allowBugReporter": true,
+	"contributors": "perfectro, patrys, Maxter, jimorie, giant-teapot, romelwell, roonel, moo-man, lasseborly, narukaioh, Cussa",
+	"localization": " ptosekigloo, ptoseklukas, Bapf, OnkelRod, sebastiansIT, Tobbot, GeneralMine, DavidCMeier, KaWeNGoD, ismail-ahmed, cyberdwarf1664, Zhikann, franklinbenini, DenninDalke, luizbgomide, igorteuri, trprado, SwedishRabbit, Rosataker",
 	"bugs": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/issues",
 	"media": [
 		{
@@ -34,7 +32,6 @@
 	],
 	"esmodules": ["forbidden-lands.js"],
 	"styles": ["forbidden-lands.css"],
-	"packs": [],
 	"languages": [
 		{
 			"lang": "en",
@@ -81,15 +78,28 @@
 		"hotReload": {
 			"extensions": ["css", "hbs", "json"],
 			"paths": ["forbidden-lands.css", "templates", "lang"]
-		}
+		},
+		"allowBugReporter": true
+	},
+	"relationships": {
+		"requires": [
+			{
+				"id": "yze-combat",
+				"type": "module",
+				"manifest": "https://github.com/fvtt-fria-ligan/yearzero-combat-fvtt/releases/latest/download/module.json",
+				"compatibility": {
+					"verified": "1.2.2"
+				}
+			}
+		]
 	},
 	"gridDistance": 1,
 	"gridUnits": "m",
 	"background": "systems/forbidden-lands/assets/splash-page.jpg",
-	"primaryTokenAttribute": null,
-	"secondaryTokenAttribute": null,
-	"url": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt",
+	"primaryTokenAttribute": "attribute.strength",
+	"secondaryTokenAttribute": "bio.willpower",
 	"socket": true,
+	"url": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt",
 	"manifest": "https://raw.githubusercontent.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/main/system.json",
 	"download": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v11.4.0/forbidden-lands.zip",
 	"license": "LICENSE"

@@ -186,6 +186,15 @@ export default function registerSettings() {
 		type: Number,
 	});
 
+	game.settings.register("forbidden-lands", "configuredYZEC", {
+		name: "YZEC Configured",
+		hint: "Used to track if the YZEC has been configured.",
+		scope: "world",
+		config: false,
+		default: false,
+		type: Boolean,
+	});
+
 	game.settings.register("forbidden-lands", "messages", {
 		name: "Displayed Messages",
 		hint: "Used to track which messages have been displayed.",
