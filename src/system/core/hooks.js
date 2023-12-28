@@ -1,7 +1,6 @@
 import { Changelog } from "$changelog/changelog.js";
 import { handleHotbarDrop } from "@components/macros/macros.js";
 import { FBLRollHandler } from "@components/roll-engine/engine.js";
-import localizeString from "@utils/localize-string.js";
 import { registerDiceSoNice } from "../../external-api/dice-so-nice.js";
 
 /**
@@ -16,6 +15,24 @@ export default function registerHooks() {
 
 	Hooks.once("diceSoNiceReady", (dice3d) => {
 		registerDiceSoNice(dice3d);
+	});
+
+	Hooks.on("yzeCombatReady", () => {
+		if (game.settings.get("forbidden-lands", "configuredYZEC")) return;
+		try {
+			game.settings.set("yze-combat", "resetEachRound", false);
+			game.settings.set("yze-combat", "slowAndFastActions", true);
+			game.settings.set("yze-combat", "initAutoDraw", true);
+			game.settings.set("yze-combat", "duplicateCombatantOnCombatStart", true);
+			game.settings.set(
+				"yze-combat",
+				"actorSpeedAttribute",
+				"system.movement.value",
+			);
+			game.settings.set("forbidden-lands", "configuredYZEC", true);
+		} catch (e) {
+			console.error("Could not configure YZE Combat", e);
+		}
 	});
 
 	Hooks.on("renderPause", (_app, html) => {
@@ -208,25 +225,6 @@ export default function registerHooks() {
 				else ui.notifications?.warn("Could not find mishap table");
 			});
 		}
-	});
-
-	/**
-	 * Registers a custom chat command that lets us listen for either "/fblroll" or "/fblr".
-	 */
-	Hooks.on("getCombatTrackerEntryContext", (_, options) => {
-		options.splice(1, -1, {
-			name: localizeString("COMBAT.DUPLICATE"),
-			icon: "<i class='fas fa-copy'></i>",
-			callback: (li) => {
-				const combatant = game.combats.viewed.combatants.get(
-					li.data("combatant-id"),
-				);
-				if (combatant)
-					return game.combats.viewed.createEmbeddedDocuments("Combatant", [
-						combatant.clone().data,
-					]);
-			},
-		});
 	});
 
 	/**

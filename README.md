@@ -101,12 +101,12 @@ As well as plenty of users who have come with great feedback, either on [the off
 ## :computer: Websites
 
 -   [Foundry VTT](https://foundryvtt.com/)
--   [Fria Ligan: Forbidden Lands](https://frialigan.se/en/store/?collection_id=84541866032)
+-   [Fria Ligan: Forbidden Lands](https://freeleaguepublishing.com/games/forbidden-lands/)
 
 ## 📝 Licenses
 
--   **Logo and Content:** The [Forbidden Lands](https://frialigan.se/en/store/?collection_id=84541866032) logo and content is Copyright © and Trademarked by Free League Publishing. The parts of this project protected under this copyright may not be distributed commercially or freely. This includes art, logo, and copyright text (like the character-generator.json) sourced from the [Forbidden Lands](https://frialigan.se/en/store/?collection_id=84541866032) tabletop RPG.
-    > Some content may be reused under [Free League's Open Gaming License](https://freeleaguepublishing.com/en/open-gaming-license/).
+-   **Logo and Content:** The [Forbidden Lands](https://freeleaguepublishing.com/games/forbidden-lands/) logo and content is Copyright © and Trademarked by Free League Publishing. The parts of this project protected under this copyright may not be distributed commercially or freely. This includes art, logo, and copyright text (like the character-generator.json) sourced from the [Forbidden Lands](https://freeleaguepublishing.com/games/forbidden-lands/) tabletop RPG.
+    > Some content may be reused under [Free League's Open Gaming License](https://freeleaguepublishing.com/community-content/free-tabletop-licenses/).
 -   **Source Code:** All source code _(javascript, hbs, scss, as well as system templates and the like)_, are Copyright © 2021 [Free League Developer Community](https://github.com/fvtt-fria-ligan), and licenced under the [GNU General Public License v3.0](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/blob/main/LICENSE).
 -   **Foundry VTT:** The project is created following the Foundry VTT [Limited License Agreement for module development](https://foundryvtt.com/article/license/).
 -   **Fonts:** The fonts used in this project carry their own licenses:

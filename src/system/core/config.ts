@@ -268,7 +268,7 @@ const FBL = {
 	statusEffects: [
 		{
 			id: "sleepy",
-			icon: "icons/svg/unconscious.svg",
+			icon: "icons/svg/sleep.svg",
 			label: "CONDITION.SLEEPY",
 			changes: [
 				{
@@ -317,26 +317,6 @@ const FBL = {
 				},
 			],
 			statuses: ["cold"],
-		},
-		{
-			id: "fastAction",
-			icon: "modules/yze-combat/assets/icons/fast-action.svg",
-			label: "COMBAT.TOGGLE_FAST",
-			flags: {
-				"forbidden-lands": {
-					fast: true,
-				},
-			},
-		},
-		{
-			id: "slowAction",
-			icon: "modules/yze-combat/assets/icons/slow-action.svg",
-			label: "COMBAT.TOGGLE_SLOW",
-			flags: {
-				"forbidden-lands": {
-					slow: true,
-				},
-			},
 		},
 	],
 	weaponFeatures: [
