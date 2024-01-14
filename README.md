@@ -48,7 +48,8 @@ Content for the system is available as addon modules. You can purchase them at F
 
 1. Open Foundry's Admin dashboard and select the **Game Systems**-tab.
 2. Click the **Install System** button, and find `Forbidden Lands` in the list of available systems (should that fail, look [here](https://foundryvtt.com/packages/forbidden-lands) for available manifests).
-3. Create a Game World using the Forbidden Lands system.
+3. Install [Year Zero Engine: Combat](https://foundryvtt.com/packages/yze-combat) as prompted. If not prompted make sure to install the module manually.
+4. Create a Game World using the Forbidden Lands system.
 
 ### Testing the development version
 
