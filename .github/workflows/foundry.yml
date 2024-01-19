@@ -1,0 +1,40 @@
+on:
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Tag Name'
+        required: true
+        default: 'v11.0.0'
+
+jobs:
+  foundry:
+    name: Push to Foundry
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get Version Number
+      id: tag
+      run: |
+       TAG_NAME=${{ inputs.tag_name }}
+       echo "::set-output name=version::${TAG_NAME//v/}"
+    - name: Push to Foundry
+      uses: fjogeleit/http-request-action@v1
+      with:
+        url: 'https://api.foundryvtt.com/_api/packages/release_version/'
+        method: 'POST'
+        bearerToken: ${{ secrets.FOUNDRY_TOKEN }}
+        escapeData:
+        data: |
+          '{
+            "id": "forbidden-lands",
+            "dry-run": true,
+            "release": {
+              "version": "${{ steps.tag.outputs.version }}",
+              "manifest": "https://raw.githubusercontent.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/${{ inputs.tag_name }}/system.json",
+              "notes": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/tag/${{ inputs.tag_name }}",
+              "compatibility": {
+                "minimum": "10",
+                "verified": "11",
+                "maximum": "11"
+              }
+            }
+          }'
