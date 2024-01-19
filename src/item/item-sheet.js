@@ -20,6 +20,13 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 		});
 	}
 
+	static async enrichContent(content, isOwner) {
+		return TextEditor.enrichHTML(content, {
+			async: true,
+			secrets: isOwner,
+		});
+	}
+
 	_getHeaderButtons() {
 		let buttons = super._getHeaderButtons();
 		buttons = [
@@ -45,12 +52,21 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 
 	async #enrichTextEditorFields(data) {
 		const fields = CONFIG.fbl.enrichedItemFields;
-		for (const field of fields)
-			if (data.system[field])
-				data.system[field] = await TextEditor.enrichHTML(data.system[field], {
-					async: true,
-					secrets: this.item.isOwner,
-				});
+
+		for (const field of fields) {
+			const [key, subKey] = field.split(".");
+			if (subKey && data.system[key]?.[subKey]) {
+				data.system[key][subKey] = await ForbiddenLandsItemSheet.enrichContent(
+					data.system[key][subKey],
+					game.user.isGM,
+				);
+			} else if (data.system[key]) {
+				data.system[field] = await ForbiddenLandsItemSheet.enrichContent(
+					data.system[field],
+					game.user.isGM,
+				);
+			}
+		}
 		return data;
 	}
 
