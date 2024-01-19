@@ -44,9 +44,9 @@ export default function registerHooks() {
 	 * The commands take arguments like "2db" or "4ds"
 	 */
 	Hooks.on("chatMessage", (_html, content, _msg) => {
-		const commandR = new RegExp("^\\/fblr(?:oll)?", "i");
+		const commandR = /^\/fblr(?:oll)?/i;
 		if (content.match(commandR)) {
-			const diceR = new RegExp("(\\d+d(?:[bsng]|8|10|12))", "gi");
+			const diceR = /(\d+d(?:[bsng]|8|10|12))/gi;
 			// eslint-disable-next-line no-unused-vars
 			const dice = content.match(diceR);
 			const data = {
