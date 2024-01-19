@@ -48,11 +48,9 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	 */
 	async _onDrop(event, data) {
 		const dragData = JSON.parse(event.dataTransfer.getData("text/plain"));
-		if (dragData.type === "itemDrop") {
+		if (dragData.type === "itemDrop")
 			this.actor.createEmbeddedDocuments("Item", [dragData.item]);
-		} else {
-			super._onDrop(event, data);
-		}
+		else super._onDrop(event, data);
 	}
 
 	async _onSortItem(event, itemData) {
