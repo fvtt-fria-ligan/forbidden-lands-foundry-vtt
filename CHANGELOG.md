@@ -1,5 +1,15 @@
 # Changelog
 
+## 11.4.2
+
+### Patch Changes
+
+- [`1e05574`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/1e055748366ee38930b827cff90a8736730cd5cc) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Update Swedish translation
+
+- [#397](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/397) [`49d991f`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/49d991f6dccf608231f79e4dbec388f582dbf5c8) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Surface Critical Injuries in Monster Sheet
+
+- [#398](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/398) [`0fe0331`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/0fe03317b68a5112a935ef83fc4b941a8f2e854a) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Fixes enrichment for Feature Others in weapons
+
 ## 11.4.1
 
 ### Patch Changes
