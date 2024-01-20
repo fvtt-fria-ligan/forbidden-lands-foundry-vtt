@@ -24,3 +24,37 @@ jobs:
           body: ${{ github.event.release.body }}
           artifacts: './forbidden-lands.zip'
           token: ${{ secrets.GITHUB_TOKEN }}
+  foundry:
+    name: Push to Foundry
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Version Number
+        id: tag
+        run: |
+          TAG_NAME=${{ github.event.release.tag_name }}
+          echo "::set-output name=version::${TAG_NAME//v/}"
+      - name: Push to Foundry
+        id: foundry
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'https://api.foundryvtt.com/_api/packages/release_version/'
+          customHeaders: '{ "Content-Type": "application/json", "Authorization": "${{ secrets.FOUNDRY_TOKEN }}" }'
+          data:
+            '{
+              "id": "forbidden-lands",
+              "release": {
+                "version": "${{ steps.tag.outputs.version }}",
+                "manifest": "https://raw.githubusercontent.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/${{ github.event.release.tag_name }}/system.json",
+                "notes": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/tag/${{ github.event.release.tag_name }}",
+                "compatibility": {
+                  "minimum": "10",
+                  "verified": "11",
+                  "maximum": "11"
+                }
+              }
+            }'
+      - name: Summary
+        run: |
+          echo "**Version:** ${{ steps.tag.outputs.version }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Release Notes:** ${{ github.event.release.html_url }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Published:** ${{ steps.foundry.outputs.response }}" >> $GITHUB_STEP_SUMMARY
