@@ -1,5 +1,15 @@
 # Changelog
 
+## 11.5.0
+
+### Minor Changes
+
+- [#405](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/405) [`cbd2767`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/cbd27670be53419c433894970cd6ffb12de64649) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - **Improvements**
+
+  - Improved darkmode with a better color theme thanks to Perfecto Ignori.
+  - Sheets are now resizable using the resize handle again.
+  - Experience point / End of Session dialog is accessible from Party Sheet (thanks to @Sp0ken for the dialog)
+
 ## 11.4.2
 
 ### Patch Changes
