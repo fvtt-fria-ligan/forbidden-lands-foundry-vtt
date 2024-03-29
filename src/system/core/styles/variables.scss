@@ -11,6 +11,7 @@
 	--color-theme-alt-600: #36b5a7;
 	--color-theme-alt-800: #005d67;
 	--color-theme-alt-900: #433a3f;
+	--color-theme-alt-1000: #bcb192;
 
 	// Foundry Overrides
 	--color-foreground: var(--color-theme-text);
@@ -90,7 +91,11 @@
 }
 
 html.dark {
-	--color-theme-background: #222020;
-	--color-theme-contrast: var(--color-theme-gray-800);
-	--color-theme-text: #fff;
+	--color-theme-background: var(--color-theme-alt-1000);
+	--color-theme-alt-600: var(--color-theme-gray-600);
+	--color-theme-alt-800: var(--color-theme-gray-800);
+	--color-theme-gray-200: #dddddd96;
+	--color-highlight: #f0f0e0;
+	--color-text-dark-5: #555;
+	--color-text-dark-6: #555;
 }

@@ -26,10 +26,12 @@
 
 	.avatar {
 		padding: 0.5rem;
-		& > img {
+
+		&>img {
 			vertical-align: middle;
 		}
 	}
+
 	.border {
 		border: 6px solid transparent;
 		border-image: url(./assets/journal-art/small-border.webp) 100/10px repeat;
@@ -60,7 +62,7 @@
 
 .party-member {
 	&:hover {
-		background-color: lightgray;
+		background-color: var(--color-theme-gray-200);
 	}
 
 	.party-member-avatar {
@@ -121,6 +123,7 @@
 			grid-row: 2/4;
 			grid-column: 3;
 		}
+
 		&.action-sleep {
 			grid-row: 2/4;
 			grid-column: 2;
@@ -150,7 +153,7 @@
 		justify-content: center;
 
 		.content-link {
-			background-color: white;
+			background-color: var(--color-theme-gray-200);
 			border: none;
 		}
 	}
@@ -158,14 +161,14 @@
 	.travel-action-help {
 		border: 1px solid;
 		border-radius: 6px;
-		background-color: cadetblue;
+		background-color: var(--color-theme-alt-800);
 		display: flex;
 		width: 20px;
 		margin-left: 4px;
 		justify-content: center;
 
 		&:hover {
-			background-color: cyan;
+			background-color: var(--color-theme-alt-600);
 		}
 	}
 

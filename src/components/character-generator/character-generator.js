@@ -128,7 +128,7 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 			game.i18n.localize("FLCG.ADULT"),
 			game.i18n.localize("FLCG.OLD"),
 		];
-		const ageNumber = parseInt($(event.currentTarget).val());
+		const ageNumber = Number.parseInt($(event.currentTarget).val());
 		const kin = this.dataset.kin[this.character.kin];
 		let ageKey = 2;
 		for (let i = 0; i < 3; i++) {
@@ -173,7 +173,7 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 	}
 
 	handleInputPath(event) {
-		const pathKey = parseInt($(event.currentTarget).val());
+		const pathKey = Number.parseInt($(event.currentTarget).val());
 		this.character.path = pathKey;
 		this.render(true);
 
@@ -182,7 +182,7 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 
 	handleInputEvent(event) {
 		const el = $(event.currentTarget);
-		const id = parseInt(el.data("key"));
+		const id = Number.parseInt(el.data("key"));
 		const eventKey = el.val();
 		const profession = this.dataset.profession[this.character.profession];
 
@@ -239,7 +239,7 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 	handleRollEvent(event) {
 		const profession = this.dataset.profession[this.character.profession];
 		const button = $(event.currentTarget);
-		const id = parseInt(button.data("key"));
+		const id = Number.parseInt(button.data("key"));
 		const rolled = [];
 		let newEvent = {};
 		for (let i = 0; i < this.character.formativeEvents.length; i++) {
@@ -290,7 +290,7 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 		character.kin = kin.key;
 		if (character.kin === "elf") {
 			character.age = {
-				ageNumber: NaN,
+				ageNumber: Number.NaN,
 				ageKey: 1,
 				ageString: game.i18n.localize("FLCG.ADULT"),
 			};

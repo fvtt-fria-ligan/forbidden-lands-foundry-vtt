@@ -17,12 +17,14 @@ describe("semver-compare", () => {
 		expect(() => semverComp("0", "0", "0")).toThrow();
 		// @ts-expect-error Testing invalid input
 		expect(() => semverComp("0.0.0", 22)).toThrow();
-		// @ts-expect-error Testing invalid input
-		expect(() => semverComp(Infinity, "0.0.0", "0.0.0")).toThrow();
+		expect(() =>
+			// @ts-expect-error Testing invalid input
+			semverComp(Number.POSITIVE_INFINITY, "0.0.0", "0.0.0"),
+		).toThrow();
 		// @ts-expect-error Testing invalid input
 		expect(() => semverComp({ min: "4.3.5" }, "0.0.0", "0.0.0")).toThrow();
 		// @ts-expect-error Testing invalid input
-		expect(() => semverComp("4.3.5", NaN, "0.0.0")).toThrow;
+		expect(() => semverComp("4.3.5", Number.NaN, "0.0.0")).toThrow;
 	});
 
 	it("should throw when missing comparators", () => {

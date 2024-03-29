@@ -57,10 +57,8 @@ declare global {
 	const CONFIG: ConfigFBL;
 
 	namespace globalThis {
-		// biome-ignore lint/style/noVar: <explanation>
 		var game: GameFBL;
 
-		// biome-ignore lint/style/noVar: <explanation>
 		var ui: FoundryUI<
 			ActorDirectory<Actor<null>>,
 			ItemDirectory<Item<null>>,

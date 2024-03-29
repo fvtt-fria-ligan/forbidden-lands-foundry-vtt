@@ -1,3 +1,4 @@
+import { experienceDialog } from "$components/macros/experience-dialog.js";
 import { TravelActionsConfig } from "@actor/party/components/travel-actions";
 import { TableConfigMenu } from "@system/core/settings.js";
 import localizeString from "@utils/localize-string.js";
@@ -12,7 +13,7 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 			classes: ["forbidden-lands", "sheet", "actor", "party"],
 			template: "systems/forbidden-lands/templates/actor/party/party-sheet.hbs",
 			width: window.innerWidth * 0.05 + 650,
-			resizable: false,
+			resizable: true,
 			tabs: [
 				{
 					navSelector: ".sheet-tabs",
@@ -67,6 +68,11 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 			event.preventDefault();
 			await new TableConfigMenu().render(true);
 			this.render(true);
+		});
+
+		html.find(".party-experience").click(async (event) => {
+			event.preventDefault();
+			return experienceDialog();
 		});
 
 		let button;

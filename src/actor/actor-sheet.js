@@ -251,9 +251,9 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 
 			// Get the weight of all coins
 			const coinsCarried =
-				parseInt(data.system.currency.gold.value) +
-				parseInt(data.system.currency.silver.value) +
-				parseInt(data.system.currency.copper.value);
+				Number.parseInt(data.system.currency.gold.value) +
+				Number.parseInt(data.system.currency.silver.value) +
+				Number.parseInt(data.system.currency.copper.value);
 			weightCarried += Math.floor(coinsCarried / 100) * 0.5;
 		}
 
@@ -267,7 +267,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		const weightAllowed =
 			baseEncumbrance * monsterEncumbranceMultiplier +
 			// Moidifers
-			modifiers.reduce((acc, m) => acc + parseInt(m?.value || 0), 0);
+			modifiers.reduce((acc, m) => acc + Number.parseInt(m?.value || 0), 0);
 		data.system.encumbrance = {
 			value: weightCarried,
 			max: weightAllowed,

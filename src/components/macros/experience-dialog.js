@@ -1,4 +1,4 @@
-(async () => {
+export function experienceDialog() {
 	const gamePlayers = game.users.players;
 	const characters = {};
 	const players = {};
@@ -16,12 +16,12 @@
 		let form_html = `<form>
 		<h2>${game.i18n.localize("EXPERIENCE.TITLE.PLAYERS")}</h2>
 		<multi-checkbox name="players" class="players-choices">`;
-		playersName.forEach((playerName) => {
-			const isActive = players[playerName].active;
-			const selected = isActive ? "selected" : "";
+		for (const player of gamePlayers) {
+			const playerName = player.name;
+			const selected = player.active ? "selected" : "";
 			form_html += `<option value="${playerName}" ${selected}>${playerName}</option>`;
-		});
-		form_html += `</multi-checkbox><br>`;
+		}
+		form_html += "</multi-checkbox><br>";
 
 		form_html += `<h2>${game.i18n.localize("EXPERIENCE.TITLE.ACTIONS")}</h2>
 		<multi-checkbox name="actions" class="actions-choices">`;
@@ -38,12 +38,10 @@
 			"EXPLOIT",
 		];
 		for (const action of actions) {
-			const actionLabel = game.i18n.localize(
-				`EXPERIENCE.ACTIONS.${action}`,
-			);
+			const actionLabel = game.i18n.localize(`EXPERIENCE.ACTIONS.${action}`);
 			form_html += `<option value="${action}">${actionLabel}</option>`;
 		}
-		form_html += `</multi-checkbox></form><br>`;
+		form_html += "</multi-checkbox></form><br>";
 
 		form_html += `
 		<style>
@@ -76,12 +74,12 @@
 			"form .players-choices input:checked",
 		);
 
-		selectedPlayers.forEach((input) => {
-			const player = input.value;
-			const playerCharacter = characters[player];
+		for (const player of selectedPlayers) {
+			const playerName = player.value;
+			const playerCharacter = characters[playerName];
 			if (!playerCharacter) return;
 
-			const currentXp = parseInt(
+			const currentXp = Number.parseInt(
 				playerCharacter?.system?.bio?.experience?.value || 0,
 			);
 			const newXp = currentXp + xpGains;
@@ -101,7 +99,7 @@
 				},
 				{},
 			);
-		});
+		}
 	}
 
 	new Dialog(
@@ -127,4 +125,4 @@
 		},
 		{ width: 600 },
 	).render(true);
-})();
+}

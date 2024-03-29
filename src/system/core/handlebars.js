@@ -120,8 +120,8 @@ function registerHandlebarsHelpers() {
 	});
 	Handlebars.registerHelper("isBroken", (item) => {
 		if (
-			parseInt(item.system.bonus.max, 10) > 0 &&
-			parseInt(item.system.bonus.value, 10) === 0
+			Number.parseInt(item.system.bonus.max, 10) > 0 &&
+			Number.parseInt(item.system.bonus.value, 10) === 0
 		)
 			return "broken";
 		return "";

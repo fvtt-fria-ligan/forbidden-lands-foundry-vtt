@@ -172,7 +172,7 @@ export class FBLRollHandler extends FormApplication {
 			const type = $(ev.currentTarget).data("type");
 			const operator = $(ev.currentTarget).data("operator");
 			const input = html.find(`#${type}`);
-			let value = parseInt(input.val(), 10) || 0;
+			let value = Number.parseInt(input.val(), 10) || 0;
 			value += operator === "plus" ? 1 : -1;
 			input.val(value > 0 ? value : 0);
 		});

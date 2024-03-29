@@ -1,15 +1,16 @@
 @forward "variables";
 
 html.dark {
+
 	#sidebar,
-	#hotbar #hotbar-directory-controls,
-	#hotbar #action-bar,
-	#hotbar #hotbar-page-controls,
 	#players,
+	#hotbar #action-bar,
 	#controls ol .scene-control,
 	#controls ol .control-tool,
 	#controls ol .scene-control.active,
 	#controls ol .control-tool.active,
+	#hotbar #hotbar-page-controls,
+	#hotbar #hotbar-directory-controls,
 	#navigation #nav-toggle,
 	#navigation #scene-list .scene.view,
 	.app.window-app {
@@ -17,8 +18,8 @@ html.dark {
 	}
 
 	button {
-		background: var(--color-theme-gray-800);
-		color: var(--color-theme-gray-200);
+		background: var(--color-theme-alt-1000);
+		border-color: var(--color-theme-theme-contrast);
 	}
 
 	input[type="text"],
@@ -34,11 +35,6 @@ html.dark {
 		color: var(--color-theme-text);
 	}
 
-	form .notes,
-	form .hint {
-		color: var(--color-theme-gray-200);
-	}
-
 	#chat-log .message {
 		background: var(--color-theme-background);
 	}
@@ -51,29 +47,32 @@ html.dark {
 	.journal-page-header h2,
 	.journal-page-header h3 {
 		color: var(--color-theme-background);
-		filter: invert(1);
-	}
-
-	.journal-sheet .journal-header:after {
-		filter: invert(1);
 	}
 
 	.journal-sheet .journal-header .title {
 		color: var(--color-theme-text);
 	}
-
-	.prosemirror menu .pm-dropdown {
-		background: var(--color-theme-contrast);
-	}
-}
-
-button,
-form button,
-.dark button {
-	background: var(--color-theme-gray-200);
-	color: var(--color-theme-gray-800);
 }
 
 .window-app .window-content {
 	background-image: none;
+}
+
+html.no-borders,
+html.dark.no-borders {
+
+	#sidebar,
+	#players,
+	#hotbar #action-bar,
+	#controls ol .scene-control,
+	#controls ol .control-tool,
+	#controls ol .scene-control.active,
+	#controls ol .control-tool.active,
+	#hotbar #hotbar-page-controls,
+	#hotbar #hotbar-directory-controls,
+	#navigation #nav-toggle,
+	#navigation #scene-list .scene.view,
+	.app.window-app.app.window-app {
+		border-image: none;
+	}
 }

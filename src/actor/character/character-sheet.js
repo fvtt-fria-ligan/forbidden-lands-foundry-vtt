@@ -15,7 +15,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			classes: ["forbidden-lands", "sheet", "actor"],
 			width: 660,
 			height: useHealthAndResolve ? 790 : 740,
-			resizable: false,
+			resizable: true,
 			scrollY: [
 				".armors .item-list .items",
 				".critical-injuries .item-list .items",

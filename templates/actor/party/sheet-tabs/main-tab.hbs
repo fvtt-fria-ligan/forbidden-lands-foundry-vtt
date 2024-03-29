@@ -10,6 +10,10 @@
 					<input name="name" type="text" value="{{name}}" />
 				</div>
 			</div>
+			{{#if isGm}}
+				<button type="button" class="party-experience"><i
+						class="fas fa-sparkles"></i>{{localize "EXPERIENCE.BUTTON.OPEN"}}</button>
+			{{/if}}
 		</div>
 	</div>
 	<div class="flex row main">
@@ -18,23 +22,25 @@
 			<div class="tab-hint">{{localize "FLPS.PARTY.HINT_ADD"}}</div>
 			<ol>
 				{{#each partyMembers as | partyMember |}}
-		{{> systems/forbidden-lands/templates/actor/party/components/member-component.hbs partyMember=partyMember deleteButton=true}}
+					{{> systems/forbidden-lands/templates/actor/party/components/member-component.hbs partyMember=partyMember deleteButton=true}}
 				{{/each}}
 			</ol>
 		</div>
 		{{#if isGm}}
-		<div class="random-enc">
-			<h3>{{localize "FLPS.PARTY.RANDOM_ENCOUNTERS"}}</h3>
-			<ul>
-			{{#each encounterTables as | value |}}
-				<li>
-					<button class="encounter-table" data-id="{{value}}"><i class="fas fa-dice"></i>{{@key}}</button>
-				</li>
-			{{/each}}
-			</ul>
-			<hr style="width: 100%;" />
-			<button class="configure-tables"><i class="fas fa-th-list"></i> {{localize "CONFIG.TABLE_CONFIG_MENU_LABEL"}}</button>
-		</div>
+			<div class="random-enc">
+				<h3>{{localize "FLPS.PARTY.RANDOM_ENCOUNTERS"}}</h3>
+				<ul>
+					{{#each encounterTables as | value |}}
+						<li>
+							<button class="encounter-table" data-id="{{value}}"><i
+									class="fas fa-dice"></i>{{@key}}</button>
+						</li>
+					{{/each}}
+				</ul>
+				<hr style="width: 100%;" />
+				<button class="configure-tables"><i class="fas fa-th-list"></i>
+					{{localize "CONFIG.TABLE_CONFIG_MENU_LABEL"}}</button>
+			</div>
 		{{/if}}
 	</div>
 </div>
