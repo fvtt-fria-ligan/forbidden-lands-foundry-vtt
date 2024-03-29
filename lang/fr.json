@@ -166,6 +166,7 @@
 	"EXPERIENCE.TITLE.PLAYERS": "Joueur(s) présent(s)",
 	"EXPERIENCE.TITLE.ACTIONS": "Le joueur a t'il…",
 	"EXPERIENCE.BUTTON.OK": "Ajouter l'expérience",
+	"EXPERIENCE.BUTTON.OPEN": "Fin de session – XP",
 	"EXPERIENCE.BUTTON.CANCEL": "Annuler",
 	"EXPERIENCE.ACTIONS.SESSION": "Participé à cette session de jeu ?",
 	"EXPERIENCE.ACTIONS.MAP": "Découvert au moins une case inconnue ?",
