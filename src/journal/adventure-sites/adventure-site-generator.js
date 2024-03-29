@@ -31,9 +31,9 @@ const getNumber = (string) => {
 
 const cheapRoll = (roll) => {
 	let [dice, sides, modifier] = roll.split(/d|\+/i);
-	dice = parseInt(dice) || 1;
-	sides = parseInt(sides) || 6;
-	modifier = modifier ? parseInt(modifier) : 0;
+	dice = Number.parseInt(dice) || 1;
+	sides = Number.parseInt(sides) || 6;
+	modifier = modifier ? Number.parseInt(modifier) : 0;
 	let result = 0;
 	for (let i = 0; i <= dice; i++) {
 		result += Math.floor(Math.random() * sides) + 1;
@@ -53,7 +53,7 @@ const parseReRolls = (result) => {
 		if (typeof value === "string") {
 			const parsedResults = value.split(":");
 			if (parsedResults[0] === "reroll") {
-				return parseInt(parsedResults[1]);
+				return Number.parseInt(parsedResults[1]);
 			}
 		}
 	}
@@ -89,7 +89,7 @@ const parseRollStrings = (results) => {
 		return rollOnTable(
 			ALL_TABLES[parsedResults[2]],
 			fns("all_results"),
-			parseInt(parsedResults[1]),
+			Number.parseInt(parsedResults[1]),
 		);
 	return [];
 };

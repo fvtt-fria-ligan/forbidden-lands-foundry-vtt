@@ -163,7 +163,7 @@ export class CharacterConverter {
 
 		function increaseSkill(skillObj) {
 			for (const [skillName, skillValue] of Object.entries(skillObj)) {
-				skills[skillName].value += parseInt(skillValue);
+				skills[skillName].value += Number.parseInt(skillValue);
 			}
 		}
 

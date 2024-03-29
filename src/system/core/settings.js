@@ -331,6 +331,16 @@ export default function registerSettings() {
 		type: Boolean,
 	});
 
+	game.settings.register("forbidden-lands", "removeBorders", {
+		name: "SETTINGS.REMOVEBORDERS",
+		hint: "SETTINGS.REMOVEBORDERS_HINT",
+		scope: "client",
+		config: true,
+		default: false,
+		requiresReload: true,
+		type: Boolean,
+	});
+
 	// Sheet Settings
 	game.settings.register("forbidden-lands", "collapseSheetHeaderButtons", {
 		name: "CONFIG.COLLAPSE_SHEET_HEADER_BUTTONS",

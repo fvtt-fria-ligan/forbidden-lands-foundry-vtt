@@ -78,6 +78,9 @@ Hooks.once("init", () => {
 	// Add dark mode class to html tag
 	if (game.settings.get("forbidden-lands", "darkmode"))
 		$("html").addClass("dark");
+	// Remove borders if the setting is enabled
+	if (game.settings.get("forbidden-lands", "removeBorders"))
+		$("html").addClass("no-borders");
 });
 
 Hooks.once("ready", () => {

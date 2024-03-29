@@ -12,7 +12,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 				"systems/forbidden-lands/templates/actor/monster/monster-sheet.hbs",
 			width: 700,
 			height: 770,
-			resizable: false,
+			resizable: true,
 			scrollY: [
 				".monster-talents .item-list .items",
 				".monster-attacks .item-list .items",
@@ -60,7 +60,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 	async rollAttack() {
 		const attacks = this.actor.itemTypes.monsterAttack;
 		const roll = await new Roll(`1d${attacks.length}`).roll({ async: true });
-		const attack = attacks[parseInt(roll.result) - 1];
+		const attack = attacks[Number.parseInt(roll.result) - 1];
 		attack.sendToChat();
 		this.rollSpecificAttack(attack.id);
 	}

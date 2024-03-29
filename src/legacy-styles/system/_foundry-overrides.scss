@@ -8,7 +8,8 @@
 	overflow: hidden;
 	padding-left: 6px;
 	margin: 0 0 0 4px;
-	> i {
+
+	>i {
 		font-size: var(--font-size-16);
 		margin-left: 10px;
 		margin-top: 2px;
@@ -25,6 +26,7 @@
 	font-family: RPGAwesome;
 	font-size: var(--font-size-16);
 	transform: translateY(1px);
+
 	&:before {
 		content: "\ea72";
 	}
@@ -34,6 +36,7 @@
 	font-family: RPGAwesome;
 	font-size: var(--font-size-16);
 	transform: translateY(1px);
+
 	&:before {
 		content: "\ea8f";
 	}
@@ -43,6 +46,7 @@
 	font-family: Swordlings;
 	transform: translate(1.3px, -0.6px);
 	font-size: var(--font-size-16);
+
 	&:before {
 		content: "x";
 	}
@@ -52,7 +56,7 @@
 
 h3 {
 	&.entity-name {
-		& > a {
+		&>a {
 			color: #111;
 			text-shadow: 0px 0px 5px #fff;
 			font-weight: bold;
@@ -66,6 +70,7 @@ h3 {
 	.window-content {
 		padding: 2px 4px;
 	}
+
 	.window-resizable-handle {
 		background: none;
 		border: none;
@@ -76,10 +81,12 @@ h3 {
 			transform: translateY(-1.5px) rotate(45deg);
 		}
 	}
+
 	&.image-popout {
 		form.flexcol {
 			background: #fff;
 		}
+
 		.form-group {
 			&.title {
 				input {
@@ -90,19 +97,23 @@ h3 {
 					border: none;
 				}
 			}
+
 			&.picker {
 				opacity: 0.2;
 			}
+
 			input,
 			button {
 				background: #999;
 			}
 		}
 	}
+
 	.window-header {
 		border: none;
 		transition: margin-top 0.18s ease;
 	}
+
 	&.minimized {
 		.window-header {
 			border: none;
@@ -111,12 +122,14 @@ h3 {
 			align-items: center;
 			line-height: 1.5;
 			padding: unset;
+
 			.window-title {
 				overflow: hidden;
 				white-space: pre;
 			}
 		}
 	}
+
 	// Override weirdly big settings input box for numbers
 	&#client-settings .settings-list input[type="number"] {
 		max-width: 3rem;
@@ -126,6 +139,7 @@ h3 {
 
 img {
 	border: none;
+
 	&.profile {
 		padding: 5px;
 	}
@@ -150,51 +164,61 @@ button.inline-roll {
 	border-bottom: 1px dotted grey;
 	padding: 0;
 }
+
 a {
 	&.inline-roll {
 		border: none;
 	}
 }
+
 button {
 	&.inline-roll {
 		&:hover {
 			text-shadow: 0 0 8px var(--color-shadow-primary);
 			box-shadow: none;
 		}
-		& > .fa-dice-d20 {
+
+		&>.fa-dice-d20 {
 			margin-inline-end: 0.25em;
 			color: var(--color-text-dark-inactive);
 		}
+
 		width: auto;
 		border: none;
 		line-height: initial;
 		font-size: inherit;
-		font-family: "IM Fell Great Primer", serif;
+		font-family: "IM Fell Great Primer",
+		serif;
 	}
 }
 
 #pause {
 	background: none;
-	& > img {
+
+	&>img {
 		width: 200px;
 		height: 200px;
 		top: -50px;
 		left: calc(50% - 100px);
 		opacity: 0.75;
 	}
-	& > figcaption {
+
+	&>figcaption {
 		font-family: "IM Fell DW Pica SC";
 		font-size: var(--font-size-24);
 		text-shadow: 0px 3px 5px rgba(0, 0, 0, 1);
 	}
 }
+
 #navigation {
 	left: 180px;
 }
+
 #scenes {
 	.directory-item:last-child {
 		border-bottom: none;
 	}
+
 	.scene {
 		h3 {
 			-webkit-backdrop-filter: saturate(0.5) blur(2px) brightness(0.7);
@@ -205,7 +229,7 @@ button {
 			margin-inline-start: 0;
 			padding: 0.25rem;
 
-			& > a {
+			&>a {
 				place-self: center;
 			}
 
@@ -219,6 +243,7 @@ button {
 #chat-log {
 	.message {
 		position: relative;
+
 		&:after {
 			content: "";
 			border: 10px solid transparent;
@@ -231,17 +256,21 @@ button {
 		}
 	}
 }
+
 .chat-message {
 	font-size: var(--font-size-12);
+
 	.message-header {
 		padding: 8px 13px;
 		border-bottom: rgba(0, 0, 0, 0.2);
 	}
+
 	.message-content {
 		border: none;
 		padding: 0 13px 13px;
 	}
 }
+
 #playlists {
 	li {
 		&.playlist {
@@ -253,17 +282,20 @@ button {
 }
 
 form {
-	& > select[name="folder"] {
+	&>select[name="folder"] {
 		display: none;
 	}
-	& > .lightbox-image {
+
+	&>.lightbox-image {
 		background: rgb(255, 255, 255);
 	}
 }
+
 .window-app.image-popout .form-group.picker:hover,
 .window-app.image-popout .form-group.picker:focus-within {
 	opacity: 1;
 }
+
 li {
 	&.directory-item {
 		&.entity {
@@ -279,8 +311,8 @@ li {
 	white-space: nowrap;
 }
 
-.app.sidebar-popout .folder > .folder-header .create-folder,
-.app.sidebar-popout li.folder > .folder-header .create-entity {
+.app.sidebar-popout .folder>.folder-header .create-folder,
+.app.sidebar-popout li.folder>.folder-header .create-entity {
 	color: #444;
 }
 
@@ -289,17 +321,21 @@ li {
 		border: 2px dotted #444;
 		border-image: url(./assets/journal-art/small-border.webp) 100/10px repeat;
 	}
+
 	.directory-item.context {
 		border-top: 1px solid black;
 		border-bottom: 1px solid #666;
 		background: #ccc;
-		h3.entity-name > a {
+
+		h3.entity-name>a {
 			font-weight: 600;
 		}
 	}
-	h3.entity-name > a {
+
+	h3.entity-name>a {
 		font-weight: 400;
 		font-size: var(--font-size-18);
+
 		&:hover {
 			text-shadow: 0 0 6px #333;
 		}
@@ -310,7 +346,7 @@ li {
 	border-bottom: 1px solid #fff;
 	box-shadow: 0 0 6px #fff;
 
-	& > .item.active {
+	&>.item.active {
 		border: 1px solid #fff;
 		box-shadow: 0 0 6px inset #fffc;
 	}
@@ -365,30 +401,17 @@ li {
 	}
 }
 
-// Fixing scrollbars!
-::-webkit-scrollbar-thumb {
-	outline: none;
-	border-radius: 3px;
-	background: #999 !important;
-	border: 1px solid #333 !important;
-	border-color: #333 !important;
-}
-::-webkit-scrollbar-track {
-	box-shadow: 0 0 3px #005d67 inset !important;
-	border-radius: 3px;
-}
-
 * {
 	scrollbar-width: thin !important;
-	scrollbar-color: #005d67 #ccc !important;
+	scrollbar-color: var(--color-theme-alt-800) #ccc !important;
 }
 
-a.card-control > i.fa-caret-down,
-a.card-control > i.fa-caret-up {
+a.card-control>i.fa-caret-down,
+a.card-control>i.fa-caret-up {
 	font-size: var(--font-size-16);
 }
 
-#controls ol.control-tools > li.toggle {
+#controls ol.control-tools>li.toggle {
 	background: #a0040466;
 	border-color: var(--color-border-dark-tertiary);
 
