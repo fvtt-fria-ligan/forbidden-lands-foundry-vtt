@@ -1,5 +1,11 @@
 # Changelog
 
+## 11.6.0
+
+### Minor Changes
+
+- [#412](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/412) [`bbcc531`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/bbcc53176fd54ed7eaccd413feb89a749d1bc915) Thanks [@myrrien](https://github.com/myrrien)! - :globe_with_meridians: Italian translation
+
 ## 11.5.0
 
 ### Minor Changes
