@@ -34,21 +34,6 @@
 	"styles": ["forbidden-lands.css"],
 	"languages": [
 		{
-			"lang": "en",
-			"name": "English",
-			"path": "lang/en.json"
-		},
-		{
-			"lang": "fr",
-			"name": "Français",
-			"path": "lang/fr.json"
-		},
-		{
-			"lang": "pt-BR",
-			"name": "Português Brasileiro",
-			"path": "lang/pt-br.json"
-		},
-		{
 			"lang": "cs",
 			"name": "Čeština",
 			"path": "lang/cs.json"
@@ -59,9 +44,9 @@
 			"path": "lang/de.json"
 		},
 		{
-			"lang": "sv",
-			"name": "Svenska",
-			"path": "lang/sv.json"
+			"lang": "en",
+			"name": "English",
+			"path": "lang/en.json"
 		},
 		{
 			"lang": "es",
@@ -69,14 +54,30 @@
 			"path": "lang/es.json"
 		},
 		{
-			"lang": "zh-TW",
-			"name": "正體中文",
-			"path": "lang/zh-TW.json"
-		}
-				{
+			"lang": "fr",
+			"name": "Français",
+			"path": "lang/fr.json"
+		},
+		{
 			"lang": "it",
 			"name": "Italiano",
 			"path": "lang/it.json"
+		},
+
+		{
+			"lang": "pt-BR",
+			"name": "Português Brasileiro",
+			"path": "lang/pt-br.json"
+		},
+		{
+			"lang": "sv",
+			"name": "Svenska",
+			"path": "lang/sv.json"
+		},
+		{
+			"lang": "zh-TW",
+			"name": "正體中文",
+			"path": "lang/zh-TW.json"
 		}
 	],
 	"flags": {
