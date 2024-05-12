@@ -1,5 +1,11 @@
 # Changelog
 
+## 11.6.1
+
+### Patch Changes
+
+- [#416](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/416) [`ee6832c`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/ee6832c7bc13bee92cba3629709b265d680e93c0) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Fix End of session XP feature thanks to @sp0ken
+
 ## 11.6.0
 
 ### Minor Changes
