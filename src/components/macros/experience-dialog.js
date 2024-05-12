@@ -91,7 +91,7 @@ export function experienceDialog() {
 				{
 					user: game.user.id,
 					speaker: ChatMessage.getSpeaker(),
-					content: game.i18n.localize("EXPERIENCE.CHAT.MESSAGE", {
+					content: game.i18n.format("EXPERIENCE.CHAT.MESSAGE", {
 						name: playerCharacter.name,
 						xpGains: xpGains,
 						newXp: newXp,
