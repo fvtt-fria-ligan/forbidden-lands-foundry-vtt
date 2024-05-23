@@ -106,7 +106,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 				Math.max(-1, ...Object.getOwnPropertyNames(rollModifiers)) + 1;
 			const update = {};
 			// Using a default value of Strength and 1 in order NOT to create an empty modifier.
-			update[`data.rollModifiers.${modifierId}`] = {
+			update[`system.rollModifiers.${modifierId}`] = {
 				name: "ATTRIBUTE.STRENGTH",
 				value: "+1",
 			};
@@ -126,9 +126,9 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 			}
 			// There seems to be some issue replacing an existing object, if we set
 			// it to null first it works better.
-			await this.item.update({ "data.rollModifiers": null });
+			await this.item.update({ "system.rollModifiers": null });
 			if (Object.keys(rollModifiers).length > 0) {
-				await this.item.update({ "data.rollModifiers": rollModifiers });
+				await this.item.update({ "system.rollModifiers": rollModifiers });
 			}
 		});
 		html.find(".change-bonus").on("click contextmenu", (ev) => {
@@ -150,7 +150,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 				value = Math.min(value + 1, bonus.max);
 			}
 			this.object.update({
-				["data.bonus.value"]: value,
+				["system.bonus.value"]: value,
 			});
 		});
 		html.find(".feature").click(async (ev) => {

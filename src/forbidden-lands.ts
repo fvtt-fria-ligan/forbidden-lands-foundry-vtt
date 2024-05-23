@@ -88,11 +88,6 @@ Hooks.once("ready", () => {
 	displayMessages();
 	importMacros();
 
-	// Hack to remove monsterTalents from System
-	game.system.documentTypes.Item = game.system.documentTypes.Item.filter(
-		(type) => type !== "monsterTalent",
-	);
-
 	// Only add the context menu to decrease consumables if consumables aren't automatically handled.
 	if (game.settings.get("forbidden-lands", "autoDecreaseConsumable") === 0)
 		Hooks.on("getChatLogEntryContext", (_html, options) => {

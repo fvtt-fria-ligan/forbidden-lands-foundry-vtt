@@ -12,7 +12,7 @@ export default async function (
 			type: documentType,
 			documentName,
 			name: documentName,
-			["data.subtype.type"]: subtype,
+			["system.subtype.type"]: subtype,
 		});
 		await created.sheet.render(true);
 		await created.update({ name: `${documentName}-updated` });

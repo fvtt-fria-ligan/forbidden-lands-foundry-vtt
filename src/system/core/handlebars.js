@@ -16,11 +16,7 @@ function registerHandlebarsHelpers() {
 		}
 		return acc;
 	});
-	Handlebars.registerHelper("flps_enrich", (content) => {
-		// Enrich the content
-		content = TextEditor.enrichHTML(content, { documents: true, async: false });
-		return new Handlebars.SafeString(content);
-	});
+
 	Handlebars.registerHelper("flps_capitalize", (value) =>
 		typeof value === "string" && value.length > 0
 			? value[0].toUpperCase() + value.slice(1)
@@ -241,6 +237,10 @@ function registerHandlebarsHelpers() {
 	Handlebars.registerHelper("count", (array = []) => {
 		if (!Array.isArray(array)) return 0;
 		return array.length;
+	});
+
+	Handlebars.registerHelper("range", (start, end) => {
+		return Array.from({ length: 1 + end - start }, (_, i) => i + start);
 	});
 }
 

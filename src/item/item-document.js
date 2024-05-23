@@ -82,9 +82,9 @@ export class ForbiddenLandsItem extends Item {
 			if (match && isCarriedOrTalent) {
 				let value;
 
-				if (mod.value.match(/\d*d(?:8|10|12)/i))
+				if (mod.gearBonus) value = Number(this.bonus);
+				else if (mod.value.match(/\d*d(?:8|10|12)/i))
 					value = mod.value.replace(/^\+/, "");
-				else if (mod.gearBonus) value = Number(this.bonus);
 				else value = Number(mod.value);
 
 				if (value)

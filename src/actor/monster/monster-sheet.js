@@ -49,7 +49,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 		});
 		html.find(".change-mounted").click(() => {
 			const boolean = this.actor.actorProperties.isMounted;
-			this.actor.update({ "data.isMounted": !boolean });
+			this.actor.update({ "system.isMounted": !boolean });
 		});
 	}
 

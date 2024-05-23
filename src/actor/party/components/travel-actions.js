@@ -80,6 +80,16 @@ export const TravelActionsConfig = {
 					);
 				},
 			},
+			{
+				name: "FLPS.TRAVEL_ROLL.SEA_TRAVEL",
+				class: "travel-sea-travel",
+				handler: (party) => {
+					handleTravelAction(
+						party.actorProperties.travel.lead,
+						"travel-sea-travel",
+					);
+				},
+			},
 		],
 	},
 	watch: {

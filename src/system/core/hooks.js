@@ -190,7 +190,7 @@ export default function registerHooks() {
 		const pushButton = html.find(".fbl-button.push")[0];
 		if (pushButton) {
 			pushButton.addEventListener("click", async () => {
-				if (app.roll.pushable) {
+				if (app.rolls[0]?.pushable) {
 					await FBLRollHandler.pushRoll(app);
 
 					const fireEvent = () => {

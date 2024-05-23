@@ -1,11 +1,12 @@
-<li class="party-member flexrow" data-entity-id="{{partyMember._id}}" draggable="true">
+<li class="party-member flexrow" data-entity-id="{{partyMember._id}}"
+	draggable="true">
 	{{#if deleteButton }}
-	<div class="button">
-		<a class="item-control item-delete" title="Remove from party"><i class="fas fa-trash"></i></a>
-	</div>
+		<div class="button">
+			<a class="item-control item-delete" title="Remove from party"><i
+					class="fas fa-trash"></i></a>
+		</div>
 	{{/if}}
-	<img class="party-member-avatar" title="{{partyMember.name}}" src="{{partyMember.img}}" />
-	{{#if noCharSheetLink }}
+	<img class="party-member-avatar" title="{{partyMember.name}}"
+		src="{{partyMember.img}}" />
 	<span class="plain-name">{{partyMember.name}}</span>
-	{{else}} {{ flps_enrich (flps_strconcat "@Actor[" partyMember.name "]") }} {{/if}}
 </li>
