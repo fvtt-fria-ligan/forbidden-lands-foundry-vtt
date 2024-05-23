@@ -58,6 +58,7 @@ const FBL = {
 		"travel-forced-march": "endurance",
 		"travel-hike-in-darkness": "scouting",
 		"travel-navigate": "survival",
+		"travel-sea-travel": "survival",
 		"travel-keep-watch": "scouting",
 		"travel-find-good-place": "survival",
 		"travel-find-food": "survival",
@@ -176,6 +177,7 @@ const FBL = {
 		activatedTalents: "TALENT.ANY_ACTIVATED",
 		"travel-forced-march": "FLPS.TRAVEL_ROLL.FORCED_MARCH",
 		"travel-navigate": "FLPS.TRAVEL_ROLL.NAVIGATE",
+		"travel-sea-travel": "FLPS.TRAVEL_ROLL.SEA_TRAVEL",
 		"travel-keep-watch": "FLPS.TRAVEL_ROLL.KEEP_WATCH",
 		"travel-find-good-place": "FLPS.TRAVEL_ROLL.FIND_GOOD_PLACE",
 		"travel-find-food": "FLPS.TRAVEL_ROLL.FIND_FOOD",
@@ -223,6 +225,7 @@ const FBL = {
 		"travel-find-food",
 		"travel-find-prey",
 		"travel-navigate",
+		"travel-sea-travel",
 		"spell",
 	],
 	encounterTables: [

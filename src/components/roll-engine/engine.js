@@ -71,7 +71,8 @@ export class FBLRollHandler extends FormApplication {
 	 * Safecast rules are rather complex, this getter intends to avoid rolling negative dice if someone safecasts a 1 willpower roll without Psychic talent.
 	 */
 	get safecastMax() {
-		return this.spell.psych || this.base.value > 1 ? 2 : 1;
+		const psychValue = this.spell.psych ? 1 : 0;
+		return this.base.value + psychValue;
 	}
 
 	get mishapTable() {
@@ -246,8 +247,6 @@ export class FBLRollHandler extends FormApplication {
 					break;
 				}
 			}
-			if (!this.spell.psych && this.spell.safecast === 2)
-				this.spell.safecast = 1;
 			this.render(true);
 		});
 
@@ -346,19 +345,19 @@ export class FBLRollHandler extends FormApplication {
 						number: base,
 						flavor: localizeString(this.base.label),
 					},
-			  ]
+				]
 			: [];
 		this.g = Array.isArray(gear)
 			? gear
 			: gear
-			  ? [
+				? [
 						{
 							term: "g",
 							number: gear,
 							flavor: this.gear.label,
 						},
-				  ]
-			  : [];
+					]
+				: [];
 		this.a = this.parseArtifacts(artifact, this.gear.label);
 
 		const diff = skill + modifier;
@@ -381,7 +380,7 @@ export class FBLRollHandler extends FormApplication {
 								number: diff,
 								flavor: localizeString(this.skill.label),
 							},
-					  ]
+						]
 					: [];
 				break;
 		}
@@ -473,8 +472,8 @@ export class FBLRollHandler extends FormApplication {
 		const maxPush = unlimitedPush
 			? 10000
 			: this.options.actorType === "monster"
-			  ? "0"
-			  : 1;
+				? "0"
+				: 1;
 		return {
 			name: this.title,
 			title: this.title,
@@ -599,7 +598,7 @@ export class FBLRollHandler extends FormApplication {
 	 * @returns pushes then updates actor or simply pushes the roll if no actor is presented.
 	 */
 	static async pushRoll(msg) {
-		const roll = msg.roll;
+		const roll = msg.rolls[0];
 		await roll.push({ async: true });
 
 		const speaker = this.getSpeaker(msg.speaker);
@@ -695,7 +694,7 @@ export class FBLRollHandler extends FormApplication {
 			operation === "add"
 				? Math.min(willpower.value + value, willpower.max)
 				: Math.max(willpower.value - value, 0);
-		return await speaker.update({ "data.bio.willpower.value": willpower });
+		return await speaker.update({ "system.bio.willpower.value": willpower });
 	}
 
 	/**
@@ -718,7 +717,7 @@ export class FBLRollHandler extends FormApplication {
 		const currentValue = speaker?.consumables[consumable]?.value;
 		const newValue = Math.max(currentValue - 1, 0);
 		return await speaker.update({
-			[`data.consumable.${consumable}.value`]: newValue,
+			[`system.consumable.${consumable}.value`]: newValue,
 		});
 	}
 }

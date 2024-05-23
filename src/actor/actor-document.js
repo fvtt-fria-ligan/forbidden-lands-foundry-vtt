@@ -188,7 +188,7 @@ export class ForbiddenLandsActor extends Actor {
 			},
 		};
 		if (this.conditions?.sleepy.value) this.toggleCondition("sleepy");
-		this.update({ data });
+		this.update({ system: data });
 		const sleepyIndex = activeConditions
 			.map(([key, _]) => key)
 			.indexOf("sleepy");
@@ -206,11 +206,11 @@ export class ForbiddenLandsActor extends Actor {
 				activeConditions.length
 					? `<p>${this.name} ${localize(
 							"CONDITION.SUFFERING_FROM",
-					  )} ${formatter.format(
+						)} ${formatter.format(
 							activeConditions
 								.filter(([key, _]) => key !== "sleepy")
 								.map(([_, value]) => `<b>${localize(value.label)}</b>`),
-					  )}.</p>`
+						)}.</p>`
 					: ""
 			}</div>`,
 			speaker: { actor: this },

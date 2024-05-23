@@ -30,7 +30,7 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 	}
 
 	async getData() {
-		const data = await super.getData().data;
+		const { data } = await super.getData();
 		data.partyMembers = {};
 		data.travelActions = this.getTravelActions();
 		data.encounterTables = await this.getEncounterTables();
@@ -119,7 +119,7 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 		partyMembers.splice(partyMembers.indexOf(entityId), 1);
 
 		const updateData = {
-			"data.members": partyMembers,
+			"system.members": partyMembers,
 		};
 
 		let travelAction;
@@ -131,9 +131,9 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 			if (typeof travelAction === "object") {
 				actionParticipants = [...travelAction];
 				actionParticipants.splice(actionParticipants.indexOf(entityId), 1);
-				updateData[`data.travel.${travelActionKey}`] = actionParticipants;
+				updateData[`system.travel.${travelActionKey}`] = actionParticipants;
 			} else {
-				updateData[`data.travel.${travelActionKey}`] = "";
+				updateData[`system.travel.${travelActionKey}`] = "";
 			}
 		}
 

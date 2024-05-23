@@ -12,10 +12,10 @@
 			"url": "https://amediocre.dev"
 		}
 	],
-	"minimumCoreVersion": 10,
 	"compatibility": {
-		"minimum": "10",
-		"verified": "11"
+		"minimum": "11",
+		"verified": "12",
+		"maximum": "12"
 	},
 	"contributors": "perfectro, patrys, Maxter, jimorie, giant-teapot, romelwell, roonel, moo-man, lasseborly, narukaioh, Cussa",
 	"localization": " ptosekigloo, ptoseklukas, Bapf, OnkelRod, sebastiansIT, Tobbot, GeneralMine, DavidCMeier, KaWeNGoD, ismail-ahmed, cyberdwarf1664, Zhikann, franklinbenini, DenninDalke, luizbgomide, igorteuri, trprado, SwedishRabbit, Rosataker, Dran82",
@@ -97,6 +97,10 @@
 				}
 			}
 		]
+	},
+	"grid": {
+		"distance": 1,
+		"units": "m"
 	},
 	"gridDistance": 1,
 	"gridUnits": "m",
