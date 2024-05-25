@@ -2,7 +2,7 @@
 	"kin": {
 		"alderlander": {
 			"key": "alderlander",
-			"name": "Humana Aliseo",
+			"name": "Humana Alisea",
 			"weight": 8,
 			"age": [[16, 25], [26, 50], [51, 80]],
 			"talent": "Adaptable",
@@ -140,7 +140,11 @@
 						"wits": "3",
 						"empathy": "3"
 					},
-					"skills": { "move": "2", "survival": "2", "animal-handling": "2" }
+					"skills": { 
+						"move": "2", 
+						"survival": "2", 
+						"animal-handling": "2" 
+					}
 				},
 				"dreamer": {
 					"key": "dreamer",
@@ -156,7 +160,7 @@
 					"skills": {
 						"lore": "2",
 						"manipulation": "1",
-						"performance": "1",
+						"performance": "2",
 						"animal-handling": "1"
 					}
 				},
@@ -263,7 +267,7 @@
 				},
 				"druid's apprentice": {
 					"key": "druid's apprentice",
-					"name": "Aprendiz del druida",
+					"name": "Aprendiza del druida",
 					"weight": 1,
 					"description": "Estuviste bajo la tutela de un druida y aprendiste todo lo que pudiste de los misterios sagrados, de rituales y hechicerías. Tu maestro hace tiempo que murió, pero aún recuerdas sus palabras.",
 					"attributes": {
@@ -482,7 +486,7 @@
 			"childhood": {
 				"baker's apprentice": {
 					"key": "baker's apprentice",
-					"name": "Aprendiz de panadero",
+					"name": "Aprendiza de panadero",
 					"weight": 1,
 					"description": "Siempre te encantó el olor del pan recién hecho. Trabajaste en la cocina desde pequeña, haciendo el pan que después haría la boca agua a los demás.",
 					"attributes": {
@@ -557,7 +561,7 @@
 				},
 				"bookworm": {
 					"key": "bookworm",
-					"name": "Ratón de biblioteca",
+					"name": "Ratona de biblioteca",
 					"weight": 1,
 					"description": "Los demás niños jugaban en el bosque, pero tú preferías enterrar tu nariz en los libros viejos y leer sobre mitos, dragones y tesoros.",
 					"attributes": {
@@ -570,7 +574,7 @@
 						"lore": "3",
 						"insight": "1",
 						"manipulation": "1",
-						"animal-handling": "1"
+						"healing": "1"
 					}
 				},
 				"loner": {
@@ -607,10 +611,10 @@
 					"weight": 1,
 					"description": "Tus padres te abandonaron cuando eras una niña, pero encontraste un nuevo hogar en una manada de lobos. Fuiste una de ellos, aullaste a la luna, corriste dando zancadas por las llanuras y comiste carne cruda.",
 					"attributes": {
-						"strength": "3",
+						"strength": "4",
 						"agility": "5",
 						"wits": "3",
-						"empathy": "4"
+						"empathy": "3"
 					},
 					"skills": {
 						"endurance": "1",
@@ -668,7 +672,12 @@
 						"wits": "3",
 						"empathy": "4"
 					},
-					"skills": { "might": "1", "melee": "2", "move": "2", "survival": "1" }
+					"skills": { 
+						"might": "1", 
+						"melee": "2", 
+						"move": "2", 
+						"survival": "1" 
+					}
 				},
 				"wanderer": {
 					"key": "wanderer",
@@ -700,7 +709,11 @@
 						"wits": "3",
 						"empathy": "5"
 					},
-					"skills": { "lore": "1", "manipulation": "2", "performance": "3" }
+					"skills": { 
+						"lore": "1", 
+						"manipulation": "2", 
+						"performance": "3" 
+					}
 				}
 			}
 		},
@@ -726,7 +739,7 @@
 						"lore": "1",
 						"insight": "1",
 						"manipulation": "1",
-						"performance": "1"
+						"performance": "3"
 					}
 				},
 				"worker": {
@@ -740,7 +753,11 @@
 						"wits": "3",
 						"empathy": "3"
 					},
-					"skills": { "might": "2", "endurance": "2", "crafting": "2" }
+					"skills": { 
+						"might": "2", 
+						"endurance": "2", 
+						"crafting": "2" 
+					}
 				},
 				"brigand": {
 					"key": "brigand",
@@ -890,7 +907,11 @@
 						"wits": "5",
 						"empathy": "3"
 					},
-					"skills": { "stealth": "2", "scouting": "3", "survival": "1" }
+					"skills": { 
+						"stealth": "2", 
+						"scouting": "3", 
+						"survival": "1" 
+					}
 				},
 				"fighter": {
 					"key": "fighter",
@@ -903,7 +924,11 @@
 						"wits": "3",
 						"empathy": "3"
 					},
-					"skills": { "might": "2", "melee": "3", "move": "1" }
+					"skills": { 
+						"might": "2", 
+						"melee": "3", 
+						"move": "1" 
+					}
 				},
 				"child of the forest": {
 					"key": "child of the forest",
@@ -916,7 +941,11 @@
 						"wits": "4",
 						"empathy": "4"
 					},
-					"skills": { "lore": "2", "scouting": "1", "survival": "3" }
+					"skills": { 
+						"lore": "2", 
+						"scouting": "1", 
+						"survival": "3" 
+					}
 				}
 			}
 		},
@@ -929,7 +958,7 @@
 			"childhood": {
 				"smith's apprentice": {
 					"key": "smith's apprentice",
-					"name": "Aprendiz del herrero",
+					"name": "Aprendiza del herrero",
 					"weight": 1,
 					"description": "Siempre te has sentido cómoda en el sofocante calor de la forja. Aprendiste el secreto del acero en los largos días a la luz del brillo del fuego.",
 					"attributes": {
@@ -965,7 +994,7 @@
 				},
 				"scout's apprentice": {
 					"key": "scout's apprentice",
-					"name": "Aprendiz del explorador",
+					"name": "Aprendiza del explorador",
 					"weight": 1,
 					"description": "Siempre has sido muy perspicaz y curiosa. Pronto llamaste la atención de tu clan y te eligieron para que aprendieras el oficio de explorador. Pasaste muchos días escondida observando los peligros de las Tierras Prohibidas.",
 					"attributes": {
@@ -1091,7 +1120,11 @@
 						"wits": "4",
 						"empathy": "4"
 					},
-					"skills": { "lore": "2", "scouting": "1", "survival": "3" }
+					"skills": { 
+						"lore": "2", 
+						"scouting": "1", 
+						"survival": "3" 
+					}
 				},
 				"hard studies": {
 					"key": "hard studies",
@@ -1132,7 +1165,7 @@
 				},
 				"druid's apprentice": {
 					"key": "druid's apprentice",
-					"name": "Aprendi del druida",
+					"name": "Aprendiza del druida",
 					"weight": 1,
 					"description": "Estuviste bajo la tutela de un druida y aprendiste todo lo que pudiste de los misterios sagrados, de rituales y hechicerías. Tu maestro hace tiempo que murió, pero aún recuerdas sus palabras.",
 					"attributes": {
@@ -1157,13 +1190,9 @@
 			"key": "druid",
 			"name": "Druida",
 			"weight": 1,
-			"paths": [
-				"Sendda de la Curación",
-				"Senda del Cambio de Forma",
-				"Senda de la Visión"
-			],
+			"paths": ["Senda de la Curación", "Senda del Cambio de Forma", "Senda de la Visión"],
 			"equipment": [["Bastón", "Cuchillo"], "Mercancías"],
-			"consumables": { "food": 2, "water": 1, "arrows": 0, "torches": 0 },
+			"consumables": { "food": 2, "water": 2, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
 				"pilgrimage": {
@@ -1195,7 +1224,7 @@
 				},
 				"studied with a master": {
 					"key": "studied with a master",
-					"name": "Aprendiz de maestro",
+					"name": "Aprendiza de maestro",
 					"weight": 1,
 					"description": "Un sabio druida te tomó bajo su tutela y te enseñó durante mucho tiempo. Fue una época dura, pero también aprendiste mucho. Puede que tu maestro esté vivo en alguna parte, o puede que lo matara la Guardia de Hierro.",
 					"items": "✥ Obtienes pergamino, tinta y pluma.",
@@ -1213,7 +1242,7 @@
 				},
 				"lived as a hermit": {
 					"key": "lived as a hermit",
-					"name": "Hermitaña",
+					"name": "Ermitaña",
 					"weight": 1,
 					"description": "Buscaste la belleza de la naturaleza, lejos de los conflictos violentos de las Tierras Prohibidas. Cuando finalmente volviste, lo hiciste con una fuerza nueva.",
 					"items": "✥ Obtienes una tienda de campaña pequeña y utensilios de cocina.",
@@ -1224,15 +1253,11 @@
 		},
 		"fighter": {
 			"key": "fighter",
-			"name": "Guerrero",
+			"name": "Guerrera",
 			"weight": 1,
 			"paths": ["Senda de la Espada", "Senda del Enemigo", "Senda del Escudo"],
-			"equipment": [
-				"Arma a una mano",
-				"Armadura de cuero tachonado",
-				"Mercancías"
-			],
-			"consumables": { "food": 2, "water": 2, "arrows": 0, "torches": 0 },
+			"equipment": ["Arma a una mano", "Armadura de cuero tachonado", "Mercancías"],
+			"consumables": { "food": 2, "water": 1, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
 				"captured": {
@@ -1293,7 +1318,7 @@
 		},
 		"hunter": {
 			"key": "hunter",
-			"name": "Cazador",
+			"name": "Cazadora",
 			"weight": 1,
 			"paths": ["Senda de la Flecha", "Senda de la Bestia", "Senda del Bosque"],
 			"equipment": [["Arco", "Honda"], "Mercancías", "Mercancías"],
@@ -1360,11 +1385,7 @@
 			"key": "minstrel",
 			"name": "Juglar",
 			"weight": 1,
-			"paths": [
-				"Senda del Himno",
-				"Senda de la Canción",
-				"Senda del Grito de Guerra"
-			],
+			"paths": ["Senda del Himno", "Senda de la Canción", "Senda del Grito de Guerra"],
 			"equipment": [["Laud", "Flauta"], "Cuchillo", "Mercancías"],
 			"consumables": { "food": 2, "water": 1, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 8, "copper": 0 },
@@ -1427,13 +1448,9 @@
 		},
 		"peddler": {
 			"key": "peddler",
-			"name": "Buhonero",
+			"name": "Buhonera",
 			"weight": 1,
-			"paths": [
-				"Senda del Oro",
-				"Senda de las Mentiras",
-				"Senda de las Muchas Cosas"
-			],
+			"paths": ["Senda del Oro", "Senda de las Mentiras", "Senda de las Muchas Cosas"],
 			"equipment": ["Cuchillo", "Mercancías", "Mercancías", "Mercancías"],
 			"consumables": { "food": 2, "water": 2, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 12, "copper": 0 },
@@ -1498,23 +1515,14 @@
 			"key": "rider",
 			"name": "Jinete",
 			"weight": 1,
-			"paths": [
-				"Senda del Compañero",
-				"Senda del Caballero",
-				"Senda de las Llanuras"
-			],
-			"equipment": [
-				"Caballo de monta",
-				["Lanza", "Hacha de mano"],
-				["Arco Corto", "Honda"],
-				"Mercancías"
-			],
+			"paths": ["Senda del Compañero", "Senda del Caballero", "Senda de las Llanuras"],
+			"equipment": ["Caballo de monta", ["Lanza", "Hacha de mano"], ["Arco Corto", "Honda"], "Mercancías"],
 			"consumables": { "food": 2, "water": 2, "arrows": 3, "torches": 0 },
 			"currency": { "gold": 0, "silver": 6, "copper": 0 },
 			"formativeEvents": {
 				"enlisted": {
 					"key": "enlisted",
-					"name": "Recutada",
+					"name": "Reclutada",
 					"weight": 1,
 					"description": "Te uniste a una compañía de soldados. Puede que te unieras por tu propia voluntad o que te obligaran. Con tus compañeros de armas os enfrentasteis a muchas adversidades: batallas, largas marchas y tiempo inclemente. Y al final, pasó algo y dejaste la compañía.",
 					"items": "✥ Obtienes una armadura de cuero tachonado y un escudo grande.",
@@ -1555,7 +1563,7 @@
 					"description": "Arreaste al ganado hacia los pastos más verdes de las Tierras Prohibidas. De día cuidabas del rebaño en la grupa de tu caballo, de noche dormías bajo las estrellas.",
 					"items": "✥ Obtienes un farol y un odre de agua.",
 					"skills": { "move": "1", "animal-handling": "1" },
-					"talent": "Intendente"
+					"talent": "Intendenta"
 				},
 				"steppe rider": {
 					"key": "steppe rider",
@@ -1570,7 +1578,7 @@
 		},
 		"rogue": {
 			"key": "rogue",
-			"name": "Pícaro",
+			"name": "Pícara",
 			"weight": 1,
 			"paths": ["Senda del Rostro", "Senda del Asesino", "Senda del Veneno"],
 			"equipment": ["Daga", "Mercancías", "Mercancías"],
@@ -1635,14 +1643,9 @@
 		},
 		"sorcerer": {
 			"key": "sorcerer",
-			"name": "Hechicero",
+			"name": "Hechicera",
 			"weight": 1,
-			"paths": [
-				"Senda de la Sangre",
-				"Senda de la Muerte",
-				"Senda de los Signos",
-				"Senda de la Piedra"
-			],
+			"paths": ["Senda de la Sangre", "Senda de la Muerte", "Senda de los Signos", "Senda de la Piedra"],
 			"equipment": [["Bastón", "Cuchillo"], "Mercancías"],
 			"consumables": { "food": 1, "water": 2, "arrows": 0, "torches": 0 },
 			"currency": { "gold": 0, "silver": 8, "copper": 0 },
@@ -1658,12 +1661,12 @@
 				},
 				"secluded studies": {
 					"key": "secluded studies",
-					"name": "Recuida en los estudios",
+					"name": "Recluida en los estudios",
 					"weight": 1,
 					"description": "Saliste en busca de un lugar apartado para sumergirte en el estudio de la magia. Viviste de lo que te daba la naturaleza y tus únicos compañeros fueron los libros y los pergaminos.",
 					"items": "✥ Obtienes una tienda de campaña pequeña y un caldero.",
 					"skills": { "lore": "1", "survival": "1" },
-					"talent": "Intendente"
+					"talent": "Intendenta"
 				},
 				"found strange artifact": {
 					"key": "found strange artifact",
