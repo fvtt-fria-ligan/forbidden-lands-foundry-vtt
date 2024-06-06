@@ -1,0 +1,5 @@
+# __fixtures__
+/FoundryVTT/**
+
+!/FoundryVTT/Config/
+!/FoundryVTT/Config/options.json

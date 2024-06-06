@@ -4,11 +4,21 @@
 		"enabled": false
 	},
 	"formatter": {
-		"ignore": ["./forbidden-lands.js", "./types/foundry/*"]
+		"ignore": [
+			"./forbidden-lands.js",
+			"./foundryconfig.json",
+			"./types/foundry/*",
+			"__fixtures__/*"
+		]
 	},
 	"linter": {
 		"enabled": true,
-		"ignore": ["./forbidden-lands.js", "./types/foundry/*"],
+		"ignore": [
+			"./forbidden-lands.js",
+			"./foundryconfig.json",
+			"./types/foundry/*",
+			"__fixtures__/*"
+		],
 		"rules": {
 			"recommended": true,
 			"style": {
