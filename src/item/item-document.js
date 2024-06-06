@@ -94,7 +94,7 @@ export class ForbiddenLandsItem extends Item {
 						id: this.id,
 						type: this.type,
 						gearBonus: mod.gearBonus,
-						active: value < 0 ? true : false,
+						active: value < 0,
 					});
 			}
 			return array;

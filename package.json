@@ -22,6 +22,7 @@
 	"scripts": {
 		"build": "bun esbuild.config.ts",
 		"format": "biome format --write .",
+		"foundry": "bun tools/foundry.ts",
 		"lint": "biome check --apply .",
 		"lint:ci": "bunx biome ci .",
 		"postinstall": "lefthook install && bun run setup",
@@ -29,6 +30,7 @@
 		"setup": "bun tools/setup.ts",
 		"start": "bun run build --development",
 		"test": "bun run test:types && bun run lint:ci",
+		"test:e2e": "bunx playwright test",
 		"test:types": "bunx tsc && bunx tsc -p ./src/tsconfig.json",
 		"version": "bun tools/version.ts"
 	},
@@ -44,6 +46,7 @@
 		"@changesets/cli": "2.27.1",
 		"@types/jquery": "3.5.29",
 		"@types/node": "20.11.29",
+		"@playwright/test": "^1.44.1",
 		"@types/showdown": "2.0.6",
 		"bun": "latest",
 		"bun-types": "1.0.33",

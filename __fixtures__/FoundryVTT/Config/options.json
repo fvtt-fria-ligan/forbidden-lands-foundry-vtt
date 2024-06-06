@@ -1,0 +1,31 @@
+{
+	"compressStatic": true,
+	"fullscreen": false,
+	"hostname": null,
+	"language": "en.core",
+	"localHostname": null,
+	"port": 30000,
+	"protocol": null,
+	"proxyPort": null,
+	"proxySSL": false,
+	"routePrefix": null,
+	"updateChannel": "stable",
+	"upnp": false,
+	"upnpLeaseDuration": null,
+	"awsConfig": null,
+	"compressSocket": true,
+	"cssTheme": "foundry",
+	"deleteNEDB": false,
+	"hotReload": false,
+	"passwordSalt": null,
+	"sslCert": null,
+	"sslKey": null,
+	"world": null,
+	"serviceConfig": null,
+	"telemetry": false,
+	"demo": {
+		"worldName": "pwtest",
+		"sourceZip": "../../source/pwtest.zip",
+		"resetSeconds": 3600
+	}
+}

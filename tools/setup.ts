@@ -3,6 +3,9 @@ import { args } from "./args-parser";
 
 if (process.env.CI) {
 	print.warning("Detected CI environment, skipping setup!");
+	filesystem.write("foundryconfig.json", {
+		data: { foundryBinary: "", dataPath: "" },
+	});
 	process.exit(0);
 }
 
@@ -13,6 +16,29 @@ if (filesystem.exists("foundryconfig.json") && !force) {
 	process.exit(0);
 }
 
+function symLinkToFixtures() {
+	const fixturesPath = filesystem.resolve(
+		__dirname,
+		"..",
+		"__fixtures__/FoundryVTT/Data/systems/forbidden-lands",
+	);
+
+	if (filesystem.exists(fixturesPath)) return;
+
+	filesystem
+		.symlinkAsync(
+			filesystem.resolve(__dirname, ".."),
+			filesystem.resolve(
+				"__fixtures__/FoundryVTT/Data/systems",
+				"forbidden-lands",
+			),
+		)
+		.catch((err) => {
+			print.error("Failed to create a symlink to the fixtures directory!");
+			throw err;
+		});
+}
+
 const cli = build("setup")
 	.src(process.cwd())
 	.defaultCommand({
@@ -20,63 +46,93 @@ const cli = build("setup")
 			const { print, prompt, filesystem } = tools;
 			print.highlight("Welcome to Forbidden Lands Development!");
 
-			let data = "";
-			while (!data) {
-				let { directory } = await prompt.ask([
-					{
-						type: "input",
-						name: "directory",
-						message: "Where is your Foundry/Data directory located?",
-						initial: "/Users/user/Foundry/Data",
-						required: true,
-						onCancel: () => {
-							print.warning("Setup cancelled!");
-							print.muted(
-								"If you change your mind, run 'setup' again. Goodbye!",
-							);
-							process.exit(0);
+			symLinkToFixtures();
+
+			let dataPath = "";
+			// biome-ignore lint/suspicious/noConfusingLabels: <explanation>
+			setupData: {
+				while (!dataPath) {
+					let { directory } = await prompt.ask([
+						{
+							type: "input",
+							name: "directory",
+							message: "Where is your Foundry/Data directory located?",
+							initial: "/Users/user/Foundry/Data",
+							required: true,
+							onCancel: () => {
+								print.warning("Setup cancelled!");
+								print.muted(
+									"If you change your mind, run 'setup' again. Goodbye!",
+								);
+								process.exit(0);
+							},
 						},
-					},
-				]);
+					]);
 
-				if (directory.startsWith("~"))
-					directory = directory.replace("~", filesystem.homedir());
+					if (directory.startsWith("~"))
+						directory = directory.replace("~", filesystem.homedir());
 
-				const resolved = filesystem.resolve(directory);
-				if (!filesystem.isDirectory(resolved)) {
-					print.error("The provided directory does not exist!");
-					continue;
+					const resolved = filesystem.resolve(directory);
+					if (!filesystem.isDirectory(resolved)) {
+						print.error("The provided directory does not exist!");
+						continue;
+					}
+
+					const systems = filesystem
+						.subdirectories(resolved)
+						.find((dir) => dir.endsWith("systems"));
+
+					if (!systems)
+						print.error(
+							"The provided directory does not contain a systems folder!",
+						);
+					else dataPath = filesystem.resolve(systems, "forbidden-lands");
 				}
 
-				const systems = filesystem
-					.subdirectories(resolved)
-					.find((dir) => dir.endsWith("systems"));
-
-				if (!systems)
+				if (filesystem.exists(dataPath)) {
 					print.error(
-						"The provided directory does not contain a systems folder!",
+						"The provided systems folder already contains a system named 'forbidden-lands'!",
 					);
-				else data = filesystem.resolve(systems, "forbidden-lands");
+					print.muted(dataPath);
+					const force = await prompt.confirm("Force a new symlink?", false);
+					if (force) filesystem.remove(dataPath);
+					else {
+						print.warning("Skipping symlinking data directory!");
+						break setupData;
+					}
+				}
+
+				filesystem.symlinkAsync(process.cwd(), dataPath).catch((err) => {
+					print.error("Failed to create symlink!");
+					print.muted(dataPath);
+					throw err;
+				});
 			}
 
-			if (filesystem.exists(data)) {
-				print.error(
-					"The provided systems folder already contains a system named 'forbidden-lands'!",
-				);
-				print.muted(data);
-				const force = await prompt.confirm("Force a new symlink?", false);
-				if (!force) {
-					print.warning("Setup cancelled!");
-					print.muted("If you change your mind, run 'setup' again. Goodbye!");
-					process.exit(0);
-				} else filesystem.remove(data);
+			let foundryBinary = "";
+			while (!foundryBinary) {
+				const { path } = await prompt.ask({
+					type: "input",
+					name: "path",
+					message: "Where is your FoundryVTT installation located?",
+					initial: "/Users/user/FoundryVTT",
+					required: true,
+				});
+
+				foundryBinary = filesystem.resolve(path, "resources/app/main.js");
+				if (!filesystem.exists(foundryBinary)) {
+					print.error(
+						"The provided path does not contain a FoundryVTT installation!",
+					);
+					print.muted(foundryBinary);
+					foundryBinary = "";
+				}
 			}
 
-			filesystem.symlinkAsync(process.cwd(), data).catch((err) => {
-				print.error("Failed to create symlink!");
-				print.muted(data);
-				throw err;
-			});
+			const data = {
+				foundryBinary,
+				dataPath,
+			};
 
 			filesystem.writeAsync("foundryconfig.json", { data }).catch((err) => {
 				print.error("Failed to write foundryconfig.json");
