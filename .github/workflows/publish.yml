@@ -47,9 +47,9 @@ jobs:
                 "manifest": "https://raw.githubusercontent.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/${{ github.event.release.tag_name }}/system.json",
                 "notes": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/tag/${{ github.event.release.tag_name }}",
                 "compatibility": {
-                  "minimum": "10",
-                  "verified": "11",
-                  "maximum": "11"
+                  "minimum": "11",
+                  "verified": "12",
+                  "maximum": "12"
                 }
               }
             }'
