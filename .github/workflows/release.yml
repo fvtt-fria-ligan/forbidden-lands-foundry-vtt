@@ -12,7 +12,7 @@ jobs:
     name: Version
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v1
         with:
           bun-version: canary
@@ -21,7 +21,7 @@ jobs:
       - name: Build
         run: bun run build
       - name: Create Release or Version
-        uses: changesets/action@b680876f4c3074a212030f31fe29377b03c94a71
+        uses: changesets/action@cdfd21f8180220750990b6a7924b2a990b40c87f
         with:
           commit: 'chore(release): Version Package'
           title: 'Version Package'

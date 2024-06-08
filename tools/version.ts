@@ -33,4 +33,4 @@ manifest.download = manifest.download.replace(/v\d+\.\d+\.\d+/, `v${version}`);
 await writeFile("system.json", `${JSON.stringify(manifest, null, "\t")}\n`);
 
 // Format system.json
-await $`bunx biome format --write system.json`.then(handlePossibleError);
+await $`bunx biome format --write .`.then(handlePossibleError);
