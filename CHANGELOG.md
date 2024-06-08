@@ -1,5 +1,18 @@
 # Changelog
 
+## 12.0.0
+
+### Major Changes
+
+- [#424](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/424) [`5c570da`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/5c570dafe1947600a35a18b0e779e206ad13173e) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - This version marks Foundry v12 compatibility. The module has been tested and updated to work with the latest version of Foundry.
+
+  - Updated to work with Foundry v12
+  - Fixed Safecasting
+  - Added Sea Travel roll to party sheet and mishap tables
+  - Fixed a bug with artifact die roll modifier wrongly applying when gear bonus is selected
+
+  !Breaking: V10 Compatibility ended
+
 ## 11.6.1
 
 ### Patch Changes

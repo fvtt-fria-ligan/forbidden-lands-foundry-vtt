@@ -1,6 +1,6 @@
 import { $, execa } from "execa";
 
-import rootConfig from "../package.json" assert { type: "json" };
+import rootConfig from "../package.json" with { type: "json" };
 
 const { version } = rootConfig;
 const tag = `v${version}`;

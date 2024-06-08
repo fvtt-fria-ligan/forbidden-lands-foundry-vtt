@@ -24,7 +24,7 @@ const {
 
 // Import system.json
 const { default: manifest } = await import("../system.json", {
-	assert: { type: "json" },
+	with: { type: "json" },
 });
 
 // Update and Write system.json
