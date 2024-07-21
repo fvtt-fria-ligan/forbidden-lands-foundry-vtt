@@ -773,7 +773,7 @@ export class FBLRoll extends YearZeroRoll {
 		const mishap =
 			this.options.mishapType !== "spell" &&
 			this.options.mishapTable &&
-			this.successCount === 0;
+			this.successCount <= 0;
 		return spellMishap || mishap;
 	}
 

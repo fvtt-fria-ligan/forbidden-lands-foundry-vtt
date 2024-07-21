@@ -258,13 +258,15 @@ export default function registerHooks() {
 	});
 
 	Hooks.on("changeSidebarTab", (app) => {
-		if (
-			app.tabName !== "journal" ||
-			!Object.keys(CONFIG.fbl.adventureSites.types).length
-		)
-			return;
+		const shouldRender =
+			app.tabName === "journal" &&
+			Object.keys(CONFIG.fbl.adventureSites.types).length &&
+			!app.element.find("#create-adventure-site").length;
+
+		if (!shouldRender) return;
+
 		const adventureSiteButton = $(
-			`<button><i class="fas fa-castle"></i> Create Adventure Site</button>`,
+			`<button id="create-adventure-site"><i class="fas fa-castle"></i> Create Adventure Site</button>`,
 		);
 		adventureSiteButton.on("click", () => {
 			adventureSiteCreateDialog();
