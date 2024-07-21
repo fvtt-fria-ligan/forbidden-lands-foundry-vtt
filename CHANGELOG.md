@@ -1,5 +1,19 @@
 # Changelog
 
+## 12.0.1
+
+### Patch Changes
+
+- [#428](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/428) [`c799df4`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/c799df49694fa533a0c701ea1459bad640619e20) Thanks [@designvoid](https://github.com/designvoid)! - Fix typo in character creation
+
+- [#434](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/434) [`5b9d255`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/5b9d25552cdc916e7c2cd89bb011f56cb5bbace9) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Fixes the Adventure Site creation mechanisms. Adventure Sites can now be created by using a button in the Journal Sidebar Tab
+
+- [`c1fbebe`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/c1fbebe4b0a2878433b1808f49acebc28f86893d) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Update Spanish Localisation
+
+- [#433](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/433) [`6ed4249`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/6ed4249fc693b7cf121b7d8c3edc59d61e1506a3) Thanks [@sebastiansIT](https://github.com/sebastiansIT)! - Add german translations for party sheet inclusive XP dialog and Table Config dialog
+
+- [#436](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/436) [`a5d6c4a`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/a5d6c4a2061e7cae8cfba2873bba31865c4c8e0a) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Fixes an issue where negative successes in journey rolls would not trigger mishaps
+
 ## 12.0.0
 
 ### Major Changes
