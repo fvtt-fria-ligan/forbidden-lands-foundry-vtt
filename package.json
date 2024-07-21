@@ -19,13 +19,14 @@
 		}
 	],
 	"type": "module",
+	"module": "index.ts",
 	"scripts": {
 		"build": "bun esbuild.config.ts",
 		"format": "biome format --write .",
 		"foundry": "bun tools/foundry.ts",
+		"postinstall": "lefthook install && bun run setup",
 		"lint": "biome check --write .",
 		"lint:ci": "bunx biome ci .",
-		"postinstall": "lefthook install && bun run setup",
 		"release": "bun tools/release.ts",
 		"setup": "bun tools/setup.ts",
 		"start": "bun run build --development",
@@ -35,29 +36,27 @@
 		"version": "bun tools/version.ts"
 	},
 	"dependencies": {
-		"foundry-year-zero-roller": "Stefouch/foundry-year-zero-roller#v5.2.0",
+		"foundry-year-zero-roller": "Stefouch/foundry-year-zero-roller#v5.2.1",
 		"rpg-awesome": "0.2.0",
 		"ultrahtml": "1.5.3"
 	},
 	"devDependencies": {
-		"@arkweid/lefthook": "0.7.7",
-		"@biomejs/biome": "1.8.0",
+		"@biomejs/biome": "1.8.3",
 		"@changesets/changelog-github": "0.5.0",
-		"@changesets/cli": "2.27.1",
+		"@changesets/cli": "2.27.7",
+		"@evilmartians/lefthook": "^1.7.4",
+		"@playwright/test": "^1.45.2",
 		"@types/jquery": "3.5.30",
-		"@types/node": "20.14.2",
-		"@playwright/test": "^1.44.1",
+		"@types/node": "20.14.11",
 		"@types/showdown": "2.0.6",
-		"bun": "1.1.12",
-		"bun-types": "1.1.12",
+		"bun-types": "1.1.20",
 		"devmoji": "2.3.0",
-		"esbuild": "0.21.4",
+		"esbuild": "0.23.0",
 		"esbuild-sass-plugin": "3.3.1",
-		"execa": "9.2.0",
-		"globby": "14.0.1",
+		"execa": "9.3.0",
+		"globby": "14.0.2",
 		"gluegun": "5.1.6",
-		"typescript": "5.4.5"
+		"typescript": "5.5.3"
 	},
-	"trustedDependencies": ["@biomejs/biome", "esbuild"],
-	"module": "index.ts"
+	"trustedDependencies": ["@biomejs/biome", "esbuild"]
 }

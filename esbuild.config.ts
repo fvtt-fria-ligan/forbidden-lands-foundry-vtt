@@ -8,6 +8,9 @@ import templatePathsPromise from "./tools/get-template-paths.js";
 const templatePaths = await templatePathsPromise;
 
 const development = Object.hasOwn(args, "development");
+console.log(
+	`Building Forbidden Lands for ${development ? "development" : "production"}...`,
+);
 
 if (existsSync("./forbidden-lands.js")) await rm("./forbidden-lands.js");
 if (existsSync("./forbidden-lands.css")) await rm("./forbidden-lands.css");

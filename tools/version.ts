@@ -1,6 +1,5 @@
+import { $ } from "bun";
 // Use Bun when Bun supports node:fs/promises fully
-
-import { $, type ShellOutput } from "bun";
 import { writeFile } from "node:fs/promises";
 
 // Version package
@@ -25,3 +24,5 @@ await writeFile("system.json", `${JSON.stringify(manifest, null, "\t")}\n`);
 
 // Format system.json
 await $`bunx biome format --write .`;
+await $`git add -A`;
+await $`git commit -m "chore: Version Packages"`;

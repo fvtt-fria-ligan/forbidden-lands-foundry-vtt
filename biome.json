@@ -5,19 +5,23 @@
 	},
 	"formatter": {
 		"ignore": [
+			"*devbox*",
 			"./forbidden-lands.js",
 			"./foundryconfig.json",
 			"./types/foundry/*",
-			"__fixtures__/*"
+			"__fixtures__/*",
+			"playwright-report/*"
 		]
 	},
 	"linter": {
 		"enabled": true,
 		"ignore": [
+			"*devbox*",
 			"./forbidden-lands.js",
 			"./foundryconfig.json",
 			"./types/foundry/*",
-			"__fixtures__/*"
+			"__fixtures__/*",
+			"playwright-report/*"
 		],
 		"rules": {
 			"recommended": true,
