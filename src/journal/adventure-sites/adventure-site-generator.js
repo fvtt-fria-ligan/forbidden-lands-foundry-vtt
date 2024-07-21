@@ -1,3 +1,5 @@
+import t from "$utils/localize-string";
+
 let ALL_TABLES = {};
 
 // Utilities
@@ -183,6 +185,58 @@ const moldData = (data, type) => {
 	const types = CONFIG.fbl.adventureSites?.transformers;
 	const typeFn = types?.[type] ?? ((d, _) => d);
 	return typeFn(data, ALL_TABLES);
+};
+
+export const adventureSiteCreateDialog = async () => {
+	const titleCase = (string) =>
+		string.replace(/_/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
+
+	const types = Object.entries(CONFIG.fbl.adventureSites.types);
+
+	const type = await Dialog.wait({
+		title: t("ADVENTURE_SITE.CREATE_TITLE"),
+		content: `<form style="margin-block:12px;">
+								<p>${t("ADVENTURE_SITE.CREATE_DESCRIPTION")}</p>
+								<div class="form-group">
+										<div class="form-fields">
+										<label>${t("Type")}</label>
+												<select name="type">
+														${types.map(([key, value]) => {
+															return `<option value="${value}:${key}">${titleCase(key)}</option>`;
+														})}
+												</select>
+										</div>
+								</div>
+						</form>`,
+		buttons: {
+			ok: {
+				icon: '<i class="fas fa-check"></i>',
+				label: `${t("Create")}`,
+				callback: (jqhtml) => jqhtml.find("form")[0].type.value,
+			},
+		},
+	});
+
+	const [path, adventureSite] = type.split(":");
+
+	const content = await CONFIG.fbl.adventureSites.generate(path, adventureSite);
+
+	const entry = await JournalEntry.create({
+		name: `${t("ADVENTURE_SITE.LABEL")}: ${titleCase(adventureSite)}`,
+		pages: [
+			{
+				name: titleCase(adventureSite),
+				text: { content: `<div class="adventure-site">${content}</div>` },
+				title: { show: false },
+			},
+		],
+		flags: {
+			"forbidden-lands": {
+				adventureSiteType: adventureSite,
+			},
+		},
+	});
+	entry.sheet.render(true);
 };
 
 // Initialize random generation

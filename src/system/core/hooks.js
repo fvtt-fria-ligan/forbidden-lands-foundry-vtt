@@ -1,7 +1,9 @@
 import { Changelog } from "$changelog/changelog.js";
 import { handleHotbarDrop } from "@components/macros/macros.js";
 import { FBLRollHandler } from "@components/roll-engine/engine.js";
+import { adventureSiteCreateDialog } from "@journal/adventure-sites/adventure-site-generator.js";
 import { registerDiceSoNice } from "../../external-api/dice-so-nice.js";
+import t from "$utils/localize-string.js";
 
 /**
  * Registers all hooks that are not 'init' or 'ready'
@@ -254,4 +256,53 @@ export default function registerHooks() {
 			new Changelog().render(true);
 		});
 	});
+
+	Hooks.on("changeSidebarTab", (app) => {
+		if (
+			app.tabName !== "journal" ||
+			!Object.keys(CONFIG.fbl.adventureSites.types).length
+		)
+			return;
+		const adventureSiteButton = $(
+			`<button><i class="fas fa-castle"></i> Create Adventure Site</button>`,
+		);
+		adventureSiteButton.on("click", () => {
+			adventureSiteCreateDialog();
+		});
+
+		app.element.find(".header-actions").append(adventureSiteButton);
+	});
 }
+
+Hooks.on("renderJournalSheet", (app, html) => {
+	const type = app.object.getFlag("forbidden-lands", "adventureSiteType");
+	const isDungeon = ["dungeon", "ice_cave", "elven_ruin"].includes(type);
+	if (!isDungeon) return;
+
+	const button = $(
+		`<button type="button" class="create" data-action="add-room"><i class="fas fa-plus-circle"></i> ${t("ADVENTURE_SITE.ADD_ROOM")}</button>`,
+	);
+
+	button.on("click", async () => {
+		const path = CONFIG.fbl.adventureSites.types[type];
+		const room = await CONFIG.fbl.adventureSites?.generate(
+			path,
+			`${type}_rooms`,
+		);
+		const pageName = $(room)
+			.find("h4, strong")
+			?.first()
+			.text()
+			.replace(/[^\p{L}]+/u, " ")
+			.trim();
+		await app.object.createEmbeddedDocuments("JournalEntryPage", [
+			{
+				name: pageName,
+				title: { level: 2, show: false },
+				text: { content: `<div class="adventure-site">${room}</div>` },
+			},
+		]);
+	});
+
+	html.find('[data-action="createPage"]').after(button);
+});

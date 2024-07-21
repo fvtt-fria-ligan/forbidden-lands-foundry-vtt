@@ -1,7 +1,7 @@
 @use "../utils";
 
 .forbidden-lands {
-	&.window-app .window-content > * {
+	&.window-app .window-content>* {
 		height: 100%;
 	}
 
@@ -40,7 +40,7 @@
 
 			font-weight: 600;
 
-			& ~ * {
+			&~* {
 				display: none;
 			}
 
@@ -171,6 +171,7 @@
 			}
 		}
 	}
+
 	button:focus,
 	button:hover {
 		background: var(--color-highlight);
@@ -190,6 +191,7 @@
 		height: auto;
 		width: 100%;
 	}
+
 	input:disabled,
 	select:disabled,
 	textarea:disabled {
@@ -208,11 +210,13 @@
 		appearance: textfield;
 		text-align: center;
 	}
+
 	input[type="number"]::-webkit-outer-spin-button,
 	input[type="number"]::-webkit-inner-spin-button {
 		-webkit-appearance: none;
 		margin: 0;
 	}
+
 	input[type="number"]:focus,
 	input[type="text"]:focus,
 	select:focus,
@@ -299,8 +303,11 @@
 }
 
 /* Scrollbars */
-.app {
+.app,
+.application {
 	background: #292929f0;
+
+	&.dialog,
 	&.window-app {
 		color: var(--color-theme-text);
 		border: 2px solid transparent;
@@ -309,20 +316,36 @@
 		padding: 0 4px 4px;
 		margin: 0;
 		background-color: var(--color-theme-background);
+
+		h1 {
+			color: var(--color-theme-text)
+		}
+
+		.window-header {
+			background: none;
+
+			button.header-control {
+				color: var(--color-theme-text)
+			}
+		}
+
 		.journal-sheet {
 			min-width: 500px;
 			min-height: 300px;
 		}
+
 		&.sheet {
 			&.journal-sheet {
 				min-height: 260px;
 				min-width: 560px;
 			}
+
 			&.forbidden-lands {
 				&.actor {
 					::-webkit-scrollbar {
 						width: 6px;
 					}
+
 					::-webkit-scrollbar-thumb {
 						background: var(--color-theme-gray-200);
 						border: 0 none;
@@ -331,12 +354,11 @@
 
 				.bio {
 					padding: 4px 8px;
+
 					.avatar {
-						background: radial-gradient(
-							closest-side,
-							var(--color-highlight) 0%,
-							var(--color-background) 100%
-						);
+						background: radial-gradient(closest-side,
+								var(--color-highlight) 0%,
+								var(--color-background) 100%);
 						flex: 0 0 auto;
 						height: 95px;
 						width: 95px;
@@ -344,10 +366,11 @@
 						&:hover {
 							cursor: pointer;
 
-							& > img {
+							&>img {
 								filter: drop-shadow(0 0 5px #a00404);
 							}
 						}
+
 						img {
 							place-self: center;
 							border: none;
@@ -362,6 +385,7 @@
 			}
 		}
 	}
+
 	&.sidebar-popout {
 		.window-content {
 			width: 96%;
@@ -369,30 +393,36 @@
 			color: #222;
 			margin-bottom: 10px;
 		}
+
 		.subdirectory {
 			border-color: #555;
+
 			li {
 				&.folder {
-					& > .folder-header {
+					&>.folder-header {
 						background: rgba(0, 0, 0, 0.2);
 						color: #222;
 					}
 				}
 			}
 		}
+
 		li {
 			&.folder {
-				& > .folder-header {
+				&>.folder-header {
 					background: rgba(255, 255, 255, 0.9);
 					color: #222;
+
 					h3 {
 						color: #222;
 					}
+
 					.create-entity {
 						color: #444;
 					}
 				}
 			}
+
 			&.directory-item {
 				&.entity {
 					background: rgba(0, 0, 0, 0.5);
@@ -400,8 +430,9 @@
 				}
 			}
 		}
+
 		.folder {
-			& > .folder-header {
+			&>.folder-header {
 				.create-folder {
 					color: #444;
 				}
@@ -432,6 +463,7 @@
 		cursor: pointer;
 		text-shadow: 0 0 8px #a00404;
 	}
+
 	.tab-item {
 		position: relative;
 		flex: 0;
@@ -447,6 +479,7 @@
 		&:hover {
 			text-shadow: 0 0 6px #fff;
 		}
+
 		&.active {
 			filter: drop-shadow(0 0 2px #999);
 			color: #fff;
@@ -474,6 +507,7 @@
 .broken .far.fa-check-circle {
 	color: #a00404;
 }
+
 .broken .change-willpower .far.fa-circle {
 	color: #333;
 }

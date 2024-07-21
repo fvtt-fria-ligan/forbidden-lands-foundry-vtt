@@ -11,7 +11,6 @@ import {
 	init,
 	utilities,
 } from "@journal/adventure-sites/adventure-site-generator.js";
-import { ForbiddenLandsJournalEntry } from "@journal/journal-document.js";
 import FBL, { modifyConfig } from "@system/core/config.js";
 import { initializeEditorEnrichers } from "@system/core/editor.js";
 import { registerFonts } from "@system/core/fonts.js";
@@ -47,8 +46,6 @@ Hooks.once("init", () => {
 
 	CONFIG.Actor.documentClass = ForbiddenLandsActor;
 	CONFIG.Item.documentClass = ForbiddenLandsItem;
-	// @ts-expect-error - PF2 types Internal Type Error
-	CONFIG.JournalEntry.documentClass = ForbiddenLandsJournalEntry;
 	CONFIG.statusEffects = [
 		...CONFIG.statusEffects.filter(
 			(effect) => !["sleep", "frozen", "curse"].includes(effect.id),

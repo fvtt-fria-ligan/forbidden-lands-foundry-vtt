@@ -1,13 +1,11 @@
 /*
-
 		Journal Sheet Styles
-
 */
+.app .journal-sheet-container {
 
-.app .journal-sheet-container.adventure-site {
 	// Form content
-	.journal-entry-page.text {
-		& > * {
+	.journal-entry-page.text .adventure-site {
+		&>* {
 			margin-inline: auto;
 		}
 
@@ -35,7 +33,7 @@
 			font-weight: 600;
 		}
 
-		p + p {
+		p+p {
 			text-indent: 0;
 		}
 
@@ -61,7 +59,7 @@
 				background-color: #f0f0f0;
 			}
 
-			& > .index-tip {
+			&>.index-tip {
 				font-family: Branding, Ubuntu, sans-serif;
 				position: absolute;
 				top: 0;
@@ -77,6 +75,7 @@
 			}
 		}
 	}
+
 	.editable-tools {
 		position: absolute;
 		left: 50%;
@@ -89,7 +88,7 @@
 		gap: 4rem;
 
 		// Buttons
-		& > * {
+		&>* {
 			display: block;
 			margin: 0;
 			min-width: 14rem;
@@ -105,7 +104,7 @@
 		}
 
 		&:hover {
-			& > * {
+			&>* {
 				opacity: 1;
 
 				&:hover {

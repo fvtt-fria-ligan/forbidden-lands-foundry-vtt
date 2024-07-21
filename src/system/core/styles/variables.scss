@@ -1,4 +1,4 @@
-:root {
+body {
 	// Theme Colors
 	--color-theme-text: #222020;
 	--color-theme-background: #fff;
@@ -24,6 +24,7 @@
 	--color-text-dark-header: #23221d;
 	--color-text-dark-inactive: #7a7971;
 	--color-text-hyperlink: var(--color-theme-accent);
+	--color-light-1: var(--color-theme-background);
 	--color-text-light-0: #fff;
 	--color-text-light-1: #eee;
 	--color-text-light-2: #ddd;
@@ -59,7 +60,7 @@
 	--color-border-dark-primary: var(--color-theme-text);
 	--color-border-dark-secondary: #23221d;
 	--color-border-dark-tertiary: #4b4a44;
-	--color-border-highlight: var(--color-theme-alt-600);
+	--color-border-highlight: var(--color-theme-alt-800);
 	--color-border-highlight-alt: var(--color-theme-alt-600);
 	--color-bg-btn-minor-inactive: #c9c7b8;
 	--color-bg-btn-minor-active: #b5b3a4;
