@@ -20,14 +20,6 @@
 			background-color: #eeed;
 		}
 	}
-
-	.pages-list .directory-item.active {
-		background-color: var(--color-theme-constrast);
-
-		.page-heading {
-			font-weight: 600;
-		}
-	}
 }
 
 // Force proper height
@@ -121,6 +113,7 @@
 
 // Page header
 .journal-page-header {
+
 	h1,
 	h2,
 	h3 {
@@ -144,7 +137,7 @@
 }
 
 // Page Content
-:where(.journal-page-content,.editor-content) {
+:where(.journal-page-content, .editor-content) {
 	font-family: var(--font-editor);
 	line-height: 1.75;
 	font-size: var(--font-size-16);

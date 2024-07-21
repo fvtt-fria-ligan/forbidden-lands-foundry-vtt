@@ -12,7 +12,6 @@ import { ForbiddenLandsCriticalInjurySheet } from "@item/critical-injury/critica
 import { ForbiddenLandsMonsterAttackSheet } from "@item/monster-attack/monster-attack-sheet.js";
 import { ForbiddenLandsBuildingSheet } from "@item/building/building-sheet.js";
 import { ForbiddenLandsHirelingSheet } from "@item/hireling/hireling-sheet.js";
-import { AdventureSitesSheet } from "@journal/adventure-sites/adventure-site-sheet.js";
 
 export function registerSheets() {
 	Actors.unregisterSheet("core", ActorSheet);
@@ -73,5 +72,4 @@ export function registerSheets() {
 		types: ["hireling"],
 		makeDefault: true,
 	});
-	CONFIG.fbl.adventureSites.sheetClass = AdventureSitesSheet;
 }
