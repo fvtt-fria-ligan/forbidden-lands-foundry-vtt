@@ -2,11 +2,15 @@
 	draggable="true">
 	{{#if deleteButton }}
 		<div class="button">
-			<a class="item-control item-delete" title="{{localize "FLPS.PARTY.BUTTON.REMOVE_FROM_PARTY"}}">
+			<a class="item-control item-delete"
+				title="{{localize "FLPS.PARTY.BUTTON.REMOVE_FROM_PARTY"}}">
 				<i class="fas fa-trash"></i></a>
 		</div>
 	{{/if}}
-	<img class="party-member-avatar" title="{{partyMember.name}}"
-		src="{{partyMember.img}}" />
-	<span class="plain-name">{{partyMember.name}}</span>
+	<a class="content-link" draggable="true" data-link=""
+		data-uuid="Actor.{{partyMember._id}}" data-id="{{partyMember._id}}"
+		data-type="Actor"
+		data-tooltip="{{localize 'FLPS.PARTY.OPEN_CHARACTER_SHEET'}}"><img
+			class="party-member-avatar"
+			src="{{partyMember.img}}" />{{partyMember.name}}</a>
 </li>

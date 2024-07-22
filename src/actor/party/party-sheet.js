@@ -86,10 +86,13 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 
 	getTravelActions() {
 		const travelActions = TravelActionsConfig;
+		// TODO: This should be moved to content modules to register
+		const journal = game.journal.getName("Journey Reference");
 		for (const action of Object.values(travelActions)) {
-			action.displayJournalEntry =
-				!!action.journalEntryName &&
-				!!game.journal.getName(action.journalEntryName);
+			if (journal)
+				action.journalLink = journal.pages.getName(
+					action.journalEntryName,
+				)?.uuid;
 			action.participants = this.document.system.travel[action.key].map((id) =>
 				game.actors.get(id),
 			);

@@ -3,6 +3,12 @@
 	height: 100%;
 	max-height: calc(100vh - 10%);
 
+	.content-link:not([data-type="JournalEntryPage"]) {
+		align-items: center;
+		display: flex;
+		gap: 8px;
+	}
+
 	.main {
 		padding: 1rem;
 		gap: 2rem;
@@ -153,7 +159,7 @@
 		justify-content: center;
 
 		.content-link {
-			background-color: var(--color-theme-gray-200);
+			background-color: transparent;
 			border: none;
 		}
 	}

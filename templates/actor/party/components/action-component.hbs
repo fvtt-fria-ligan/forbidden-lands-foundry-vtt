@@ -1,7 +1,14 @@
 <div class="travel-action travel-action-{{action.key}}"
 	data-travel-action="{{action.key}}">
 	<div class="travel-action-header">
-		{{ localize action.name }}
+		{{#if action.journalLink}}
+			<a class="content-link" draggable="true" data-link=""
+				data-uuid="{{action.journalLink}}" data-type="JournalEntryPage"
+				data-tooltip="{{localize 'JOURNALENTRYPAGE.TypeText'}} {{localize 'JOURNALENTRYPAGE.Page'}}"><i
+					class="fas fa-file-lines"></i>{{localize action.name}}</a>
+		{{else}}
+			{{localize action.name}}
+		{{/if}}
 	</div>
 	<div class="travel-rolls">
 		{{#each action.buttons as |button|}}
@@ -12,8 +19,6 @@
 	<div>
 		<ol>
 			{{#each assignedCharacters as |partyMember|}}
-				<!-- prettier-ignore -->
-				{{! prettier-ignore }}
 				{{> systems/forbidden-lands/templates/actor/party/components/member-component.hbs partyMember=partyMember}}
 			{{/each}}
 		</ol>

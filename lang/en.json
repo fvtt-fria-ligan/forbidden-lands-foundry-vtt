@@ -223,6 +223,7 @@
 	"FLPS.PARTY.HINT_ASSIGN": "Drag & drop characters to assign them to the desired travel activities.",
 	"FLPS.PARTY.MEMBERS": "Party Members",
 	"FLPS.PARTY.NAME": "Party Name",
+	"FLPS.PARTY.OPEN_CHARACTER_SHEET": "Open character sheet",
 	"FLPS.PARTY.RANDOM_ENCOUNTERS": "Random Encounters",
 	"FLPS.SETTINGS.ALLOW_PUSH": "Allow Unlimited Pushed Rolls",
 	"FLPS.SETTINGS.ALLOW_PUSH_HINT": "If your character is a Dwarf, or maybe your GM allows an unlimited number of pushed rolls. Or perhaps you are a GM who wants to be able to push this monster's rolls; check this setting to display a push button on almost any roll.",
