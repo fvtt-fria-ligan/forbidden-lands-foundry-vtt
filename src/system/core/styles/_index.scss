@@ -1,6 +1,6 @@
 @forward "variables";
 
-html.dark {
+body.theme-dark {
 
 	#sidebar,
 	#players,
@@ -13,7 +13,10 @@ html.dark {
 	#hotbar #hotbar-directory-controls,
 	#navigation #nav-toggle,
 	#navigation #scene-list .scene.view,
-	.app.window-app {
+	.app.window-app,
+	.app.dialog,
+	.application.dialog,
+	.application.window-app {
 		border-image-source: url(./assets/journal-art/box-border-large-dark.webp);
 	}
 
@@ -46,7 +49,7 @@ html.dark {
 	.journal-page-header h1,
 	.journal-page-header h2,
 	.journal-page-header h3 {
-		color: var(--color-theme-background);
+		color: var(--color-theme-text);
 	}
 
 	.journal-sheet .journal-header .title {
@@ -59,7 +62,7 @@ html.dark {
 }
 
 html.no-borders,
-html.dark.no-borders {
+html.no-borders body.theme-dark {
 
 	#sidebar,
 	#players,

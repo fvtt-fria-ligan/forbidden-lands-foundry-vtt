@@ -91,7 +91,7 @@ body {
 	--line-height-30: 1.875rem;
 }
 
-html.dark {
+body.theme-dark {
 	--color-theme-background: var(--color-theme-alt-1000);
 	--color-theme-alt-600: var(--color-theme-gray-600);
 	--color-theme-alt-800: var(--color-theme-gray-800);
@@ -99,4 +99,5 @@ html.dark {
 	--color-highlight: #f0f0e0;
 	--color-text-dark-5: #555;
 	--color-text-dark-6: #555;
+	--color-light-3: var(--color-highlight);
 }
