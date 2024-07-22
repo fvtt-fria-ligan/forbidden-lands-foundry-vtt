@@ -25,8 +25,6 @@ if (exitCode !== 2) {
 await $`git checkout --detach`;
 await $`git add --force forbidden-lands.js forbidden-lands.css`;
 await $`git commit -m "chore(release): ${tag}"`;
-
-const { stdout } = await $`bunx changeset tag`.nothrow().quiet();
-console.log(stdout);
+await $`git tag ${tag} -m ${tag}`.then(() => console.log(`New tag: ${tag}`));
 
 await $`git push --force --follow-tags origin HEAD:refs/heads/${releaseLine}`;
