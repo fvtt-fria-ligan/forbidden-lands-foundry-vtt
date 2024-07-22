@@ -1,5 +1,13 @@
 # Changelog
 
+## 12.0.2
+
+### Patch Changes
+
+- [#437](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/437) [`c26b1ff`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/c26b1ff6ca6fb2bad8d2451d052afc9b287da719) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Dark mode is now toggled through the Foundry core settings (which use the browser settings as default). Fixes to some rendering issues in dark mode
+
+- [#438](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/438) [`cad9d70`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/cad9d701398582ff4f5525a698720d4131aa07fe) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Solved a regression in initial v12 update where party sheets would not link to character and reference sheets.
+
 ## 12.0.1
 
 ### Patch Changes
