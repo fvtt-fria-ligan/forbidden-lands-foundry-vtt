@@ -704,15 +704,18 @@ export class FBLRollHandler extends FormApplication {
 	 */
 	static async decreaseConsumable(messageId) {
 		let {
-			data: { speaker },
-			roll: {
-				options: { consumable },
-			},
+			speaker,
+			rolls: [
+				{
+					options: { consumable },
+				},
+			],
 		} = game.messages.get(messageId);
 
 		speaker = this.getSpeaker(speaker);
 		if (!speaker)
 			return console.error("Could not decrease consumable: No actor found.");
+		ui.notifications.info("NOTIFY.CONSUMABLE_USED", { localize: true });
 
 		const currentValue = speaker?.consumables[consumable]?.value;
 		const newValue = Math.max(currentValue - 1, 0);

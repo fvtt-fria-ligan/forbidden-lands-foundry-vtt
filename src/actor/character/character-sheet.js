@@ -127,7 +127,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 		await roll.roll({ async: true });
 		const message = await roll.toMessage();
 		if (
-			Number(message.roll.result) <=
+			Number(message.rolls[0].result) <=
 			(game.settings.get("forbidden-lands", "autoDecreaseConsumable") || 0)
 		) {
 			FBLRollHandler.decreaseConsumable(message.id);
