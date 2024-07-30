@@ -353,6 +353,7 @@
 	"MONSTER.TYPE.MOUNT": "Mount",
 	"MOVEMENT": "Movement",
 	"NONE": "None",
+	"NOTIFY.CONSUMABLE_USED": "Consumable used!",
 	"NOTIFY.YOUR_ITEM_BROKE": "Your item broke!",
 	"NOTIFY.YOU_ARE_BROKEN": "You are broken!",
 	"OTHER": "OTHER",
