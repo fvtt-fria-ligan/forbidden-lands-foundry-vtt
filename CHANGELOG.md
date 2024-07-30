@@ -1,5 +1,15 @@
 # Changelog
 
+## 12.0.3
+
+### Patch Changes
+
+- [#443](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/443) [`9729eeb`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/9729eeb9d72eec735fa6f7b093bc1ca11dfecd8b) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Consumable roll not correctly decreasing consumables
+
+- [#444](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/444) [`1d2974d`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/1d2974d483faf90e09852ea7a56633d39b37555c) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Fixes issue where a font had bad casing causing case-sensitive filesystems to miss it.
+
+- [#442](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/442) [`47f52eb`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/47f52eb03ce4c338fba07f596e4136b966348acc) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Fix skills not rendering correctly on character sheet when attributes have been swapped
+
 ## 12.0.2
 
 ### Patch Changes
