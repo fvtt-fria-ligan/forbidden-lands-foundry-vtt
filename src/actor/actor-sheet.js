@@ -529,10 +529,10 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	}
 
 	computeSkills(data) {
-		for (const skill of Object.values(data.system.skill)) {
-			skill[`has${skill?.attribute?.capitalize()}`] = false;
-			if (CONFIG.fbl.attributes.includes(skill.attribute))
-				skill[`has${skill.attribute.capitalize()}`] = true;
+		const map = CONFIG.fbl.skillAttributeMap;
+		for (const [key, skill] of Object.entries(data.system.skill)) {
+			const connectedAttribute = map[key];
+			skill[`has${connectedAttribute.capitalize()}`] = true;
 		}
 		return data;
 	}
