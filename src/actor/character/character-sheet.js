@@ -11,7 +11,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			"forbidden-lands",
 			"useHealthAndResolve",
 		);
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ["forbidden-lands", "sheet", "actor"],
 			width: 660,
 			height: useHealthAndResolve ? 790 : 740,

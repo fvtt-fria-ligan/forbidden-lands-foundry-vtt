@@ -9,7 +9,7 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 			dragSelector: ".party-member",
 			dropSelector: ".party-member-list",
 		});
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ["forbidden-lands", "sheet", "actor", "party"],
 			template: "systems/forbidden-lands/templates/actor/party/party-sheet.hbs",
 			width: window.innerWidth * 0.05 + 650,

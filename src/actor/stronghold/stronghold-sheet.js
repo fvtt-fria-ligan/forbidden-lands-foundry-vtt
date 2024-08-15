@@ -1,7 +1,7 @@
 import { ForbiddenLandsActorSheet } from "../actor-sheet.js";
 export class ForbiddenLandsStrongholdSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			...super.defaultOptions,
 			classes: ["forbidden-lands", "sheet", "actor"],
 			template:

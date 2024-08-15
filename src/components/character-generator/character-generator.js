@@ -10,7 +10,7 @@ export class ForbiddenLandsCharacterGenerator extends Application {
 	}
 
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ["forbidden-lands", "sheet", "actor"],
 			template:
 				"systems/forbidden-lands/templates/components/character-generator/generator-sheet.hbs",

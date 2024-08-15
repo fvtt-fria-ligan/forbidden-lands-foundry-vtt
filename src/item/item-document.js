@@ -166,7 +166,7 @@ export class ForbiddenLandsItem extends Item {
 		}
 		const message = await ChatMessage.create(chatData);
 		if (itemData.isCriticalInjury) {
-			const content = $(message.data.content);
+			const content = $(message.content);
 			const limit = content.find("[data-type='limit']").text().trim();
 			const healingTime = content.find("[data-type='healtime']").text().trim();
 			itemData.system.limit = limit;

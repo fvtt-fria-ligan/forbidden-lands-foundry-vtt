@@ -5,7 +5,7 @@ import localizeString from "@utils/localize-string.js";
 //import { ActorSheetConfig } from "@utils/sheet-config.js";
 export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			...super.defaultOptions,
 			classes: ["forbidden-lands", "sheet", "actor"],
 			template:
