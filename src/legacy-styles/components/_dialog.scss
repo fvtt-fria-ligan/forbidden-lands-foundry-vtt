@@ -90,10 +90,10 @@
 		}
 
 		button {
-			background: #eee;
-			padding: 0.3em 2em;
-			font-weight: normal;
-			border: 2px groove #e0e0e0;
+			background: var(--color-theme-gray-400);
+			padding: 0.3em 32px;
+			font-weight: 400;
+			border: 2px solid var(--color-theme-gray-400);
 			width: 100%;
 			display: flex;
 			justify-content: center;
@@ -102,8 +102,7 @@
 			&:hover,
 			&:focus {
 				box-shadow: none;
-				border: 2px groove var(--color-theme-alt-600);
-				background: var(--color-theme-alt-600);
+				background: var(--color-theme-gray-200);
 			}
 
 			&:active {
