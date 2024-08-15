@@ -257,54 +257,56 @@ export default function registerHooks() {
 		});
 	});
 
-	Hooks.on("changeSidebarTab", (app) => {
-		const shouldRender =
-			app.tabName === "journal" &&
-			Object.keys(CONFIG.fbl.adventureSites.types).length &&
-			!app.element.find("#create-adventure-site").length;
+	for (const hook of ["renderSidebarTab", "changeSidebarTab"]) {
+		Hooks.on(hook, (app) => {
+			const shouldRender =
+				app.tabName === "journal" &&
+				Object.keys(CONFIG.fbl.adventureSites.types).length &&
+				!app.element.find("#create-adventure-site").length;
 
-		if (!shouldRender) return;
+			if (!shouldRender) return;
 
-		const adventureSiteButton = $(
-			`<button id="create-adventure-site"><i class="fas fa-castle"></i> Create Adventure Site</button>`,
+			const adventureSiteButton = $(
+				`<button id="create-adventure-site"><i class="fas fa-castle"></i> Create Adventure Site</button>`,
+			);
+			adventureSiteButton.on("click", () => {
+				adventureSiteCreateDialog();
+			});
+
+			app.element.find(".header-actions").append(adventureSiteButton);
+		});
+	}
+
+	Hooks.on("renderJournalSheet", (app, html) => {
+		const type = app.object.getFlag("forbidden-lands", "adventureSiteType");
+		const isDungeon = ["dungeon", "ice_cave", "elven_ruin"].includes(type);
+		if (!isDungeon) return;
+
+		const button = $(
+			`<button type="button" class="create" data-action="add-room"><i class="fas fa-plus-circle"></i> ${t("ADVENTURE_SITE.ADD_ROOM")}</button>`,
 		);
-		adventureSiteButton.on("click", () => {
-			adventureSiteCreateDialog();
+
+		button.on("click", async () => {
+			const path = CONFIG.fbl.adventureSites.types[type];
+			const room = await CONFIG.fbl.adventureSites?.generate(
+				path,
+				`${type}_rooms`,
+			);
+			const pageName = $(room)
+				.find("h4, strong")
+				?.first()
+				.text()
+				.replace(/[^\p{L}]+/u, " ")
+				.trim();
+			await app.object.createEmbeddedDocuments("JournalEntryPage", [
+				{
+					name: pageName,
+					title: { level: 2, show: false },
+					text: { content: `<div class="adventure-site">${room}</div>` },
+				},
+			]);
 		});
 
-		app.element.find(".header-actions").append(adventureSiteButton);
+		html.find('[data-action="createPage"]').after(button);
 	});
 }
-
-Hooks.on("renderJournalSheet", (app, html) => {
-	const type = app.object.getFlag("forbidden-lands", "adventureSiteType");
-	const isDungeon = ["dungeon", "ice_cave", "elven_ruin"].includes(type);
-	if (!isDungeon) return;
-
-	const button = $(
-		`<button type="button" class="create" data-action="add-room"><i class="fas fa-plus-circle"></i> ${t("ADVENTURE_SITE.ADD_ROOM")}</button>`,
-	);
-
-	button.on("click", async () => {
-		const path = CONFIG.fbl.adventureSites.types[type];
-		const room = await CONFIG.fbl.adventureSites?.generate(
-			path,
-			`${type}_rooms`,
-		);
-		const pageName = $(room)
-			.find("h4, strong")
-			?.first()
-			.text()
-			.replace(/[^\p{L}]+/u, " ")
-			.trim();
-		await app.object.createEmbeddedDocuments("JournalEntryPage", [
-			{
-				name: pageName,
-				title: { level: 2, show: false },
-				text: { content: `<div class="adventure-site">${room}</div>` },
-			},
-		]);
-	});
-
-	html.find('[data-action="createPage"]').after(button);
-});
