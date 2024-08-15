@@ -1,6 +1,6 @@
 .app.fbl.changelog {
 	.dialog-content {
-		font-family: var(--font-editor);
+		font-family: var(--font-alternative);
 		padding-inline: 16px;
 		line-height: 165%;
 	}
@@ -8,7 +8,7 @@
 	h1,
 	h2,
 	h3 {
-		font-family: var(--font-subheader);
+		font-family: var(--font-header-sc);
 		border: none;
 	}
 
@@ -31,13 +31,14 @@
 	details {
 		margin-bottom: 8px;
 
-		summary > i {
+		summary>i {
 			transition: transform 0.2s ease-in-out;
 		}
 
 		&[open] summary {
 			margin-bottom: 20px;
-			& > i {
+
+			&>i {
 				transform: rotate(90deg);
 			}
 		}

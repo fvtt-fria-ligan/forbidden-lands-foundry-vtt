@@ -1,8 +1,8 @@
 .forbidden-lands.chat-item {
 	background: var(--color-background);
 	border-radius: 3px;
-	color: var(--color-foreground);
-	font-family: var(--font-table);
+	color: var(--color-theme-text);
+	font-family: var(--font-body);
 	font-size: var(--font-size-12);
 	line-height: 16px;
 	padding: 8px;
@@ -15,37 +15,44 @@
 .forbidden-lands.chat-item .border {
 	padding: 8px;
 }
+
 .forbidden-lands.chat-item .link-header {
 	text-align: center;
 }
+
 .forbidden-lands.chat-item strong {
 	text-transform: uppercase;
 }
+
 .forbidden-lands.chat-item h3 {
-	font-family: var(--font-subheader);
+	font-family: var(--font-header-sc);
 	font-size: var(--font-size-14);
 	font-weight: bold;
 	margin: 0 0 8px;
 	text-align: center;
 }
+
 .forbidden-lands.chat-item h4 {
-	font-family: var(--font-special);
+	font-family: var(--font-alternative);
 	font-size: var(--font-size-14);
 	font-weight: bold;
 	margin: 0 0 8px;
 	text-align: center;
 }
-.forbidden-lands.chat-item h3 + h4 {
+
+.forbidden-lands.chat-item h3+h4 {
 	margin-top: -8px;
 }
+
 .forbidden-lands.chat-item img {
-	background: radial-gradient(closest-side, var(--color-highlight) 0%, white 100%);
+	background: radial-gradient(circle, rgba(0, 0, 0, 0.5) -20%, rgba(0, 0, 0, 0.1) 40%, transparent 60%);
 	border: 0;
 	display: block;
 	margin: 0 auto 8px;
 	max-height: 64px;
 	width: auto;
 }
+
 .forbidden-lands.chat-item p {
 	margin: 0 0 4px;
 }
@@ -57,20 +64,25 @@
 				line-height: 18px;
 			}
 		}
+
 		h3 {
 			font-family: "IM Fell DW Pica SC";
 		}
+
 		h4 {
 			font-family: "IM Fell DW Pica";
 		}
 	}
+
 	&.item {
 		.header {
 			border: 10px solid transparent;
 			border-image: url(./assets/journal-art/small-border.webp) 100/10px repeat;
+
 			.header-stats {
 				.bonus {
 					grid-gap: 5px;
+
 					i {
 						vertical-align: unset;
 					}
@@ -78,6 +90,7 @@
 			}
 		}
 	}
+
 	.border {
 		border: none;
 	}
@@ -91,6 +104,7 @@
 .forbidden-lands.chat-item .border {
 	padding: 0 4px;
 }
+
 .message-content {
 	.entity-link {
 		border: none;

@@ -20,7 +20,7 @@
 }
 
 .forbidden-lands .attributes .name {
-	font-family: var(--font-special);
+	font-family: var(--font-alternative);
 	text-align: left;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .forbidden-lands .attributes .value {
-	font-family: var(--font-special);
+	font-family: var(--font-alternative);
 	margin-right: 5px;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .forbidden-lands .attributes .broken {
-	color: #a00404;
+	color: var(--color-theme-accent);
 }
 
 .forbidden-lands .character .conditions-grid {
@@ -49,8 +49,9 @@
 	place-content: center;
 	padding: 5% 10%;
 }
+
 .forbidden-lands .conditions-grid a.condition {
-	font-family: var(--font-special);
+	font-family: var(--font-alternative);
 	font-size: var(--font-size-16);
 	font-weight: bold;
 	display: inline-grid;
@@ -65,7 +66,7 @@
 }
 
 .forbidden-lands .conditions .condition.active {
-	color: #a00404;
+	color: var(--color-theme-accent);
 }
 
 .forbidden-lands .skills {
@@ -83,7 +84,7 @@
 }
 
 .forbidden-lands .skills .name {
-	font-family: var(--font-special);
+	font-family: var(--font-alternative);
 	flex-basis: 50%;
 }
 

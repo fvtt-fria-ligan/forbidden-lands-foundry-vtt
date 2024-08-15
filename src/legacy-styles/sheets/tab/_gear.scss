@@ -20,14 +20,14 @@
 				padding: 8px;
 
 				b {
-					font-family: var(--font-special);
+					font-family: var(--font-alternative);
 					font-size: var(--font-size-16);
 				}
 			}
 
 			.values {
 				label {
-					font-family: var(--font-special);
+					font-family: var(--font-alternative);
 					font-variant: normal;
 					margin: 0 8px 0 16px;
 				}
@@ -46,7 +46,7 @@
 				display: flex;
 				flex-direction: row;
 				align-items: center;
-				font-family: var(--font-special);
+				font-family: var(--font-alternative);
 				padding: 8px 0;
 				justify-content: center;
 				font-size: var(--font-size-16);
@@ -92,12 +92,12 @@
 			}
 
 			.encumbrance {
-				font-family: var(--font-editor);
+				font-family: var(--font-alternative);
 				font-size: var(--font-size-16);
 				padding: 2px 4px;
 
 				&.overencumbered {
-					color: #a00404;
+					color: var(--color-theme-accent);
 				}
 
 				i {
@@ -106,7 +106,7 @@
 			}
 
 			.items {
-				& > table {
+				&>table {
 					table-layout: fixed;
 					width: 100%;
 					border: unset;
@@ -149,13 +149,13 @@
 					text-overflow: ellipsis;
 
 					.count {
-						background-color: var(--color-highlight);
+						background-color: var(--color-theme-alt-600);
 						width: 22px;
 						height: 18px;
 						display: inline-grid;
 						place-content: center;
 						border-radius: 10px;
-						color: var(--color-foreground);
+						color: var(--color-theme-text);
 					}
 				}
 
@@ -180,7 +180,7 @@
 				}
 
 				.broken {
-					color: #a00404;
+					color: var(--color-theme-accent);
 				}
 			}
 		}

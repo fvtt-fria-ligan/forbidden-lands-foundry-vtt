@@ -63,7 +63,7 @@
 
 		.legend {
 			font-weight: bold;
-			font-family: var(--font-subheader);
+			font-family: var(--font-header-sc);
 		}
 
 		.modifiers {
@@ -102,13 +102,13 @@
 			&:hover,
 			&:focus {
 				box-shadow: none;
-				border: 2px groove var(--color-highlight);
-				background: var(--color-highlight);
+				border: 2px groove var(--color-theme-alt-600);
+				background: var(--color-theme-alt-600);
 			}
 
 			&:active {
 				box-shadow: none;
-				border: 2px ridge var(--color-highlight);
+				border: 2px ridge var(--color-theme-alt-900);
 			}
 		}
 	}
@@ -118,7 +118,7 @@
 	}
 
 	.display-numbers {
-		font-family: var(--font-subheader);
+		font-family: var(--font-header-sc);
 		font-size: var(--font-size-48);
 		line-height: var(--font-size-48);
 	}
@@ -160,6 +160,7 @@
 		width: 77%;
 		margin: 0 auto;
 	}
+
 	h2::after {
 		background: url(./assets/journal-art/endstop.webp) center no-repeat;
 		content: "";
@@ -169,6 +170,7 @@
 		background-size: 100%;
 		margin: 0 auto;
 	}
+
 	span[contenteditable="true"]:focus-visible {
 		outline-color: black;
 		outline-offset: 4px;
@@ -181,6 +183,7 @@
 	justify-content: center;
 	padding: 0;
 	margin-top: 5px;
+
 	a i {
 		font-size: 25px;
 	}

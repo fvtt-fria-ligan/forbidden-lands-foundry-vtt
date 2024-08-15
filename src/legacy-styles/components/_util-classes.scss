@@ -36,8 +36,8 @@
 
 	&:hover,
 	&:focus {
-		box-shadow: 0 0 5px #a00404;
-		border: 2px solid #a00404;
+		box-shadow: 0 0 5px var(--color-theme-accent);
+		border: 2px solid var(--color-theme-accent);
 	}
 
 	&:active {
