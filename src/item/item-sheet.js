@@ -12,7 +12,7 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 	}
 
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			...super.defaultOptions,
 			classes: ["forbidden-lands", "sheet", "item"],
 			width: window.innerWidth * 0.08 + 350,

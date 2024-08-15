@@ -82,17 +82,12 @@ export class ForbiddenLandsActor extends Actor {
 		for await (const entity of newData) {
 			if (!entity.system) continue;
 
-			entity.system = await Object.entries(entity.system).reduce(
-				async (obj, [key, value]) => {
-					if (typeof value === "string" && value.match(inlineRoll)) {
-						const result = await createRoll(inlineRoll.exec(value));
-						value = value.replace(inlineRoll, result);
-					}
-					const resolved = await obj;
-					return { ...resolved, [key]: value };
-				},
-				{},
-			);
+			for await (const [key, value] of Object.entries(entity.system)) {
+				if (typeof value === "string" && value.match(inlineRoll)) {
+					const result = await createRoll(inlineRoll.exec(value));
+					entity.system[key] = value.replace(inlineRoll, result);
+				}
+			}
 
 			// We only want to touch flags of items that are considered "gear"
 			if (!CONFIG.fbl.carriedItemTypes.includes(entity.type)) continue;

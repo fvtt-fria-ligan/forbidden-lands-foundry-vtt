@@ -1,7 +1,7 @@
 import { ForbiddenLandsItemSheet } from "@item/item-sheet";
 export class ForbiddenLandsGearSheet extends ForbiddenLandsItemSheet {
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			...super.defaultOptions,
 			template: "systems/forbidden-lands/templates/item/gear/gear-sheet.hbs",
 			tabs: [

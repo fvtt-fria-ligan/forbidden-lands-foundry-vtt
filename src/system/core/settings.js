@@ -38,7 +38,7 @@ export class TableConfigMenu extends FormApplication {
 	});
 
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			template:
 				"systems/forbidden-lands/templates/components/tables-config.hbs",
 			classes: ["tables-config"],
@@ -127,7 +127,7 @@ export class SheetConfigMenu extends FormApplication {
 	});
 
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			template: "systems/forbidden-lands/templates/components/sheet-config.hbs",
 			classes: ["sheet-config"],
 			title: "CONFIG.SHEET_CONFIG.TITLE",

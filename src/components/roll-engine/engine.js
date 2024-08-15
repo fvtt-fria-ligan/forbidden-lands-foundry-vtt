@@ -94,7 +94,7 @@ export class FBLRollHandler extends FormApplication {
 	 * Foundry override intended to customize the window render.
 	 */
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ["forbidden-lands"],
 			width: "500",
 			height: "auto",

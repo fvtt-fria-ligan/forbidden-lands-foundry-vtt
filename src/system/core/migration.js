@@ -207,7 +207,7 @@ const migrateSceneData = (scene) => {
 				const updates = new Map(update[embeddedName].map((u) => [u._id, u]));
 				for (const embedded of actorData[embeddedName]) {
 					const toUpdate = updates.get(embedded._id);
-					if (toUpdate) mergeObject(embedded, toUpdate);
+					if (toUpdate) foundry.utils.mergeObject(embedded, toUpdate);
 				}
 				delete update[embeddedName];
 			}
