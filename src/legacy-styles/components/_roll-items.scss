@@ -5,7 +5,7 @@
 }
 
 .chat-message .message-content .dice-roll {
-	font-family: var(--font-table);
+	font-family: var(--font-body);
 	background: var(--color-theme-gray-200);
 	color: var(--color-theme-gray-800);
 	border-radius: 4px;
@@ -22,7 +22,7 @@
 		background: none;
 		box-shadow: none;
 		border: none;
-		font-family: var(--font-subheader);
+		font-family: var(--font-header-sc);
 		font-size: var(--font-size-16);
 		font-weight: 600;
 	}
@@ -118,7 +118,7 @@
 .dice-infos {
 	.dice-info {
 		text-align: center;
-		font-family: var(--font-special);
+		font-family: var(--font-alternative);
 		font-size: var(--font-size-16);
 		font-weight: 600;
 		color: #444;
@@ -127,6 +127,7 @@
 			padding-bottom: 8px;
 		}
 	}
+
 	.result {
 		font-size: var(--font-size-18);
 	}

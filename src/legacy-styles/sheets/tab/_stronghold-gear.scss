@@ -6,7 +6,7 @@
 		width: 100%;
 	}
 
-	.items div + .header {
+	.items div+.header {
 		margin-top: 8px;
 	}
 
@@ -35,6 +35,7 @@
 		flex-basis: 15%;
 		text-align: center;
 	}
+
 	input.quantity {
 		flex-basis: 8%;
 		margin-right: 3%;
@@ -42,7 +43,7 @@
 	}
 
 	.bonus.broken {
-		color: #a00404;
+		color: var(--color-theme-accent);
 	}
 
 	.button {

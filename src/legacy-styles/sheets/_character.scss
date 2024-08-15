@@ -6,7 +6,7 @@
 }
 
 .forbidden-lands .character .bio label {
-	font-family: var(--font-special);
+	font-family: var(--font-alternative);
 	margin-left: 8px;
 }
 
@@ -20,13 +20,16 @@
 .forbidden-lands .character .bio table td {
 	padding: 0.25em;
 	text-align: right;
+
 	input {
 		max-width: 50px;
+
 		&.kin,
 		&.profession {
 			text-align: left;
 			max-width: 120px;
 		}
+
 		&.name {
 			text-align: left;
 			max-width: 225px;
@@ -40,24 +43,14 @@
 		align-items: flex-end;
 		white-space: nowrap;
 		height: 1.75em;
-		.change-willpower > i.skull {
+
+		.change-willpower>i.skull {
 			font-size: var(--font-size-16);
 		}
 	}
 }
 
-.forbidden-lands
-	.character
-	.bio
-	.avatar
-	.forbidden-lands
-	.character
-	.bio
-	.avatar
-	img
-	.forbidden-lands
-	.character
-	.roll {
+.forbidden-lands .character .bio .avatar .forbidden-lands .character .bio .avatar img .forbidden-lands .character .roll {
 	background: transparent;
 	border: 0 none;
 	cursor: pointer;
@@ -80,7 +73,7 @@
 
 .forbidden-lands .character .push:hover {
 	box-shadow: none;
-	text-shadow: 0 0 8px #a00404;
+	text-shadow: 0 0 8px var(--color-theme-accent);
 }
 
 .forbidden-lands .monster h2,

@@ -1,81 +1,172 @@
 @forward "variables";
 
+body .forbidden-lands {
+	&.app {
+		color: var(--color-theme-text);
+		border: 2px solid transparent;
+		border-image: url(./assets/journal-art/box-border-large.webp) 110/11 repeat;
+		border-image-outset: 3;
+		padding: 0 4px 4px;
+		margin: 0;
+		background: var(--color-theme-background);
+
+		&.actor {
+			::-webkit-scrollbar {
+				width: 6px;
+			}
+
+			::-webkit-scrollbar-thumb {
+				background: var(--color-theme-gray-200);
+				border: 0 none;
+			}
+		}
+
+		&.minimized {
+			.window-header {
+				border: none;
+				margin-top: -3px;
+				display: flex;
+				align-items: center;
+				line-height: 1.5;
+				padding: unset;
+
+				.window-title {
+					overflow: hidden;
+					white-space: pre;
+				}
+			}
+		}
+
+		.window-header {
+			background: none;
+			border: none;
+			transition: margin-top 0.18s ease;
+
+			button.header-control {
+				color: var(--color-theme-text)
+			}
+
+			a.header-button {
+				display: flex;
+				flex-flow: row-reverse;
+				align-items: center;
+				height: 26px;
+				white-space: nowrap;
+				line-height: 1;
+				overflow: hidden;
+				padding-left: 6px;
+				margin: 0 0 0 4px;
+
+				>i {
+					font-size: var(--font-size-16);
+					margin-left: 10px;
+					margin-top: 2px;
+					color: var(--color-theme-text);
+				}
+			}
+		}
+
+
+		.window-content {
+			padding: 2px 4px;
+
+			// Remove borders around item images
+			img {
+				border: none;
+				border-radius: none;
+			}
+		}
+
+		.window-resizable-handle {
+			background: none;
+			border: none;
+			width: 19px;
+			height: 19px;
+
+			i.fas {
+				transform: translateY(-1.5px) rotate(45deg);
+			}
+		}
+
+		.bio {
+			padding: 4px 8px;
+
+			.avatar {
+				background: radial-gradient(circle, rgba(0, 0, 0, 0.5) -20%, rgba(0, 0, 0, 0.1) 40%, transparent 60%);
+				flex: 0 0 auto;
+				height: 95px;
+				width: 95px;
+
+				&:hover {
+					cursor: pointer;
+
+					&>img {
+						filter: drop-shadow(0 0 5px var(--color-theme-accent));
+					}
+				}
+
+				img {
+					place-self: center;
+					border: none;
+					display: block;
+					max-width: 100%;
+					max-height: 100%;
+					min-width: 20px;
+					min-height: 20px;
+				}
+			}
+		}
+	}
+}
+
 body.theme-dark {
-
-	#sidebar,
-	#players,
-	#hotbar #action-bar,
-	#controls ol .scene-control,
-	#controls ol .control-tool,
-	#controls ol .scene-control.active,
-	#controls ol .control-tool.active,
-	#hotbar #hotbar-page-controls,
-	#hotbar #hotbar-directory-controls,
-	#navigation #nav-toggle,
-	#navigation #scene-list .scene.view,
-	.app.window-app,
-	.app.dialog,
-	.application.dialog,
-	.application.window-app {
-		border-image-source: url(./assets/journal-art/box-border-large-dark.webp);
-	}
-
-	button {
-		background: var(--color-theme-alt-1000);
-		border-color: var(--color-theme-theme-contrast);
-	}
-
-	input[type="text"],
-	input[type="number"],
-	input[type="password"],
-	input[type="date"],
-	input[type="time"],
-	input[type="search"] {
-		color: #111;
-	}
-
 	.forbidden-lands input {
 		color: var(--color-theme-text);
 	}
 
-	#chat-log .message {
-		background: var(--color-theme-background);
+	.forbidden-lands.app {
+		border-image-source: url(./assets/journal-art/box-border-large-dark.webp);
 	}
-
-	.chat-message .message-header {
-		color: var(--color-theme-text);
-	}
-
-	.journal-page-header h1,
-	.journal-page-header h2,
-	.journal-page-header h3 {
-		color: var(--color-theme-text);
-	}
-
-	.journal-sheet .journal-header .title {
-		color: var(--color-theme-text);
-	}
-}
-
-.window-app .window-content {
-	background-image: none;
 }
 
 html.no-borders,
 html.no-borders body.theme-dark {
+	.forbidden-lands.sheet {
+		border: none;
+	}
+}
 
-	#sidebar,
-	#players,
-	#hotbar #action-bar,
-	#controls ol .scene-control,
-	#controls ol .control-tool,
-	#controls ol .scene-control.active,
-	#controls ol .control-tool.active,
-	#hotbar #hotbar-page-controls,
-	#hotbar #hotbar-directory-controls,
-	#navigation #nav-toggle,
-	#navigation #scene-list .scene.view,
-	.app.window-app.app.window-app {
-		border-image: none;
+// Override the default chat log styles
+#chat-log {
+	.message {
+		position: relative;
+		background: var(--color-theme-background);
+		font-size: var(--font-size-12);
+
+		&:after {
+			content: "";
+			border: 10px solid transparent;
+			border-image: url(./assets/journal-art/small-border.webp) 100/10px repeat;
+			position: absolute;
+			height: calc(100% - 24px);
+			width: calc(100% - 24px);
+			margin: -3px 7px 7px -3px;
+			pointer-events: none;
+		}
+
+		.message-header {
+			padding: 8px 13px;
+			color: var(--color-theme-text);
+			border-bottom: rgba(0, 0, 0, 0.2);
+		}
+
+		.message-content {
+			border: none;
+			padding: 0 13px 13px;
+		}
+
+		.fbl-button {
+			border: 2px solid transparent;
+		}
 	}
 }

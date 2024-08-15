@@ -4,50 +4,10 @@
 /*              Overrides               */
 /* ------------------------------------ */
 
-// Background of the journal entry page
-.sheet.journal-entry .journal-entry-content {
-	background: var(--color-background);
-	border: unset;
-	border-radius: unset;
-}
-
-// Sidebar
-.sheet.journal-entry {
-	.journal-sidebar {
-		color: var(--color-text-dark-primary);
-
-		.header-search input {
-			background-color: #eeed;
-		}
-	}
-}
-
 // Force proper height
 .app.sheet .editor {
 	min-height: 55px;
 	height: 100%;
-}
-
-// Edit button
-.editor:focus,
-.editor:hover,
-.journal-entry-page.text:focus .edit-container,
-.journal-entry-page.text:hover .edit-container {
-	.editor-edit {
-		background: #cccd;
-		border: none;
-		box-shadow: 0 0 3px #1119;
-		right: 10px;
-		width: 24px;
-		height: 24px;
-		display: grid;
-		place-content: center;
-		z-index: 100;
-
-		i {
-			font-size: var(--font-size-16);
-		}
-	}
 }
 
 /* ------------------------------------ */
@@ -89,11 +49,6 @@
 		background: transparent;
 		text-overflow: ellipsis;
 	}
-}
-
-// Remove header if book-type
-.fbl-book .journal-header {
-	display: none;
 }
 
 /* ------------------------------------ */
@@ -138,7 +93,7 @@
 
 // Page Content
 :where(.journal-page-content, .editor-content) {
-	font-family: var(--font-editor);
+	font-family: var(--font-alternative);
 	line-height: 1.75;
 	font-size: var(--font-size-16);
 

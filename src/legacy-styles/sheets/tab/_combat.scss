@@ -53,7 +53,7 @@
 }
 
 .forbidden-lands .character .armors .armor .bonus.broken {
-	color: #a00404;
+	color: var(--color-theme-accent);
 }
 
 .forbidden-lands .character .critical-injuries {
@@ -61,21 +61,26 @@
 	flex-direction: column;
 	overflow: hidden;
 	padding-bottom: 8px;
+
 	.critical-injury {
 		align-items: center;
+
 		.button {
 			flex-basis: 20%;
 			font-size: var(--font-size-12);
 			text-align: right;
 		}
+
 		.name {
 			align-items: center;
 			display: flex;
 			flex-basis: 55%;
+
 			.name {
 				margin-left: 4px;
 			}
 		}
+
 		.healtime {
 			align-items: center;
 			flex-basis: 30%;
@@ -133,7 +138,7 @@
 }
 
 .forbidden-lands .character .weapons .weapon .bonus.broken {
-	color: #a00404;
+	color: var(--color-theme-accent);
 }
 
 .forbidden-lands .character .weapons .weapon .damage {
