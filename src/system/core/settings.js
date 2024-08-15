@@ -319,6 +319,16 @@ export default function registerSettings() {
 	/* -------------------------------------------- */
 	/*  Visible                                     */
 	/* -------------------------------------------- */
+	if (Number(game.version?.slice(0, 2)) < 12)
+		game.settings.register("forbidden-lands", "darkmode", {
+			name: "SETTINGS.DARKMODE",
+			hint: "SETTINGS.DARKMODE_HINT",
+			scope: "client",
+			config: true,
+			default: false,
+			requiresReload: true,
+			type: Boolean,
+		});
 
 	game.settings.register("forbidden-lands", "removeBorders", {
 		name: "SETTINGS.REMOVEBORDERS",
