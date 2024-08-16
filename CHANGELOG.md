@@ -1,5 +1,19 @@
 # Changelog
 
+## 12.1.0
+
+### Minor Changes
+
+- [#448](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/448) [`861e660`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/861e66010e4b8ddb5b564954e12ab8a455b7e19b) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Greatly reducing the amount of styling that the system does to foundry. Foundry is in the process of implementing themes, and application v2. The maintenance cost of overriding native UI is too high to be worth it.
+
+### Patch Changes
+
+- [#449](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/449) [`b315c2a`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/b315c2a9c0b4bb85b3236375fd81d74d4d253aa3) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Fixed an issue where critical injuries dragged onto character sheets would not be created
+
+- [#450](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/450) [`58baabf`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/58baabf61ae21813b806ac0be973ce4119274d00) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Fixed an issue where the Adventure Site creation button would disappear when creating and adventure site
+
+- [#451](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/451) [`9fef0ec`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/9fef0ecc3de144baf369cd715e464a8aee66867c) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Backported the Dark mode setting to v11 as it was only native to v12
+
 ## 12.0.3
 
 ### Patch Changes
