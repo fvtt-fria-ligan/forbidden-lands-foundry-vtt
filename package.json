@@ -51,7 +51,7 @@
 		"@types/showdown": "2.0.6",
 		"bun-types": "1.1.20",
 		"devmoji": "2.3.0",
-		"esbuild": "0.23.0",
+		"esbuild": "0.25.0",
 		"esbuild-sass-plugin": "3.3.1",
 		"execa": "9.3.0",
 		"globby": "14.0.2",
