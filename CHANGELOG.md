@@ -1,5 +1,11 @@
 # Changelog
 
+## 12.1.1
+
+### Patch Changes
+
+- [#465](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/465) [`33057c9`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/33057c97f0973c53c9f34b91ac7143a9d50ed975) Thanks [@Cussa](https://github.com/Cussa)! - Only shows buttons to GM
+
 ## 12.1.0
 
 ### Minor Changes
