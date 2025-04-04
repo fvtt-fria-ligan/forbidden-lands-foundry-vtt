@@ -262,7 +262,8 @@ export default function registerHooks() {
 			const shouldRender =
 				app.tabName === "journal" &&
 				Object.keys(CONFIG.fbl.adventureSites.types).length &&
-				!app.element.find("#create-adventure-site").length;
+				!app.element.find("#create-adventure-site").length &&
+				game.user.isGM;
 
 			if (!shouldRender) return;
 
@@ -280,7 +281,7 @@ export default function registerHooks() {
 	Hooks.on("renderJournalSheet", (app, html) => {
 		const type = app.object.getFlag("forbidden-lands", "adventureSiteType");
 		const isDungeon = ["dungeon", "ice_cave", "elven_ruin"].includes(type);
-		if (!isDungeon) return;
+		if (!isDungeon || !game.user.isGM) return;
 
 		const button = $(
 			`<button type="button" class="create" data-action="add-room"><i class="fas fa-plus-circle"></i> ${t("ADVENTURE_SITE.ADD_ROOM")}</button>`,
