@@ -1312,7 +1312,7 @@
 					"name": "Gefangen",
 					"weight": 1,
 					"description": "Was für eine Schmach – du wurdest von Feinden gefangengenommen. Sie ließen dich vergessen in einem Kerker zum Sterben zurück. Als sich die Gelegenheit zur Flucht bot, hast du sie ergriffen.",
-					"items": "✥ Du erhältst eine beschlagene Lederrüstung.",
+					"items": "✥ Du erhältst eine verstärkte Lederrüstung und ein Kurzschwert.",
 					"skills": { "might": "1", "survival": "1" },
 					"talent": "Schmerzresistent"
 				},
@@ -1330,7 +1330,7 @@
 					"name": "Ein langer Marsch",
 					"weight": 1,
 					"description": "Du hast als Soldat gedient und bist quer durch die Verbotenen Lande marschiert. Du erinnerst dich kaum noch daran, wofür du gekämpft hast oder wer deine Feinde waren. Aber du erinnerst dich daran, wie der Blutnebel dir deine Freunde genommen hat, einen nach dem anderen.",
-					"items": "✥ Du erhältst ein Zelt, eine Decke und einen Kessel.",
+					"items": "✥ Du erhältst ein Zelt, eine Handaxt und einen Kessel.",
 					"skills": { "survival": "1", "healing": "1" },
 					"talent": "Packesel"
 				},
@@ -1357,7 +1357,7 @@
 					"name": "Befehlshaber",
 					"weight": 1,
 					"description": "Du hast eine Soldatentruppe angeführt. Deine Kameraden haben zu dir aufgesehen und wären für dich in den Tod gegangen. Aber etwas ist geschehen. Vielleicht wurdest du verraten oder durch einen Hinterhalt besiegt. Deine Kameraden sind gestorben oder geflohen, aber du hast überlebt.",
-					"items": "✥ Du erhältst eine Kettenrüstung und einen geschlossenen Helm.",
+					"items": "✥ Du erhältst eine Kettenrüstung, ein Breitschwert und einen geschlossenen Helm.",
 					"skills": { "lore": "1", "manipulation": "1" },
 					"talent": "Kaltblütig"
 				}
@@ -1395,7 +1395,7 @@
 					"name": "Ein Reittier gezähmt",
 					"weight": 1,
 					"description": "Du hast ein Wildpferd (oder ein anderes passendes Tier) gefangen. Es war nicht leicht, aber mit der Zeit hast du es geschafft, das Tier zu zähmen. Heute seid ihr unzertrennlich.",
-					"items": "✥ Du erhältst ein Reittier deiner Wahl. Es kann kein Schlachtross sein.",
+					"items": "✥ Du erhältst ein Reittier deiner Wahl. Es kann kein Schlachtross sein. Außerdem einen Kampfstab.",
 					"skills": { "animal-handling": "2" },
 					"talent": "Berittener Kämpfer"
 				},
@@ -1413,7 +1413,7 @@
 					"name": "Führer",
 					"weight": 1,
 					"description": "Du hast deine Fähigkeiten denen angeboten, die dich am besten bezahlt haben. Du hast Handelskarawanen, Truppenverbände und neugierige Abenteurer geführt. Du hast gelernt, wie man dem Blutnebel ausweicht und sich in der Wildnis versorgt.",
-					"items": "✥ Du erhältst ein Zelt, einen Kessel und eine Decke.",
+					"items": "✥ Du erhältst ein Zelt, einen Kessel und eine Messer.",
 					"skills": { "scouting": "2" },
 					"talent": "Kundschafter"
 				},
@@ -1422,7 +1422,7 @@
 					"name": "Jäger für einen Adligen",
 					"weight": 1,
 					"description": "Ein Adliger hat deine Fähigkeiten erkannt und dich als Förster angeheuert. Du hast ein gutes Leben geführt, zur Hälfte in der Sicherheit der Burg deines Herrn, den Rest der Zeit auf der Jagd in den Wäldern.",
-					"items": "✥ Du erhältst einen gut gearbeiteten Mantel und einen Schlafpelz.",
+					"items": "✥ Du erhältst einen gut gearbeiteten Mantel, einen Schlafpelz und einen Kurzbogen.",
 					"skills": { "marksmanship": "1", "insight": "1" },
 					"talent": "Sechster Sinn"
 				}
@@ -1478,7 +1478,7 @@
 					"name": "Angeworben",
 					"weight": 1,
 					"description": "Das Leben nahm eine unerwartete Wendung und du wurdest von einer Kompanie angeworben. Das Leben in der Armee war hart, aber du hast treue Freunde gefunden und gelernt, dich selbst zu versorgen.",
-					"items": "✥ Du erhältst eine Lederrüstung und einen offenen Helm.",
+					"items": "✥ Du erhältst eine Lederrüstung, einen offenen Helm, einen Kurzbogen und einen W8-Ressourcenwürfel für Pfeile.",
 					"skills": { "melee": "1", "survival": "1" },
 					"talent": "Verteidiger"
 				},
@@ -1507,7 +1507,7 @@
 					"name": "Karawane",
 					"weight": 1,
 					"description": "Du warst Teil einer anstrengenden Handelskarawane, die dem Blutnebel trotzte. Die Karawane hat viele Gefahren erlebt und nicht jeder hat den Blutnebel überlebt. Vielleicht wurde unterwegs irgendjemand zurückgelassen?",
-					"items": "✥ Du erhältst einen Esel.",
+					"items": "✥ Du erhältst einen Esel und ein Messer.",
 					"skills": { "animal-handling": "1", "manipulation": "1" },
 					"talent": "Wanderer"
 				},
@@ -1516,7 +1516,7 @@
 					"name": "Lokales Geschäft",
 					"weight": 1,
 					"description": "Du hast eine Gelegenheit für Profit gesehen und das Beste daraus gemacht. Vielleicht hast du Obst für einen lokalen Adligen importiert oder Stoffe aus Erlenland verkauft. Das Geschäft lief prächtig – zumindest eine Zeit lang.",
-					"items": "✥ Du erhältst einen Karren.",
+					"items": "✥ Du erhältst einen Karren und einen Kampfstab.",
 					"skills": { "insight": "1", "manipulation": "1" },
 					"talent": "Glückspilz"
 				},
@@ -1534,7 +1534,7 @@
 					"name": "Nebenquest",
 					"weight": 1,
 					"description": "Du hast dich mit einer Abenteurergruppe zusammengetan und bist auf ein großes Abenteuer in den Verbotenen Landen ausgezogen. Du hast viele Gefahren überstanden, und viele sind auf der Reise durch den Blutnebel gestorben, aber du hast unterwegs viel über dich gelernt.",
-					"items": "✥ Du erhältst eine Kettenrüstung und einen kleinen Schild.",
+					"items": "✥ Du erhältst eine Kettenrüstung und ein Kurzschwert.",
 					"skills": { "melee": "1", "lore": "1" },
 					"talent": "Furchtlos"
 				},
@@ -1543,7 +1543,7 @@
 					"name": "Schmuggler",
 					"weight": 1,
 					"description": " Du hast ein lukratives Geschäft daraus gemacht, Schmuggelware zwischen Siedlungen in den Verbotenen Landen zu befördern und dabei Rostbrüdern und dem Blutnebel auszuweichen. Du hast gelernt, wie wichtig es ist, diskret zu sein und Aufmerksamkeit zu vermeiden.",
-					"items": "✥ Du erhältst ein Fernglas.",
+					"items": "✥ Du erhältst ein Fernglas und einen Dolch.",
 					"skills": { "scouting": "1", "insight": "1" },
 					"talent": "Sechster Sinn"
 				},
@@ -1577,7 +1577,7 @@
 					"name": "Angeworben",
 					"weight": 1,
 					"description": "Du hast dich einer Soldatentruppe angeschlossen, vielleicht aus freien Stücken, vielleicht wurdest du zwangsverpflichtet. Mit deinen Kameraden hast du viele Strapazen überstanden: Schlachten, lange Märsche und der gefürchtete Blutnebel. Letzten Endes ist etwas geschehen, was dich dazu gebracht hat, die Gruppe zu verlassen.",
-					"items": "✥ Du erhältst eine beschlagene Lederrüstung und einen großen Schild.",
+					"items": "✥ Du erhältst eine verstärkte Lederrüstung, einen großen Schild und einen Speer.",
 					"skills": { "melee": "1", "marksmanship": "1" },
 					"talent": "Berittener Kämpfer"
 				},
@@ -1586,7 +1586,7 @@
 					"name": "Wettkämpfer",
 					"weight": 1,
 					"description": "Du hast dir dein Geld mit Wettkämpfen zu Pferd verdient und bist von Dorf zu Dorf und Burg zu Burg gereistund dabei dem tödlichen Blutnebel getrotzt. Als du noch gewonnen hast, war dein Leben schön, aber als die Niederlagen anfingen, hast du beschlossen, weiterzuziehen.",
-					"items": "✥ Du erhältst einen Mantel.",
+					"items": "✥ Du erhältst einen Mantel und einen Dolch.",
 					"skills": { "move": "1", "animal-handling": "1" },
 					"talent": "Flinke Füße"
 				},
@@ -1604,7 +1604,7 @@
 					"name": "Karawanenwache",
 					"weight": 1,
 					"description": "Du wurdest als Wache für eine Karawane angestellt und hast Händler durch tiefe Wälder und über hohe Berge begleitet, während ihr stets dem schrecklichen Blutnebel ausgewichen seid.",
-					"items": "✥ Du erhältst einen Speer.",
+					"items": "✥ Du erhältst einen Langspeer.",
 					"skills": { "melee": "1", "scouting": "1" },
 					"talent": "Kundschafter"
 				},
@@ -1613,7 +1613,7 @@
 					"name": "Viehirte",
 					"weight": 1,
 					"description": "Du hast Vieh auf die üppigeren Weiden der Verbotenen Lande getrieben. Tagsüber hast du die Herde vom Sattel aus bewacht. Nachts hast du sichergestellt, dass keine Tiere dem Blutnebel zum Opfer gefallen sind.",
-					"items": "✥ Du erhältst eine Laterne und einen Wasserschlauch.",
+					"items": "✥ Du erhältst eine Laterne, einen Wasserschlauch und ein Messer.",
 					"skills": { "move": "1", "animal-handling": "1" },
 					"talent": "Quartiermeister"
 				},
@@ -1642,7 +1642,7 @@
 					"name": "Von den Falschen gestohlen",
 					"weight": 1,
 					"description": " Es war das perfekte Verbrechen. Zumindest für eine Weile. Du hast etwas Wertvolles von der falschen Person zur falschen Zeit gestohlen. Du wurdest gejagt und musstest um dein Leben rennen.",
-					"items": "✥ Du erhältst Dietriche.",
+					"items": "✥ Du erhältst Dietriche und ein Wurfmesser.",
 					"skills": { "sleight-of-hand": "1", "move": "1" },
 					"talent": "Blitzschnell"
 				},
@@ -1669,7 +1669,7 @@
 					"name": "Einer Diebesgilde beigetreten",
 					"weight": 1,
 					"description": "Du bist Teil einer Gemeinschaft von Dieben geworden. Zusammen habt ihr Fischzüge geplant und gefährliche Aufträge durchgeführt.",
-					"items": "✥ Du erhältst eine Lederrüstung.",
+					"items": "✥ Du erhältst eine Lederrüstung und einen Dolch.",
 					"skills": { "insight": "1", "scouting": "1" },
 					"talent": "Sechster Sinn"
 				},
@@ -1712,7 +1712,7 @@
 					"name": "Fehlgeschlagenes Experiment",
 					"weight": 1,
 					"description": "Du hast ein magisches Experiment durchgeführt. Es ging katastrophal schief. Vielleicht wurde jemand ernsthaft verletzt oder du wurdest aus deiner Heimat verbannt.",
-					"items": "✥ Du erhälst W6 Anwendungen halluzinogenes Gift.",
+					"items": "✥ Du erhälst W6 Anwendungen halluzinogenes Gift und einen Kampfstab.",
 					"skills": { "lore": "1", "healing": "1" },
 					"talent": "Giftmischer"
 				},
@@ -1721,7 +1721,7 @@
 					"name": "Einsame Studien",
 					"weight": 1,
 					"description": "Du hast dich an einen abgelegenen Ort zurückgezogen, um in Ruhe die Kunst der Magie zu studieren. Du hast dich selbst versorgt und deine Bücher und Schriftrollen waren deine einzigen Gefährten.",
-					"items": "✥ Du erhälst ein kleines Zelt und einen Kessel.",
+					"items": "✥ Du erhälst ein kleines Zelt, einen Kessel ud einen Dolch.",
 					"skills": { "lore": "1", "survival": "1" },
 					"talent": "Quartiermeister"
 				},
@@ -1739,7 +1739,7 @@
 					"name": "Hofmagier",
 					"weight": 1,
 					"description": "Du wurdest von einem Adligen angeheuert und hast ihm als magischer Berater gedient. Vielleicht hatte dein Herr geheime Ziele, vielleicht hast du dich mit einem höherrangigen Berater angelegt. Du hast viel über Personen in Machtpositionen gelernt.",
-					"items": "✥ Du erhältst eine Flasche teuren Weins und einen Mantel.",
+					"items": "✥ Du erhältst eine Flasche teuren Weins, einen Mantel und einen Kampfstab",
 					"skills": { "insight": "1", "manipulation": "1" },
 					"talent": "Scharfe Zunge"
 				},
@@ -1757,7 +1757,7 @@
 					"name": "Angeworben",
 					"weight": 1,
 					"description": "Du wurdest von einer Soldatentruppe angeworben. Du hast viel Zeit im Feld verbracht, wo du sie mit deinen magischen Künsten unterstützt hast. Du hast gesehen, wie Gefährten getötet wurden, aber du bist davongekommen, mit nichts als ein paar hässlichen Narben.",
-					"items": "✥ Du erhältst eine beschlagene Lederrüstung und einen geschlossenen Helm.",
+					"items": "✥ Du erhältst eine verstärkte Lederrüstung, einen geschlossenen Helm und ein Kurzschwert.",
 					"skills": { "melee": "1", "healing": "1" },
 					"talent": "Verteidiger"
 				}
