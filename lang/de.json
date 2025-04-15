@@ -16,6 +16,15 @@
 	"ACTOR.TypeMonster": "Monster",
 	"ACTOR.TypeParty": "Gruppe",
 	"ACTOR.TypeStronghold": "Festung",
+	"ADVENTURE_SITE.CREATE_BUTTON": "Erstellen",
+	"ADVENTURE_SITE.TYPE": {
+		"CASTLE": "Burg",
+		"DUNGEON": "Verließ",
+		"VILLAGE": "Dorf",
+		"ELVEN_RUIN": "Elfenruine",
+		"ICE_CAVE": "Eishöhle",
+		"SETTLEMENT": "Siedlung"
+	},
 	"ARMOR.BODY": "Körper",
 	"ARMOR.HELMET": "Helm",
 	"ARMOR.PART": "Körperteil",
