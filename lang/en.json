@@ -18,9 +18,18 @@
 	"ACTOR.TypeParty": "Party",
 	"ACTOR.TypeStronghold": "Stronghold",
 	"ADVENTURE_SITE.ADD_ROOM": "Add Room",
+	"ADVENTURE_SITE.CREATE_BUTTON": "Create",
 	"ADVENTURE_SITE.CREATE_TITLE": "Create a new Adventure Site",
 	"ADVENTURE_SITE.CREATE_DESCRIPTION": "Choose what type of site you want to create.",
 	"ADVENTURE_SITE.LABEL": "Adventure Site",
+	"ADVENTURE_SITE.TYPE": {
+		"CASTLE": "Castle",
+		"DUNGEON": "Dungeon",
+		"ELVEN_RUIN": "Elven Ruins",
+		"ICE_CAVE": "Ice Cave",
+		"SETTLEMENT": "Settelment",
+		"VILLAGE": "Village"
+	},
 	"ARMOR.BODY": "Body",
 	"ARMOR.HELMET": "Helmet",
 	"ARMOR.OTHER": "Other",

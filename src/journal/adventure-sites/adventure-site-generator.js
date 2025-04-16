@@ -188,55 +188,80 @@ const moldData = (data, type) => {
 };
 
 export const adventureSiteCreateDialog = async () => {
-	const titleCase = (string) =>
-		string.replace(/_/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
+	const titleCase = (string) => {
+		const i18nKey = `ADVENTURE_SITE.TYPE.${string.toUpperCase()}`;
+		const translated = t(i18nKey);
+
+		// if translation key is found...
+		if (translated !== i18nKey) return translated;
+		// else replace underscores and capitalize string
+		return string
+			.replace(/_/g, " ")
+			.replace(/\b\w/g, (char) => char.toUpperCase());
+	};
 
 	const types = Object.entries(CONFIG.fbl.adventureSites.types);
 
-	const type = await Dialog.wait({
-		title: t("ADVENTURE_SITE.CREATE_TITLE"),
-		content: `<form style="margin-block:12px;">
-								<p>${t("ADVENTURE_SITE.CREATE_DESCRIPTION")}</p>
-								<div class="form-group">
-										<div class="form-fields">
-										<label>${t("Type")}</label>
-												<select name="type">
-														${types.map(([key, value]) => {
-															return `<option value="${value}:${key}">${titleCase(key)}</option>`;
-														})}
-												</select>
-										</div>
-								</div>
-						</form>`,
-		buttons: {
-			ok: {
-				icon: '<i class="fas fa-check"></i>',
-				label: `${t("Create")}`,
-				callback: (jqhtml) => jqhtml.find("form")[0].type.value,
+	try {
+		const type = await Dialog.wait({
+			title: t("ADVENTURE_SITE.CREATE_TITLE"),
+			content: `<form style="margin-block:12px;">
+									<p>${t("ADVENTURE_SITE.CREATE_DESCRIPTION")}</p>
+									<div class="form-group">
+											<div class="form-fields">
+											<label>${t("Type")}</label>
+													<select name="type">
+															${types.map(([key, value]) => {
+																return `<option value="${value}:${key}">${titleCase(key)}</option>`;
+															})}
+													</select>
+											</div>
+									</div>
+							</form>`,
+			buttons: {
+				ok: {
+					icon: '<i class="fas fa-check"></i>',
+					label: `${t("ADVENTURE_SITE.CREATE_BUTTON")}`,
+					callback: (jqhtml) => jqhtml.find("form")[0].type.value,
+				},
 			},
-		},
-	});
+		});
 
-	const [path, adventureSite] = type.split(":");
+		const [path, adventureSite] = type.split(":");
 
-	const content = await CONFIG.fbl.adventureSites.generate(path, adventureSite);
+		const content = await CONFIG.fbl.adventureSites.generate(
+			path,
+			adventureSite,
+		);
+		const title = titleCase(adventureSite);
 
-	const entry = await JournalEntry.create({
-		name: `${t("ADVENTURE_SITE.LABEL")}: ${titleCase(adventureSite)}`,
-		pages: [
-			{
-				name: titleCase(adventureSite),
-				text: { content: `<div class="adventure-site">${content}</div>` },
-				title: { show: false },
+		const entry = await JournalEntry.create({
+			name: `${t("ADVENTURE_SITE.LABEL")}: ${title}`,
+			pages: [
+				{
+					name: title,
+					text: { content: `<div class="adventure-site">${content}</div>` },
+					title: { show: false },
+				},
+			],
+			flags: {
+				"forbidden-lands": {
+					adventureSiteType: adventureSite,
+				},
 			},
-		],
-		flags: {
-			"forbidden-lands": {
-				adventureSiteType: adventureSite,
-			},
-		},
-	});
-	entry.sheet.render(true);
+		});
+		entry.sheet.render(true);
+	} catch (error) {
+		// An exception is thrown closing the dialog with the x in the upper right corner
+		if (
+			error.message === "The Dialog was closed without a choice being made."
+		) {
+			// Do nothing her - aborting the dialog is fine for us
+			console.log(error);
+		} else {
+			throw error;
+		}
+	}
 };
 
 // Initialize random generation
