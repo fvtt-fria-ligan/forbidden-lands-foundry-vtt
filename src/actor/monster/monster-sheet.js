@@ -33,6 +33,12 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 		this.computeSkills(actorData);
 		this.computeItems(actorData);
 		this.computeEncumbrance(actorData);
+
+		actorData.monsterTypeOptions = [
+			{ value: "monster", label: "MONSTER.TYPE.MONSTER" },
+			{ value: "mount", label: "MONSTER.TYPE.MOUNT" },
+		];
+
 		return actorData;
 	}
 
@@ -86,7 +92,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 			? this.actor.attributes.strength.value
 			: attack.itemProperties.dice;
 		const roll = FBLRoll.create(`${dice}db[${attack.name}]`, {}, options);
-		await roll.roll({ async: true });
+		await roll.roll();
 		return roll.toMessage();
 	}
 
@@ -100,7 +106,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 			...this.getRollOptions(),
 		};
 		const roll = FBLRoll.create(`${armor.value}dg[${rollName}]`, {}, options);
-		await roll.roll({ async: true });
+		await roll.roll();
 		roll.toMessage();
 		return true;
 	}

@@ -306,7 +306,7 @@ export class FBLRollHandler extends FormApplication {
 			flavor: localizeString(this.base.label),
 		};
 		this.damage = power;
-		const actor = FBLRollHandler.getSpeaker({
+		const actor = FBLRollHandler.resolveActor({
 			actor: this.options.actorId,
 			scene: this.options.sceneId,
 			token: this.options.tokenId,
@@ -540,7 +540,7 @@ export class FBLRollHandler extends FormApplication {
 		}
 
 		// Roll the dice!
-		await roll.roll({ async: true });
+		await roll.roll();
 
 		return {
 			roll,
@@ -599,12 +599,27 @@ export class FBLRollHandler extends FormApplication {
 	 */
 	static async pushRoll(msg) {
 		const roll = msg.rolls[0];
-		await roll.push({ async: true });
+		await roll.push();
 
-		const speaker = this.getSpeaker(msg.speaker);
-		if (speaker) await this.updateActor(roll, speaker);
+		const actor = msg.actor ?? this.resolveActor(msg.speaker);
+		if (actor) await this.updateActor(roll, actor);
 
 		return roll.toMessage();
+	}
+
+	static resolveActor(speakerData) {
+		if (speakerData instanceof foundry.documents.BaseActor) return speakerData;
+
+		if (speakerData?.token && speakerData?.scene) {
+			const scene = game.scenes.get(speakerData.scene);
+			return scene?.tokens.get(speakerData.token)?.actor ?? null;
+		}
+
+		if (speakerData?.actor) {
+			return game.actors.get(speakerData.actor);
+		}
+
+		return null;
 	}
 
 	/**
@@ -632,21 +647,25 @@ export class FBLRollHandler extends FormApplication {
 	 */
 	static async applyAttributDamage(
 		{ attributeTrauma, options: { attribute, characterDamage } },
-		speaker,
+		speakerData,
 	) {
-		const { attribute: appliedDamage } = characterDamage;
+		const actor = this.resolveActor(speakerData);
+		if (!actor) {
+			return;
+		}
+
+		const appliedDamage = characterDamage.attribute;
 		const currentDamage = attributeTrauma - appliedDamage;
 
-		let value = speaker?.attributes[attribute]?.value;
-		if (!value) return;
+		await this.modifyWillpower(actor, currentDamage);
 
-		await this.modifyWillpower(speaker, currentDamage);
-
+		let value = actor.system.attribute?.[attribute]?.value ?? 0;
 		value = Math.max(value - currentDamage, 0);
 
 		if (value === 0)
-			ui.notifications.notify("NOTIFY.YOU_ARE_BROKEN", { localize: true });
-		await speaker.update({ [`system.attribute.${attribute}.value`]: value });
+			ui.notifications.notify(game.i18n.localize("NOTIFY.YOU_ARE_BROKEN"));
+
+		await actor.update({ [`system.attribute.${attribute}.value`]: value });
 	}
 
 	/**
@@ -655,28 +674,41 @@ export class FBLRollHandler extends FormApplication {
 	 * @param {ActorData} speaker
 	 * @returns updates actor with gear damage.
 	 */
-	static async applyGearDamage({ gearDamageByName }, speaker) {
-		const gear = speaker?.items.contents.sort((_, b) =>
-			b.state === "equipped" ? 1 : -1,
+	static async applyGearDamage({ gearDamageByName }, speakerData) {
+		const actor = this.resolveActor(speakerData);
+		if (!actor) {
+			console.warn(
+				"applyGearDamage: Could not resolve actor from speaker data",
+				speakerData,
+			);
+			return;
+		}
+
+		const gear = actor.items.contents.sort((_, b) =>
+			b.system?.state === "equipped" ? 1 : -1,
 		);
 
-		// This only gets the gear damage by name which is not resilient.
 		const items = Object.keys(gearDamageByName)
 			.map((itemName) => gear.find((g) => g.name === itemName))
-			.filter((e) => !!e);
+			.filter(Boolean);
 
 		if (!items.length) return;
 
 		const updatedItems = items.map((item) => {
-			const value = Math.max(item.bonus - gearDamageByName[item.name], 0);
-			if (value === 0)
-				ui.notifications.notify("NOTIFY.YOUR_ITEM_BROKE", { localize: true });
+			const currentBonus = item.system?.bonus?.value ?? 0;
+			const damage = gearDamageByName[item.name];
+			const newValue = Math.max(currentBonus - damage, 0);
+
+			if (newValue === 0)
+				ui.notifications.notify(game.i18n.localize("NOTIFY.YOUR_ITEM_BROKE"));
+
 			return {
 				_id: item.id,
-				"system.bonus.value": value,
+				"system.bonus.value": newValue,
 			};
 		});
-		await speaker.updateEmbeddedDocuments("Item", updatedItems);
+
+		await actor.updateEmbeddedDocuments("Item", updatedItems);
 	}
 
 	/**
@@ -686,15 +718,21 @@ export class FBLRollHandler extends FormApplication {
 	 * @param {string} operation essentially a boolean.
 	 * @returns updates actor with willpower changes.
 	 */
-	static async modifyWillpower(speaker, value, operation = "add") {
-		let willpower = speaker.willpower;
-		if (!willpower) return;
+	static async modifyWillpower(speakerData, value, operation = "add") {
+		const actor = this.resolveActor(speakerData);
+		if (!actor) {
+			return;
+		}
 
-		willpower =
+		const current = actor.system?.bio?.willpower?.value ?? 0;
+		const max = actor.system?.bio?.willpower?.max ?? 0;
+
+		const newValue =
 			operation === "add"
-				? Math.min(willpower.value + value, willpower.max)
-				: Math.max(willpower.value - value, 0);
-		return await speaker.update({ "system.bio.willpower.value": willpower });
+				? Math.min(current + value, max)
+				: Math.max(current - value, 0);
+
+		return await actor.update({ "system.bio.willpower.value": newValue });
 	}
 
 	/**
@@ -703,23 +741,24 @@ export class FBLRollHandler extends FormApplication {
 	 * @returns updates actor with changes to the consumable.
 	 */
 	static async decreaseConsumable(messageId) {
-		let {
-			speaker,
-			rolls: [
-				{
-					options: { consumable },
-				},
-			],
-		} = game.messages.get(messageId);
+		const msg = game.messages.get(messageId);
+		if (!msg) return;
 
-		speaker = this.getSpeaker(speaker);
-		if (!speaker)
-			return console.error("Could not decrease consumable: No actor found.");
-		ui.notifications.info("NOTIFY.CONSUMABLE_USED", { localize: true });
+		const { speaker, rolls } = msg;
+		const consumable = rolls?.[0]?.options?.consumable;
+		if (!consumable) return;
 
-		const currentValue = speaker?.consumables[consumable]?.value;
+		const actor = this.resolveActor(speaker);
+		if (!actor) {
+			return;
+		}
+
+		ui.notifications.info(game.i18n.localize("NOTIFY.CONSUMABLE_USED"));
+
+		const currentValue = actor.system?.consumable?.[consumable]?.value ?? 0;
 		const newValue = Math.max(currentValue - 1, 0);
-		return await speaker.update({
+
+		return await actor.update({
 			[`system.consumable.${consumable}.value`]: newValue,
 		});
 	}
@@ -856,7 +895,7 @@ export class FBLRoll extends YearZeroRoll {
 				value: gear[1],
 			})),
 		};
-		return renderTemplate(template, context);
+		return foundry.applications.handlebars.renderTemplate(template, context);
 	}
 
 	async toMessage(messageData = {}, { rollMode = null, create = true } = {}) {
@@ -872,8 +911,7 @@ export class FBLRoll extends YearZeroRoll {
 				user: game.user.id,
 				flavor: this.flavor,
 				speaker: speaker,
-				content: this.total,
-				type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+				rolls: [this],
 			},
 			messageData,
 		);

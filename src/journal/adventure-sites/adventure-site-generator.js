@@ -193,29 +193,38 @@ export const adventureSiteCreateDialog = async () => {
 
 	const types = Object.entries(CONFIG.fbl.adventureSites.types);
 
-	const type = await Dialog.wait({
-		title: t("ADVENTURE_SITE.CREATE_TITLE"),
-		content: `<form style="margin-block:12px;">
-								<p>${t("ADVENTURE_SITE.CREATE_DESCRIPTION")}</p>
-								<div class="form-group">
-										<div class="form-fields">
-										<label>${t("Type")}</label>
-												<select name="type">
-														${types.map(([key, value]) => {
-															return `<option value="${value}:${key}">${titleCase(key)}</option>`;
-														})}
-												</select>
-										</div>
-								</div>
-						</form>`,
-		buttons: {
-			ok: {
-				icon: '<i class="fas fa-check"></i>',
-				label: `${t("Create")}`,
-				callback: (jqhtml) => jqhtml.find("form")[0].type.value,
+	let type;
+	try {
+		type = await Dialog.wait({
+			title: t("ADVENTURE_SITE.CREATE_TITLE"),
+			content: `<form style="margin-block:12px;">
+				<p>${t("ADVENTURE_SITE.CREATE_DESCRIPTION")}</p>
+				<div class="form-group">
+					<div class="form-fields">
+						<label>${t("Type")}</label>
+						<select name="type">
+							${types
+								.map(([key, value]) => {
+									return `<option value="${value}:${key}">${titleCase(key)}</option>`;
+								})
+								.join("")}
+						</select>
+					</div>
+				</div>
+			</form>`,
+			buttons: {
+				ok: {
+					icon: '<i class="fas fa-check"></i>',
+					label: t("Create"),
+					callback: (jqhtml) => jqhtml.find("form")[0].type.value,
+				},
 			},
-		},
-	});
+		});
+	} catch (err) {
+		// User closed the dialog without confirming
+		console.warn("Adventure Site creation dialog was cancelled.");
+		return;
+	}
 
 	const [path, adventureSite] = type.split(":");
 
@@ -248,7 +257,7 @@ export const init = async (path, adventureSite) => {
 	let data = getRolledData(adventureSite);
 	data = moldData(data, adventureSite);
 	// construct the html
-	const html = await renderTemplate(
+	const html = await foundry.applications.handlebars.renderTemplate(
 		`modules/${path}/templates/${adventureSite}.hbs`,
 		data,
 	);

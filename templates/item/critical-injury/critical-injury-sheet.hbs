@@ -8,10 +8,7 @@
 			<input name="name" type="text" value="{{name}}" />
 			<label>{{localize "CRITICAL_INJURY.LETHAL"}}</label>
 			<select name="system.lethal">
-				{{#select system.lethal}}
-				<option value="no">{{localize "LETHAL.NO"}}</option>
-				<option value="yes">{{localize "LETHAL.YES"}}</option>
-				{{/select}}
+				{{selectOptions lethalOptions selected=system.lethal localize=true}}
 			</select>
 			{{#if lethal}}
 			<label>{{localize "CRITICAL_INJURY.LIMIT"}}</label>

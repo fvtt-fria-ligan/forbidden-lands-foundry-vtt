@@ -1,4 +1,4 @@
-export class ForbiddenLandsTokenHUD extends TokenHUD {
+export class ForbiddenLandsTokenHUD extends foundry.applications.hud.TokenHUD {
 	_getStatusEffectChoices() {
 		const actor = this.object.document.actor;
 

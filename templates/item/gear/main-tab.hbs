@@ -2,22 +2,20 @@
 	<div class="weight">
 		<label>{{localize "GEAR.WEIGHT"}}</label>
 		<select name="system.weight">
-			{{#select system.weight}}
-				<optgroup label={{localize "WEIGHT.TYPE_REGULAR" }}>
-					{{#each encumbranceValues as |weight|}}
+			<optgroup label="{{localize 'WEIGHT.TYPE_REGULAR'}}">
+				{{#each encumbranceValues}}
 					{{#if (eq (getType @key) "string")}}
-						<option value="{{@key}}">{{itemWeight @key}}</option>
+						<option value="{{@key}}" {{#if (eq ../system.weight @key)}}selected{{/if}}>{{itemWeight @key}}</option>
 					{{/if}}
-					{{/each}}
-				</optgroup>
-				<optgroup label={{localize "WEIGHT.TYPE_SPECIAL" }}>
-					{{#each encumbranceValues as |weight|}}
+				{{/each}}
+			</optgroup>
+			<optgroup label="{{localize 'WEIGHT.TYPE_SPECIAL'}}">
+				{{#each encumbranceValues}}
 					{{#if (eq (getType @key) "number")}}
-						<option value="{{@key}}">{{itemWeight @key}}</option>
+						<option value="{{@key}}" {{#if (eq ../system.weight @key)}}selected{{/if}}>{{itemWeight @key}}</option>
 					{{/if}}
-					{{/each}}
-				</optgroup>
-			{{/select}}
+				{{/each}}
+			</optgroup>
 		</select>
 	</div>
 	{{#if showEffectField}}

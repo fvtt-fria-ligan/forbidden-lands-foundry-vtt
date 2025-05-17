@@ -2,23 +2,13 @@
 	<div class="weight">
 		<label>{{localize "GEAR.WEIGHT"}}</label>
 		<select name="system.weight">
-			{{#select system.weight}}
-			<option value="none">{{localize "WEIGHT.NONE"}}</option>
-			<option value="tiny">{{localize "WEIGHT.TINY"}}</option>
-			<option value="light">{{localize "WEIGHT.LIGHT"}}</option>
-			<option value="regular">{{localize "WEIGHT.REGULAR"}}</option>
-			<option value="heavy">{{localize "WEIGHT.HEAVY"}}</option>
-			{{/select}}
+			{{selectOptions weightOptions selected=system.weight localize=true}}
 		</select>
 	</div>
 	<div class="part">
 		<label>{{localize "ARMOR.PART"}}</label>
 		<select name="system.part">
-			{{#select system.part}}
-			<option value="body">{{localize "ARMOR.BODY"}}</option>
-			<option value="head">{{localize "ARMOR.HELMET"}}</option>
-			<option value="other">{{localize "ARMOR.OTHER"}}</option>
-			{{/select}}
+			{{selectOptions partOptions selected=system.part localize=true}}
 		</select>
 	</div>
 	<div class="grid-full-line">

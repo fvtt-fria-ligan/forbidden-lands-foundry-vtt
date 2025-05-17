@@ -124,7 +124,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			...this.getRollOptions(),
 		};
 		const roll = FBLRoll.create(`${dice}[${rollName}]`, {}, options);
-		await roll.roll({ async: true });
+		await roll.roll();
 		const message = await roll.toMessage();
 		if (
 			Number(message.rolls[0].result) <=
@@ -149,7 +149,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			{},
 			options,
 		);
-		await roll.roll({ async: true });
+		await roll.roll();
 		return roll.toMessage();
 	}
 
@@ -167,7 +167,7 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 			{},
 			options,
 		);
-		await roll.roll({ async: true });
+		await roll.roll();
 		return roll.toMessage();
 	}
 
@@ -185,9 +185,12 @@ export class ForbiddenLandsCharacterSheet extends ForbiddenLandsActorSheet {
 	/* Override */
 	_onConfigureSheet(event) {
 		event.preventDefault();
-		new ActorSheetConfig(this.actor, {
-			top: this.position.top + 40,
-			left: this.position.left + (this.position.width - 400) / 2,
+		new ActorSheetConfig({
+			document: this.actor,
+			position: {
+				top: this.position.top + 40,
+				left: this.position.left + (this.position.width - 400) / 2,
+			},
 		}).render(true);
 	}
 

@@ -1,72 +1,79 @@
 const noop = () => {};
 
-export class CharacterPickerDialog extends Dialog {
-	/**
-	 * Show dialog that allows to pick a character from a list
-	 *
-	 */
-	static async show(title, characters, onSelect, onCancel) {
-		onSelect = onSelect || noop;
-		onCancel = onCancel || noop;
-
-		const characterSelector = await this.buildCharacterSelector(characters);
-
-		const d = new CharacterPickerDialog({
-			title: title,
-			content: this.buildDivHtmlDialog(characterSelector),
-			buttons: {
-				cancel: {
-					icon: '<i class="fas fa-times"></i>',
-					label: "Cancel",
-					callback: onCancel,
-				},
-			},
-			select: onSelect,
-			default: "cancel",
-			close: onCancel,
-		});
-		d.render(true);
+export class CharacterPickerDialog extends Application {
+	constructor(actors, title, callback, onCancel = noop) {
+		super();
+		this.actors = actors;
+		this.titleText = title;
+		this.callback = callback;
+		this.onCancel = onCancel;
 	}
 
 	/**
-	 * @param  {string} html Dialog content
+	 * Launch the character picker dialog.
+	 */
+	static async show(title, characters, onSelect = noop, onCancel = noop) {
+		const actors = characters.map((c) =>
+			c instanceof Actor ? c : game.actors.get(c),
+		);
+		const dialog = new CharacterPickerDialog(actors, title, onSelect, onCancel);
+		dialog.render(true);
+	}
+
+	/**
+	 * Foundry VTT options for this Application.
+	 */
+	static get defaultOptions() {
+		return mergeObject(super.defaultOptions, {
+			id: "character-picker-dialog",
+			classes: ["forbidden-lands", "dialog"],
+			template:
+				"systems/forbidden-lands/templates/actor/party/components/character-picker-dialog.hbs",
+			width: 400,
+			height: "auto",
+			resizable: false,
+		});
+	}
+
+	/**
+	 * Sets the dialog title.
+	 */
+	get title() {
+		return this.titleText;
+	}
+
+	/**
+	 * Supplies data to the template.
+	 */
+	getData() {
+		return {
+			title: this.titleText,
+			actors: this.actors,
+		};
+	}
+
+	/**
+	 * Handles user interaction with actor selections.
 	 */
 	activateListeners(html) {
 		super.activateListeners(html);
-		html.find(".party-member").click(this.handleCharacterSelect.bind(this));
-	}
-
-	handleCharacterSelect(event) {
-		this.data.select($(event.currentTarget).data("entity-id"));
-		this.close();
-	}
-
-	/**
-	 * @param  {Array} characters Array with character IDs
-	 */
-	static async buildCharacterSelector(characters) {
-		let html = "";
-		let actor;
-		for (let i = 0; i < characters.length; i++) {
-			actor =
-				characters[i] instanceof Actor
-					? characters[i].data
-					: game.actors.get(characters[i]).data;
-			html += await renderTemplate(
-				"systems/forbidden-lands/templates/actor/party/components/member-component.hbs",
-				{
-					partyMember: actor,
-					noCharSheetLink: true,
-				},
-			);
-		}
-		return `<ol>${html}</ol>`;
+		html[0].querySelectorAll(".select-actor").forEach((el) => {
+			el.addEventListener("click", async (event) => {
+				event.preventDefault();
+				event.stopPropagation();
+				const uuid = el.dataset.uuid;
+				const actor = await fromUuid(uuid);
+				this.callback(actor);
+				this.close();
+			});
+		});
 	}
 
 	/**
-	 * @param  {string} divContent
+	 * When closed without selection.
 	 */
-	static buildDivHtmlDialog(divContent) {
-		return `<div class='flex row roll-dialog'>${divContent}</div>`;
+	close(options) {
+		this.onCancel?.();
+		return super.close(options);
 	}
 }

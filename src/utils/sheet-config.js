@@ -1,28 +1,81 @@
-// eslint-disable-next-line no-undef
-export class ActorSheetConfig extends DocumentSheetConfig {
-	static get defaultOptions() {
-		return foundry.utils.mergeObject(super.defaultOptions, {
-			title: "Configure Actor",
-			template:
-				"systems/forbidden-lands/templates/components/sheet-config-modal.hbs",
-		});
+const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
+
+export class ActorSheetConfig extends HandlebarsApplicationMixin(
+	ApplicationV2,
+) {
+	constructor(options = {}) {
+		super(options);
+		this.document = options.document;
+
+		// Set dynamic title based on actor name
+		const actorName = this.document.name;
+		const configTitle =
+			game.i18n.localize("CONFIG.ACTOR_SHEET_CONFIG.TITLE") ||
+			"Sheet Configuration";
+		this.options.window.title = `${actorName}: ${configTitle}`;
 	}
 
-	getData() {
+	static DEFAULT_OPTIONS = {
+		tag: "form",
+		classes: ["application", "sheet", "sheet-config"],
+		form: {
+			handler: ActorSheetConfig.myFormHandler,
+			submitOnChange: false,
+			closeOnSubmit: true,
+		},
+		window: {
+			icon: "fa-solid fa-gear",
+			contentClasses: ["standard-form"],
+		},
+		position: {
+			width: 500,
+			height: "auto",
+		},
+	};
+
+	static PARTS = {
+		body: {
+			template:
+				"systems/forbidden-lands/templates/components/sheet-config-modal.hbs",
+		},
+		footer: {
+			template: "templates/generic/form-footer.hbs",
+		},
+	};
+
+	async _prepareContext(options) {
+		const documentName = this.document.documentName;
+		const allSheetClasses = CONFIG[documentName]?.sheetClasses || {};
+
+		const actorType = this.document.type || "character";
+
+		const relevantSheetClasses = allSheetClasses[actorType] || {};
+
+		console.log("actorType:", actorType);
+		console.log("relevantSheetClasses:", relevantSheetClasses);
+
 		return {
-			...super.getData(),
+			document: this.document,
 			types: CONFIG.fbl.characterSubtype,
+			sheetClasses: relevantSheetClasses,
+			sheetClass: this.document._sheetClass,
+			defaultClass: CONFIG[documentName]?.sheetClass,
+			isGM: game.user.isGM,
+			blankLabel: game.i18n.localize("None"),
+			type: documentName,
+			editable: true,
+			buttons: [
+				{
+					type: "submit",
+					icon: "fa-solid fa-save",
+					label: "SHEETS.Save",
+				},
+			],
 		};
 	}
 
-	async _updateObject(event, formData) {
-		event.preventDefault();
-		const original = this.getData({});
-		this.object.update(formData);
-		if (
-			formData.sheetClass !== original.sheetClass ||
-			formData.defaultClass !== original.defaultClass
-		)
-			return super._updateObject(event, formData);
+	static async myFormHandler(event, form, formData) {
+		const updateData = foundry.utils.expandObject(formData.object);
+		await this.document.update(updateData);
 	}
 }
