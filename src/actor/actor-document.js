@@ -117,6 +117,13 @@ export class ForbiddenLandsActor extends Actor {
 					break;
 			}
 		}
+
+		if (data.type === "character" && !game.user?.isGM) {
+			data.prototypeToken ??= {};
+			data.prototypeToken.actorLink = true;
+			data.prototypeToken.disposition = 1;
+		}
+
 		return super.create(data, options);
 	}
 
