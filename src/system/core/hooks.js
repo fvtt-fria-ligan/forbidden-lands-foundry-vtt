@@ -173,61 +173,89 @@ export default function registerHooks() {
 		}
 	});
 
-	Hooks.on("renderChatMessage", async (app, html) => {
-		const postedItem = html.find(".chat-item")[0];
+	Hooks.on("renderChatMessageHTML", (message, htmlElement, data) => {
+		// 1. Handle click-to-toggle on the entire roll container
+		const roll = htmlElement.querySelector(".fbl-chat-roll");
+		if (roll) {
+			roll.addEventListener("click", (ev) => {
+				// Ignore clicks on interactive buttons
+				if (ev.target.closest(".fbl-button")) return;
+
+				const details = roll.querySelector(".fbl-roll-details");
+				if (details) details.hidden = !details.hidden;
+			});
+		}
+
+		// 2. Handle item drag
+		const postedItem = htmlElement.querySelector(".chat-item");
 		if (postedItem) {
 			postedItem.classList.add("draggable");
-			postedItem.setAttribute("draggable", true);
+			postedItem.setAttribute("draggable", "true");
+
 			postedItem.addEventListener("dragstart", (ev) => {
+				const itemData = message.getFlag("forbidden-lands", "itemData");
 				ev.dataTransfer.setData(
 					"text/plain",
 					JSON.stringify({
-						item: app.getFlag("forbidden-lands", "itemData"),
+						item: itemData,
 						type: "itemDrop",
-					}),
+					})
 				);
 			});
 		}
 
-		const pushButton = html.find(".fbl-button.push")[0];
+		// 3. Handle push button
+		const pushButton = htmlElement.querySelector(".fbl-button.push");
 		if (pushButton) {
-			pushButton.addEventListener("click", async () => {
-				if (app.rolls[0]?.pushable) {
-					await FBLRollHandler.pushRoll(app);
+			pushButton.addEventListener("click", async (ev) => {
+				ev.stopPropagation();
+
+				if (message.rolls[0]?.pushable) {
+					await FBLRollHandler.pushRoll(message);
 
 					const fireEvent = () => {
-						if (app.permission === 3) app.delete();
+						if (message.permission === CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER)
+							message.delete();
 						else
 							game.socket.emit("system.forbidden-lands", {
 								operation: "pushRoll",
-								isOwner: app.roll?.isOwner,
-								id: app.id,
+								isOwner: message.roll?.isOwner,
+								id: message.id,
 							});
 					};
-					// Delete the old roll from the chat
+
 					if (game.modules.get("dice-so-nice")?.active)
-						Hooks.once("diceSoNiceRollComplete", () => {
-							fireEvent();
-						});
-					else fireEvent();
+						Hooks.once("diceSoNiceRollComplete", fireEvent);
+					else
+						fireEvent();
 				}
 			});
 		}
-		const tableButton = html.find(".fbl-button.table")[0];
+
+		// 4. Handle mishap/prey table button
+		const tableButton = htmlElement.querySelector(".fbl-button.table");
 		if (tableButton) {
-			tableButton.addEventListener("click", async () => {
+			tableButton.addEventListener("click", async (ev) => {
+				ev.stopPropagation();
+
 				let table;
 
 				if (tableButton.dataset.action === "prey") {
 					const tables = game.settings.get("forbidden-lands", "otherTables");
 					table = game.tables.get(tables["travel-find-prey"]);
-				} else table = game.tables.get(tableButton.dataset.id);
+				} else {
+					table = game.tables.get(tableButton.dataset.id);
+				}
 
-				if (table) table.draw({ displayChat: true });
-				else ui.notifications?.warn("Could not find mishap table");
+				if (table) {
+					table.draw({ displayChat: true });
+				} else {
+					ui.notifications?.warn("Could not find mishap table");
+				}
 			});
 		}
 	});
+
 
 	/**
 	 * GM screen module causes buttons in Actor sheets to disable.
@@ -257,26 +285,17 @@ export default function registerHooks() {
 		});
 	});
 
-	for (const hook of ["renderSidebarTab", "changeSidebarTab"]) {
-		Hooks.on(hook, (app) => {
-			const shouldRender =
-				app.tabName === "journal" &&
-				Object.keys(CONFIG.fbl.adventureSites.types).length &&
-				!app.element.find("#create-adventure-site").length &&
-				game.user.isGM;
+	Hooks.on("activateJournalDirectory", (app) => {
+		const header = app.element.querySelector(".header-actions");
+		if (!header || header.querySelector("#create-adventure-site")) return;
 
-			if (!shouldRender) return;
+		const button = document.createElement("button");
+		button.id = "create-adventure-site";
+		button.innerHTML = `<i class="fas fa-castle"></i> Create Adventure Site`;
+		button.addEventListener("click", () => adventureSiteCreateDialog());
 
-			const adventureSiteButton = $(
-				`<button id="create-adventure-site"><i class="fas fa-castle"></i> Create Adventure Site</button>`,
-			);
-			adventureSiteButton.on("click", () => {
-				adventureSiteCreateDialog();
-			});
-
-			app.element.find(".header-actions").append(adventureSiteButton);
-		});
-	}
+		header.appendChild(button);
+	});
 
 	Hooks.on("renderJournalSheet", (app, html) => {
 		const type = app.object.getFlag("forbidden-lands", "adventureSiteType");

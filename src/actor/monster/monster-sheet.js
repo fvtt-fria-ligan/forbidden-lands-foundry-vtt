@@ -33,6 +33,12 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 		this.computeSkills(actorData);
 		this.computeItems(actorData);
 		this.computeEncumbrance(actorData);
+
+		actorData.monsterTypeOptions = [
+			{ value: "monster", label: "MONSTER.TYPE.MONSTER" },
+			{ value: "mount", label: "MONSTER.TYPE.MOUNT" }
+		];
+
 		return actorData;
 	}
 

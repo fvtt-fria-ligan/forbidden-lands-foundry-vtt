@@ -44,6 +44,27 @@ Hooks.once("init", () => {
 		roll: FBLRollHandler.createRoll,
 	};
 
+	CONFIG.Actor.typeLabels = {
+		character: game.i18n.localize("CONFIG.ACTORTYPE.CHARACTER"),
+		monster: game.i18n.localize("CONFIG.ACTORTYPE.MONSTER"),
+		party: game.i18n.localize("CONFIG.ACTORTYPE.PARTY"),
+		stronghold: game.i18n.localize("CONFIG.ACTORTYPE.STRONGHOLD"),
+	};
+
+	CONFIG.Item.typeLabels = {
+		armor: game.i18n.localize("CONFIG.ITEMTYPE.ARMOR"),
+		building: game.i18n.localize("CONFIG.ITEMTYPE.BUILDING"),
+		criticalInjury: game.i18n.localize("CONFIG.ITEMTYPE.CRITICALINJURY"),
+		gear: game.i18n.localize("CONFIG.ITEMTYPE.GEAR"),
+		hireling: game.i18n.localize("CONFIG.ITEMTYPE.HIRELING"),
+		monsterAttack: game.i18n.localize("CONFIG.ITEMTYPE.MONSTERATTACK"),
+		monsterTalent: game.i18n.localize("CONFIG.ITEMTYPE.MONSTERTALENT"),
+		rawMaterial: game.i18n.localize("CONFIG.ITEMTYPE.RAWMATERIAL"),
+		spell: game.i18n.localize("CONFIG.ITEMTYPE.SPELL"),
+		talent: game.i18n.localize("CONFIG.ITEMTYPE.TALENT"),
+		weapon: game.i18n.localize("CONFIG.ITEMTYPE.WEAPON"),
+	};
+
 	CONFIG.Actor.documentClass = ForbiddenLandsActor;
 	CONFIG.Item.documentClass = ForbiddenLandsItem;
 	CONFIG.statusEffects = [

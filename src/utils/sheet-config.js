@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-undef
-export class ActorSheetConfig extends DocumentSheetConfig {
+export class ActorSheetConfig extends foundry.applications.apps.DocumentSheetConfig {
 	static get defaultOptions() {
 		return foundry.utils.mergeObject(super.defaultOptions, {
 			title: "Configure Actor",

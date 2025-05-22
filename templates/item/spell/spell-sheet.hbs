@@ -15,11 +15,7 @@
 			<label>{{localize "SPELL.SPELL_TYPE"}}</label>
 			<div class="spell-type">
 				<select name="system.spellType">
-					{{#select system.spellType}}
-						<option value="SPELL.SPELL">{{localize "SPELL.SPELL"}}</option>
-						<option value="SPELL.POWER_WORD">{{localize "SPELL.POWER_WORD"}}</option>
-						<option value="SPELL.RITUAL">{{localize "SPELL.RITUAL"}}</option>
-					{{/select}}
+					{{selectOptions spellTypes selected=system.spellType localize=true}}
 				</select>
 			</div>
 		</div>

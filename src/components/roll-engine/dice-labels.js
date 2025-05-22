@@ -3,7 +3,7 @@ export function registerYZURLabels() {
 		`<img src="systems/forbidden-lands/assets/dice/${type}-${result}.png" alt="${result}" title="${result}" />`;
 }
 
-export class ForbiddenLandsD6 extends Die {
+export class ForbiddenLandsD6 extends foundry.dice.terms.Die {
 	constructor(termData) {
 		termData.faces = 6;
 		super(termData);

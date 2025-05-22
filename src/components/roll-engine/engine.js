@@ -540,7 +540,7 @@ export class FBLRollHandler extends FormApplication {
 		}
 
 		// Roll the dice!
-		await roll.roll({ async: true });
+		await roll.roll();
 
 		return {
 			roll,
@@ -599,7 +599,7 @@ export class FBLRollHandler extends FormApplication {
 	 */
 	static async pushRoll(msg) {
 		const roll = msg.rolls[0];
-		await roll.push({ async: true });
+		await roll.push();
 
 		const speaker = this.getSpeaker(msg.speaker);
 		if (speaker) await this.updateActor(roll, speaker);
@@ -632,21 +632,23 @@ export class FBLRollHandler extends FormApplication {
 	 */
 	static async applyAttributDamage(
 		{ attributeTrauma, options: { attribute, characterDamage } },
-		speaker,
+		speakerData
 	) {
-		const { attribute: appliedDamage } = characterDamage;
+		const actor = ChatMessage.getSpeakerActor(speakerData);
+		if (!actor) return;
+
+		const appliedDamage = characterDamage.attribute;
 		const currentDamage = attributeTrauma - appliedDamage;
 
-		let value = speaker?.attributes[attribute]?.value;
-		if (!value) return;
+		await this.modifyWillpower(actor, currentDamage);
 
-		await this.modifyWillpower(speaker, currentDamage);
-
+		let value = actor.system.attribute?.[attribute]?.value ?? 0;
 		value = Math.max(value - currentDamage, 0);
 
 		if (value === 0)
 			ui.notifications.notify("NOTIFY.YOU_ARE_BROKEN", { localize: true });
-		await speaker.update({ [`system.attribute.${attribute}.value`]: value });
+
+		await actor.update({ [`system.attribute.${attribute}.value`]: value });
 	}
 
 	/**
@@ -856,7 +858,7 @@ export class FBLRoll extends YearZeroRoll {
 				value: gear[1],
 			})),
 		};
-		return renderTemplate(template, context);
+		return foundry.applications.handlebars.renderTemplate(template, context);
 	}
 
 	async toMessage(messageData = {}, { rollMode = null, create = true } = {}) {
@@ -872,8 +874,7 @@ export class FBLRoll extends YearZeroRoll {
 				user: game.user.id,
 				flavor: this.flavor,
 				speaker: speaker,
-				content: this.total,
-				type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+				rolls: [this],
 			},
 			messageData,
 		);

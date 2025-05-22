@@ -72,7 +72,7 @@ export class ForbiddenLandsActor extends Actor {
 
 	async createEmbeddedDocuments(embeddedName, data, options) {
 		// Replace randomized Item.properties like "[[d6]] days" with a roll
-		let newData = deepClone(data);
+		let newData = foundry.utils.deepClone(data);
 		if (!Array.isArray(newData)) newData = [newData]; // Small technical debt. During redesign of NPC sheet createEmbeddedDocuments needs to be passed an array.
 		const inlineRoll = /\[\[([d\d+\-*]+)\]\]/i;
 		const createRoll = async ([_match, group]) => {
@@ -135,10 +135,10 @@ export class ForbiddenLandsActor extends Actor {
 		} else {
 			this.createEmbeddedDocuments("ActiveEffect", [
 				{
+					name: game.i18n.localize(statusEffect.label),
 					label: game.i18n.localize(statusEffect.label),
 					icon: statusEffect.icon,
 					changes: statusEffect.changes,
-					id: this.uuid,
 					statuses: statusEffect.statuses,
 					flags: {
 						core: {

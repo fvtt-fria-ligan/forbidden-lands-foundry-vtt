@@ -39,3 +39,4 @@ package-lock.json
 
 # Devbox
 /.devbox
+.aider*

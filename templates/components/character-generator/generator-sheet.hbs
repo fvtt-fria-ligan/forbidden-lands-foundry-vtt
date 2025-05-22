@@ -17,9 +17,11 @@
 						<div class="chargen-section-content">
 							<strong>{{localize "FLCG.KIN"}}</strong>
 							<select class="chargen-select-kin">
-								{{#select character.kin}} {{#each dataset.kin as |item|}}
-								<option value="{{item.key}}">{{localize item.name}}</option>
-								{{/each}} {{/select}}
+								{{#each dataset.kin as |item|}}
+									<option value="{{item.key}}" {{#if (eq item.key ../character.kin)}}selected{{/if}}>
+										{{localize item.name}}
+									</option>
+								{{/each}}
 							</select>
 						</div>
 						{{#unless (eq character.kin "elf")}}
@@ -44,9 +46,11 @@
 						<div class="chargen-section-content">
 							<strong>{{localize "FLCG.PROFESSION"}}</strong>
 							<select class="chargen-select-profession">
-								{{#select character.profession}} {{#each dataset.profession as |item|}}
-								<option value="{{item.key}}">{{localize item.name}}</option>
-								{{/each}} {{/select}}
+								{{#each dataset.profession as |item|}}
+									<option value="{{item.key}}" {{#if (eq item.key ../character.profession)}}selected{{/if}}>
+										{{localize item.name}}
+									</option>
+								{{/each}}
 							</select>
 						</div>
 
@@ -54,9 +58,11 @@
 						<div class="chargen-section-content">
 							<strong>{{localize "FLCG.PATH"}}</strong>
 							<select class="chargen-select-path">
-								{{#select character.path}} {{#each dataset.paths as |item key|}}
-								<option value="{{key}}">{{localize item}}</option>
-								{{/each}} {{/select}}
+								{{#each dataset.paths as |item key|}}
+									<option value="{{key}}" {{#if (eq key ../character.path)}}selected{{/if}}>
+										{{localize item}}
+									</option>
+								{{/each}}
 							</select>
 						</div>
 					</div>
@@ -66,9 +72,11 @@
 					<div class="chargen-section-content">
 						<strong>{{localize "FLCG.CHILDHOOD"}}</strong>
 						<select class="chargen-select-childhood">
-							{{#select character.childhood.key}} {{#each dataset.childhood as |item|}}
-							<option value="{{item.key}}">{{localize item.name}}</option>
-							{{/each}} {{/select}}
+							{{#each dataset.childhood as |item|}}
+								<option value="{{item.key}}" {{#if (eq item.key ../character.childhood.key)}}selected{{/if}}>
+									{{localize item.name}}
+								</option>
+							{{/each}}
 						</select>
 						<div class="chargen-description">{{character.childhood.description}}</div>
 					</div>
@@ -90,9 +98,11 @@
 				<button class="chargen-roll chargen-roll-event" data-key="{{key}}" type="button"></button>
 				<div class="chargen-section-content">
 					<select class="chargen-select-event" data-key="{{key}}">
-						{{#select formativeEvent.key}} {{#each ../dataset.formativeEvents as |item|}}
-						<option value="{{item.key}}">{{localize item.name}}</option>
-						{{/each}} {{/select}}
+						{{#each ../dataset.formativeEvents as |item|}}
+							<option value="{{item.key}}" {{#if (eq item.key ../formativeEvent.key)}}selected{{/if}}>
+								{{localize item.name}}
+							</option>
+						{{/each}}
 					</select>
 					<div class="chargen-description chargen-event">{{formativeEvent.description}}</div>
 					<div class="chargen-items chargen-event">{{formativeEvent.items}}</div>

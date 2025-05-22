@@ -120,7 +120,7 @@ export async function handleHotbarDrop(data, slot) {
 
 export async function importMacros() {
 	if (game.packs.get("world.forbidden-lands-macros")) return;
-	const pack = await CompendiumCollection.createCompendium({
+	const pack = await foundry.documents.collections.CompendiumCollection.createCompendium({
 		name: "forbidden-lands-macros",
 		label: game.i18n.localize("MACRO.COMPENDIUM_NAME"),
 		type: "Macro",

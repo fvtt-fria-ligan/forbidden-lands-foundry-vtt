@@ -6,4 +6,16 @@ export class ForbiddenLandsSpellSheet extends ForbiddenLandsItemSheet {
 			template: "systems/forbidden-lands/templates/item/spell/spell-sheet.hbs",
 		});
 	}
+
+	async getData(options = {}) {
+		const data = await super.getData(options);
+
+		data.spellTypes = [
+			{ value: "SPELL.SPELL", label: "SPELL.SPELL" },
+			{ value: "SPELL.POWER_WORD", label: "SPELL.POWER_WORD" },
+			{ value: "SPELL.RITUAL", label: "SPELL.RITUAL" },
+		];
+
+		return data;
+	}
 }

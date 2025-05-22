@@ -10,13 +10,7 @@
 			</div>
 			<label>{{localize "TALENT.TYPE"}}</label>
 			<select name="system.type">
-				{{#select system.type}}
-				<option value="general">{{localize "TALENT.GENERAL"}}</option>
-				<option value="kin">{{localize "TALENT.KIN"}}</option>
-				<option value="profession">{{localize "TALENT.PROFESSION"}}</option>
-				<option value="monster">{{localize "TALENT.MONSTER"}}</option>
-				<option value="weakness">{{localize "TALENT.WEAKNESS"}}</option>
-				{{/select}}
+				{{selectOptions talentTypes selected=system.type localize=true}}
 			</select>
 			{{#if ranks}}
 			<label>{{localize "TALENT.RANK"}}</label>

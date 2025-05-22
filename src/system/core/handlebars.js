@@ -3,7 +3,7 @@ import localizeString from "@utils/localize-string.js";
 function preloadHandlebarsTemplates() {
 	// eslint-disable-next-line no-undef
 	const templatePaths = GLOBALPATHS;
-	return loadTemplates(templatePaths);
+	return foundry.applications.handlebars.loadTemplates(templatePaths);
 }
 
 function registerHandlebarsHelpers() {

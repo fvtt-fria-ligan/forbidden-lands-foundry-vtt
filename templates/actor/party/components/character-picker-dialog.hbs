@@ -1,0 +1,13 @@
+<div class="character-picker-dialog flexcol">
+	<h3 class="dialog-title">{{title}}</h3>
+	<ol class="actor-list">
+		{{#each actors}}
+			<li class="party-member flexrow" data-entity-id="{{uuid}}" draggable="false">
+				<a class="select-actor flexrow align-center" draggable="false" data-uuid="{{uuid}}">
+					<img class="party-member-avatar" src="{{img}}" />
+					<span class="party-member-name">{{name}}</span>
+				</a>
+			</li>
+		{{/each}}
+	</ol>
+</div>

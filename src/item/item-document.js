@@ -150,7 +150,7 @@ export class ForbiddenLandsItem extends Item {
 			Object.values(itemData.system.rollModifiers).filter(
 				(mod) => !mod.gearBonus,
 			).length > 0;
-		const html = await renderTemplate(
+		const html = await foundry.applications.handlebars.renderTemplate(
 			"systems/forbidden-lands/templates/components/item-chatcard.hbs",
 			itemData,
 		);

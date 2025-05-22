@@ -9,7 +9,11 @@ import localizeString from "@utils/localize-string.js";
  * @param  {string} rollName Display name for the roll
  */
 function rollTravelAction(character, rollName) {
-	if (!character && !character.owner) return;
+	console.log("Character:", character);
+	console.log("Is instance of Actor:", character instanceof Actor);
+	console.log("Has isOwner:", character?.isOwner);
+	if (!character || !character.isOwner) return;
+	console.log("Rolling action:", rollName);
 	if (rollName === "rest") character.rest();
 	else character.sheet.rollAction(rollName);
 }
@@ -30,8 +34,8 @@ function handleTravelAction(assignedPartyMemberIds, rollName) {
 		CharacterPickerDialog.show(
 			`${localizeString("FLPS.UI.WHO_ROLLS")} ${localizeString(rollName)}`,
 			assignedPartyMembers,
-			(entityId) => {
-				rollTravelAction(game.actors.get(entityId), rollName);
+			(actor) => {
+				rollTravelAction(actor, rollName);
 			},
 		);
 	}

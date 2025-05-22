@@ -19,17 +19,19 @@
 	</div>
     <div class="form-group">
         <label>{{localize "SHEETS.ThisSheet"}}</label>
-        <select name="sheetClass">
-            {{selectOptions sheetClasses selected=sheetClass blank=blankLabel}}
-        </select>
+		<select name="sheetClass">
+			<option value="">{{blankLabel}}</option>
+			{{selectOptions sheetClasses selected=sheetClass}}
+		</select>
         <p class="notes">{{localize "SHEETS.DocumentSheetHint"}}</p>
     </div>
 
     <div class="form-group">
         <label>{{localize "Default"}} <strong>{{type}}</strong> {{localize "Sheet"}}</label>
-        <select name="defaultClass" {{#unless isGM}}disabled{{/unless}}>
-            {{selectOptions sheetClasses selected=defaultClass}}
-        </select>
+		<select name="defaultClass" {{#unless isGM}}disabled{{/unless}}>
+			<option value="">{{blankLabel}}</option>
+			{{selectOptions sheetClasses selected=defaultClass}}
+		</select>
         <p class="notes">{{localize "SHEETS.TypeSheetHint"}}</p>
     </div>
 
