@@ -40,7 +40,7 @@
 								</div>
 								<!--There's a non-trivial amount of wrangling going on here to get shields to be treated as weapons despite being of the armor type-->
 								<div class="weapon-actions">
-									{{#if (or (eq item.system.part "shield") (eq item.system.category "melee"))}}
+									{{#if (or item.system.features.shield (eq item.system.category "melee"))}}
 										<button
 											type="button"
 											class="roll-action"
@@ -49,10 +49,10 @@
 										>
 											{{localize "ACTION.PARRY"}}
 											{{#unless
-												(or (eq item.system.part "shield") item.system.features.parrying)
+												(or item.system.features.shield item.system.features.parrying)
 											}}(-2){{/unless}}
 										</button>
-										{{#if (or (eq item.system.part "shield") item.system.features.hook)}}
+										{{#if (or item.system.features.shield item.system.features.hook)}}
 											<button
 												type="button"
 												class="roll-action"
@@ -60,7 +60,7 @@
 												data-action="shove"
 											>{{localize "ACTION.SHOVE"}}</button>
 										{{/if}}
-										{{#unless (eq item.system.part "shield")}}
+										{{#unless item.system.features.shield}}
 											<button
 												type="button"
 												class="roll-action"
