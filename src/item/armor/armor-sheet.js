@@ -14,4 +14,20 @@ export class ForbiddenLandsArmorSheet extends ForbiddenLandsItemSheet {
 			],
 		});
 	}
+
+	async getData(options = {}) {
+		const data = await super.getData(options);
+
+		data.system.enrichedFeatures =
+			await foundry.applications.ux.TextEditor.enrichHTML(
+				data.system.features ?? "",
+				{
+					async: true,
+					secrets: game.user.isGM,
+					relativeTo: this.item,
+				},
+			);
+
+		return data;
+	}
 }
