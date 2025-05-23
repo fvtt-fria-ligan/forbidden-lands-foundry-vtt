@@ -471,7 +471,7 @@ export class FBLRollHandler extends FormApplication {
 		// eslint-disable-next-line no-nested-ternary
 		const maxPush = unlimitedPush
 			? 10000
-			: this.options.actorType === "monster"
+			: game.actors.get(this.options.actorId).system.type === "monster"
 				? "0"
 				: 1;
 		return {
