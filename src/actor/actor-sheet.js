@@ -35,7 +35,7 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 	}
 
 	get rollData() {
-		return this.actor.getRollData();
+		return this.actor.getRollContext();
 	}
 
 	get config() {
