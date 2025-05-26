@@ -18,6 +18,7 @@
 	"ACTOR.TypeParty": "Party",
 	"ACTOR.TypeStronghold": "Stronghold",
 	"ADVENTURE_SITE.ADD_ROOM": "Add Room",
+	"ADVENTURE_SITE.BUTTON.CREATE": "Create Adventure Site",
 	"ADVENTURE_SITE.CREATE_TITLE": "Create a new Adventure Site",
 	"ADVENTURE_SITE.CREATE_DESCRIPTION": "Choose what type of site you want to create.",
 	"ADVENTURE_SITE.LABEL": "Adventure Site",
