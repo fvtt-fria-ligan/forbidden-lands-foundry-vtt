@@ -80,6 +80,7 @@ export class ForbiddenLandsMonsterSheet extends ForbiddenLandsActorSheet {
 			isMonsterAttack: true,
 			damage: Number(attack.damage || 0),
 			gear,
+			attack: attack,
 			...rollOptions,
 		};
 		const dice = attack.itemProperties.usingStrength
