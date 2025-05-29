@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.4.1/schema.json",
+	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
 	"organizeImports": {
 		"enabled": false
 	},
@@ -7,10 +7,12 @@
 		"ignore": [
 			"*devbox*",
 			"./forbidden-lands.js",
+			"./forbidden-lands.css",
 			"./foundryconfig.json",
 			"./types/foundry/*",
 			"__fixtures__/*",
-			"playwright-report/*"
+			"playwright-report/*",
+			".vscode/*"
 		]
 	},
 	"linter": {
@@ -18,10 +20,12 @@
 		"ignore": [
 			"*devbox*",
 			"./forbidden-lands.js",
+			"./forbidden-lands.css",
 			"./foundryconfig.json",
 			"./types/foundry/*",
 			"__fixtures__/*",
-			"playwright-report/*"
+			"playwright-report/*",
+			".vscode/*"
 		],
 		"rules": {
 			"recommended": true,
