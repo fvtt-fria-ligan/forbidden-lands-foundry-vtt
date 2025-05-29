@@ -57,7 +57,7 @@ export class CharacterPickerDialog extends Application {
 	 */
 	activateListeners(html) {
 		super.activateListeners(html);
-		html[0].querySelectorAll(".select-actor").forEach((el) => {
+		for (const el of html[0].querySelectorAll(".select-actor")) {
 			el.addEventListener("click", async (event) => {
 				event.preventDefault();
 				event.stopPropagation();
@@ -66,7 +66,7 @@ export class CharacterPickerDialog extends Application {
 				this.callback(actor);
 				this.close();
 			});
-		});
+		}
 	}
 
 	/**

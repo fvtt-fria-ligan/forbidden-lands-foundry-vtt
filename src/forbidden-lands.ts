@@ -1,3 +1,5 @@
+/// <reference path="./types/global.d.ts" />
+
 import { ForbiddenLandsActor } from "@actor/actor-document.js";
 import { importMacros } from "@components/macros/macros.js";
 import displayMessages from "@components/message-system.js";

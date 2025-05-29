@@ -37,12 +37,12 @@ export default function registerHooks() {
 		}
 	});
 
-	Hooks.on("renderGamePause", function (_,html, options) {
+	Hooks.on("renderGamePause", (_, html, options) => {
 		const imgElement = html.querySelector("img");
 		const caption = html.querySelector("figcaption");
 
 		html.style.height = `${80 + 150}px`;
-		html.style.top = `calc(50vh - ${100 + 0.5*150}px)`;
+		html.style.top = `calc(50vh - ${100 + 0.5 * 150}px)`;
 		html.style.background = "none";
 		imgElement.src = "systems/forbidden-lands/assets/fbl-sun.webp";
 		imgElement.style.opacity = 0.8;
