@@ -471,7 +471,7 @@ export class FBLRollHandler extends FormApplication {
 		// eslint-disable-next-line no-nested-ternary
 		const maxPush = unlimitedPush
 			? 10000
-			: this.options.actorType === "monster"
+			: game.actors.get(this.options.actorId).system.type === "monster"
 				? "0"
 				: 1;
 		return {
@@ -752,6 +752,13 @@ export class FBLRoll extends YearZeroRoll {
 	}
 
 	get damage() {
+		if (
+			this.options?.isMonsterAttack &&
+			this.options?.attack?.system?.damageType === "fear"
+		) {
+			return this.successCount;
+		}
+
 		const modifier = this.type === "spell" ? 0 : -1;
 		return (
 			(this.options.damage || 0) + Math.max(this.successCount + modifier, 0)

@@ -268,7 +268,7 @@ export default function registerHooks() {
 			if (!shouldRender) return;
 
 			const adventureSiteButton = $(
-				`<button id="create-adventure-site"><i class="fas fa-castle"></i> Create Adventure Site</button>`,
+				`<button id="create-adventure-site"><i class="fas fa-castle"></i> ${t("ADVENTURE_SITE.BUTTON.CREATE")}</button>`,
 			);
 			adventureSiteButton.on("click", () => {
 				adventureSiteCreateDialog();
