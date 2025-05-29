@@ -23,7 +23,13 @@
 	</div>
 	<div class="grid-full-line">
 		<label>{{localize "WEAPON.FEATURES.TITLE"}}</label>
-		{{editor system.features target="system.features" owner=owner button=true editable=true}}
+		{{#if editable}}
+			{{editor system.features target="system.features" owner=owner button=true editable=true}}
+		{{else}}
+			<div class="editor-content">
+				{{{system.enrichedFeatures}}}
+			</div>
+		{{/if}}
 	</div>
 </div>
 <div class="roll-modifiers border">
