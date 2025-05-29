@@ -16,6 +16,15 @@
 	"ACTOR.TypeMonster": "Monster",
 	"ACTOR.TypeParty": "Gruppe",
 	"ACTOR.TypeStronghold": "Festung",
+	"ADVENTURE_SITE.CREATE_BUTTON": "Erstellen",
+	"ADVENTURE_SITE.TYPE": {
+		"CASTLE": "Burg",
+		"DUNGEON": "Verließ",
+		"VILLAGE": "Dorf",
+		"ELVEN_RUIN": "Elfenruine",
+		"ICE_CAVE": "Eishöhle",
+		"SETTLEMENT": "Siedlung"
+	},
 	"ADVENTURE_SITE.ADD_ROOM": "Raum hinzufügen",
 	"ADVENTURE_SITE.BUTTON.CREATE": "Abenteuerschauplatz erstellen",
 	"ADVENTURE_SITE.CREATE_TITLE": "Neuen Abenteuerschauplatz erstellen",
