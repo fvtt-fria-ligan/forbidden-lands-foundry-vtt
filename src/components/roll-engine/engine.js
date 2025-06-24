@@ -469,11 +469,11 @@ export class FBLRollHandler extends FormApplication {
 		// however Infinity is finicky to serialize.
 		// So we use a sufficiently large number instead.
 		// eslint-disable-next-line no-nested-ternary
-		const maxPush = unlimitedPush
-			? 10000
-			: game.actors.get(this.options.actorId).system.type === "monster"
-				? "0"
-				: 1;
+		const currentActor = game.actors.get(this.options.actorId);
+		const isMonster = currentActor
+			? currentActor.system.type === "monster"
+			: false;
+		const maxPush = unlimitedPush ? 10000 : isMonster ? 0 : 1;
 		return {
 			name: this.title,
 			title: this.title,
