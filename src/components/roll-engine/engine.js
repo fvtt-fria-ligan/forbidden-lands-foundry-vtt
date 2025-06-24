@@ -470,9 +470,7 @@ export class FBLRollHandler extends FormApplication {
 		// So we use a sufficiently large number instead.
 		// eslint-disable-next-line no-nested-ternary
 		const currentActor = game.actors.get(this.options.actorId);
-		const isMonster = currentActor
-			? currentActor.system.type === "monster"
-			: false;
+		const isMonster = currentActor?.system.type === "monster";
 		const maxPush = unlimitedPush ? 10000 : isMonster ? 0 : 1;
 		return {
 			name: this.title,
