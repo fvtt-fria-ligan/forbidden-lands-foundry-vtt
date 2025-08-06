@@ -6,6 +6,12 @@
 
 - [`45d2685`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/45d2685cb4088db928e5728c26f645d271cc1b58) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - V13 Compatibility !Breaking changes with V12.
 
+## 12.1.3
+
+### Patch Changes
+
+- [#484](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/484) [`ab06ad5`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/ab06ad5b7e43775936558ae30ec68544693c6b02) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - Fixes an issue with armor sheets which broke them trying to enrich the features section
+
 ## 12.1.2
 
 ### Patch Changes
