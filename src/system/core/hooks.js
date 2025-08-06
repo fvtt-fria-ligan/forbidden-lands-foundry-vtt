@@ -298,7 +298,7 @@ export default function registerHooks() {
 		});
 	});
 
-	Hooks.on("activateJournalDirectory", (app) => {
+	Hooks.on("renderJournalDirectory", (app) => {
 		const header = app.element.querySelector(".header-actions");
 		if (!header || header.querySelector("#create-adventure-site")) return;
 
