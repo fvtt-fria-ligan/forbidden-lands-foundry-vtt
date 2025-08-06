@@ -566,8 +566,8 @@ export class ForbiddenLandsActorSheet extends foundry.appv1.sheets.ActorSheet {
 	computeItemEncumbrance(data) {
 		const type = data.type;
 		const weight = Number.isNaN(Number(data?.system.weight))
-			? this.config.encumbrance[data?.system.weight] ?? 1
-			: Number(data?.system.weight) ?? 1;
+			? (this.config.encumbrance[data?.system.weight] ?? 1)
+			: (Number(data?.system.weight) ?? 1);
 		// If the item isn't carried or equipped, don't count it.
 		if (!data.flags?.state) return 0;
 		// Only return weight for these types.
