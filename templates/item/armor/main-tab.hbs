@@ -11,9 +11,16 @@
 			{{selectOptions partOptions selected=system.part localize=true}}
 		</select>
 	</div>
-	<div class="grid-full-line">
+	<div class="grid-full-line" style="height: 200px;"
 		<label>{{localize "WEAPON.FEATURES.TITLE"}}</label>
-		{{editor system.features target="system.features" owner=owner button=true editable=true}}
+		{{log this}}
+		{{#if editable}}
+			{{editor system.features target="system.features" owner=owner button=true editable=true}}
+		{{else}}
+			<div class="editor-content">
+				{{{system.enrichedFeatures}}}
+			</div>
+		{{/if}}
 	</div>
 </div>
 <div class="roll-modifiers border">

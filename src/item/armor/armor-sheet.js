@@ -32,6 +32,16 @@ export class ForbiddenLandsArmorSheet extends ForbiddenLandsItemSheet {
 			{ value: "other", label: "ARMOR.OTHER" },
 		];
 
+		data.system.enrichedFeatures =
+			await foundry.applications.ux.TextEditor.enrichHTML(
+				data.system.features ?? "",
+				{
+					async: true,
+					secrets: game.user.isGM,
+					relativeTo: this.item,
+				},
+			);
+
 		return data;
 	}
 }

@@ -76,6 +76,7 @@ export class ForbiddenLandsItemSheet extends foundry.appv1.sheets.ItemSheet {
 	async getData() {
 		const superData = super.getData();
 		let data = superData.data;
+		data.editable = this.isEditable;
 		data.flags = this.item.flags["forbidden-lands"];
 		data.encumbranceValues = this.config.encumbrance;
 		data.isGM = game.user.isGM;
