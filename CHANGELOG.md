@@ -6,6 +6,35 @@
 
 - [`45d2685`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/45d2685cb4088db928e5728c26f645d271cc1b58) Thanks [@aMediocreDad](https://github.com/aMediocreDad)! - V13 Compatibility !Breaking changes with V12.
 
+## 12.1.2
+
+### Patch Changes
+
+- [#477](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/477) [`2941dba`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/2941dba5723af17b3ae0f55d945db45520e56de2) Thanks [@Doresain](https://github.com/Doresain)! - Fix for #410 - removed override of actor getRollData
+
+- [#479](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/479) [`e508ff3`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/e508ff3cb68913c6d3cd169d262ff41e4d8ef674) Thanks [@Doresain](https://github.com/Doresain)! - Fix for #472. Characters created by non-GMs will now be linked and Friendly by default.
+
+- [#475](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/475) [`0600338`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/06003385f5c8c23b8eba2952d5c205796e49716d) Thanks [@Honkou](https://github.com/Honkou)! - Fix combat action buttons for shields
+
+- [#468](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/468) [`837c3a2`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/837c3a23d56f282d809a3e9e6dec38df561e9ad7) Thanks [@sebastiansIT](https://github.com/sebastiansIT)! - Extend german translation
+
+  - Replace a static string for the "Create Adventure Site" button with translation key
+  - Add german translation for namespace ADVENTURE_SITE
+  - Add german translation for "Find Prey!"
+
+- [#476](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/476) [`8a55047`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/8a550475677a0a661b6c8152c67d86be287e3ff3) Thanks [@Honkou](https://github.com/Honkou)! - Allow Mount-type actors to push their rolls
+
+- [#467](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/467) [`f15254e`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/f15254efdd984c4bfdca5f6648bb1f99177c3fe1) Thanks [@sebastiansIT](https://github.com/sebastiansIT)! - Integrate errata from 3rd german edition into char gen data set
+
+- [#469](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/469) [`ea2f606`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/ea2f6064bb03a3e27261101c6fe258d17f1a9fad) Thanks [@sebastiansIT](https://github.com/sebastiansIT)! - - Add translation of the adventure site types.
+
+  - Add translations for the Close button inside the adventure site type selection dialog
+  - Catch an error thrown when adventure type selection dialog is aborted
+
+- [#480](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/480) [`bcd5873`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/bcd5873c0b390c36c2fa67a691509fef054d0703) Thanks [@Doresain](https://github.com/Doresain)! - Fix for #471 and #455. Monster fear attacks now calculate correctly, and the chat card displays the correct values.
+
+- [#478](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/478) [`cf35605`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/cf356053cebdedab145511f46bbd398b8796f794) Thanks [@Doresain](https://github.com/Doresain)! - Fix for #454 - Features field now enriched for Armor-type items.
+
 ## 12.1.1
 
 ### Patch Changes
