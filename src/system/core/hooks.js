@@ -304,7 +304,7 @@ export default function registerHooks() {
 
 		const button = document.createElement("button");
 		button.id = "create-adventure-site";
-		button.innerHTML = `<i class="fas fa-castle"></i> Create Adventure Site`;
+		button.innerHTML = `<i class="fas fa-castle"></i> ${t("ADVENTURE_SITE.BUTTON.CREATE")}`;
 		button.addEventListener("click", () => adventureSiteCreateDialog());
 
 		header.appendChild(button);
