@@ -13,9 +13,8 @@
 	</div>
 	<div class="grid-full-line" style="height: 200px;"
 		<label>{{localize "WEAPON.FEATURES.TITLE"}}</label>
-		{{log this}}
 		{{#if editable}}
-			{{editor system.features target="system.features" owner=owner button=true editable=true}}
+			{{editor system.enrichedFeatures target="system.features" owner=owner button=true editable=true}}
 		{{else}}
 			<div class="editor-content">
 				{{{system.enrichedFeatures}}}
