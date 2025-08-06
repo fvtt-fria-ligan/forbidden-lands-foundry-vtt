@@ -791,6 +791,13 @@ export class FBLRoll extends YearZeroRoll {
 	}
 
 	get damage() {
+		if (
+			this.options?.isMonsterAttack &&
+			this.options?.attack?.system?.damageType === "fear"
+		) {
+			return this.successCount;
+		}
+
 		const modifier = this.type === "spell" ? 0 : -1;
 		return (
 			(this.options.damage || 0) + Math.max(this.successCount + modifier, 0)
