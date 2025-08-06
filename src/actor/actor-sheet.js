@@ -49,7 +49,7 @@ export class ForbiddenLandsActorSheet extends foundry.appv1.sheets.ActorSheet {
 	}
 
 	get rollData() {
-		return this.actor.getRollData();
+		return this.actor.getRollContext();
 	}
 
 	get config() {

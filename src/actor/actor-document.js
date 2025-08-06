@@ -37,8 +37,7 @@ export class ForbiddenLandsActor extends Actor {
 		return this.getFlag("forbidden-lands", "unlimitedPush") ?? false;
 	}
 
-	/* Override */
-	getRollData() {
+	getRollContext() {
 		return {
 			alias: this.token?.name || this.name,
 			actorId: this.id,
