@@ -1,5 +1,11 @@
 # Changelog
 
+## 12.1.4
+
+### Patch Changes
+
+- [#487](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/487) [`bce1aca`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/bce1aca829d3b7d49e29ffac919deecd4954b07d) Thanks [@Honkou](https://github.com/Honkou)! - Fix Generic Roll throw an error when there's no actor selected
+
 ## 12.1.3
 
 ### Patch Changes
