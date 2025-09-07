@@ -3,32 +3,35 @@ import localizeString from "@utils/localize-string.js";
 
 // Add additional buttons to the Chargen dataset filepicker
 Hooks.on("renderSettingsConfig", (_app, html, _user) => {
-	const target = html.find('input[name="forbidden-lands.datasetDir"]')[0];
+	const target = html.querySelector('input[name="forbidden-lands.datasetDir"]');
 	if (!target) return;
 
 	const targetParent = target.previousElementSibling;
 
-	const resetButton = $(
-		`<button type="button" class="file-picker" data-tooltip="${localizeString(
-			"FLCG.SETTINGS.RESET",
-		)}"><i class="fas fa-undo"></i></button>`,
-	);
-	resetButton.on("click", function () {
+	// Reset button
+	const resetButton = document.createElement("button");
+	resetButton.type = "button";
+	resetButton.classList.add("file-picker");
+	resetButton.dataset.tooltip = localizeString("FLCG.SETTINGS.RESET");
+	resetButton.innerHTML = `<i class="fas fa-undo"></i>`;
+	resetButton.addEventListener("click", () => {
 		target.value = "";
-		this.blur();
-	});
-	const experimentalButton = $(
-		`<button type="button" class="file-picker" data-tooltip="${localizeString(
-			"FLCG.SETTINGS.RFP_SET",
-		)}"><i class="fas fa-flask"></i></button>`,
-	);
-	experimentalButton.on("click", function () {
-		target.value =
-			"systems/forbidden-lands/assets/datasets/chargen/dataset-experimental.json";
-		this.blur();
+		resetButton.blur();
 	});
 
-	targetParent.after(experimentalButton[0], resetButton[0]);
+	// Experimental button
+	const experimentalButton = document.createElement("button");
+	experimentalButton.type = "button";
+	experimentalButton.classList.add("file-picker");
+	experimentalButton.dataset.tooltip = localizeString("FLCG.SETTINGS.RFP_SET");
+	experimentalButton.innerHTML = `<i class="fas fa-flask"></i>`;
+	experimentalButton.addEventListener("click", () => {
+		target.value =
+			"systems/forbidden-lands/assets/datasets/chargen/dataset-experimental.json";
+		experimentalButton.blur();
+	});
+
+	targetParent.after(experimentalButton, resetButton);
 });
 
 export class TableConfigMenu extends FormApplication {
@@ -49,15 +52,21 @@ export class TableConfigMenu extends FormApplication {
 
 	async getData() {
 		const data = await super.getData();
+
+		// Get current settings from the system
 		const mishapConfig = game.settings.get("forbidden-lands", "mishapTables");
 		const encounterConfig = game.settings.get(
 			"forbidden-lands",
 			"encounterTables",
 		);
 		const otherConfig = game.settings.get("forbidden-lands", "otherTables");
+
+		// Keys for which settings exist
 		const mishapKeys = CONFIG.fbl.mishapTables;
 		const encounterKeys = CONFIG.fbl.encounterTables;
 		const otherKeys = CONFIG.fbl.otherTables;
+
+		// Build config rows
 		data.mishapTables = mishapKeys.map((key) => ({
 			key,
 			name: localizeString(key),
@@ -74,25 +83,42 @@ export class TableConfigMenu extends FormApplication {
 			id: otherConfig[key],
 		}));
 
-		data.tables = (() => {
-			const selectOptions = {};
-			const tree = game.tables.directory.folders;
-			for (const folder of tree) {
-				const options =
-					folder.contents?.map(
-						(table) => `<option value="${table.id}">${table.name}</option>`,
-					) ?? null;
-				if (options.length > 0) {
-					if (selectOptions[folder.name]) {
-						selectOptions[folder.name] += options;
-					} else {
-						const property = `<optgroup label="${folder.name}">${options}`;
-						selectOptions[folder.name] = property;
-					}
-				}
+		// Get and sort folders and tables
+		const folders = game.folders
+			.filter((f) => f.type === "RollTable")
+			.sort((a, b) => a.name.localeCompare(b.name));
+
+		const tables = game.tables.contents
+			.slice()
+			.sort((a, b) => a.name.localeCompare(b.name));
+
+		// Create flat array with group property
+		const flatOptions = [];
+
+		// Foldered tables
+		for (const folder of folders) {
+			const folderTables = tables.filter((t) => t.folder?.id === folder.id);
+			for (const table of folderTables) {
+				flatOptions.push({
+					label: table.name,
+					value: table.id,
+					group: folder.name,
+				});
 			}
-			return Object.values(selectOptions).join("");
-		})();
+		}
+
+		// Unsorted tables
+		const unsorted = tables.filter((t) => !t.folder);
+		for (const table of unsorted) {
+			flatOptions.push({
+				label: table.name,
+				value: table.id,
+				group: game.i18n.localize("FOLDER.None"),
+			});
+		}
+
+		data.tables = flatOptions;
+
 		return data;
 	}
 

@@ -140,3 +140,14 @@
 		}
 	}
 }
+
+body.theme-dark :where(.journal-page-content, .editor-content) {
+	table {
+		tr {
+
+			&:nth-child(odd):not(:has(th)) {
+				background-color: #555555;
+			}
+		}
+	}
+}

@@ -2,7 +2,7 @@ import { FBLRollHandler } from "@components/roll-engine/engine";
 import localizeString from "@utils/localize-string";
 
 /* eslint-disable no-unused-vars */
-export class ForbiddenLandsActorSheet extends ActorSheet {
+export class ForbiddenLandsActorSheet extends foundry.appv1.sheets.ActorSheet {
 	altInteraction = game.settings.get("forbidden-lands", "alternativeSkulls");
 	useHealthAndResolve = game.settings.get(
 		"forbidden-lands",
@@ -22,6 +22,20 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		data.system.useHealthAndResolve = this.useHealthAndResolve;
 		data.system.condition = this.actor.system.condition;
 		data.statuses = this.actor.statuses;
+
+		const dieOptions = [
+			{ value: 0, label: "—" },
+			{ value: 1, label: "D6" },
+			{ value: 2, label: "D8" },
+			{ value: 3, label: "D10" },
+			{ value: 4, label: "D12" },
+		];
+
+		if (data.system?.consumable) {
+			for (const [key, consumable] of Object.entries(data.system.consumable)) {
+				consumable.options = dieOptions;
+			}
+		}
 
 		return data;
 	}
@@ -567,12 +581,13 @@ export class ForbiddenLandsActorSheet extends ActorSheet {
 		const fields = CONFIG.fbl.enrichedActorFields;
 		for (const field of fields)
 			if (data.system.bio?.[field]?.value)
-				data.system.bio[field].value = await TextEditor.enrichHTML(
-					data.system.bio[field].value,
-					{
-						async: true,
-					},
-				);
+				data.system.bio[field].value =
+					await foundry.applications.ux.TextEditor.implementation.enrichHTML(
+						data.system.bio[field].value,
+						{
+							async: true,
+						},
+					);
 		return data;
 	}
 

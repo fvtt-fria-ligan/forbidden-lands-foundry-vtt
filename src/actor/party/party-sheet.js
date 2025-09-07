@@ -2,7 +2,7 @@ import { experienceDialog } from "$components/macros/experience-dialog.js";
 import { TravelActionsConfig } from "@actor/party/components/travel-actions";
 import { TableConfigMenu } from "@system/core/settings.js";
 import localizeString from "@utils/localize-string.js";
-export class ForbiddenLandsPartySheet extends ActorSheet {
+export class ForbiddenLandsPartySheet extends foundry.appv1.sheets.ActorSheet {
 	static get defaultOptions() {
 		const dragDrop = [...super.defaultOptions.dragDrop];
 		dragDrop.push({
@@ -40,10 +40,11 @@ export class ForbiddenLandsPartySheet extends ActorSheet {
 			ownedActorId = data.system.members[i];
 			data.partyMembers[ownedActorId] = game.actors.get(ownedActorId);
 		}
-		data.system.description = await TextEditor.enrichHTML(
-			data.system.description,
-			{ async: true },
-		);
+		data.system.description =
+			await foundry.applications.ux.TextEditor.implementation.enrichHTML(
+				data.system.description,
+				{ async: true },
+			);
 		return data;
 	}
 

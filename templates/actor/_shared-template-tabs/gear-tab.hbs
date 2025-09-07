@@ -109,13 +109,7 @@
 					<button type="button" class="roll-consumable"
 						data-consumable="{{key}}">{{localize consumable.label}}</button>
 					<select name="system.consumable.{{key}}.value" data-dtype="Number">
-						{{#select consumable.value}}
-							<option value="0">—</option>
-							<option value="1">D6</option>
-							<option value="2">D8</option>
-							<option value="3">D10</option>
-							<option value="4">D12</option>
-						{{/select}}
+						{{selectOptions consumable.options selected=consumable.value localize=false}}
 					</select>
 				</div>
 			{{/each}}

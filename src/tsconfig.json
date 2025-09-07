@@ -3,6 +3,8 @@
 	"compilerOptions": {
 		"lib": ["ESNext", "DOM"],
 		"types": ["jquery", "showdown"],
+		"skipLibCheck": true,
+		"moduleResolution": "bundler",
 		"baseUrl": ".",
 		"paths": {
 			"$*": ["./*"],

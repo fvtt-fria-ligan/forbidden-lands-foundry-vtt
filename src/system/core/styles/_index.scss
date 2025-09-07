@@ -136,22 +136,29 @@ html.no-borders body.theme-dark {
 	}
 }
 
+.sheet-config .form-group label {
+	white-space: nowrap;
+}
+
 // Override the default chat log styles
-#chat-log {
-	.message {
+.chat-log .chat-message {
 		position: relative;
 		background: var(--color-theme-background);
-		font-size: var(--font-size-12);
+		font-size: var(--font-size-14);
+		margin: 3px;
 
 		&:after {
 			content: "";
 			border: 10px solid transparent;
 			border-image: url(./assets/journal-art/small-border.webp) 100/10px repeat;
 			position: absolute;
-			height: calc(100% - 24px);
-			width: calc(100% - 24px);
-			margin: -3px 7px 7px -3px;
+			top: 0;
+			left: 0;
+			width: calc(100% - 6px);
+			height: calc(100% - 6px);
+			margin: 3px;
 			pointer-events: none;
+			z-index: 0;
 		}
 
 		.message-header {
@@ -161,12 +168,40 @@ html.no-borders body.theme-dark {
 		}
 
 		.message-content {
-			border: none;
-			padding: 0 13px 13px;
+			position: relative;
+			z-index: 1;
+			padding: 0.5em 1em 1em;
 		}
 
-		.fbl-button {
-			border: 2px solid transparent;
+	.fbl-button {
+		background-color: var(--color-theme-background);
+		color: var(--color-theme-text);
+		border: 2px solid transparent;
+		border-radius: 4px;
+		padding: 4px 8px;
+		font-weight: bold;
+		font-family: inherit;
+		cursor: pointer;
+		transition: border-color 0.2s ease;
+
+		&:hover {
+			border-color: var(--color-theme-accent);
 		}
+	}
+
+	.dice-rolls {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 5px;
+		width: 100% !important;
+		min-width: 100%;
+		overflow: visible !important;
+	}
+
+	.roll img {
+		width: 40px !important;
+		height: 40px !important;
+		min-width: 40px;
+		min-height: 40px;
 	}
 }

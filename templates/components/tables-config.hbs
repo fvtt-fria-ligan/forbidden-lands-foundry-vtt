@@ -1,12 +1,9 @@
-{{#*inline "tables" config scope}}
-  {{#each config as |table|}}
+{{#*inline "tables" config scope allTables}}
+	{{#each config as |table|}}
 		<label>
 			{{table.name}}
 			<select name="{{../scope}}_{{table.key}}">
-				{{#select table.id}}
-				<option value="">{{localize "NONE"}}</option>
-				{{{../tables}}}
-				{{/select}}
+				{{selectOptions ../allTables selected=table.id blank="NONE" labelAttr="label" valueAttr="value" groupAttr="group"}}
 			</select>
 		</label>
 	{{/each}}
@@ -15,16 +12,15 @@
 <form>
 	<fieldset>
 		<legend>{{localize "CONFIG.TABLE_CONFIG.MISHAPS"}}</legend>
-		{{> tables config=mishapTables scope="mishap"}}
+		{{> tables config=mishapTables scope="mishap" allTables=tables}}
 	</fieldset>
 	<fieldset class="encounter">
 		<legend>{{localize "CONFIG.TABLE_CONFIG.RANDOM_ENCOUNTERS"}}</legend>
-		{{> tables config=encounterTables scope="encounter"}}
+		{{> tables config=encounterTables scope="encounter" allTables=tables}}
 	</fieldset>
 	<fieldset class="other">
 		<legend>{{localize "CONFIG.TABLE_CONFIG.OTHER"}}</legend>
-		{{> tables config=otherTables scope="other"}}
+		{{> tables config=otherTables scope="other" allTables=tables}}
 	</fieldset>
 	<button type="submit">{{localize "CONFIG.TABLE_CONFIG.BUTTON.SUBMIT"}}</button>
 </form>
-

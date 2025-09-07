@@ -119,7 +119,7 @@ const cli = build("setup")
 					required: true,
 				});
 
-				foundryBinary = filesystem.resolve(path, "resources/app/main.js");
+				foundryBinary = filesystem.resolve(path, "main.js");
 				if (!filesystem.exists(foundryBinary)) {
 					print.error(
 						"The provided path does not contain a FoundryVTT installation!",
