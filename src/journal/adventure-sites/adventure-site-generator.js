@@ -237,10 +237,7 @@ export const adventureSiteCreateDialog = async () => {
 
 	const [path, adventureSite] = type.split(":");
 
-	const content = await CONFIG.fbl.adventureSites.generate(
-		path,
-		adventureSite,
-	);
+	const content = await CONFIG.fbl.adventureSites.generate(path, adventureSite);
 	const title = titleCase(adventureSite);
 
 	const entry = await JournalEntry.create({
