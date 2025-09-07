@@ -37,8 +37,7 @@ export class ForbiddenLandsActor extends Actor {
 		return this.getFlag("forbidden-lands", "unlimitedPush") ?? false;
 	}
 
-	/* Override */
-	getRollData() {
+	getRollContext() {
 		return {
 			alias: this.token?.name || this.name,
 			actorId: this.id,
@@ -117,6 +116,13 @@ export class ForbiddenLandsActor extends Actor {
 					break;
 			}
 		}
+
+		if (data.type === "character" && !game.user?.isGM) {
+			data.prototypeToken ??= {};
+			data.prototypeToken.actorLink = true;
+			data.prototypeToken.disposition = 1;
+		}
+
 		return super.create(data, options);
 	}
 

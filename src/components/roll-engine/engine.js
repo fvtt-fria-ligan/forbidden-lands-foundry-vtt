@@ -469,11 +469,9 @@ export class FBLRollHandler extends FormApplication {
 		// however Infinity is finicky to serialize.
 		// So we use a sufficiently large number instead.
 		// eslint-disable-next-line no-nested-ternary
-		const maxPush = unlimitedPush
-			? 10000
-			: this.options.actorType === "monster"
-				? "0"
-				: 1;
+		const currentActor = game.actors.get(this.options.actorId);
+		const isMonster = currentActor?.system.type === "monster";
+		const maxPush = unlimitedPush ? 10000 : isMonster ? 0 : 1;
 		return {
 			name: this.title,
 			title: this.title,
@@ -791,6 +789,13 @@ export class FBLRoll extends YearZeroRoll {
 	}
 
 	get damage() {
+		if (
+			this.options?.isMonsterAttack &&
+			this.options?.attack?.system?.damageType === "fear"
+		) {
+			return this.successCount;
+		}
+
 		const modifier = this.type === "spell" ? 0 : -1;
 		return (
 			(this.options.damage || 0) + Math.max(this.successCount + modifier, 0)

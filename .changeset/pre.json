@@ -1,5 +1,5 @@
 {
-	"mode": "pre",
+	"mode": "exit",
 	"tag": "next",
 	"initialVersions": {
 		"forbidden-lands": "12.1.1"

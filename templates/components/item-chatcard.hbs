@@ -199,16 +199,16 @@
 				</p>
 			{{/if}}
 			<strong>{{localize "MONSTER.DICE"}}</strong>:
-			{{data.dice}}
+			{{system.dice}}
 			<br />
 			<strong>{{localize "MONSTER.DAMAGE"}}</strong>:
-			{{data.damage}}
+			{{system.damage}}
 			<br />
 			<strong>{{localize "MONSTER.RANGE"}}</strong>:
-			{{data.range}}
+			{{weaponRange system.range}}
 			<br />
 			<strong>{{localize "MONSTER.DAMAGE_TYPE"}}</strong>:
-			{{data.damageType}}
+			{{damageType system.damageType}}
 		{{/if}}
 
 		{{#if isRawMaterial}}

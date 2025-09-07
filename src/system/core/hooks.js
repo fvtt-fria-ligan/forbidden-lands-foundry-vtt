@@ -298,13 +298,13 @@ export default function registerHooks() {
 		});
 	});
 
-	Hooks.on("activateJournalDirectory", (app) => {
+	Hooks.on("renderJournalDirectory", (app) => {
 		const header = app.element.querySelector(".header-actions");
 		if (!header || header.querySelector("#create-adventure-site")) return;
 
 		const button = document.createElement("button");
 		button.id = "create-adventure-site";
-		button.innerHTML = `<i class="fas fa-castle"></i> Create Adventure Site`;
+		button.innerHTML = `<i class="fas fa-castle"></i> ${t("ADVENTURE_SITE.BUTTON.CREATE")}`;
 		button.addEventListener("click", () => adventureSiteCreateDialog());
 
 		header.appendChild(button);

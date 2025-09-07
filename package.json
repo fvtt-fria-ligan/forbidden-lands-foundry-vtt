@@ -36,27 +36,27 @@
 		"version": "bun tools/version.ts"
 	},
 	"dependencies": {
-		"foundry-year-zero-roller": "Stefouch/foundry-year-zero-roller#v5.2.1",
+		"foundry-year-zero-roller": "Stefouch/foundry-year-zero-roller#v5.2.2",
 		"rpg-awesome": "0.2.0",
-		"ultrahtml": "1.5.3"
+		"ultrahtml": "1.6.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.8.3",
-		"@changesets/changelog-github": "0.5.0",
-		"@changesets/cli": "2.27.7",
-		"@evilmartians/lefthook": "^1.7.4",
-		"@playwright/test": "^1.45.2",
-		"@types/jquery": "3.5.30",
-		"@types/node": "20.14.11",
+		"@biomejs/biome": "1.9.4",
+		"@changesets/changelog-github": "0.5.1",
+		"@changesets/cli": "2.29.4",
+		"@evilmartians/lefthook": "^1.11.13",
+		"@playwright/test": "^1.52.0",
+		"@types/jquery": "3.5.32",
+		"@types/node": "22.15.24",
 		"@types/showdown": "2.0.6",
-		"bun-types": "1.1.20",
+		"bun-types": "1.2.15",
 		"devmoji": "2.3.0",
-		"esbuild": "0.25.0",
+		"esbuild": "0.25.5",
 		"esbuild-sass-plugin": "3.3.1",
-		"execa": "9.3.0",
-		"globby": "14.0.2",
-		"gluegun": "5.1.6",
-		"typescript": "5.5.3"
+		"execa": "9.6.0",
+		"globby": "14.1.0",
+		"gluegun": "5.2.0",
+		"typescript": "5.8.3"
 	},
 	"trustedDependencies": ["@biomejs/biome", "esbuild"]
 }
