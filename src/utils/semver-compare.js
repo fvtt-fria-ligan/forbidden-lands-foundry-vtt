@@ -43,7 +43,7 @@ export default function semverComp(min, curr, max, opt = {}) {
 function coerceNum(string) {
 	if (typeof string !== "string")
 		throw new Error(`Wrong term passed ${string}`);
-	const array = Array.from(string.split("."), (v) => Number.parseInt(v));
+	const array = Array.from(string.split(".", 3), (v) => Number.parseInt(v));
 	if (array.some((v) => Number.isNaN(v)) || array.length !== 3)
 		throw new Error(`Invalid SemVer string: ${string}`);
 	array[0] = array[0] * 1000000;

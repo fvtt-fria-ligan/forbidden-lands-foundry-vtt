@@ -6,52 +6,32 @@
 	<div class="weight">
 		<label>{{localize "GEAR.WEIGHT"}}</label>
 		<select name="system.weight">
-			{{#select system.weight}}
-			<option value="tiny">{{localize "WEIGHT.TINY"}}</option>
-			<option value="light">{{localize "WEIGHT.LIGHT"}}</option>
-			<option value="regular">{{localize "WEIGHT.REGULAR"}}</option>
-			<option value="heavy">{{localize "WEIGHT.HEAVY"}}</option>
-			{{/select}}
+			{{selectOptions weightOptions selected=system.weight localize=true}}
 		</select>
 	</div>
 	<div class="weapon-category">
 		<label>{{localize "WEAPON.CATEGORY"}}</label>
 		<select name="system.category">
-			{{#select system.category}}
-			<option value="melee">{{localize "WEAPON.MELEE"}}</option>
-			<option value="ranged">{{localize "WEAPON.RANGED"}}</option>
-			{{/select}}
+			{{selectOptions categoryOptions selected=system.category localize=true}}
 		</select>
 	</div>
 	<div class="grip">
 		<label>{{localize "WEAPON.GRIP"}}</label>
 		<select name="system.grip">
-			{{#select system.grip}}
-			<option value="1h">{{localize "WEAPON.1H"}}</option>
-			<option value="2h">{{localize "WEAPON.2H"}}</option>
-			{{/select}}
+			{{selectOptions gripOptions selected=system.grip localize=true}}
 		</select>
 	</div>
 	<div class="range">
 		<label>{{localize "WEAPON.RANGE"}}</label>
 		<select name="system.range">
-			{{#select system.range}}
-			<option value="arm">{{localize "RANGE.ARM"}}</option>
-			<option value="near">{{localize "RANGE.NEAR"}}</option>
-			<option value="short">{{localize "RANGE.SHORT"}}</option>
-			<option value="long">{{localize "RANGE.LONG"}}</option>
-			<option value="distant">{{localize "RANGE.DISTANT"}}</option>
-			{{/select}}
+			{{selectOptions rangeOptions selected=system.range localize=true}}
 		</select>
 	</div>
 	{{#if (eq system.category "ranged")}}
 	<div>
 		<label>{{localize "WEAPON.AMMO"}}</label>
 		<select name="system.ammo">
-			{{#select system.ammo}}
-			<option value="other">{{ localize "WEAPON.AMMO_OTHER" }}</option>
-			<option value="arrows">{{ localize "WEAPON.AMMO_ARROWS"}}</option>
-			{{/select}}
+			{{selectOptions ammoOptions selected=system.ammo localize=true}}
 		</select>
 	</div>
 	{{/if}}

@@ -9,4 +9,15 @@ export class ForbiddenLandsCriticalInjurySheet extends ForbiddenLandsItemSheet {
 			height: 310,
 		});
 	}
+
+	async getData(options = {}) {
+		const data = await super.getData(options);
+
+		data.lethalOptions = [
+			{ value: "no", label: "LETHAL.NO" },
+			{ value: "yes", label: "LETHAL.YES" },
+		];
+
+		return data;
+	}
 }

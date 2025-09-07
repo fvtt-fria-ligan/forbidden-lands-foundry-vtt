@@ -202,66 +202,63 @@ export const adventureSiteCreateDialog = async () => {
 
 	const types = Object.entries(CONFIG.fbl.adventureSites.types);
 
+	let type;
 	try {
-		const type = await Dialog.wait({
+		type = await Dialog.wait({
 			title: t("ADVENTURE_SITE.CREATE_TITLE"),
 			content: `<form style="margin-block:12px;">
-									<p>${t("ADVENTURE_SITE.CREATE_DESCRIPTION")}</p>
-									<div class="form-group">
-											<div class="form-fields">
-											<label>${t("Type")}</label>
-													<select name="type">
-															${types.map(([key, value]) => {
-																return `<option value="${value}:${key}">${titleCase(key)}</option>`;
-															})}
-													</select>
-											</div>
-									</div>
-							</form>`,
+				<p>${t("ADVENTURE_SITE.CREATE_DESCRIPTION")}</p>
+				<div class="form-group">
+					<div class="form-fields">
+						<label>${t("Type")}</label>
+						<select name="type">
+							${types
+								.map(([key, value]) => {
+									return `<option value="${value}:${key}">${titleCase(key)}</option>`;
+								})
+								.join("")}
+						</select>
+					</div>
+				</div>
+			</form>`,
 			buttons: {
 				ok: {
 					icon: '<i class="fas fa-check"></i>',
-					label: `${t("ADVENTURE_SITE.CREATE_BUTTON")}`,
+					label: t("Create"),
 					callback: (jqhtml) => jqhtml.find("form")[0].type.value,
 				},
 			},
 		});
-
-		const [path, adventureSite] = type.split(":");
-
-		const content = await CONFIG.fbl.adventureSites.generate(
-			path,
-			adventureSite,
-		);
-		const title = titleCase(adventureSite);
-
-		const entry = await JournalEntry.create({
-			name: `${t("ADVENTURE_SITE.LABEL")}: ${title}`,
-			pages: [
-				{
-					name: title,
-					text: { content: `<div class="adventure-site">${content}</div>` },
-					title: { show: false },
-				},
-			],
-			flags: {
-				"forbidden-lands": {
-					adventureSiteType: adventureSite,
-				},
-			},
-		});
-		entry.sheet.render(true);
-	} catch (error) {
-		// An exception is thrown closing the dialog with the x in the upper right corner
-		if (
-			error.message === "The Dialog was closed without a choice being made."
-		) {
-			// Do nothing her - aborting the dialog is fine for us
-			console.log(error);
-		} else {
-			throw error;
-		}
+	} catch (err) {
+		// User closed the dialog without confirming
+		console.warn("Adventure Site creation dialog was cancelled.");
+		return;
 	}
+
+	const [path, adventureSite] = type.split(":");
+
+	const content = await CONFIG.fbl.adventureSites.generate(
+		path,
+		adventureSite,
+	);
+	const title = titleCase(adventureSite);
+
+	const entry = await JournalEntry.create({
+		name: `${t("ADVENTURE_SITE.LABEL")}: ${title}`,
+		pages: [
+			{
+				name: title,
+				text: { content: `<div class="adventure-site">${content}</div>` },
+				title: { show: false },
+			},
+		],
+		flags: {
+			"forbidden-lands": {
+				adventureSiteType: adventureSite,
+			},
+		},
+	});
+	entry.sheet.render(true);
 };
 
 // Initialize random generation
@@ -273,7 +270,7 @@ export const init = async (path, adventureSite) => {
 	let data = getRolledData(adventureSite);
 	data = moldData(data, adventureSite);
 	// construct the html
-	const html = await renderTemplate(
+	const html = await foundry.applications.handlebars.renderTemplate(
 		`modules/${path}/templates/${adventureSite}.hbs`,
 		data,
 	);

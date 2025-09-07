@@ -122,19 +122,21 @@ export class Changelog extends FormApplication {
 
 	async render() {
 		const content = await this.#generateChangelog();
-		Dialog.prompt({
-			title: "Changelog",
-			content: `<h1>${game.i18n.localize("CONFIG.CHANGELOG")}</h1>${content}`,
-			options: {
-				width: 600,
-				resizable: true,
-				classes: ["fbl", "changelog"],
-			},
-			render: (html) => {
-				html.find(".dialog-content").scrollTop(0);
-			},
-			callback: () => {},
-		});
+		try {
+			await Dialog.prompt({
+				title: "Changelog",
+				content: `<h1>${game.i18n.localize("CONFIG.CHANGELOG")}</h1>${content}`,
+				options: {
+					width: 600,
+					resizable: true,
+					classes: ["fbl", "changelog"],
+				},
+				render: (html) => {
+					html.find(".dialog-content").scrollTop(0);
+				},
+				callback: () => {},
+			});
+		} catch (err) {}
 		return this;
 	}
 }
