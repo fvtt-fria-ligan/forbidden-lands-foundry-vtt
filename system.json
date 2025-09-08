@@ -115,6 +115,6 @@
 	"socket": true,
 	"url": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt",
 	"manifest": "https://raw.githubusercontent.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/main/system.json",
-	"download": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v13.0.0-next.0/forbidden-lands.zip",
+	"download": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v13.0.0/forbidden-lands.zip",
 	"license": "LICENSE"
 }
