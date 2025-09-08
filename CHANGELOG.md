@@ -1,5 +1,11 @@
 # Changelog
 
+## 13.0.1
+
+### Patch Changes
+
+- [#497](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/497) [`45c8c97`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/45c8c9706b85ab8473062dd4ab2f1e789cf1896a) Thanks [@Cussa](https://github.com/Cussa)! - Add Cussa as Author + create patch version as Foundry recognize `v13.0.0-next0` as newer than `v13.0.0`
+
 ## 13.0.0
 
 ### Major Changes
