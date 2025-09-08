@@ -1,5 +1,13 @@
 # Changelog
 
+## 13.0.0
+
+### Major Changes
+
+- [#495](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/495) [`45d2685`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/45d2685cb4088db928e5728c26f645d271cc1b58) Thanks [@Cussa](https://github.com/Cussa)! - V13 Compatibility !Breaking changes with V12.
+
+- [#492](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/492) [`922f2f5`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/922f2f56599b1941c5afcee78bd5d94eb4d172c9) Thanks [@Cussa](https://github.com/Cussa)! - v13 compatibility with several fixes coming from v12
+
 ## 13.0.0-next.0
 
 ### Major Changes
