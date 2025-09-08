@@ -27,13 +27,7 @@
 			<label>{{localize "ARTIFACT.ARTIFACT_BONUS"}}</label>
 			<div class="artifactBonus">
 				<select name="system.artifactBonus">
-					{{#select system.artifactBonus}}
-					<option value="">{{localize "ARTIFACT.REGULAR"}}</option>
-					<option value="0">{{localize "ARTIFACT.DICELESS"}} (-)</option>
-					<option value="d8">{{localize "ARTIFACT.MIGHTY"}} (d8)</option>
-					<option value="d10">{{localize "ARTIFACT.EPIC"}} (d10)</option>
-					<option value="d12">{{localize "ARTIFACT.LEGENDARY"}} (d12)</option>
-					{{/select}}
+					{{selectOptions artifactBonusOptions selected=system.artifactBonus localize=true}}
 				</select>
 			</div>
 		</div>

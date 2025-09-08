@@ -18,14 +18,29 @@ export class ForbiddenLandsArmorSheet extends ForbiddenLandsItemSheet {
 	async getData(options = {}) {
 		const data = await super.getData(options);
 
-		data.system.enrichedFeatures = await TextEditor.enrichHTML(
-			data.system.features ?? "",
-			{
-				async: true,
-				secrets: game.user.isGM,
-				relativeTo: this.item,
-			},
-		);
+		data.weightOptions = [
+			{ value: "none", label: "WEIGHT.NONE" },
+			{ value: "tiny", label: "WEIGHT.TINY" },
+			{ value: "light", label: "WEIGHT.LIGHT" },
+			{ value: "regular", label: "WEIGHT.REGULAR" },
+			{ value: "heavy", label: "WEIGHT.HEAVY" },
+		];
+
+		data.partOptions = [
+			{ value: "body", label: "ARMOR.BODY" },
+			{ value: "head", label: "ARMOR.HELMET" },
+			{ value: "other", label: "ARMOR.OTHER" },
+		];
+
+		data.system.enrichedFeatures =
+			await foundry.applications.ux.TextEditor.enrichHTML(
+				data.system.features ?? "",
+				{
+					async: true,
+					secrets: game.user.isGM,
+					relativeTo: this.item,
+				},
+			);
 
 		return data;
 	}

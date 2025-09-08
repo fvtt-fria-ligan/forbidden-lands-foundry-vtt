@@ -26,10 +26,11 @@ export class ForbiddenLandsStrongholdSheet extends ForbiddenLandsActorSheet {
 
 	async getData() {
 		const actorData = await super.getData();
-		actorData.system.description = await TextEditor.enrichHTML(
-			actorData.system.description,
-			{ async: true },
-		);
+		actorData.system.description =
+			await foundry.applications.ux.TextEditor.implementation.enrichHTML(
+				actorData.system.description,
+				{ async: true },
+			);
 		this._computeItems(actorData);
 		return actorData;
 	}

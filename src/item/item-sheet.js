@@ -1,4 +1,4 @@
-export class ForbiddenLandsItemSheet extends ItemSheet {
+export class ForbiddenLandsItemSheet extends foundry.appv1.sheets.ItemSheet {
 	get itemData() {
 		return this.item.data;
 	}
@@ -21,10 +21,13 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 	}
 
 	static async enrichContent(content, isOwner) {
-		return TextEditor.enrichHTML(content, {
-			async: true,
-			secrets: isOwner,
-		});
+		return foundry.applications.ux.TextEditor.implementation.enrichHTML(
+			content,
+			{
+				async: true,
+				secrets: isOwner,
+			},
+		);
 	}
 
 	_getHeaderButtons() {
@@ -73,11 +76,20 @@ export class ForbiddenLandsItemSheet extends ItemSheet {
 	async getData() {
 		const superData = super.getData();
 		let data = superData.data;
+		data.editable = this.isEditable;
 		data.flags = this.item.flags["forbidden-lands"];
 		data.encumbranceValues = this.config.encumbrance;
 		data.isGM = game.user.isGM;
 		data = this.#computeQuality(data);
 		data = await this.#enrichTextEditorFields(data);
+
+		data.artifactBonusOptions = [
+			{ value: "", label: "ARTIFACT.REGULAR" },
+			{ value: "0", label: "ARTIFACT.DICELESS" },
+			{ value: "d8", label: "ARTIFACT.MIGHTY" },
+			{ value: "d10", label: "ARTIFACT.EPIC" },
+			{ value: "d12", label: "ARTIFACT.LEGENDARY" },
+		];
 
 		return data;
 	}

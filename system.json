@@ -3,7 +3,7 @@
 	"name": "forbidden-lands",
 	"title": "Forbidden Lands",
 	"description": "'Round the beggar from Varassa all sat in a ring, and by the campfire they sat and heard his song. About walkers and wolfkin and every terrible thing, and of his fear he sang to them all night long: <em>\"There is something beyond the mountains, beyond the howls beyond the mist, there is something behind the veils, behind hearts cold as stone. Hearken, something walks and whispers, walks and lures you in and whimpers: Come to us, for this earth shall ever be ours and ours alone!\"</em>",
-	"version": "12.1.4",
+	"version": "13.0.0-next.0",
 	"authors": [
 		{
 			"name": "aMediocreDad",
@@ -13,9 +13,9 @@
 		}
 	],
 	"compatibility": {
-		"minimum": "11",
-		"verified": "12",
-		"maximum": "12"
+		"minimum": "13",
+		"verified": "13",
+		"maximum": "13"
 	},
 	"contributors": "perfectro, patrys, Maxter, jimorie, giant-teapot, romelwell, roonel, moo-man, lasseborly, narukaioh, Cussa",
 	"localization": " ptosekigloo, ptoseklukas, Bapf, OnkelRod, sebastiansIT, Tobbot, GeneralMine, DavidCMeier, KaWeNGoD, ismail-ahmed, cyberdwarf1664, Zhikann, franklinbenini, DenninDalke, luizbgomide, igorteuri, trprado, SwedishRabbit, Rosataker, Dran82",
@@ -110,6 +110,6 @@
 	"socket": true,
 	"url": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt",
 	"manifest": "https://raw.githubusercontent.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/main/system.json",
-	"download": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v12.1.4/forbidden-lands.zip",
+	"download": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/download/v13.0.0-next.0/forbidden-lands.zip",
 	"license": "LICENSE"
 }

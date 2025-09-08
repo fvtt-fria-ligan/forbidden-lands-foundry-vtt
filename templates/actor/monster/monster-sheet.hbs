@@ -12,10 +12,7 @@
 						</label>
 						<label>{{localize "MONSTER.TYPE.LABEL"}}
 							<select name="system.type">
-								{{#select system.type}}
-								<option value="monster">{{localize "MONSTER.TYPE.MONSTER"}}</option>
-								<option value="mount">{{localize "MONSTER.TYPE.MOUNT"}}</option>
-								{{/select}}
+								{{selectOptions monsterTypeOptions selected=system.type localize=true}}
 							</select>
 						</label>
 					</div>
