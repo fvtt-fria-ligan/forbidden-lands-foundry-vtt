@@ -37,7 +37,7 @@ jobs:
         id: foundry
         uses: fjogeleit/http-request-action@v1
         with:
-          url: 'https://api.foundryvtt.com/_api/packages/release_version/'
+          url: 'https://foundryvtt.com/_api/packages/release_version/'
           customHeaders: '{ "Content-Type": "application/json", "Authorization": "${{ secrets.FOUNDRY_TOKEN }}" }'
           data:
             '{
@@ -47,9 +47,9 @@ jobs:
                 "manifest": "https://raw.githubusercontent.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/${{ github.event.release.tag_name }}/system.json",
                 "notes": "https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/releases/tag/${{ github.event.release.tag_name }}",
                 "compatibility": {
-                  "minimum": "11",
-                  "verified": "12",
-                  "maximum": "12"
+                  "minimum": "13",
+                  "verified": "13.348",
+                  "maximum": "13"
                 }
               }
             }'
