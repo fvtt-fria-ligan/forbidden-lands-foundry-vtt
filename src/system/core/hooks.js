@@ -310,8 +310,8 @@ export default function registerHooks() {
 		header.appendChild(button);
 	});
 
-	Hooks.on("renderJournalSheet", (app, html) => {
-		const type = app.object.getFlag("forbidden-lands", "adventureSiteType");
+	Hooks.on("renderJournalEntrySheet", (app, html, doc) => {
+		const type = doc.document.getFlag("forbidden-lands", "adventureSiteType");
 		const isDungeon = ["dungeon", "ice_cave", "elven_ruin"].includes(type);
 		if (!isDungeon || !game.user.isGM) return;
 
@@ -331,7 +331,7 @@ export default function registerHooks() {
 				.text()
 				.replace(/[^\p{L}]+/u, " ")
 				.trim();
-			await app.object.createEmbeddedDocuments("JournalEntryPage", [
+			await doc.document.createEmbeddedDocuments("JournalEntryPage", [
 				{
 					name: pageName,
 					title: { level: 2, show: false },
@@ -340,6 +340,6 @@ export default function registerHooks() {
 			]);
 		});
 
-		html.find('[data-action="createPage"]').after(button);
+		$(html).find('[data-action="createPage"]').after(button);
 	});
 }
