@@ -284,18 +284,22 @@ export default function registerHooks() {
 
 	Hooks.on("hotbarDrop", async (_, data, slot) => handleHotbarDrop(data, slot));
 
-	Hooks.on("renderSidebarTab", (app, html) => {
-		if (app.tabName !== "settings") return;
+	Hooks.on("activateAbstractSidebarTab", (app) => {
+		if (app.id !== "settings") return;
 
-		const section = html.find("#settings-documentation");
-		const button = `<button type="button"><i class='fas fa-book'></i> ${game.i18n.localize(
-			"CONFIG.CHANGELOG",
-		)}</button>`;
+		const section = $(app.element).find("section.documentation h4");
+		const button = $(
+			`<button type="button"><i class='fas fa-book'></i> ${game.i18n.localize(
+				"CONFIG.CHANGELOG",
+			)}</button>`,
+		);
 
-		section.prepend(button).on("click", (ev) => {
+		button.on("click", (ev) => {
 			ev.preventDefault();
 			new Changelog().render(true);
 		});
+
+		section.after(button);
 	});
 
 	Hooks.on("renderJournalDirectory", (app) => {
