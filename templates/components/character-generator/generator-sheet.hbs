@@ -99,7 +99,7 @@
 				<div class="chargen-section-content">
 					<select class="chargen-select-event" data-key="{{key}}">
 						{{#each ../dataset.formativeEvents as |item|}}
-							<option value="{{item.key}}" {{#if (eq item.key ../formativeEvent.key)}}selected{{/if}}>
+							<option value="{{item.key}}" {{#if (eq item.key formativeEvent.key)}}selected{{/if}}>
 								{{localize item.name}}
 							</option>
 						{{/each}}
