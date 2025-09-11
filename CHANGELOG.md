@@ -1,5 +1,17 @@
 # Changelog
 
+## 13.0.2
+
+### Patch Changes
+
+- [#501](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/501) [`c3f5447`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/c3f5447f4d042d3f6197b541eb5a88369cf60082) Thanks [@Cussa](https://github.com/Cussa)! - Adjust translation with typo
+
+- [#501](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/501) [`c3f5447`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/c3f5447f4d042d3f6197b541eb5a88369cf60082) Thanks [@Cussa](https://github.com/Cussa)! - Chargen not allowing selection on formative events (Fixes #500)
+
+- [#501](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/501) [`c3f5447`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/c3f5447f4d042d3f6197b541eb5a88369cf60082) Thanks [@Cussa](https://github.com/Cussa)! - Show "Add Room" for Adventure sites
+
+- [#501](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/501) [`c3f5447`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/c3f5447f4d042d3f6197b541eb5a88369cf60082) Thanks [@Cussa](https://github.com/Cussa)! - Adjust changelog button not showing in the settings
+
 ## 13.0.1
 
 ### Patch Changes
