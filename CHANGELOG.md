@@ -1,5 +1,13 @@
 # Changelog
 
+## 13.0.3
+
+### Patch Changes
+
+- [#506](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/506) [`0b8db84`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/0b8db8437bf574deebe108e26075cc6a4ed31f43) Thanks [@Cussa](https://github.com/Cussa)! - Gear tab with broken layout
+
+- [#506](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/506) [`cf015c0`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/cf015c005aa0fa1dcec1e7a7230a1aacaf9fa6ca) Thanks [@Cussa](https://github.com/Cussa)! - Allow Changelog to close without issues and improve the style
+
 ## 13.0.2
 
 ### Patch Changes
