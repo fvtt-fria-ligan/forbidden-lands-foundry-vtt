@@ -328,6 +328,7 @@ declare global {
 		close?: (html: JQuery) => void;
 		options?: ApplicationOptions;
 		callback?: (result: unknown) => void;
+		rejectClose?: boolean;
 	}
 
 	interface DialogButton {

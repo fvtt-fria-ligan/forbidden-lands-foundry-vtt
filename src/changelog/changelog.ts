@@ -135,6 +135,7 @@ export class Changelog extends FormApplication {
 					html.find(".dialog-content").scrollTop(0);
 				},
 				callback: () => {},
+				rejectClose: false,
 			});
 		} catch (err) {}
 		return this;
