@@ -157,6 +157,11 @@
 						border-radius: 10px;
 						color: var(--color-theme-text);
 					}
+					div {
+						display: flex;
+						gap: 10px;
+						align-items: center;
+					}
 				}
 
 				button {

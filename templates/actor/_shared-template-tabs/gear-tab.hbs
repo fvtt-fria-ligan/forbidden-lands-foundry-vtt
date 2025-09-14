@@ -23,8 +23,10 @@
 				{{#each (lookup gear state) as |item|}}
 					<tr class="item" data-item-id="{{item._id}}">
 						<td class="profile">
-							<img src="{{item.img}}" width="32px" />
-							<span class="name">{{item.name}}</span>
+							<div>
+								<img src="{{item.img}}" width="32px" />
+								<span class="name">{{item.name}}</span>
+							</div>
 						</td>
 						<td>{{fblLocalize item.type}}</td>
 						{{#if (eq item.type 'rawMaterial')}}
