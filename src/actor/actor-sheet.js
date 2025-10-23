@@ -11,7 +11,7 @@ export class ForbiddenLandsActorSheet extends foundry.appv1.sheets.ActorSheet {
 
 	async getData() {
 		let data = this.actor.toObject();
-		data = await this.#enrichTextEditorFields(data);
+		data = await this.#enrichTextEditorFields(data, this.actor.isOwner);
 		data.items = await Promise.all(
 			this.actor.items.map((i) => i.sheet.getData()),
 		);
@@ -577,7 +577,7 @@ export class ForbiddenLandsActorSheet extends foundry.appv1.sheets.ActorSheet {
 		return 0;
 	}
 
-	async #enrichTextEditorFields(data) {
+	async #enrichTextEditorFields(data, isOwner) {
 		const fields = CONFIG.fbl.enrichedActorFields;
 		for (const field of fields)
 			if (data.system.bio?.[field]?.value)
@@ -586,6 +586,7 @@ export class ForbiddenLandsActorSheet extends foundry.appv1.sheets.ActorSheet {
 						data.system.bio[field].value,
 						{
 							async: true,
+							secrets: isOwner
 						},
 					);
 		return data;
