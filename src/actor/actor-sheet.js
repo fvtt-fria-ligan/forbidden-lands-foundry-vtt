@@ -586,7 +586,7 @@ export class ForbiddenLandsActorSheet extends foundry.appv1.sheets.ActorSheet {
 						data.system.bio[field].value,
 						{
 							async: true,
-							secrets: isOwner
+							secrets: isOwner,
 						},
 					);
 		return data;
