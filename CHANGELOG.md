@@ -1,5 +1,13 @@
 # Changelog
 
+## 13.0.4
+
+### Patch Changes
+
+- [#511](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/511) [`8883834`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/88838348a6650f896b36c85407128a9e8f4afe71) Thanks [@Cussa](https://github.com/Cussa)! - Allow Actors to have secret blocks on editors
+
+- [#511](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/511) [`8883834`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/88838348a6650f896b36c85407128a9e8f4afe71) Thanks [@Cussa](https://github.com/Cussa)! - Set min-height for item editors
+
 ## 13.0.3
 
 ### Patch Changes
