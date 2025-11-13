@@ -196,21 +196,6 @@ function registerHandlebarsHelpers() {
 
 	Handlebars.registerHelper("toUpperCase", (str) => str.toUpperCase());
 
-	Handlebars.registerHelper("eq", (...args) => {
-		args.pop();
-		return args.every((expression) => args[0] === expression);
-	});
-
-	Handlebars.registerHelper("or", (...args) => {
-		args.pop();
-		return args.reduce((x, y) => x || y);
-	});
-
-	Handlebars.registerHelper("and", (...args) => {
-		args.pop();
-		return args.reduce((x, y) => x && y);
-	});
-
 	Handlebars.registerHelper("chargenLoc", (item) => {
 		let localizedString = CONFIG.fbl.i18n[item];
 		if (!localizedString) {
