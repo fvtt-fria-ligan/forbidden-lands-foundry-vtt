@@ -1,5 +1,11 @@
 # Changelog
 
+## 13.0.5
+
+### Patch Changes
+
+- [#515](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/515) [`3741740`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/374174097c9c073c3cc17c0d8e9cbb1cd216ffa8) Thanks [@Cussa](https://github.com/Cussa)! - Use default Foundry handlebars
+
 ## 13.0.4
 
 ### Patch Changes
