@@ -273,6 +273,8 @@ const FBL = {
 			id: "sleepy",
 			icon: "icons/svg/sleep.svg",
 			label: "CONDITION.SLEEPY",
+			img: "icons/svg/sleep.svg",
+			name: "CONDITION.SLEEPY",
 			changes: [
 				{
 					key: "system.condition.sleepy.value",
@@ -286,6 +288,8 @@ const FBL = {
 			id: "thirsty",
 			icon: "icons/svg/tankard.svg",
 			label: "CONDITION.THIRSTY",
+			img: "icons/svg/tankard.svg",
+			name: "CONDITION.THIRSTY",
 			changes: [
 				{
 					key: "system.condition.thirsty.value",
@@ -299,6 +303,8 @@ const FBL = {
 			id: "hungry",
 			icon: "icons/svg/sun.svg",
 			label: "CONDITION.HUNGRY",
+			img: "icons/svg/sun.svg",
+			name: "CONDITION.HUNGRY",
 			changes: [
 				{
 					key: "system.condition.hungry.value",
@@ -312,6 +318,8 @@ const FBL = {
 			id: "cold",
 			icon: "icons/svg/frozen.svg",
 			label: "CONDITION.COLD",
+			img: "icons/svg/frozen.svg",
+			name: "CONDITION.COLD",
 			changes: [
 				{
 					key: "system.condition.cold.value",

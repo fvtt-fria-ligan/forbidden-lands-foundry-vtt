@@ -535,6 +535,8 @@ declare global {
 		id: string;
 		label: string;
 		icon: string;
+		name: string;
+		img: string;
 		changes?: Array<{
 			key: string;
 			mode: number;
