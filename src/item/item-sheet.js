@@ -82,6 +82,7 @@ export class ForbiddenLandsItemSheet extends foundry.appv1.sheets.ItemSheet {
 		data.isGM = game.user.isGM;
 		data = this.#computeQuality(data);
 		data = await this.#enrichTextEditorFields(data);
+		data.system.customRollModifiers = await this.getCustomRollModifiers();
 
 		data.artifactBonusOptions = [
 			{ value: "", label: "ARTIFACT.REGULAR" },
@@ -89,6 +90,50 @@ export class ForbiddenLandsItemSheet extends foundry.appv1.sheets.ItemSheet {
 			{ value: "d8", label: "ARTIFACT.MIGHTY" },
 			{ value: "d10", label: "ARTIFACT.EPIC" },
 			{ value: "d12", label: "ARTIFACT.LEGENDARY" },
+		];
+
+		const customRollModifierHeader = game.i18n.localize("ITEM.CUSTOM_ROLL_MODIFIERS").toUpperCase();
+		const customModifiers = data.system.customRollModifiers?.map((key) => ({
+					value: key,
+					label: key,
+					group: customRollModifierHeader,
+			  }));
+
+		data.modifierOptions = [
+			{ value: "", label: "ROLL_MODIFIER.SELECT", disabled: true },
+			{ value: "ATTRIBUTE.STRENGTH", label: "ATTRIBUTE.STRENGTH", group: "HEADER.ATTRIBUTES" },
+			{ value: "ATTRIBUTE.AGILITY", label: "ATTRIBUTE.AGILITY", group: "HEADER.ATTRIBUTES" },
+			{ value: "ATTRIBUTE.WITS", label: "ATTRIBUTE.WITS", group: "HEADER.ATTRIBUTES" },
+			{ value: "ATTRIBUTE.EMPATHY", label: "ATTRIBUTE.EMPATHY", group: "HEADER.ATTRIBUTES" },
+			{ value: "SKILL.MIGHT", label: "SKILL.MIGHT", group: "HEADER.SKILLS" },
+
+			{ value: "SKILL.ENDURANCE", label: "SKILL.ENDURANCE", group: "HEADER.SKILLS" },
+			{ value: "SKILL.MELEE", label: "SKILL.MELEE", group: "HEADER.SKILLS" },
+			{ value: "SKILL.CRAFTING", label: "SKILL.CRAFTING", group: "HEADER.SKILLS" },
+			{ value: "SKILL.STEALTH", label: "SKILL.STEALTH", group: "HEADER.SKILLS" },
+			{ value: "SKILL.SLEIGHT_OF_HAND", label: "SKILL.SLEIGHT_OF_HAND", group: "HEADER.SKILLS" },
+			{ value: "SKILL.MOVE", label: "SKILL.MOVE", group: "HEADER.SKILLS" },
+			{ value: "SKILL.MARKSMANSHIP", label: "SKILL.MARKSMANSHIP", group: "HEADER.SKILLS" },
+			{ value: "SKILL.SCOUTING", label: "SKILL.SCOUTING", group: "HEADER.SKILLS" },
+			{ value: "SKILL.LORE", label: "SKILL.LORE", group: "HEADER.SKILLS" },
+			{ value: "SKILL.SURVIVAL", label: "SKILL.SURVIVAL", group: "HEADER.SKILLS" },
+			{ value: "SKILL.INSIGHT", label: "SKILL.INSIGHT", group: "HEADER.SKILLS" },
+			{ value: "SKILL.MANIPULATION", label: "SKILL.MANIPULATION", group: "HEADER.SKILLS" },
+			{ value: "SKILL.PERFORMANCE", label: "SKILL.PERFORMANCE", group: "HEADER.SKILLS" },
+			{ value: "SKILL.HEALING", label: "SKILL.HEALING", group: "HEADER.SKILLS" },
+			{ value: "SKILL.ANIMAL_HANDLING", label: "SKILL.ANIMAL_HANDLING", group: "HEADER.SKILLS" },
+			{ value: "ACTION.BREAK_FREE", label: "ACTION.BREAK_FREE", group: "HEADER.ACTIONS" },
+			{ value: "ACTION.DISARM", label: "ACTION.DISARM", group: "HEADER.ACTIONS" },
+			{ value: "ACTION.DODGE", label: "ACTION.DODGE", group: "HEADER.ACTIONS" },
+			{ value: "ACTION.GRAPPLE", label: "ACTION.GRAPPLE", group: "HEADER.ACTIONS" },
+			{ value: "ACTION.GRAPPLE_ATTACK", label: "ACTION.GRAPPLE_ATTACK", group: "HEADER.ACTIONS" },
+			{ value: "ACTION.PARRY", label: "ACTION.PARRY", group: "HEADER.ACTIONS" },
+			{ value: "ACTION.SHOVE", label: "ACTION.SHOVE", group: "HEADER.ACTIONS" },
+			{ value: "ACTION.RETREAT", label: "ACTION.RETREAT", group: "HEADER.ACTIONS" },
+			{ value: "ACTION.UNARMED_STRIKE", label: "ACTION.UNARMED_STRIKE", group: "HEADER.ACTIONS" },
+			{ value: "CARRYING_CAPACITY", label: "CARRYING_CAPACITY", group: "OTHER" },
+			{ value: "ITEM.TypeArmor", label: "ITEM.TypeArmor", group: "OTHER" },
+			...customModifiers
 		];
 
 		return data;
@@ -184,7 +229,7 @@ export class ForbiddenLandsItemSheet extends foundry.appv1.sheets.ItemSheet {
 	async getCustomRollModifiers() {
 		const pack = game.packs.get("world.customrollmodifiers");
 		if (pack) {
-			const customRollModifier = await pack.getContent();
+			const customRollModifier = await pack.getDocuments();
 			return customRollModifier.map((item) => item.name);
 		}
 		return [];
@@ -217,7 +262,6 @@ export class ForbiddenLandsItemSheet extends foundry.appv1.sheets.ItemSheet {
 			showDrawbackField: showField("Drawback"),
 			showAppearanceField: showField("Appearance"),
 		};
-		data.system.customRollModifiers = await this.getCustomRollModifiers();
 		return super._renderInner(data, options);
 	}
 }
