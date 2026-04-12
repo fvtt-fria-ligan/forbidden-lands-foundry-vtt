@@ -131,7 +131,7 @@ export class ForbiddenLandsActor extends Actor {
 			(it) => it.id === conditionName,
 		);
 		const currentEffect = Array.from(this.effects?.values()).find(
-			(it) => it.icon === statusEffect.icon,
+			(it) => it.img === statusEffect.img,
 		);
 		if (currentEffect) {
 			// Removes need for migration
@@ -141,9 +141,9 @@ export class ForbiddenLandsActor extends Actor {
 		} else {
 			this.createEmbeddedDocuments("ActiveEffect", [
 				{
-					name: game.i18n.localize(statusEffect.label),
-					label: game.i18n.localize(statusEffect.label),
-					icon: statusEffect.icon,
+					name: game.i18n.localize(statusEffect.name),
+					label: game.i18n.localize(statusEffect.name),
+					img: statusEffect.img,
 					changes: statusEffect.changes,
 					statuses: statusEffect.statuses,
 					flags: {

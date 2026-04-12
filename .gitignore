@@ -39,3 +39,6 @@ package-lock.json
 
 # Devbox
 /.devbox
+
+/foundry/
+.linkedToFoundry
