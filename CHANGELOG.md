@@ -1,5 +1,21 @@
 # Changelog
 
+## 14.0.0
+
+### Major Changes
+
+- [#521](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/521) [`525a547`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/525a54781a9969ab75d2f0af35114c1e3aed181d) Thanks [@Cussa](https://github.com/Cussa)! - v14 Compatibility
+
+### Minor Changes
+
+- [#521](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/521) [`525a547`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/525a54781a9969ab75d2f0af35114c1e3aed181d) Thanks [@Cussa](https://github.com/Cussa)! - Update YZE-Dice-Roller library to version 6.1.1
+
+- [#521](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/521) [`525a547`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/525a54781a9969ab75d2f0af35114c1e3aed181d) Thanks [@Cussa](https://github.com/Cussa)! - Change conditions fields
+
+### Patch Changes
+
+- [#521](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/521) [`525a547`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/525a54781a9969ab75d2f0af35114c1e3aed181d) Thanks [@Cussa](https://github.com/Cussa)! - Replace `{{#select}}` by `{{selectOptions}}`
+
 ## 13.0.5
 
 ### Patch Changes
