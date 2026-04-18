@@ -1,5 +1,11 @@
 # Changelog
 
+## 14.0.1
+
+### Patch Changes
+
+- [#523](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/523) [`b7fcd84`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/b7fcd84a68a3c04d5fa83a0e02872a586a7ce597) Thanks [@Cussa](https://github.com/Cussa)! - Adjust compatibility
+
 ## 14.0.0
 
 ### Major Changes
