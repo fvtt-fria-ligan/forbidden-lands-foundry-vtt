@@ -266,7 +266,9 @@ export class ForbiddenLandsItemSheet extends foundry.appv1.sheets.ItemSheet {
 		html.find(".delete-modifier").click(async (ev) => {
 			ev.preventDefault();
 			const data = await this.getData();
-			const rollModifiers = duplicate(data.system.rollModifiers || {});
+			const rollModifiers = foundry.utils.duplicate(
+				data.system.rollModifiers || {},
+			);
 			const modifierId = $(ev.currentTarget).data("modifier-id");
 			delete rollModifiers[modifierId];
 			// Safety cleanup of null modifiers
