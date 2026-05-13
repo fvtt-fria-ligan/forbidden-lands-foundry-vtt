@@ -24,7 +24,7 @@ export class CharacterPickerDialog extends Application {
 	 * Foundry VTT options for this Application.
 	 */
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			id: "character-picker-dialog",
 			classes: ["forbidden-lands", "dialog"],
 			template:

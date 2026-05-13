@@ -497,7 +497,7 @@ export class ForbiddenLandsActorSheet extends foundry.appv1.sheets.ActorSheet {
 			throw ui.notifications.warn("WARNING.NO_WILLPOWER", { localize: true });
 
 		const spell = this.actor.items.get(spellId);
-		let { value } = duplicate(this.actor.willpower);
+		let { value } = foundry.utils.duplicate(this.actor.willpower);
 		const hasPsych = !!this.actor.items.getName("Psychic Power (Half-Elf)");
 
 		const data = {
