@@ -1,5 +1,11 @@
 # Changelog
 
+## 14.0.2
+
+### Patch Changes
+
+- [#526](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/526) [`4954ff8`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/4954ff8a63d6271efafb99ae5767c80a2880cddd) Thanks [@Cussa](https://github.com/Cussa)! - Update on methods deprecated by Foundry v14
+
 ## 14.0.1
 
 ### Patch Changes
