@@ -6,8 +6,12 @@
 
 // Force proper height
 .app.sheet .editor {
-	min-height: 55px;
+	min-height: 155px;
 	height: 100%;
+
+	a.editor-edit{
+		z-index: 1;
+	}
 }
 
 /* ------------------------------------ */
