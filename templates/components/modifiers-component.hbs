@@ -8,7 +8,7 @@
     <div class="flex row align-center gap">
         <div class="grow">
             <select name="system.rollModifiers.{{@key}}.name">
-                {{selectOptions ../modifierOptions value="system.rollModifiers.{{@key}}.name" localize=true}}
+                {{selectOptions ../modifierOptions selected=modifier.name localize=true}}
             </select>
         </div>
         {{#if (or (eq ../type "gear") (eq ../type "weapon") (eq ../type "armor"))}}
