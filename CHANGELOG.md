@@ -1,5 +1,11 @@
 # Changelog
 
+## 14.0.4
+
+### Patch Changes
+
+- [#532](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/532) [`7ceab4c`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/7ceab4c95a2657c5f863cc124c24083069e7888b) Thanks [@Cussa](https://github.com/Cussa)! - Description edit button not working
+
 ## 14.0.3
 
 ### Patch Changes
