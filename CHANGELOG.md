@@ -1,5 +1,11 @@
 # Changelog
 
+## 14.0.3
+
+### Patch Changes
+
+- [#529](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/pull/529) [`28ca053`](https://github.com/fvtt-fria-ligan/forbidden-lands-foundry-vtt/commit/28ca053a27dda9839f276b52c52fcd59b3837ba5) Thanks [@Cussa](https://github.com/Cussa)! - Adjust the `selectOption` for the roll modifiers
+
 ## 14.0.2
 
 ### Patch Changes
