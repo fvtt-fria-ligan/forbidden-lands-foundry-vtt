@@ -82,6 +82,11 @@
 			"lang": "zh-TW",
 			"name": "正體中文",
 			"path": "lang/zh-TW.json"
+		},
+		{
+			"lang": "ru",
+			"name": "Русский",
+			"path": "lang/ru.json"
 		}
 	],
 	"flags": {
