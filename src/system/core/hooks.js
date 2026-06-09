@@ -264,7 +264,15 @@ export default function registerHooks() {
 				if (table) {
 					table.draw({ displayChat: true });
 				} else {
-					ui.notifications?.warn("Could not find mishap table");
+					if (tableButton.dataset.action === "prey") {
+						ui.notifications?.warn(
+							"Could not find prey table. Check the table config in forbidden lands module settings.",
+						);
+					} else {
+						ui.notifications?.warn(
+							"Could not find mishap table. Check the table config in forbidden lands module settings.",
+						);
+					}
 				}
 			});
 		}
